@@ -48,8 +48,8 @@ const PLAN_CONFIGS: PlanConfig[] = [
     name: 'Starter',
     price_monthly: 9,
     price_annual: 86,
-    monthlyPriceId: process.env.STRIPE_STARTER_MONTHLY_PRICE_ID ?? '',
-    annualPriceId:  process.env.STRIPE_STARTER_ANNUAL_PRICE_ID  ?? '',
+    monthlyPriceId: '',
+    annualPriceId: '',
     badge: 'Ideal para Empezar',
     features: [
       '1 Cuenta de Trading',
@@ -64,8 +64,8 @@ const PLAN_CONFIGS: PlanConfig[] = [
     name: 'Professional',
     price_monthly: 29,
     price_annual: 278,
-    monthlyPriceId: process.env.STRIPE_PRO_MONTHLY_PRICE_ID ?? '',
-    annualPriceId:  process.env.STRIPE_PRO_ANNUAL_PRICE_ID  ?? '',
+    monthlyPriceId: '',
+    annualPriceId: '',
     highlight: true,
     badge: 'Lo Más Popular',
     features: [
