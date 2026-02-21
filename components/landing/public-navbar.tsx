@@ -1,0 +1,158 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, LayoutDashboard, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import logoMenu from "@/data/assets/Logo hori-white.png";
+
+interface PublicNavbarProps {
+  isAuthenticated?: boolean;
+}
+
+const navLinks = [
+  { label: "Características", href: "#features" },
+  { label: "Precios", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
+
+export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  return (
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-zen-rich-black/95 backdrop-blur-md border-b border-zen-border-soft"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <Image src={logoMenu} alt="Zentrade Logo" className="h-12 w-auto" />
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="px-4 py-2 text-sm font-medium text-zen-text-muted hover:text-zen-caribbean-green transition-colors rounded-lg hover:bg-zen-caribbean-green/10"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            {/* Desktop CTA */}
+            <div className="hidden md:flex items-center space-x-3">
+              {isAuthenticated ? (
+                <Link href="/dashboard">
+                  <Button variant="zenGreen" className="group">
+                    <LayoutDashboard className="mr-2 h-4 w-4" />
+                    Dashboard
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              ) : (
+                <>
+                  <Link href="/login">
+                    <Button
+                      variant="ghost"
+                      className="text-zen-text-muted hover:text-zen-caribbean-green hover:bg-zen-caribbean-green/10 transition-all"
+                    >
+                      Iniciar Sesión
+                    </Button>
+                  </Link>
+                  <Link href="/login">
+                    <Button variant="zenGreen" className="group">
+                      Probar Gratis
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                </>
+              )}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-zen-caribbean-green/10 text-zen-anti-flash transition-colors"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed top-20 left-0 right-0 bg-zen-rich-black/98 backdrop-blur-md border-b border-zen-border-soft md:hidden z-40">
+          <div className="max-w-7xl mx-auto px-6 py-6 space-y-4">
+            {/* Mobile Nav Links */}
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={handleNavClick}
+                className="block px-4 py-3 text-sm font-medium text-zen-text-muted hover:text-zen-caribbean-green hover:bg-zen-caribbean-green/10 transition-colors rounded-lg"
+              >
+                {link.label}
+              </a>
+            ))}
+
+            {/* Mobile CTA Buttons */}
+            <div className="space-y-2 pt-4 border-t border-zen-border-soft">
+              {isAuthenticated ? (
+                <Link href="/dashboard" onClick={handleNavClick}>
+                  <Button variant="zenGreen" className="w-full group">
+                    <LayoutDashboard className="mr-2 h-4 w-4" />
+                    Ir al Dashboard
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              ) : (
+                <>
+                  <Link href="/login" onClick={handleNavClick}>
+                    <Button
+                      variant="outline"
+                      className="w-full border-zen-border-soft text-zen-text-muted hover:text-zen-caribbean-green hover:border-zen-caribbean-green"
+                    >
+                      Iniciar Sesión
+                    </Button>
+                  </Link>
+                  <Link href="/login" onClick={handleNavClick}>
+                    <Button variant="zenGreen" className="w-full group">
+                      Probar Gratis
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

@@ -1,0 +1,366 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Check, ExternalLink, AlertTriangle, CheckCircle2, Clock } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
+import { format } from 'date-fns';
+import { es } from 'date-fns/locale';
+import type { PlanConfig, ActiveSubscription, PaymentRow } from '@/app/dashboard/billing/page';
+
+interface Props {
+  plans: PlanConfig[];
+  subscription: ActiveSubscription;
+  payments: PaymentRow[];
+  successParam?: string;
+  canceledParam?: string;
+}
+
+const STATUS_MAP: Record<string, { label: string; className: string }> = {
+  active:   { label: 'Activa',           className: 'text-zen-caribbean-green' },
+  trialing: { label: 'En prueba',         className: 'text-zen-caribbean-green' },
+  past_due: { label: 'Pago pendiente',    className: 'text-zen-danger' },
+  canceled: { label: 'Cancelada',         className: 'text-stone-400' },
+};
+
+export default function BillingDashboard({
+  plans,
+  subscription,
+  payments,
+  successParam,
+  canceledParam,
+}: Props) {
+  const [interval, setInterval] = useState<'month' | 'year'>('month');
+  const [loadingPriceId, setLoadingPriceId] = useState<string | null>(null);
+  const [portalLoading, setPortalLoading]   = useState(false);
+
+  // Show toast based on redirect param (runs once on mount)
+  useEffect(() => {
+    if (successParam === 'true') {
+      toast.success('¡Suscripción activada!', {
+        description: 'Tu plan está activo. ¡Bienvenido a Zentrade!',
+      });
+    } else if (canceledParam === 'true') {
+      toast.info('Pago cancelado', {
+        description: 'Puedes suscribirte cuando quieras.',
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const activePlanSlug = subscription?.plan?.slug;
+  const statusInfo = subscription ? (STATUS_MAP[subscription.status] ?? { label: subscription.status, className: 'text-stone-400' }) : null;
+
+  // ── Actions ────────────────────────────────────────────────────────────────
+
+  async function handleCheckout(plan: PlanConfig) {
+    const priceId = interval === 'month' ? plan.monthlyPriceId : plan.annualPriceId;
+    if (!priceId) {
+      toast.error('Plan no disponible aún');
+      return;
+    }
+    setLoadingPriceId(priceId);
+    try {
+      const res  = await fetch('/api/billing/checkout', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ priceId, planSlug: plan.slug, interval }),
+      });
+      const data = await res.json() as { url?: string; error?: string };
+      if (!res.ok) throw new Error(data.error ?? 'Error desconocido');
+      window.location.href = data.url!;
+    } catch (err) {
+      toast.error('Error al procesar pago', {
+        description: err instanceof Error ? err.message : 'Intenta de nuevo',
+      });
+      setLoadingPriceId(null);
+    }
+  }
+
+  async function handlePortal() {
+    setPortalLoading(true);
+    try {
+      const res  = await fetch('/api/billing/portal', { method: 'POST' });
+      const data = await res.json() as { url?: string; error?: string };
+      if (!res.ok) throw new Error(data.error ?? 'Error desconocido');
+      window.location.href = data.url!;
+    } catch (err) {
+      toast.error('Error al abrir portal', {
+        description: err instanceof Error ? err.message : 'Intenta de nuevo',
+      });
+      setPortalLoading(false);
+    }
+  }
+
+  // ── Helpers ────────────────────────────────────────────────────────────────
+
+  function displayPrice(plan: PlanConfig) {
+    if (interval === 'month') return plan.price_monthly;
+    return Math.round((plan.price_annual / 12) * 100) / 100;
+  }
+
+  function priceIdFor(plan: PlanConfig) {
+    return interval === 'month' ? plan.monthlyPriceId : plan.annualPriceId;
+  }
+
+  // ── Render ─────────────────────────────────────────────────────────────────
+
+  return (
+    <div className="space-y-8">
+
+      {/* ── Active subscription banner ── */}
+      {subscription && (
+        <div
+          className="rounded-xl border p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+          style={{ background: '#002E21', borderColor: '#0F5132' }}
+        >
+          <div className="flex-1 space-y-1">
+            <div className="flex items-center flex-wrap gap-2">
+              <span className="text-zen-anti-flash font-semibold text-base">
+                {subscription.plan?.name ?? 'Plan activo'}
+              </span>
+              {statusInfo && (
+                <span className={`text-xs font-medium ${statusInfo.className}`}>
+                  · {statusInfo.label}
+                </span>
+              )}
+            </div>
+
+            <div className="flex flex-wrap gap-4 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              <span>
+                Ciclo: {subscription.billing_interval === 'month' ? 'Mensual' : 'Anual'}
+              </span>
+              {subscription.current_period_end && (
+                <span className="flex items-center gap-1">
+                  <Clock className="w-3.5 h-3.5" />
+                  {subscription.cancel_at_period_end ? 'Cancela el' : 'Próximo cobro:'}
+                  {' '}
+                  {format(new Date(subscription.current_period_end), "d 'de' MMMM yyyy", { locale: es })}
+                </span>
+              )}
+            </div>
+
+            {subscription.cancel_at_period_end && (
+              <p className="flex items-center gap-1.5 text-xs text-amber-400 mt-1">
+                <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                Tu suscripción se cancelará al final del período actual.
+              </p>
+            )}
+
+            {subscription.status === 'past_due' && (
+              <p className="flex items-center gap-1.5 text-xs text-zen-danger mt-1">
+                <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                Pago fallido. Actualiza tu método de pago para evitar la suspensión.
+              </p>
+            )}
+          </div>
+
+          <Button
+            onClick={handlePortal}
+            disabled={portalLoading}
+            variant="outline"
+            className="shrink-0 border-zen-forest text-zen-anti-flash hover:bg-zen-surface-elevated"
+          >
+            <ExternalLink className="w-4 h-4 mr-2" />
+            {portalLoading ? 'Abriendo portal...' : 'Administrar facturación'}
+          </Button>
+        </div>
+      )}
+
+      {/* ── Interval toggle + heading ── */}
+      <div className="flex items-center justify-between gap-4">
+        <h2 className="text-lg font-semibold text-zen-anti-flash">
+          {subscription ? 'Planes disponibles' : 'Elige tu plan'}
+        </h2>
+
+        <div
+          className="flex items-center gap-1 rounded-lg p-1"
+          style={{ background: '#002E21', border: '1px solid #0F5132' }}
+        >
+          {(['month', 'year'] as const).map((iv) => (
+            <button
+              key={iv}
+              onClick={() => setInterval(iv)}
+              className={`px-3 py-1.5 text-sm rounded-md transition-colors flex items-center gap-1.5 ${
+                interval === iv
+                  ? 'font-semibold'
+                  : ''
+              }`}
+              style={
+                interval === iv
+                  ? { background: '#00C17C', color: '#001B1F' }
+                  : { color: 'rgba(255,255,255,0.6)' }
+              }
+            >
+              {iv === 'month' ? 'Mensual' : 'Anual'}
+              {iv === 'year' && (
+                <span
+                  className="text-xs px-1.5 py-0.5 rounded-full font-medium"
+                  style={{
+                    background: interval === 'year' ? 'rgba(0,27,31,0.3)' : 'rgba(0,193,124,0.15)',
+                    color: interval === 'year' ? '#001B1F' : '#00C17C',
+                  }}
+                >
+                  -20%
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Plan cards ── */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {plans.map((plan) => {
+          const isCurrentPlan = activePlanSlug === plan.slug;
+          const pid           = priceIdFor(plan);
+          const isLoading     = loadingPriceId === pid;
+
+          return (
+            <div
+              key={plan.slug}
+              className="relative flex flex-col rounded-xl p-5"
+              style={{
+                background:   '#002E21',
+                border: plan.highlight
+                  ? '1px solid #00C17C'
+                  : isCurrentPlan
+                  ? '1px solid #3DBB8F'
+                  : '1px solid rgba(255,255,255,0.05)',
+                boxShadow: plan.highlight ? '0 0 24px rgba(0,193,124,0.12)' : undefined,
+              }}
+            >
+              {/* Badge */}
+              {plan.badge && (
+                <span
+                  className="absolute -top-3 left-4 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                  style={
+                    plan.highlight
+                      ? { background: '#00C17C',  color: '#001B1F' }
+                      : plan.disabled
+                      ? { background: '#006A4E',  color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.05)' }
+                      : { background: '#002E21',  color: '#3DBB8F', border: '1px solid #0F5132' }
+                  }
+                >
+                  {plan.badge}
+                </span>
+              )}
+
+              {/* Pricing */}
+              <div className="mt-2 mb-4 space-y-0.5">
+                <h3 className="font-semibold text-zen-anti-flash">{plan.name}</h3>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-3xl font-semibold text-zen-anti-flash">
+                    ${displayPrice(plan)}
+                  </span>
+                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                    USD/mes
+                  </span>
+                </div>
+                {interval === 'year' && (
+                  <p className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    Facturado ${plan.price_annual} al año
+                  </p>
+                )}
+              </div>
+
+              {/* Features */}
+              <ul className="space-y-2 flex-1 mb-5">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                    <Check className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#00C17C' }} />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              {isCurrentPlan ? (
+                <div className="flex items-center justify-center gap-1.5 py-2 text-sm font-medium" style={{ color: '#00C17C' }}>
+                  <CheckCircle2 className="w-4 h-4" />
+                  Plan actual
+                </div>
+              ) : plan.disabled ? (
+                <Button
+                  disabled
+                  variant="outline"
+                  className="w-full"
+                  style={{ borderColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.4)' }}
+                >
+                  Próximamente
+                </Button>
+              ) : subscription ? (
+                /* User has an existing subscription → send to portal for plan change */
+                <Button
+                  onClick={handlePortal}
+                  disabled={portalLoading}
+                  variant="outline"
+                  className="w-full border-zen-forest text-zen-anti-flash hover:bg-zen-surface-elevated"
+                >
+                  {portalLoading ? 'Cargando...' : 'Cambiar a este plan'}
+                </Button>
+              ) : (
+                /* No subscription → start checkout */
+                <Button
+                  onClick={() => handleCheckout(plan)}
+                  disabled={isLoading || !pid}
+                  className="w-full font-semibold"
+                  style={
+                    plan.highlight
+                      ? { background: '#00C17C', color: '#001B1F' }
+                      : { background: '#006A4E', color: '#F2F3F4', border: '1px solid #0F5132' }
+                  }
+                >
+                  {isLoading ? 'Procesando...' : 'Comenzar ahora'}
+                </Button>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* ── Payment history ── */}
+      {payments.length > 0 && (
+        <div className="space-y-3">
+          <h2 className="text-lg font-semibold text-zen-anti-flash">Historial de pagos</h2>
+
+          <div
+            className="rounded-xl overflow-hidden"
+            style={{ background: '#002E21', border: '1px solid rgba(255,255,255,0.05)' }}
+          >
+            <table className="w-full text-sm">
+              <thead>
+                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  {['Fecha', 'Monto', 'Estado'].map((h, i) => (
+                    <th
+                      key={h}
+                      className={`py-3 px-4 font-medium ${i > 0 ? 'text-right' : 'text-left'}`}
+                      style={{ color: 'rgba(255,255,255,0.6)' }}
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {payments.map((p) => (
+                  <tr key={p.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <td className="px-4 py-3" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                      {format(new Date(p.paid_at ?? p.created_at), "d MMM yyyy", { locale: es })}
+                    </td>
+                    <td className="px-4 py-3 text-right text-zen-anti-flash">
+                      ${(p.amount_cents / 100).toFixed(2)} {p.currency.toUpperCase()}
+                    </td>
+                    <td className="px-4 py-3 text-right font-medium" style={{ color: p.status === 'paid' ? '#00C17C' : '#E5484D' }}>
+                      {p.status === 'paid' ? 'Pagado' : 'Fallido'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

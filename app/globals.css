@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ring: #00C17C;
+    --accent: #346A5A;
+    --accent-foreground: #F2F2F2;
+
+    /* Zentrade - Paleta oficial (CORRECTED per CLAUDE.md) */
+    --zen-rich-black: #001B1F;
+    --zen-dark-green: #002E21;
+    --zen-bangladesh-green: #006A4E;
+    --zen-mountain-meadow: #3DBB8F;
+    --zen-caribbean-green: #00C17C;
+    --zen-anti-flash: #F2F3F4;
+    --zen-forest: #0F5132;
+    --zen-danger: #E5484D;
+    --zen-surface: #002E21;
+    --zen-surface-elevated: #006A4E;
+    --zen-border-soft: rgba(255,255,255,0.05);
+    --zen-text-muted: rgba(255,255,255,0.6);
+
+    /* shadcn - Compatibilidad */
+    --background: #000000;
+    --foreground: #FFFFFF;
+    --card: #0D0D0D;
+    --card-foreground: #FFFFFF;
+    --popover: #0D0D0D;
+    --popover-foreground: #FFFFFF;
+    --primary: #FFFFFF;
+    --primary-foreground: #000000;
+    --secondary: #333333;
+    --secondary-foreground: #FFFFFF;
+    --muted: #333333;
+    --muted-foreground: #B3B3B3;
+    --destructive: #ED3444;
+    --destructive-foreground: #FFFFFF;
+    --border: #262626;
+    --input: #0D0D0D;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply bg-[#001B1F] text-[#F2F3F4];
+  }
+
+  /* Custom Scrollbar - Webkit (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 5px;
+    border: 2px solid #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #00C17C;
+  }
+
+  /* Custom Scrollbar para elementos con scroll dentro de la app */
+  .custom-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #00C17C #0a0a0a;
+  }
+
+  .custom-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #1e293b transparent;
+  }
+
+  /* Time Picker Icons - Cambiar color de los íconos del reloj */
+  input[type="time"]::-webkit-calendar-picker-indicator,
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  input[type="time"]::-webkit-calendar-picker-indicator:hover,
+  input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+  }
+
+  /* Cambiar color del texto en inputs de tiempo */
+  input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+    color: #F2F3F4;
+  }
+
+  input[type="time"]::-webkit-datetime-edit-text {
+    color: #F2F3F4;
+    opacity: 0.7;
+  }
+
+  input[type="time"]::-webkit-datetime-edit-hour-field,
+  input[type="time"]::-webkit-datetime-edit-minute-field,
+  input[type="time"]::-webkit-datetime-edit-ampm-field {
+    color: #F2F3F4;
+  }
+}
