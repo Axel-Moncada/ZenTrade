@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import {
   Dialog,
@@ -73,20 +73,7 @@ export function DayModal({
     ? (summary.net_pnl / account.current_balance) * 100
     : 0;
 
-  // Cargar trades y cuenta cuando se abre el modal
-  useEffect(() => {
-    if (open && accountId) {
-      fetchTrades();
-      fetchAccount();
-    }
-  }, [open, accountId, date]);
-
-  // Reset notes cuando cambia el summary
-  useEffect(() => {
-    setNotes(summary?.notes || "");
-  }, [summary]);
-
-  const fetchAccount = async () => {
+  const fetchAccount = useCallback(async () => {
     try {
       const response = await fetch(`/api/accounts/${accountId}`);
       if (response.ok) {
@@ -96,9 +83,9 @@ export function DayModal({
     } catch (error) {
       console.error("Error fetching account:", error);
     }
-  };
+  }, [accountId]);
 
-  const fetchTrades = async () => {
+  const fetchTrades = useCallback(async () => {
     setLoadingTrades(true);
     try {
       const tradeDate = formatDateToISO(date);
@@ -114,7 +101,20 @@ export function DayModal({
     } finally {
       setLoadingTrades(false);
     }
-  };
+  }, [accountId, date]);
+
+  // Cargar trades y cuenta cuando se abre el modal
+  useEffect(() => {
+    if (open && accountId) {
+      fetchTrades();
+      fetchAccount();
+    }
+  }, [open, accountId, date, fetchTrades, fetchAccount]);
+
+  // Reset notes cuando cambia el summary
+  useEffect(() => {
+    setNotes(summary?.notes || "");
+  }, [summary]);
 
   const handleSaveNotes = async () => {
     setSaving(true);
@@ -249,7 +249,7 @@ export function DayModal({
               className="mb-4 p-4 rounded-lg bg-gradient-to-r from-zen-caribbean-green/10 to-zen-mountain-meadow/10 border border-zen-caribbean-green/5 h-24 flex items-center justify-center"
             >
               <p className="text-lg italic  text-zen-anti-flash text-center font-bold">
-                💡 "{dailyQuote}"
+                💡 {`"${dailyQuote}"`}
               </p>
             </motion.div>
           )}

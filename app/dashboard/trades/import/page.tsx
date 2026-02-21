@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ImportCSV } from '@/components/trades/import-csv'
@@ -16,11 +16,7 @@ export default function ImportPage() {
   const router = useRouter()
   const supabase = createClient()
 
-  useEffect(() => {
-    fetchAccounts()
-  }, [])
-
-  const fetchAccounts = async () => {
+  const fetchAccounts = useCallback(async () => {
     const { data, error } = await supabase
       .from('accounts')
       .select('id, name, broker, initial_balance')
@@ -32,7 +28,11 @@ export default function ImportPage() {
         setSelectedAccount(data[0].id)
       }
     }
-  }
+  }, [supabase])
+
+  useEffect(() => {
+    fetchAccounts()
+  }, [fetchAccounts])
 
   const handleImportSuccess = () => {
     setTimeout(() => {

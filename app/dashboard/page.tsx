@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Account } from '@/types/accounts';
 import { DashboardStats, DateRange } from '@/types/dashboard';
@@ -29,6 +29,7 @@ import {
   AlertTriangle
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 export default function DashboardPage() {
   const [accounts, setAccounts] = useState<Account[]>([]);
@@ -41,19 +42,7 @@ export default function DashboardPage() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Cargar cuentas
-  useEffect(() => {
-    fetchAccounts();
-  }, []);
-
-  // Cargar stats cuando cambia cuenta o rango de fechas
-  useEffect(() => {
-    if (selectedAccount) {
-      fetchStats();
-    }
-  }, [selectedAccount, dateRange]);
-
-  const fetchAccounts = async () => {
+  const fetchAccounts = useCallback(async () => {
     try {
       const response = await fetch('/api/accounts');
       if (response.ok) {
@@ -68,9 +57,9 @@ export default function DashboardPage() {
     } catch (error) {
       console.error('Error fetching accounts:', error);
     }
-  };
+  }, []);
 
-  const fetchStats = async () => {
+  const fetchStats = useCallback(async () => {
     if (!selectedAccount) return;
 
     setLoading(true);
@@ -91,7 +80,19 @@ export default function DashboardPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [selectedAccount, dateRange]);
+
+  // Cargar cuentas
+  useEffect(() => {
+    fetchAccounts();
+  }, [fetchAccounts]);
+
+  // Cargar stats cuando cambia cuenta o rango de fechas
+  useEffect(() => {
+    if (selectedAccount) {
+      fetchStats();
+    }
+  }, [selectedAccount, fetchStats]);
 
   // Renderizar estado vacío
   if (!selectedAccount || accounts.length === 0) {
@@ -109,12 +110,12 @@ export default function DashboardPage() {
           <p className="text-zen-anti-flash/70 mb-8">
             Crea tu primera cuenta de trading para comenzar a trackear tu rendimiento
           </p>
-          <a
+          <Link
             href="/dashboard/accounts/new"
             className="inline-flex items-center px-6 py-3 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black font-semibold rounded-lg transition-colors"
           >
             Crear primera cuenta
-          </a>
+          </Link>
         </motion.div>
       </div>
     );

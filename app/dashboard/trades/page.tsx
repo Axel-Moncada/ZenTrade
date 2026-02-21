@@ -26,7 +26,7 @@ export default function TradesPage() {
 
   const supabase = createClient()
 
-  const fetchAccounts = async () => {
+  const fetchAccounts = useCallback(async () => {
     const { data, error } = await supabase
       .from('accounts')
       .select('id, name, broker')
@@ -38,9 +38,9 @@ export default function TradesPage() {
         setSelectedAccount(data[0].id)
       }
     }
-  }
+  }, [supabase, selectedAccount])
 
-  const fetchInstruments = async () => {
+  const fetchInstruments = useCallback(async () => {
     const { data, error } = await supabase
       .from('instrument_specs')
       .select('id, symbol, name')
@@ -49,7 +49,7 @@ export default function TradesPage() {
     if (data && !error) {
       setInstruments(data)
     }
-  }
+  }, [supabase])
 
   const fetchTrades = useCallback(async () => {
     if (!selectedAccount) return
@@ -77,8 +77,7 @@ export default function TradesPage() {
       console.error('Error fetching trades:', error)
     }
     setLoading(false)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedAccount])
+  }, [selectedAccount, supabase])
 
   const applyFilters = useCallback(() => {
     let filtered = [...trades]
@@ -127,7 +126,7 @@ export default function TradesPage() {
   useEffect(() => {
     fetchAccounts()
     fetchInstruments()
-  }, [])
+  }, [fetchAccounts, fetchInstruments])
 
   useEffect(() => {
     fetchTrades()

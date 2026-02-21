@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -20,17 +20,7 @@ export default function TradingPlanPage() {
 
   const supabase = createClient()
 
-  useEffect(() => {
-    fetchAccounts()
-  }, [])
-
-  useEffect(() => {
-    if (selectedAccount) {
-      fetchActivePlan()
-    }
-  }, [selectedAccount])
-
-  const fetchAccounts = async () => {
+  const fetchAccounts = useCallback(async () => {
     const { data, error } = await supabase
       .from('accounts')
       .select('id, name, broker')
@@ -42,9 +32,9 @@ export default function TradingPlanPage() {
         setSelectedAccount(data[0].id)
       }
     }
-  }
+  }, [supabase, selectedAccount])
 
-  const fetchActivePlan = async () => {
+  const fetchActivePlan = useCallback(async () => {
     setLoading(true)
     const { data, error } = await supabase
       .from('trading_plans')
@@ -59,7 +49,17 @@ export default function TradingPlanPage() {
       setActivePlan(null)
     }
     setLoading(false)
-  }
+  }, [supabase, selectedAccount])
+
+  useEffect(() => {
+    fetchAccounts()
+  }, [fetchAccounts])
+
+  useEffect(() => {
+    if (selectedAccount) {
+      fetchActivePlan()
+    }
+  }, [selectedAccount, fetchActivePlan])
 
   const handleSaveSuccess = () => {
     fetchActivePlan()

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { RefreshCw } from 'lucide-react'
@@ -45,8 +45,9 @@ const mockPlan: TradingPlan = {
 export default function PDFPreviewPage() {
   const [pdfUrl, setPdfUrl] = useState<string>('')
   const [loading, setLoading] = useState(false)
+  const pdfUrlRef = useRef<string>('')
 
-  const generatePDF = () => {
+  const generatePDF = useCallback(() => {
     setLoading(true)
     try {
       console.log('Generating PDF preview...')
@@ -280,10 +281,11 @@ export default function PDFPreviewPage() {
       const url = URL.createObjectURL(pdfBlob)
       
       // Limpiar URL anterior si existe
-      if (pdfUrl) {
-        URL.revokeObjectURL(pdfUrl)
+      if (pdfUrlRef.current) {
+        URL.revokeObjectURL(pdfUrlRef.current)
       }
-      
+
+      pdfUrlRef.current = url
       setPdfUrl(url)
       console.log('PDF preview generated successfully')
     } catch (error) {
@@ -292,7 +294,7 @@ export default function PDFPreviewPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
 
   // Generar PDF inicial
   useEffect(() => {
@@ -300,11 +302,11 @@ export default function PDFPreviewPage() {
     
     // Cleanup
     return () => {
-      if (pdfUrl) {
-        URL.revokeObjectURL(pdfUrl)
+      if (pdfUrlRef.current) {
+        URL.revokeObjectURL(pdfUrlRef.current)
       }
     }
-  }, [])
+  }, [generatePDF])
 
   return (
     <div className="min-h-screen bg-zen-rich-black p-8">
@@ -354,7 +356,7 @@ export default function PDFPreviewPage() {
           </h3>
           <ul className="space-y-2 text-zen-anti-flash/80 text-sm">
             <li>• Edita el archivo <code className="text-zen-caribbean-green">components/trading-plan/export-plan-pdf.tsx</code></li>
-            <li>• Guarda los cambios y haz clic en "Actualizar Preview"</li>
+            <li>• Guarda los cambios y haz clic en &quot;Actualizar Preview&quot;</li>
             <li>• El PDF se regenerará con los cambios aplicados</li>
             <li>• Puedes modificar el <code className="text-zen-caribbean-green">mockPlan</code> en esta página para probar diferentes datos</li>
           </ul>

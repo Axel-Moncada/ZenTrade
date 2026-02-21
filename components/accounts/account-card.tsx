@@ -210,7 +210,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
               <AlertDialogHeader>
                 <AlertDialogTitle>¿Eliminar cuenta?</AlertDialogTitle>
                 <AlertDialogDescription>
-                  Esta acción eliminará permanentemente la cuenta "{account.name}" y
+                  Esta acción eliminará permanentemente la cuenta {`"${account.name}"`} y
                   todos sus trades asociados. Esta acción no se puede deshacer.
                 </AlertDialogDescription>
               </AlertDialogHeader>

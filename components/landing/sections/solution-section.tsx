@@ -98,8 +98,8 @@ export default function SolutionSection() {
 
             <div className="bg-zen-surface-elevated rounded-xl p-6 border border-zen-caribbean-green/30">
               <p className="text-zen-anti-flash font-semibold text-lg">
-                💡 "Pasé de fallar FTMO 3 veces a obtener mi primera funded
-                account en 6 semanas usando ZenTrade."
+                💡 &quot;Pasé de fallar FTMO 3 veces a obtener mi primera funded
+                account en 6 semanas usando ZenTrade.&quot;
               </p>
               <p className="text-zen-text-muted mt-2">— Carlos M., Futures Trader</p>
             </div>

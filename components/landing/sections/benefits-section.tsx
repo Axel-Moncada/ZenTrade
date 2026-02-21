@@ -62,8 +62,8 @@ export default function BenefitsSection() {
               ))}
             </div>
             <p className="text-zen-anti-flash text-lg mb-4">
-              "Antes perdía el tracking de mis trades entre diferentes cuentas.
-              Con ZenTrade veo todo centralizado y finalmente identifiqué mi edge real."
+              &quot;Antes perdía el tracking de mis trades entre diferentes cuentas.
+              Con ZenTrade veo todo centralizado y finalmente identifiqué mi edge real.&quot;
             </p>
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-zen-caribbean-green/20 rounded-full flex items-center justify-center">
@@ -83,8 +83,8 @@ export default function BenefitsSection() {
               ))}
             </div>
             <p className="text-zen-anti-flash text-lg mb-4">
-              "El export PDF me salvó en mi evaluación de FTMO. Presenté métricas
-              100% profesionales y pasé a la primera."
+              &quot;El export PDF me salvó en mi evaluación de FTMO. Presenté métricas
+              100% profesionales y pasé a la primera.&quot;
             </p>
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-zen-caribbean-green/20 rounded-full flex items-center justify-center">
