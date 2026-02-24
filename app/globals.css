@@ -741,3 +741,16 @@ html.light-mode [role="listbox"] .data-\[highlighted\]\:bg-zen-bangladesh-green\
 html.light-mode [role="listbox"] .data-\[highlighted\]\:text-zen-anti-flash[data-highlighted]         { color: #0C1B14; }
 html.light-mode [role="listbox"] .focus\:bg-zen-bangladesh-green\/50:focus                            { background-color: #D3EFE3; }
 html.light-mode [role="listbox"] .focus\:text-zen-anti-flash:focus                                    { color: #0C1B14; }
+
+
+
+
+
+.main-bg-login{
+  background-image: url(../data/assets/bg-login.jpg);
+  background-size: left 50% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: multiply;
+  background-color:#585858 ;
+}

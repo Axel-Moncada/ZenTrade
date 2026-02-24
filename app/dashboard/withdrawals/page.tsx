@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Account } from '@/types/accounts'
 import { Withdrawal } from '@/types/withdrawal'
 import { WithdrawalAccountCard } from '@/components/withdrawals/withdrawal-account-card'
@@ -27,7 +27,7 @@ export default function WithdrawalsPage() {
   const [dialogOpen, setDialogOpen] = useState(false)
   const { t } = useI18n()
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       setLoading(true)
       setError(null)
@@ -59,11 +59,11 @@ export default function WithdrawalsPage() {
       setError(err.message)
       setLoading(false)
     }
-  }
+  }, [t])
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   const handleWithdraw = (account: Account) => {
     setSelectedAccount(account)
@@ -233,8 +233,8 @@ export default function WithdrawalsPage() {
                               : 'bg-zen-danger/20 text-zen-danger border-zen-danger/40'
                           }
                         >
-                          withdrawal.status === 'completed' ? t.withdrawals.statusCompleted :
-                           withdrawal.status === 'pending' ? t.withdrawals.statusPending : t.withdrawals.statusCancelled
+                          {withdrawal.status === 'completed' ? t.withdrawals.statusCompleted :
+                           withdrawal.status === 'pending' ? t.withdrawals.statusPending : t.withdrawals.statusCancelled}
                         </Badge>
                         <p className="text-lg font-bold text-zen-caribbean-green">
                           -${withdrawal.amount.toFixed(2)}

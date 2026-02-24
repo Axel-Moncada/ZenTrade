@@ -66,7 +66,7 @@ export default function CalendarPage() {
     };
 
     fetchAccounts();
-  }, []);
+  }, [t]);
 
   // Fetch summaries cuando cambian cuenta, mes o año
   useEffect(() => {
@@ -101,7 +101,7 @@ export default function CalendarPage() {
     };
 
     fetchSummaries();
-  }, [selectedAccountId, month, year]);
+  }, [selectedAccountId, month, year, t]);
 
   // Handlers de navegación
   const handlePreviousMonth = () => {

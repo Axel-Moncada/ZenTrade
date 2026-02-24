@@ -96,19 +96,15 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zen-rich-black">
+    <div className="relative min-h-screen flex items-center justify-center  ">
       {/* Background Pattern */}
       <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 193, 124, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(0, 193, 124, 0.1) 1px, transparent 1px)`,
-          backgroundSize: "50px 50px",
-        }}
+        className="absolute inset-0 opacity-5 main-bg-login"
+        
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-zen-dark-green/20 via-zen-rich-black to-zen-rich-black" />
+      <div className="absolute inset-0 main-bg-login " />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-lg mx-auto px-6">
@@ -122,7 +118,7 @@ export default function LoginPage() {
         </Link>
 
         {/* Auth Card */}
-        <div className="bg-zen-surface-elevated rounded-3xl border border-zen-caribbean-green/30 shadow-2xl shadow-zen-caribbean-green/10 p-8">
+        <div className="bg-zen-surface-elevated rounded-3xl border border-zen-caribbean-green/30  shadow-zen-caribbean-green shadow-[0px_0_150px_rgba(0,0,0,0.5)] p-8 ">
           {/* Logo & Title */}
           <div className="text-center mb-8">
             <Image src={logoZen} alt="ZenTrade Logo" className="mx-auto mb-4 w-80" />
