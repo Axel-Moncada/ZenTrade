@@ -135,6 +135,16 @@ const translations = {
       statusCancelled: 'Cancelado',
       loading: 'Cargando retiros...',
     },
+
+    // ── Landing page ─────────────────────────────────────────
+    landing: {
+      features: 'Características',
+      pricing: 'Precios',
+      faq: 'FAQ',
+      signIn: 'Iniciar Sesión',
+      tryFree: 'Probar Gratis',
+      goToDashboard: 'Ir al Dashboard',
+    },
   },
 
   en: {
@@ -270,6 +280,16 @@ const translations = {
       statusPending: 'Pending',
       statusCancelled: 'Cancelled',
       loading: 'Loading withdrawals...',
+    },
+
+    // ── Landing page ─────────────────────────────────────────
+    landing: {
+      features: 'Features',
+      pricing: 'Pricing',
+      faq: 'FAQ',
+      signIn: 'Sign In',
+      tryFree: 'Try Free',
+      goToDashboard: 'Go to Dashboard',
     },
   },
 } as const;

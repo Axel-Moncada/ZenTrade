@@ -6,20 +6,23 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, LayoutDashboard, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import logoMenu from "@/data/assets/Logo hori-white.png";
+import { LandingControls } from "@/components/landing/landing-controls";
+import { useI18n } from "@/lib/i18n/context";
 
 interface PublicNavbarProps {
   isAuthenticated?: boolean;
 }
 
-const navLinks = [
-  { label: "Características", href: "#features" },
-  { label: "Precios", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-];
-
 export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarProps) {
+  const { t } = useI18n();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { label: t.landing.features, href: "#features" },
+    { label: t.landing.pricing, href: "#pricing" },
+    { label: t.landing.faq, href: "#faq" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,11 +65,12 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center space-x-3">
+              <LandingControls />
               {isAuthenticated ? (
                 <Link href="/dashboard">
                   <Button variant="zenGreen" className="group">
                     <LayoutDashboard className="mr-2 h-4 w-4" />
-                    Dashboard
+                    {t.landing.goToDashboard}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
@@ -77,12 +81,12 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
                       variant="ghost"
                       className="text-zen-text-muted hover:text-zen-caribbean-green hover:bg-zen-caribbean-green/10 transition-all"
                     >
-                      Iniciar Sesión
+                      {t.landing.signIn}
                     </Button>
                   </Link>
                   <Link href="/login">
                     <Button variant="zenGreen" className="group">
-                      Probar Gratis
+                      {t.landing.tryFree}
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
@@ -121,13 +125,18 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
               </a>
             ))}
 
+            {/* Mobile Controls */}
+            <div className="flex items-center gap-3 px-4 pt-2">
+              <LandingControls />
+            </div>
+
             {/* Mobile CTA Buttons */}
             <div className="space-y-2 pt-4 border-t border-zen-border-soft">
               {isAuthenticated ? (
                 <Link href="/dashboard" onClick={handleNavClick}>
                   <Button variant="zenGreen" className="w-full group">
                     <LayoutDashboard className="mr-2 h-4 w-4" />
-                    Ir al Dashboard
+                    {t.landing.goToDashboard}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
@@ -138,12 +147,12 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
                       variant="outline"
                       className="w-full border-zen-border-soft text-zen-text-muted hover:text-zen-caribbean-green hover:border-zen-caribbean-green"
                     >
-                      Iniciar Sesión
+                      {t.landing.signIn}
                     </Button>
                   </Link>
                   <Link href="/login" onClick={handleNavClick}>
                     <Button variant="zenGreen" className="w-full group">
-                      Probar Gratis
+                      {t.landing.tryFree}
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
