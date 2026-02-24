@@ -283,13 +283,17 @@ html.light-mode .landing-lang-check {
   color: #006B42;
 }
 
-/* Navbar stays dark in light mode — landing page nav */
+/* Navbar always stays dark in light mode — landing page */
+html.light-mode .landing-nav {
+  background: rgba(0, 20, 24, 0.88);
+  backdrop-filter: blur(8px);
+}
 html.light-mode .landing-nav-scrolled {
-  background: rgba(0, 27, 31, 0.95);
+  background: rgba(0, 20, 24, 0.97);
   border-color: rgba(255,255,255,0.08);
 }
 html.light-mode .landing-mobile-menu {
-  background: rgba(0, 27, 31, 0.98);
+  background: rgba(0, 20, 24, 0.98);
   border-color: rgba(255,255,255,0.08);
 }
 

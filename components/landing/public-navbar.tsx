@@ -39,10 +39,10 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`landing-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "landing-nav-scrolled backdrop-blur-md border-b"
-            : "bg-transparent"
+            : ""
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
