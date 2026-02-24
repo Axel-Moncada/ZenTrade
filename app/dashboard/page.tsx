@@ -97,7 +97,7 @@ export default function DashboardPage() {
   // Renderizar estado vacío
   if (!selectedAccount || accounts.length === 0) {
     return (
-      <div className="min-h-screen bg-zen-rich-black flex items-center justify-center p-6">
+      <div className="min-h-screen bg-{#031200} flex items-center justify-center p-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

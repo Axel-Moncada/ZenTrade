@@ -33,7 +33,7 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         /* Zentrade - Colores necesarios */
         zen: {
-          "rich-black": "#101010",
+          "rich-black": "#001B1F",
           "dark-green": "#002E21",
           "bangladesh-green": "#006A4E",
           "mountain-meadow": "#3DBB8F",

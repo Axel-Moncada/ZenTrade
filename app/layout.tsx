@@ -20,8 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body className={inter.className}>
+        {/* FOUC prevention: apply saved theme before React hydrates */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('zentrade-theme');if(t==='light')document.documentElement.classList.add('light-mode')}catch(e){}})()`,
+          }}
+        />
         {children}
         <Toaster richColors theme="dark" position="bottom-right" />
       </body>
