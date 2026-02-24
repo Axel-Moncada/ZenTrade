@@ -30,10 +30,10 @@ export function AccountSelector({
     <div className="space-y-2">
       <Label>Cuenta de trading</Label>
       <Select value={selectedAccount} onValueChange={onAccountChange}>
-        <SelectTrigger>
+        <SelectTrigger className="border-zen-anti-flash/20 text-zen-anti-flash bg-zen-dark-green hover:border-zen-anti-flash/40">
           <SelectValue placeholder="Selecciona una cuenta" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="border-zen-anti-flash/20 bg-zen-dark-green text-zen-anti-flash">
           {accounts.map((account) => (
             <SelectItem key={account.id} value={account.id}>
               {account.name} - {account.broker}
