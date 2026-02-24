@@ -4,9 +4,40 @@ import { useEffect, useRef, useState } from "react";
 import { Moon, Sun, ChevronDown, Check } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
+function FlagCO({ className = "w-5 h-4" }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" className={className} aria-hidden>
+      <rect width="20" height="14" rx="2" fill="#FCD116"/>
+      <rect y="7" width="20" height="3.5" fill="#003893"/>
+      <rect y="10.5" width="20" height="3.5" rx="0" fill="#CE1126"/>
+      <rect y="10.5" width="20" height="3.5" fill="#CE1126"/>
+      {/* bottom corners radius clip */}
+      <path d="M0 12.5v-2h20v2a2 2 0 0 1-2 1.5H2A2 2 0 0 1 0 12.5z" fill="#CE1126"/>
+    </svg>
+  );
+}
+
+function FlagUS({ className = "w-5 h-4" }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" className={className} aria-hidden>
+      <rect width="20" height="14" rx="2" fill="#fff"/>
+      {/* 13 stripes */}
+      {Array.from({ length: 7 }).map((_, i) => (
+        <rect key={i} x="0" y={i * 14 / 6.5} width="20" height={14 / 13} fill="#B22234"/>
+      ))}
+      {/* blue canton */}
+      <rect width="8" height="7" rx="1" fill="#3C3B6E"/>
+      {/* 9 stars (3×3 simplified) */}
+      {[1.3,2.7,4,1.3,2.7,4,1.3,2.7,4].map((cx, i) => (
+        <circle key={i} cx={cx} cy={1.2 + Math.floor(i/3)*2.4} r="0.4" fill="#fff"/>
+      ))}
+    </svg>
+  );
+}
+
 const LOCALES = [
-  { code: "es" as const, flag: "🇪🇸", label: "Español" },
-  { code: "en" as const, flag: "🇺🇸", label: "English" },
+  { code: "es" as const, Flag: FlagCO, label: "Español" },
+  { code: "en" as const, Flag: FlagUS, label: "English" },
 ];
 
 export function LandingControls() {
@@ -60,7 +91,7 @@ export function LandingControls() {
           aria-label="Change language"
           className="landing-control-btn flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm font-medium"
         >
-          <span className="text-base leading-none">{currentLocale.flag}</span>
+          <currentLocale.Flag className="w-5 h-3.5 rounded-[2px] shadow-sm" />
           <span className="hidden sm:inline">{currentLocale.code.toUpperCase()}</span>
           <ChevronDown
             className={`h-3.5 w-3.5 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
@@ -77,7 +108,7 @@ export function LandingControls() {
                 onClick={() => { setLocale(l.code); setLangOpen(false); }}
                 className="landing-lang-item flex w-full items-center gap-2.5 px-3 py-2 text-sm transition-colors"
               >
-                <span className="text-base leading-none">{l.flag}</span>
+                <l.Flag className="w-5 h-3.5 rounded-[2px] shadow-sm flex-shrink-0" />
                 <span className="flex-1 text-left font-medium">{l.label}</span>
                 {locale === l.code && (
                   <Check className="h-3.5 w-3.5 landing-lang-check" strokeWidth={2.5} />
