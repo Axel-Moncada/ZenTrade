@@ -111,7 +111,7 @@ export function TradeForm({
         contracts: editingTrade.contracts,
         side: editingTrade.side,
         result: editingTrade.result,
-        exit_reason: editingTrade.exit_reason,
+        exit_reason: editingTrade.exit_reason ?? undefined,
         followed_plan: editingTrade.followed_plan,
         emotions: editingTrade.emotions || [],
         notes: editingTrade.notes || "",
