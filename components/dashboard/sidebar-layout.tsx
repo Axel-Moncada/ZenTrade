@@ -6,7 +6,6 @@ import {
   LayoutDashboard,
   Wallet,
   Calendar,
-  TrendingUp,
   ListOrdered,
   Target,
   ArrowDownToLine,
@@ -16,6 +15,9 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { LogoutButton } from "@/components/logout-button";
+import { ThemeToggle } from "@/components/dashboard/theme-toggle";
+import { LanguageToggle } from "@/components/dashboard/language-toggle";
+import { useI18n } from "@/lib/i18n/context";
 import LogoWhite from "@/data/assets/Logo-green.png";
 import IsoWhite from "@/data/assets/Iso-white.png";
 
@@ -26,6 +28,7 @@ interface SidebarLayoutProps {
 
 export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const { t } = useI18n();
 
   return (
     <div className="min-h-screen flex bg-zen-rich-black">
@@ -81,7 +84,7 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
                 <LayoutDashboard className="h-4 w-4 text-zen-caribbean-green" />
               </div>
               {!isCollapsed && (
-                <span className="font-medium text-lg ml-3">Dashboard</span>
+                <span className="font-medium text-lg ml-3">{t.nav.dashboard}</span>
               )}
             </Button>
           </Link>
@@ -96,7 +99,7 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
                 <Wallet className="h-4 w-4 text-zen-caribbean-green" />
               </div>
               {!isCollapsed && (
-                <span className="font-medium text-lg ml-3">Cuentas</span>
+                <span className="font-medium text-lg ml-3">{t.nav.accounts}</span>
               )}
             </Button>
           </Link>
@@ -111,7 +114,7 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
                 <ArrowDownToLine className="h-4 w-4 text-zen-caribbean-green" />
               </div>
               {!isCollapsed && (
-                <span className="font-medium text-lg ml-3">Retiros</span>
+                <span className="font-medium text-lg ml-3">{t.nav.withdrawals}</span>
               )}
             </Button>
           </Link>
@@ -126,7 +129,7 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
                 <Calendar className="h-4 w-4 text-zen-caribbean-green" />
               </div>
               {!isCollapsed && (
-                <span className="font-medium text-lg ml-3">Calendario</span>
+                <span className="font-medium text-lg ml-3">{t.nav.calendar}</span>
               )}
             </Button>
           </Link>
@@ -141,7 +144,7 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
                 <ListOrdered className="h-4 w-4 text-zen-caribbean-green" />
               </div>
               {!isCollapsed && (
-                <span className="font-medium text-lg ml-3">Trades</span>
+                <span className="font-medium text-lg ml-3">{t.nav.trades}</span>
               )}
             </Button>
           </Link>
@@ -156,9 +159,7 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
                 <Target className="h-4 w-4 text-zen-caribbean-green" />
               </div>
               {!isCollapsed && (
-                <span className="font-medium text-lg ml-3">
-                  Plan de Trading
-                </span>
+                <span className="font-medium text-lg ml-3">{t.nav.tradingPlan}</span>
               )}
             </Button>
           </Link>
@@ -169,7 +170,7 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
           {!isCollapsed && (
             <div className="mb-4 p-3 rounded-lg bg-zen-bangladesh-green/40">
               <p className="text-xs font-semibold text-zen-anti-flash/60 uppercase tracking-wider mb-1">
-                Usuario
+                {t.sidebar.user}
               </p>
               <p className="text-sm font-semibold text-zen-anti-flash truncate">
                 {userEmail}
@@ -177,6 +178,8 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
             </div>
           )}
           
+          <LanguageToggle collapsed={isCollapsed} />
+          <ThemeToggle collapsed={isCollapsed} />
           <LogoutButton collapsed={isCollapsed} />
           
         </div>
