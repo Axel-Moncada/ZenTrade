@@ -59,3 +59,12 @@ Web app tipo TradeZella para journal de trading de futuros con:
 - Fase 5: reportes + export/import y creacion de seccion de trading plan 
 - Fase 6: hardening (perf, caching, tests mínimos)
 
+## Tema visual (Dark/Light Mode)
+
+- Dark mode es el **default** — no modificar estilos existentes de dark mode
+- Light mode es una capa adicional activada con clase `.light-mode` en el `<html>` o `body`
+- El switch Dark/Light va en el menú/sidebar del layout privado (`app/(private)/layout.tsx` o similar)
+- Persistir preferencia en `localStorage` con key `zentrade-theme`
+- Transición suave: `transition-colors duration-300` en el root layout
+- Solo aplica dentro de la zona autenticada — no tocar páginas públicas ni auth
+- Light mode: moderno, colorido, profesional para trading (no genérico)

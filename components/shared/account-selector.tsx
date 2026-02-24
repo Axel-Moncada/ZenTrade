@@ -30,12 +30,12 @@ export function AccountSelector({
     <div className="space-y-2">
       <Label>Cuenta de trading</Label>
       <Select value={selectedAccount} onValueChange={onAccountChange}>
-        <SelectTrigger  className="bg-zen-surface/60 border-zen-forest/40 text-zen-anti-flash">
+        <SelectTrigger>
           <SelectValue placeholder="Selecciona una cuenta" />
         </SelectTrigger>
-        <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash">
+        <SelectContent>
           {accounts.map((account) => (
-            <SelectItem key={account.id} value={account.id} className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">
+            <SelectItem key={account.id} value={account.id}>
               {account.name} - {account.broker}
             </SelectItem>
           ))}

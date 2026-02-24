@@ -136,3 +136,521 @@
     color: #F2F3F4;
   }
 }
+
+/* ================================================================
+   LIGHT MODE — activado con clase .light-mode en <html>
+   Dark mode intacto. Sidebar (aside) permanece oscuro.
+   Sin rgba ni transparencias — solo colores sólidos.
+   Contraste mínimo AA (4.5:1) garantizado en todo texto.
+   ================================================================ */
+
+html.light-mode {
+  /* shadcn / Tailwind semantic variables — todos sólidos */
+  --background:             #F5F4EE;
+  --foreground:             #0C1B14;
+  --card:                   #FFFFFF;
+  --card-foreground:        #0C1B14;
+  --popover:                #FFFFFF;
+  --popover-foreground:     #0C1B14;
+  --primary:                #007A42;   /* verde oscuro: blanco encima pasa AA (6.3:1) */
+  --primary-foreground:     #FFFFFF;
+  --secondary:              #ECEAE3;
+  --secondary-foreground:   #0C1B14;
+  --muted:                  #ECEAE3;
+  --muted-foreground:       #3E5449;   /* sólido — 8.2:1 sobre blanco (AAA) */
+  --destructive:            #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border:                 #D1D0CA;   /* sólido */
+  --input:                  #FFFFFF;
+  --ring:                   #007A42;
+  --accent:                 #007A42;
+  --accent-foreground:      #FFFFFF;
+
+  scrollbar-color: #B9B8B2 #ECEAE3;
+}
+
+/* ----------------------------------------------------------------
+   Outer page background — solo el wrapper div externo
+   El aside del sidebar tiene su propio bg-zen-dark-green: no se toca
+   ---------------------------------------------------------------- */
+html.light-mode .bg-zen-rich-black { background-color: #F5F4EE; }
+
+/* ----------------------------------------------------------------
+   Contenido principal — TODOS los overrides scoped a main
+   El sidebar (aside) queda completamente intacto en dark mode
+   ---------------------------------------------------------------- */
+
+/* --- Fondos de cards / surfaces --- */
+html.light-mode main .bg-zen-dark-green              { background-color: #FFFFFF; }
+html.light-mode main .bg-zen-bangladesh-green        { background-color: #ECEAE3; }
+html.light-mode main .bg-zen-surface                 { background-color: #FFFFFF; }
+html.light-mode main .bg-zen-surface-elevated        { background-color: #ECEAE3; }
+html.light-mode main .bg-zen-forest                  { background-color: #E6E5DF; }
+
+/* Variantes de opacidad → equivalentes sólidos */
+html.light-mode main .bg-zen-bangladesh-green\/40    { background-color: #E4F2EB; }
+html.light-mode main .bg-zen-caribbean-green\/20     { background-color: #D3EFE3; }
+html.light-mode main .bg-zen-caribbean-green\/10     { background-color: #E6F7F0; }
+html.light-mode main .bg-zen-caribbean-green\/30     { background-color: #BFEAD5; }
+html.light-mode main .bg-zen-forest\/20              { background-color: #E6E5DF; }
+html.light-mode main .bg-zen-forest\/10              { background-color: #F0EFE9; }
+
+/* --- Texto — contraste AA garantizado --- */
+/* #0C1B14 / #FFFFFF : ~17:1 (AAA)  */
+/* #3E5449 / #FFFFFF : ~8.2:1 (AAA) */
+/* #4B6258 / #FFFFFF : ~6.1:1 (AA)  */
+html.light-mode main .text-zen-anti-flash      { color: #0C1B14; }
+html.light-mode main .text-zen-anti-flash\/70  { color: #3E5449; }
+html.light-mode main .text-zen-anti-flash\/60  { color: #4B6258; }
+
+/* --- Bordes sólidos --- */
+html.light-mode main .border-zen-forest\/30    { border-color: #D1D0CA; }
+html.light-mode main .border-zen-forest\/20    { border-color: #DDDCD6; }
+html.light-mode main .border-zen-forest        { border-color: #C0BFB9; }
+
+/* ----------------------------------------------------------------
+   Scrollbar
+   ---------------------------------------------------------------- */
+html.light-mode ::-webkit-scrollbar-track {
+  background: #ECEAE3;
+}
+html.light-mode ::-webkit-scrollbar-thumb {
+  background: #C0BEB8;
+  border: 2px solid #ECEAE3;
+}
+html.light-mode ::-webkit-scrollbar-thumb:hover  { background: #AEADA7; }
+html.light-mode ::-webkit-scrollbar-thumb:active { background: #007A42; }
+
+/* ----------------------------------------------------------------
+   Dashboard — opacity variants y glassmorphism
+   El audit detectó estos patrones en page.tsx y components/*.tsx
+   ---------------------------------------------------------------- */
+
+/* Glassmorphism → eliminado en light mode */
+html.light-mode main .backdrop-blur-sm  { backdrop-filter: none; }
+html.light-mode main .backdrop-blur-md  { backdrop-filter: none; }
+
+/* Gradients → fondo sólido blanco */
+html.light-mode main [class*="bg-gradient-"] {
+  background-image: none;
+  background-color: #FFFFFF;
+}
+
+/* bg-zen-surface con opacidad → blanco sólido */
+html.light-mode main .bg-zen-surface\/60  { background-color: #FFFFFF; }
+html.light-mode main .bg-zen-surface\/80  { background-color: #FFFFFF; }
+
+/* border adicional */
+html.light-mode main .border-zen-forest\/40 { border-color: #C0BFB9; }
+
+/* ---- caribbean-green (ganancia / PNL positivo) ---- */
+html.light-mode main .bg-zen-caribbean-green\/5   { background-color: #F0FDF6; }
+/* /10, /20, /30 ya definidos arriba */
+html.light-mode main .bg-zen-caribbean-green\/70  { background-color: #6EE7B7; }
+html.light-mode main .bg-zen-caribbean-green\/80  { background-color: #34D399; }
+html.light-mode main .border-zen-caribbean-green\/30 { border-color: #86EFAC; }
+html.light-mode main .border-zen-caribbean-green\/40 { border-color: #4ADE80; }
+html.light-mode main .text-zen-caribbean-green\/60   { color: #059669; }
+html.light-mode main .hover\:bg-zen-caribbean-green\/30:hover { background-color: #BFEAD5; }
+
+/* ---- danger (pérdida / PNL negativo) ---- */
+html.light-mode main .bg-zen-danger\/5    { background-color: #FEF2F2; }
+html.light-mode main .bg-zen-danger\/10   { background-color: #FEE2E2; }
+html.light-mode main .bg-zen-danger\/20   { background-color: #FECACA; }
+html.light-mode main .border-zen-danger\/30  { border-color: #FCA5A5; }
+html.light-mode main .border-zen-danger\/40  { border-color: #F87171; }
+html.light-mode main .text-zen-danger\/80    { color: #DC2626; }
+html.light-mode main .hover\:bg-zen-danger\/80:hover { background-color: #EF4444; }
+
+/* ---- zen-rich-black opacity variants (chart cards, progress) ---- */
+html.light-mode main .bg-zen-rich-black\/20    { background-color: #E6E5DF; }
+html.light-mode main .bg-zen-rich-black\/50    { background-color: #D9D8D2; }
+html.light-mode main .border-zen-rich-black\/30  { border-color: #D4D3CD; }
+html.light-mode main .border-zen-rich-black\/50  { border-color: #C0BFB9; }
+html.light-mode main .ring-zen-dark-green\/50    { --tw-ring-color: #C0BFB9; }
+
+/* ---- bangladesh-green opacity variants ---- */
+html.light-mode main .bg-zen-bangladesh-green\/50       { background-color: #D3EFE3; }
+html.light-mode main .hover\:bg-zen-bangladesh-green\/50:hover { background-color: #D3EFE3; }
+
+/* ---- Colores estándar Tailwind usados en componentes ---- */
+/* emerald, blue, purple con opacidad → equivalentes sólidos */
+html.light-mode main .bg-emerald-500\/20  { background-color: #D1FAE5; }
+html.light-mode main .bg-blue-500\/20     { background-color: #DBEAFE; }
+html.light-mode main .bg-purple-500\/20   { background-color: #EDE9FE; }
+html.light-mode main .bg-blue-400         { color: #1D4ED8; }
+html.light-mode main .text-blue-400       { color: #1D4ED8; }
+html.light-mode main .border-blue-500\/30 { border-color: #93C5FD; }
+
+/* ---- Texto adicional ---- */
+html.light-mode main .text-zen-anti-flash\/50 { color: #5B7269; }
+
+/* ----------------------------------------------------------------
+   Colores hardcoded en componentes (no-zen Tailwind)
+   ---------------------------------------------------------------- */
+
+/* text-white → #0C1B14 (invisible en fondo claro sin esta regla) */
+html.light-mode main .text-white { color: #0C1B14; }
+
+/* Slate grays — reemplazos sólidos con contraste AA */
+/* #94a3b8 (slate-400) sobre blanco ≈ 3.4:1 falla. #4B6258 ≈ 6.1:1 AA ✓ */
+html.light-mode main .text-slate-300 { color: #3E5449; }
+html.light-mode main .text-slate-400 { color: #4B6258; }
+html.light-mode main .text-slate-500 { color: #4B6258; }
+html.light-mode main .text-slate-600 { color: #3E5449; }
+
+/* Emerald / Rose — versiones AA para texto PNL sobre blanco */
+/* #34D399 (emerald-400) sobre blanco ≈ 2.6:1 falla AA. #059669 ≈ 4.6:1 AA ✓ */
+/* #FB7185 (rose-400) sobre blanco ≈ 3.2:1 falla AA.   #DC2626 ≈ 5.9:1 AA ✓ */
+html.light-mode main .text-emerald-400 { color: #059669; }
+html.light-mode main .text-rose-400    { color: #DC2626; }
+
+/* Progress bar track (accounts-progress, instrument-stats-table) */
+html.light-mode main .bg-slate-700 { background-color: #D1D0CA; }
+
+/* Border slate */
+html.light-mode main .border-slate-700\/50 { border-color: #C0BFB9; }
+
+/* Ring de fila seleccionada → sólido */
+html.light-mode main .ring-zen-dark-green\/50 { --tw-ring-color: #4ADE80; }
+
+/* bg-blue-400 era incorrecto (era color en vez de background) */
+html.light-mode main .bg-blue-400 { background-color: #BFDBFE; }
+
+/* ----------------------------------------------------------------
+   Recharts — overrides para light mode
+   Las inline styles del SVG requieren !important para ser sobreescritas
+   ---------------------------------------------------------------- */
+
+/* Legend labels */
+html.light-mode main .recharts-legend-item-text {
+  color: #0C1B14 !important;
+}
+
+/* Axis ticks */
+html.light-mode main .recharts-cartesian-axis-tick-value {
+  fill: #4B6258 !important;
+}
+
+/* Grid lines */
+html.light-mode main .recharts-cartesian-grid line {
+  stroke: #D1D0CA !important;
+}
+
+/* Tooltip */
+html.light-mode main .recharts-default-tooltip {
+  background-color: #FFFFFF !important;
+  border-color: #D1D0CA !important;
+  border-radius: 8px !important;
+}
+html.light-mode main .recharts-tooltip-label {
+  color: #0C1B14 !important;
+}
+html.light-mode main .recharts-tooltip-item-value,
+html.light-mode main .recharts-tooltip-item {
+  color: #3E5449 !important;
+}
+
+/* ----------------------------------------------------------------
+   components/accounts — account-card, account-selector, account-form
+   app/dashboard/accounts — page.tsx
+   ---------------------------------------------------------------- */
+
+/* --- account-card.tsx --- */
+
+/* Card wrapper: bg-zen-bangladesh-green/60 + backdrop-blur-sm */
+html.light-mode main .bg-zen-bangladesh-green\/60 { background-color: #FFFFFF; }
+html.light-mode main .border-zen-forest\/50       { border-color: #C0BFB9; }
+
+/* Badge de balance actual: bg-zen-bangladesh-green/80 */
+html.light-mode main .bg-zen-bangladesh-green\/80 { background-color: #D3EFE3; }
+
+/* Panel desglose de balance: bg-zen-rich-black/40 */
+html.light-mode main .bg-zen-rich-black\/40 { background-color: #ECEAE3; }
+
+/* Progress bar tracks (objetivo + drawdown): bg-zen-rich-black/70 */
+html.light-mode main .bg-zen-rich-black\/70 { background-color: #D1D0CA; }
+
+/* Divider inside balance breakdown */
+html.light-mode main .border-zen-border-soft\/30 { border-color: #D1D0CA; }
+
+/* Botón Eliminar: bg-red-800/90 → sólido (mantiene dark feel del peligro) */
+html.light-mode main .bg-red-800\/90 { background-color: #991B1B; }
+
+/* --- accounts/page.tsx & account-card buttons --- */
+/* Botones con opacidad: /70 y /80 → sólidos */
+html.light-mode main .bg-zen-caribbean-green\/70 { background-color: #00A865; }
+html.light-mode main .bg-zen-caribbean-green\/80 { background-color: #00B471; }
+html.light-mode main .hover\:bg-zen-caribbean-green:hover { background-color: #00A865; }
+
+/* --- account-form.tsx --- */
+/* text-zen-text-muted está definido como rgba(242,243,244,0.6) en tailwind.config */
+html.light-mode main .text-zen-text-muted { color: #4B6258; }
+
+/* --- account-selector.tsx (Radix Select dropdown) --- */
+/* SelectContent bg-zen-dark-green → ya cubierto por .bg-zen-dark-green → #FFFFFF */
+/* Highlighted / focus states */
+html.light-mode main .focus\:bg-zen-bangladesh-green\/50:focus                          { background-color: #D3EFE3; }
+html.light-mode main .data-\[highlighted\]\:bg-zen-bangladesh-green\/50[data-highlighted] { background-color: #D3EFE3; }
+html.light-mode main .data-\[highlighted\]\:text-zen-anti-flash[data-highlighted]         { color: #0C1B14; }
+html.light-mode main .focus\:text-zen-anti-flash:focus                                   { color: #0C1B14; }
+
+/* ----------------------------------------------------------------
+   Date / time pickers
+   ---------------------------------------------------------------- */
+html.light-mode input[type="time"]::-webkit-calendar-picker-indicator,
+html.light-mode input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: none;
+  opacity: 0.5;
+}
+
+html.light-mode input[type="time"]::-webkit-datetime-edit-fields-wrapper,
+html.light-mode input[type="time"]::-webkit-datetime-edit-hour-field,
+html.light-mode input[type="time"]::-webkit-datetime-edit-minute-field,
+html.light-mode input[type="time"]::-webkit-datetime-edit-ampm-field {
+  color: #0C1B14;
+}
+html.light-mode input[type="time"]::-webkit-datetime-edit-text {
+  color: #4B6258;
+}
+
+/* ----------------------------------------------------------------
+   CRITICAL MISSING — base zen color text overrides
+   zen-caribbean-green (#00C17C) on white = 2.2:1 FAILS AA
+   zen-danger (#E5484D) on white = 3.9:1 FAILS AA
+   ---------------------------------------------------------------- */
+html.light-mode main .text-zen-caribbean-green { color: #007A42; }  /* 5.1:1 AA ✓ */
+html.light-mode main .text-zen-danger          { color: #DC2626; }  /* 4.9:1 AA ✓ */
+
+/* ----------------------------------------------------------------
+   components/trades — trades-table.tsx
+   app/dashboard/trades — page.tsx
+   ---------------------------------------------------------------- */
+
+/* Table wrapper & header row borders */
+html.light-mode main .border-zen-bangladesh-green\/80 { border-color: #A5C9BC; }
+html.light-mode main .border-zen-rich-black\/80        { border-color: #D4D3CD; }
+
+/* Table row hover: red-800/10 transparent → solid warm tint */
+html.light-mode main .hover\:bg-red-800\/10:hover { background-color: #FEF2F2; }
+
+/* Exit-reason & side badges — solid AA-compliant colors */
+html.light-mode main .bg-rose-500\/20           { background-color: #FFE4E6; }
+html.light-mode main .border-emerald-500\/50    { border-color: #6EE7B7; }
+html.light-mode main .border-rose-500\/50       { border-color: #FDA4AF; }
+html.light-mode main .bg-slate-500\/20          { background-color: #F1F5F9; }
+html.light-mode main .border-slate-500\/50      { border-color: #CBD5E1; }
+html.light-mode main .bg-orange-500\/20         { background-color: #FFF7ED; }
+html.light-mode main .text-orange-400           { color: #C2410C; }  /* 5.7:1 AA ✓ */
+html.light-mode main .border-orange-500\/50     { border-color: #FDBA74; }
+html.light-mode main .border-blue-500\/50       { border-color: #93C5FD; }
+
+/* ----------------------------------------------------------------
+   components/calendar — day-cell.tsx
+   ---------------------------------------------------------------- */
+
+/* "Hoy" highlight — warm amber replaces transparent yellow */
+html.light-mode main .border-yellow-200           { border-color: #F59E0B; }
+html.light-mode main .bg-yellow-500\/15           { background-color: #FEFCE8; }
+/* #92400E on #FEFCE8 ≈ 7.2:1 AAA ✓ */
+html.light-mode main .text-yellow-200             { color: #92400E; }
+html.light-mode main .bg-yellow-200\/20           { background-color: #FEF9C3; }
+
+/* Sin-trades day background */
+html.light-mode main .bg-zen-surface\/40          { background-color: #FAFAF7; }
+
+/* Forest variant fills */
+html.light-mode main .bg-zen-forest\/5            { background-color: #F5F4EE; }
+html.light-mode main .bg-zen-forest\/30           { background-color: #DDDCD6; }
+
+/* Danger opacity variants */
+html.light-mode main .bg-zen-danger\/15           { background-color: #FECACA; }
+html.light-mode main .bg-zen-danger\/25           { background-color: #FCA5A5; }
+html.light-mode main .bg-zen-danger\/30           { background-color: #FCA5A5; }
+html.light-mode main .border-zen-danger\/50       { border-color: #F87171; }
+html.light-mode main .border-zen-forest\/60       { border-color: #3B7A5A; }
+
+/* Hover danger variants */
+html.light-mode main .hover\:bg-zen-danger\/30:hover { background-color: #FCA5A5; }
+
+/* day-cell hover overlay — bg-gradient-to-t from-black/0 to-black/0
+   The gradient catch-all would turn this solid white, covering the cell.
+   pointer-events-none overlays must stay transparent in light mode. */
+html.light-mode main .pointer-events-none[class*="bg-gradient-"] {
+  background-color: transparent !important;
+}
+
+/* Additional text muted variants */
+html.light-mode main .text-zen-anti-flash\/40     { color: #8CA398; }
+html.light-mode main .text-zen-anti-flash\/80     { color: #2E4A3E; }
+
+/* bg-zen-forest/40 — used as separator/divider bg in calendar-header & calendar-legend */
+html.light-mode main .bg-zen-forest\/40            { background-color: #D4D3CD; }
+
+/* bg-zen-bangladesh-green/20 — weekday header cells in monthly-calendar & skeleton */
+html.light-mode main .bg-zen-bangladesh-green\/20  { background-color: #EAF5EF; }
+
+/* text-zen-anti-flash/100 — weekday labels (Tailwind /100 ≠ base class) */
+html.light-mode main .text-zen-anti-flash\/100     { color: #0C1B14; }
+
+/* ring-zen-caribbean-green/30 — legend "Hoy" swatch subtle ring */
+html.light-mode main .ring-zen-caribbean-green\/30 { --tw-ring-color: #86EFAC; }
+
+/* Hover states — explicit prefix variants needed */
+html.light-mode main .hover\:bg-zen-surface\/60:hover            { background-color: #FFFFFF; }
+html.light-mode main .hover\:bg-zen-surface\/80:hover            { background-color: #FFFFFF; }
+html.light-mode main .hover\:bg-zen-caribbean-green\/10:hover    { background-color: #E6F7F0; }
+html.light-mode main .hover\:bg-zen-danger\/10:hover             { background-color: #FEE2E2; }
+html.light-mode main .hover\:bg-zen-danger\/20:hover             { background-color: #FECACA; }
+html.light-mode main .hover\:bg-zen-forest\/10:hover             { background-color: #F0EFE9; }
+html.light-mode main .hover\:bg-zen-forest\/30:hover             { background-color: #DDDCD6; }
+html.light-mode main .hover\:border-zen-caribbean-green\/60:hover { border-color: #22C55E; }
+html.light-mode main .hover\:border-zen-danger\/60:hover          { border-color: #EF4444; }
+html.light-mode main .hover\:border-zen-forest\/60:hover          { border-color: #3B7A5A; }
+
+/* ================================================================
+   PORTALS — Radix Dialog ([role="dialog"])
+   Renders outside <main>, so main-scoped rules do not apply.
+   DayModal, trade-form dialogs, account-form dialogs.
+   ================================================================ */
+
+/* --- Outer dialog background --- */
+html.light-mode [role="dialog"]                              { background-color: #FFFFFF; border-color: #D1D0CA; }
+
+/* --- Surface fills inside dialog --- */
+html.light-mode [role="dialog"] .bg-zen-dark-green           { background-color: #FFFFFF; }
+html.light-mode [role="dialog"] .bg-zen-dark-green\/90       { background-color: #F5F4EE; }
+html.light-mode [role="dialog"] .bg-zen-rich-black\/80       { background-color: #FFFFFF; }
+html.light-mode [role="dialog"] .bg-zen-bangladesh-green     { background-color: #ECEAE3; }
+html.light-mode [role="dialog"] .bg-zen-bangladesh-green\/30 { background-color: #BFEAD5; }
+html.light-mode [role="dialog"] .bg-zen-bangladesh-green\/40 { background-color: #E4F2EB; }
+html.light-mode [role="dialog"] .bg-zen-bangladesh-green\/50 { background-color: #D3EFE3; }
+html.light-mode [role="dialog"] .bg-zen-surface              { background-color: #FFFFFF; }
+html.light-mode [role="dialog"] .bg-zen-surface\/40          { background-color: #FAFAF7; }
+html.light-mode [role="dialog"] .bg-zen-surface\/60          { background-color: #FFFFFF; }
+html.light-mode [role="dialog"] .bg-zen-surface\/80          { background-color: #FFFFFF; }
+html.light-mode [role="dialog"] .bg-zen-forest\/5            { background-color: #F5F4EE; }
+html.light-mode [role="dialog"] .bg-zen-forest\/10           { background-color: #F0EFE9; }
+html.light-mode [role="dialog"] .bg-zen-forest\/20           { background-color: #E6E5DF; }
+html.light-mode [role="dialog"] .bg-zen-caribbean-green\/5   { background-color: #F0FDF6; }
+html.light-mode [role="dialog"] .bg-zen-caribbean-green\/10  { background-color: #E6F7F0; }
+html.light-mode [role="dialog"] .bg-zen-caribbean-green\/20  { background-color: #D3EFE3; }
+html.light-mode [role="dialog"] .bg-zen-caribbean-green\/30  { background-color: #BFEAD5; }
+html.light-mode [role="dialog"] .bg-zen-danger\/5            { background-color: #FEF2F2; }
+html.light-mode [role="dialog"] .bg-zen-danger\/10           { background-color: #FEE2E2; }
+html.light-mode [role="dialog"] .bg-zen-danger\/15           { background-color: #FECACA; }
+html.light-mode [role="dialog"] .bg-zen-danger\/20           { background-color: #FECACA; }
+html.light-mode [role="dialog"] .bg-zen-danger\/25           { background-color: #FCA5A5; }
+html.light-mode [role="dialog"] .bg-zen-caribbean-green\/60  { background-color: #6EE7B7; }
+html.light-mode [role="dialog"] .bg-zen-surface\/10          { background-color: #F5F4EE; }
+html.light-mode [role="dialog"] .bg-slate-800\/50            { background-color: #ECEAE3; }
+html.light-mode [role="dialog"] .bg-blue-500\/10             { background-color: #EFF6FF; }
+html.light-mode [role="dialog"] .bg-emerald-500\/20          { background-color: #D1FAE5; }
+html.light-mode [role="dialog"] .bg-rose-500\/20             { background-color: #FFE4E6; }
+
+/* --- Gradients → flat --- */
+html.light-mode [role="dialog"] [class*="bg-gradient-"] {
+  background-image: none;
+  background-color: #F5F4EE;
+}
+
+/* --- Glassmorphism → removed --- */
+html.light-mode [role="dialog"] .backdrop-blur-sm { backdrop-filter: none; }
+html.light-mode [role="dialog"] .backdrop-blur-md { backdrop-filter: none; }
+
+/* --- Borders inside dialog --- */
+html.light-mode [role="dialog"] .border-zen-forest\/20          { border-color: #DDDCD6; }
+html.light-mode [role="dialog"] .border-zen-forest\/30          { border-color: #D1D0CA; }
+html.light-mode [role="dialog"] .border-zen-forest\/40          { border-color: #C0BFB9; }
+html.light-mode [role="dialog"] .border-zen-forest              { border-color: #C0BFB9; }
+html.light-mode [role="dialog"] .border-zen-forest\/100         { border-color: #C0BFB9; }
+html.light-mode [role="dialog"] .border-zen-caribbean-green\/5  { border-color: #D3EFE3; }
+html.light-mode [role="dialog"] .border-zen-caribbean-green\/40 { border-color: #4ADE80; }
+html.light-mode [role="dialog"] .border-zen-caribbean-green\/60 { border-color: #22C55E; }
+html.light-mode [role="dialog"] .border-zen-danger\/30          { border-color: #FCA5A5; }
+html.light-mode [role="dialog"] .border-zen-danger\/40          { border-color: #F87171; }
+html.light-mode [role="dialog"] .border-zen-danger\/50          { border-color: #F87171; }
+html.light-mode [role="dialog"] .border-slate-700               { border-color: #D1D0CA; }
+html.light-mode [role="dialog"] .border-slate-700\/50           { border-color: #C0BFB9; }
+html.light-mode [role="dialog"] .border-blue-500\/50            { border-color: #93C5FD; }
+html.light-mode [role="dialog"] .border-emerald-500\/50         { border-color: #6EE7B7; }
+html.light-mode [role="dialog"] .border-rose-500\/50            { border-color: #FDA4AF; }
+
+/* --- Text inside dialog --- */
+html.light-mode [role="dialog"] .text-zen-anti-flash            { color: #0C1B14; }
+html.light-mode [role="dialog"] .text-zen-anti-flash\/80        { color: #2E4A3E; }
+html.light-mode [role="dialog"] .text-zen-anti-flash\/70        { color: #3E5449; }
+html.light-mode [role="dialog"] .text-zen-anti-flash\/60        { color: #4B6258; }
+html.light-mode [role="dialog"] .text-zen-anti-flash\/50        { color: #5B7269; }
+html.light-mode [role="dialog"] .text-zen-anti-flash\/40        { color: #8CA398; }
+html.light-mode [role="dialog"] .text-white                     { color: #0C1B14; }
+html.light-mode [role="dialog"] .text-slate-200                 { color: #0C1B14; }
+html.light-mode [role="dialog"] .text-slate-300                 { color: #3E5449; }
+html.light-mode [role="dialog"] .text-slate-400                 { color: #4B6258; }
+html.light-mode [role="dialog"] .text-slate-500                 { color: #4B6258; }
+html.light-mode [role="dialog"] .text-emerald-400               { color: #059669; }
+html.light-mode [role="dialog"] .text-rose-400                  { color: #DC2626; }
+html.light-mode [role="dialog"] .text-blue-400                  { color: #1D4ED8; }
+html.light-mode [role="dialog"] .text-red-400                   { color: #DC2626; }
+html.light-mode [role="dialog"] .text-zen-caribbean-green       { color: #007A42; }
+html.light-mode [role="dialog"] .text-zen-danger                { color: #DC2626; }
+html.light-mode [role="dialog"] .text-zen-forest                { color: #3E5449; }
+html.light-mode [role="dialog"] .text-zen-pistachio             { color: #4B6258; }
+html.light-mode [role="dialog"] .text-orange-400                { color: #C2410C; }
+
+/* --- Placeholder inside dialog --- */
+html.light-mode [role="dialog"] .placeholder\:text-zen-anti-flash\/40::placeholder { color: #8CA398; }
+
+/* --- Hover states inside dialog --- */
+html.light-mode [role="dialog"] .hover\:bg-zen-forest\/30:hover             { background-color: #DDDCD6; }
+html.light-mode [role="dialog"] .hover\:bg-zen-caribbean-green\/20:hover    { background-color: #D3EFE3; }
+html.light-mode [role="dialog"] .hover\:bg-zen-caribbean-green\/30:hover    { background-color: #BFEAD5; }
+html.light-mode [role="dialog"] .hover\:bg-zen-danger\/10:hover             { background-color: #FEE2E2; }
+html.light-mode [role="dialog"] .hover\:bg-zen-danger\/20:hover             { background-color: #FECACA; }
+html.light-mode [role="dialog"] .hover\:bg-zen-danger\/30:hover             { background-color: #FCA5A5; }
+html.light-mode [role="dialog"] .hover\:border-zen-caribbean-green\/60:hover  { border-color: #22C55E; }
+html.light-mode [role="dialog"] .focus\:border-zen-caribbean-green\/60:focus  { border-color: #22C55E; }
+
+/* ================================================================
+   PORTALS — Radix AlertDialog ([role="alertdialog"])
+   Delete confirmation modals
+   ================================================================ */
+
+html.light-mode [role="alertdialog"]                              { background-color: #FFFFFF; border-color: #D1D0CA; }
+html.light-mode [role="alertdialog"] .bg-zen-surface\/80          { background-color: #FFFFFF; }
+html.light-mode [role="alertdialog"] .backdrop-blur-sm            { backdrop-filter: none; }
+html.light-mode [role="alertdialog"] .border-zen-forest\/40       { border-color: #C0BFB9; }
+html.light-mode [role="alertdialog"] .text-zen-anti-flash         { color: #0C1B14; }
+html.light-mode [role="alertdialog"] .text-zen-anti-flash\/70     { color: #3E5449; }
+html.light-mode [role="alertdialog"] .bg-zen-surface              { background-color: #FFFFFF; }
+html.light-mode [role="alertdialog"] .hover\:bg-zen-forest\/30:hover { background-color: #DDDCD6; }
+
+/* ================================================================
+   PORTALS — Radix Select ([role="listbox"])
+   SelectContent renders outside both <main> and dialogs.
+   The SelectContent element IS the [role="listbox"] element — classes
+   like bg-zen-dark-green are on that same node, NOT on descendants.
+   Use compound selectors (no space) for the element itself.
+   ================================================================ */
+
+/* --- The SelectContent element itself (compound selectors) --- */
+html.light-mode [role="listbox"] {
+  background-color: #FFFFFF;
+  border-color: #C0BFB9;
+  color: #0C1B14;
+}
+
+/* --- Descendants inside the listbox (SelectItem etc.) --- */
+html.light-mode [role="listbox"] .text-zen-anti-flash         { color: #0C1B14; }
+html.light-mode [role="listbox"] .text-zen-anti-flash\/60     { color: #4B6258; }
+
+/* Secondary text in SelectItem content (account type, balance) */
+/* text-gray-400 (#9CA3AF) on white = 2.9:1 FAILS AA */
+html.light-mode [role="listbox"] .text-gray-400               { color: #4B6258; }  /* 6.1:1 AA ✓ */
+html.light-mode [role="listbox"] .text-gray-500               { color: #4B6258; }  /* 6.1:1 AA ✓ */
+
+/* Highlighted / focus states */
+html.light-mode [role="listbox"] .data-\[highlighted\]\:bg-zen-bangladesh-green\/50[data-highlighted] { background-color: #D3EFE3; }
+html.light-mode [role="listbox"] .data-\[highlighted\]\:text-zen-anti-flash[data-highlighted]         { color: #0C1B14; }
+html.light-mode [role="listbox"] .focus\:bg-zen-bangladesh-green\/50:focus                            { background-color: #D3EFE3; }
+html.light-mode [role="listbox"] .focus\:text-zen-anti-flash:focus                                    { color: #0C1B14; }

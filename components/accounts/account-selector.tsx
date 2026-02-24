@@ -37,7 +37,7 @@ export function AccountSelector({
         <SelectTrigger>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash">
+        <SelectContent>
           {allowAll && <SelectItem value="all">Todas las cuentas</SelectItem>}
           {accounts.length === 0 ? (
             <div className="px-2 py-6 text-center text-sm text-gray-500">
@@ -45,7 +45,7 @@ export function AccountSelector({
             </div>
           ) : (
             accounts.map((account) => (
-              <SelectItem key={account.id} value={account.id} className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">
+              <SelectItem key={account.id} value={account.id}>
                 <div className="flex items-center gap-2  ">
                   <span className="font-medium">{account.name}</span>
                   <span className="text-xs text-gray-500">

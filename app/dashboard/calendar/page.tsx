@@ -280,7 +280,7 @@ export default function CalendarPage() {
         </div>
 
         {/* Selector de cuenta */}
-        <div className=" flex-1 bg-zen-surface/60 backdrop-blur-sm rounded-lg border border-zen-forest/40 px-4 py-3">
+        <div className="flex-1 bg-card rounded-lg border border-border px-4 py-3">
           <AccountSelector
             accounts={accounts}
             value={selectedAccountId}

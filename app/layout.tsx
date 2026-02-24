@@ -22,6 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      {/* Inline script runs before hydration to apply saved theme without flash */}
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('zentrade-theme');if(t==='light')document.documentElement.classList.add('light-mode');}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <Providers>
           {children}
