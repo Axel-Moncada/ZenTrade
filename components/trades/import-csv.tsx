@@ -398,7 +398,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
         // Validar campos requeridos (Rithmic detecta instrument del archivo)
         const missingFields = []
         if (!dateField) missingFields.push('Fecha')
-        if (!instrumentField && selectedPlatform !== 'rithmic') missingFields.push('Instrumento')
+        if (!instrumentField) missingFields.push('Instrumento')
         if (!sideField) missingFields.push('Lado (Long/Short)')
         if (!contractsField) missingFields.push('Contratos')
         if (!resultField) missingFields.push('Resultado/Profit')
