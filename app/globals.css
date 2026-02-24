@@ -226,6 +226,7 @@ html.light-mode main .border-zen-forest        { border-color: #C0BFB9; }
 .landing-control-btn:hover {
   background: rgba(255,255,255,0.15);
   border-color: rgba(255,255,255,0.3);
+  font-weight: 500;
 }
 
 /* Language dropdown */
@@ -259,7 +260,7 @@ html.light-mode main .border-zen-forest        { border-color: #C0BFB9; }
 
 /* ── Light mode overrides for landing controls ── */
 html.light-mode .landing-control-btn {
-  color: #1a3a2a;
+  color: #9b9b9b;
   border-color: rgba(0, 107, 66, 0.3);
   background: rgba(0, 107, 66, 0.07);
 }
