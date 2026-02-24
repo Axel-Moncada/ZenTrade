@@ -10,6 +10,7 @@ import { AccountSelector } from '@/components/shared/account-selector'
 import { Target, FileText, Calendar, Shield } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { TradingPlan } from '@/types/trading-plan'
+import { useI18n } from '@/lib/i18n/context'
 
 export default function TradingPlanPage() {
   const [accounts, setAccounts] = useState<Array<{ id: string; name: string; broker: string }>>([])
@@ -17,6 +18,7 @@ export default function TradingPlanPage() {
   const [activePlan, setActivePlan] = useState<TradingPlan | null>(null)
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
+  const { t } = useI18n()
 
   const supabase = createClient()
 
@@ -71,8 +73,8 @@ export default function TradingPlanPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="space-y-1">
-          <h1 className="text-3xl font-bold text-zen-anti-flash">Plan de Trading</h1>
-          <p className="text-zen-anti-flash/60">Define tus reglas y objetivos de trading</p>
+          <h1 className="text-3xl font-bold text-zen-anti-flash">{t.tradingPlan.title}</h1>
+          <p className="text-zen-anti-flash/60">{t.tradingPlan.subtitle}</p>
         </div>
         {!showForm && (
           <div className="flex gap-2">
@@ -83,7 +85,7 @@ export default function TradingPlanPage() {
               />
             )}
             <Button onClick={() => setShowForm(true)} variant={'zenGreen'} >
-              {activePlan ? 'Editar plan' : 'Crear plan'}
+              {activePlan ? t.tradingPlan.editPlan : t.tradingPlan.createPlan}
             </Button>
           </div>
         )}
@@ -101,7 +103,7 @@ export default function TradingPlanPage() {
       {/* Content */}
       {loading ? (
         <div className="flex items-center justify-center h-64">
-          <p className="text-slate-400">Cargando...</p>
+          <p className="text-slate-400">{t.common.loading}</p>
         </div>
       ) : showForm ? (
         <TradingPlanForm
@@ -288,12 +290,12 @@ export default function TradingPlanPage() {
       ) : (
         <Card className="p-12 border-slate-700/50 bg-gradient-to-br from-zen-dark-green/20 to-zen-dark-green/50 text-center">
           <Target className="h-16 w-16 mx-auto mb-4 text-slate-600" />
-          <h3 className="text-xl font-semibold text-slate-300 mb-2">No tienes un plan de trading</h3>
+          <h3 className="text-xl font-semibold text-slate-300 mb-2">{t.tradingPlan.noPlan}</h3>
           <p className="text-slate-400 mb-6">
-            Crea tu plan para definir objetivos, reglas y gestión de riesgo
+            {t.tradingPlan.noPlanDesc}
           </p>
           <Button onClick={() => setShowForm(true)} variant={'zenGreen'}>
-            Crear plan de trading
+            {t.tradingPlan.createPlan}
           </Button>
         </Card>
       )}

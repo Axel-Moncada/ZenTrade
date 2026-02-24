@@ -7,9 +7,11 @@ import { Button } from "@/components/ui/button";
 import { AccountCard } from "@/components/accounts/account-card";
 import { Plus, AlertCircle } from "lucide-react";
 import type { Account } from "@/types/accounts";
+import { useI18n } from "@/lib/i18n/context";
 
 export default function AccountsPage() {
   const router = useRouter();
+  const { t } = useI18n();
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -20,7 +22,7 @@ export default function AccountsPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || "Error al cargar las cuentas");
+        setError(data.error || t.accounts.loadError);
         setLoading(false);
         return;
       }
@@ -28,7 +30,7 @@ export default function AccountsPage() {
       setAccounts(data.accounts || []);
       setLoading(false);
     } catch (err) {
-      setError("Error de conexión");
+      setError(t.calendar.connectionError);
       setLoading(false);
     }
   };
@@ -47,14 +49,12 @@ export default function AccountsPage() {
       <div className="space-y-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-zen-anti-flash">Cuentas</h1>
-            <p className="text-zen-anti-flash/60 mt-2">
-              Gestiona tus cuentas de trading
-            </p>
+            <h1 className="text-3xl font-bold text-zen-anti-flash">{t.accounts.title}</h1>
+            <p className="text-zen-anti-flash/60 mt-2">{t.accounts.subtitle}</p>
           </div>
         </div>
         <div className="flex items-center justify-center py-12">
-          <div className="text-zen-anti-flash/60">Cargando cuentas...</div>
+          <div className="text-zen-anti-flash/60">{t.accounts.loadingAccounts}</div>
         </div>
       </div>
     );
@@ -65,23 +65,21 @@ export default function AccountsPage() {
       <div className="space-y-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-zen-anti-flash">Cuentas</h1>
-            <p className="text-zen-anti-flash/60 mt-2">
-              Gestiona tus cuentas de trading
-            </p>
+            <h1 className="text-3xl font-bold text-zen-anti-flash">{t.accounts.title}</h1>
+            <p className="text-zen-anti-flash/60 mt-2">{t.accounts.subtitle}</p>
           </div>
         </div>
         <div className="bg-zen-danger/10 border border-zen-danger/40 rounded-lg p-6 flex items-start gap-3">
           <AlertCircle className="h-5 w-5 text-zen-danger mt-0.5" />
           <div>
-            <h3 className="font-medium text-zen-danger">Error al cargar</h3>
+            <h3 className="font-medium text-zen-danger">{t.accounts.loadErrorGeneric}</h3>
             <p className="text-zen-danger/80 text-sm mt-1">{error}</p>
             <Button
               size="sm"
               onClick={fetchAccounts}
               className="mt-3 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black"
             >
-              Reintentar
+              {t.common.retry}
             </Button>
           </div>
         </div>
@@ -94,15 +92,13 @@ export default function AccountsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-zen-anti-flash">Cuentas</h1>
-          <p className="text-zen-anti-flash/60 mt-2">
-            Gestiona tus cuentas de trading
-          </p>
+          <h1 className="text-3xl font-bold text-zen-anti-flash">{t.accounts.title}</h1>
+          <p className="text-zen-anti-flash/60 mt-2">{t.accounts.subtitle}</p>
         </div>
         <Link href="/dashboard/accounts/new">
           <Button className="bg-zen-caribbean-green/80 hover:bg-zen-caribbean-green text-zen-rich-black">
             <Plus className="h-4 w-4 mr-2" />
-            Nueva Cuenta
+            {t.accounts.newAccount}
           </Button>
         </Link>
       </div>
@@ -112,16 +108,15 @@ export default function AccountsPage() {
         <div className="text-center py-12 bg-zen-surface/60 rounded-lg border border-zen-forest/40">
           <div className="max-w-md mx-auto">
             <h3 className="text-lg font-medium text-zen-anti-flash mb-2">
-              No tienes cuentas
+              {t.accounts.noAccounts}
             </h3>
             <p className="text-zen-anti-flash/70 mb-6">
-              Comienza creando tu primera cuenta de trading para poder registrar
-              tus operaciones.
+              {t.accounts.noAccountsDesc}
             </p>
             <Link href="/dashboard/accounts/new">
               <Button className="bg-zen-caribbean-green/70 hover:bg-zen-caribbean-green text-zen-rich-black">
                 <Plus className="h-4 w-4 mr-2" />
-                Crear Primera Cuenta
+                {t.accounts.createFirst}
               </Button>
             </Link>
           </div>

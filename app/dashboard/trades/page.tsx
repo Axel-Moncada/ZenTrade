@@ -10,6 +10,7 @@ import { AccountSelector } from '@/components/shared/account-selector'
 import { createClient } from '@/lib/supabase/client'
 import { Trade } from '@/types/trade'
 import Link from 'next/link'
+import { useI18n } from '@/lib/i18n/context'
 
 export default function TradesPage() {
   const [accounts, setAccounts] = useState<Array<{ id: string; name: string; broker: string }>>([])
@@ -23,6 +24,7 @@ export default function TradesPage() {
   const [selectedTrades, setSelectedTrades] = useState<string[]>([])
   const [deleting, setDeleting] = useState(false)
   const tradesPerPage = 20
+  const { t } = useI18n()
 
   const supabase = createClient()
 
@@ -139,9 +141,7 @@ export default function TradesPage() {
   const handleDeleteSelected = async () => {
     if (selectedTrades.length === 0) return
     
-    const confirmDelete = confirm(
-      `¿Estás seguro de que quieres eliminar ${selectedTrades.length} trade(s)? Esta acción no se puede deshacer.`
-    )
+    const confirmDelete = confirm(t.trades.confirmDelete(selectedTrades.length))
     
     if (!confirmDelete) return
     
@@ -158,10 +158,10 @@ export default function TradesPage() {
       await fetchTrades()
       setSelectedTrades([])
       
-      alert(`Se eliminaron ${selectedTrades.length} trade(s) correctamente`)
+      alert(t.trades.deleteSuccess(selectedTrades.length))
     } catch (error) {
       console.error('Error deleting trades:', error)
-      alert('Hubo un error al eliminar los trades')
+      alert(t.trades.deleteError)
     } finally {
       setDeleting(false)
     }
@@ -208,26 +208,26 @@ export default function TradesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-zen-anti-flash">Historial de Trades</h1>
+          <h1 className="text-3xl font-bold text-zen-anti-flash">{t.trades.title}</h1>
           <p className="text-zen-anti-flash/60 mt-2">
-            Visualiza y gestiona todos tus trades
+            {t.trades.subtitle}
           </p>
         </div>
         <div className="flex gap-3">
           <Link href="/dashboard/trades/import">
             <Button className="gap-2 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black">
               <Upload className="h-4 w-4" />
-              Importar
+              {t.trades.importBtn}
             </Button>
           </Link>
           <Button onClick={handleExport} className="gap-2 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black">
             <Download className="h-4 w-4" />
-            Exportar CSV
+            {t.trades.exportBtn}
           </Button>
           <Link href="/dashboard/calendar">
             <Button className="gap-2 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black">
               <Plus className="h-4 w-4" />
-              Nuevo trade
+              {t.trades.newTrade}
             </Button>
           </Link>
         </div>
@@ -255,7 +255,7 @@ export default function TradesPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <p className="text-sm text-zen-anti-flash">
-                {selectedTrades.length} trade(s) seleccionado(s)
+                {t.trades.selectedInfo(selectedTrades.length)}
               </p>
               <Button
                 size="sm"
@@ -263,7 +263,7 @@ export default function TradesPage() {
                 onClick={() => setSelectedTrades([])}
                 className="text-zen-anti-flash border-zen-border-soft hover:bg-zen-surface"
               >
-                Deseleccionar todo
+                {t.trades.deselectAll}
               </Button>
             </div>
             <Button
@@ -273,7 +273,7 @@ export default function TradesPage() {
               className="gap-2 bg-zen-danger hover:bg-zen-danger/80 text-white"
             >
               <Trash2 className="h-4 w-4" />
-              {deleting ? 'Borrando...' : 'Borrar seleccionados'}
+              {deleting ? t.trades.deleting : t.trades.deleteSelected}
             </Button>
           </div>
         </Card>
@@ -282,17 +282,17 @@ export default function TradesPage() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="p-4 border-zen-forest/40 bg-zen-surface/60">
-          <p className="text-sm text-zen-anti-flash/60">Total trades</p>
+          <p className="text-sm text-zen-anti-flash/60">{t.trades.totalTrades}</p>
           <p className="text-2xl font-bold text-zen-anti-flash mt-1">{filteredTrades.length}</p>
         </Card>
         <Card className="p-4 border-zen-caribbean-green/40 bg-zen-caribbean-green/5">
-          <p className="text-sm text-zen-anti-flash/60">Ganadores</p>
+          <p className="text-sm text-zen-anti-flash/60">{t.trades.winners}</p>
           <p className="text-2xl font-bold text-zen-caribbean-green mt-1">
             {filteredTrades.filter(t => (t.result || 0) > 0).length}
           </p>
         </Card>
         <Card className="p-4 border-zen-danger/40 bg-zen-danger/5">
-          <p className="text-sm text-zen-anti-flash/60">Perdedores</p>
+          <p className="text-sm text-zen-anti-flash/60">{t.trades.losers}</p>
           <p className="text-2xl font-bold text-zen-danger mt-1">
             {filteredTrades.filter(t => (t.result || 0) < 0).length}
           </p>
@@ -302,7 +302,7 @@ export default function TradesPage() {
             ? 'bg-zen-caribbean-green/5'
             : 'bg-zen-danger/5'
         }`}>
-          <p className="text-sm text-zen-anti-flash/60">P&L Total</p>
+          <p className="text-sm text-zen-anti-flash/60">{t.trades.totalPnl}</p>
           <p className={`text-2xl font-bold mt-1 ${
             filteredTrades.reduce((sum, t) => sum + (t.result || 0), 0) >= 0
               ? 'text-zen-caribbean-green'
@@ -316,7 +316,7 @@ export default function TradesPage() {
       {/* Table */}
       {loading ? (
         <div className="flex items-center justify-center h-64">
-          <p className="text-zen-anti-flash/60">Cargando...</p>
+          <p className="text-zen-anti-flash/60">{t.trades.loading}</p>
         </div>
       ) : (
         <>
@@ -335,10 +335,10 @@ export default function TradesPage() {
                 disabled={currentPage === 1}
                 className="bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black"
               >
-                Anterior
+                {t.trades.prevPage}
               </Button>
               <span className="text-sm text-zen-anti-flash/60">
-                Página {currentPage} de {totalPages}
+                {t.trades.page(currentPage, totalPages)}
               </span>
               <Button
                 size="sm"
@@ -346,7 +346,7 @@ export default function TradesPage() {
                 disabled={currentPage === totalPages}
                 className="bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black"
               >
-                Siguiente
+                {t.trades.nextPage}
               </Button>
             </div>
           )}

@@ -16,7 +16,6 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { LogoutButton } from "@/components/logout-button";
-import { ThemeToggle } from "@/components/dashboard/theme-toggle";
 import LogoWhite from "@/data/assets/Logo-green.png";
 import IsoWhite from "@/data/assets/Iso-white.png";
 
@@ -178,7 +177,6 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
             </div>
           )}
           
-          <ThemeToggle collapsed={isCollapsed} />
           <LogoutButton collapsed={isCollapsed} />
           
         </div>

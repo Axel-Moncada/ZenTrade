@@ -30,6 +30,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { useI18n } from '@/lib/i18n/context';
 
 export default function DashboardPage() {
   const [accounts, setAccounts] = useState<Account[]>([]);
@@ -41,6 +42,7 @@ export default function DashboardPage() {
   });
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const { t } = useI18n();
 
   const fetchAccounts = useCallback(async () => {
     try {
@@ -105,16 +107,16 @@ export default function DashboardPage() {
         >
           <Activity className="h-16 w-16 text-zen-caribbean-green/60 mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-zen-anti-flash mb-3">
-            No tienes cuentas creadas
+            {t.dashboard.noAccounts}
           </h2>
           <p className="text-zen-anti-flash/70 mb-8">
-            Crea tu primera cuenta de trading para comenzar a trackear tu rendimiento
+            {t.dashboard.noAccountsDesc}
           </p>
           <Link
             href="/dashboard/accounts/new"
             className="inline-flex items-center px-6 py-3 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black font-semibold rounded-lg transition-colors"
           >
-            Crear primera cuenta
+            {t.dashboard.createFirst}
           </Link>
         </motion.div>
       </div>
@@ -160,10 +162,10 @@ export default function DashboardPage() {
         >
           <div>
             <h1 className="text-3xl font-bold text-zen-anti-flash">
-              Dashboard
+              {t.dashboard.title}
             </h1>
             <p className="text-sm text-zen-anti-flash/60">
-              Análisis de rendimiento
+              {t.dashboard.subtitle}
             </p>
           </div>
 
@@ -267,7 +269,7 @@ export default function DashboardPage() {
               <PrimaryStatCard
                 title="Avg/Trade"
                 value={`${(stats.averagePerTrade ?? 0) >= 0 ? '+' : ''}$${(stats.averagePerTrade ?? 0).toFixed(0)}`}
-                subtitle={`${stats.totalTrades ?? 0} ops`}
+                subtitle={`${stats.totalTrades ?? 0} ${t.dashboard.ops}`}
                 icon={TrendingUp}
                 trend={(stats.averagePerTrade ?? 0) >= 0 ? 'positive' : 'negative'}
                 delay={0.3}
@@ -276,7 +278,7 @@ export default function DashboardPage() {
               <PrimaryStatCard
                 title="Total Trades"
                 value={stats.totalTrades}
-                subtitle={`${stats.winningTrades} ganadores`}
+                  subtitle={`${stats.winningTrades} ${t.dashboard.winners}`}
                 icon={BarChart3}
                 trend="neutral"
                 delay={0.4}
@@ -302,7 +304,7 @@ export default function DashboardPage() {
               />
 
               <CompactStatCard
-                title="Racha"
+                title={t.dashboard.streak}
                 value={stats.currentStreak?.count ?? 0}
                 subtitle={
                   stats.currentStreak?.type === 'winning'
@@ -330,7 +332,7 @@ export default function DashboardPage() {
                 stats.worstDay ? "grid-cols-2" : "grid-cols-1"
               )}>
                 <CompactStatCard
-                  title="Mejor Día"
+                  title={t.dashboard.bestDay}
                   value={`$${stats.bestDay.pnl.toFixed(0)}`}
                   subtitle={stats.bestDay.date}
                   icon={TrendingUp}
@@ -341,7 +343,7 @@ export default function DashboardPage() {
 
                 {stats.worstDay && (
                   <CompactStatCard
-                    title="Peor Día"
+                    title={t.dashboard.worstDay}
                     value={`$${Math.abs(stats.worstDay.pnl).toFixed(0)}`}
                     subtitle={stats.worstDay.date}
                     icon={TrendingDown}
@@ -363,7 +365,7 @@ export default function DashboardPage() {
                 <div className="flex items-center gap-2">
                   <AlertTriangle className="h-4 w-4 text-zen-pistachio" />
                   <p className="text-xs text-zen-pistachio font-medium">
-                    Mejor día = {(stats.bestDay.percentOfTotal ?? 0).toFixed(1)}% del total
+                    {t.dashboard.bestDayAlert((stats.bestDay.percentOfTotal ?? 0).toFixed(1))}
                   </p>
                 </div>
               </motion.div>

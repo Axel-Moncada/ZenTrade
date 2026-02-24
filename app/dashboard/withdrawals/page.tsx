@@ -16,6 +16,7 @@ import {
   Clock,
   TrendingDown 
 } from 'lucide-react'
+import { useI18n } from '@/lib/i18n/context'
 
 export default function WithdrawalsPage() {
   const [accounts, setAccounts] = useState<Account[]>([])
@@ -24,6 +25,7 @@ export default function WithdrawalsPage() {
   const [error, setError] = useState<string | null>(null)
   const [selectedAccount, setSelectedAccount] = useState<Account | null>(null)
   const [dialogOpen, setDialogOpen] = useState(false)
+  const { t } = useI18n()
 
   const fetchData = async () => {
     try {
@@ -35,7 +37,7 @@ export default function WithdrawalsPage() {
       const accountsData = await accountsResponse.json()
 
       if (!accountsResponse.ok) {
-        throw new Error(accountsData.error || 'Error al cargar cuentas')
+          throw new Error(accountsData.error || t.common.error)
       }
 
       // Filtrar solo cuentas live
@@ -84,8 +86,8 @@ export default function WithdrawalsPage() {
     return (
       <div className="space-y-8">
         <div>
-          <h1 className="text-3xl font-bold mb-2 text-zen-anti-flash">Retiros</h1>
-          <p className="text-zen-anti-flash/60">Gestiona tus retiros de cuentas live</p>
+          <h1 className="text-3xl font-bold mb-2 text-zen-anti-flash">{t.withdrawals.title}</h1>
+          <p className="text-zen-anti-flash/60">{t.withdrawals.loading}</p>
         </div>
 
         <div className="grid gap-16 md:grid-cols-3 lg:grid-cols-3">
@@ -100,7 +102,7 @@ export default function WithdrawalsPage() {
   if (error) {
     return (
       <div className="space-y-8">
-        <h1 className="text-3xl font-bold text-zen-anti-flash">Retiros</h1>
+        <h1 className="text-3xl font-bold text-zen-anti-flash">{t.withdrawals.title}</h1>
         <Alert className="bg-zen-danger/10 border-zen-danger/40">
           <AlertCircle className="h-4 w-4 text-zen-danger" />
           <AlertDescription className="text-zen-danger/80">{error}</AlertDescription>
@@ -115,10 +117,10 @@ export default function WithdrawalsPage() {
       <div>
         <h1 className="text-3xl font-bold mb-2 flex items-center gap-3 text-zen-anti-flash">
           <ArrowDownToLine className="h-8 w-8 text-zen-mint" />
-          Retiros
+          {t.withdrawals.title}
         </h1>
         <p className="text-zen-anti-flash/60">
-          Gestiona tus retiros de cuentas live. Solo puedes retirar cuando tu saldo supere el 30% del saldo inicial.
+          {t.withdrawals.subtitle}
         </p>
       </div>
 
@@ -131,7 +133,7 @@ export default function WithdrawalsPage() {
                 <TrendingDown className="h-5 w-5 text-zen-caribbean-green" />
               </div>
               <div>
-                <p className="text-xs text-zen-anti-flash/60">Total Retirado</p>
+                <p className="text-xs text-zen-anti-flash/60">{t.withdrawals.totalWithdrawn}</p>
                 <p className="text-xl font-bold text-zen-anti-flash">
                   ${totalWithdrawn.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                 </p>
@@ -145,7 +147,7 @@ export default function WithdrawalsPage() {
                 <CheckCircle2 className="h-5 w-5 text-zen-mint" />
               </div>
               <div>
-                <p className="text-xs text-zen-anti-flash/60">Retiros Completados</p>
+                <p className="text-xs text-zen-anti-flash/60">{t.withdrawals.completed}</p>
                 <p className="text-xl font-bold text-zen-anti-flash">
                   {withdrawals.filter(w => w.status === 'completed').length}
                 </p>
@@ -159,7 +161,7 @@ export default function WithdrawalsPage() {
                 <Clock className="h-5 w-5 text-zen-pistachio" />
               </div>
               <div>
-                <p className="text-xs text-zen-anti-flash/60">Último Retiro</p>
+                <p className="text-xs text-zen-anti-flash/60">{t.withdrawals.lastWithdrawal}</p>
                 <p className="text-xl font-bold text-zen-anti-flash">
                   {withdrawals.length > 0
                     ? new Date(withdrawals[0].withdrawal_date).toLocaleDateString('es-ES')
@@ -177,17 +179,17 @@ export default function WithdrawalsPage() {
         <Card className="p-12 text-center border-zen-forest/40 bg-zen-surface/60 rounded-xl">
           <ArrowDownToLine className="h-16 w-16 mx-auto mb-4 text-zen-caribbean-green/40" />
           <h3 className="text-xl font-semibold text-zen-anti-flash mb-2">
-            No tienes cuentas live
+            {t.withdrawals.noLiveAccounts}
           </h3>
           <p className="text-zen-anti-flash/60">
-            Los retiros solo están disponibles para cuentas de tipo LIVE
+            {t.withdrawals.noLiveAccountsDesc}
           </p>
         </Card>
       ) : (
         <>
           <div>
             <h2 className="text-xl font-semibold mb-4 text-zen-anti-flash">
-              Cuentas Live ({accounts.length})
+              {t.withdrawals.liveAccounts(accounts.length)}
             </h2>
             <div className="grid gap-16 md:grid-cols-3 lg:grid-cols-3">
               {accounts.map((account) => (
@@ -204,7 +206,7 @@ export default function WithdrawalsPage() {
           {recentWithdrawals.length > 0 && (
             <div>
               <h2 className="text-xl font-semibold mb-4 text-zen-anti-flash">
-                Retiros Recientes
+                {t.withdrawals.recentWithdrawals}
               </h2>
               <Card className="border-zen-forest/40 bg-zen-surface/60">
                 <div className="divide-y divide-zen-forest/30">
@@ -231,8 +233,8 @@ export default function WithdrawalsPage() {
                               : 'bg-zen-danger/20 text-zen-danger border-zen-danger/40'
                           }
                         >
-                          {withdrawal.status === 'completed' ? 'Completado' :
-                           withdrawal.status === 'pending' ? 'Pendiente' : 'Cancelado'}
+                          withdrawal.status === 'completed' ? t.withdrawals.statusCompleted :
+                           withdrawal.status === 'pending' ? t.withdrawals.statusPending : t.withdrawals.statusCancelled
                         </Badge>
                         <p className="text-lg font-bold text-zen-caribbean-green">
                           -${withdrawal.amount.toFixed(2)}
