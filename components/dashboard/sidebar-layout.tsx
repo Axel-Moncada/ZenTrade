@@ -14,6 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { LogoutButton } from "@/components/logout-button";
 import LogoWhite from "@/data/assets/Logo-green.png";
 import IsoWhite from "@/data/assets/Iso-white.png";
@@ -41,20 +42,26 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
           >
             {!isCollapsed && (
               <div>
-                <img
-                  src={LogoWhite.src}
+                <Image
+                  src={LogoWhite}
                   alt="Zentrade Logo"
+                  width={160}
+                  height={96}
                   className="h-24 w-auto"
+                  priority
                 />
               </div>
             )}
 
             {isCollapsed && (
               <div>
-                <img
-                  src={IsoWhite.src}
+                <Image
+                  src={IsoWhite}
                   alt="Zentrade Logo"
+                  width={144}
+                  height={64}
                   className="h-auto w-36"
+                  priority
                 />
               </div>
             )}
