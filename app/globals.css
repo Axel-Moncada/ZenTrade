@@ -211,6 +211,88 @@ html.light-mode main .border-zen-forest        { border-color: #C0BFB9; }
 /* ----------------------------------------------------------------
    Scrollbar
    ---------------------------------------------------------------- */
+/* ================================================================
+   LANDING PAGE — Custom classes for controls + navbar
+   Apply in both dark (default) and light mode
+   ================================================================ */
+
+/* Language button */
+.landing-control-btn {
+  color: rgba(242, 243, 244, 0.8);
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  transition: background 0.2s, border-color 0.2s;
+}
+.landing-control-btn:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* Language dropdown */
+.landing-lang-dropdown {
+  background: #0f1923;
+  border-color: rgba(255,255,255,0.1);
+  color: rgba(242,243,244,0.85);
+}
+.landing-lang-item {
+  color: rgba(242,243,244,0.75);
+}
+.landing-lang-item:hover {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+}
+.landing-lang-check {
+  color: #00C17C;
+}
+
+/* Navbar scrolled background */
+.landing-nav-scrolled {
+  background: rgba(0, 27, 31, 0.95);
+  border-color: rgba(255,255,255,0.05);
+}
+
+/* Mobile menu background */
+.landing-mobile-menu {
+  background: rgba(0, 27, 31, 0.98);
+  border-color: rgba(255,255,255,0.05);
+}
+
+/* ── Light mode overrides for landing controls ── */
+html.light-mode .landing-control-btn {
+  color: #1a3a2a;
+  border-color: rgba(0, 107, 66, 0.3);
+  background: rgba(0, 107, 66, 0.07);
+}
+html.light-mode .landing-control-btn:hover {
+  background: rgba(0, 107, 66, 0.14);
+  border-color: rgba(0, 107, 66, 0.5);
+}
+html.light-mode .landing-lang-dropdown {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.1);
+  color: #1a3a2a;
+}
+html.light-mode .landing-lang-item {
+  color: #1a3a2a;
+}
+html.light-mode .landing-lang-item:hover {
+  background: rgba(0, 107, 66, 0.08);
+  color: #005a30;
+}
+html.light-mode .landing-lang-check {
+  color: #006B42;
+}
+
+/* Navbar stays dark in light mode — landing page nav */
+html.light-mode .landing-nav-scrolled {
+  background: rgba(0, 27, 31, 0.95);
+  border-color: rgba(255,255,255,0.08);
+}
+html.light-mode .landing-mobile-menu {
+  background: rgba(0, 27, 31, 0.98);
+  border-color: rgba(255,255,255,0.08);
+}
+
 html.light-mode ::-webkit-scrollbar-track {
   background: #ECEAE3;
 }

@@ -24,7 +24,7 @@ export default async function Home() {
 
   // Landing page is always visible, navbar adapts based on auth state
   return (
-    <div className="min-h-screen bg-gradient-to-br from-zen-rich-black via-zen-dark-green/30 to-zen-rich-black">
+    <div className="min-h-screen bg-gradient-to-br from-zen-rich-black via-zen-dark-green to-zen-rich-black">
       <PublicNavbar isAuthenticated={!!user} />
       <main>
         <HeroSection />

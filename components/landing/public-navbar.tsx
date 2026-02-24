@@ -41,7 +41,7 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-zen-rich-black/95 backdrop-blur-md border-b border-zen-border-soft"
+            ? "landing-nav-scrolled backdrop-blur-md border-b"
             : "bg-transparent"
         }`}
       >
@@ -111,7 +111,7 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed top-20 left-0 right-0 bg-zen-rich-black/98 backdrop-blur-md border-b border-zen-border-soft md:hidden z-40">
+        <div className="landing-mobile-menu fixed top-20 left-0 right-0 backdrop-blur-md border-b md:hidden z-40">
           <div className="max-w-7xl mx-auto px-6 py-6 space-y-4">
             {/* Mobile Nav Links */}
             {navLinks.map((link) => (
