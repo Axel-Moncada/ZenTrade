@@ -1,9 +1,12 @@
-"use client";
+﻿"use client";
 
 import CTAButton from "@/components/landing/cta-button";
 import { Sparkles, TrendingUp, CheckCircle2, ArrowRight } from "lucide-react";
+import { useI18n } from "@/lib/i18n/context";
 
 export default function HeroSection() {
+  const { t } = useI18n();
+  const l = t.landing;
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Gradient Background with Multiple Layers */}
@@ -33,47 +36,36 @@ export default function HeroSection() {
           <div className="inline-flex items-center space-x-2 bg-zen-surface-elevated border border-zen-caribbean-green/30 rounded-full px-4 py-2">
             <Sparkles className="h-4 w-4 text-zen-caribbean-green" />
             <span className="text-sm text-zen-caribbean-green font-medium">
-              Trusted by Professional Traders
+              {l.heroBadge}
             </span>
           </div>
 
           {/* Headline */}
           <h1 className="text-5xl md:text-7xl font-bold text-zen-anti-flash leading-tight">
-            De Trader Amateur
+            {l.heroHeadline1}
             <br />
             <span className="text-zen-caribbean-green">
-              A Profesional Financiado
+              {l.heroHeadline2}
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-zen-text-muted max-w-3xl mx-auto leading-relaxed">
-            El trading journal diseñado para{" "}
+            {l.heroSubPrefix}
             <span className="text-zen-anti-flash font-semibold">
-              pasar evaluaciones de prop firms
-            </span>{" "}
-            y escalar tu capital. Dashboard analítico, multi-cuenta y export
-            profesional.
+              {l.heroSubHighlight}
+            </span>
+            {l.heroSubSuffix}
           </p>
 
           {/* Social Proof Points */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-zen-text-muted">
-            <div className="flex items-center space-x-2">
-              <CheckCircle2 className="h-5 w-5 text-zen-caribbean-green" />
-              <span>FTMO Ready</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle2 className="h-5 w-5 text-zen-caribbean-green" />
-              <span>Multi-Cuenta</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle2 className="h-5 w-5 text-zen-caribbean-green" />
-              <span>Métricas Reales</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle2 className="h-5 w-5 text-zen-caribbean-green" />
-              <span>Export PDF</span>
-            </div>
+            {[l.heroProof1, l.heroProof2, l.heroProof3, l.heroProof4].map((proof) => (
+              <div key={proof} className="flex items-center space-x-2">
+                <CheckCircle2 className="h-5 w-5 text-zen-caribbean-green" />
+                <span>{proof}</span>
+              </div>
+            ))}
           </div>
 
           {/* CTA Buttons */}
@@ -81,7 +73,7 @@ export default function HeroSection() {
             <CTAButton size="lg" />
             <a href="#pricing" className="w-full sm:w-auto">
               <button className="w-full border-zen-caribbean-green text-zen-caribbean-green hover:bg-zen-caribbean-green hover:text-zen-rich-black transition-all px-8 py-3 rounded-lg font-semibold border-2 group">
-                Ver Planes
+                {l.heroSeePlans}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 inline-block" />
               </button>
             </a>
@@ -94,9 +86,7 @@ export default function HeroSection() {
                 <TrendingUp className="h-5 w-5 text-zen-caribbean-green" />
                 <p className="text-3xl font-bold text-zen-anti-flash">92%</p>
               </div>
-              <p className="text-sm text-zen-text-muted mt-1">
-                Mejora en Consistency
-              </p>
+              <p className="text-sm text-zen-text-muted mt-1">{l.heroStat1Label}</p>
             </div>
             <div className="h-12 w-px bg-zen-border-soft" />
             <div>
@@ -104,9 +94,7 @@ export default function HeroSection() {
                 <Sparkles className="h-5 w-5 text-zen-caribbean-green" />
                 <p className="text-3xl font-bold text-zen-anti-flash">3x</p>
               </div>
-              <p className="text-sm text-zen-text-muted mt-1">
-                Faster Prop Firm Pass
-              </p>
+              <p className="text-sm text-zen-text-muted mt-1">{l.heroStat2Label}</p>
             </div>
           </div>
         </div>

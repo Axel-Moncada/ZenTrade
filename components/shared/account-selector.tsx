@@ -28,14 +28,14 @@ export function AccountSelector({
 }: AccountSelectorProps) {
   return (
     <div className="space-y-2">
-      <Label>Cuenta de trading</Label>
+      <Label className="text-zen-anti-flash">Cuenta de trading</Label>
       <Select value={selectedAccount} onValueChange={onAccountChange}>
-        <SelectTrigger className="border-zen-anti-flash/20 text-zen-anti-flash bg-zen-dark-green hover:border-zen-anti-flash/40">
+        <SelectTrigger className="text-zen-anti-flash">
           <SelectValue placeholder="Selecciona una cuenta" />
         </SelectTrigger>
-        <SelectContent className="border-zen-anti-flash/20 bg-zen-dark-green text-zen-anti-flash">
+        <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
           {accounts.map((account) => (
-            <SelectItem key={account.id} value={account.id}>
+            <SelectItem key={account.id} value={account.id} className="hover:bg-zen-rich-black">
               {account.name} - {account.broker}
             </SelectItem>
           ))}

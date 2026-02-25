@@ -207,6 +207,8 @@ html.light-mode main .text-zen-anti-flash\/60  { color: #4B6258; }
 html.light-mode main .border-zen-forest\/30    { border-color: #D1D0CA; }
 html.light-mode main .border-zen-forest\/20    { border-color: #DDDCD6; }
 html.light-mode main .border-zen-forest        { border-color: #C0BFB9; }
+html.light-mode main .border-zen-caribbean-green { border-color: #1F4B3A; }
+html.light-mode main .border-zen-border-soft   { border-color: #D1D0CA; }
 
 /* ----------------------------------------------------------------
    Scrollbar
@@ -316,6 +318,10 @@ html.light-mode ::-webkit-scrollbar-thumb:active { background: #007A42; }
 /* Glassmorphism → eliminado en light mode */
 html.light-mode main .backdrop-blur-sm  { backdrop-filter: none; }
 html.light-mode main .backdrop-blur-md  { backdrop-filter: none; }
+
+/* Gradient stops de slate (ej: panel de filtros from-slate-800/50 to-slate-900/50) */
+html.light-mode main .from-slate-800\/50 { --tw-gradient-from: transparent; }
+html.light-mode main .to-slate-900\/50   { --tw-gradient-to: transparent; }
 
 /* Gradients → fondo sólido blanco */
 html.light-mode main [class*="bg-gradient-"] {
@@ -474,6 +480,14 @@ html.light-mode main .hover\:bg-zen-caribbean-green:hover { background-color: #0
 /* text-zen-text-muted está definido como rgba(242,243,244,0.6) en tailwind.config */
 html.light-mode main .text-zen-text-muted { color: #4B6258; }
 
+/* account-input — class específica para inputs del form en light mode */
+html.light-mode main .account-input {
+  background-color: #F5F4EE;
+  border-color: #C0BFB9;
+  color: #0C1B14;
+}
+html.light-mode main .account-input::placeholder { color: #6B7280; }
+
 /* --- account-selector.tsx (Radix Select dropdown) --- */
 /* SelectContent bg-zen-dark-green → ya cubierto por .bg-zen-dark-green → #FFFFFF */
 /* Highlighted / focus states */
@@ -584,6 +598,7 @@ html.light-mode main .text-zen-anti-flash\/100     { color: #0C1B14; }
 html.light-mode main .ring-zen-caribbean-green\/30 { --tw-ring-color: #86EFAC; }
 
 /* Hover states — explicit prefix variants needed */
+html.light-mode main .hover\:bg-zen-surface:hover               { background-color: #ECEAE3; }
 html.light-mode main .hover\:bg-zen-surface\/60:hover            { background-color: #FFFFFF; }
 html.light-mode main .hover\:bg-zen-surface\/80:hover            { background-color: #FFFFFF; }
 html.light-mode main .hover\:bg-zen-caribbean-green\/10:hover    { background-color: #E6F7F0; }
@@ -646,6 +661,7 @@ html.light-mode [role="dialog"] .backdrop-blur-sm { backdrop-filter: none; }
 html.light-mode [role="dialog"] .backdrop-blur-md { backdrop-filter: none; }
 
 /* --- Borders inside dialog --- */
+html.light-mode [role="dialog"] .border-zen-caribbean-green     { border-color: #1F4B3A; }
 html.light-mode [role="dialog"] .border-zen-forest\/20          { border-color: #DDDCD6; }
 html.light-mode [role="dialog"] .border-zen-forest\/30          { border-color: #D1D0CA; }
 html.light-mode [role="dialog"] .border-zen-forest\/40          { border-color: #C0BFB9; }
@@ -741,6 +757,11 @@ html.light-mode [role="listbox"] .data-\[highlighted\]\:bg-zen-bangladesh-green\
 html.light-mode [role="listbox"] .data-\[highlighted\]\:text-zen-anti-flash[data-highlighted]         { color: #0C1B14; }
 html.light-mode [role="listbox"] .focus\:bg-zen-bangladesh-green\/50:focus                            { background-color: #D3EFE3; }
 html.light-mode [role="listbox"] .focus\:text-zen-anti-flash:focus                                    { color: #0C1B14; }
+
+/* account-selector & date-range-selector — colores dark hardcoded → overrides light */
+html.light-mode [role="listbox"] .text-zen-caribbean-green       { color: #007A42; }  /* 5.1:1 AA ✓ */
+html.light-mode [role="listbox"] .text-zen-caribbean-green\/70   { color: #3E5449; }  /* 8.2:1 AAA ✓ */
+html.light-mode [role="listbox"] .hover\:bg-zen-rich-black:hover { background-color: #F0EFE9; }
 
 
 

@@ -118,7 +118,7 @@ export default function LoginPage() {
         </Link>
 
         {/* Auth Card */}
-        <div className="bg-zen-surface-elevated rounded-3xl border border-zen-caribbean-green/30  shadow-zen-caribbean-green shadow-[0px_0_150px_rgba(0,0,0,0.5)] p-8 ">
+        <div className="bg-zen-surface-elevated rounded-3xl border border-zen-caribbean-green/30  shadow-zen-caribbean-green shadow-[0px_0_100px_rgba(0,0,0,0.5)] p-8 ">
           {/* Logo & Title */}
           <div className="text-center mb-8">
             <Image src={logoZen} alt="ZenTrade Logo" className="mx-auto mb-4 w-80" />

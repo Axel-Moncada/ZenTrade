@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Card } from '@/components/ui/card'
-import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
 import {
   Target,
@@ -43,13 +42,19 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState<string | null>(null)
 
+  // Shared input/textarea class — account-input triggers light-mode CSS overrides
+  const inputCls =
+    'account-input border-zen-bangladesh-green bg-zen-bangladesh-green/40 text-zen-anti-flash placeholder:text-zen-anti-flash/50 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none'
+  const textareaCls =
+    'account-input border-zen-bangladesh-green bg-zen-bangladesh-green/40 text-zen-anti-flash placeholder:text-zen-anti-flash/50'
+
   useEffect(() => {
     if (existingPlan) {
       setFormData(existingPlan)
     }
   }, [existingPlan])
 
-  const updateField = (field: keyof TradingPlanFormData, value: any) => {
+  const updateField = (field: keyof TradingPlanFormData, value: unknown) => {
     setFormData({ ...formData, [field]: value })
   }
 
@@ -100,7 +105,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
     setSuccess(null)
 
     try {
-      const url = existingPlan ? '/api/trading-plans' : '/api/trading-plans'
+      const url = '/api/trading-plans'
       const method = existingPlan ? 'PATCH' : 'POST'
       const body = existingPlan ? { id: existingPlan.id, ...formData } : formData
 
@@ -118,8 +123,8 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
 
       setSuccess('Plan de trading guardado exitosamente')
       onSaveSuccess()
-    } catch (err: any) {
-      setError(err.message)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Error al guardar el plan')
     } finally {
       setIsSaving(false)
     }
@@ -127,330 +132,356 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
 
   return (
     <div className="space-y-6">
-      {/* Alertas */}
+      {/* Error banner */}
       {error && (
-        <Alert variant="destructive">
-          <AlertTriangle className="h-4 w-4" />
-          <AlertDescription>{error}</AlertDescription>
-        </Alert>
+        <div className="flex items-start gap-3 bg-zen-danger/10 border border-zen-danger/40 text-zen-danger px-4 py-3 rounded-lg">
+          <AlertTriangle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+          <span className="text-sm">{error}</span>
+        </div>
       )}
 
+      {/* Success banner */}
       {success && (
-        <Alert className="border-emerald-500/50 bg-emerald-500/10">
-          <CheckSquare className="h-4 w-4 text-emerald-400" />
-          <AlertDescription className="text-emerald-400">{success}</AlertDescription>
-        </Alert>
+        <div className="flex items-start gap-3 bg-zen-caribbean-green/10 border border-zen-caribbean-green/40 text-zen-caribbean-green px-4 py-3 rounded-lg">
+          <CheckSquare className="h-4 w-4 mt-0.5 flex-shrink-0" />
+          <span className="text-sm">{success}</span>
+        </div>
       )}
 
-
-<div className='grid grid-cols-1 md:grid-cols-2 gap-6'> 
-      {/* Objetivos */}
-      <Card className="p-6 border-slate-700/50 bg-gradient-to-br from-zen-dark-green/20  to-zen-dark-green/50">
-        <div className="flex items-center gap-2 mb-4">
-          <Target className="h-5 w-5 text-emerald-400" />
-          <h3 className="text-lg font-semibold text-slate-200">Objetivos y Límites</h3>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label>Objetivo de ganancia diario ($)</Label>
-            <Input
-              type="number"
-              step="0.01"
-              value={formData.daily_profit_target || ''}
-              onChange={(e) => updateField('daily_profit_target', parseFloat(e.target.value) || undefined)}
-              placeholder="500"
-            />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Objetivos */}
+        <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
+          <div className="flex items-center gap-2 mb-4">
+            <Target className="h-5 w-5 text-zen-caribbean-green" />
+            <h3 className="text-lg font-semibold text-zen-anti-flash">Objetivos y Límites</h3>
           </div>
 
-          <div className="space-y-2">
-            <Label>Límite de pérdida diario ($)</Label>
-            <Input
-              type="number"
-              step="0.01"
-              value={formData.daily_loss_limit || ''}
-              onChange={(e) => updateField('daily_loss_limit', parseFloat(e.target.value) || undefined)}
-              placeholder="200"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Objetivo de ganancia diario ($)</Label>
+              <Input
+                type="number"
+                step="0.01"
+                value={formData.daily_profit_target || ''}
+                onChange={(e) => updateField('daily_profit_target', parseFloat(e.target.value) || undefined)}
+                placeholder="500"
+                className={inputCls}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Límite de pérdida diario ($)</Label>
+              <Input
+                type="number"
+                step="0.01"
+                value={formData.daily_loss_limit || ''}
+                onChange={(e) => updateField('daily_loss_limit', parseFloat(e.target.value) || undefined)}
+                placeholder="200"
+                className={inputCls}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Objetivo de ganancia semanal ($)</Label>
+              <Input
+                type="number"
+                step="0.01"
+                value={formData.weekly_profit_target || ''}
+                onChange={(e) => updateField('weekly_profit_target', parseFloat(e.target.value) || undefined)}
+                placeholder="2500"
+                className={inputCls}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Límite de pérdida semanal ($)</Label>
+              <Input
+                type="number"
+                step="0.01"
+                value={formData.weekly_loss_limit || ''}
+                onChange={(e) => updateField('weekly_loss_limit', parseFloat(e.target.value) || undefined)}
+                placeholder="1000"
+                className={inputCls}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Objetivo de ganancia mensual ($)</Label>
+              <Input
+                type="number"
+                step="0.01"
+                value={formData.monthly_profit_target || ''}
+                onChange={(e) => updateField('monthly_profit_target', parseFloat(e.target.value) || undefined)}
+                placeholder="10000"
+                className={inputCls}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Límite de pérdida mensual ($)</Label>
+              <Input
+                type="number"
+                step="0.01"
+                value={formData.monthly_loss_limit || ''}
+                onChange={(e) => updateField('monthly_loss_limit', parseFloat(e.target.value) || undefined)}
+                placeholder="4000"
+                className={inputCls}
+              />
+            </div>
+          </div>
+        </Card>
+
+        {/* Gestión de riesgo */}
+        <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
+          <div className="flex items-center gap-2 mb-4">
+            <Shield className="h-5 w-5 text-zen-danger" />
+            <h3 className="text-lg font-semibold text-zen-anti-flash">Gestión de Riesgo</h3>
           </div>
 
-          <div className="space-y-2">
-            <Label>Objetivo de ganancia semanal ($)</Label>
-            <Input
-              type="number"
-              step="0.01"
-              value={formData.weekly_profit_target || ''}
-              onChange={(e) => updateField('weekly_profit_target', parseFloat(e.target.value) || undefined)}
-              placeholder="2500"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Riesgo máximo por trade (%)</Label>
+              <Input
+                type="number"
+                step="0.01"
+                value={formData.max_risk_per_trade || ''}
+                onChange={(e) => updateField('max_risk_per_trade', parseFloat(e.target.value) || undefined)}
+                placeholder="1"
+                className={inputCls}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Máximo de trades diarios</Label>
+              <Input
+                type="number"
+                value={formData.max_daily_trades || ''}
+                onChange={(e) => updateField('max_daily_trades', parseInt(e.target.value) || undefined)}
+                placeholder="5"
+                className={inputCls}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Máximo de posiciones concurrentes</Label>
+              <Input
+                type="number"
+                value={formData.max_concurrent_positions || ''}
+                onChange={(e) => updateField('max_concurrent_positions', parseInt(e.target.value) || undefined)}
+                placeholder="3"
+                className={inputCls}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Ratio mínimo riesgo/recompensa</Label>
+              <Input
+                type="number"
+                step="0.1"
+                value={formData.min_risk_reward_ratio || ''}
+                onChange={(e) => updateField('min_risk_reward_ratio', parseFloat(e.target.value) || undefined)}
+                placeholder="2"
+                className={inputCls}
+              />
+            </div>
           </div>
-
-          <div className="space-y-2">
-            <Label>Límite de pérdida semanal ($)</Label>
-            <Input
-              type="number"
-              step="0.01"
-              value={formData.weekly_loss_limit || ''}
-              onChange={(e) => updateField('weekly_loss_limit', parseFloat(e.target.value) || undefined)}
-              placeholder="1000"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label>Objetivo de ganancia mensual ($)</Label>
-            <Input
-              type="number"
-              step="0.01"
-              value={formData.monthly_profit_target || ''}
-              onChange={(e) => updateField('monthly_profit_target', parseFloat(e.target.value) || undefined)}
-              placeholder="10000"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label>Límite de pérdida mensual ($)</Label>
-            <Input
-              type="number"
-              step="0.01"
-              value={formData.monthly_loss_limit || ''}
-              onChange={(e) => updateField('monthly_loss_limit', parseFloat(e.target.value) || undefined)}
-              placeholder="4000"
-            />
-          </div>
-        </div>
-      </Card>
-
-
-       {/* Gestión de riesgo */}
-      <Card className="p-6 border-slate-700/50 bg-gradient-to-br from-zen-dark-green/20 to-zen-dark-green/50">
-        <div className="flex items-center gap-2 mb-4">
-          <Shield className="h-5 w-5 text-rose-400" />
-          <h3 className="text-lg font-semibold text-slate-200">Gestión de Riesgo</h3>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label>Riesgo máximo por trade (%)</Label>
-            <Input
-              type="number"
-              step="0.01"
-              value={formData.max_risk_per_trade || ''}
-              onChange={(e) => updateField('max_risk_per_trade', parseFloat(e.target.value) || undefined)}
-              placeholder="1"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label>Máximo de trades diarios</Label>
-            <Input
-              type="number"
-              value={formData.max_daily_trades || ''}
-              onChange={(e) => updateField('max_daily_trades', parseInt(e.target.value) || undefined)}
-              placeholder="5"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label>Máximo de posiciones concurrentes</Label>
-            <Input
-              type="number"
-              value={formData.max_concurrent_positions || ''}
-              onChange={(e) => updateField('max_concurrent_positions', parseInt(e.target.value) || undefined)}
-              placeholder="3"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label>Ratio mínimo riesgo/recompensa</Label>
-            <Input
-              type="number"
-              step="0.1"
-              value={formData.min_risk_reward_ratio || ''}
-              onChange={(e) => updateField('min_risk_reward_ratio', parseFloat(e.target.value) || undefined)}
-              placeholder="2"
-            />
-          </div>
-        </div>
-      </Card>
-</div>
-
-
-
+        </Card>
+      </div>
 
       {/* Reglas de entrada/salida */}
-      <Card className="p-6 border-slate-700/50 bg-gradient-to-br from-zen-dark-green/20 to-zen-dark-green/50">
+      <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
         <div className="flex items-center gap-2 mb-4">
-          <TrendingUp className="h-5 w-5 text-blue-400" />
-          <h3 className="text-lg font-semibold text-slate-200">Reglas de Entrada y Salida</h3>
+          <TrendingUp className="h-5 w-5 text-zen-caribbean-green" />
+          <h3 className="text-lg font-semibold text-zen-anti-flash">Reglas de Entrada y Salida</h3>
         </div>
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label>Reglas de entrada</Label>
+            <Label className="text-zen-anti-flash">Reglas de entrada</Label>
             <Textarea
               value={formData.entry_rules || ''}
               onChange={(e) => updateField('entry_rules', e.target.value)}
               placeholder="Ej: Entrar solo en pullback a EMA 21, con confirmación de volumen..."
               rows={4}
+              className={textareaCls}
             />
           </div>
 
           <div className="space-y-2">
-            <Label>Reglas de salida</Label>
+            <Label className="text-zen-anti-flash">Reglas de salida</Label>
             <Textarea
               value={formData.exit_rules || ''}
               onChange={(e) => updateField('exit_rules', e.target.value)}
               placeholder="Ej: Salir al alcanzar 2R, o cuando se rompe soporte..."
               rows={4}
+              className={textareaCls}
             />
           </div>
         </div>
       </Card>
 
-     
-
-<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-      {/* Instrumentos permitidos */}
-      <Card className="p-6 border-slate-700/50 bg-gradient-to-br from-zen-dark-green/20 to-zen-dark-green/50">
-        <div className="flex items-center gap-2 mb-4">
-          <Target className="h-5 w-5 text-amber-400" />
-          <h3 className="text-lg font-semibold text-slate-200">Instrumentos Permitidos</h3>
-        </div>
-
-        <div className="space-y-4">
-          <div className="flex gap-2">
-            <Input
-              value={newInstrument}
-              onChange={(e) => setNewInstrument(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && addInstrument()}
-              placeholder="AAPL, MSFT, TSLA..."
-            />
-            <Button onClick={addInstrument} variant="outline" size="icon">
-              <Plus className="h-4 w-4" />
-            </Button>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Instrumentos permitidos */}
+        <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
+          <div className="flex items-center gap-2 mb-4">
+            <Target className="h-5 w-5 text-zen-caribbean-green" />
+            <h3 className="text-lg font-semibold text-zen-anti-flash">Instrumentos Permitidos</h3>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {(formData.allowed_instruments || []).map((instrument) => (
-              <Badge key={instrument} variant="secondary" className="gap-1 text-base mt-5">
-                {instrument}
-                <X
-                  className="h-3 w-3 cursor-pointer"
-                  onClick={() => removeInstrument(instrument)}
-                />
-              </Badge>
-            ))}
-          </div>
-        </div>
-      </Card>
-
-      {/* Horarios */}
-      <Card className="p-6 border-slate-700/50 bg-gradient-to-br from-zen-dark-green/20 to-zen-dark-green/50">
-        <div className="flex items-center gap-2 mb-4">
-          <Clock className="h-5 w-5 text-purple-400" />
-          <h3 className="text-lg font-semibold text-slate-200">Horarios de Trading</h3>
-        </div>
-
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label>Hora de inicio</Label>
+          <div className="space-y-4">
+            <div className="flex gap-2">
               <Input
-                type="time"
-                value={formData.trading_start_time || ''}
-                onChange={(e) => updateField('trading_start_time', e.target.value)}
+                value={newInstrument}
+                onChange={(e) => setNewInstrument(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && addInstrument()}
+                placeholder="ES, NQ, CL..."
+                className={inputCls}
               />
+              <Button
+                onClick={addInstrument}
+                variant="outline"
+                size="icon"
+                className="border-zen-forest/40 text-zen-anti-flash hover:bg-zen-caribbean-green/10 flex-shrink-0"
+              >
+                <Plus className="h-4 w-4" />
+              </Button>
             </div>
 
-            <div className="space-y-2">
-              <Label>Hora de fin</Label>
-              <Input                
-                type="time"
-                value={formData.trading_end_time || ''}
-                onChange={(e) => updateField('trading_end_time', e.target.value)}
-              />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <Label>Días permitidos</Label>
             <div className="flex flex-wrap gap-2">
-              {WEEK_DAYS.map((day) => (
-                <Button
-                  key={day.value}
-                  variant={(formData.trading_days || []).includes(day.value) ? 'outline' : 'zenGreen'}
-                  size="sm"
-                  onClick={() => toggleTradingDay(day.value)}
+              {(formData.allowed_instruments || []).map((instrument) => (
+                <Badge
+                  key={instrument}
+                  variant="secondary"
+                  className="gap-1 text-base mt-2 bg-zen-bangladesh-green/60 text-zen-anti-flash border-zen-forest/40"
                 >
-                  {day.label}
-                </Button>
+                  {instrument}
+                  <X
+                    className="h-3 w-3 cursor-pointer"
+                    onClick={() => removeInstrument(instrument)}
+                  />
+                </Badge>
               ))}
             </div>
           </div>
-        </div>
-      </Card>
+        </Card>
 
-      {/* Checklist pre-trade */}
-      <Card className="p-6 border-slate-700/50 bg-gradient-to-br from-zen-dark-green/20 to-zen-dark-green/50">
-        <div className="flex items-center gap-2 mb-4">
-          <CheckSquare className="h-5 w-5 text-zen-caribbean-green" />
-          <h3 className="text-lg font-semibold text-slate-200">Checklist Pre-Trade</h3>
-        </div>
-
-        <div className="space-y-4">
-          <div className="flex gap-2">
-            <Input
-              value={newChecklistItem}
-              onChange={(e) => setNewChecklistItem(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && addChecklistItem()}
-              placeholder="Ej: ¿Revisé el calendario económico?"
-            />
-            <Button onClick={addChecklistItem} variant="zenGreen" size="icon">
-              <Plus className="h-4 w-4" />
-            </Button>
+        {/* Horarios */}
+        <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
+          <div className="flex items-center gap-2 mb-4">
+            <Clock className="h-5 w-5 text-zen-caribbean-green" />
+            <h3 className="text-lg font-semibold text-zen-anti-flash">Horarios de Trading</h3>
           </div>
 
-          <div className="space-y-2">
-            {(formData.pre_trade_checklist || []).map((item) => (
-              <div
-                key={item}
-                className="flex items-center justify-between p-3 border border-slate-700/50 rounded-lg bg-zen-bangladesh-green/90"
-              >
-                <span className="text-sm text-slate-300">{item}</span>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="h-6 w-6"
-                  onClick={() => removeChecklistItem(item)}
-                >
-                  <X className="h-4 w-4" />
-                </Button>
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label className="text-zen-anti-flash">Hora de inicio</Label>
+                <Input
+                  type="time"
+                  value={formData.trading_start_time || ''}
+                  onChange={(e) => updateField('trading_start_time', e.target.value)}
+                  className={inputCls}
+                />
               </div>
-            ))}
+
+              <div className="space-y-2">
+                <Label className="text-zen-anti-flash">Hora de fin</Label>
+                <Input
+                  type="time"
+                  value={formData.trading_end_time || ''}
+                  onChange={(e) => updateField('trading_end_time', e.target.value)}
+                  className={inputCls}
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-zen-anti-flash">Días permitidos</Label>
+              <div className="flex flex-wrap gap-2">
+                {WEEK_DAYS.map((day) => {
+                  const isActive = (formData.trading_days || []).includes(day.value)
+                  return (
+                    <Button
+                      key={day.value}
+                      variant={isActive ? 'zenGreen' : 'outline'}
+                      size="sm"
+                      onClick={() => toggleTradingDay(day.value)}
+                      className={cn(!isActive && 'border-zen-forest/40 text-zen-anti-flash hover:bg-zen-caribbean-green/10')}
+                    >
+                      {day.label}
+                    </Button>
+                  )
+                })}
+              </div>
+            </div>
           </div>
-        </div>
-      </Card>
+        </Card>
 
-</div>
+        {/* Checklist pre-trade */}
+        <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
+          <div className="flex items-center gap-2 mb-4">
+            <CheckSquare className="h-5 w-5 text-zen-caribbean-green" />
+            <h3 className="text-lg font-semibold text-zen-anti-flash">Checklist Pre-Trade</h3>
+          </div>
 
+          <div className="space-y-4">
+            <div className="flex gap-2">
+              <Input
+                value={newChecklistItem}
+                onChange={(e) => setNewChecklistItem(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && addChecklistItem()}
+                placeholder="Ej: ¿Revisé el calendario económico?"
+                className={inputCls}
+              />
+              <Button
+                onClick={addChecklistItem}
+                variant="zenGreen"
+                size="icon"
+                className="flex-shrink-0"
+              >
+                <Plus className="h-4 w-4" />
+              </Button>
+            </div>
 
+            <div className="space-y-2">
+              {(formData.pre_trade_checklist || []).map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center justify-between p-3 border border-zen-forest/40 rounded-lg bg-zen-bangladesh-green/40"
+                >
+                  <span className="text-sm text-zen-anti-flash/80">{item}</span>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-6 w-6 text-zen-anti-flash/50 hover:text-zen-danger hover:bg-transparent"
+                    onClick={() => removeChecklistItem(item)}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Card>
+      </div>
 
       {/* Notas de estrategia */}
-      <Card className="p-6 border-slate-700/50 bg-gradient-to-br from-zen-dark-green/20 to-zen-dark-green/50">
+      <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
         <div className="space-y-2">
-          <Label>Notas y estrategia general</Label>
+          <Label className="text-zen-anti-flash">Notas y estrategia general</Label>
           <Textarea
             value={formData.strategy_notes || ''}
             onChange={(e) => updateField('strategy_notes', e.target.value)}
             placeholder="Describe tu estrategia general, setups favoritos, condiciones de mercado..."
             rows={6}
+            className={textareaCls}
           />
         </div>
       </Card>
 
       {/* Botón guardar */}
       <div className="flex justify-end">
-        <Button onClick={handleSave} disabled={isSaving} size="lg" className="gap-2" variant={'zenGreen'}>
+        <Button onClick={handleSave} disabled={isSaving} size="lg" className="gap-2" variant="zenGreen">
           {isSaving ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />

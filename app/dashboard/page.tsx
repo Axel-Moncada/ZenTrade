@@ -33,16 +33,16 @@ import Link from 'next/link';
 import { useI18n } from '@/lib/i18n/context';
 
 export default function DashboardPage() {
+  const { t } = useI18n();
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [selectedAccount, setSelectedAccount] = useState<string | null>(null);
   const [dateRange, setDateRange] = useState<DateRange>({
     startDate: getDefaultStartDate(),
     endDate: getDefaultEndDate(),
-    label: 'Últimos 30 días'
+    label: t.dashboard.lastDays(30)
   });
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
-  const { t } = useI18n();
 
   const fetchAccounts = useCallback(async () => {
     try {
@@ -169,12 +169,13 @@ export default function DashboardPage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4 bg-zen-surface/60 backdrop-blur-sm rounded-lg border border-zen-forest/40 px-4 py-3">
+          <div className="flex items-center gap-4 bg-card rounded-lg border border-border px-4 py-3 text-zen-caribbean-green">
             <AccountSelector
               accounts={accounts}
               value={selectedAccount || ''}
               onValueChange={setSelectedAccount}
               showLabel={false}
+              
             />
             <DateRangeSelector value={dateRange} onChange={setDateRange} />
           </div>
@@ -202,7 +203,7 @@ export default function DashboardPage() {
                     stats.totalPnl >= 0 ? "bg-zen-caribbean-green" : "bg-zen-danger"
                   )} />
                   <span className="text-xs font-semibold text-zen-anti-flash/60 uppercase tracking-wider">
-                    P&L Total
+                    {t.dashboard.pnlTotal}
                   </span>
                 </div>
 
@@ -236,7 +237,7 @@ export default function DashboardPage() {
                       ? "bg-zen-caribbean-green/20 text-zen-caribbean-green"
                       : "bg-zen-danger/20 text-zen-danger"
                   )}>
-                    {(stats.winRate ?? 0).toFixed(1)}% Win Rate
+                    {(stats.winRate ?? 0).toFixed(1)}% {t.dashboard.winRate}
                   </div>
                   <div className="text-xs text-zen-anti-flash/60">
                     {stats.totalTrades ?? 0} trades
@@ -248,7 +249,7 @@ export default function DashboardPage() {
             {/* Métricas Primarias: Grid 2x2 */}
             <div className="grid grid-cols-2 gap-4">
               <PrimaryStatCard
-                title="Win Rate"
+                title={t.dashboard.winRate}
                 value={`${(stats.winRate ?? 0).toFixed(1)}%`}
                 subtitle={`${stats.winningTrades ?? 0} Win / ${stats.losingTrades ?? 0} Lost`}
                 icon={Target}

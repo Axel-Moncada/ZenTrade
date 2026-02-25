@@ -78,7 +78,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
   return (
     <Card className="hover:shadow-lg transition-shadow border-zen-forest/50 rounded-xl backdrop-blur-sm p-6 bg-zen-bangladesh-green/60">
       <CardHeader>
-        <div className="flex items-start justify-between">
+        <div className="flex items-start justify-between text-zen-anti-flash">
           <div className="flex-1">
             <CardTitle className="text-2xl">{account.name}</CardTitle>
             <CardDescription className="mt-1">
@@ -102,7 +102,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
         <div>
           <div className="flex items-baseline justify-between mb-1">
             <span className="text-sm text-zen-anti-flash">Balance Actual</span>
-            <span className="text-2xl font-bold bg-zen-bangladesh-green/80 px-4 py-1 rounded-full">
+            <span className="text-2xl text-zen-caribbean-green font-bold bg-zen-bangladesh-green/80 px-4 py-1 rounded-full">
               ${account.current_balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </span>
           </div>
@@ -141,7 +141,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
           <div>
             <div className="flex items-center justify-between text-sm mb-1">
               <span className="text-zen-anti-flash mt-5">Progreso Objetivo</span>
-              <span className="font-medium">{profitProgress.toFixed(1)}%</span>
+              <span className="font-medium text-zen-anti-flash">{profitProgress.toFixed(1)}%</span>
             </div>
             <div className="w-full bg-zen-rich-black/70 rounded-full h-3">
               <div
@@ -195,7 +195,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
         {/* Botones */}
         <div className="flex gap-2 pt-3">
           <Link href={`/dashboard/accounts/${account.id}`} className="flex-1">
-            <Button variant="outline" className="w-full bg-zen-dark-green border-0 hover:bg-zen-caribbean-green hover:text-zen-rich-black" size="sm">
+            <Button variant="outline" className="w-full bg-zen-caribbean-green hover:bg-zen-caribbean-green/70 font-bold border-0  hover:text-zen-rich-black" size="sm">
               <Pencil className="h-4 w-4 mr-2" />
               Ver / Editar
             </Button>

@@ -1,8 +1,14 @@
-"use client";
+﻿"use client";
 
-import { painPoints } from "@/data/landing/pain-points";
+import { AlertTriangle, Shuffle, RotateCcw } from "lucide-react";
+import { useI18n } from "@/lib/i18n/context";
+
+const ICONS = [AlertTriangle, Shuffle, RotateCcw];
 
 export default function ProblemSection() {
+  const { t } = useI18n();
+  const l = t.landing;
+
   return (
     <section className="relative py-24 bg-gradient-to-b from-transparent via-zen-dark-green/20 to-transparent">
       {/* Subtle glow effect */}
@@ -12,18 +18,15 @@ export default function ProblemSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-zen-anti-flash mb-6">
-            ¿Por Qué Fallamos en el Trading?
+            {l.problemTitle}
           </h2>
-          <p className="text-lg text-zen-text-muted">
-            Sin métricas claras y estructura profesional, el 90% de traders
-            repite los mismos errores sin aprender de su historial.
-          </p>
+          <p className="text-lg text-zen-text-muted">{l.problemSubtitle}</p>
         </div>
 
         {/* Pain Points Grid */}
         <div className="grid md:grid-cols-3 gap-8">
-          {painPoints.map((pain, index) => {
-            const Icon = pain.icon;
+          {l.problemPoints.map((pain, index) => {
+            const Icon = ICONS[index];
             return (
               <div
                 key={index}
@@ -34,12 +37,8 @@ export default function ProblemSection() {
                     <Icon className="h-6 w-6 text-zen-danger" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-zen-anti-flash mb-3">
-                      {pain.title}
-                    </h3>
-                    <p className="text-zen-text-muted leading-relaxed">
-                      {pain.description}
-                    </p>
+                    <h3 className="text-xl font-semibold text-zen-anti-flash mb-3">{pain.title}</h3>
+                    <p className="text-zen-text-muted leading-relaxed">{pain.description}</p>
                   </div>
                 </div>
               </div>
@@ -49,9 +48,7 @@ export default function ProblemSection() {
 
         {/* Emphasis Text */}
         <div className="mt-16 text-center">
-          <p className="text-2xl text-zen-caribbean-green font-semibold">
-            El problema no es tu estrategia. Es la falta de datos objetivos.
-          </p>
+          <p className="text-2xl text-zen-caribbean-green font-semibold">{l.problemEmphasis}</p>
         </div>
       </div>
     </section>

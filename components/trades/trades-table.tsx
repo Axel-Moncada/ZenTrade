@@ -156,8 +156,8 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                   <ArrowUpDown className="h-3 w-3" />
                 </Button>
               </TableHead>
-              <TableHead>Lado</TableHead>
-              <TableHead className="text-right">Contratos</TableHead>
+              <TableHead className='text-zen-anti-flash'>Tipo de trade</TableHead>
+              <TableHead className="text-zen-anti-flash">Contratos</TableHead>
               <TableHead>
                 <Button
                   variant="ghost"
@@ -169,17 +169,17 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                   <ArrowUpDown className="h-3 w-3" />
                 </Button>
               </TableHead>
-              <TableHead>Razón Salida</TableHead>
-              <TableHead className="text-center">Plan</TableHead>
-              <TableHead>Emociones</TableHead>
-              <TableHead className="max-w-[200px]">Notas</TableHead>
+              <TableHead className='text-zen-anti-flash'>Razón Salida</TableHead>
+              <TableHead className="text-center text-zen-anti-flash">Plan</TableHead>
+              <TableHead className='text-zen-anti-flash'>Emociones</TableHead>
+              <TableHead className="max-w-[200px] text-zen-anti-flash">Notas</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {sortedTrades.map((trade) => (
               <TableRow
                 key={trade.id}
-                className="border-zen-mountain-meadow/80 hover:bg-red-800/10 cursor-pointer"
+                className="border-zen-mountain-meadow/80 hover:bg-zen-caribbean-green/20 cursor-pointer"
               >
                 {onSelectionChange && (
                   <TableCell className="w-12" onClick={(e) => e.stopPropagation()}>
@@ -190,13 +190,13 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                     />
                   </TableCell>
                 )}
-                <TableCell className="font-medium" onClick={() => onTradeClick?.(trade)}>
+                <TableCell className="font-medium text-zen-anti-flash" onClick={() => onTradeClick?.(trade)}>
                   {format(new Date(trade.trade_date), 'dd/MM/yyyy', { locale: es })}
                 </TableCell>
                 <TableCell onClick={() => onTradeClick?.(trade)}>
                   <div className="flex flex-col">
-                    <span className="font-medium">{trade.instrument?.symbol}</span>
-                    <span className="text-xs text-slate-400">{trade.instrument?.name}</span>
+                    <span className="font-medium text-zen-anti-flash">{trade.instrument?.symbol}</span>
+                    <span className="text-xs text-zen-caribbean-green">{trade.instrument?.name}</span>
                   </div>
                 </TableCell>
                 <TableCell onClick={() => onTradeClick?.(trade)}>
@@ -216,7 +216,7 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                     {trade.side === 'long' ? 'Largo' : 'Corto'}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-right" onClick={() => onTradeClick?.(trade)}>{trade.contracts}</TableCell>
+                <TableCell className="text-center text-zen-anti-flash" onClick={() => onTradeClick?.(trade)}>{trade.contracts}</TableCell>
                 <TableCell onClick={() => onTradeClick?.(trade)}>
                   <span
                     className={cn(

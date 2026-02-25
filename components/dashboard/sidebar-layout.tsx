@@ -11,24 +11,32 @@ import {
   ArrowDownToLine,
   ChevronLeft,
   ChevronRight,
+  UserCircle,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { LogoutButton } from "@/components/logout-button";
-import { ThemeToggle } from "@/components/dashboard/theme-toggle";
-import { LanguageToggle } from "@/components/dashboard/language-toggle";
+import { LandingControls } from "@/components/landing/landing-controls";
 import { useI18n } from "@/lib/i18n/context";
-import LogoWhite from "@/data/assets/Logo-green.png";
+import LogoWhite from "@/data/assets/Logo-white.png";
 import IsoWhite from "@/data/assets/Iso-white.png";
 
 interface SidebarLayoutProps {
   userEmail: string;
+  userName?: string;
   children: React.ReactNode;
 }
 
-export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
+export function SidebarLayout({ userEmail, userName, children }: SidebarLayoutProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { t } = useI18n();
+
+  const displayName = userName || userEmail;
+  const initials = displayName
+    .split(" ")
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase())
+    .join("") || "?";
 
   return (
     <div className="min-h-screen flex bg-zen-rich-black">
@@ -69,6 +77,13 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
               </div>
             )}
           </div>
+
+          {/* Theme + Language toggles below logo */}
+          {!isCollapsed && (
+            <div className="flex justify-center mt-10">
+              <LandingControls />
+            </div>
+          )}
         </div>
 
         {/* Navigation */}
@@ -163,25 +178,33 @@ export function SidebarLayout({ userEmail, children }: SidebarLayoutProps) {
               )}
             </Button>
           </Link>
+          
         </nav>
 
         {/* User Info & Logout */}
         <div className="mt-auto pt-6 border-t border-zen-forest/30">
-          {!isCollapsed && (
-            <div className="mb-4 p-3 rounded-lg bg-zen-bangladesh-green/40">
-              <p className="text-xs font-semibold text-zen-anti-flash/60 uppercase tracking-wider mb-1">
-                {t.sidebar.user}
-              </p>
-              <p className="text-sm font-semibold text-zen-anti-flash truncate">
-                {userEmail}
-              </p>
-            </div>
-          )}
-          
-          <LanguageToggle collapsed={isCollapsed} />
-          <ThemeToggle collapsed={isCollapsed} />
+          <Link href="/dashboard/profile">
+            {isCollapsed ? (
+              <div className="w-9 h-9 rounded-full bg-zen-caribbean-green flex items-center justify-center text-zen-rich-black font-bold text-sm mx-auto mb-3 hover:bg-zen-mountain-meadow transition-colors cursor-pointer select-none">
+                {initials}
+              </div>
+            ) : (
+              <div className="mb-4 p-3 rounded-lg bg-zen-bangladesh-green/40 hover:bg-zen-caribbean-green/10 transition-colors cursor-pointer flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-zen-caribbean-green flex items-center justify-center text-zen-rich-black font-bold text-sm flex-shrink-0 select-none">
+                  {initials}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-zen-anti-flash truncate">
+                    {displayName}
+                  </p>
+                  {userName && (
+                    <p className="text-xs text-zen-anti-flash/50 truncate">{userEmail}</p>
+                  )}
+                </div>
+              </div>
+            )}
+          </Link>
           <LogoutButton collapsed={isCollapsed} />
-          
         </div>
 
         {/* Toggle Button */}

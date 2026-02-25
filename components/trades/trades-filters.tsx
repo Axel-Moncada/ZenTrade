@@ -87,24 +87,24 @@ export function TradesFilters({ instruments, onFiltersChange, activeFiltersCount
   return (
     <div className="space-y-4">
       {/* Header con botón toggle */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between ">
         <Button
           variant="outline"
           size="sm"
           onClick={() => setShowFilters(!showFilters)}
-          className="gap-2"
+          className="gap-2 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black"
         >
-          <Filter className="h-4 w-4" />
+          <Filter className="h-4 w-4 " />
           Filtros
           {activeFiltersCount > 0 && (
-            <Badge variant="secondary" className="ml-1">
+            <Badge variant="secondary" className="ml-1 text-zen-anti-flash">
               {activeFiltersCount}
             </Badge>
           )}
         </Button>
 
         {activeFiltersCount > 0 && (
-          <Button variant="ghost" size="sm" onClick={clearFilters}>
+          <Button className='bg-zen-caribbean-green text-zen-rich-black' variant="ghost" size="sm" onClick={clearFilters}>
             Limpiar filtros
           </Button>
         )}
@@ -112,7 +112,7 @@ export function TradesFilters({ instruments, onFiltersChange, activeFiltersCount
 
       {/* Active filters badges */}
       {activeFiltersCount > 0 && (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 text-zen-anti-flash">
           {filters.instrument && (
             <Badge variant="secondary" className="gap-1">
               Instrumento: {instruments.find(i => i.id === filters.instrument)?.symbol}
@@ -199,24 +199,24 @@ export function TradesFilters({ instruments, onFiltersChange, activeFiltersCount
 
       {/* Filters panel */}
       {showFilters && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 border border-slate-700/50 rounded-lg bg-gradient-to-br from-slate-800/50 to-slate-900/50">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 border border-zen-caribbean-green rounded-lg bg-zen-dark-green text-zen-anti-flash">
           {/* Dates */}
           <div className="space-y-2">
-            <Label>Fecha inicio</Label>
+            <Label className="text-zen-anti-flash">Fecha inicio</Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
                   className={cn(
-                    'w-full justify-start text-left font-normal',
-                    !filters.startDate && 'text-muted-foreground'
+                    'w-full justify-start text-left font-normal border-zen-caribbean-green bg-zen-dark-green text-zen-anti-flash hover:bg-zen-rich-black hover:text-zen-anti-flash',
+                    !filters.startDate && 'text-zen-caribbean-green/60'
                   )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
                   {filters.startDate ? format(filters.startDate, 'PPP', { locale: es }) : 'Seleccionar'}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
+              <PopoverContent className="w-auto p-0 shadow-lg bg-zen-dark-green border border-zen-caribbean-green">
                 <Calendar
                   mode="single"
                   selected={filters.startDate}
@@ -228,21 +228,21 @@ export function TradesFilters({ instruments, onFiltersChange, activeFiltersCount
           </div>
 
           <div className="space-y-2">
-            <Label>Fecha fin</Label>
+            <Label className="text-zen-anti-flash">Fecha fin</Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
                   className={cn(
-                    'w-full justify-start text-left font-normal',
-                    !filters.endDate && 'text-muted-foreground'
+                    'w-full justify-start text-left font-normal border-zen-caribbean-green bg-zen-dark-green text-zen-anti-flash hover:bg-zen-rich-black hover:text-zen-anti-flash',
+                    !filters.endDate && 'text-zen-caribbean-green/60'
                   )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
                   {filters.endDate ? format(filters.endDate, 'PPP', { locale: es }) : 'Seleccionar'}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
+              <PopoverContent className="w-auto p-0 shadow-lg bg-zen-dark-green border border-zen-caribbean-green">
                 <Calendar
                   mode="single"
                   selected={filters.endDate}
@@ -255,18 +255,18 @@ export function TradesFilters({ instruments, onFiltersChange, activeFiltersCount
 
           {/* Instrument */}
           <div className="space-y-2">
-            <Label>Instrumento</Label>
+            <Label className="text-zen-anti-flash">Instrumento</Label>
             <Select
-              value={filters.instrument || ''}
-              onValueChange={(value) => updateFilter('instrument', value || undefined)}
+              value={filters.instrument || 'all'}
+              onValueChange={(value) => updateFilter('instrument', value === 'all' ? undefined : value)}
             >
               <SelectTrigger>
                 <SelectValue placeholder="Todos" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="">Todos</SelectItem>
+              <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
+                <SelectItem value="all" className="hover:bg-zen-rich-black">Todos</SelectItem>
                 {instruments.map((inst) => (
-                  <SelectItem key={inst.id} value={inst.id}>
+                  <SelectItem key={inst.id} value={inst.id} className="hover:bg-zen-rich-black">
                     {inst.symbol} - {inst.name}
                   </SelectItem>
                 ))}
@@ -276,36 +276,36 @@ export function TradesFilters({ instruments, onFiltersChange, activeFiltersCount
 
           {/* Side */}
           <div className="space-y-2">
-            <Label>Lado</Label>
+            <Label className="text-zen-anti-flash">Lado</Label>
             <Select
-              value={filters.side || ''}
-              onValueChange={(value) => updateFilter('side', value || undefined)}
+              value={filters.side || 'all'}
+              onValueChange={(value) => updateFilter('side', value === 'all' ? undefined : value)}
             >
               <SelectTrigger>
                 <SelectValue placeholder="Todos" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="">Todos</SelectItem>
-                <SelectItem value="long">Largo</SelectItem>
-                <SelectItem value="short">Corto</SelectItem>
+              <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
+                <SelectItem value="all" className="hover:bg-zen-rich-black">Todos</SelectItem>
+                <SelectItem value="long" className="hover:bg-zen-rich-black">Largo</SelectItem>
+                <SelectItem value="short" className="hover:bg-zen-rich-black">Corto</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           {/* Exit Reason */}
           <div className="space-y-2">
-            <Label>Razón de salida</Label>
+            <Label className="text-zen-anti-flash">Razón de salida</Label>
             <Select
-              value={filters.exitReason || ''}
-              onValueChange={(value) => updateFilter('exitReason', value || undefined)}
+              value={filters.exitReason || 'all'}
+              onValueChange={(value) => updateFilter('exitReason', value === 'all' ? undefined : value)}
             >
               <SelectTrigger>
                 <SelectValue placeholder="Todas" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="">Todas</SelectItem>
+              <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
+                <SelectItem value="all" className="hover:bg-zen-rich-black">Todas</SelectItem>
                 {EXIT_REASONS.map((reason) => (
-                  <SelectItem key={reason.value} value={reason.value}>
+                  <SelectItem key={reason.value} value={reason.value} className="hover:bg-zen-rich-black">
                     {reason.label}
                   </SelectItem>
                 ))}
@@ -315,38 +315,38 @@ export function TradesFilters({ instruments, onFiltersChange, activeFiltersCount
 
           {/* Followed Plan */}
           <div className="space-y-2">
-            <Label>Siguió el plan</Label>
+            <Label className="text-zen-anti-flash">Siguió el plan</Label>
             <Select
-              value={filters.followedPlan === undefined ? '' : filters.followedPlan.toString()}
-              onValueChange={(value) => 
-                updateFilter('followedPlan', value === '' ? undefined : value === 'true')
+              value={filters.followedPlan === undefined ? 'all' : filters.followedPlan.toString()}
+              onValueChange={(value) =>
+                updateFilter('followedPlan', value === 'all' ? undefined : value === 'true')
               }
             >
               <SelectTrigger>
                 <SelectValue placeholder="Todos" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="">Todos</SelectItem>
-                <SelectItem value="true">Sí</SelectItem>
-                <SelectItem value="false">No</SelectItem>
+              <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
+                <SelectItem value="all" className="hover:bg-zen-rich-black">Todos</SelectItem>
+                <SelectItem value="true" className="hover:bg-zen-rich-black">Sí</SelectItem>
+                <SelectItem value="false" className="hover:bg-zen-rich-black">No</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           {/* Emotion */}
           <div className="space-y-2">
-            <Label>Emoción</Label>
+            <Label className="text-zen-anti-flash">Emoción</Label>
             <Select
-              value={filters.emotion || ''}
-              onValueChange={(value) => updateFilter('emotion', value || undefined)}
+              value={filters.emotion || 'all'}
+              onValueChange={(value) => updateFilter('emotion', value === 'all' ? undefined : value)}
             >
               <SelectTrigger>
                 <SelectValue placeholder="Todas" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="">Todas</SelectItem>
+              <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
+                <SelectItem value="all" className="hover:bg-zen-rich-black">Todas</SelectItem>
                 {EMOTIONS.map((emotion) => (
-                  <SelectItem key={emotion.value} value={emotion.value}>
+                  <SelectItem key={emotion.value} value={emotion.value} className="hover:bg-zen-rich-black">
                     {emotion.label}
                   </SelectItem>
                 ))}
@@ -356,12 +356,12 @@ export function TradesFilters({ instruments, onFiltersChange, activeFiltersCount
 
           {/* Winners/Losers */}
           <div className="space-y-2">
-            <Label>Resultado</Label>
+            <Label className="text-zen-anti-flash">Resultado</Label>
             <Select
               value={
-                filters.winnersOnly ? 'winners' : 
-                filters.losersOnly ? 'losers' : 
-                ''
+                filters.winnersOnly ? 'winners' :
+                filters.losersOnly ? 'losers' :
+                'all'
               }
               onValueChange={(value) => {
                 if (value === 'winners') {
@@ -379,10 +379,10 @@ export function TradesFilters({ instruments, onFiltersChange, activeFiltersCount
               <SelectTrigger>
                 <SelectValue placeholder="Todos" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="">Todos</SelectItem>
-                <SelectItem value="winners">Solo ganadores</SelectItem>
-                <SelectItem value="losers">Solo perdedores</SelectItem>
+              <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
+                <SelectItem value="all" className="hover:bg-zen-rich-black">Todos</SelectItem>
+                <SelectItem value="winners" className="hover:bg-zen-rich-black">Solo ganadores</SelectItem>
+                <SelectItem value="losers" className="hover:bg-zen-rich-black">Solo perdedores</SelectItem>
               </SelectContent>
             </Select>
           </div>

@@ -86,7 +86,7 @@ export default function CalendarPage() {
         const data = await response.json();
 
         if (!response.ok) {
-          setError(data.error || "Error al cargar los resúmenes");
+          setError(data.error || t.calendar.loadSummariesError);
           setLoading(false);
           return;
         }
@@ -148,7 +148,7 @@ export default function CalendarPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        alert(data.error || "Error al guardar las notas");
+        alert(data.error || t.calendar.saveNotesError);
         return;
       }
 
@@ -169,7 +169,7 @@ export default function CalendarPage() {
       setSelectedSummary(data.summary);
       setModalOpen(false);
     } catch (err) {
-      alert("Error de conexión");
+      alert(t.calendar.connectionError);
     }
   };
 
@@ -261,9 +261,9 @@ export default function CalendarPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-zen-anti-flash mb-2">Calendario de Trading</h1>
+        <h1 className="text-3xl font-bold text-zen-anti-flash mb-2">{t.calendar.title}</h1>
         <p className="text-zen-anti-flash/60">
-          Visualiza tu rendimiento diario y gestiona tus trades mes a mes
+          {t.calendar.subtitle}
         </p>
       </div>
 
@@ -280,13 +280,14 @@ export default function CalendarPage() {
         </div>
 
         {/* Selector de cuenta */}
-        <div className="flex-1 bg-card rounded-lg border border-border px-4 py-3">
+        <div className="flex-1 bg-card rounded-lg  px-4 py-3">
           <AccountSelector
             accounts={accounts}
             value={selectedAccountId}
             onValueChange={setSelectedAccountId}
             label="Cuenta"
             showLabel={false}
+            
           />
         </div>
       </div>

@@ -44,18 +44,18 @@ export function DateRangeSelector({ value, onChange }: DateRangeSelectorProps) {
 
   return (
     <div className="flex items-center gap-3">
-      <Calendar className="h-5 w-5 text-gray-500" />
+      <Calendar className="h-5 w-5 hover:bg-zen-rich-black" />
       
       <Select value={preset} onValueChange={(v) => handlePresetChange(v as DateRangePreset)}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Seleccionar periodo" />
         </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="7d">Últimos 7 días</SelectItem>
-          <SelectItem value="30d">Últimos 30 días</SelectItem>
-          <SelectItem value="90d">Últimos 90 días</SelectItem>
-          <SelectItem value="thisMonth">Este mes</SelectItem>
-          <SelectItem value="custom">Personalizado</SelectItem>
+        <SelectContent className="text-zen-caribbean-green bg-zen-dark-green border-zen-dark-green ">
+          <SelectItem value="7d" className='hover:bg-zen-rich-black' >Últimos 7 días</SelectItem>
+          <SelectItem value="30d" className='hover:bg-zen-rich-black'>Últimos 30 días</SelectItem>
+          <SelectItem value="90d" className='hover:bg-zen-rich-black'>Últimos 90 días</SelectItem>
+          <SelectItem value="thisMonth" className='hover:bg-zen-rich-black'>Este mes</SelectItem>
+          <SelectItem value="custom" className='hover:bg-zen-rich-black'>Personalizado</SelectItem>
         </SelectContent>
       </Select>
 
@@ -91,7 +91,7 @@ export function DateRangeSelector({ value, onChange }: DateRangeSelectorProps) {
         </div>
       )}
 
-      <span className="text-sm text-gray-500">
+      <span className="text-sm text-zen-anti-flash/70">
         {value.label}
       </span>
     </div>

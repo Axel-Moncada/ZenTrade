@@ -6,14 +6,15 @@ import { Card } from '@/components/ui/card'
 import { Download, Upload, Plus, Trash2 } from 'lucide-react'
 import { TradesFilters, TradeFilters } from '@/components/trades/trades-filters'
 import { TradesTable } from '@/components/trades/trades-table'
-import { AccountSelector } from '@/components/shared/account-selector'
+import { AccountSelector } from '@/components/accounts/account-selector'
+import { Account } from '@/types/accounts'
 import { createClient } from '@/lib/supabase/client'
 import { Trade } from '@/types/trade'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n/context'
 
 export default function TradesPage() {
-  const [accounts, setAccounts] = useState<Array<{ id: string; name: string; broker: string }>>([])
+  const [accounts, setAccounts] = useState<Account[]>([])
   const [selectedAccount, setSelectedAccount] = useState<string>('')
   const [instruments, setInstruments] = useState<Array<{ id: string; symbol: string; name: string }>>([])
   const [trades, setTrades] = useState<any[]>([])
@@ -31,7 +32,7 @@ export default function TradesPage() {
   const fetchAccounts = useCallback(async () => {
     const { data, error } = await supabase
       .from('accounts')
-      .select('id, name, broker')
+      .select('*')
       .order('name')
 
     if (data && !error) {
@@ -234,20 +235,22 @@ export default function TradesPage() {
       </div>
 
       {/* Account Selector */}
-      <Card className="p-4 border-zen-forest/40 bg-zen-surface/60">
+      <div className="flex items-center bg-card rounded-lg border border-border px-4 py-3 gap-4">
         <AccountSelector
           accounts={accounts}
-          selectedAccount={selectedAccount}
-          onAccountChange={setSelectedAccount}
+          value={selectedAccount}
+          onValueChange={setSelectedAccount}
+          showLabel={false}
         />
-      </Card>
-
-      {/* Filters */}
-      <TradesFilters
+        <TradesFilters 
         instruments={instruments}
         onFiltersChange={setFilters}
         activeFiltersCount={activeFiltersCount}
       />
+      </div>
+
+      {/* Filters */}
+      
 
       {/* Bulk Actions */}
       {selectedTrades.length > 0 && (

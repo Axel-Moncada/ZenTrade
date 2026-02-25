@@ -14,7 +14,7 @@ export default function NewAccountPage() {
             Volver a Cuentas
           </Button>
         </Link>
-        <h1 className="text-3xl font-bold">Nueva Cuenta</h1>
+        <h1 className="text-3xl font-bold text-zen-anti-flash">Nueva Cuenta</h1>
         <p className="text-zen-anti-flash mt-2">
           Crea una nueva cuenta de trading para comenzar a registrar tus operaciones
         </p>

@@ -37,21 +37,21 @@ export function AccountSelector({
         <SelectTrigger>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="text-zen-caribbean-green bg-zen-dark-green   ">
           {allowAll && <SelectItem value="all">Todas las cuentas</SelectItem>}
           {accounts.length === 0 ? (
-            <div className="px-2 py-6 text-center text-sm text-gray-500">
+            <div className="px-2 py-6 text-center text-sm text-zen-caribbean-green ">
               No hay cuentas disponibles
             </div>
           ) : (
             accounts.map((account) => (
-              <SelectItem key={account.id} value={account.id}>
-                <div className="flex items-center gap-2  ">
+              <SelectItem key={account.id} value={account.id} className='hover:bg-zen-rich-black'>
+                <div className="flex items-center gap-2 text-zen-caribbean-green ">
                   <span className="font-medium">{account.name}</span>
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-zen-caribbean-green/70">
                     ({ACCOUNT_TYPE_LABELS[account.account_type]})
                   </span>
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-zen-caribbean-green/70">
                     - ${account.current_balance.toLocaleString("en-US", { minimumFractionDigits: 2 })}
                   </span>
                 </div>
