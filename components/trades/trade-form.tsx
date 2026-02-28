@@ -42,32 +42,32 @@ const EMOTIONS_OPTIONS = [
   {
     value: "confiado",
     label: "Confiado",
-    color: "bg-zen-mint/20 text-zen-mint border-zen-mint/40",
+    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
   },
   {
     value: "paciente",
     label: "Paciente",
-    color: "bg-zen-frog/20 text-zen-frog border-zen-frog/40",
+    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
   },
   {
     value: "ansioso",
     label: "Ansioso",
-    color: "bg-zen-pistachio/20 text-zen-pistachio border-zen-pistachio/40",
+    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
   },
   {
     value: "miedo",
     label: "Miedo",
-    color: "bg-zen-danger/20 text-zen-danger border-zen-danger/40",
+    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
   },
   {
     value: "codicia",
     label: "Codicia",
-    color: "bg-zen-danger/20 text-zen-danger border-zen-danger/40",
+    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
   },
   {
     value: "frustrado",
     label: "Frustrado",
-    color: "bg-zen-danger/15 text-zen-danger border-zen-danger/30",
+    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
   },
   {
     value: "eufórico",
@@ -77,13 +77,13 @@ const EMOTIONS_OPTIONS = [
   },
   {
     value: "revenge_trading",
-    label: "Revenge Trading",
-    color: "bg-zen-danger/25 text-zen-danger border-zen-danger/50",
+    label: "Venganza Trading",
+    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
   },
   {
     value: "fomo",
     label: "FOMO",
-    color: "bg-zen-danger/20 text-zen-danger border-zen-danger/40",
+    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
   },
 ];
 
@@ -366,7 +366,7 @@ export function TradeForm({
                 }))
               }
               required
-              className="bg-zen-surface/60 border-zen-forest/40 text-zen-rich-black placeholder:text-zen-rich-black"
+              className="bg-zen-surface/60 border-zen-forest/40 text-zen-anti-flash placeholder:text-zen-anti-flash/40 font-semibold"
             />
           </div>
 
