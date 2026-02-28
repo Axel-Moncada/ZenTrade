@@ -48,8 +48,8 @@ const PLAN_CONFIGS: PlanConfig[] = [
     name: 'Starter',
     price_monthly: 9,
     price_annual: 86,
-    monthlyPriceId: '',
-    annualPriceId: '',
+    monthlyPriceId: process.env.LEMONSQUEEZY_STARTER_MONTHLY_VARIANT_ID ?? '',
+    annualPriceId: process.env.LEMONSQUEEZY_STARTER_ANNUAL_VARIANT_ID ?? '',
     badge: 'Ideal para Empezar',
     features: [
       '1 Cuenta de Trading',
@@ -64,8 +64,8 @@ const PLAN_CONFIGS: PlanConfig[] = [
     name: 'Professional',
     price_monthly: 29,
     price_annual: 278,
-    monthlyPriceId: '',
-    annualPriceId: '',
+    monthlyPriceId: process.env.LEMONSQUEEZY_PRO_MONTHLY_VARIANT_ID ?? '',
+    annualPriceId: process.env.LEMONSQUEEZY_PRO_ANNUAL_VARIANT_ID ?? '',
     highlight: true,
     badge: 'Lo Más Popular',
     features: [
