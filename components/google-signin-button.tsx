@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 
 export function GoogleSignInButton() {
   const [loading, setLoading] = useState(false);
@@ -9,22 +10,19 @@ export function GoogleSignInButton() {
   const handleGoogleSignIn = async () => {
     setLoading(true);
     try {
-      const response = await fetch("/api/auth/google", {
-        method: "POST",
+      const supabase = createClient();
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: `${window.location.origin}/api/auth/callback`,
+        },
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        console.error("Error:", data.error);
+      if (error) {
+        console.error("Error:", error.message);
         setLoading(false);
-        return;
       }
-
-      // Redirigir a la URL de OAuth de Google
-      if (data.url) {
-        window.location.href = data.url;
-      }
+      // Sin error: Supabase redirige automáticamente al browser
     } catch (error) {
       console.error("Error al iniciar sesión con Google:", error);
       setLoading(false);
