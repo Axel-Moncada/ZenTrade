@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Check, ExternalLink, AlertTriangle, CheckCircle2, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { CheckoutSuccessModal } from '@/components/billing/checkout-success-modal';
