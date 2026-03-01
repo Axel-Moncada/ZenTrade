@@ -60,7 +60,10 @@ export async function POST(request: NextRequest) {
       .eq("id", user.id)
       .single();
 
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+    const appUrl =
+      process.env.APP_URL ??
+      process.env.NEXT_PUBLIC_APP_URL ??
+      "http://localhost:3000";
     console.log("[Checkout] APP_URL en uso:", appUrl);
 
     const checkout = await createCheckout(LEMON_STORE_ID, variant.variantId, {

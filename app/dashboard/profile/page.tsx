@@ -152,7 +152,7 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="max-w-4xl mx-auto space-y-6">
+      <div className="max-w-6xl mx-auto space-y-6">
         <div className="h-8 w-48 bg-zen-surface rounded animate-pulse" />
         <div className="h-48 bg-zen-surface rounded-2xl animate-pulse" />
         <div className="h-64 bg-zen-surface rounded-2xl animate-pulse" />
@@ -161,7 +161,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
+    <div className="max-w-6xl mx-auto space-y-6">
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-zen-anti-flash">{t.profile.title}</h1>
