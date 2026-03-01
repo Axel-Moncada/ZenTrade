@@ -27,6 +27,16 @@ const PLAN_META: Record<
       "Soporte prioritario",
     ],
   },
+  zenmode: {
+    name: "ZenMode",
+    monthlyPrice: 59,
+    highlight: [
+      "Todo lo de Professional",
+      "Análisis con IA",
+      "Insights automáticos de trades",
+      "Soporte prioritario 24/7",
+    ],
+  },
 };
 
 // ─── Props ────────────────────────────────────────────────────────────────────
