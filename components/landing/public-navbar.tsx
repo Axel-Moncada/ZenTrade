@@ -19,9 +19,9 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: t.landing.features, href: "#features" },
-    { label: t.landing.pricing, href: "#pricing" },
-    { label: t.landing.faq, href: "#faq" },
+    { label: t.landing.features, href: "/#features" },
+    { label: t.landing.pricing, href: "/#pricing" },
+    { label: t.landing.faq, href: "/#faq" },
   ];
 
   useEffect(() => {

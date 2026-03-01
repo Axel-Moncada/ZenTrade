@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { Brain, TrendingUp, Zap, Award } from "lucide-react";
+import { Brain, TrendingUp, Zap, Award, Star } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
 const ICONS = [Brain, TrendingUp, Zap, Award];
@@ -49,13 +49,15 @@ export default function BenefitsSection() {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-zen-surface-elevated rounded-2xl p-8 border border-zen-caribbean-green/30">
             <div className="flex items-center space-x-1 mb-4">
-              {[...Array(5)].map((_, i) => <span key={i} className="text-zen-caribbean-green text-xl">â˜…</span>)}
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-zen-caribbean-green text-zen-caribbean-green" />)}
             </div>
             <p className="text-zen-anti-flash text-lg mb-4">{l.benefitsReview1}</p>
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-zen-caribbean-green/20 rounded-full flex items-center justify-center">
-                <span className="text-zen-caribbean-green font-bold">AM</span>
-              </div>
+              <img
+                src="https://i.pravatar.cc/80?img=12"
+                alt={l.benefitsReview1Author}
+                className="w-10 h-10 rounded-full object-cover"
+              />
               <div>
                 <p className="text-zen-anti-flash font-semibold">{l.benefitsReview1Author}</p>
                 <p className="text-zen-text-muted text-sm">{l.benefitsReview1Role}</p>
@@ -65,13 +67,15 @@ export default function BenefitsSection() {
 
           <div className="bg-zen-surface-elevated rounded-2xl p-8 border border-zen-caribbean-green/30">
             <div className="flex items-center space-x-1 mb-4">
-              {[...Array(5)].map((_, i) => <span key={i} className="text-zen-caribbean-green text-xl">â˜…</span>)}
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-zen-caribbean-green text-zen-caribbean-green" />)}
             </div>
             <p className="text-zen-anti-flash text-lg mb-4">{l.benefitsReview2}</p>
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-zen-caribbean-green/20 rounded-full flex items-center justify-center">
-                <span className="text-zen-caribbean-green font-bold">LR</span>
-              </div>
+              <img
+                src="https://i.pravatar.cc/80?img=47"
+                alt={l.benefitsReview2Author}
+                className="w-10 h-10 rounded-full object-cover"
+              />
               <div>
                 <p className="text-zen-anti-flash font-semibold">{l.benefitsReview2Author}</p>
                 <p className="text-zen-text-muted text-sm">{l.benefitsReview2Role}</p>

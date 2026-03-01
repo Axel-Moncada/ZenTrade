@@ -6,6 +6,7 @@ import FeaturesSection from "@/components/landing/sections/features-section";
 import PricingSection from "@/components/landing/sections/pricing-section";
 import PreviewSection from "@/components/landing/sections/preview-section";
 import BenefitsSection from "@/components/landing/sections/benefits-section";
+import FaqSection from "@/components/landing/sections/faq-section";
 import FinalCTASection from "@/components/landing/sections/final-cta-section";
 import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
@@ -34,8 +35,9 @@ export default async function Home() {
           <FeaturesSection />
         </section>
         <PricingSection />
-        <PreviewSection />
+        {/* <PreviewSection /> */}{/* TODO: descomentar cuando el video esté listo */}
         <BenefitsSection />
+        <FaqSection />
         <FinalCTASection />
       </main>
       <PublicFooter />

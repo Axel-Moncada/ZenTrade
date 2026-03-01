@@ -14,7 +14,7 @@
 | Fase 3 | ✅ Completa | Trades + cálculos + métricas básicas |
 | Fase 4 | ✅ Completa | Dashboard + charts |
 | Fase 5 | ✅ Completa | Reportes + export/import + Trading Plan |
-| Fase 6 | 🔄 En progreso | Hardening: pricing, gating, UX de conversión |
+| Fase 6 | ✅ Completa | Hardening: pricing, gating, UX de conversión |
 | Fase 7 | ⏳ Pendiente | ZenMode features (IA) |
 | Fase 8 | ⏳ Pendiente | QA, testing, pre-launch |
 | Fase 9 | ⏳ Pendiente | Launch |

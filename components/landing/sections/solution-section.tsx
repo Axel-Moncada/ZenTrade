@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { CheckCircle2, BarChart3 } from "lucide-react";
+import { CheckCircle2, BarChart3, Lightbulb } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
 export default function SolutionSection() {
@@ -77,7 +77,10 @@ export default function SolutionSection() {
             </div>
 
             <div className="bg-zen-surface-elevated rounded-xl p-6 border border-zen-caribbean-green/30">
-              <p className="text-zen-anti-flash font-semibold text-lg">ðŸ’¡ {l.solutionTestimonial}</p>
+              <p className="text-zen-anti-flash font-semibold text-lg flex items-start gap-2">
+                <Lightbulb className="w-5 h-5 text-zen-caribbean-green shrink-0 mt-0.5" />
+                {l.solutionTestimonial}
+              </p>
               <p className="text-zen-text-muted mt-2">{l.solutionTestimonialAuthor}</p>
             </div>
           </div>

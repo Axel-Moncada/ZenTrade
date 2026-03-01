@@ -286,6 +286,38 @@ html.light-mode .landing-lang-check {
   color: #006B42;
 }
 
+/* ================================================================
+   LEGAL & PUBLIC PAGES — light mode background + public footer
+   ================================================================ */
+
+/* Outer page wrapper para páginas legales */
+html.light-mode .legal-page-bg {
+  background-image: none;
+  background-color: #F5F4EE;
+}
+
+/* Public footer (fuera de <main>, así que se targetea con footer) */
+html.light-mode footer {
+  background-color: #002E21;
+  color: white ;
+  border-color: #D1D0CA;
+}
+html.light-mode footer .text-zen-anti-flash        { color: #F0F4F2; }
+html.light-mode footer .text-zen-text-muted        { color: #9BB8A8; }
+html.light-mode footer .border-zen-border-soft     { border-color: rgba(255,255,255,0.12); }
+html.light-mode footer .bg-zen-border-soft         { background-color: rgba(255,255,255,0.12); }
+html.light-mode footer .hover\:text-zen-caribbean-green:hover { color: #2ECC8A; }
+
+/* FAQ accordion — bordes internos y hover en light mode */
+html.light-mode main .border-zen-caribbean-green\/10  { border-color: #D3EFE3; }
+html.light-mode main .hover\:border-zen-caribbean-green\/20:hover { border-color: #BFEAD5; }
+html.light-mode main .border-zen-caribbean-green\/40  { border-color: #93D9B8; }
+
+/* Disclaimer warning box — text-red-400 falla AA en fondo claro */
+html.light-mode main .text-red-400         { color: #DC2626; }   /* 5.9:1 AA ✓ */
+html.light-mode main .border-red-500\/40   { border-color: #FCA5A5; }
+html.light-mode main .bg-red-500\/5        { background-color: #FEF2F2; }
+
 /* Navbar always stays dark in light mode — landing page */
 html.light-mode .landing-nav {
   background: rgba(0, 20, 24, 0.88);

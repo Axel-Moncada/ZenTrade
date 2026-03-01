@@ -307,6 +307,42 @@ const translations = {
           cta: 'Comenzar Ahora',
         },
       ],
+      // FAQ section
+      faqBadge: 'Preguntas Frecuentes',
+      faqTitle1: 'Todo Lo Que Necesitas',
+      faqTitle2: 'Saber',
+      faqSubtitle: 'Si tienes más preguntas, escríbenos a soporte@zen-trader.com y te respondemos en menos de 24 horas.',
+      faqContact: '¿Otra pregunta? Escríbenos a soporte@zen-trader.com',
+      faqItems: [
+        {
+          q: '¿Necesito tarjeta de crédito para la prueba gratis?',
+          a: 'No. Los 14 días de prueba son completamente gratis sin necesidad de ingresar datos de pago. Solo creas tu cuenta y empiezas.',
+        },
+        {
+          q: '¿Con qué plataformas de trading es compatible ZenTrade?',
+          a: 'Compatible con NinjaTrader, Rithmic, MT5, TradingView y Tradoverse mediante importación de archivos CSV. También puedes registrar cualquier operación de forma manual.',
+        },
+        {
+          q: '¿Es útil para evaluaciones de prop firms como FTMO o Apex Trader?',
+          a: 'Sí, ZenTrade fue diseñado pensando en traders de evaluación. Incluye métricas clave como drawdown máximo, consistency score y profit factor que las prop firms utilizan para evaluarte.',
+        },
+        {
+          q: '¿Puedo cancelar mi suscripción en cualquier momento?',
+          a: 'Sí, sin compromisos ni penalizaciones. Cancelas desde tu portal de facturación en cualquier momento y conservas el acceso hasta el final del período pagado.',
+        },
+        {
+          q: '¿Mis datos de trading son privados y seguros?',
+          a: 'Completamente. Utilizamos Row Level Security (RLS) en base de datos, lo que garantiza que cada usuario solo puede ver sus propios datos. Nadie más puede acceder a tu información.',
+        },
+        {
+          q: '¿Cómo se procesan los pagos?',
+          a: 'A través de Lemon Squeezy, quien actúa como Merchant of Record y gestiona toda la facturación de forma segura. Aceptamos las principales tarjetas de crédito y débito. ZenTrade no almacena datos de tarjeta.',
+        },
+        {
+          q: '¿Puedo usar ZenTrade desde cualquier dispositivo?',
+          a: 'Sí. ZenTrade es una aplicación web que funciona en cualquier navegador moderno — computadora, tablet o móvil. Sin descargas, sin instalaciones.',
+        },
+      ],
       // final CTA section
       ctaSection1: '¿Listo Para Pasar Tu',
       ctaSection2: 'Próxima Evaluación?',
@@ -334,7 +370,284 @@ const translations = {
       footerLinkPrivacy: 'Privacidad',
       footerLinkTerms: 'Términos',
       footerLinkContact: 'Contacto',
+      footerLinkRefunds: 'Reembolsos',
+      footerLinkCookies: 'Cookies',
+      footerLinkDisclaimer: 'Aviso Legal',
       footerCopyright: 'Todos los derechos reservados.',
+    },
+
+    // ── Legal pages ──────────────────────────────────────────
+    legal: {
+      lastUpdated: 'Última actualización',
+      backHome: 'Volver al inicio',
+      terms: {
+        title: 'Términos de Servicio',
+        date: '1 de marzo de 2026',
+        subtitle: 'Por favor lee estos términos cuidadosamente antes de usar ZenTrade. Al acceder al Servicio, confirmas que los has leído y aceptas quedar vinculado por ellos.',
+        sections: [
+          {
+            heading: '1. Aceptación de los Términos',
+            body: [
+              'Al acceder y utilizar ZenTrade ("el Servicio"), aceptas quedar vinculado por estos Términos de Servicio. Si no estás de acuerdo con alguna parte de estos términos, no podrás acceder al Servicio.',
+              'Debes tener al menos 18 años de edad para usar ZenTrade. Al crear una cuenta, declaras que cumples con este requisito de edad.',
+            ],
+          },
+          {
+            heading: '2. Descripción del Servicio',
+            body: [
+              'ZenTrade es una plataforma web de journal de trading que permite a los usuarios registrar operaciones, analizar métricas de rendimiento y generar reportes. ZenTrade es exclusivamente una herramienta de organización y análisis; no constituye asesoría financiera de ningún tipo.',
+              'Nos reservamos el derecho de modificar, suspender o descontinuar cualquier parte del Servicio en cualquier momento con previo aviso razonable.',
+            ],
+          },
+          {
+            heading: '3. Uso Aceptable',
+            body: [
+              'Te comprometes a usar el Servicio únicamente para fines lícitos y de conformidad con estos Términos.',
+              'Está prohibido: (a) compartir credenciales de acceso con terceros; (b) intentar acceder a datos de otros usuarios; (c) realizar ingeniería inversa del software; (d) usar el Servicio para actividades fraudulentas o ilegales; (e) sobrecargar o interferir con la infraestructura del Servicio.',
+            ],
+          },
+          {
+            heading: '4. Suscripciones y Pagos',
+            body: [
+              'Los planes de pago se facturan según el ciclo elegido (mensual o anual) y se renuevan automáticamente hasta que se cancelen. Los pagos son procesados por Lemon Squeezy, LLC, quien actúa como Merchant of Record en todas las transacciones.',
+              'Nos reservamos el derecho de modificar los precios con un aviso previo de al menos 30 días por email. El precio vigente en el momento de la renovación se aplicará al siguiente ciclo de facturación.',
+            ],
+          },
+          {
+            heading: '5. Cancelación',
+            body: [
+              'Puedes cancelar tu suscripción en cualquier momento desde el portal de facturación de tu cuenta. Tras la cancelación, conservarás acceso completo al plan de pago hasta el final del período de facturación vigente.',
+              'ZenTrade se reserva el derecho de cancelar o suspender cuentas que violen estos Términos de Servicio sin previo aviso.',
+            ],
+          },
+          {
+            heading: '6. Propiedad Intelectual',
+            body: [
+              'Todo el contenido, diseño, código, marcas y logotipos de ZenTrade son propiedad exclusiva de sus creadores y están protegidos por leyes de propiedad intelectual. No se otorga ninguna licencia para reproducir, distribuir o crear obras derivadas sin autorización expresa por escrito.',
+              'El usuario conserva todos los derechos sobre los datos de trading que introduce en la plataforma.',
+            ],
+          },
+          {
+            heading: '7. Limitación de Responsabilidad',
+            body: [
+              'ZenTrade se proporciona "tal cual" y "según disponibilidad" sin garantías de ningún tipo. No garantizamos que el Servicio sea ininterrumpido o libre de errores.',
+              'En ningún caso ZenTrade será responsable por: pérdidas de trading o decisiones de inversión tomadas con base en el Servicio, pérdida de datos, interrupción del negocio, o cualquier daño indirecto o consecuente derivado del uso o la imposibilidad de uso del Servicio.',
+            ],
+          },
+          {
+            heading: '8. Modificaciones y Contacto',
+            body: [
+              'Nos reservamos el derecho de modificar estos Términos en cualquier momento. Los cambios materiales se notificarán por email con al menos 15 días de anticipación. El uso continuado del Servicio tras la notificación implica aceptación de los nuevos términos.',
+              'Para consultas sobre estos Términos de Servicio: soporte@zen-trader.com',
+            ],
+          },
+        ],
+      },
+      privacy: {
+        title: 'Política de Privacidad',
+        date: '1 de marzo de 2026',
+        subtitle: 'En ZenTrade nos comprometemos a proteger tu privacidad. Esta política explica qué datos recopilamos, cómo los usamos y cuáles son tus derechos conforme al GDPR y leyes aplicables.',
+        sections: [
+          {
+            heading: '1. Responsable del Tratamiento',
+            body: [
+              'ZenTrade ("nosotros", "nuestro") es el responsable del tratamiento de tus datos personales. Para cualquier consulta relacionada con privacidad, contáctanos en: soporte@zen-trader.com',
+            ],
+          },
+          {
+            heading: '2. Datos que Recopilamos',
+            body: [
+              'Datos de cuenta: nombre, dirección de email y contraseña (almacenada de forma hasheada; nunca guardamos contraseñas en texto plano).',
+              'Datos de trading: registros de operaciones, métricas, notas de journal y configuraciones de cuentas que introduces voluntariamente en la plataforma.',
+              'Datos de facturación: gestionados directamente por Lemon Squeezy. ZenTrade no almacena datos de tarjetas de crédito ni información bancaria.',
+              'Datos técnicos: dirección IP, tipo de navegador, sistema operativo y logs de acceso, recopilados automáticamente para seguridad y diagnóstico.',
+            ],
+          },
+          {
+            heading: '3. Cómo Usamos tus Datos',
+            body: [
+              'Utilizamos tus datos para: proporcionar y mantener el Servicio; gestionar tu cuenta y suscripción; enviarte comunicaciones transaccionales (confirmaciones de pago, avisos de cuenta, soporte); mejorar la plataforma y corregir errores; y cumplir con obligaciones legales y regulatorias.',
+              'No vendemos tus datos personales a terceros ni los usamos para publicidad de terceros.',
+            ],
+          },
+          {
+            heading: '4. Servicios de Terceros',
+            body: [
+              'Supabase (supabase.com): proveedor de base de datos y autenticación. Tus datos se almacenan en servidores de Supabase. Consulta su política de privacidad en supabase.com/privacy.',
+              'Lemon Squeezy (lemonsqueezy.com): procesamiento de pagos y gestión de suscripciones como Merchant of Record. Gestionan de forma independiente los datos de pago. Consulta su política en lemonsqueezy.com/privacy.',
+              'Resend (resend.com): servicio de envío de emails transaccionales. Reciben únicamente tu dirección de email y el contenido de los mensajes que te enviamos. Consulta su política en resend.com/privacy.',
+              'Vercel (vercel.com): infraestructura de hosting y despliegue de la aplicación. Pueden procesar logs de acceso y métricas de rendimiento. Consulta su política en vercel.com/legal/privacy-policy.',
+            ],
+          },
+          {
+            heading: '5. Conservación de Datos',
+            body: [
+              'Conservamos tus datos personales mientras tu cuenta esté activa. Si eliminas tu cuenta, tus datos se borran permanentemente en un plazo máximo de 30 días, salvo que la ley requiera una retención mayor por razones fiscales o legales.',
+            ],
+          },
+          {
+            heading: '6. Tus Derechos (GDPR)',
+            body: [
+              'Si eres residente del Espacio Económico Europeo, tienes derecho a: Acceso (obtener una copia de tus datos); Rectificación (corregir datos inexactos); Supresión ("derecho al olvido"); Portabilidad (recibir tus datos en formato estructurado); Oposición (oponerte al tratamiento por interés legítimo); Restricción del tratamiento en ciertas circunstancias.',
+              'Para ejercer cualquiera de estos derechos, escríbenos a soporte@zen-trader.com. Tienes también el derecho de presentar una reclamación ante la autoridad de protección de datos de tu país.',
+            ],
+          },
+          {
+            heading: '7. Seguridad de Datos',
+            body: [
+              'Implementamos medidas técnicas y organizativas para proteger tus datos: cifrado en tránsito (HTTPS/TLS), autenticación segura, y Row Level Security (RLS) en base de datos para garantizar que cada usuario solo pueda acceder a sus propios datos.',
+              'Sin embargo, ningún sistema de transmisión o almacenamiento de datos es 100% seguro. En caso de una brecha de seguridad que afecte a tus datos, te notificaremos en el plazo que exija la ley aplicable.',
+            ],
+          },
+          {
+            heading: '8. Cambios y Contacto',
+            body: [
+              'Notificaremos cualquier cambio significativo a esta política por email con al menos 15 días de anticipación. El uso continuado del Servicio tras la notificación implica aceptación de la política actualizada.',
+              'Para consultas sobre privacidad: soporte@zen-trader.com',
+            ],
+          },
+        ],
+      },
+      refunds: {
+        title: 'Política de Reembolsos',
+        date: '1 de marzo de 2026',
+        subtitle: 'Esta política explica nuestro enfoque de reembolsos de forma transparente.',
+        sections: [
+          {
+            heading: '1. Lemon Squeezy como Merchant of Record',
+            body: [
+              'Todos los pagos realizados en ZenTrade son procesados por Lemon Squeezy, LLC ("Lemon Squeezy"), quien actúa como Merchant of Record en todas las transacciones. Esto significa que Lemon Squeezy es el vendedor legal, gestiona la facturación, la recaudación de impuestos aplicables y el cumplimiento de normativas de pago.',
+              'Al completar una compra, recibirás una factura emitida por Lemon Squeezy. Para consultas técnicas sobre pagos, puedes contactar también a Lemon Squeezy directamente a través de su sitio web.',
+            ],
+          },
+          {
+            heading: '2. Política General de No Reembolso',
+            body: [
+              'Dado que ZenTrade ofrece acceso inmediato a una plataforma digital con un período de prueba gratuita disponible, no ofrecemos reembolsos por suscripciones ya iniciadas.',
+              'Al completar tu suscripción, confirmas que has tenido la oportunidad de evaluar el Servicio durante el período de prueba gratuita y que aceptas los términos de esta política de reembolsos.',
+            ],
+          },
+          {
+            heading: '3. Excepciones',
+            body: [
+              'Evaluaremos solicitudes de reembolso en los siguientes casos excepcionales: (a) cobro duplicado verificable por error técnico de nuestra parte; (b) interrupción del servicio de más de 72 horas consecutivas atribuible exclusivamente a ZenTrade; (c) primer cargo a un nuevo suscriptor dentro de las 24 horas, sin uso registrado de funciones premium.',
+              'Para solicitar un reembolso por excepción, escríbenos a soporte@zen-trader.com con el asunto "Solicitud de Reembolso" e incluye tu comprobante de pago. Respondemos en menos de 48 horas hábiles.',
+            ],
+          },
+          {
+            heading: '4. Cancelación de Suscripción',
+            body: [
+              'Puedes cancelar tu suscripción en cualquier momento desde el portal de facturación de tu cuenta. La cancelación es efectiva inmediatamente: no se realizarán cobros futuros.',
+              'No se realizan reembolsos proporcionales por el tiempo restante del período de facturación ya pagado. Conservarás acceso completo al plan de pago hasta el final de ese período.',
+            ],
+          },
+          {
+            heading: '5. Disputas de Cargos',
+            body: [
+              'Antes de iniciar una disputa de cargo (chargeback) con tu institución bancaria, te pedimos que nos contactes directamente. Respondemos el 100% de los casos en menos de 48 horas hábiles y resolvemos los casos legítimos sin necesidad de procesos bancarios.',
+              'Los chargebacks iniciados sin contacto previo con nuestro soporte pueden resultar en la suspensión inmediata de la cuenta. Soporte de pagos: soporte@zen-trader.com',
+            ],
+          },
+        ],
+      },
+      cookies: {
+        title: 'Política de Cookies',
+        date: '1 de marzo de 2026',
+        subtitle: 'Esta política explica cómo ZenTrade usa cookies y tecnologías similares para el funcionamiento del Servicio.',
+        sections: [
+          {
+            heading: '1. ¿Qué Son las Cookies?',
+            body: [
+              'Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo (computadora, tablet o móvil) cuando visitas un sitio web. Permiten al sitio recordar tus preferencias y mantener tu sesión activa entre visitas.',
+            ],
+          },
+          {
+            heading: '2. Cookies Esenciales',
+            body: [
+              'Estas cookies son estrictamente necesarias para el funcionamiento del Servicio. Sin ellas, ZenTrade no puede funcionar correctamente y no se pueden desactivar.',
+              'Incluyen: cookie de sesión de autenticación (te mantiene conectado a tu cuenta), token de seguridad CSRF (previene ataques de falsificación de solicitudes), y preferencias de interfaz (tema oscuro/claro e idioma seleccionado).',
+            ],
+          },
+          {
+            heading: '3. Cookies de Análisis y Rendimiento',
+            body: [
+              'Vercel Analytics puede recopilar datos anónimos y agregados sobre el rendimiento del sitio (tiempos de carga, tasas de error, páginas visitadas) para ayudarnos a mejorar el Servicio. Estos datos no incluyen información personal identificable.',
+            ],
+          },
+          {
+            heading: '4. Lo Que No Hacemos',
+            body: [
+              'ZenTrade no utiliza cookies de publicidad comportamental ni de retargeting. No rastreamos tu actividad en otros sitios web. No compartimos datos de cookies con redes publicitarias. No usamos cookies de seguimiento de redes sociales.',
+            ],
+          },
+          {
+            heading: '5. Control de Cookies',
+            body: [
+              'Puedes configurar tu navegador para rechazar algunas o todas las cookies. Ten en cuenta que deshabilitar las cookies esenciales impedirá el correcto funcionamiento de ZenTrade, incluyendo el inicio de sesión.',
+              'Instrucciones para los navegadores más comunes: Chrome (chrome://settings/cookies), Firefox (Menú → Configuración → Privacidad), Safari (Preferencias → Privacidad), Edge (Configuración → Cookies y permisos del sitio).',
+            ],
+          },
+          {
+            heading: '6. Contacto',
+            body: [
+              'Para cualquier consulta sobre nuestra política de cookies: soporte@zen-trader.com',
+            ],
+          },
+        ],
+      },
+      disclaimer: {
+        title: 'Aviso Legal — No Asesoría Financiera',
+        date: '1 de marzo de 2026',
+        subtitle: 'Lee este aviso completo antes de usar ZenTrade. El trading conlleva riesgos financieros significativos.',
+        warning: {
+          title: 'IMPORTANTE: ZenTrade NO proporciona asesoría financiera.',
+          body: 'Esta plataforma es exclusivamente una herramienta de software para el registro y análisis personal de operaciones de trading. Nada en ZenTrade constituye recomendación de inversión.',
+        },
+        sections: [
+          {
+            heading: '1. No Asesoría Financiera',
+            body: [
+              'ZenTrade es exclusivamente una herramienta de software para el registro, organización y análisis personal de operaciones de trading. NADA en esta plataforma —incluyendo métricas, gráficos, reportes, análisis de IA, sugerencias del sistema o cualquier otro contenido— constituye asesoría financiera, asesoría de inversión, asesoría legal o asesoría tributaria.',
+              'No somos un asesor financiero registrado, agente de bolsa, ni gestora de inversiones bajo ninguna regulación financiera.',
+            ],
+          },
+          {
+            heading: '2. Solo para Propósitos Informativos y Organizativos',
+            body: [
+              'Toda la información presentada en ZenTrade tiene propósito puramente informativo y organizativo. Las métricas de rendimiento (win rate, profit factor, drawdown, etc.) reflejan únicamente el historial de trading que el usuario ha introducido en el sistema.',
+              'Ningún contenido de ZenTrade debe interpretarse como una recomendación de compra, venta, tenencia o transacción de ningún instrumento financiero, criptomoneda, materia prima o cualquier otro activo.',
+            ],
+          },
+          {
+            heading: '3. Riesgo de Pérdida de Capital',
+            body: [
+              'El trading de futuros, forex, opciones, acciones, criptomonedas y otros instrumentos financieros conlleva un riesgo sustancial de pérdida y puede no ser apropiado para todos los inversores. Existe la posibilidad real de perder una cantidad igual o mayor al capital invertido.',
+              'Solo debes operar con capital que puedas permitirte perder en su totalidad sin que afecte tu situación financiera personal o familiar.',
+            ],
+          },
+          {
+            heading: '4. Rendimiento Pasado No Garantiza Resultados Futuros',
+            body: [
+              'Las estadísticas, métricas y resultados históricos mostrados en ZenTrade se basan únicamente en el historial de trading registrado por el usuario. El rendimiento pasado no es indicativo ni garantía de resultados futuros.',
+              'Los mercados financieros son inherentemente impredecibles e influenciados por factores macroeconómicos, geopolíticos y de liquidez que ninguna herramienta puede prever con certeza.',
+            ],
+          },
+          {
+            heading: '5. Responsabilidad Exclusiva del Usuario',
+            body: [
+              'El usuario es el único y exclusivo responsable de todas sus decisiones de trading. ZenTrade no asume ninguna responsabilidad por pérdidas financieras, daños económicos o cualquier consecuencia negativa derivada del uso de esta plataforma.',
+              'Antes de comenzar a operar en los mercados financieros, considera consultar con un asesor financiero certificado y regulado en tu jurisdicción.',
+            ],
+          },
+          {
+            heading: '6. Cumplimiento Regulatorio',
+            body: [
+              'El usuario es responsable de asegurar que sus actividades de trading cumplan con todas las leyes, regulaciones y requisitos fiscales aplicables en su jurisdicción. ZenTrade no garantiza que el uso de la plataforma sea apropiado o legal en todas las jurisdicciones.',
+              'Para consultas generales: soporte@zen-trader.com',
+            ],
+          },
+        ],
+      },
     },
   },
 
@@ -644,6 +957,42 @@ const translations = {
           cta: 'Get Started',
         },
       ],
+      // FAQ section
+      faqBadge: 'Frequently Asked Questions',
+      faqTitle1: 'Everything You Need',
+      faqTitle2: 'To Know',
+      faqSubtitle: 'If you have more questions, write to us at soporte@zen-trader.com and we will respond within 24 hours.',
+      faqContact: 'Another question? Write to us at soporte@zen-trader.com',
+      faqItems: [
+        {
+          q: 'Do I need a credit card for the free trial?',
+          a: 'No. The 14-day trial is completely free with no payment information required. Just create your account and get started.',
+        },
+        {
+          q: 'Which trading platforms is ZenTrade compatible with?',
+          a: 'Compatible with NinjaTrader, Rithmic, MT5, TradingView and Tradoverse via CSV file import. You can also log any trade manually.',
+        },
+        {
+          q: 'Is it useful for prop firm evaluations like FTMO or Apex Trader?',
+          a: 'Yes, ZenTrade was designed with evaluation traders in mind. It includes key metrics like max drawdown, consistency score and profit factor that prop firms use to evaluate you.',
+        },
+        {
+          q: 'Can I cancel my subscription at any time?',
+          a: 'Yes, with no commitments or penalties. Cancel from your billing portal at any time and keep access until the end of your paid period.',
+        },
+        {
+          q: 'Is my trading data private and secure?',
+          a: 'Completely. We use Row Level Security (RLS) in the database, which guarantees that each user can only see their own data. No one else can access your information.',
+        },
+        {
+          q: 'How are payments processed?',
+          a: 'Through Lemon Squeezy, who acts as Merchant of Record and handles all billing securely. We accept major credit and debit cards. ZenTrade does not store card data.',
+        },
+        {
+          q: 'Can I use ZenTrade from any device?',
+          a: 'Yes. ZenTrade is a web app that works on any modern browser — computer, tablet or mobile. No downloads, no installations.',
+        },
+      ],
       // final CTA section
       ctaSection1: 'Ready to Pass Your',
       ctaSection2: 'Next Evaluation?',
@@ -671,7 +1020,284 @@ const translations = {
       footerLinkPrivacy: 'Privacy',
       footerLinkTerms: 'Terms',
       footerLinkContact: 'Contact',
+      footerLinkRefunds: 'Refunds',
+      footerLinkCookies: 'Cookies',
+      footerLinkDisclaimer: 'Legal Disclaimer',
       footerCopyright: 'All rights reserved.',
+    },
+
+    // ── Legal pages ──────────────────────────────────────────
+    legal: {
+      lastUpdated: 'Last updated',
+      backHome: 'Back to Home',
+      terms: {
+        title: 'Terms of Service',
+        date: 'March 1, 2026',
+        subtitle: 'Please read these terms carefully before using ZenTrade. By accessing the Service, you confirm that you have read and agree to be bound by them.',
+        sections: [
+          {
+            heading: '1. Acceptance of Terms',
+            body: [
+              'By accessing and using ZenTrade ("the Service"), you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access the Service.',
+              'You must be at least 18 years of age to use ZenTrade. By creating an account, you confirm that you meet this age requirement.',
+            ],
+          },
+          {
+            heading: '2. Description of Service',
+            body: [
+              'ZenTrade is a web-based trading journal platform that allows users to log trades, analyze performance metrics and generate reports. ZenTrade is exclusively an organization and analysis tool; it does not constitute financial advice of any kind.',
+              'We reserve the right to modify, suspend or discontinue any part of the Service at any time with reasonable prior notice.',
+            ],
+          },
+          {
+            heading: '3. Acceptable Use',
+            body: [
+              'You agree to use the Service only for lawful purposes and in accordance with these Terms.',
+              'The following is prohibited: (a) sharing login credentials with third parties; (b) attempting to access other users\' data; (c) reverse engineering the software; (d) using the Service for fraudulent or illegal activities; (e) overloading or interfering with the Service infrastructure.',
+            ],
+          },
+          {
+            heading: '4. Subscriptions and Payments',
+            body: [
+              'Paid plans are billed according to the chosen cycle (monthly or annual) and renew automatically until cancelled. Payments are processed by Lemon Squeezy, LLC, who acts as Merchant of Record for all transactions.',
+              'We reserve the right to modify prices with at least 30 days prior email notice. The price in effect at the time of renewal will apply to the next billing cycle.',
+            ],
+          },
+          {
+            heading: '5. Cancellation',
+            body: [
+              'You may cancel your subscription at any time from your account\'s billing portal. After cancellation, you will retain full access to the paid plan until the end of the current billing period.',
+              'ZenTrade reserves the right to cancel or suspend accounts that violate these Terms of Service without prior notice.',
+            ],
+          },
+          {
+            heading: '6. Intellectual Property',
+            body: [
+              'All content, design, code, trademarks and logos of ZenTrade are the exclusive property of their creators and are protected by intellectual property laws. No license is granted to reproduce, distribute or create derivative works without express written authorization.',
+              'The user retains all rights to the trading data they input into the platform.',
+            ],
+          },
+          {
+            heading: '7. Limitation of Liability',
+            body: [
+              'ZenTrade is provided "as is" and "as available" without warranties of any kind. We do not guarantee that the Service will be uninterrupted or error-free.',
+              'In no event shall ZenTrade be liable for: trading losses or investment decisions made based on the Service, data loss, business interruption, or any indirect or consequential damages arising from the use or inability to use the Service.',
+            ],
+          },
+          {
+            heading: '8. Changes and Contact',
+            body: [
+              'We reserve the right to modify these Terms at any time. Material changes will be notified by email with at least 15 days advance notice. Continued use of the Service after notification implies acceptance of the new terms.',
+              'For inquiries about these Terms of Service: soporte@zen-trader.com',
+            ],
+          },
+        ],
+      },
+      privacy: {
+        title: 'Privacy Policy',
+        date: 'March 1, 2026',
+        subtitle: 'At ZenTrade we are committed to protecting your privacy. This policy explains what data we collect, how we use it and what your rights are under GDPR and applicable laws.',
+        sections: [
+          {
+            heading: '1. Data Controller',
+            body: [
+              'ZenTrade ("we", "our") is the data controller for your personal data. For any privacy-related inquiries, contact us at: soporte@zen-trader.com',
+            ],
+          },
+          {
+            heading: '2. Data We Collect',
+            body: [
+              'Account data: name, email address and password (stored in hashed form; we never store passwords in plain text).',
+              'Trading data: trade records, metrics, journal notes and account configurations you voluntarily enter into the platform.',
+              'Billing data: managed directly by Lemon Squeezy. ZenTrade does not store credit card data or banking information.',
+              'Technical data: IP address, browser type, operating system and access logs, collected automatically for security and diagnostics.',
+            ],
+          },
+          {
+            heading: '3. How We Use Your Data',
+            body: [
+              'We use your data to: provide and maintain the Service; manage your account and subscription; send transactional communications (payment confirmations, account notices, support); improve the platform and fix bugs; and comply with legal and regulatory obligations.',
+              'We do not sell your personal data to third parties or use it for third-party advertising.',
+            ],
+          },
+          {
+            heading: '4. Third-Party Services',
+            body: [
+              'Supabase (supabase.com): database and authentication provider. Your data is stored on Supabase servers. See their privacy policy at supabase.com/privacy.',
+              'Lemon Squeezy (lemonsqueezy.com): payment processing and subscription management as Merchant of Record. They independently manage payment data. See their policy at lemonsqueezy.com/privacy.',
+              'Resend (resend.com): transactional email delivery service. They only receive your email address and the content of messages we send you. See their policy at resend.com/privacy.',
+              'Vercel (vercel.com): application hosting and deployment infrastructure. They may process access logs and performance metrics. See their policy at vercel.com/legal/privacy-policy.',
+            ],
+          },
+          {
+            heading: '5. Data Retention',
+            body: [
+              'We retain your personal data while your account is active. If you delete your account, your data is permanently erased within a maximum of 30 days, unless the law requires longer retention for tax or legal reasons.',
+            ],
+          },
+          {
+            heading: '6. Your Rights (GDPR)',
+            body: [
+              'If you are a resident of the European Economic Area, you have the right to: Access (obtain a copy of your data); Rectification (correct inaccurate data); Erasure ("right to be forgotten"); Portability (receive your data in a structured format); Objection (object to processing based on legitimate interest); Restriction of processing in certain circumstances.',
+              'To exercise any of these rights, write to us at soporte@zen-trader.com. You also have the right to file a complaint with the data protection authority in your country.',
+            ],
+          },
+          {
+            heading: '7. Data Security',
+            body: [
+              'We implement technical and organizational measures to protect your data: transit encryption (HTTPS/TLS), secure authentication, and Row Level Security (RLS) in the database to ensure each user can only access their own data.',
+              'However, no data transmission or storage system is 100% secure. In the event of a security breach affecting your data, we will notify you within the timeframe required by applicable law.',
+            ],
+          },
+          {
+            heading: '8. Changes and Contact',
+            body: [
+              'We will notify any significant changes to this policy by email with at least 15 days advance notice. Continued use of the Service after notification implies acceptance of the updated policy.',
+              'For privacy inquiries: soporte@zen-trader.com',
+            ],
+          },
+        ],
+      },
+      refunds: {
+        title: 'Refund Policy',
+        date: 'March 1, 2026',
+        subtitle: 'This policy explains our approach to refunds in a transparent manner.',
+        sections: [
+          {
+            heading: '1. Lemon Squeezy as Merchant of Record',
+            body: [
+              'All payments made on ZenTrade are processed by Lemon Squeezy, LLC ("Lemon Squeezy"), who acts as Merchant of Record for all transactions. This means Lemon Squeezy is the legal seller, managing billing, applicable tax collection and payment compliance.',
+              'Upon completing a purchase, you will receive an invoice issued by Lemon Squeezy. For technical payment inquiries, you may also contact Lemon Squeezy directly through their website.',
+            ],
+          },
+          {
+            heading: '2. General No-Refund Policy',
+            body: [
+              'Because ZenTrade provides immediate access to a digital platform with a free trial period available, we do not offer refunds for subscriptions that have already started.',
+              'By completing your subscription, you confirm that you have had the opportunity to evaluate the Service during the free trial period and that you accept the terms of this refund policy.',
+            ],
+          },
+          {
+            heading: '3. Exceptions',
+            body: [
+              'We will evaluate refund requests in the following exceptional cases: (a) verifiable duplicate charge due to a technical error on our part; (b) service outage of more than 72 consecutive hours attributable solely to ZenTrade; (c) first charge to a new subscriber within 24 hours, with no recorded use of premium features.',
+              'To request an exception refund, email us at soporte@zen-trader.com with the subject "Refund Request" and include your payment receipt. We respond within 48 business hours.',
+            ],
+          },
+          {
+            heading: '4. Subscription Cancellation',
+            body: [
+              'You may cancel your subscription at any time from your account\'s billing portal. Cancellation is immediate: no future charges will be made.',
+              'No pro-rata refunds are issued for the remaining time of an already-paid billing period. You will retain full access to the paid plan until the end of that period.',
+            ],
+          },
+          {
+            heading: '5. Payment Disputes',
+            body: [
+              'Before initiating a chargeback with your bank, please contact us directly. We respond to 100% of cases within 48 business hours and resolve legitimate cases without the need for banking disputes.',
+              'Chargebacks initiated without prior contact with our support may result in immediate account suspension. Payment support: soporte@zen-trader.com',
+            ],
+          },
+        ],
+      },
+      cookies: {
+        title: 'Cookie Policy',
+        date: 'March 1, 2026',
+        subtitle: 'This policy explains how ZenTrade uses cookies and similar technologies for the operation of the Service.',
+        sections: [
+          {
+            heading: '1. What Are Cookies?',
+            body: [
+              'Cookies are small text files stored on your device (computer, tablet or mobile) when you visit a website. They allow the site to remember your preferences and keep your session active between visits.',
+            ],
+          },
+          {
+            heading: '2. Essential Cookies',
+            body: [
+              'These cookies are strictly necessary for the operation of the Service. Without them, ZenTrade cannot function correctly and they cannot be disabled.',
+              'They include: authentication session cookie (keeps you logged in), CSRF security token (prevents request forgery attacks), and interface preferences (dark/light theme and selected language).',
+            ],
+          },
+          {
+            heading: '3. Analytics and Performance Cookies',
+            body: [
+              'Vercel Analytics may collect anonymous, aggregated data about site performance (load times, error rates, pages visited) to help us improve the Service. This data does not include personally identifiable information.',
+            ],
+          },
+          {
+            heading: '4. What We Do Not Do',
+            body: [
+              'ZenTrade does not use behavioral advertising or retargeting cookies. We do not track your activity on other websites. We do not share cookie data with ad networks. We do not use social media tracking cookies.',
+            ],
+          },
+          {
+            heading: '5. Cookie Control',
+            body: [
+              'You can configure your browser to reject some or all cookies. Note that disabling essential cookies will prevent ZenTrade from functioning correctly, including logging in.',
+              'Instructions for common browsers: Chrome (chrome://settings/cookies), Firefox (Menu → Settings → Privacy), Safari (Preferences → Privacy), Edge (Settings → Cookies and site permissions).',
+            ],
+          },
+          {
+            heading: '6. Contact',
+            body: [
+              'For any inquiries about our cookie policy: soporte@zen-trader.com',
+            ],
+          },
+        ],
+      },
+      disclaimer: {
+        title: 'Legal Disclaimer — Not Financial Advice',
+        date: 'March 1, 2026',
+        subtitle: 'Read this disclaimer in full before using ZenTrade. Trading carries significant financial risks.',
+        warning: {
+          title: 'IMPORTANT: ZenTrade does NOT provide financial advice.',
+          body: 'This platform is exclusively a software tool for personal trade logging and analysis. Nothing in ZenTrade constitutes an investment recommendation.',
+        },
+        sections: [
+          {
+            heading: '1. Not Financial Advice',
+            body: [
+              'ZenTrade is exclusively a software tool for the personal recording, organization and analysis of trading operations. NOTHING on this platform — including metrics, charts, reports, AI analysis, system suggestions or any other content — constitutes financial advice, investment advice, legal advice or tax advice.',
+              'We are not a registered financial advisor, broker-dealer, or investment manager under any financial regulation.',
+            ],
+          },
+          {
+            heading: '2. For Informational and Organizational Purposes Only',
+            body: [
+              'All information presented in ZenTrade is for purely informational and organizational purposes. Performance metrics (win rate, profit factor, drawdown, etc.) reflect only the trading history the user has entered into the system.',
+              'No content in ZenTrade should be interpreted as a recommendation to buy, sell, hold or transact in any financial instrument, cryptocurrency, commodity or any other asset.',
+            ],
+          },
+          {
+            heading: '3. Risk of Capital Loss',
+            body: [
+              'Trading futures, forex, options, stocks, cryptocurrencies and other financial instruments carries substantial risk of loss and may not be appropriate for all investors. There is a real possibility of losing an amount equal to or greater than the capital invested.',
+              'You should only trade with capital that you can afford to lose entirely without affecting your personal or family financial situation.',
+            ],
+          },
+          {
+            heading: '4. Past Performance Does Not Guarantee Future Results',
+            body: [
+              'The statistics, metrics and historical results shown in ZenTrade are based solely on trading history recorded by the user. Past performance is not indicative or a guarantee of future results.',
+              'Financial markets are inherently unpredictable and influenced by macroeconomic, geopolitical and liquidity factors that no tool can predict with certainty.',
+            ],
+          },
+          {
+            heading: '5. Sole Responsibility of the User',
+            body: [
+              'The user is the sole and exclusive responsible party for all trading decisions. ZenTrade assumes no responsibility for financial losses, economic damages or any negative consequences arising from the use of this platform.',
+              'Before starting to trade in financial markets, consider consulting with a certified and regulated financial advisor in your jurisdiction.',
+            ],
+          },
+          {
+            heading: '6. Regulatory Compliance',
+            body: [
+              'The user is responsible for ensuring that their trading activities comply with all laws, regulations and tax requirements applicable in their jurisdiction. ZenTrade does not guarantee that use of the platform is appropriate or legal in all jurisdictions.',
+              'For general inquiries: soporte@zen-trader.com',
+            ],
+          },
+        ],
+      },
     },
   },
 } as const;

@@ -68,7 +68,6 @@ export async function POST(request: NextRequest) {
       process.env.NODE_ENV === "production"
         ? "https://www.zen-trader.com"
         : appUrl;
-    console.log("[Checkout] APP_URL en uso:", appUrl, "| redirectBase:", redirectBase);
 
     const checkout = await createCheckout(LEMON_STORE_ID, variant.variantId, {
       checkoutOptions: {
