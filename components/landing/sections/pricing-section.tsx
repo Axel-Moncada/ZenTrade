@@ -87,9 +87,10 @@ export default function PricingSection() {
           {l.pricingTiers.map((tier, index) => {
             const isHighlighted = "highlight" in tier && tier.highlight;
             const isComingSoon  = "comingSoon" in tier && tier.comingSoon;
-            const displayPrice  = isAnnual && "priceAnnual" in tier ? tier.priceAnnual : tier.price;
+            const basePrice     = (tier as { price: number }).price ?? 0;
+            const displayPrice  = isAnnual && "priceAnnual" in tier ? tier.priceAnnual : basePrice;
             const savingsAmount = "saveAnnual" in tier ? tier.saveAnnual : 0;
-            const savingsPct    = Math.round((1 - (("priceAnnual" in tier ? tier.priceAnnual : tier.price) / tier.price)) * 100);
+            const savingsPct    = basePrice > 0 ? Math.round((1 - ((displayPrice as number) / basePrice)) * 100) : 0;
 
             return (
               <div
