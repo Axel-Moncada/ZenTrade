@@ -64,7 +64,11 @@ export async function POST(request: NextRequest) {
       process.env.APP_URL ??
       process.env.NEXT_PUBLIC_APP_URL ??
       "http://localhost:3000";
-    console.log("[Checkout] APP_URL en uso:", appUrl);
+    const redirectBase =
+      process.env.NODE_ENV === "production"
+        ? "https://www.zen-trader.com"
+        : appUrl;
+    console.log("[Checkout] APP_URL en uso:", appUrl, "| redirectBase:", redirectBase);
 
     const checkout = await createCheckout(LEMON_STORE_ID, variant.variantId, {
       checkoutOptions: {
@@ -81,7 +85,7 @@ export async function POST(request: NextRequest) {
       },
       productOptions: {
         enabledVariants: [Number(variant.variantId)],
-        redirectUrl: `${appUrl}/dashboard/billing?success=true`,
+        redirectUrl: `${redirectBase}/dashboard/billing?success=true`,
         receiptButtonText: "Ir al Dashboard",
         receiptThankYouNote:
           "¡Gracias por suscribirte a Zentrade! Tu cuenta ya está activa.",
