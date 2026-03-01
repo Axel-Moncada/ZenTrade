@@ -122,6 +122,15 @@ export default function ProfilePage() {
       comingSoon: false,
     },
     {
+      id: "starter" as const,
+      name: t.profile.planStarterName,
+      price: t.profile.planStarterPrice,
+      desc: t.profile.planStarterDesc,
+      features: [...t.profile.planStarterFeatures],
+      cta: t.profile.planStarterCtaLabel,
+      comingSoon: false,
+    },
+    {
       id: "pro" as const,
       name: t.profile.planProName,
       price: t.profile.planProPrice,
@@ -131,7 +140,7 @@ export default function ProfilePage() {
       comingSoon: false,
     },
     {
-      id: "max" as const,
+      id: "zenmode" as const,
       name: t.profile.planMaxName,
       price: t.profile.planMaxPrice,
       desc: t.profile.planMaxDesc,
@@ -287,7 +296,7 @@ export default function ProfilePage() {
               {/* Nombre + badge estado */}
               <div className="flex items-center gap-3 flex-wrap">
                 <span className="text-2xl font-bold text-zen-anti-flash">
-                  {plan.isFree ? "Free" : plan.isStarter ? "Starter" : "Professional"}
+                  {plan.isFree ? "Free" : plan.isStarter ? "Starter" : plan.isPro ? "Professional" : plan.isZenMode ? "ZenMode" : "Free"}
                 </span>
                 {plan.isFree ? (
                   <Badge className="bg-zen-forest/60 text-zen-anti-flash/70 border-0 text-xs">
@@ -359,7 +368,7 @@ export default function ProfilePage() {
         </div>
 
         {/* Plan cards */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {plans.map((p) => {
             const isActive = p.id === plan.planKey;
             const isLocked = !isActive;
