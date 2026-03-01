@@ -250,6 +250,8 @@ export interface Database {
           emotions: string[] | null;
           notes: string | null;
           screenshot_url: string | null;
+          entry_time: string | null;
+          exit_time: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -267,6 +269,8 @@ export interface Database {
           emotions?: string[] | null;
           notes?: string | null;
           screenshot_url?: string | null;
+          entry_time?: string | null;
+          exit_time?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -284,6 +288,8 @@ export interface Database {
           emotions?: string[] | null;
           notes?: string | null;
           screenshot_url?: string | null;
+          entry_time?: string | null;
+          exit_time?: string | null;
           created_at?: string;
           updated_at?: string;
         };

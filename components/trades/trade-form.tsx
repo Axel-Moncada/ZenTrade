@@ -20,8 +20,15 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { X, Briefcase, TrendingUp, TrendingDown } from "lucide-react";
+import { X, Briefcase, TrendingUp, TrendingDown, Clock, Lock } from "lucide-react";
 import { TradesList } from "./trades-list";
+import { usePlan } from "@/lib/hooks/usePlan";
+
+const TIME_SLOTS = Array.from({ length: 48 }, (_, i) => {
+  const h = Math.floor(i / 2).toString().padStart(2, "0");
+  const m = i % 2 === 0 ? "00" : "30";
+  return `${h}:${m}`;
+});
 
 interface TradeFormProps {
   accountId: string;
@@ -115,6 +122,8 @@ export function TradeForm({
         followed_plan: editingTrade.followed_plan,
         emotions: editingTrade.emotions || [],
         notes: editingTrade.notes || "",
+        entry_time: editingTrade.entry_time ?? null,
+        exit_time: editingTrade.exit_time ?? null,
       };
     }
     return {
@@ -128,9 +137,13 @@ export function TradeForm({
       followed_plan: true,
       emotions: [],
       notes: "",
+      entry_time: null,
+      exit_time: null,
     };
   });
 
+  const plan = usePlan();
+  const canUseTimes = plan.isPro || plan.isZenMode;
   const [selectedEmotion, setSelectedEmotion] = useState<string>("");
 
   // Cargar cuentas e instrumentos disponibles
@@ -345,6 +358,59 @@ export function TradeForm({
                 <SelectItem value="short" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">SHORT (Venta)</SelectItem>
               </SelectContent>
             </Select>
+          </div>
+        </div>
+
+        {/* Hora Entrada / Salida */}
+        <div>
+          <div className="flex items-center gap-2 mb-2">
+            <Clock className="h-4 w-4 text-zen-caribbean-green" />
+            <Label className="text-zen-anti-flash">Horario aproximado</Label>
+            {!canUseTimes && (
+              <span className="inline-flex items-center gap-1 text-xs bg-zen-caribbean-green/10 border border-zen-caribbean-green/30 text-zen-caribbean-green rounded-full px-2 py-0.5">
+                <Lock className="h-3 w-3" /> Professional
+              </span>
+            )}
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label className="text-zen-anti-flash/70 text-xs mb-1 block">Hora entrada</Label>
+              <Select
+                value={formData.entry_time ?? ""}
+                onValueChange={(v) => setFormData((prev) => ({ ...prev, entry_time: v || null }))}
+                disabled={!canUseTimes}
+              >
+                <SelectTrigger className="bg-zen-surface/60 border-zen-forest/40 text-zen-anti-flash disabled:opacity-50 disabled:cursor-not-allowed">
+                  <SelectValue placeholder="-- : --" />
+                </SelectTrigger>
+                <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash max-h-60">
+                  {TIME_SLOTS.map((t) => (
+                    <SelectItem key={t} value={t} className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">
+                      {t}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Label className="text-zen-anti-flash/70 text-xs mb-1 block">Hora salida</Label>
+              <Select
+                value={formData.exit_time ?? ""}
+                onValueChange={(v) => setFormData((prev) => ({ ...prev, exit_time: v || null }))}
+                disabled={!canUseTimes}
+              >
+                <SelectTrigger className="bg-zen-surface/60 border-zen-forest/40 text-zen-anti-flash disabled:opacity-50 disabled:cursor-not-allowed">
+                  <SelectValue placeholder="-- : --" />
+                </SelectTrigger>
+                <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash max-h-60">
+                  {TIME_SLOTS.map((t) => (
+                    <SelectItem key={t} value={t} className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">
+                      {t}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
         </div>
 

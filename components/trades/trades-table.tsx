@@ -23,12 +23,13 @@ interface TradesTableProps {
   onTradeClick?: (trade: Trade) => void
   selectedTrades?: string[]
   onSelectionChange?: (selectedIds: string[]) => void
+  isPro?: boolean
 }
 
 type SortField = 'trade_date' | 'result' | 'instrument'
 type SortDirection = 'asc' | 'desc'
 
-export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelectionChange }: TradesTableProps) {
+export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelectionChange, isPro = false }: TradesTableProps) {
   const [sortField, setSortField] = useState<SortField>('trade_date')
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc')
 
@@ -145,6 +146,9 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                   <ArrowUpDown className="h-3 w-3" />
                 </Button>
               </TableHead>
+              {isPro && (
+                <TableHead className="text-zen-anti-flash">Horario</TableHead>
+              )}
               <TableHead>
                 <Button
                   variant="ghost"
@@ -193,6 +197,17 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                 <TableCell className="font-medium text-zen-anti-flash" onClick={() => onTradeClick?.(trade)}>
                   {format(new Date(trade.trade_date), 'dd/MM/yyyy', { locale: es })}
                 </TableCell>
+                {isPro && (
+                  <TableCell className="text-zen-anti-flash text-sm" onClick={() => onTradeClick?.(trade)}>
+                    {trade.entry_time || trade.exit_time ? (
+                      <span className="font-mono text-xs">
+                        {trade.entry_time ?? '--:--'} → {trade.exit_time ?? '--:--'}
+                      </span>
+                    ) : (
+                      <span className="text-zen-text-muted">—</span>
+                    )}
+                  </TableCell>
+                )}
                 <TableCell onClick={() => onTradeClick?.(trade)}>
                   <div className="flex flex-col">
                     <span className="font-medium text-zen-anti-flash">{trade.instrument?.symbol}</span>

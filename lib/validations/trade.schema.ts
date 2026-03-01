@@ -17,6 +17,8 @@ export const createTradeSchema = z.object({
   emotions: z.array(z.string()).optional(),
   notes: z.string().max(2000, 'Notas no pueden exceder 2000 caracteres').optional(),
   screenshot_url: z.string().url('URL de captura inválida').optional(),
+  entry_time: z.string().regex(/^([01]\d|2[0-3]):[03]0$/, 'Hora inválida').optional().nullable(),
+  exit_time: z.string().regex(/^([01]\d|2[0-3]):[03]0$/, 'Hora inválida').optional().nullable(),
 });
 
 // Schema para actualizar un trade
@@ -35,6 +37,8 @@ export const updateTradeSchema = z.object({
   emotions: z.array(z.string()).optional().nullable(),
   notes: z.string().max(2000, 'Notas no pueden exceder 2000 caracteres').optional().nullable(),
   screenshot_url: z.string().url('URL de captura inválida').optional().nullable(),
+  entry_time: z.string().regex(/^([01]\d|2[0-3]):[03]0$/, 'Hora inválida').optional().nullable(),
+  exit_time: z.string().regex(/^([01]\d|2[0-3]):[03]0$/, 'Hora inválida').optional().nullable(),
 });
 
 export type CreateTradeSchema = z.infer<typeof createTradeSchema>;

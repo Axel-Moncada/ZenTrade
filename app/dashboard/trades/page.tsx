@@ -349,10 +349,11 @@ export default function TradesPage() {
         </div>
       ) : (
         <>
-          <TradesTable 
-            trades={currentTrades} 
+          <TradesTable
+            trades={currentTrades}
             selectedTrades={selectedTrades}
             onSelectionChange={setSelectedTrades}
+            isPro={plan.isPro || plan.isZenMode}
           />
 
           {/* Pagination */}

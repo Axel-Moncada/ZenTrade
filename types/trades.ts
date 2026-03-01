@@ -28,6 +28,8 @@ export interface Trade {
   emotions: string[] | null;
   notes: string | null;
   screenshot_url: string | null;
+  entry_time: string | null;
+  exit_time: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -53,6 +55,8 @@ export interface CreateTradeInput {
   emotions?: string[];
   notes?: string;
   screenshot_url?: string;
+  entry_time?: string | null;
+  exit_time?: string | null;
 }
 
 export interface UpdateTradeInput {
@@ -66,4 +70,6 @@ export interface UpdateTradeInput {
   emotions?: string[];
   notes?: string;
   screenshot_url?: string;
+  entry_time?: string | null;
+  exit_time?: string | null;
 }
