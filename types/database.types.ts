@@ -12,6 +12,50 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      subscriptions: {
+        Row: {
+          id: string;
+          user_id: string;
+          lemon_squeezy_subscription_id: string;
+          lemon_squeezy_customer_id: string;
+          variant_id: string;
+          plan_key: "free" | "starter" | "pro" | "zenmode";
+          billing_interval: "monthly" | "annual";
+          status: "active" | "cancelled" | "expired" | "paused" | "past_due" | "unpaid" | "on_trial";
+          current_period_end: string | null;
+          customer_portal_url: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          lemon_squeezy_subscription_id: string;
+          lemon_squeezy_customer_id: string;
+          variant_id: string;
+          plan_key: "free" | "starter" | "pro" | "zenmode";
+          billing_interval: "monthly" | "annual";
+          status: "active" | "cancelled" | "expired" | "paused" | "past_due" | "unpaid" | "on_trial";
+          current_period_end?: string | null;
+          customer_portal_url?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string;
+          lemon_squeezy_subscription_id?: string;
+          lemon_squeezy_customer_id?: string;
+          variant_id?: string;
+          plan_key?: "free" | "starter" | "pro" | "zenmode";
+          billing_interval?: "monthly" | "annual";
+          status?: "active" | "cancelled" | "expired" | "paused" | "past_due" | "unpaid" | "on_trial";
+          current_period_end?: string | null;
+          customer_portal_url?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
       profiles: {
         Row: {
           id: string;

@@ -16,6 +16,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
 import type { Account } from "@/types/accounts";
+import { UpgradePrompt } from "@/components/shared/upgrade-prompt";
 
 interface AccountFormProps {
   account?: Account;
@@ -26,6 +27,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [planLimitReached, setPlanLimitReached] = useState(false);
 
   const [formData, setFormData] = useState({
     name: account?.name || "",
@@ -82,10 +84,20 @@ export function AccountForm({ account, mode }: AccountFormProps) {
         body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
+      const data = (await response.json()) as {
+        account?: Account;
+        error?: string;
+        code?: string;
+        limit?: number;
+      };
 
       if (!response.ok) {
-        setError(data.error || "Error al guardar la cuenta");
+        if (data.code === "PLAN_LIMIT_REACHED") {
+          setPlanLimitReached(true);
+          setLoading(false);
+          return;
+        }
+        setError(data.error ?? "Error al guardar la cuenta");
         setLoading(false);
         return;
       }
@@ -101,6 +113,22 @@ export function AccountForm({ account, mode }: AccountFormProps) {
   // Shared input class — account-input for CSS light-mode targeting
   const inputCls =
     "account-input border-zen-bangladesh-green bg-zen-bangladesh-green/40 text-zen-anti-flash placeholder:text-zen-anti-flash/50 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none";
+
+  // Límite de plan alcanzado: reemplazar el formulario con el upgrade prompt
+  if (planLimitReached) {
+    return (
+      <div className="max-w-md mx-auto pt-4 space-y-4">
+        <UpgradePrompt
+          requiredPlan="pro"
+          variant="card"
+          message="Alcanzaste el límite de cuentas de tu plan actual"
+        />
+        <p className="text-center text-sm text-zen-text-muted">
+          Professional incluye cuentas ilimitadas para gestionar todas tus evaluaciones y cuentas live.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <Card className="bg-zen-dark-green border border-zen-forest/40 px-10 rounded-xl">

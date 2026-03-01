@@ -7,10 +7,12 @@ import { Badge } from '@/components/ui/badge'
 import { TradingPlanForm } from '@/components/trading-plan/trading-plan-form'
 import { ExportPlanPDF } from '@/components/trading-plan/export-plan-pdf'
 import { AccountSelector } from '@/components/shared/account-selector'
-import { Target, FileText, Calendar, Shield } from 'lucide-react'
+import { UpgradePrompt } from '@/components/shared/upgrade-prompt'
+import { Target, FileText, Calendar, Shield, Lock } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { TradingPlan } from '@/types/trading-plan'
 import { useI18n } from '@/lib/i18n/context'
+import { usePlan } from '@/lib/hooks/usePlan'
 
 export default function TradingPlanPage() {
   const [accounts, setAccounts] = useState<Array<{ id: string; name: string; broker: string }>>([])
@@ -18,7 +20,9 @@ export default function TradingPlanPage() {
   const [activePlan, setActivePlan] = useState<TradingPlan | null>(null)
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
+  const [showPdfUpgrade, setShowPdfUpgrade] = useState(false)
   const { t } = useI18n()
+  const plan = usePlan()
 
   const supabase = createClient()
 
@@ -79,12 +83,23 @@ export default function TradingPlanPage() {
         {!showForm && (
           <div className="flex gap-2">
             {activePlan && (
-              <ExportPlanPDF 
-                plan={activePlan} 
-                accountName={accounts.find(a => a.id === selectedAccount)?.name || 'cuenta'}
-              />
+              plan.isPro ? (
+                <ExportPlanPDF
+                  plan={activePlan}
+                  accountName={accounts.find(a => a.id === selectedAccount)?.name ?? 'cuenta'}
+                />
+              ) : (
+                <Button
+                  variant="outline"
+                  className="gap-2 border-zen-caribbean-green/20 text-zen-caribbean-green/50 cursor-not-allowed"
+                  onClick={() => setShowPdfUpgrade(true)}
+                >
+                  <Lock className="h-4 w-4" />
+                  {t.tradingPlan.exportPdf}
+                </Button>
+              )
             )}
-            <Button onClick={() => setShowForm(true)} variant={'zenGreen'} >
+            <Button onClick={() => setShowForm(true)} variant={'zenGreen'}>
               {activePlan ? t.tradingPlan.editPlan : t.tradingPlan.createPlan}
             </Button>
           </div>
@@ -99,6 +114,16 @@ export default function TradingPlanPage() {
           onAccountChange={setSelectedAccount}
         />
       </Card>
+
+      {/* Upgrade prompt — PDF export bloqueado */}
+      {showPdfUpgrade && !plan.isPro && (
+        <UpgradePrompt
+          requiredPlan="pro"
+          variant="inline"
+          message="Exporta tu Trading Plan en PDF profesional para presentarlo en evaluaciones de prop firms"
+          onDismiss={() => setShowPdfUpgrade(false)}
+        />
+      )}
 
       {/* Content */}
       {loading ? (

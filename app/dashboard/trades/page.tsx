@@ -3,17 +3,20 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { Download, Upload, Plus, Trash2 } from 'lucide-react'
+import { Download, Upload, Plus, Trash2, Lock } from 'lucide-react'
 import { TradesFilters, TradeFilters } from '@/components/trades/trades-filters'
 import { TradesTable } from '@/components/trades/trades-table'
 import { AccountSelector } from '@/components/accounts/account-selector'
+import { UpgradePrompt } from '@/components/shared/upgrade-prompt'
 import { Account } from '@/types/accounts'
 import { createClient } from '@/lib/supabase/client'
 import { Trade } from '@/types/trade'
 import Link from 'next/link'
 import { useI18n } from '@/lib/i18n/context'
+import { usePlan } from '@/lib/hooks/usePlan'
 
 export default function TradesPage() {
+  const plan = usePlan()
   const [accounts, setAccounts] = useState<Account[]>([])
   const [selectedAccount, setSelectedAccount] = useState<string>('')
   const [instruments, setInstruments] = useState<Array<{ id: string; symbol: string; name: string }>>([])
@@ -24,6 +27,7 @@ export default function TradesPage() {
   const [currentPage, setCurrentPage] = useState(1)
   const [selectedTrades, setSelectedTrades] = useState<string[]>([])
   const [deleting, setDeleting] = useState(false)
+  const [showImportUpgrade, setShowImportUpgrade] = useState(false)
   const tradesPerPage = 20
   const { t } = useI18n()
 
@@ -215,12 +219,24 @@ export default function TradesPage() {
           </p>
         </div>
         <div className="flex gap-3">
-          <Link href="/dashboard/trades/import">
-            <Button className="gap-2 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black">
-              <Upload className="h-4 w-4" />
+          {/* Importar — bloqueado para Starter/Free */}
+          {!plan.loading && plan.isPro ? (
+            <Link href="/dashboard/trades/import">
+              <Button className="gap-2 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black">
+                <Upload className="h-4 w-4" />
+                {t.trades.importBtn}
+              </Button>
+            </Link>
+          ) : (
+            <Button
+              onClick={() => setShowImportUpgrade(prev => !prev)}
+              className="gap-2 bg-zen-caribbean-green/15 hover:bg-zen-caribbean-green/25 text-zen-caribbean-green/60 border border-zen-caribbean-green/20"
+            >
+              <Lock className="h-4 w-4" />
               {t.trades.importBtn}
             </Button>
-          </Link>
+          )}
+
           <Button onClick={handleExport} className="gap-2 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black">
             <Download className="h-4 w-4" />
             {t.trades.exportBtn}
@@ -233,6 +249,16 @@ export default function TradesPage() {
           </Link>
         </div>
       </div>
+
+      {/* Upgrade prompt inline — aparece al hacer click en el botón bloqueado */}
+      {showImportUpgrade && !plan.isPro && (
+        <UpgradePrompt
+          requiredPlan="pro"
+          variant="banner"
+          message="Import CSV automático desde Rithmic, NinjaTrader y Tradoverse requiere Professional"
+          onDismiss={() => setShowImportUpgrade(false)}
+        />
+      )}
 
       {/* Account Selector */}
       <div className="flex items-center bg-card rounded-lg border border-border px-4 py-3 gap-4">

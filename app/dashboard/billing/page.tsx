@@ -9,8 +9,6 @@ export type PlanConfig = {
   name: string;
   price_monthly: number;
   price_annual: number;
-  monthlyPriceId: string;
-  annualPriceId: string;
   features: string[];
   highlight?: boolean;
   disabled?: boolean;
@@ -18,61 +16,46 @@ export type PlanConfig = {
 };
 
 export type ActiveSubscription = {
-  id: string;
+  plan_key: 'starter' | 'pro' | 'zenmode';
   status: string;
-  billing_interval: string;
+  billing_interval: 'monthly' | 'annual';
   current_period_end: string | null;
-  cancel_at_period_end: boolean;
-  plan: {
-    slug: string;
-    name: string;
-    price_monthly: number;
-    price_annual: number;
-  } | null;
+  customer_portal_url: string | null;
 } | null;
 
-export type PaymentRow = {
-  id: string;
-  amount_cents: number;
-  currency: string;
-  status: string;
-  paid_at: string | null;
-  created_at: string;
-};
-
-// ── Plan config (server-side env vars — never exposed to client directly) ────
+// ── Plan config ───────────────────────────────────────────────────────────────
 
 const PLAN_CONFIGS: PlanConfig[] = [
   {
     slug: 'starter',
     name: 'Starter',
     price_monthly: 9,
-    price_annual: 86,
-    monthlyPriceId: process.env.LEMONSQUEEZY_STARTER_MONTHLY_VARIANT_ID ?? '',
-    annualPriceId: process.env.LEMONSQUEEZY_STARTER_ANNUAL_VARIANT_ID ?? '',
+    price_annual: 84,
     badge: 'Ideal para Empezar',
     features: [
-      '1 Cuenta de Trading',
-      'Dashboard básico',
-      'Métricas esenciales (Win Rate, PnL, Drawdown)',
+      '2 Cuentas de Trading',
+      'Registro manual de trades (ilimitado)',
+      'Dashboard básico: Win Rate, PnL, Drawdown',
       'Calendario de trades',
+      'Export CSV',
       'Soporte por email',
     ],
   },
   {
-    slug: 'professional',
+    slug: 'pro',
     name: 'Professional',
     price_monthly: 29,
-    price_annual: 278,
-    monthlyPriceId: process.env.LEMONSQUEEZY_PRO_MONTHLY_VARIANT_ID ?? '',
-    annualPriceId: process.env.LEMONSQUEEZY_PRO_ANNUAL_VARIANT_ID ?? '',
+    price_annual: 249,
     highlight: true,
     badge: 'Lo Más Popular',
     features: [
-      '3 Cuentas de trading',
-      'Import CSV automático',
-      'Dashboard analítico completo',
-      'Trading Plan PDF exportable',
+      'Cuentas ilimitadas',
+      'Import CSV automático (Rithmic, NinjaTrader, Tradoverse)',
+      'Dashboard analítico completo (todos los KPIs)',
+      'Trading Plan exportable en PDF',
+      'Calendario con notas emocionales y tags',
+      'Filtros avanzados por instrumento, sesión y setup',
+      'Equity curve + análisis de distribución',
       'Export CSV/PDF/Excel ilimitado',
       'Soporte prioritario',
     ],
@@ -81,18 +64,18 @@ const PLAN_CONFIGS: PlanConfig[] = [
     slug: 'zenmode',
     name: 'ZenMode',
     price_monthly: 59,
-    price_annual: 566,
-    monthlyPriceId: '',
-    annualPriceId:  '',
+    price_annual: 499,
     disabled: true,
     badge: 'Próximamente',
     features: [
-      'Todo en Professional',
-      'IA Coach personalizado',
-      'Reportes automáticos semanales',
-      'Análisis predictivo de patrones',
-      'Soporte 24/7',
-      'Coaching 1-a-1 mensual',
+      'Todo en Professional +',
+      'Detección de revenge trading en tiempo real (IA)',
+      'Alertas de reglas de riesgo (daily loss, position size)',
+      'Reporte semanal automático por email',
+      'Análisis de horario óptimo de trading (IA)',
+      'Benchmark vs. requisitos de prop firms',
+      'Coaching 1-a-1 mensual (30 min)',
+      'Soporte dedicado 24/7',
     ],
   },
 ];
@@ -112,26 +95,12 @@ export default async function BillingPage({ searchParams }: PageProps) {
 
   const { data: subscription } = await supabase
     .from('subscriptions')
-    .select(`
-      id,
-      status,
-      billing_interval,
-      current_period_end,
-      cancel_at_period_end,
-      plan:plans(slug, name, price_monthly, price_annual)
-    `)
+    .select('plan_key, status, billing_interval, current_period_end, customer_portal_url')
     .eq('user_id', user.id)
-    .in('status', ['active', 'trialing', 'past_due'])
+    .in('status', ['active', 'on_trial', 'past_due'])
     .order('created_at', { ascending: false })
     .limit(1)
     .maybeSingle();
-
-  const { data: payments } = await supabase
-    .from('payments')
-    .select('id, amount_cents, currency, status, paid_at, created_at')
-    .eq('user_id', user.id)
-    .order('created_at', { ascending: false })
-    .limit(10);
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
@@ -145,7 +114,6 @@ export default async function BillingPage({ searchParams }: PageProps) {
       <BillingDashboard
         plans={PLAN_CONFIGS}
         subscription={subscription as ActiveSubscription}
-        payments={(payments ?? []) as PaymentRow[]}
         successParam={params.success}
         canceledParam={params.canceled}
       />

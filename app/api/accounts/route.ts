@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAccountSchema } from "@/lib/validations/account.schema";
+import { getUserPlan, ACCOUNT_LIMITS } from "@/lib/lemonsqueezy/get-user-plan";
 import type { Database } from "@/types/database.types";
 
 type AccountInsert = Database["public"]["Tables"]["accounts"]["Insert"];
@@ -75,6 +76,37 @@ export async function POST(request: NextRequest) {
         { error: "No autorizado" },
         { status: 401 }
       );
+    }
+
+    // Verificar límite de plan
+    const plan = await getUserPlan(supabase, user.id);
+    const limit = ACCOUNT_LIMITS[plan.planKey];
+
+    if (limit !== null) {
+      const { count, error: countError } = await supabase
+        .from("accounts")
+        .select("*", { count: "exact", head: true })
+        .eq("user_id", user.id);
+
+      if (countError) {
+        console.error("Error counting accounts:", countError);
+        return NextResponse.json(
+          { error: "Error al verificar el límite de cuentas" },
+          { status: 500 }
+        );
+      }
+
+      if ((count ?? 0) >= limit) {
+        return NextResponse.json(
+          {
+            error: "Límite de cuentas alcanzado",
+            code: "PLAN_LIMIT_REACHED",
+            limit,
+            planKey: plan.planKey,
+          },
+          { status: 403 }
+        );
+      }
     }
 
     // Parsear body

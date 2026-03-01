@@ -14,16 +14,17 @@ import {
   X,
   Lock,
   CheckCircle2,
+  ArrowRight,
+  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { useI18n } from "@/lib/i18n/context";
+import { usePlan } from "@/lib/hooks/usePlan";
+import { PlanFeatures } from "@/components/shared/plan-features";
 import type { Profile } from "@/types/accounts";
-
-// Active plan for this user (placeholder — always Free for now)
-const ACTIVE_PLAN = "free" as const;
 
 export default function ProfilePage() {
   const { t, locale } = useI18n();
@@ -35,6 +36,8 @@ export default function ProfilePage() {
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState("");
   const [saveSuccess, setSaveSuccess] = useState(false);
+
+  const plan = usePlan();
   const [editForm, setEditForm] = useState({
     full_name: "",
     timezone: "",
@@ -84,6 +87,10 @@ export default function ProfilePage() {
     } finally {
       setSaving(false);
     }
+  };
+
+  const handleUpgrade = () => {
+    router.push("/dashboard/billing");
   };
 
   const handleSignOut = async () => {
@@ -265,6 +272,85 @@ export default function ProfilePage() {
         )}
       </div>
 
+      {/* ── Plan activo ── */}
+      <div className="bg-zen-dark-green border border-zen-forest/40 rounded-2xl p-6 space-y-5">
+        <div className="flex items-center gap-2">
+          <Zap className="h-5 w-5 text-zen-caribbean-green" />
+          <h2 className="text-lg font-semibold text-zen-anti-flash">Tu suscripción</h2>
+        </div>
+
+        {plan.loading ? (
+          <div className="h-16 rounded-xl bg-zen-surface animate-pulse" />
+        ) : (
+          <div className="flex items-center justify-between gap-4">
+            <div className="space-y-1.5">
+              {/* Nombre + badge estado */}
+              <div className="flex items-center gap-3 flex-wrap">
+                <span className="text-2xl font-bold text-zen-anti-flash">
+                  {plan.isFree ? "Free" : plan.isStarter ? "Starter" : "Professional"}
+                </span>
+                {plan.isFree ? (
+                  <Badge className="bg-zen-forest/60 text-zen-anti-flash/70 border-0 text-xs">
+                    Sin cargo
+                  </Badge>
+                ) : plan.status === "active" ? (
+                  <Badge className="bg-zen-caribbean-green/20 text-zen-caribbean-green border border-zen-caribbean-green/30 text-xs">
+                    Activo
+                  </Badge>
+                ) : plan.status === "on_trial" ? (
+                  <Badge className="bg-amber-400/15 text-amber-400 border border-amber-400/30 text-xs">
+                    En prueba
+                  </Badge>
+                ) : plan.status === "past_due" ? (
+                  <Badge className="bg-zen-danger/15 text-zen-danger border border-zen-danger/30 text-xs">
+                    Pago pendiente
+                  </Badge>
+                ) : plan.status === "paused" ? (
+                  <Badge className="bg-zen-anti-flash/10 text-zen-anti-flash/50 border-0 text-xs">
+                    Pausado
+                  </Badge>
+                ) : null}
+              </div>
+
+              {/* Precio / renovación */}
+              {plan.isFree ? (
+                <p className="text-sm text-zen-anti-flash/50">
+                  Actualiza para desbloquear más funciones
+                </p>
+              ) : plan.currentPeriodEnd ? (
+                <p className="text-sm text-zen-anti-flash/50">
+                  {plan.status === "cancelled" ? "Cancela el" : "Renueva el"}{" "}
+                  <span className="text-zen-anti-flash/80 font-medium">
+                    {format(new Date(plan.currentPeriodEnd), "d 'de' MMMM yyyy", {
+                      locale: locale === "es" ? es : enUS,
+                    })}
+                  </span>
+                  {plan.billingInterval === "annual" && " · facturado anualmente"}
+                </p>
+              ) : null}
+            </div>
+
+            {/* Botón upgrade — Free y Starter */}
+            {(plan.isFree || plan.isStarter) && (
+              <Button
+                onClick={handleUpgrade}
+                size="sm"
+                className="gap-2 shrink-0 font-semibold"
+                style={{ background: "#00C17C", color: "#001B1F" }}
+              >
+                {plan.isFree ? "Ver planes" : "Ir a Professional"}
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            )}
+          </div>
+        )}
+
+        {/* Comparativa de planes */}
+        <PlanFeatures
+          highlightPlan={plan.isStarter ? "starter" : plan.isPro ? "pro" : undefined}
+        />
+      </div>
+
       {/* ── Membership card ── */}
       <div className="bg-zen-dark-green border border-zen-forest/40 rounded-2xl p-6 space-y-5">
         <div className="flex items-center gap-2">
@@ -274,13 +360,13 @@ export default function ProfilePage() {
 
         {/* Plan cards */}
         <div className="grid grid-cols-3 gap-4">
-          {plans.map((plan) => {
-            const isActive = plan.id === ACTIVE_PLAN;
+          {plans.map((p) => {
+            const isActive = p.id === plan.planKey;
             const isLocked = !isActive;
 
             return (
               <div
-                key={plan.id}
+                key={p.id}
                 className={
                   isActive
                     ? "relative rounded-xl border-2 border-zen-caribbean-green bg-zen-rich-black p-5 flex flex-col"
@@ -310,25 +396,25 @@ export default function ProfilePage() {
                       isActive ? "text-zen-caribbean-green" : "text-zen-anti-flash/60"
                     }`}
                   >
-                    {plan.name}
+                    {p.name}
                   </p>
                   <p
                     className={`text-sm font-semibold mt-0.5 ${
                       isActive ? "text-zen-anti-flash" : "text-zen-anti-flash/50"
                     }`}
                   >
-                    {plan.price}
+                    {p.price}
                   </p>
                 </div>
 
                 {/* Description */}
                 <p className="text-xs text-zen-anti-flash/50 mb-4 leading-relaxed">
-                  {plan.desc}
+                  {p.desc}
                 </p>
 
                 {/* Features */}
                 <ul className="space-y-2 flex-1 mb-5">
-                  {plan.features.map((feat, i) => (
+                  {p.features.map((feat, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <CheckCircle2
                         className={`h-3.5 w-3.5 mt-0.5 flex-shrink-0 ${
@@ -354,9 +440,9 @@ export default function ProfilePage() {
                     disabled
                     className="w-full bg-zen-caribbean-green/20 text-zen-caribbean-green border border-zen-caribbean-green/40 cursor-default text-sm font-semibold"
                   >
-                    {plan.cta}
+                    {p.cta}
                   </Button>
-                ) : plan.comingSoon ? (
+                ) : p.comingSoon ? (
                   <Button
                     disabled
                     variant="outline"
@@ -367,9 +453,10 @@ export default function ProfilePage() {
                 ) : (
                   <Button
                     variant="outline"
+                    onClick={handleUpgrade}
                     className="w-full border-zen-caribbean-green text-zen-caribbean-green hover:bg-zen-caribbean-green/10 text-sm"
                   >
-                    {plan.cta}
+                    {p.cta}
                   </Button>
                 )}
               </div>

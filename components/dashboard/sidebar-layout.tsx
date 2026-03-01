@@ -12,6 +12,7 @@ import {
   ChevronLeft,
   ChevronRight,
   UserCircle,
+  CreditCard,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -178,7 +179,21 @@ export function SidebarLayout({ userEmail, userName, children }: SidebarLayoutPr
               )}
             </Button>
           </Link>
-          
+          <Link href="/dashboard/billing">
+            <Button
+              variant="ghost"
+              className={`w-full text-zen-anti-flash/70 hover:text-zen-anti-flash hover:bg-zen-caribbean-green/10 transition-colors group my-1 ${
+                isCollapsed ? "justify-center px-0" : "justify-start"
+              }`}
+            >
+              <div className="p-1.5 bg-zen-caribbean-green/20 group-hover:bg-zen-caribbean-green/30 rounded-lg transition-colors">
+                <CreditCard className="h-4 w-4 text-zen-caribbean-green" />
+              </div>
+              {!isCollapsed && (
+                <span className="font-medium text-lg ml-3">Facturación</span>
+              )}
+            </Button>
+          </Link>
         </nav>
 
         {/* User Info & Logout */}

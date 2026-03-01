@@ -31,6 +31,7 @@ import {
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { useI18n } from '@/lib/i18n/context';
+import { FreePlanWelcome } from '@/components/shared/free-plan-welcome';
 
 export default function DashboardPage() {
   const { t } = useI18n();
@@ -99,26 +100,29 @@ export default function DashboardPage() {
   // Renderizar estado vacío
   if (!selectedAccount || accounts.length === 0) {
     return (
-      <div className="min-h-screen bg-{#031200} flex items-center justify-center p-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-zen-surface/60 backdrop-blur-sm rounded-2xl border border-zen-forest/40 p-12 text-center max-w-md"
-        >
-          <Activity className="h-16 w-16 text-zen-caribbean-green/60 mx-auto mb-6" />
-          <h2 className="text-2xl font-bold text-zen-anti-flash mb-3">
-            {t.dashboard.noAccounts}
-          </h2>
-          <p className="text-zen-anti-flash/70 mb-8">
-            {t.dashboard.noAccountsDesc}
-          </p>
-          <Link
-            href="/dashboard/accounts/new"
-            className="inline-flex items-center px-6 py-3 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black font-semibold rounded-lg transition-colors"
+      <div className="min-h-screen bg-{#031200} flex flex-col p-6 gap-6">
+        <FreePlanWelcome />
+        <div className="flex-1 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-zen-surface/60 backdrop-blur-sm rounded-2xl border border-zen-forest/40 p-12 text-center max-w-md"
           >
-            {t.dashboard.createFirst}
-          </Link>
-        </motion.div>
+            <Activity className="h-16 w-16 text-zen-caribbean-green/60 mx-auto mb-6" />
+            <h2 className="text-2xl font-bold text-zen-anti-flash mb-3">
+              {t.dashboard.noAccounts}
+            </h2>
+            <p className="text-zen-anti-flash/70 mb-8">
+              {t.dashboard.noAccountsDesc}
+            </p>
+            <Link
+              href="/dashboard/accounts/new"
+              className="inline-flex items-center px-6 py-3 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black font-semibold rounded-lg transition-colors"
+            >
+              {t.dashboard.createFirst}
+            </Link>
+          </motion.div>
+        </div>
       </div>
     );
   }
@@ -154,6 +158,9 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-zen-rich-black">
       <div className="max-w-8xl mx-auto space-y-8">
+        {/* Banner de bienvenida — solo plan free, dismissible */}
+        <FreePlanWelcome />
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
