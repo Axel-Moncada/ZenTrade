@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Account } from '@/types/accounts'
 import { Withdrawal } from '@/types/withdrawal'
-import { WithdrawalAccountCard } from '@/components/withdrawals/withdrawal-account-card'
+import { WithdrawalAccountCard, type ConsistencyData } from '@/components/withdrawals/withdrawal-account-card'
 import { AddWithdrawalDialog } from '@/components/withdrawals/add-withdrawal-dialog'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Card } from '@/components/ui/card'
@@ -21,6 +21,7 @@ import { useI18n } from '@/lib/i18n/context'
 export default function WithdrawalsPage() {
   const [accounts, setAccounts] = useState<Account[]>([])
   const [withdrawals, setWithdrawals] = useState<Withdrawal[]>([])
+  const [consistencyMap, setConsistencyMap] = useState<Record<string, ConsistencyData>>({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [selectedAccount, setSelectedAccount] = useState<Account | null>(null)
@@ -45,6 +46,29 @@ export default function WithdrawalsPage() {
         (acc: Account) => acc.account_type === 'live'
       )
       setAccounts(liveAccounts)
+
+      // Calcular consistencia por cuenta (mayor trade <= 30% de ganancia total)
+      const map: Record<string, ConsistencyData> = {}
+      await Promise.all(
+        liveAccounts.map(async (acc: Account) => {
+          try {
+            const tradesRes = await fetch(`/api/trades?account_id=${acc.id}&limit=1000`)
+            const tradesData = await tradesRes.json()
+            const trades: { pnl: number }[] = tradesData.trades || []
+            const winningTrades = trades.filter(t => t.pnl > 0)
+            const totalGains = winningTrades.reduce((s, t) => s + t.pnl, 0)
+            const biggestWin = winningTrades.length > 0 ? Math.max(...winningTrades.map(t => t.pnl)) : 0
+            map[acc.id] = {
+              totalGains,
+              biggestWin,
+              passesConsistency: totalGains > 0 ? biggestWin <= totalGains * 0.30 : false,
+            }
+          } catch {
+            map[acc.id] = { totalGains: 0, biggestWin: 0, passesConsistency: false }
+          }
+        })
+      )
+      setConsistencyMap(map)
 
       // Obtener retiros recientes
       const withdrawalsResponse = await fetch('/api/withdrawals')
@@ -197,6 +221,7 @@ export default function WithdrawalsPage() {
                   key={account.id}
                   account={account}
                   onWithdraw={handleWithdraw}
+                  consistencyData={consistencyMap[account.id]}
                 />
               ))}
             </div>
