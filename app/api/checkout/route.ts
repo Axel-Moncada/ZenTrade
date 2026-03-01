@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
       },
       productOptions: {
         enabledVariants: [Number(variant.variantId)],
-        redirectUrl: `${appUrl}/dashboard?checkout=success`,
+        redirectUrl: `${appUrl}/dashboard/billing?success=true`,
         receiptButtonText: "Ir al Dashboard",
         receiptThankYouNote:
           "¡Gracias por suscribirte a Zentrade! Tu cuenta ya está activa.",

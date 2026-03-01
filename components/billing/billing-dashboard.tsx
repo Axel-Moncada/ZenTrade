@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { Check, ExternalLink, AlertTriangle, CheckCircle2, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
+import { CheckoutSuccessModal } from '@/components/billing/checkout-success-modal';
 import type { PlanConfig, ActiveSubscription } from '@/app/dashboard/billing/page';
 
 interface Props {
@@ -31,19 +31,17 @@ const STATUS_MAP: Record<string, { label: string; className: string }> = {
 export default function BillingDashboard({ plans, subscription, successParam, canceledParam }: Props) {
   const [interval, setInterval] = useState<'month' | 'year'>('month');
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(successParam === 'true');
 
+  // Limpiar el param de la URL sin recargar
   useEffect(() => {
-    if (successParam === 'true') {
-      toast.success('¡Suscripción activada!', {
-        description: 'Tu plan está activo. ¡Bienvenido a Zentrade!',
-      });
-    } else if (canceledParam === 'true') {
-      toast.info('Pago cancelado', {
-        description: 'Puedes suscribirte cuando quieras.',
-      });
+    if (successParam === 'true' || canceledParam === 'true') {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('success');
+      url.searchParams.delete('canceled');
+      window.history.replaceState({}, '', url.toString());
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [successParam, canceledParam]);
 
   const activePlanSlug = subscription?.plan_key ?? null;
   const statusInfo = subscription
@@ -93,6 +91,21 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
 
   return (
     <div className="space-y-8">
+
+      {/* ── Modal de éxito con confeti ── */}
+      {showSuccess && (
+        <CheckoutSuccessModal
+          subscription={subscription}
+          onClose={() => setShowSuccess(false)}
+        />
+      )}
+
+      {/* ── Canceled notice ── */}
+      {canceledParam === 'true' && (
+        <div className="rounded-xl border border-zen-anti-flash/10 bg-zen-surface/40 px-5 py-3 text-sm text-zen-anti-flash/60">
+          Pago cancelado — puedes suscribirte cuando quieras.
+        </div>
+      )}
 
       {/* ── Active subscription banner ── */}
       {subscription && (

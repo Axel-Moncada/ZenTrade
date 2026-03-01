@@ -44,8 +44,8 @@
 - [x] **`lib/lemonsqueezy/client.ts`** — añadir zenmode a PLAN_VARIANTS cuando tenga variant IDs
 - [x] **Free plan onboarding** — mensaje de bienvenida claro explicando límites del plan free vs starter
 - [x] **Stripe/LemonSqueezy portal** — enlace a portal de cliente para cambiar método de pago
-- [ ] **Página de éxito post-pago** — mensaje de confirmación claro con próximos pasos
-- [ ] **Email de bienvenida post-upgrade** — configurar en LemonSqueezy o con Resend
+- [x] **Página de éxito post-pago** — mensaje de confirmación claro con próximos pasos
+- [x] **Email de bienvenida post-upgrade** — configurar en LemonSqueezy o con Resend
 
 ---
 

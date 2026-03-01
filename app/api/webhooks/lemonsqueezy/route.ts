@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 import { supabaseAdmin } from "@/lib/supabase/admin";
 import { getPlanFromVariantId } from "@/lib/lemonsqueezy/client";
+import { sendWelcomeEmail } from "@/lib/resend/send-welcome-email";
 import type { Database } from "@/types/database.types";
 
 type SubscriptionStatus =
@@ -143,6 +144,16 @@ async function handleSubscriptionCreated(
   }
 
   console.log(`[Webhook] Suscripción creada para user ${userId} — plan ${planInfo.plan}/${planInfo.interval}`);
+
+  // Enviar email de bienvenida (no bloqueante)
+  sendWelcomeEmail({
+    userEmail: attrs.user_email,
+    userName: attrs.user_name,
+    planKey: planInfo.plan,
+    billingInterval: planInfo.interval,
+  }).catch((err) => {
+    console.error("[Webhook] Error enviando email de bienvenida:", err);
+  });
 }
 
 async function handleSubscriptionUpdated(
