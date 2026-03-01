@@ -1,6 +1,10 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database.types";
 
+type SubscriptionRow = Pick<
+  Database["public"]["Tables"]["subscriptions"]["Row"],
+  "plan_key" | "status"
+>;
 type PlanKey = Database["public"]["Tables"]["subscriptions"]["Row"]["plan_key"];
 
 export interface UserPlan {
@@ -29,7 +33,7 @@ export async function getUserPlan(
     .in("status", ACTIVE_STATUSES)
     .order("created_at", { ascending: false })
     .limit(1)
-    .maybeSingle();
+    .maybeSingle() as { data: SubscriptionRow | null; error: unknown };
 
   if (error || !subscription) {
     return { planKey: "free", isActive: true, isFree: true, isStarter: false, isPro: false, isZenMode: false };
