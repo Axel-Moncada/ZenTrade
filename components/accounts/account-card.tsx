@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -21,7 +22,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Pencil, Trash2 } from "lucide-react";
+import { Pencil, Trash2, CheckCircle2, AlertTriangle, TrendingUp } from "lucide-react";
 import type { Account } from "@/types/accounts";
 import {
   ACCOUNT_TYPE_LABELS,
@@ -31,12 +32,43 @@ import {
   DRAWDOWN_TYPE_LABELS,
 } from "@/types/accounts";
 
+interface ConsistencyInfo {
+  netProfit: number;   // ganancia neta = suma de todos los trades (wins - losses)
+  biggestWin: number;
+  passes: boolean;
+  neededProfit: number; // cuánto más de ganancia neta se necesita para cumplir
+}
+
 interface AccountCardProps {
   account: Account;
   onDelete?: () => void;
 }
 
 export function AccountCard({ account, onDelete }: AccountCardProps) {
+  const [consistency, setConsistency] = useState<ConsistencyInfo | null>(null);
+
+  useEffect(() => {
+    if (account.account_type !== "live") return;
+    const fetchConsistency = async () => {
+      try {
+        const res = await fetch(`/api/trades?account_id=${account.id}&limit=1000`);
+        const data = await res.json();
+        const trades: { result: number | null }[] = data.trades ?? [];
+        const winningTrades = trades.filter((t) => (t.result ?? 0) > 0);
+        // Ganancia NETA = suma de todos los trades (wins - losses)
+        const netProfit = trades.reduce((s, t) => s + (t.result ?? 0), 0);
+        const biggestWin = winningTrades.length > 0 ? Math.max(...winningTrades.map((t) => t.result ?? 0)) : 0;
+        const threshold = (account.consistency_percent ?? 30) / 100;
+        const passes = netProfit > 0 && biggestWin <= netProfit * threshold;
+        const requiredProfit = biggestWin > 0 ? biggestWin / threshold : 0;
+        const neededProfit = Math.max(0, requiredProfit - netProfit);
+        setConsistency({ netProfit, biggestWin, passes, neededProfit });
+      } catch {
+        // silencioso
+      }
+    };
+    fetchConsistency();
+  }, [account.id, account.account_type]);
   const handleDelete = async () => {
     try {
       const response = await fetch(`/api/accounts/${account.id}`, {
@@ -119,14 +151,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
                 {tradePnL >= 0 ? "+" : ""}${tradePnL.toLocaleString("en-US", { minimumFractionDigits: 2 })}
               </span>
             </div>
-            {account.manual_adjustments && account.manual_adjustments !== 0 && (
-              <div className="flex justify-between text-zen-anti-flash/70">
-                <span>Ajustes (Depósitos/Retiros):</span>
-                <span className={`font-medium ${account.manual_adjustments >= 0 ? "text-zen-caribbean-green" : "text-zen-danger"}`}>
-                  {account.manual_adjustments >= 0 ? "+" : ""}${account.manual_adjustments.toLocaleString("en-US", { minimumFractionDigits: 2 })}
-                </span>
-              </div>
-            )}
+            
             <div className="pt-1.5 border-t border-zen-border-soft/30 flex justify-between text-zen-anti-flash font-semibold">
               <span>Balance Actual:</span>
               <span className={balanceChange >= 0 ? "text-zen-caribbean-green" : "text-zen-danger"}>
@@ -191,6 +216,71 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
         <div className="pt-10 text-xs text-zen-anti-flash">
           <div>Fecha de inicio: {new Date(account.start_date).toLocaleDateString("es-ES")}</div>
         </div>
+
+        {/* Regla de Consistencia (solo cuentas live) */}
+        {account.account_type === "live" && consistency && consistency.netProfit > 0 && (
+          <div className={`p-4 rounded-xl border text-sm space-y-2 ${
+            consistency.passes
+              ? "bg-zen-caribbean-green/5 border-zen-caribbean-green/30"
+              : "bg-amber-500/5 border-amber-500/30"
+          }`}>
+            <div className="flex items-center gap-2 font-semibold">
+              {consistency.passes ? (
+                <CheckCircle2 className="h-4 w-4 text-zen-caribbean-green shrink-0" />
+              ) : (
+                <AlertTriangle className="h-4 w-4 text-amber-400 shrink-0" />
+              )}
+              <span className={consistency.passes ? "text-zen-caribbean-green" : "text-amber-400"}>
+                Consistencia {account.consistency_percent ?? 30}% — {consistency.passes ? "Cumplida ✓" : "Pendiente"}
+              </span>
+            </div>
+            <p className="text-xs text-zen-anti-flash/70 leading-relaxed">
+              {consistency.passes ? (
+                <>
+                  Tu trade más grande fue{" "}
+                  <span className="font-semibold text-zen-anti-flash">
+                    ${consistency.biggestWin.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                  </span>{" "}
+                  y representa menos del {account.consistency_percent ?? 30}% de tu ganancia neta de{" "}
+                  <span className="font-semibold text-zen-caribbean-green">
+                    ${consistency.netProfit.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                  </span>
+                  . Puedes solicitar un retiro.
+                </>
+              ) : (
+                <>
+                  Tu ganancia neta es{" "}
+                  <span className="font-semibold text-zen-anti-flash">
+                    ${consistency.netProfit.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                  </span>
+                  , pero tu trade más grande fue{" "}
+                  <span className="font-semibold text-amber-400">
+                    ${consistency.biggestWin.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                  </span>{" "}
+                  ({((consistency.biggestWin / consistency.netProfit) * 100).toFixed(1)}% de tu ganancia neta).
+                  Para cumplir el {account.consistency_percent ?? 30}%, necesitas acumular{" "}
+                  <span className="font-semibold text-zen-caribbean-green">
+                    ${consistency.neededProfit.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                  </span>{" "}
+                  más en ganancia neta (llevar el total a{" "}
+                  <span className="font-semibold text-zen-anti-flash">
+                    ${(consistency.netProfit + consistency.neededProfit).toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                  </span>
+                  ).
+                </>
+              )}
+            </p>
+            {!consistency.passes && (
+              <div className="flex items-center gap-2 pt-1">
+                <TrendingUp className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                <span className="text-xs text-amber-400 font-medium">
+                  Ganancia neta mínima necesaria: $
+                  {(consistency.biggestWin / ((account.consistency_percent ?? 30) / 100)).toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                </span>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Botones */}
         <div className="flex gap-2 pt-3">

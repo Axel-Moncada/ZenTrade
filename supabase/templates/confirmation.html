@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="x-apple-disable-message-reformatting" />
+  <title>Confirma tu cuenta — ZenTrade</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <style>
+    /* ─── Reset ─────────────────────────────────────────────────── */
+    * { box-sizing: border-box; }
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
+    a { color: inherit; }
+
+    /* ─── Animations ─────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0, 193, 124, 0.35); }
+      50%       { box-shadow: 0 0 0 10px rgba(0, 193, 124, 0);  }
+    }
+    .email-wrapper { animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .cta-btn       { animation: pulse 2.8s ease-in-out 1.2s infinite; }
+
+    /* ─── Dark mode ──────────────────────────────────────────────── */
+    @media (prefers-color-scheme: dark) {
+      .force-bg { background-color: #000F12 !important; }
+    }
+
+    /* ─── Mobile ─────────────────────────────────────────────────── */
+    @media only screen and (max-width: 600px) {
+      .email-container { width: 100% !important; }
+      .hero-pad   { padding: 40px 28px 36px !important; }
+      .body-pad   { padding: 30px 28px 40px !important; }
+      .footer-pad { padding: 28px !important; }
+      .headline   { font-size: 29px !important; line-height: 38px !important; }
+      .sub-headline { font-size: 15px !important; }
+      .logo-img   { max-width: 220px !important; width: 220px !important; }
+    }
+  </style>
+</head>
+
+<!--
+  ZenTrade — Email de Confirmación de Cuenta
+  Variable Supabase: {{ .ConfirmationURL }}
+-->
+
+<body style="margin: 0; padding: 0; background-color: #000F12; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;" class="force-bg">
+
+  <!-- Preheader invisible -->
+  <div style="display: none; max-height: 0; overflow: hidden; mso-hide: all;">
+    Un clic para activar tu cuenta y empezar a dominar tus evaluaciones.&nbsp;&#847;&zwj;&zwnj;&#847;&zwj;&zwnj;&#847;&zwj;&zwnj;&#847;&zwj;&zwnj;&#847;&zwj;&zwnj;&#847;&zwj;&zwnj;&#847;&zwj;&zwnj;&#847;&zwj;&zwnj;&#847;&zwj;&zwnj;
+  </div>
+
+  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #000F12;">
+    <tr>
+      <td align="center" style="padding: 44px 16px 64px;">
+
+        <table role="presentation" class="email-container email-wrapper" cellspacing="0" cellpadding="0" border="0" width="580" style="max-width: 580px; width: 100%;">
+
+          <!-- ── LOGO ────────────────────────────────────────────── -->
+          <tr>
+            <td align="center" style="padding: 0 0 36px;">
+              <a href="https://zen-trader.com" style="display: inline-block; text-decoration: none;">
+                <img
+                  class="logo-img"
+                  src="https://rsunvtanukainhbtnmlu.supabase.co/storage/v1/object/public/logo/logo-hori-white.png"
+                  alt="ZenTrade"
+                  width="360"
+                  style="display: block; border: 0; outline: none; text-decoration: none; max-width: 360px; height: auto;"
+                />
+              </a>
+              <div style="width: 36px; height: 2px; background-color: #00C17C; border-radius: 1px; margin: 16px auto 0;"></div>
+            </td>
+          </tr>
+
+          <!-- ── HERO CARD ─────────────────────────────────────────── -->
+          <tr>
+            <td>
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+                style="background-color: #002E21; border: 1px solid rgba(0, 106, 78, 0.55); border-radius: 18px; overflow: hidden;">
+
+                <!-- Barra degradado superior -->
+                <tr>
+                  <td style="height: 3px; background: linear-gradient(90deg, #004d38 0%, #00C17C 50%, #3DBB8F 100%);"></td>
+                </tr>
+
+                <!-- Hero principal -->
+                <tr>
+                  <td class="hero-pad" style="padding: 52px 52px 44px; text-align: center;">
+
+                    <!-- Status chip -->
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-bottom: 32px;">
+                      <tr>
+                        <td style="background-color: rgba(0, 193, 124, 0.10); border: 1px solid rgba(0, 193, 124, 0.28); border-radius: 20px; padding: 7px 16px;">
+                          <span style="display: inline-block; width: 6px; height: 6px; background-color: #00C17C; border-radius: 50%; vertical-align: middle; margin-right: 8px;"></span>
+                          <span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; color: #00C17C; letter-spacing: 1.8px; text-transform: uppercase; vertical-align: middle;">Activación pendiente</span>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!--
+                      Headline: contraste Light (300) / Bold (700)
+                      Técnica de diseño tipográfico suizo — Helvetica Neue al máximo
+                    -->
+                    <h1 class="headline" style="margin: 0 0 20px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 38px; line-height: 50px; color: #F2F3F4; letter-spacing: -1px;">
+                      <span style="font-weight: 300; display: block;">Tu diario de trading</span>
+                      <span style="font-weight: 700; color: #00C17C; display: block; letter-spacing: -1.5px;">te está esperando.</span>
+                    </h1>
+
+                    <!-- Subheadline -->
+                    <p class="sub-headline" style="margin: 0 auto 40px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15.5px; font-weight: 300; line-height: 27px; color: rgba(242, 243, 244, 0.58); max-width: 400px;">
+                      Confirma tu cuenta para registrar trades, medir tu consistencia y pasar evaluaciones con datos reales&nbsp;— no intuición.
+                    </p>
+
+                    <!-- CTA Button -->
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center">
+                      <tr>
+                        <td style="border-radius: 10px; background-color: #00C17C;" class="cta-btn">
+                          <!--[if mso]>
+                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ .ConfirmationURL }}" style="height:54px;v-text-anchor:middle;width:252px;" arcsize="18%" stroke="f" fillcolor="#00C17C">
+                            <w:anchorlock/>
+                            <center>
+                          <![endif]-->
+                          <a href="{{ .ConfirmationURL }}"
+                             style="display: inline-block; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; color: #001B1F; text-decoration: none; padding: 17px 44px; border-radius: 10px; background-color: #00C17C; letter-spacing: 0.5px; text-transform: uppercase; min-width: 210px; text-align: center;">
+                            Confirmar mi cuenta &rarr;
+                          </a>
+                          <!--[if mso]>
+                            </center>
+                          </v:roundrect>
+                          <![endif]-->
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Expiry -->
+                    <p style="margin: 22px 0 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 300; color: rgba(242, 243, 244, 0.28); letter-spacing: 0.5px;">
+                      Este enlace expira en 24&nbsp;horas
+                    </p>
+
+                  </td>
+                </tr>
+
+                <!-- Divider -->
+                <tr>
+                  <td style="padding: 0 52px;">
+                    <div style="height: 1px; background-color: rgba(0, 106, 78, 0.35);"></div>
+                  </td>
+                </tr>
+
+                <!-- ── FEATURES ──────────────────────────────────── -->
+                <tr>
+                  <td class="body-pad" style="padding: 38px 52px 48px;">
+
+                    <p style="margin: 0 0 26px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 9.5px; font-weight: 700; color: rgba(242, 243, 244, 0.32); letter-spacing: 2.5px; text-transform: uppercase;">
+                      Lo que te espera adentro
+                    </p>
+
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+
+                      <!-- Feature 1 -->
+                      <tr>
+                        <td style="padding-bottom: 22px; vertical-align: top;">
+                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                              <td style="width: 38px; vertical-align: top; padding-top: 1px;">
+                                <div style="width: 30px; height: 30px; background-color: rgba(0, 193, 124, 0.09); border: 1px solid rgba(0, 193, 124, 0.22); border-radius: 7px; text-align: center; line-height: 30px; font-size: 15px;">📊</div>
+                              </td>
+                              <td style="padding-left: 14px; vertical-align: top;">
+                                <p style="margin: 0 0 4px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.5px; font-weight: 600; color: #F2F3F4; line-height: 20px; letter-spacing: -0.2px;">Dashboard de métricas en tiempo real</p>
+                                <p style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: 300; color: rgba(242, 243, 244, 0.46); line-height: 19px;">Win rate, PnL, profit factor y regla de consistencia para prop firms.</p>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <!-- Feature 2 -->
+                      <tr>
+                        <td style="padding-bottom: 22px; vertical-align: top;">
+                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                              <td style="width: 38px; vertical-align: top; padding-top: 1px;">
+                                <div style="width: 30px; height: 30px; background-color: rgba(0, 193, 124, 0.09); border: 1px solid rgba(0, 193, 124, 0.22); border-radius: 7px; text-align: center; line-height: 30px; font-size: 15px;">🎯</div>
+                              </td>
+                              <td style="padding-left: 14px; vertical-align: top;">
+                                <p style="margin: 0 0 4px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.5px; font-weight: 600; color: #F2F3F4; line-height: 20px; letter-spacing: -0.2px;">Seguimiento de evaluaciones</p>
+                                <p style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: 300; color: rgba(242, 243, 244, 0.46); line-height: 19px;">FTMO, Apex, TopStep, Tradoverse — todo en un solo lugar.</p>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <!-- Feature 3 -->
+                      <tr>
+                        <td style="vertical-align: top;">
+                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                              <td style="width: 38px; vertical-align: top; padding-top: 1px;">
+                                <div style="width: 30px; height: 30px; background-color: rgba(0, 193, 124, 0.09); border: 1px solid rgba(0, 193, 124, 0.22); border-radius: 7px; text-align: center; line-height: 30px; font-size: 15px;">📅</div>
+                              </td>
+                              <td style="padding-left: 14px; vertical-align: top;">
+                                <p style="margin: 0 0 4px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13.5px; font-weight: 600; color: #F2F3F4; line-height: 20px; letter-spacing: -0.2px;">Diario de trades con calendario</p>
+                                <p style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: 300; color: rgba(242, 243, 244, 0.46); line-height: 19px;">Registra, analiza y mejora. Cada trade es un dato que te hace mejor.</p>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Bottom bar -->
+                <tr>
+                  <td style="height: 1px; background-color: rgba(0, 106, 78, 0.25);"></td>
+                </tr>
+
+                <!-- Social proof -->
+                <tr>
+                  <td style="padding: 16px 52px; text-align: center; background-color: rgba(0, 0, 0, 0.18);">
+                    <p style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 300; color: rgba(242, 243, 244, 0.32);">
+                      Usado por traders de futuros que operan en&nbsp;
+                      <span style="color: rgba(242, 243, 244, 0.58); font-weight: 500;">FTMO &middot; Apex &middot; TopStep &middot; Tradoverse &middot; Uprofit</span>
+                    </p>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+
+          <!-- ── ENLACE ALTERNATIVO ───────────────────────────────── -->
+          <tr>
+            <td style="padding: 30px 52px 0; text-align: center;">
+              <p style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 300; color: rgba(242, 243, 244, 0.26); line-height: 18px;">
+                Si el botón no funciona, copia este enlace en tu navegador:
+              </p>
+              <p style="margin: 8px 0 0; font-family: 'Courier New', Courier, monospace; font-size: 10.5px; color: rgba(0, 193, 124, 0.52); word-break: break-all; line-height: 16px;">
+                {{ .ConfirmationURL }}
+              </p>
+            </td>
+          </tr>
+
+          <!-- ── FOOTER ────────────────────────────────────────────── -->
+          <tr>
+            <td class="footer-pad" style="padding: 36px 52px 0; text-align: center;">
+
+              <div style="height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 106, 78, 0.4), transparent); margin-bottom: 26px;"></div>
+
+              <p style="margin: 0 0 12px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 400; color: rgba(242, 243, 244, 0.2);">
+                <a href="{{ .SiteURL }}/privacy" style="color: rgba(242, 243, 244, 0.3); text-decoration: none;">Privacidad</a>
+                &nbsp;&middot;&nbsp;
+                <a href="{{ .SiteURL }}/terms" style="color: rgba(242, 243, 244, 0.3); text-decoration: none;">Términos</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://zen-trader.com" style="color: rgba(242, 243, 244, 0.3); text-decoration: none;">zen-trader.com</a>
+              </p>
+
+              <p style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 300; color: rgba(242, 243, 244, 0.15);">
+                &copy; 2025 ZenTrade. Todos los derechos reservados.
+              </p>
+
+              <p style="margin: 16px 0 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 300; color: rgba(242, 243, 244, 0.15); line-height: 16px;">
+                Recibiste este email porque alguien registró una cuenta con esta dirección en ZenTrade.<br/>
+                Si no fuiste tú, puedes ignorar este mensaje con seguridad.
+              </p>
+
+              <div style="height: 44px;"></div>
+            </td>
+          </tr>
+
+        </table>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

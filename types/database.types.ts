@@ -104,6 +104,7 @@ export interface Database {
           start_date: string;
           status: "active" | "passed" | "failed" | "inactive";
           notes: string | null;
+          consistency_percent: number;
           created_at: string;
           updated_at: string;
         };
@@ -125,6 +126,7 @@ export interface Database {
           start_date: string;
           status?: "active" | "passed" | "failed" | "inactive";
           notes?: string | null;
+          consistency_percent?: number;
           created_at?: string;
           updated_at?: string;
         };
@@ -146,6 +148,7 @@ export interface Database {
           start_date?: string;
           status?: "active" | "passed" | "failed" | "inactive";
           notes?: string | null;
+          consistency_percent?: number;
           created_at?: string;
           updated_at?: string;
         };
@@ -252,6 +255,7 @@ export interface Database {
           screenshot_url: string | null;
           entry_time: string | null;
           exit_time: string | null;
+          screenshot_urls: string[] | null;
           created_at: string;
           updated_at: string;
         };
@@ -271,6 +275,7 @@ export interface Database {
           screenshot_url?: string | null;
           entry_time?: string | null;
           exit_time?: string | null;
+          screenshot_urls?: string[] | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -290,6 +295,7 @@ export interface Database {
           screenshot_url?: string | null;
           entry_time?: string | null;
           exit_time?: string | null;
+          screenshot_urls?: string[] | null;
           created_at?: string;
           updated_at?: string;
         };

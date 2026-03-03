@@ -59,6 +59,12 @@ export const createAccountSchema = z.object({
     .max(2000, "Las notas no pueden exceder 2000 caracteres")
     .optional()
     .nullable(),
+  consistency_percent: z
+    .number()
+    .int("El porcentaje debe ser un número entero")
+    .min(10, "El mínimo es 10%")
+    .max(100, "El máximo es 100%")
+    .default(30),
 }).refine(
   (data) => {
     // Validar que max_drawdown no sea mayor al initial_balance
@@ -144,6 +150,12 @@ export const updateAccountSchema = z.object({
     .max(2000, "Las notas no pueden exceder 2000 caracteres")
     .optional()
     .nullable(),
+  consistency_percent: z
+    .number()
+    .int("El porcentaje debe ser un número entero")
+    .min(10, "El mínimo es 10%")
+    .max(100, "El máximo es 100%")
+    .optional(),
 }).refine(
   (data) => {
     // Validar que max_drawdown no sea mayor al initial_balance si ambos están presentes

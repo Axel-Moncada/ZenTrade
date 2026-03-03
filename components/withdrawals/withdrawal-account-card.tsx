@@ -4,12 +4,12 @@ import { Account } from '@/types/accounts'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { ArrowDownToLine, TrendingUp, Shield, AlertTriangle, CheckCircle2 } from 'lucide-react'
+import { ArrowDownToLine, Shield, AlertTriangle, CheckCircle2 } from 'lucide-react'
 
 export interface ConsistencyData {
-  totalGains: number      // suma de todos los trades con PNL positivo
-  biggestWin: number      // el trade individual con mayor PNL positivo
-  passesConsistency: boolean  // biggestWin <= totalGains * 0.30
+  netProfit: number           // ganancia neta = suma de todos los trades (wins - losses)
+  biggestWin: number          // el trade individual con mayor PNL positivo
+  passesConsistency: boolean  // biggestWin <= netProfit * threshold
 }
 
 interface WithdrawalAccountCardProps {
@@ -19,105 +19,88 @@ interface WithdrawalAccountCardProps {
 }
 
 export function WithdrawalAccountCard({ account, onWithdraw, consistencyData }: WithdrawalAccountCardProps) {
-  // Ganancia total = balance actual - balance inicial
   const totalProfit = account.current_balance - account.initial_balance
   const profitPercentage = account.initial_balance > 0
     ? (totalProfit / account.initial_balance) * 100
     : 0
 
-  // Regla de consistencia del 30%:
-  // El trade más grande NO puede ser mayor al 30% de la ganancia total
-  const CONSISTENCY_THRESHOLD = 0.30
-  const maxAllowedBiggestWin = (consistencyData?.totalGains ?? 0) * CONSISTENCY_THRESHOLD
+  const CONSISTENCY_THRESHOLD = (account.consistency_percent ?? 30) / 100
+  const maxAllowedBiggestWin = (consistencyData?.netProfit ?? 0) * CONSISTENCY_THRESHOLD
   const meetsRule = consistencyData ? consistencyData.passesConsistency : false
-  const hasTrades = consistencyData && consistencyData.totalGains > 0
-
-  // Solo puede retirar si cumple la regla de consistencia y tiene ganancias
+  const hasTrades = consistencyData && consistencyData.netProfit > 0
   const availableToWithdraw = meetsRule && totalProfit > 0 ? totalProfit : 0
 
-  // Solo mostrar cuentas live
   if (account.account_type !== 'live') return null
 
   return (
-    <Card className="hover:shadow-lg transition-shadow border-zen-forest/50 rounded-xl backdrop-blur-sm p-6 bg-zen-bangladesh-green/60">
+    <Card className="border-zen-forest/50 rounded-xl backdrop-blur-sm p-6 bg-zen-bangladesh-green/60 hover:shadow-lg transition-shadow">
       <div className="space-y-4">
         {/* Header */}
         <div className="flex items-start justify-between">
           <div>
             <h3 className="text-lg font-semibold text-zen-anti-flash">{account.name}</h3>
-            <p className="text-sm text-zen-anti-flash/60">{account.broker}</p>
+            <p className="text-sm text-zen-anti-flash/50">{account.broker || 'Sin broker'}</p>
           </div>
-          <Badge
-            className={meetsRule ? 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40' : 'bg-zen-pistachio/20 text-zen-pistachio border-zen-pistachio/40'}
-          >
-            {account.account_type.toUpperCase()}
+          <Badge className="bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40 text-xs">
+            LIVE
           </Badge>
         </div>
 
-        {/* Ganancia total */}
-        <div className="grid grid-cols-2 gap-4">
-          {/* Saldo Total */}
-          <div className="space-y-1">
-            <p className="text-xs text-zen-anti-flash/60">Saldo Total</p>
-            <p className="text-2xl font-bold text-zen-anti-flash">
+        {/* Balances */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="bg-zen-rich-black/40 rounded-lg p-3 border border-zen-forest/30">
+            <p className="text-xs text-zen-anti-flash/50 mb-1">Balance Actual</p>
+            <p className="text-lg font-bold text-zen-anti-flash">
               ${account.current_balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
           </div>
-
-          {/* Ganancia Neta */}
-          <div className="space-y-1">
-            <p className="text-xs text-zen-anti-flash/60">Ganancia Neta</p>
-            <p className={`text-lg font-semibold ${totalProfit >= 0 ? 'text-zen-caribbean-green' : 'text-zen-danger'}`}>
+          <div className={`rounded-lg p-3 border ${totalProfit >= 0 ? 'bg-zen-caribbean-green/10 border-zen-caribbean-green/30' : 'bg-zen-danger/10 border-zen-danger/30'}`}>
+            <p className="text-xs text-zen-anti-flash/50 mb-1">Ganancia Neta</p>
+            <p className={`text-lg font-bold ${totalProfit >= 0 ? 'text-zen-caribbean-green' : 'text-zen-danger'}`}>
               {totalProfit >= 0 ? '+' : ''}${totalProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-              <span className="text-xs text-zen-anti-flash/50 ml-1">({profitPercentage.toFixed(1)}%)</span>
             </p>
+            <p className="text-xs text-zen-anti-flash/40">{profitPercentage >= 0 ? '+' : ''}{profitPercentage.toFixed(1)}%</p>
           </div>
         </div>
 
-        {/* Regla de Consistencia del 30% */}
+        {/* Regla de Consistencia */}
         <div className={`p-4 rounded-lg border ${
           !hasTrades
-            ? 'bg-zen-surface/40 border-zen-forest/20'
+            ? 'bg-zen-rich-black/40 border-zen-forest/30'
             : meetsRule
-              ? 'bg-zen-caribbean-green/5 border-zen-caribbean-green/30'
-              : 'bg-zen-danger/5 border-zen-danger/30'
+              ? 'bg-zen-caribbean-green/10 border-zen-caribbean-green/30'
+              : 'bg-zen-danger/10 border-zen-danger/30'
         }`}>
           <div className="flex items-start gap-3">
             {!hasTrades ? (
-              <Shield className="h-5 w-5 text-zen-anti-flash/30 mt-0.5 shrink-0" />
+              <Shield className="h-4 w-4 text-zen-anti-flash/30 mt-0.5 shrink-0" />
             ) : meetsRule ? (
-              <CheckCircle2 className="h-5 w-5 text-zen-caribbean-green mt-0.5 shrink-0" />
+              <CheckCircle2 className="h-4 w-4 text-zen-caribbean-green mt-0.5 shrink-0" />
             ) : (
-              <AlertTriangle className="h-5 w-5 text-zen-danger mt-0.5 shrink-0" />
+              <AlertTriangle className="h-4 w-4 text-zen-danger mt-0.5 shrink-0" />
             )}
-            <div className="space-y-1.5 flex-1">
-              <p className={`text-sm font-medium ${
+            <div className="space-y-1.5 flex-1 min-w-0">
+              <p className={`text-sm font-semibold ${
                 !hasTrades ? 'text-zen-anti-flash/50' : meetsRule ? 'text-zen-caribbean-green' : 'text-zen-danger'
               }`}>
-                Regla de Consistencia (30%)
+                Consistencia {account.consistency_percent ?? 30}% — {!hasTrades ? 'Sin datos' : meetsRule ? 'Cumplida ✓' : 'Pendiente'}
               </p>
               {!hasTrades ? (
-                <p className="text-xs text-zen-anti-flash/50">Sin trades registrados</p>
+                <p className="text-xs text-zen-anti-flash/40">Registra trades para verificar</p>
               ) : (
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs text-zen-anti-flash/60">
                     <span>Trade más grande:</span>
-                    <span className={meetsRule ? 'text-zen-caribbean-green' : 'text-zen-danger font-semibold'}>
-                      ${consistencyData!.biggestWin.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    <span className={`font-medium ${meetsRule ? 'text-zen-caribbean-green' : 'text-zen-danger'}`}>
+                      ${consistencyData!.biggestWin.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                     </span>
                   </div>
                   <div className="flex justify-between text-xs text-zen-anti-flash/60">
-                    <span>Máximo permitido (30% de ${consistencyData!.totalGains.toFixed(0)}):</span>
-                    <span className="text-zen-anti-flash/80">
-                      ${maxAllowedBiggestWin.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    <span>Máx. permitido ({account.consistency_percent ?? 30}% de ${consistencyData!.netProfit.toFixed(0)}):</span>
+                    <span className="font-medium text-zen-anti-flash/80">
+                      ${maxAllowedBiggestWin.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                     </span>
                   </div>
-                  <p className={`text-xs font-medium mt-1 ${meetsRule ? 'text-zen-caribbean-green' : 'text-zen-danger'}`}>
-                    {meetsRule
-                      ? '✓ Tu trade más grande está dentro del límite'
-                      : `✗ Tu trade más grande supera el 30% de la ganancia total`
-                    }
-                  </p>
                 </div>
               )}
             </div>
@@ -125,42 +108,31 @@ export function WithdrawalAccountCard({ account, onWithdraw, consistencyData }: 
         </div>
 
         {/* Disponible para retirar */}
-        <div className="p-4 rounded-lg bg-zen-mint/5 border border-zen-mint/30">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-2">
-              <TrendingUp className="h-4 w-4 text-zen-mint" />
-              <p className="text-sm font-medium text-zen-anti-flash">Disponible para Retiro</p>
-            </div>
-          </div>
-          <p className="text-2xl font-bold text-zen-mint">
+        <div className={`p-4 rounded-lg border ${meetsRule && availableToWithdraw > 0 ? 'bg-zen-caribbean-green/10 border-zen-caribbean-green/30' : 'bg-zen-rich-black/40 border-zen-forest/30'}`}>
+          <p className="text-xs text-zen-anti-flash/50 mb-1">Disponible para Retiro</p>
+          <p className={`text-2xl font-bold ${meetsRule && availableToWithdraw > 0 ? 'text-zen-caribbean-green' : 'text-zen-anti-flash/40'}`}>
             ${availableToWithdraw.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </p>
+          {!meetsRule && hasTrades && (
+            <p className="text-xs text-zen-danger/70 mt-1">
+              Trade más grande supera el {account.consistency_percent ?? 30}% de ganancia neta
+            </p>
+          )}
         </div>
 
-        {/* Botón de retiro */}
+        {/* Botón */}
         <Button
           onClick={() => onWithdraw(account)}
           disabled={!meetsRule || availableToWithdraw <= 0}
-          className={`w-full gap-2 ${meetsRule && availableToWithdraw > 0 ? 'bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black' : 'bg-zen-surface hover:bg-zen-forest/30 text-zen-anti-flash border border-zen-forest/40'}`}
+          className={`w-full gap-2 font-semibold ${
+            meetsRule && availableToWithdraw > 0
+              ? 'bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black'
+              : 'bg-zen-forest/30 hover:bg-zen-forest/40 text-zen-anti-flash/50 border border-zen-forest/40 cursor-not-allowed'
+          }`}
         >
           <ArrowDownToLine className="h-4 w-4" />
-          {meetsRule && availableToWithdraw > 0
-            ? 'Solicitar Retiro'
-            : 'No disponible para retiro'
-          }
+          {meetsRule && availableToWithdraw > 0 ? 'Solicitar Retiro' : 'No disponible'}
         </Button>
-
-        {!meetsRule && hasTrades && (
-          <p className="text-xs text-center text-zen-danger/70">
-            Tu trade más grande (${consistencyData!.biggestWin.toFixed(2)}) supera el 30% de ganancias totales (${maxAllowedBiggestWin.toFixed(2)})
-          </p>
-        )}
-
-        {!meetsRule && !hasTrades && (
-          <p className="text-xs text-center text-zen-anti-flash/50">
-            Registra trades para verificar la regla de consistencia
-          </p>
-        )}
       </div>
     </Card>
   )

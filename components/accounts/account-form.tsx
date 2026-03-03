@@ -46,6 +46,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
     start_date: account?.start_date || new Date().toISOString().split("T")[0],
     status: account?.status || "active",
     notes: account?.notes || "",
+    consistency_percent: account?.consistency_percent?.toString() || "30",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -72,6 +73,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
         start_date: formData.start_date,
         status: formData.status,
         notes: formData.notes || null,
+        consistency_percent: parseInt(formData.consistency_percent, 10),
       };
 
       const url =
@@ -389,6 +391,36 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                   <SelectItem value="inactive" className="hover:bg-zen-rich-black">Inactiva</SelectItem>
                 </SelectContent>
               </Select>
+            </div>
+
+            {/* Regla de Consistencia */}
+            <div className="space-y-2">
+              <Label htmlFor="consistency_percent" className="text-zen-anti-flash">
+                Regla de Consistencia
+              </Label>
+              <Select
+                value={formData.consistency_percent}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, consistency_percent: value })
+                }
+                disabled={loading}
+              >
+                <SelectTrigger className="text-zen-anti-flash">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
+                  <SelectItem value="20" className="hover:bg-zen-rich-black">20% </SelectItem>
+                  <SelectItem value="25" className="hover:bg-zen-rich-black">25% </SelectItem>
+                  <SelectItem value="30" className="hover:bg-zen-rich-black">30% </SelectItem>
+                  <SelectItem value="35" className="hover:bg-zen-rich-black">35% </SelectItem>
+                  <SelectItem value="40" className="hover:bg-zen-rich-black">40%</SelectItem>
+                  <SelectItem value="45" className="hover:bg-zen-rich-black">45%</SelectItem>
+                  <SelectItem value="50" className="hover:bg-zen-rich-black">50%</SelectItem>
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-zen-anti-flash/50">
+                % máximo que un solo trade puede representar del total de ganancias
+              </p>
             </div>
           </div>
 

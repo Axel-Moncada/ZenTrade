@@ -22,7 +22,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { X, Briefcase, TrendingUp, TrendingDown, Clock, Lock } from "lucide-react";
 import { TradesList } from "./trades-list";
+import { ScreenshotUpload } from "./screenshot-upload";
 import { usePlan } from "@/lib/hooks/usePlan";
+import { createClient } from "@/lib/supabase/client";
 
 const TIME_SLOTS = Array.from({ length: 48 }, (_, i) => {
   const h = Math.floor(i / 2).toString().padStart(2, "0");
@@ -108,6 +110,7 @@ export function TradeForm({
   const [loading, setLoading] = useState(false);
   const [loadingInstruments, setLoadingInstruments] = useState(true);
   const [loadingAccounts, setLoadingAccounts] = useState(true);
+  const [userId, setUserId] = useState<string>("");
 
   const [formData, setFormData] = useState<CreateTradeInput>(() => {
     if (editingTrade) {
@@ -124,6 +127,7 @@ export function TradeForm({
         notes: editingTrade.notes || "",
         entry_time: editingTrade.entry_time ?? null,
         exit_time: editingTrade.exit_time ?? null,
+        screenshot_urls: editingTrade.screenshot_urls ?? [],
       };
     }
     return {
@@ -139,12 +143,21 @@ export function TradeForm({
       notes: "",
       entry_time: null,
       exit_time: null,
+      screenshot_urls: [],
     };
   });
 
   const plan = usePlan();
   const canUseTimes = plan.isPro || plan.isZenMode;
   const [selectedEmotion, setSelectedEmotion] = useState<string>("");
+
+  // Obtener userId del usuario autenticado
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      if (data.user) setUserId(data.user.id);
+    });
+  }, []);
 
   // Cargar cuentas e instrumentos disponibles
   useEffect(() => {
@@ -557,6 +570,16 @@ export function TradeForm({
             ))}
           </div>
         </div>
+
+        {/* Capturas de pantalla */}
+        {userId && (
+          <ScreenshotUpload
+            value={formData.screenshot_urls ?? []}
+            onChange={(paths) => setFormData((prev) => ({ ...prev, screenshot_urls: paths }))}
+            disabled={!canUseTimes}
+            userId={userId}
+          />
+        )}
 
         {/* Notas */}
         <div>

@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "email-design": {
+      "source": "inference-sh-9/skills",
+      "sourceType": "github",
+      "computedHash": "ce5d9b1261e3c12c93b4c0bae8cceb52549636ba068933149bf6c6446b862e74"
+    },
     "marketing-psychology": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",

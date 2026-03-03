@@ -146,6 +146,7 @@ export async function POST(request: NextRequest) {
       start_date: validatedData.start_date,
       status: validatedData.status,
       notes: validatedData.notes || null,
+      consistency_percent: validatedData.consistency_percent ?? 30,
     };
 
     // Insertar en DB

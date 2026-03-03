@@ -19,6 +19,7 @@ export const createTradeSchema = z.object({
   screenshot_url: z.string().url('URL de captura inválida').optional(),
   entry_time: z.string().regex(/^([01]\d|2[0-3]):[03]0$/, 'Hora inválida').optional().nullable(),
   exit_time: z.string().regex(/^([01]\d|2[0-3]):[03]0$/, 'Hora inválida').optional().nullable(),
+  screenshot_urls: z.array(z.string()).max(3, 'Máximo 3 capturas por trade').optional().nullable(),
 });
 
 // Schema para actualizar un trade
@@ -39,6 +40,7 @@ export const updateTradeSchema = z.object({
   screenshot_url: z.string().url('URL de captura inválida').optional().nullable(),
   entry_time: z.string().regex(/^([01]\d|2[0-3]):[03]0$/, 'Hora inválida').optional().nullable(),
   exit_time: z.string().regex(/^([01]\d|2[0-3]):[03]0$/, 'Hora inválida').optional().nullable(),
+  screenshot_urls: z.array(z.string()).max(3, 'Máximo 3 capturas por trade').optional().nullable(),
 });
 
 export type CreateTradeSchema = z.infer<typeof createTradeSchema>;

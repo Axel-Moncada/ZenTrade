@@ -23,6 +23,9 @@ function makeTrade(overrides: Partial<TradeWithInstrument> = {}): TradeWithInstr
     emotions: null,
     notes: null,
     screenshot_url: null,
+    entry_time: null,
+    exit_time: null,
+    screenshot_urls: null,
     created_at: '2024-01-15T10:00:00Z',
     updated_at: '2024-01-15T10:00:00Z',
     instrument: {

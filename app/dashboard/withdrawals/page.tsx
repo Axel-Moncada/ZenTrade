@@ -6,15 +6,14 @@ import { Withdrawal } from '@/types/withdrawal'
 import { WithdrawalAccountCard, type ConsistencyData } from '@/components/withdrawals/withdrawal-account-card'
 import { AddWithdrawalDialog } from '@/components/withdrawals/add-withdrawal-dialog'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Skeleton } from '@/components/ui/skeleton'
-import { 
-  ArrowDownToLine, 
-  AlertCircle, 
-  CheckCircle2, 
+import {
+  ArrowDownToLine,
+  AlertCircle,
+  CheckCircle2,
   Clock,
-  TrendingDown 
+  DollarSign,
+  TrendingDown
 } from 'lucide-react'
 import { useI18n } from '@/lib/i18n/context'
 
@@ -33,54 +32,52 @@ export default function WithdrawalsPage() {
       setLoading(true)
       setError(null)
 
-      // Obtener cuentas
       const accountsResponse = await fetch('/api/accounts')
       const accountsData = await accountsResponse.json()
 
       if (!accountsResponse.ok) {
-          throw new Error(accountsData.error || t.common.error)
+        throw new Error(accountsData.error || t.common.error)
       }
 
-      // Filtrar solo cuentas live
       const liveAccounts = (accountsData.accounts || []).filter(
         (acc: Account) => acc.account_type === 'live'
       )
       setAccounts(liveAccounts)
 
-      // Calcular consistencia por cuenta (mayor trade <= 30% de ganancia total)
+      // Calcular consistencia por cuenta
       const map: Record<string, ConsistencyData> = {}
       await Promise.all(
         liveAccounts.map(async (acc: Account) => {
           try {
             const tradesRes = await fetch(`/api/trades?account_id=${acc.id}&limit=1000`)
             const tradesData = await tradesRes.json()
-            const trades: { pnl: number }[] = tradesData.trades || []
-            const winningTrades = trades.filter(t => t.pnl > 0)
-            const totalGains = winningTrades.reduce((s, t) => s + t.pnl, 0)
-            const biggestWin = winningTrades.length > 0 ? Math.max(...winningTrades.map(t => t.pnl)) : 0
+            const trades: { result: number | null }[] = tradesData.trades || []
+            const winningTrades = trades.filter(t => (t.result ?? 0) > 0)
+            // Ganancia NETA = suma de todos los trades (wins - losses)
+            const netProfit = trades.reduce((s, t) => s + (t.result ?? 0), 0)
+            const biggestWin = winningTrades.length > 0 ? Math.max(...winningTrades.map(t => t.result ?? 0)) : 0
+            const threshold = (acc.consistency_percent ?? 30) / 100
             map[acc.id] = {
-              totalGains,
+              netProfit,
               biggestWin,
-              passesConsistency: totalGains > 0 ? biggestWin <= totalGains * 0.30 : false,
+              passesConsistency: netProfit > 0 ? biggestWin <= netProfit * threshold : false,
             }
           } catch {
-            map[acc.id] = { totalGains: 0, biggestWin: 0, passesConsistency: false }
+            map[acc.id] = { netProfit: 0, biggestWin: 0, passesConsistency: false }
           }
         })
       )
       setConsistencyMap(map)
 
-      // Obtener retiros recientes
       const withdrawalsResponse = await fetch('/api/withdrawals')
       const withdrawalsData = await withdrawalsResponse.json()
-
       if (withdrawalsResponse.ok) {
         setWithdrawals(withdrawalsData.withdrawals || [])
       }
 
       setLoading(false)
-    } catch (err: any) {
-      setError(err.message)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : t.common.error)
       setLoading(false)
     }
   }, [t])
@@ -95,11 +92,9 @@ export default function WithdrawalsPage() {
   }
 
   const handleSuccess = () => {
-    // Recargar datos después de un retiro exitoso
     fetchData()
   }
 
-  // Calcular estadísticas
   const totalWithdrawn = withdrawals
     .filter(w => w.status === 'completed')
     .reduce((sum, w) => sum + w.amount, 0)
@@ -113,10 +108,9 @@ export default function WithdrawalsPage() {
           <h1 className="text-3xl font-bold mb-2 text-zen-anti-flash">{t.withdrawals.title}</h1>
           <p className="text-zen-anti-flash/60">{t.withdrawals.loading}</p>
         </div>
-
-        <div className="grid gap-16 md:grid-cols-3 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {[1, 2, 3].map((i) => (
-            <Skeleton key={i} className="h-[400px]" />
+            <div key={i} className="h-[380px] rounded-xl bg-zen-bangladesh-green/40 border border-zen-forest/30 animate-pulse" />
           ))}
         </div>
       </div>
@@ -140,7 +134,7 @@ export default function WithdrawalsPage() {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold mb-2 flex items-center gap-3 text-zen-anti-flash">
-          <ArrowDownToLine className="h-8 w-8 text-zen-mint" />
+          <ArrowDownToLine className="h-8 w-8 text-zen-caribbean-green" />
           {t.withdrawals.title}
         </h1>
         <p className="text-zen-anti-flash/60">
@@ -148,74 +142,71 @@ export default function WithdrawalsPage() {
         </p>
       </div>
 
-      {/* Estadísticas */}
+      {/* Estadísticas de retiros */}
       {withdrawals.length > 0 && (
         <div className="grid gap-4 md:grid-cols-3">
-          <Card className="p-4 border-zen-caribbean-green/40 bg-zen-caribbean-green/5">
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-lg bg-zen-caribbean-green/20">
-                <TrendingDown className="h-5 w-5 text-zen-caribbean-green" />
-              </div>
-              <div>
-                <p className="text-xs text-zen-anti-flash/60">{t.withdrawals.totalWithdrawn}</p>
-                <p className="text-xl font-bold text-zen-anti-flash">
-                  ${totalWithdrawn.toLocaleString('en-US', { minimumFractionDigits: 2 })}
-                </p>
-              </div>
+          <div className="rounded-xl border border-zen-forest/40 bg-zen-bangladesh-green/60 p-4 flex items-center gap-4">
+            <div className="p-3 rounded-lg bg-zen-caribbean-green/20 shrink-0">
+              <DollarSign className="h-5 w-5 text-zen-caribbean-green" />
             </div>
-          </Card>
+            <div>
+              <p className="text-xs text-zen-anti-flash/50 mb-0.5">{t.withdrawals.totalWithdrawn}</p>
+              <p className="text-xl font-bold text-zen-caribbean-green">
+                ${totalWithdrawn.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+              </p>
+            </div>
+          </div>
 
-          <Card className="p-4 border-zen-mint/40 bg-zen-mint/5">
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-lg bg-zen-mint/20">
-                <CheckCircle2 className="h-5 w-5 text-zen-mint" />
-              </div>
-              <div>
-                <p className="text-xs text-zen-anti-flash/60">{t.withdrawals.completed}</p>
-                <p className="text-xl font-bold text-zen-anti-flash">
-                  {withdrawals.filter(w => w.status === 'completed').length}
-                </p>
-              </div>
+          <div className="rounded-xl border border-zen-forest/40 bg-zen-bangladesh-green/60 p-4 flex items-center gap-4">
+            <div className="p-3 rounded-lg bg-zen-caribbean-green/10 shrink-0">
+              <CheckCircle2 className="h-5 w-5 text-zen-caribbean-green" />
             </div>
-          </Card>
+            <div>
+              <p className="text-xs text-zen-anti-flash/50 mb-0.5">{t.withdrawals.completed}</p>
+              <p className="text-xl font-bold text-zen-anti-flash">
+                {withdrawals.filter(w => w.status === 'completed').length}
+              </p>
+            </div>
+          </div>
 
-          <Card className="p-4 border-zen-pistachio/40 bg-zen-pistachio/5">
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-lg bg-zen-pistachio/20">
-                <Clock className="h-5 w-5 text-zen-pistachio" />
-              </div>
-              <div>
-                <p className="text-xs text-zen-anti-flash/60">{t.withdrawals.lastWithdrawal}</p>
-                <p className="text-xl font-bold text-zen-anti-flash">
-                  {withdrawals.length > 0
-                    ? new Date(withdrawals[0].withdrawal_date).toLocaleDateString('es-ES')
-                    : 'N/A'
-                  }
-                </p>
-              </div>
+          <div className="rounded-xl border border-zen-forest/40 bg-zen-bangladesh-green/60 p-4 flex items-center gap-4">
+            <div className="p-3 rounded-lg bg-zen-forest/20 shrink-0">
+              <Clock className="h-5 w-5 text-zen-anti-flash/70" />
             </div>
-          </Card>
+            <div>
+              <p className="text-xs text-zen-anti-flash/50 mb-0.5">{t.withdrawals.lastWithdrawal}</p>
+              <p className="text-xl font-bold text-zen-anti-flash">
+                {withdrawals.length > 0
+                  ? new Date(withdrawals[0].withdrawal_date).toLocaleDateString('es-ES')
+                  : 'N/A'
+                }
+              </p>
+            </div>
+          </div>
         </div>
       )}
 
       {/* Cuentas Live */}
       {accounts.length === 0 ? (
-        <Card className="p-12 text-center border-zen-forest/40 bg-zen-surface/60 rounded-xl">
-          <ArrowDownToLine className="h-16 w-16 mx-auto mb-4 text-zen-caribbean-green/40" />
+        <div className="rounded-xl border border-zen-forest/40 bg-zen-surface/60 p-12 text-center">
+          <div className="p-4 rounded-full bg-zen-caribbean-green/10 w-fit mx-auto mb-4">
+            <ArrowDownToLine className="h-12 w-12 text-zen-caribbean-green/40" />
+          </div>
           <h3 className="text-xl font-semibold text-zen-anti-flash mb-2">
             {t.withdrawals.noLiveAccounts}
           </h3>
-          <p className="text-zen-anti-flash/60">
+          <p className="text-zen-anti-flash/50 text-sm">
             {t.withdrawals.noLiveAccountsDesc}
           </p>
-        </Card>
+        </div>
       ) : (
         <>
           <div>
-            <h2 className="text-xl font-semibold mb-4 text-zen-anti-flash">
+            <h2 className="text-lg font-semibold mb-4 text-zen-anti-flash flex items-center gap-2">
+              <div className="w-1 h-1 rounded-full bg-zen-caribbean-green" />
               {t.withdrawals.liveAccounts(accounts.length)}
             </h2>
-            <div className="grid gap-16 md:grid-cols-3 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {accounts.map((account) => (
                 <WithdrawalAccountCard
                   key={account.id}
@@ -230,51 +221,59 @@ export default function WithdrawalsPage() {
           {/* Retiros recientes */}
           {recentWithdrawals.length > 0 && (
             <div>
-              <h2 className="text-xl font-semibold mb-4 text-zen-anti-flash">
+              <h2 className="text-lg font-semibold mb-4 text-zen-anti-flash flex items-center gap-2">
+                <div className="w-1 h-1 rounded-full bg-zen-caribbean-green" />
                 {t.withdrawals.recentWithdrawals}
               </h2>
-              <Card className="border-zen-forest/40 bg-zen-surface/60">
-                <div className="divide-y divide-zen-forest/30">
-                  {recentWithdrawals.map((withdrawal: any) => (
-                    <div key={withdrawal.id} className="p-4 flex items-center justify-between">
-                      <div className="flex-1">
-                        <p className="font-medium text-zen-anti-flash">
-                          {withdrawal.account?.name || 'Cuenta'}
+              <div className="rounded-xl border border-zen-forest/40 bg-zen-bangladesh-green/60 overflow-hidden">
+                {recentWithdrawals.map((withdrawal, idx) => (
+                  <div
+                    key={withdrawal.id}
+                    className={`p-4 flex items-center justify-between gap-4 ${
+                      idx < recentWithdrawals.length - 1 ? 'border-b border-zen-forest/30' : ''
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="p-2 rounded-lg bg-zen-rich-black/40 shrink-0">
+                        <TrendingDown className="h-4 w-4 text-zen-caribbean-green" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-medium text-zen-anti-flash truncate">
+                          {(withdrawal as { account?: { name?: string } }).account?.name || 'Cuenta'}
                         </p>
-                        <p className="text-sm text-zen-anti-flash/60">
+                        <p className="text-xs text-zen-anti-flash/50">
                           {new Date(withdrawal.withdrawal_date).toLocaleDateString('es-ES')}
                         </p>
                         {withdrawal.notes && (
-                          <p className="text-xs text-zen-anti-flash/50 mt-1">{withdrawal.notes}</p>
+                          <p className="text-xs text-zen-anti-flash/40 mt-0.5 truncate">{withdrawal.notes}</p>
                         )}
                       </div>
-                      <div className="flex items-center gap-3">
-                        <Badge
-                          className={
-                            withdrawal.status === 'completed'
-                              ? 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40'
-                              : withdrawal.status === 'pending'
-                              ? 'bg-zen-pistachio/20 text-zen-pistachio border-zen-pistachio/40'
-                              : 'bg-zen-danger/20 text-zen-danger border-zen-danger/40'
-                          }
-                        >
-                          {withdrawal.status === 'completed' ? t.withdrawals.statusCompleted :
-                           withdrawal.status === 'pending' ? t.withdrawals.statusPending : t.withdrawals.statusCancelled}
-                        </Badge>
-                        <p className="text-lg font-bold text-zen-caribbean-green">
-                          -${withdrawal.amount.toFixed(2)}
-                        </p>
-                      </div>
                     </div>
-                  ))}
-                </div>
-              </Card>
+                    <div className="flex items-center gap-3 shrink-0">
+                      <Badge
+                        className={
+                          withdrawal.status === 'completed'
+                            ? 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40'
+                            : withdrawal.status === 'pending'
+                            ? 'bg-zen-pistachio/20 text-zen-pistachio border-zen-pistachio/40'
+                            : 'bg-zen-danger/20 text-zen-danger border-zen-danger/40'
+                        }
+                      >
+                        {withdrawal.status === 'completed' ? t.withdrawals.statusCompleted :
+                         withdrawal.status === 'pending' ? t.withdrawals.statusPending : t.withdrawals.statusCancelled}
+                      </Badge>
+                      <p className="text-base font-bold text-zen-caribbean-green whitespace-nowrap">
+                        -${withdrawal.amount.toFixed(2)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </>
       )}
 
-      {/* Dialog para agregar retiro */}
       <AddWithdrawalDialog
         account={selectedAccount}
         open={dialogOpen}

@@ -1,6 +1,6 @@
 # ZenTrade — Roadmap hacia el lanzamiento
 
-Última actualización: 2026-02-28
+Última actualización: 2026-03-03
 
 ---
 
@@ -33,6 +33,19 @@
 - [x] PLAN_LIMIT_REACHED handling en account-form
 - [x] CSV import gated para Starter/Free
 - [x] PDF export gated para Starter/Free
+- [x] Select de `consistency_percent` editable por cuenta (20%–50%) en account-form
+- [x] Regla de consistencia corregida — usa ganancia NETA (no suma de wins) como denominador
+- [x] `withdrawal-account-card.tsx` — dark mode + light mode corregidos
+- [x] `withdrawals/page.tsx` — rediseño completo dark/light mode con clases zen
+- [x] Email de activación de cuenta — `supabase/templates/confirmation.html`
+  - Tipografía Helvetica Neue con contraste de pesos (300 light / 700 bold)
+  - Logo real desde Supabase Storage
+  - Animaciones CSS (fadeUp + pulse en CTA)
+  - Copy persuasivo con Goal-Gradient, Loss Aversion, Social Proof
+  - Compatible Outlook (VML), Gmail, Apple Mail, iOS, Android
+- [x] `skills/zentrade-email-design.md` — style guide completo para futuros emails
+- [x] Integración Resend configurada vía SMTP custom en Supabase
+- [x] Logo copiado a `public/assets/` para servir con URL absoluta
 
 ### ⏳ Pendiente Fase 6
 - [x] **Pruebas de flujo de pago end-to-end** — probar checkout LemonSqueezy Starter y Pro (mensual + anual)
@@ -163,19 +176,20 @@ Prioridad de desarrollo basada en impacto percibido por el usuario:
 
 **Recomendación de orden:**
 
-1. Pruebas end-to-end del flujo de pago (LemonSqueezy sandbox)
-2. Verificar webhook con evento simulado
-3. Empezar Fase 7.1 — Revenge Trading Detection (el gancho de ZenMode)
-4. Continuar con 7.2 — Alertas de reglas de riesgo
-5. 7.3 — Reporte semanal (requiere configurar email service)
+1. Verificar DNS de Resend (mxtoolbox.com → `resend._domainkey.zen-trader.com`) — resolver spam
+2. Pruebas end-to-end del flujo de pago (LemonSqueezy sandbox)
+3. Verificar webhook con evento simulado
+4. Empezar Fase 7.1 — Revenge Trading Detection (el gancho de ZenMode)
+5. Continuar con 7.2 — Alertas de reglas de riesgo
+6. 7.3 — Reporte semanal (email service ya configurado con Resend)
 
 
 
 ## Issues pendientes ##
-1. Probar como implementar los 14 dias gratis
-2. Implementar hora aproximada del trade tanto de entrada como de salida (Professional y zen)
-3. Implementar adjuntar capturas de pantalla del trade (Proffesional y zen)
-4. Backtesting
+1. ~~Implementar select en la consistencia~~ ✅ Resuelto (2026-03-03)
+2. ~~Ajustar el mail de activacion de cuenta~~ ✅ Resuelto (2026-03-03)
+3. Backtesting
+4. Configurar DNS completos para Resend (DKIM/SPF/DMARC) — email llega a spam hasta que propaguen
 
 ---
 

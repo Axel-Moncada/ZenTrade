@@ -1,6 +1,6 @@
 'use client'
 
-import { Trade } from '@/types/trade'
+import { TradeWithInstrument as Trade } from '@/types/trades'
 import {
   Table,
   TableBody,
@@ -11,7 +11,8 @@ import {
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { ArrowUpDown, TrendingUp, TrendingDown } from 'lucide-react'
+import { ArrowUpDown, TrendingUp, TrendingDown, Camera } from 'lucide-react'
+import { createClient } from '@/lib/supabase/client'
 import { useState } from 'react'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
@@ -89,6 +90,14 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
     }
   })
 
+  const handleOpenScreenshot = async (path: string) => {
+    const supabase = createClient()
+    const { data } = await supabase.storage
+      .from('trade-screenshots')
+      .createSignedUrl(path, 3600)
+    if (data?.signedUrl) window.open(data.signedUrl, '_blank')
+  }
+
   const getExitReasonLabel = (reason: string | null) => {
     const labels: Record<string, string> = {
       take_profit: 'TP',
@@ -149,6 +158,11 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
               {isPro && (
                 <TableHead className="text-zen-anti-flash">Horario</TableHead>
               )}
+              {isPro && (
+                <TableHead className="text-zen-anti-flash w-12 text-center">
+                  <Camera className="h-4 w-4 mx-auto" />
+                </TableHead>
+              )}
               <TableHead>
                 <Button
                   variant="ghost"
@@ -205,6 +219,24 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                       </span>
                     ) : (
                       <span className="text-zen-text-muted">—</span>
+                    )}
+                  </TableCell>
+                )}
+                {isPro && (
+                  <TableCell className="text-center" onClick={(e) => e.stopPropagation()}>
+                    {trade.screenshot_urls && trade.screenshot_urls.length > 0 ? (
+                      <button
+                        onClick={() => handleOpenScreenshot(trade.screenshot_urls![0])}
+                        className="inline-flex items-center gap-1 text-zen-caribbean-green hover:text-zen-mountain-meadow transition-colors"
+                        title={`${trade.screenshot_urls.length} captura(s)`}
+                      >
+                        <Camera className="h-4 w-4" />
+                        {trade.screenshot_urls.length > 1 && (
+                          <span className="text-xs font-mono">{trade.screenshot_urls.length}</span>
+                        )}
+                      </button>
+                    ) : (
+                      <span className="text-zen-text-muted text-xs">—</span>
                     )}
                   </TableCell>
                 )}

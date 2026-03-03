@@ -1,16 +1,19 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { TradeWithInstrument } from '@/types/trades';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Trash2, Pencil, TrendingUp, TrendingDown, Target, AlertCircle, Minus, Clock, CheckCircle, XCircle } from 'lucide-react';
+import { Trash2, Pencil, TrendingUp, TrendingDown, Target, AlertCircle, Minus, Clock, CheckCircle, XCircle, Camera, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { createClient } from '@/lib/supabase/client';
+import { ScreenshotLightbox } from './screenshot-lightbox';
 
 const EMOTIONS_CONFIG: Record<string, { label: string; color: string }> = {
   disciplinado: { label: 'Disciplinado', color: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40' },
-  confiado: { label: 'Confiado', color: 'bg-zen-mint/20 text-zen-mint border-zen-mint/40' },
-  paciente: { label: 'Paciente', color: 'bg-zen-frog/20 text-zen-frog border-zen-frog/40' },
-  ansioso: { label: 'Ansioso', color: 'bg-zen-pistachio/20 text-zen-pistachio border-zen-pistachio/40' },
+  confiado: { label: 'Confiado', color: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40' },
+  paciente: { label: 'Paciente', color: 'bg-yellow-500/20 text-yellow-500 border-yellow-500/40' },
+  ansioso: { label: 'Ansioso', color: 'bg-yellow-500/20 text-yellow-500 border-yellow-500/40' },
   miedo: { label: 'Miedo', color: 'bg-zen-danger/20 text-zen-danger border-zen-danger/40' },
   codicia: { label: 'Codicia', color: 'bg-zen-danger/20 text-zen-danger border-zen-danger/40' },
   frustrado: { label: 'Frustrado', color: 'bg-zen-danger/15 text-zen-danger border-zen-danger/30' },
@@ -52,6 +55,36 @@ const exitReasonColors = {
 export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
   const isWinner = trade.result > 0;
   const isLoser = trade.result < 0;
+
+  const [signedUrls, setSignedUrls] = useState<string[]>([]);
+  const [loadingUrls, setLoadingUrls] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  useEffect(() => {
+    const paths = trade.screenshot_urls;
+    if (!paths || paths.length === 0) return;
+
+    const supabase = createClient();
+    setLoadingUrls(true);
+
+    Promise.all(
+      paths.map(async (path) => {
+        const { data } = await supabase.storage
+          .from("trade-screenshots")
+          .createSignedUrl(path, 3600);
+        return data?.signedUrl ?? null;
+      })
+    ).then((results) => {
+      setSignedUrls(results.filter((u): u is string => u !== null));
+      setLoadingUrls(false);
+    });
+  }, [trade.screenshot_urls]);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
 
   return (
     <div className={cn(
@@ -167,6 +200,55 @@ export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
           <p className="text-xs text-zen-anti-flash/60 mb-1">Notas:</p>
           <p className="text-sm text-zen-anti-flash/80">{trade.notes}</p>
         </div>
+      )}
+
+      {/* Screenshots */}
+      {trade.screenshot_urls && trade.screenshot_urls.length > 0 && (
+        <div className={cn("pt-3", trade.notes ? "mt-0" : "border-t border-zen-forest/30")}>
+          <div className="flex items-center gap-1.5 mb-2">
+            <Camera className="h-3 w-3 text-zen-caribbean-green/60" />
+            <span className="text-xs text-zen-anti-flash/50">
+              {trade.screenshot_urls.length} captura{trade.screenshot_urls.length > 1 ? "s" : ""}
+            </span>
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            {loadingUrls
+              ? Array.from({ length: trade.screenshot_urls.length }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-16 h-16 rounded-lg bg-zen-surface/60 border border-zen-forest/30 flex items-center justify-center"
+                  >
+                    <Loader2 className="w-4 h-4 animate-spin text-zen-caribbean-green/60" />
+                  </div>
+                ))
+              : signedUrls.map((url, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => openLightbox(i)}
+                    className="w-16 h-16 rounded-lg overflow-hidden border border-zen-forest/40 hover:border-zen-caribbean-green/60 bg-zen-surface/60 group transition-all"
+                    title={`Ver captura ${i + 1}`}
+                  >
+                    <img
+                      src={url}
+                      alt={`Captura ${i + 1}`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                    />
+                  </button>
+                ))}
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox */}
+      {signedUrls.length > 0 && (
+        <ScreenshotLightbox
+          urls={signedUrls}
+          currentIndex={lightboxIndex}
+          onIndexChange={setLightboxIndex}
+          open={lightboxOpen}
+          onOpenChange={setLightboxOpen}
+        />
       )}
     </div>
   );

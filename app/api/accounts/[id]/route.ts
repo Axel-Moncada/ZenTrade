@@ -135,6 +135,8 @@ export async function PATCH(
       updateData.status = validatedData.status;
     if (validatedData.notes !== undefined)
       updateData.notes = validatedData.notes;
+    if (validatedData.consistency_percent !== undefined)
+      updateData.consistency_percent = validatedData.consistency_percent;
 
     // Actualizar en DB
     const { data: account, error } = await supabase
