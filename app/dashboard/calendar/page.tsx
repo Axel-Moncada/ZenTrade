@@ -18,6 +18,7 @@ import {
 import { AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n/context";
+import { usePlan } from "@/lib/hooks/usePlan";
 
 export default function CalendarPage() {
   const [accounts, setAccounts] = useState<Account[]>([]);
@@ -25,7 +26,9 @@ export default function CalendarPage() {
   const [summaries, setSummaries] = useState<DailySummary[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [revengeTradingDates, setRevengeTradingDates] = useState<Set<string>>(new Set());
   const { t } = useI18n();
+  const plan = usePlan();
 
   // Estado del calendario
   const currentMonthYear = getCurrentMonthYear();
@@ -102,6 +105,19 @@ export default function CalendarPage() {
 
     fetchSummaries();
   }, [selectedAccountId, month, year, t]);
+
+  // Revenge trading dates — solo ZenMode
+  useEffect(() => {
+    if (!selectedAccountId || !plan.isZenMode) return;
+    const firstDay = `${year}-${String(month + 1).padStart(2, "0")}-01`;
+    const lastDay = new Date(year, month + 1, 0).toISOString().split("T")[0];
+    fetch(`/api/trades/revenge-check?account_id=${selectedAccountId}&start_date=${firstDay}&end_date=${lastDay}`)
+      .then((res) => res.json())
+      .then((data: { revengeDates?: string[] }) => {
+        setRevengeTradingDates(new Set(data.revengeDates ?? []));
+      })
+      .catch(() => {});
+  }, [selectedAccountId, month, year, plan.isZenMode]);
 
   // Handlers de navegación
   const handlePreviousMonth = () => {
@@ -305,6 +321,7 @@ export default function CalendarPage() {
             month={month}
             summaries={summaries}
             onDayClick={handleDayClick}
+            revengeTradingDates={plan.isZenMode ? revengeTradingDates : undefined}
           />
         )}
       </div>

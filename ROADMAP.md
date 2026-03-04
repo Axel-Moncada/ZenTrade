@@ -1,6 +1,6 @@
 # ZenTrade — Roadmap hacia el lanzamiento
 
-Última actualización: 2026-03-03
+Última actualización: 2026-03-04
 
 ---
 
@@ -15,7 +15,7 @@
 | Fase 4 | ✅ Completa | Dashboard + charts |
 | Fase 5 | ✅ Completa | Reportes + export/import + Trading Plan |
 | Fase 6 | 🔄 En progreso | Hardening: pricing, gating, UX de conversión |
-| Fase 7 | ⏳ Pendiente | ZenMode features (IA) |
+| Fase 7 | 🔄 En progreso | ZenMode features (IA) |
 | Fase 8 | ⏳ Pendiente | QA, testing, pre-launch |
 | Fase 9 | ⏳ Pendiente | Launch |
 
@@ -66,12 +66,14 @@
 
 Prioridad de desarrollo basada en impacto percibido por el usuario:
 
-### 7.1 Revenge Trading Detection (PRIORIDAD 1 — gancho principal)
-- Detectar cuando el usuario opera después de una pérdida dentro de la misma sesión
-- Patrón: trade perdedor → siguiente trade en < 5 min
-- Patrón: 3+ pérdidas consecutivas en el mismo día
-- Implementación: análisis en `api/trades` al guardar, alertas en dashboard
-- UI: badge rojo en calendario + notificación en dashboard
+### ✅ 7.1 Revenge Trading Detection (COMPLETADO 2026-03-04)
+- Detecta trade perdedor → siguiente trade en < 30 min (mismo día)
+- Detecta 3+ pérdidas consecutivas en el mismo día
+- `lib/utils/revenge-trading.ts` — lógica pura de detección
+- `app/api/trades/revenge-check/route.ts` — endpoint con agrupación por día
+- `components/dashboard/revenge-trading-alert.tsx` — banner naranja dismissible
+- Badge naranja pulsante en calendario (días con revenge trading)
+- Gating: solo visible para ZenMode
 
 ### 7.2 Alertas de reglas de riesgo (PRIORIDAD 2)
 - Comparar trades del día vs límites del Trading Plan
@@ -81,11 +83,69 @@ Prioridad de desarrollo basada en impacto percibido por el usuario:
 - Implementación: cross-reference entre `trades` y `trading_plans`
 - UI: banner de alerta en dashboard diario
 
-### 7.3 Reporte semanal automático por email (PRIORIDAD 3)
-- Email automático cada lunes con resumen de la semana anterior
-- Contenido: PnL, win rate, mejor/peor día, trade más rentable
-- Implementación: cron job (Vercel cron o Supabase pg_cron) + Resend/Nodemailer
-- Template: HTML email con estilo ZenTrade
+### ✅ 7.3 Reporte semanal y mensual por email con IA (COMPLETADO 2026-03-04)
+
+**Diseño:**
+- Un reporte **por cuenta** (no uno por usuario con todas las cuentas mezcladas)
+  - Ej: usuario con 3 cuentas recibe 3 emails separados, uno por cada cuenta
+  - Subject: `"Tu semana en [nombre de la cuenta] — ZenTrade"`
+- Frecuencia: semanal (lunes) + mensual (día 1 del mes)
+- Incluye **capturas de trades** adjuntas inline — el usuario puede ver cada trade visualmente
+- Análisis narrativo generado por IA (ver modelo abajo)
+
+**Stack:**
+- **Vercel Cron** — disparador semanal/mensual
+- **Resend** — envío del email (ya configurado)
+- **Template HTML** — estilo ZenTrade (Helvetica Neue, dark theme)
+- **IA para el análisis** — ver selección de modelo abajo
+
+**Modelo de IA — criterio: gratuito o casi gratuito:**
+
+| Modelo | Costo | Free tier | Veredicto |
+|--------|-------|-----------|-----------|
+| **Gemini 2.0 Flash** (Google) | $0.075/M tokens | ✅ 1M tokens/día gratis | ⭐ Mejor opción |
+| **Gemini 1.5 Flash** | $0.075/M tokens | ✅ Generoso free tier | ⭐ Alternativa |
+| GPT-4o-mini (OpenAI) | $0.15/M input | ❌ No free tier | Barato pero no gratis |
+| Groq + Llama 3.3 70B | $0.59/M tokens | ✅ Free tier generoso | Buena alternativa |
+| Claude Haiku 4.5 | $0.80/M tokens | ❌ No free tier | Más caro |
+
+**→ Usar Gemini 2.0 Flash via Google AI Studio API**
+- Con ~1,500 tokens por reporte (datos de trades + análisis generado)
+- Free tier aguanta ~650 reportes/día antes de cobrar
+- Para el MVP con pocos usuarios: completamente gratis
+
+**Contenido del reporte por cuenta:**
+```
+SEMANAL (cada lunes, semana anterior):
+- PnL total de la semana | % vs semana anterior
+- Win rate + cantidad de trades
+- Mejor día / peor día
+- Trade más rentable (con captura si existe)
+- Trade con mayor pérdida (con captura si existe)
+- IA: párrafo de análisis narrativo (2-3 frases)
+  Ej: "Tu mejor rendimiento fue el miércoles. Los 3 trades
+       perdedores ocurrieron entre 2-3pm — considera evitar ese horario."
+- Progreso hacia objetivo de la cuenta (drawdown, profit target)
+
+MENSUAL (día 1, mes anterior):
+- Todo lo del reporte semanal pero agregado por mes
+- Comparativa vs mes anterior
+- Top 3 mejores trades con capturas
+- Equity curve del mes (imagen generada server-side)
+- IA: análisis más profundo — patrones, horarios, instrumentos
+```
+
+**Implementación:**
+- `app/api/cron/weekly-report/route.ts` — endpoint del cron
+- `lib/reports/generate-report.ts` — lógica de generación
+- `lib/ai/gemini.ts` — cliente Gemini para el análisis narrativo
+- `supabase/templates/weekly-report.html` — template email
+- Vercel cron: `0 10 * * 1` (lunes 10am UTC)
+
+**Plan gating:**
+- Starter: recibe reporte semanal básico (sin IA narrativa, sin capturas)
+- Professional: reporte semanal completo con IA + capturas
+- ZenMode: semanal + mensual + análisis IA más profundo
 
 ### 7.4 Análisis de horario óptimo (PRIORIDAD 4)
 - Calcular win rate y PnL promedio por hora del día
@@ -177,19 +237,25 @@ Prioridad de desarrollo basada en impacto percibido por el usuario:
 **Recomendación de orden:**
 
 1. Verificar DNS de Resend (mxtoolbox.com → `resend._domainkey.zen-trader.com`) — resolver spam
-2. Pruebas end-to-end del flujo de pago (LemonSqueezy sandbox)
-3. Verificar webhook con evento simulado
-4. Empezar Fase 7.1 — Revenge Trading Detection (el gancho de ZenMode)
-5. Continuar con 7.2 — Alertas de reglas de riesgo
-6. 7.3 — Reporte semanal (email service ya configurado con Resend)
+2. **Fase 7.2 — Alertas de reglas de riesgo** (cross-reference trades vs trading_plans)
+3. **Fase 7.4 — Análisis de horario óptimo** (heatmap por hora en dashboard ZenMode)
+4. **i18n por URL** (`/en` → todo en inglés, flag en newsletter_subscribers)
+5. Paddle: migrar billing cuando aprueben
 
 
 
 ## Issues pendientes ##
 1. ~~Implementar select en la consistencia~~ ✅ Resuelto (2026-03-03)
 2. ~~Ajustar el mail de activacion de cuenta~~ ✅ Resuelto (2026-03-03)
-3. Backtesting
-4. Configurar DNS completos para Resend (DKIM/SPF/DMARC) — email llega a spam hasta que propaguen
+3. ~~Páginas legales (Privacy, Terms, Refunds, Disclaimer)~~ ✅ Resuelto (2026-03-04)
+4. ~~Newsletter popup + formulario footer~~ ✅ Resuelto (2026-03-04)
+5. ~~Reporte semanal con IA (Gemini 2.5 Flash)~~ ✅ Resuelto (2026-03-04)
+6. ~~Revenge Trading Detection~~ ✅ Resuelto (2026-03-04)
+7. Backtesting
+8. Configurar DNS completos para Resend (DKIM/SPF/DMARC) — email llega a spam hasta que propaguen
+9. Pasarela de pagos — pendiente de aprobación de Paddle
+10. Manejo de idiomas con la URL www.zen-trader.com/en : todo deberia salir en ingles hasta el popup y que en la lista de suscribcion quede grabado que el usuario es de lenguaje ingles para enviarles los email en ingles, y biseversa con españól
+
 
 ---
 
@@ -202,14 +268,18 @@ El loop core de valor está completo:
 
 ### Solo 2 blockers reales antes de lanzar
 
-**Blocker 1 — Verificar el flujo de pago end-to-end**
-El checkout existe en código pero nunca se probó en producción real.
-Si alguien paga y el webhook falla, queda en free plan. Eso no puede pasar.
-- Probar sandbox → simular webhook → verificar plan en DB → pasar a modo LIVE
+**Blocker 1 — Pasarela de pagos** 🔄 EN ESPERA
+- LemonSqueezy rechazó la cuenta (Colombia)
+- Paddle: solicitud enviada — esperando aprobación
+- El código de LemonSqueezy sigue en el repo, se adaptará a Paddle cuando aprueben
+- **No bloquea el desarrollo de otras features**
 
-**Blocker 2 — Privacy Policy + Terms of Service**
-Requerido legalmente para procesar pagos. LemonSqueezy también lo exige.
-- Usar Termly o iubenda (~2 horas, no requiere abogado)
+**Blocker 2 — Privacy Policy + Terms of Service** ✅ RESUELTO (2026-03-04)
+Páginas implementadas en el proyecto:
+- `/privacy` — Política de Privacidad (GDPR)
+- `/terms` — Términos de Servicio
+- `/refunds` — Política de Reembolsos
+- `/disclaimer` — Aviso Legal
 
 ### Lo que NO es blocker para el MVP
 

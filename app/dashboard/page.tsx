@@ -32,9 +32,13 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { useI18n } from '@/lib/i18n/context';
 import { FreePlanWelcome } from '@/components/shared/free-plan-welcome';
+import { RevengeTradingAlert } from '@/components/dashboard/revenge-trading-alert';
+import { usePlan } from '@/lib/hooks/usePlan';
+import type { RevengeTradingPattern } from '@/lib/utils/revenge-trading';
 
 export default function DashboardPage() {
   const { t } = useI18n();
+  const plan = usePlan();
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [selectedAccount, setSelectedAccount] = useState<string | null>(null);
   const [dateRange, setDateRange] = useState<DateRange>({
@@ -44,6 +48,7 @@ export default function DashboardPage() {
   });
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [revengePatterns, setRevengePatterns] = useState<RevengeTradingPattern[]>([]);
 
   const fetchAccounts = useCallback(async () => {
     try {
@@ -96,6 +101,18 @@ export default function DashboardPage() {
       fetchStats();
     }
   }, [selectedAccount, fetchStats]);
+
+  // Revenge trading check (solo ZenMode) — hoy
+  useEffect(() => {
+    if (!selectedAccount || !plan.isZenMode) return;
+    const today = new Date().toISOString().split("T")[0];
+    fetch(`/api/trades/revenge-check?account_id=${selectedAccount}&start_date=${today}&end_date=${today}`)
+      .then((res) => res.json())
+      .then((data: { today?: { patterns: RevengeTradingPattern[] } }) => {
+        setRevengePatterns(data.today?.patterns ?? []);
+      })
+      .catch(() => {});
+  }, [selectedAccount, plan.isZenMode]);
 
   // Renderizar estado vacío
   if (!selectedAccount || accounts.length === 0) {
@@ -160,6 +177,11 @@ export default function DashboardPage() {
       <div className="max-w-8xl mx-auto space-y-8">
         {/* Banner de bienvenida — solo plan free, dismissible */}
         <FreePlanWelcome />
+
+        {/* Alerta revenge trading — solo ZenMode */}
+        {plan.isZenMode && revengePatterns.length > 0 && (
+          <RevengeTradingAlert patterns={revengePatterns} />
+        )}
 
         {/* Header */}
         <motion.div

@@ -374,6 +374,13 @@ const translations = {
       footerLinkCookies: 'Cookies',
       footerLinkDisclaimer: 'Aviso Legal',
       footerCopyright: 'Todos los derechos reservados.',
+      // newsletter footer
+      newsletterTitle: 'Mantente al día',
+      newsletterDesc: 'Tips de trading y novedades de ZenTrade directo a tu bandeja.',
+      newsletterPlaceholder: 'tu@email.com',
+      newsletterCta: 'Suscribirme',
+      newsletterSuccess: '¡Suscrito! Revisa tu email.',
+      newsletterAlready: 'Este email ya está suscrito.',
     },
 
     // ── Legal pages ──────────────────────────────────────────
@@ -1024,6 +1031,13 @@ const translations = {
       footerLinkCookies: 'Cookies',
       footerLinkDisclaimer: 'Legal Disclaimer',
       footerCopyright: 'All rights reserved.',
+      // newsletter footer
+      newsletterTitle: 'Stay updated',
+      newsletterDesc: 'Trading tips and ZenTrade updates straight to your inbox.',
+      newsletterPlaceholder: 'you@email.com',
+      newsletterCta: 'Subscribe',
+      newsletterSuccess: 'Subscribed! Check your email.',
+      newsletterAlready: 'This email is already subscribed.',
     },
 
     // ── Legal pages ──────────────────────────────────────────

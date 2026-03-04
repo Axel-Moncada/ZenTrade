@@ -13,6 +13,7 @@ interface MonthlyCalendarProps {
   month: number;
   summaries: DailySummary[];
   onDayClick: (date: Date, summary: DailySummary | null) => void;
+  revengeTradingDates?: Set<string>;
 }
 
 export function MonthlyCalendar({
@@ -20,6 +21,7 @@ export function MonthlyCalendar({
   month,
   summaries,
   onDayClick,
+  revengeTradingDates,
 }: MonthlyCalendarProps) {
   const days = generateCalendarDays(year, month);
   const weekDays = getWeekDayNames(true);
@@ -58,6 +60,7 @@ export function MonthlyCalendar({
               isCurrentMonth={isCurrentMonth}
               summary={summary}
               onClick={() => onDayClick(date, summary)}
+              hasRevengeTradingBadge={revengeTradingDates?.has(dateString) ?? false}
             />
           );
         })}

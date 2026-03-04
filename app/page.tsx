@@ -10,6 +10,7 @@ import FaqSection from "@/components/landing/sections/faq-section";
 import FinalCTASection from "@/components/landing/sections/final-cta-section";
 import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
+import NewsletterPopup from "@/components/landing/newsletter-popup";
 
 export const metadata = {
   title: "ZenTrade - Trading Journal Profesional para Traders",
@@ -41,6 +42,7 @@ export default async function Home() {
         <FinalCTASection />
       </main>
       <PublicFooter />
+      <NewsletterPopup />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useI18n } from "@/lib/i18n/context";
@@ -9,6 +10,23 @@ export default function PublicFooter() {
   const { t } = useI18n();
   const l = t.landing;
   const currentYear = new Date().getFullYear();
+  const [footerEmail, setFooterEmail] = useState("");
+  const [footerStatus, setFooterStatus] = useState<"idle" | "loading" | "success" | "already">("idle");
+
+  const handleFooterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFooterStatus("loading");
+    try {
+      const res = await fetch("/api/newsletter/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: footerEmail, source: "footer_form" }),
+      });
+      setFooterStatus(res.status === 409 ? "already" : "success");
+    } catch {
+      setFooterStatus("success"); // optimistic
+    }
+  };
 
   const footerLinks = [
     {
@@ -59,7 +77,40 @@ export default function PublicFooter() {
           ))}
         </div>
 
-        <div className="border-t border-zen-border-soft my-8" />
+        {/* Newsletter inline */}
+        <div className="border-t border-zen-border-soft pt-10 pb-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h4 className="font-semibold text-zen-anti-flash text-sm">{l.newsletterTitle}</h4>
+              <p className="text-zen-text-muted text-sm mt-1 font-light">{l.newsletterDesc}</p>
+            </div>
+            {footerStatus === "success" || footerStatus === "already" ? (
+              <p className="text-sm text-zen-caribbean-green font-medium">
+                {footerStatus === "already" ? l.newsletterAlready : l.newsletterSuccess}
+              </p>
+            ) : (
+              <form onSubmit={handleFooterSubmit} className="flex gap-2 w-full md:w-auto">
+                <input
+                  type="email"
+                  required
+                  placeholder={l.newsletterPlaceholder}
+                  value={footerEmail}
+                  onChange={(e) => setFooterEmail(e.target.value)}
+                  className="flex-1 md:w-56 bg-zen-surface border border-zen-border-soft rounded-lg px-3 py-2 text-sm text-zen-anti-flash placeholder:text-zen-text-muted focus:outline-none focus:border-zen-caribbean-green transition-colors"
+                />
+                <button
+                  type="submit"
+                  disabled={footerStatus === "loading"}
+                  className="bg-zen-caribbean-green hover:bg-zen-caribbean-green/90 disabled:opacity-60 text-zen-rich-black font-semibold px-4 py-2 rounded-lg text-sm transition-colors whitespace-nowrap"
+                >
+                  {footerStatus === "loading" ? "..." : l.newsletterCta}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+
+        <div className="border-t border-zen-border-soft my-0 mb-8" />
 
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
           <p className="text-zen-text-muted text-sm">
