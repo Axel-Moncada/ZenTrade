@@ -16,8 +16,8 @@ export interface Database {
         Row: {
           id: string;
           user_id: string;
-          lemon_squeezy_subscription_id: string;
-          lemon_squeezy_customer_id: string;
+          processor_subscription_id: string;
+          processor_customer_id: string;
           variant_id: string;
           plan_key: "free" | "starter" | "pro" | "zenmode";
           billing_interval: "monthly" | "annual";
@@ -30,8 +30,8 @@ export interface Database {
         Insert: {
           id?: string;
           user_id: string;
-          lemon_squeezy_subscription_id: string;
-          lemon_squeezy_customer_id: string;
+          processor_subscription_id: string;
+          processor_customer_id: string;
           variant_id: string;
           plan_key: "free" | "starter" | "pro" | "zenmode";
           billing_interval: "monthly" | "annual";
@@ -44,8 +44,8 @@ export interface Database {
         Update: {
           id?: string;
           user_id?: string;
-          lemon_squeezy_subscription_id?: string;
-          lemon_squeezy_customer_id?: string;
+          processor_subscription_id?: string;
+          processor_customer_id?: string;
           variant_id?: string;
           plan_key?: "free" | "starter" | "pro" | "zenmode";
           billing_interval?: "monthly" | "annual";

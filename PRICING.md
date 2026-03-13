@@ -51,16 +51,18 @@
 
 ---
 
-## Variant IDs en LemonSqueezy (sandbox)
+## Product Paths en FastSpring
 
-| Plan | Intervalo | Variant ID |
-|------|-----------|------------|
-| Starter | Mensual | 1352212 |
-| Starter | Anual | 1352211 |
-| Professional | Mensual | 1352216 |
-| Professional | Anual | 1352215 |
-| ZenMode | Mensual | 1354866 |
-| ZenMode | Anual | 1354868 |
+| Plan | Intervalo | Product Path |
+|------|-----------|--------------|
+| Starter | Mensual | `starter-mensual` |
+| Starter | Anual | `starter-anual` |
+| Professional | Mensual | `professional-mensual` |
+| Professional | Anual | `professional-anual` |
+| ZenMode | Mensual | `zenmode-mensual` |
+| ZenMode | Anual | `zenmode-anual` |
+
+Store: `zentrade_store` (FastSpring)
 
 ---
 

@@ -236,11 +236,10 @@ MENSUAL (día 1, mes anterior):
 
 **Recomendación de orden:**
 
-1. Verificar DNS de Resend (mxtoolbox.com → `resend._domainkey.zen-trader.com`) — resolver spam
-2. **Fase 7.2 — Alertas de reglas de riesgo** (cross-reference trades vs trading_plans)
-3. **Fase 7.4 — Análisis de horario óptimo** (heatmap por hora en dashboard ZenMode)
-4. **i18n por URL** (`/en` → todo en inglés, flag en newsletter_subscribers)
-5. Paddle: migrar billing cuando aprueben
+1. **Fase 7.2 — Alertas de reglas de riesgo** (ZenMode, cross-reference trades vs trading_plans)
+2. **Fase 7.4 — Análisis de horario óptimo** (heatmap por hora en dashboard ZenMode)
+3. **i18n por URL** (`/en` → todo en inglés, flag en newsletter_subscribers)
+4. Paddle: migrar billing cuando aprueben
 
 
 
