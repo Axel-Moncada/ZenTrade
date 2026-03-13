@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import {
-  PLAN_PREAPPROVALS,
-  createCheckoutUrl,
+  PAYPAL_PLANS,
+  createSubscriptionUrl,
   type BillingInterval,
   type PlanKey,
-} from "@/lib/mercadopago/client";
+} from "@/lib/paypal/client";
 
 const checkoutSchema = z.object({
   plan: z.enum(["starter", "pro", "zenmode"]),
@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
       interval: BillingInterval;
     };
 
-    const variant = PLAN_PREAPPROVALS[plan][interval];
+    const variant = PAYPAL_PLANS[plan][interval];
 
     const { data: profile } = await supabase
       .from("profiles")
@@ -52,13 +52,15 @@ export async function POST(request: NextRequest) {
     const email = profile?.email ?? user.email ?? "";
 
     const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://www.zen-trader.com";
-    const backUrl = `${appUrl}/dashboard/billing?checkout=success`;
+    const returnUrl = `${appUrl}/dashboard/billing?checkout=success`;
+    const cancelUrl = `${appUrl}/dashboard/billing?checkout=cancelled`;
 
-    const checkoutUrl = createCheckoutUrl({
-      preapprovalPlanId: variant.preapprovalPlanId,
-      payerEmail: email,
+    const checkoutUrl = await createSubscriptionUrl({
+      planId: variant.planId,
+      subscriberEmail: email,
       userId: user.id,
-      backUrl,
+      returnUrl,
+      cancelUrl,
     });
 
     return NextResponse.json({ url: checkoutUrl }, { status: 200 });
