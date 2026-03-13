@@ -1,17 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { createCheckout } from "@lemonsqueezy/lemonsqueezy.js";
 import { createClient } from "@/lib/supabase/server";
 import {
-  configureLemonSqueezy,
-  LEMON_STORE_ID,
-  PLAN_VARIANTS,
+  PLAN_PREAPPROVALS,
+  createCheckoutUrl,
   type BillingInterval,
   type PlanKey,
-} from "@/lib/lemonsqueezy/client";
+} from "@/lib/mercadopago/client";
 
 const checkoutSchema = z.object({
-  plan: z.enum(["starter", "pro"]),
+  plan: z.enum(["starter", "pro", "zenmode"]),
   interval: z.enum(["monthly", "annual"]),
 });
 
@@ -43,74 +41,29 @@ export async function POST(request: NextRequest) {
       interval: BillingInterval;
     };
 
-    const variant = PLAN_VARIANTS[plan][interval];
-
-    if (!variant.variantId) {
-      return NextResponse.json(
-        { error: "Variante de plan no configurada" },
-        { status: 500 }
-      );
-    }
-
-    configureLemonSqueezy();
+    const variant = PLAN_PREAPPROVALS[plan][interval];
 
     const { data: profile } = await supabase
       .from("profiles")
-      .select("email, full_name")
+      .select("email")
       .eq("id", user.id)
       .single();
 
-    const appUrl =
-      process.env.APP_URL ??
-      process.env.NEXT_PUBLIC_APP_URL ??
-      "http://localhost:3000";
-    const redirectBase =
-      process.env.NODE_ENV === "production"
-        ? "https://www.zen-trader.com"
-        : appUrl;
+    const email = profile?.email ?? user.email ?? "";
 
-    const checkout = await createCheckout(LEMON_STORE_ID, variant.variantId, {
-      checkoutOptions: {
-        embed: false,
-        media: true,
-        logo: true,
-      },
-      checkoutData: {
-        email: profile?.email ?? user.email ?? "",
-        name: profile?.full_name ?? undefined,
-        custom: {
-          user_id: user.id,
-        },
-      },
-      productOptions: {
-        enabledVariants: [Number(variant.variantId)],
-        redirectUrl: `${redirectBase}/dashboard/billing?success=true`,
-        receiptButtonText: "Ir al Dashboard",
-        receiptThankYouNote:
-          "¡Gracias por suscribirte a Zentrade! Tu cuenta ya está activa.",
-      },
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://www.zen-trader.com";
+    const backUrl = `${appUrl}/dashboard/billing?checkout=success`;
+
+    const checkoutUrl = createCheckoutUrl({
+      preapprovalPlanId: variant.preapprovalPlanId,
+      payerEmail: email,
+      userId: user.id,
+      backUrl,
     });
-
-    if (checkout.error) {
-      console.error("[Checkout] LemonSqueezy error:", checkout.error);
-      return NextResponse.json(
-        { error: "Error al crear el checkout" },
-        { status: 500 }
-      );
-    }
-
-    const checkoutUrl = checkout.data?.data.attributes.url;
-
-    if (!checkoutUrl) {
-      return NextResponse.json(
-        { error: "No se pudo obtener la URL de checkout" },
-        { status: 500 }
-      );
-    }
 
     return NextResponse.json({ url: checkoutUrl }, { status: 200 });
   } catch (error) {
-    console.error("[Checkout] Unexpected error:", error);
+    console.error("[Checkout] Error:", error);
     return NextResponse.json(
       { error: "Error interno del servidor" },
       { status: 500 }
