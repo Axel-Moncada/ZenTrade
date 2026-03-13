@@ -59,7 +59,7 @@ function mapStatus(status: string): SubscriptionStatus {
   const map: Record<string, SubscriptionStatus> = {
     ACTIVE:    "active",
     APPROVAL_PENDING: "on_trial",
-    APPROVED:  "on_trial",
+    APPROVED:  "active",
     SUSPENDED: "paused",
     CANCELLED: "cancelled",
     EXPIRED:   "expired",
@@ -199,6 +199,7 @@ export async function POST(request: NextRequest) {
 
     switch (event.event_type) {
       case "BILLING.SUBSCRIPTION.ACTIVATED":
+      case "BILLING.SUBSCRIPTION.APPROVED":
       case "BILLING.SUBSCRIPTION.UPDATED":
       case "BILLING.SUBSCRIPTION.SUSPENDED":
       case "BILLING.SUBSCRIPTION.CANCELLED":
