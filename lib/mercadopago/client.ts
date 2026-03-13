@@ -101,17 +101,11 @@ export function getPlanFromPreapprovalPlanId(
  */
 export function createCheckoutUrl({
   preapprovalPlanId,
-  backUrl,
 }: {
   preapprovalPlanId: string;
   payerEmail: string;
   userId: string;
   backUrl: string;
 }): string {
-  const base = "https://www.mercadopago.com.co/subscriptions/checkout";
-  const params = new URLSearchParams({
-    preapproval_plan_id: preapprovalPlanId,
-    back_url: backUrl,
-  });
-  return `${base}?${params.toString()}`;
+  return `https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=${preapprovalPlanId}`;
 }
