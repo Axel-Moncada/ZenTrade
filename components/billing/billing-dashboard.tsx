@@ -57,7 +57,8 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
     }
   }, [successParam, canceledParam]);
 
-  const activePlanSlug = cancelled ? null : (subscription?.plan_key ?? null);
+  const activeSub = cancelled ? null : subscription;
+  const activePlanSlug = activeSub?.plan_key ?? null;
   const statusInfo = activeSub
     ? (STATUS_MAP[activeSub.status] ?? { label: activeSub.status, className: 'text-stone-400' })
     : null;
@@ -122,8 +123,6 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
   }
 
   // ── Render ─────────────────────────────────────────────────────────────────
-
-  const activeSub = cancelled ? null : subscription;
 
   return (
     <div className="space-y-8">
