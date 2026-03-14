@@ -1,8 +1,18 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Check, ExternalLink, AlertTriangle, CheckCircle2, Clock } from 'lucide-react';
+import { Check, ExternalLink, AlertTriangle, CheckCircle2, Clock, XCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
@@ -33,6 +43,9 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
   const [interval, setInterval] = useState<'month' | 'year'>('month');
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(successParam === 'true');
+  const [showCancelDialog, setShowCancelDialog] = useState(false);
+  const [cancelling, setCancelling] = useState(false);
+  const [cancelled, setCancelled] = useState(false);
 
   // Limpiar el param de la URL sin recargar
   useEffect(() => {
@@ -44,9 +57,9 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
     }
   }, [successParam, canceledParam]);
 
-  const activePlanSlug = subscription?.plan_key ?? null;
-  const statusInfo = subscription
-    ? (STATUS_MAP[subscription.status] ?? { label: subscription.status, className: 'text-stone-400' })
+  const activePlanSlug = cancelled ? null : (subscription?.plan_key ?? null);
+  const statusInfo = activeSub
+    ? (STATUS_MAP[activeSub.status] ?? { label: activeSub.status, className: 'text-stone-400' })
     : null;
 
   // ── Checkout ───────────────────────────────────────────────────────────────
@@ -81,6 +94,26 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
     }
   }
 
+  async function handleCancel() {
+    setCancelling(true);
+    try {
+      const res = await fetch('/api/billing/cancel', { method: 'POST' });
+      const data = await res.json() as { success?: boolean; error?: string };
+      if (!res.ok) throw new Error(data.error ?? 'Error desconocido');
+      setCancelled(true);
+      setShowCancelDialog(false);
+      toast.success('Suscripción cancelada', {
+        description: 'Tu plan seguirá activo hasta el fin del período de facturación.',
+      });
+    } catch (err) {
+      toast.error('Error al cancelar', {
+        description: err instanceof Error ? err.message : 'Intenta de nuevo o contacta soporte.',
+      });
+    } finally {
+      setCancelling(false);
+    }
+  }
+
   // ── Helpers ────────────────────────────────────────────────────────────────
 
   function displayPrice(plan: PlanConfig) {
@@ -90,8 +123,33 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
 
   // ── Render ─────────────────────────────────────────────────────────────────
 
+  const activeSub = cancelled ? null : subscription;
+
   return (
     <div className="space-y-8">
+
+      {/* ── Dialog confirmación cancelación ── */}
+      <AlertDialog open={showCancelDialog} onOpenChange={setShowCancelDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>¿Cancelar suscripción?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Tu plan seguirá activo hasta el fin del período actual de facturación.
+              Después pasarás al plan gratuito y perderás acceso a las funciones premium.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={cancelling}>Mantener suscripción</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleCancel}
+              disabled={cancelling}
+              className="bg-red-600 hover:bg-red-700 text-white"
+            >
+              {cancelling ? 'Cancelando...' : 'Sí, cancelar'}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       {/* ── Modal de éxito con confeti ── */}
       {showSuccess && (
@@ -109,7 +167,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
       )}
 
       {/* ── Active subscription banner ── */}
-      {subscription && (
+      {activeSub && (
         <div
           className="rounded-xl border p-5 flex flex-col sm:flex-row sm:items-center gap-4"
           style={{ background: '#002E21', borderColor: '#0F5132' }}
@@ -117,7 +175,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
           <div className="flex-1 space-y-1">
             <div className="flex items-center flex-wrap gap-2">
               <span className="text-zen-anti-flash font-semibold text-base">
-                {PLAN_NAME_MAP[subscription.plan_key] ?? subscription.plan_key}
+                {PLAN_NAME_MAP[activeSub.plan_key] ?? activeSub.plan_key}
               </span>
               {statusInfo && (
                 <span className={`text-xs font-medium ${statusInfo.className}`}>
@@ -128,18 +186,18 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
 
             <div className="flex flex-wrap gap-4 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
               <span>
-                Ciclo: {subscription.billing_interval === 'monthly' ? 'Mensual' : 'Anual'}
+                Ciclo: {activeSub.billing_interval === 'monthly' ? 'Mensual' : 'Anual'}
               </span>
-              {subscription.current_period_end && (
+              {activeSub.current_period_end && (
                 <span className="flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5" />
                   Próximo cobro:{' '}
-                  {format(new Date(subscription.current_period_end), "d 'de' MMMM yyyy", { locale: es })}
+                  {format(new Date(activeSub.current_period_end), "d 'de' MMMM yyyy", { locale: es })}
                 </span>
               )}
             </div>
 
-            {subscription.status === 'past_due' && (
+            {activeSub.status === 'past_due' && (
               <p className="flex items-center gap-1.5 text-xs text-zen-danger mt-1">
                 <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
                 Pago fallido. Actualiza tu método de pago para evitar la suspensión.
@@ -147,21 +205,33 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
             )}
           </div>
 
-          <Button
-            onClick={openPortal}
-            variant="outline"
-            className="shrink-0 border-zen-forest text-zen-anti-flash hover:bg-zen-surface-elevated"
-          >
-            <ExternalLink className="w-4 h-4 mr-2" />
-            Administrar facturación
-          </Button>
+          <div className="flex items-center gap-2 shrink-0">
+            {activeSub.customer_portal_url && (
+              <Button
+                onClick={openPortal}
+                variant="outline"
+                className="border-zen-forest text-zen-anti-flash hover:bg-zen-surface-elevated"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Administrar facturación
+              </Button>
+            )}
+            <Button
+              onClick={() => setShowCancelDialog(true)}
+              variant="ghost"
+              className="text-red-400 hover:text-red-300 hover:bg-red-950/30"
+            >
+              <XCircle className="w-4 h-4 mr-2" />
+              Cancelar plan
+            </Button>
+          </div>
         </div>
       )}
 
       {/* ── Interval toggle + heading ── */}
       <div className="flex items-center justify-between gap-4">
         <h2 className="text-lg font-semibold text-zen-anti-flash">
-          {subscription ? 'Planes disponibles' : 'Elige tu plan'}
+          {activeSub ? 'Planes disponibles' : 'Elige tu plan'}
         </h2>
 
         <div
@@ -277,13 +347,13 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                 >
                   Próximamente
                 </Button>
-              ) : subscription ? (
+              ) : activeSub ? (
                 <Button
-                  onClick={openPortal}
+                  disabled
                   variant="outline"
-                  className="w-full border-zen-forest text-zen-anti-flash hover:bg-zen-surface-elevated"
+                  className="w-full border-zen-forest/30 text-zen-anti-flash/40"
                 >
-                  Cambiar a este plan
+                  Gestionar desde PayPal
                 </Button>
               ) : (
                 <Button
