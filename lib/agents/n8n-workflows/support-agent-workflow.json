@@ -27,7 +27,7 @@
       "typeVersion": 2,
       "position": [460, 300],
       "parameters": {
-        "jsCode": "const email = items[0].json;\n\nconst fromRaw = email.from ?? '';\nconst fromMatch = fromRaw.match(/<(.+?)>/);\nconst fromEmail = fromMatch ? fromMatch[1] : fromRaw.trim();\nconst subject = email.subject ?? '(sin asunto)';\n\n// ANTI-LOOP: ignorar emails enviados por nosotros mismos\nif (fromEmail.toLowerCase() === 'support@zen-trader.com') {\n  return [];\n}\nif (subject.includes('[DRAFT]') || subject.includes('[BORRADOR]')) {\n  return [];\n}\n\n// Buscar el body en todos los campos posibles que n8n puede usar\nconst rawBody = email.text\n  || email.html\n  || email.textAsHtml\n  || email.body\n  || email.content\n  || email.snippet\n  || '';\n\n// Limpiar HTML si viene con tags\nconst cleanBody = rawBody\n  .replace(/<style[^>]*>[\\s\\S]*?<\\/style>/gi, '')\n  .replace(/<[^>]*>/g, ' ')\n  .replace(/\\s+/g, ' ')\n  .trim()\n  .slice(0, 3000);\n\nreturn [{\n  json: {\n    from: fromEmail,\n    fromRaw: fromRaw,\n    subject: subject,\n    body: cleanBody,\n    messageId: email.messageId ?? '',\n    _debug_fields: Object.keys(email).join(', ')\n  }\n}];"
+        "jsCode": "const email = items[0].json;\n\nconst fromRaw = email.from ?? '';\nconst fromMatch = fromRaw.match(/<(.+?)>/);\nconst fromEmail = fromMatch ? fromMatch[1] : fromRaw.trim();\nconst subject = email.subject ?? '(sin asunto)';\n\n// ANTI-LOOP: ignorar emails enviados por nosotros mismos\nif (fromEmail.toLowerCase() === 'support@zen-trader.com') {\n  return [];\n}\nif (subject.includes('[DRAFT]') || subject.includes('[BORRADOR]')) {\n  return [];\n}\n\n// Buscar el body en todos los campos posibles que n8n puede usar\nconst rawBody = email.text\n  || email.html\n  || email.textAsHtml\n  || email.body\n  || email.content\n  || email.snippet\n  || '';\n\n// Limpiar HTML si viene con tags\nconst cleanBody = rawBody\n  .replace(/<style[^>]*>[\\s\\S]*?<\\/style>/gi, '')\n  .replace(/<[^>]*>/g, ' ')\n  .replace(/\\s+/g, ' ')\n  .trim()\n  .slice(0, 3000);\n\n// Pre-serializar payload para evitar problemas de escape en el HTTP node\nconst apiPayload = JSON.stringify({\n  from: fromEmail,\n  subject: subject,\n  body: cleanBody\n});\n\nreturn [{\n  json: {\n    from: fromEmail,\n    fromRaw: fromRaw,\n    subject: subject,\n    body: cleanBody,\n    messageId: email.messageId ?? '',\n    apiPayload: apiPayload,\n    _debug_fields: Object.keys(email).join(', ')\n  }\n}];"
       }
     },
     {
@@ -53,12 +53,9 @@
           ]
         },
         "sendBody": true,
-        "contentType": "json",
-        "body": {
-          "from": "={{ $json.from }}",
-          "subject": "={{ $json.subject }}",
-          "body": "={{ $json.body }}"
-        },
+        "specifyBody": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ $json.apiPayload }}",
         "options": {
           "timeout": 30000
         }
