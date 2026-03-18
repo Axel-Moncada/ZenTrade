@@ -1,15 +1,9 @@
 {
   "name": "ZenTrade — Support Agent",
   "_instrucciones": [
-    "ANTES DE IMPORTAR — reemplaza estos 3 valores:",
-    "1. TU_SUPPORT_AGENT_SECRET → el string que pusiste en .env.local como SUPPORT_AGENT_SECRET",
-    "2. TU_TELEGRAM_CHAT_ID    → tu chat ID de Telegram (ver instrucciones abajo)",
-    "3. Conecta las credenciales IMAP y SMTP cuando n8n te las pida al importar",
-    "",
-    "CÓMO OBTENER TU TELEGRAM CHAT ID:",
-    "  1. En Telegram busca @userinfobot",
-    "  2. Mándale cualquier mensaje",
-    "  3. Te responde con tu ID (un número como 123456789)"
+    "ANTES DE IMPORTAR — reemplaza estos 2 valores:",
+    "1. TU_SUPPORT_AGENT_SECRET → el string que pusiste en .env.local",
+    "2. TU_TELEGRAM_CHAT_ID    → tu chat ID de Telegram (@userinfobot)"
   ],
   "nodes": [
     {
@@ -38,7 +32,7 @@
       "typeVersion": 2,
       "position": [460, 300],
       "parameters": {
-        "jsCode": "const email = items[0].json;\n\nconst fromRaw = email.from ?? '';\nconst fromMatch = fromRaw.match(/<(.+?)>/);\nconst fromEmail = fromMatch ? fromMatch[1] : fromRaw.trim();\n\nreturn [{\n  json: {\n    from: fromEmail,\n    fromRaw: fromRaw,\n    subject: email.subject ?? '(sin asunto)',\n    body: (email.text ?? email.html ?? '').replace(/<[^>]*>/g, '').slice(0, 3000),\n    messageId: email.messageId ?? ''\n  }\n}];"
+        "jsCode": "const email = items[0].json;\n\nconst fromRaw = email.from ?? '';\nconst fromMatch = fromRaw.match(/<(.+?)>/);\nconst fromEmail = fromMatch ? fromMatch[1] : fromRaw.trim();\nconst subject = email.subject ?? '(sin asunto)';\n\n// ANTI-LOOP: ignorar emails enviados por nosotros mismos\nif (fromEmail.toLowerCase() === 'support@zen-trader.com') {\n  return [];\n}\n// Ignorar subjects con [DRAFT] que son nuestros propios drafts\nif (subject.includes('[DRAFT]') || subject.includes('[BORRADOR]')) {\n  return [];\n}\n\nreturn [{\n  json: {\n    from: fromEmail,\n    fromRaw: fromRaw,\n    subject: subject,\n    body: (email.text ?? email.html ?? '').replace(/<[^>]*>/g, '').slice(0, 3000),\n    messageId: email.messageId ?? ''\n  }\n}];"
       }
     },
     {
@@ -64,12 +58,8 @@
           ]
         },
         "sendBody": true,
-        "contentType": "json",
-        "body": {
-          "from": "={{ $json.from }}",
-          "subject": "={{ $json.subject }}",
-          "body": "={{ $json.body }}"
-        },
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"from\": \"{{ $json.from }}\",\n  \"subject\": \"{{ $json.subject }}\",\n  \"body\": \"{{ $json.body.replace(/\"/g, \"'\") }}\"\n}",
         "options": {
           "timeout": 30000
         }
@@ -132,7 +122,7 @@
       "position": [1120, 440],
       "parameters": {
         "chatId": "TU_TELEGRAM_CHAT_ID",
-        "text": "=🚨 *Soporte ZenTrade — Revisar*\n\n*De:* {{ $('Extraer datos del email').item.json.fromRaw }}\n*Asunto:* {{ $('Extraer datos del email').item.json.subject }}\n*Categoría:* {{ $('Llamar al Support Agent (ZenTrade API)').item.json.category }}\n*Razón:* {{ $('Llamar al Support Agent (ZenTrade API)').item.json.escalationReason }}\n\n*Draft sugerido:*\n{{ $('Llamar al Support Agent (ZenTrade API)').item.json.draft }}",
+        "text": "=🚨 *Soporte ZenTrade — Revisar*\n\n*De:* {{ $('Extraer datos del email').item.json.fromRaw }}\n*Asunto:* {{ $('Extraer datos del email').item.json.subject }}\n\n*Categoría:* {{ $('Llamar al Support Agent (ZenTrade API)').item.json.category }}\n*Razón escalación:* {{ $('Llamar al Support Agent (ZenTrade API)').item.json.escalationReason }}\n\n*Draft sugerido:*\n━━━━━━━━━━━━━━━━\n{{ $('Llamar al Support Agent (ZenTrade API)').item.json.draft }}\n━━━━━━━━━━━━━━━━\n\n✏️ Copia el draft, edítalo si quieres y responde desde support@zen-trader.com",
         "additionalFields": {
           "parse_mode": "Markdown"
         }
@@ -141,27 +131,6 @@
         "telegramApi": {
           "id": "CONECTAR_EN_N8N",
           "name": "ZenTrade Telegram Bot"
-        }
-      }
-    },
-    {
-      "id": "node-draft-email",
-      "name": "Enviar draft a tu propio correo",
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2,
-      "position": [1340, 440],
-      "parameters": {
-        "fromEmail": "support@zen-trader.com",
-        "toEmail": "support@zen-trader.com",
-        "subject": "=[DRAFT] Re: {{ $('Extraer datos del email').item.json.subject }}",
-        "emailFormat": "text",
-        "text": "=--- DRAFT PARA REVISAR Y REENVIAR ---\nPara: {{ $('Extraer datos del email').item.json.fromRaw }}\n\n{{ $('Llamar al Support Agent (ZenTrade API)').item.json.draft }}\n\n---\nEmail original:\n{{ $('Extraer datos del email').item.json.body }}",
-        "options": {}
-      },
-      "credentials": {
-        "smtp": {
-          "id": "CONECTAR_EN_N8N",
-          "name": "Hostinger SMTP"
         }
       }
     }
@@ -181,9 +150,6 @@
         [{ "node": "Enviar respuesta automática", "type": "main", "index": 0 }],
         [{ "node": "Notificar escalación en Telegram", "type": "main", "index": 0 }]
       ]
-    },
-    "Notificar escalación en Telegram": {
-      "main": [[{ "node": "Enviar draft a tu propio correo", "type": "main", "index": 0 }]]
     }
   },
   "settings": {

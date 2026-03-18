@@ -177,9 +177,12 @@ ${threadHistory ? `\nHistorial del hilo:\n${threadHistory}` : ""}`;
     const agentResponse = JSON.parse(jsonMatch[0]) as SupportAgentResponse;
 
     // Validate minimum shape
-    if (typeof agentResponse.shouldAutoReply !== "boolean" || !agentResponse.reply) {
+    if (typeof agentResponse.shouldAutoReply !== "boolean") {
       throw new Error("Invalid agent response shape");
     }
+    // Normalize nulls to empty strings
+    agentResponse.reply = agentResponse.reply ?? "";
+    agentResponse.draft = agentResponse.draft ?? agentResponse.reply;
 
     return NextResponse.json(agentResponse);
   } catch (err) {
