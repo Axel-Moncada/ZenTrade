@@ -1,0 +1,192 @@
+{
+  "name": "ZenTrade — Support Agent",
+  "_instrucciones": [
+    "ANTES DE IMPORTAR — reemplaza estos 3 valores:",
+    "1. TU_SUPPORT_AGENT_SECRET → el string que pusiste en .env.local como SUPPORT_AGENT_SECRET",
+    "2. TU_TELEGRAM_CHAT_ID    → tu chat ID de Telegram (ver instrucciones abajo)",
+    "3. Conecta las credenciales IMAP y SMTP cuando n8n te las pida al importar",
+    "",
+    "CÓMO OBTENER TU TELEGRAM CHAT ID:",
+    "  1. En Telegram busca @userinfobot",
+    "  2. Mándale cualquier mensaje",
+    "  3. Te responde con tu ID (un número como 123456789)"
+  ],
+  "nodes": [
+    {
+      "id": "node-imap-trigger",
+      "name": "Email Trigger (IMAP)",
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "parameters": {
+        "mailbox": "INBOX",
+        "downloadAttachments": false,
+        "format": "simple",
+        "options": {}
+      },
+      "credentials": {
+        "imap": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "Hostinger IMAP"
+        }
+      }
+    },
+    {
+      "id": "node-extract",
+      "name": "Extraer datos del email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "parameters": {
+        "jsCode": "const email = items[0].json;\n\nconst fromRaw = email.from ?? '';\nconst fromMatch = fromRaw.match(/<(.+?)>/);\nconst fromEmail = fromMatch ? fromMatch[1] : fromRaw.trim();\n\nreturn [{\n  json: {\n    from: fromEmail,\n    fromRaw: fromRaw,\n    subject: email.subject ?? '(sin asunto)',\n    body: (email.text ?? email.html ?? '').replace(/<[^>]*>/g, '').slice(0, 3000),\n    messageId: email.messageId ?? ''\n  }\n}];"
+      }
+    },
+    {
+      "id": "node-http",
+      "name": "Llamar al Support Agent (ZenTrade API)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [680, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.zen-trader.com/api/agents/support",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer TU_SUPPORT_AGENT_SECRET"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "body": {
+          "from": "={{ $json.from }}",
+          "subject": "={{ $json.subject }}",
+          "body": "={{ $json.body }}"
+        },
+        "options": {
+          "timeout": 30000
+        }
+      }
+    },
+    {
+      "id": "node-if",
+      "name": "¿Auto-responder o escalar?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [900, 300],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "cond-auto-reply",
+              "leftValue": "={{ $json.shouldAutoReply }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "node-send-reply",
+      "name": "Enviar respuesta automática",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1120, 160],
+      "parameters": {
+        "fromEmail": "support@zen-trader.com",
+        "toEmail": "={{ $('Extraer datos del email').item.json.from }}",
+        "subject": "=Re: {{ $('Extraer datos del email').item.json.subject }}",
+        "emailFormat": "text",
+        "text": "={{ $('Llamar al Support Agent (ZenTrade API)').item.json.reply }}",
+        "options": {}
+      },
+      "credentials": {
+        "smtp": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "Hostinger SMTP"
+        }
+      }
+    },
+    {
+      "id": "node-telegram",
+      "name": "Notificar escalación en Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1120, 440],
+      "parameters": {
+        "chatId": "TU_TELEGRAM_CHAT_ID",
+        "text": "=🚨 *Soporte ZenTrade — Revisar*\n\n*De:* {{ $('Extraer datos del email').item.json.fromRaw }}\n*Asunto:* {{ $('Extraer datos del email').item.json.subject }}\n*Categoría:* {{ $('Llamar al Support Agent (ZenTrade API)').item.json.category }}\n*Razón:* {{ $('Llamar al Support Agent (ZenTrade API)').item.json.escalationReason }}\n\n*Draft sugerido:*\n{{ $('Llamar al Support Agent (ZenTrade API)').item.json.draft }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "credentials": {
+        "telegramApi": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "ZenTrade Telegram Bot"
+        }
+      }
+    },
+    {
+      "id": "node-draft-email",
+      "name": "Enviar draft a tu propio correo",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1340, 440],
+      "parameters": {
+        "fromEmail": "support@zen-trader.com",
+        "toEmail": "support@zen-trader.com",
+        "subject": "=[DRAFT] Re: {{ $('Extraer datos del email').item.json.subject }}",
+        "emailFormat": "text",
+        "text": "=--- DRAFT PARA REVISAR Y REENVIAR ---\nPara: {{ $('Extraer datos del email').item.json.fromRaw }}\n\n{{ $('Llamar al Support Agent (ZenTrade API)').item.json.draft }}\n\n---\nEmail original:\n{{ $('Extraer datos del email').item.json.body }}",
+        "options": {}
+      },
+      "credentials": {
+        "smtp": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "Hostinger SMTP"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Email Trigger (IMAP)": {
+      "main": [[{ "node": "Extraer datos del email", "type": "main", "index": 0 }]]
+    },
+    "Extraer datos del email": {
+      "main": [[{ "node": "Llamar al Support Agent (ZenTrade API)", "type": "main", "index": 0 }]]
+    },
+    "Llamar al Support Agent (ZenTrade API)": {
+      "main": [[{ "node": "¿Auto-responder o escalar?", "type": "main", "index": 0 }]]
+    },
+    "¿Auto-responder o escalar?": {
+      "main": [
+        [{ "node": "Enviar respuesta automática", "type": "main", "index": 0 }],
+        [{ "node": "Notificar escalación en Telegram", "type": "main", "index": 0 }]
+      ]
+    },
+    "Notificar escalación en Telegram": {
+      "main": [[{ "node": "Enviar draft a tu propio correo", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
