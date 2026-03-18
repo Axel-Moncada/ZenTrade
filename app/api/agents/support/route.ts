@@ -164,7 +164,12 @@ ${threadHistory ? `\nHistorial del hilo:\n${threadHistory}` : ""}`;
     }
 
     // Parse JSON response
-    const jsonMatch = textContent.text.match(/\{[\s\S]*\}/);
+    // Extraer JSON — Claude a veces lo envuelve en ```json ... ```
+    let rawText = textContent.text.trim();
+    const codeBlockMatch = rawText.match(/```(?:json)?\s*([\s\S]*?)```/);
+    if (codeBlockMatch) rawText = codeBlockMatch[1].trim();
+
+    const jsonMatch = rawText.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
       throw new Error("No JSON found in response");
     }
