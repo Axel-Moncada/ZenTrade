@@ -1,0 +1,165 @@
+{
+  "name": "ZenTrade — Responder desde Telegram",
+  "_instrucciones": [
+    "Este workflow escucha cuando TÚ respondes un mensaje del bot en Telegram.",
+    "Cómo usarlo:",
+    "  1. Llega la notificación de escalación al Telegram",
+    "  2. Responde ESE mensaje (reply) con tus instrucciones en texto libre",
+    "     Ejemplo: 'dile las ventajas de ZenTrade y los planes disponibles'",
+    "     Ejemplo: 'dile que su cuenta tiene el plan starter y que puede hacer upgrade'",
+    "  3. El bot compone el email, lo envía y te confirma en Telegram",
+    "",
+    "IMPORTANTE: El workflow solo reacciona a replies de mensajes del bot,",
+    "no a mensajes directos — así no se activa por accidente."
+  ],
+  "nodes": [
+    {
+      "id": "node-telegram-trigger",
+      "name": "Telegram — Escuchar replies",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "parameters": {
+        "updates": ["message"],
+        "additionalFields": {}
+      },
+      "credentials": {
+        "telegramApi": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "ZenTrade Telegram Bot"
+        }
+      }
+    },
+    {
+      "id": "node-check-is-reply",
+      "name": "¿Es un reply al bot?",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "parameters": {
+        "jsCode": "const msg = items[0].json.message;\n\n// Solo procesar si es un reply a otro mensaje\nif (!msg || !msg.reply_to_message) {\n  return [];\n}\n\nconst originalText = msg.reply_to_message.text ?? '';\nconst instructions = msg.text ?? '';\n\n// Extraer email del mensaje original de escalación\n// El formato es: 'De: Nombre <email@dominio.com>'\nconst emailMatch = originalText.match(/De:\\*?\\s*.+?<(.+?)>/);\nif (!emailMatch) {\n  // Intentar formato sin brackets\n  const emailMatch2 = originalText.match(/De:\\*?\\s*([\\w.+-]+@[\\w-]+\\.[\\w.]+)/);\n  if (!emailMatch2) {\n    return [{\n      json: {\n        error: true,\n        errorMsg: '❌ No pude encontrar el email del destinatario en el mensaje original.'\n      }\n    }];\n  }\n  return [{\n    json: {\n      error: false,\n      recipientEmail: emailMatch2[1].trim(),\n      instructions: instructions,\n      originalContext: originalText.slice(0, 800)\n    }\n  }];\n}\n\n// Extraer asunto si existe\nconst subjectMatch = originalText.match(/Asunto:\\*?\\s*(.+)/);\nconst subject = subjectMatch ? subjectMatch[1].trim() : 'Tu consulta';\n\nreturn [{\n  json: {\n    error: false,\n    recipientEmail: emailMatch[1].trim(),\n    subject: subject,\n    instructions: instructions,\n    originalContext: originalText.slice(0, 800)\n  }\n}];"
+      }
+    },
+    {
+      "id": "node-check-error",
+      "name": "¿Hay email válido?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 300],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "check-no-error",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": false,
+              "operator": { "type": "boolean", "operation": "equals" }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "node-compose-email",
+      "name": "Claude — Componer email",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [900, 180],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "PEGA_TU_ANTHROPIC_API_KEY_AQUI" },
+            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"claude-haiku-4-5\",\n  \"max_tokens\": 1024,\n  \"system\": \"Eres el agente de soporte de ZenTrade. Redacta emails de respuesta a usuarios en español latinoamericano neutro.\\n\\nCONOCIMIENTO DE ZENTRADE:\\nPlanes: Free ($0, 1 cuenta) | Starter ($9/mes, 2 cuentas) | Professional ($29/mes, ilimitadas + CSV import, PDF, dashboard avanzado) | ZenMode ($59/mes, todo Pro + IA: ZenCoach, Revenge Trading Detection, reportes IA).\\nPasarela: PayPal (tarjeta, débito, cuenta PayPal).\\nTarget: traders de futuros que quieren pasar evaluaciones de prop firms.\\n\\nREGLAS DEL EMAIL:\\n- Saluda con 'Hola,' (sin nombre, no sabemos el nombre)\\n- Tono directo, cordial, profesional\\n- Sin markdown, sin asteriscos — solo texto plano\\n- Máximo 150 palabras\\n- Termina SIEMPRE con: 'Saludos,\\\\nEquipo ZenTrade'\\n- NO incluyas asunto ni subject en el cuerpo\\n- Devuelve SOLO el cuerpo del email, nada más\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Redacta un email de soporte para: {{ $json.recipientEmail }}\\n\\nContexto del email original que nos enviaron:\\n{{ $json.originalContext }}\\n\\nMis instrucciones para la respuesta:\\n{{ $json.instructions }}\"\n    }\n  ]\n}"
+      }
+    },
+    {
+      "id": "node-send-email",
+      "name": "Enviar email al usuario",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [1120, 180],
+      "parameters": {
+        "fromEmail": "support@zen-trader.com",
+        "toEmail": "={{ $('Claude — Componer email').item.json.content[0].text ? $('node-check-is-reply').item.json.recipientEmail : $json.recipientEmail }}",
+        "subject": "=Re: {{ $('¿Es un reply al bot?').item.json.subject ?? 'Tu consulta' }}",
+        "emailFormat": "html",
+        "html": "=<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'></head><body style='margin:0;padding:0;background-color:#f4f4f5;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;'><table width='100%' cellpadding='0' cellspacing='0' border='0' style='background-color:#f4f4f5;padding:32px 16px;'><tr><td align='center'><table width='600' cellpadding='0' cellspacing='0' border='0' style='max-width:600px;width:100%;'><tr><td style='background:linear-gradient(135deg,#18181b 0%,#27272a 100%);border-radius:12px 12px 0 0;padding:28px 40px;'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td><span style='font-size:20px;font-weight:700;color:#ffffff;letter-spacing:-0.5px;'>Zen<span style='color:#a78bfa;'>Trade</span></span></td><td align='right'><span style='font-size:12px;color:#71717a;text-transform:uppercase;letter-spacing:1px;'>Soporte</span></td></tr></table></td></tr><tr><td style='background:#ffffff;padding:36px 40px;'><p style='margin:0 0 12px 0;color:#374151;font-size:15px;line-height:1.8;white-space:pre-line;'>{{ $('Claude — Componer email').item.json.content[0].text }}</p></td></tr><tr><td style='background:#f9fafb;border-top:1px solid #e5e7eb;border-radius:0 0 12px 12px;padding:20px 40px;'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td><p style='margin:0;font-size:12px;color:#9ca3af;line-height:1.5;'>ZenTrade · Trading Journal para Futuros<br><a href='https://www.zen-trader.com' style='color:#a78bfa;text-decoration:none;'>zen-trader.com</a></p></td><td align='right'><p style='margin:0;font-size:12px;color:#9ca3af;'>Responde si tienes más preguntas.</p></td></tr></table></td></tr></table></td></tr></table></body></html>",
+        "options": {}
+      },
+      "credentials": {
+        "smtp": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "Hostinger SMTP"
+        }
+      }
+    },
+    {
+      "id": "node-confirm-telegram",
+      "name": "Confirmar en Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1340, 180],
+      "parameters": {
+        "chatId": "754505222",
+        "text": "=✅ *Email enviado*\n\n*Para:* {{ $('¿Es un reply al bot?').item.json.recipientEmail }}\n*Asunto:* Re: {{ $('¿Es un reply al bot?').item.json.subject }}\n\n*Contenido enviado:*\n{{ $('Claude — Componer email').item.json.content[0].text.slice(0, 400) }}",
+        "additionalFields": { "parse_mode": "Markdown" }
+      },
+      "credentials": {
+        "telegramApi": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "ZenTrade Telegram Bot"
+        }
+      }
+    },
+    {
+      "id": "node-error-telegram",
+      "name": "Notificar error en Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [900, 440],
+      "parameters": {
+        "chatId": "754505222",
+        "text": "=⚠️ No pude procesar tu reply.\n\n{{ $json.errorMsg }}\n\nAsegúrate de responder directamente el mensaje de escalación (no un mensaje nuevo).",
+        "additionalFields": {}
+      },
+      "credentials": {
+        "telegramApi": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "ZenTrade Telegram Bot"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Telegram — Escuchar replies": {
+      "main": [[{ "node": "¿Es un reply al bot?", "type": "main", "index": 0 }]]
+    },
+    "¿Es un reply al bot?": {
+      "main": [[{ "node": "¿Hay email válido?", "type": "main", "index": 0 }]]
+    },
+    "¿Hay email válido?": {
+      "main": [
+        [{ "node": "Claude — Componer email", "type": "main", "index": 0 }],
+        [{ "node": "Notificar error en Telegram", "type": "main", "index": 0 }]
+      ]
+    },
+    "Claude — Componer email": {
+      "main": [[{ "node": "Enviar email al usuario", "type": "main", "index": 0 }]]
+    },
+    "Enviar email al usuario": {
+      "main": [[{ "node": "Confirmar en Telegram", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}
