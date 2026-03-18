@@ -53,8 +53,12 @@
           ]
         },
         "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"from\": \"{{ $json.from }}\",\n  \"subject\": \"{{ $json.subject }}\",\n  \"body\": \"{{ $json.body.replace(/\"/g, \"'\") }}\"\n}",
+        "contentType": "json",
+        "body": {
+          "from": "={{ $json.from }}",
+          "subject": "={{ $json.subject }}",
+          "body": "={{ $json.body }}"
+        },
         "options": {
           "timeout": 30000
         }
