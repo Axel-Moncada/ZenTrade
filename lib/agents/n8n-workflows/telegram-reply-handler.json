@@ -67,11 +67,30 @@
     {
       "id": "node-compose-email",
       "name": "Claude — Componer email",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
       "position": [900, 180],
       "parameters": {
-        "jsCode": "// ⚠️ REEMPLAZA la API key aquí:\nconst ANTHROPIC_API_KEY = 'PEGA_TU_ANTHROPIC_API_KEY_AQUI';\n\nconst recipientEmail = items[0].json.recipientEmail;\nconst instructions = items[0].json.instructions;\nconst originalContext = items[0].json.originalContext ?? '';\nconst subject = items[0].json.subject ?? 'Tu consulta';\n\nconst systemPrompt = `Eres el agente de soporte de ZenTrade. Redacta emails de respuesta a usuarios en español latinoamericano neutro.\n\nCONOCIMIENTO DE ZENTRADE:\nPlanes: Free ($0, 1 cuenta) | Starter ($9/mes, 2 cuentas) | Professional ($29/mes, ilimitadas + CSV import, PDF, dashboard avanzado) | ZenMode ($59/mes, todo Pro + IA: ZenCoach, Revenge Trading Detection, reportes IA).\nPasarela: PayPal (tarjeta, débito, cuenta PayPal).\nTarget: traders de futuros que quieren pasar evaluaciones de prop firms.\n\nREGLAS DEL EMAIL:\n- Saluda con 'Hola,' (sin nombre, no sabemos el nombre)\n- Tono directo, cordial, profesional\n- Sin markdown, sin asteriscos — solo texto plano\n- Máximo 150 palabras\n- Termina SIEMPRE con: 'Saludos,\\nEquipo ZenTrade'\n- NO incluyas asunto ni subject en el cuerpo\n- Devuelve SOLO el cuerpo del email, nada más`;\n\nconst userContent = `Redacta un email de soporte para: ${recipientEmail}\\n\\nContexto del email original que nos enviaron:\\n${originalContext}\\n\\nMis instrucciones para la respuesta:\\n${instructions}`;\n\n// JSON.stringify maneja todos los caracteres especiales (emojis, saltos, comillas)\nconst response = await fetch('https://api.anthropic.com/v1/messages', {\n  method: 'POST',\n  headers: {\n    'x-api-key': ANTHROPIC_API_KEY,\n    'anthropic-version': '2023-06-01',\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({\n    model: 'claude-haiku-4-5',\n    max_tokens: 1024,\n    system: systemPrompt,\n    messages: [{ role: 'user', content: userContent }]\n  })\n});\n\nif (!response.ok) {\n  const errText = await response.text();\n  throw new Error(`Anthropic API ${response.status}: ${errText}`);\n}\n\nconst data = await response.json();\nconst emailBody = data.content?.[0]?.text ?? '';\n\nreturn [{\n  json: {\n    recipientEmail,\n    subject,\n    instructions,\n    emailBody\n  }\n}];"
+        "method": "POST",
+        "url": "https://www.zen-trader.com/api/agents/telegram-compose",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer zentrade-support-2026-xK9mPqL7vN2026" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            { "name": "recipientEmail", "value": "={{ $json.recipientEmail }}" },
+            { "name": "subject", "value": "={{ $json.subject }}" },
+            { "name": "instructions", "value": "={{ $json.instructions }}" },
+            { "name": "originalContext", "value": "={{ $json.originalContext }}" }
+          ]
+        },
+        "options": { "timeout": 30000 }
       }
     },
     {
