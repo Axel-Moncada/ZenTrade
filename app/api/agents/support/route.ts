@@ -5,7 +5,6 @@ import { z } from "zod";
 // ─── HTML Email Template ──────────────────────────────────────────────────────
 
 function wrapInEmailTemplate(textContent: string): string {
-  // Convertir markdown básico a HTML
   const html = textContent
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
@@ -13,7 +12,7 @@ function wrapInEmailTemplate(textContent: string): string {
     .map(line => {
       const trimmed = line.trim();
       if (!trimmed) return "";
-      return `<p style="margin:0 0 12px 0;color:#374151;font-size:15px;line-height:1.6;">${trimmed}</p>`;
+      return `<p style="margin:0 0 14px 0;color:#0D1F18;font-size:15px;line-height:1.8;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">${trimmed}</p>`;
     })
     .filter(Boolean)
     .join("\n");
@@ -24,53 +23,42 @@ function wrapInEmailTemplate(textContent: string): string {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f4f5;padding:32px 16px;">
+<body style="margin:0;padding:0;background-color:#ededed;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+
+  <!-- Header oscuro -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#112510;">
+    <tr>
+      <td align="center" style="padding:32px 24px 28px;">
+        <img src="https://rsunvtanukainhbtnmlu.supabase.co/storage/v1/object/public/logo/logo-hori-white.png"
+             alt="ZenTrade" width="160"
+             style="display:block;margin:0 auto;height:auto;" />
+        <p style="margin:14px 0 0 0;font-size:11px;font-weight:700;color:#00C17C;letter-spacing:2.5px;text-transform:uppercase;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+          Soporte
+        </p>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Contenido claro -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ededed;padding:32px 24px;">
     <tr>
       <td align="center">
         <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
 
-          <!-- Header -->
+          <!-- Card blanca con el mensaje -->
           <tr>
-            <td style="background:linear-gradient(135deg,#18181b 0%,#27272a 100%);border-radius:12px 12px 0 0;padding:28px 40px;">
-              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td>
-                    <span style="font-size:20px;font-weight:700;color:#ffffff;letter-spacing:-0.5px;">Zen<span style="color:#a78bfa;">Trade</span></span>
-                  </td>
-                  <td align="right">
-                    <span style="font-size:12px;color:#71717a;text-transform:uppercase;letter-spacing:1px;">Soporte</span>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- Body -->
-          <tr>
-            <td style="background:#ffffff;padding:36px 40px;">
+            <td style="background:#FFFFFF;border:1px solid #D1E8DC;border-radius:14px;padding:36px 40px;">
               ${html}
             </td>
           </tr>
 
-          <!-- Footer -->
+          <!-- CTA -->
           <tr>
-            <td style="background:#f9fafb;border-top:1px solid #e5e7eb;border-radius:0 0 12px 12px;padding:20px 40px;">
-              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td>
-                    <p style="margin:0;font-size:12px;color:#9ca3af;line-height:1.5;">
-                      ZenTrade · Trading Journal para Futuros<br>
-                      <a href="https://www.zen-trader.com" style="color:#a78bfa;text-decoration:none;">zen-trader.com</a>
-                    </p>
-                  </td>
-                  <td align="right">
-                    <p style="margin:0;font-size:12px;color:#9ca3af;">
-                      Responde a este email si tienes más preguntas.
-                    </p>
-                  </td>
-                </tr>
-              </table>
+            <td align="center" style="padding:28px 0 8px;">
+              <a href="https://www.zen-trader.com"
+                 style="display:inline-block;background-color:#00C17C;color:#001B1F;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;padding:13px 32px;border-radius:10px;letter-spacing:0.3px;">
+                Ir a ZenTrade →
+              </a>
             </td>
           </tr>
 
@@ -78,6 +66,25 @@ function wrapInEmailTemplate(textContent: string): string {
       </td>
     </tr>
   </table>
+
+  <!-- Footer oscuro -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#112510;">
+    <tr>
+      <td align="center" style="padding:28px 24px 32px;">
+        <p style="margin:0 0 6px 0;font-size:14px;color:rgba(242,243,244,0.55);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+          ZenTrade · Trading Journal para Futuros
+        </p>
+        <a href="https://www.zen-trader.com"
+           style="color:#00C17C;text-decoration:none;font-size:13px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+          zen-trader.com
+        </a>
+        <p style="margin:14px 0 0 0;font-size:12px;color:rgba(242,243,244,0.25);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+          Responde a este email si tienes más preguntas.
+        </p>
+      </td>
+    </tr>
+  </table>
+
 </body>
 </html>`;
 }
