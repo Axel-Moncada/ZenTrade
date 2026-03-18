@@ -101,8 +101,8 @@
       "position": [1120, 180],
       "parameters": {
         "fromEmail": "support@zen-trader.com",
-        "toEmail": "={{ $json.recipientEmail }}",
-        "subject": "=Re: {{ $json.subject }}",
+        "toEmail": "={{ $('¿Es un reply al bot?').item.json.recipientEmail }}",
+        "subject": "=Re: {{ $('¿Es un reply al bot?').item.json.subject }}",
         "emailFormat": "html",
         "html": "=<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'></head><body style='margin:0;padding:0;background-color:#ededed;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;'><table width='100%' cellpadding='0' cellspacing='0' border='0' style='background-color:#112510;'><tr><td align='center' style='padding:32px 24px 28px;'><img src='https://rsunvtanukainhbtnmlu.supabase.co/storage/v1/object/public/logo/logo-hori-white.png' alt='ZenTrade' width='160' style='display:block;margin:0 auto;height:auto;' /><p style='margin:14px 0 0 0;font-size:11px;font-weight:700;color:#00C17C;letter-spacing:2.5px;text-transform:uppercase;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;'>Soporte</p></td></tr></table><table width='100%' cellpadding='0' cellspacing='0' border='0' style='background-color:#ededed;padding:32px 24px;'><tr><td align='center'><table width='600' cellpadding='0' cellspacing='0' border='0' style='max-width:600px;width:100%;'><tr><td style='background:#FFFFFF;border:1px solid #D1E8DC;border-radius:14px;padding:36px 40px;'><p style='margin:0 0 14px 0;color:#0D1F18;font-size:15px;line-height:1.8;white-space:pre-line;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;'>{{ $json.emailBody }}</p></td></tr><tr><td align='center' style='padding:28px 0 8px;'><a href='https://www.zen-trader.com' style='display:inline-block;background-color:#00C17C;color:#001B1F;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;text-decoration:none;padding:13px 32px;border-radius:10px;'>Ir a ZenTrade →</a></td></tr></table></td></tr></table><table width='100%' cellpadding='0' cellspacing='0' border='0' style='background-color:#112510;'><tr><td align='center' style='padding:28px 24px 32px;'><p style='margin:0 0 6px 0;font-size:14px;color:rgba(242,243,244,0.55);font-family:Helvetica Neue,Helvetica,Arial,sans-serif;'>ZenTrade · Trading Journal para Futuros</p><a href='https://www.zen-trader.com' style='color:#00C17C;text-decoration:none;font-size:13px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;'>zen-trader.com</a><p style='margin:14px 0 0 0;font-size:12px;color:rgba(242,243,244,0.25);font-family:Helvetica Neue,Helvetica,Arial,sans-serif;'>Responde si tienes más preguntas.</p></td></tr></table></body></html>",
         "options": {}
@@ -122,7 +122,7 @@
       "position": [1340, 180],
       "parameters": {
         "chatId": "754505222",
-        "text": "=✅ *Email enviado*\n\n*Para:* {{ $json.recipientEmail }}\n*Asunto:* Re: {{ $json.subject }}\n\n*Contenido enviado:*\n{{ $json.emailBody.slice(0, 400) }}",
+        "text": "=✅ *Email enviado*\n\n*Para:* {{ $('¿Es un reply al bot?').item.json.recipientEmail }}\n*Asunto:* Re: {{ $('¿Es un reply al bot?').item.json.subject }}\n\n*Contenido enviado:*\n{{ $json.emailBody.slice(0, 400) }}",
         "additionalFields": { "parse_mode": "Markdown" }
       },
       "credentials": {
