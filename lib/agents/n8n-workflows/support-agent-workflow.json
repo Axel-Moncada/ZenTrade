@@ -1,10 +1,5 @@
 {
   "name": "ZenTrade — Support Agent",
-  "_instrucciones": [
-    "ANTES DE IMPORTAR — reemplaza estos 2 valores:",
-    "1. TU_SUPPORT_AGENT_SECRET → el string que pusiste en .env.local",
-    "2. TU_TELEGRAM_CHAT_ID    → tu chat ID de Telegram (@userinfobot)"
-  ],
   "nodes": [
     {
       "id": "node-imap-trigger",
@@ -32,7 +27,7 @@
       "typeVersion": 2,
       "position": [460, 300],
       "parameters": {
-        "jsCode": "const email = items[0].json;\n\nconst fromRaw = email.from ?? '';\nconst fromMatch = fromRaw.match(/<(.+?)>/);\nconst fromEmail = fromMatch ? fromMatch[1] : fromRaw.trim();\nconst subject = email.subject ?? '(sin asunto)';\n\n// ANTI-LOOP: ignorar emails enviados por nosotros mismos\nif (fromEmail.toLowerCase() === 'support@zen-trader.com') {\n  return [];\n}\n// Ignorar subjects con [DRAFT] que son nuestros propios drafts\nif (subject.includes('[DRAFT]') || subject.includes('[BORRADOR]')) {\n  return [];\n}\n\nreturn [{\n  json: {\n    from: fromEmail,\n    fromRaw: fromRaw,\n    subject: subject,\n    body: (email.text ?? email.html ?? '').replace(/<[^>]*>/g, '').slice(0, 3000),\n    messageId: email.messageId ?? ''\n  }\n}];"
+        "jsCode": "const email = items[0].json;\n\nconst fromRaw = email.from ?? '';\nconst fromMatch = fromRaw.match(/<(.+?)>/);\nconst fromEmail = fromMatch ? fromMatch[1] : fromRaw.trim();\nconst subject = email.subject ?? '(sin asunto)';\n\n// ANTI-LOOP: ignorar emails enviados por nosotros mismos\nif (fromEmail.toLowerCase() === 'support@zen-trader.com') {\n  return [];\n}\nif (subject.includes('[DRAFT]') || subject.includes('[BORRADOR]')) {\n  return [];\n}\n\n// Buscar el body en todos los campos posibles que n8n puede usar\nconst rawBody = email.text\n  || email.html\n  || email.textAsHtml\n  || email.body\n  || email.content\n  || email.snippet\n  || '';\n\n// Limpiar HTML si viene con tags\nconst cleanBody = rawBody\n  .replace(/<style[^>]*>[\\s\\S]*?<\\/style>/gi, '')\n  .replace(/<[^>]*>/g, ' ')\n  .replace(/\\s+/g, ' ')\n  .trim()\n  .slice(0, 3000);\n\nreturn [{\n  json: {\n    from: fromEmail,\n    fromRaw: fromRaw,\n    subject: subject,\n    body: cleanBody,\n    messageId: email.messageId ?? '',\n    _debug_fields: Object.keys(email).join(', ')\n  }\n}];"
       }
     },
     {
@@ -49,7 +44,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer TU_SUPPORT_AGENT_SECRET"
+              "value": "Bearer zentrade-support-2026-xK9mPqL7vN2026"
             },
             {
               "name": "Content-Type",
@@ -103,8 +98,8 @@
         "fromEmail": "support@zen-trader.com",
         "toEmail": "={{ $('Extraer datos del email').item.json.from }}",
         "subject": "=Re: {{ $('Extraer datos del email').item.json.subject }}",
-        "emailFormat": "text",
-        "text": "={{ $('Llamar al Support Agent (ZenTrade API)').item.json.reply }}",
+        "emailFormat": "html",
+        "html": "={{ $('Llamar al Support Agent (ZenTrade API)').item.json.reply }}",
         "options": {}
       },
       "credentials": {
@@ -121,7 +116,7 @@
       "typeVersion": 1,
       "position": [1120, 440],
       "parameters": {
-        "chatId": "TU_TELEGRAM_CHAT_ID",
+        "chatId": "754505222",
         "text": "=🚨 *Soporte ZenTrade — Revisar*\n\n*De:* {{ $('Extraer datos del email').item.json.fromRaw }}\n*Asunto:* {{ $('Extraer datos del email').item.json.subject }}\n\n*Categoría:* {{ $('Llamar al Support Agent (ZenTrade API)').item.json.category }}\n*Razón escalación:* {{ $('Llamar al Support Agent (ZenTrade API)').item.json.escalationReason }}\n\n*Draft sugerido:*\n━━━━━━━━━━━━━━━━\n{{ $('Llamar al Support Agent (ZenTrade API)').item.json.draft }}\n━━━━━━━━━━━━━━━━\n\n✏️ Copia el draft, edítalo si quieres y responde desde support@zen-trader.com",
         "additionalFields": {
           "parse_mode": "Markdown"
