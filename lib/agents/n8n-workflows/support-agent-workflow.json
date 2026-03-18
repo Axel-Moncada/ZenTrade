@@ -53,9 +53,14 @@
           ]
         },
         "sendBody": true,
-        "specifyBody": "raw",
-        "rawContentType": "application/json",
-        "body": "={{ $json.apiPayload }}",
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            { "name": "from", "value": "={{ $json.from }}" },
+            { "name": "subject", "value": "={{ $json.subject }}" },
+            { "name": "body", "value": "={{ $json.body }}" }
+          ]
+        },
         "options": {
           "timeout": 30000
         }
