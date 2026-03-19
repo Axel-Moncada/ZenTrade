@@ -9,6 +9,17 @@
 - "funded" y "fondeado/a" coexisten — "trader fondeado" es más natural que "trader financiado"
 - Ver razonamiento completo al final de este archivo
 
+## Posicionamiento del producto (decisión de copy — landing 2026-03-19)
+
+- Zentrade es una **bitácora/journal de trading CON IA** — no un "dashboard analítico"
+- La IA debe aparecer desde el primer fold (hero), no solo en la sección ZenMode
+- Los valores centrales del producto son **disciplina** y **constancia** — no solo métricas
+- El producto sirve tanto para **pruebas de fondeo** como para **cuentas live** — mencionar ambas
+- El headline que funciona: ataca el loop de error repetido ("Deja de Repetir los Mismos Errores")
+- El copy emocional más potente: "No puedes corregir lo que no puedes ver"
+- Testimonios que convierten: deben tener un dato específico (porcentaje, horario, regla concreta)
+- Ver archivo `D:\Development\2 - Zentrade\lib\i18n\translations.ts` líneas 185–384 para el copy aplicado
+
 ## Hooks de alto potencial (probados/validados conceptualmente)
 
 - "La razón #1 por la que los traders fallan evaluaciones no es la estrategia. Es el revenge trading."
@@ -52,6 +63,31 @@ Ver tabla completa en `hashtags.md`
 - Reel tour completo del dashboard en Instagram
 - Video auténtico "día del lanzamiento" en TikTok
 - Referencia: `Marketing/CONTENT-CALENDAR.xlsx` con 33 piezas de contenido, 4 semanas
+
+## Campaña de expectativa (ejecutada — 19-23 marzo 2026)
+
+- Sprint de 5 días: problema → consecuencia → insinuación → nombre → lanzamiento
+- Historia del fundador: "Fallé 3 evaluaciones de FTMO. El problema era lo que pasaba el 20% del tiempo."
+- Dato ancla: "tasa de reprobación mayor al 85%" — usar en todos los posts de awareness
+- Hook Día 1 validado: "No fue la estrategia. Fue ese trade que tomaste sabiendo que no debías."
+- Ver detalle completo en `Marketing/Campanas/campana-expectativa-lanzamiento-marzo-2026.md`
+
+## Posts evergreen producidos (serie lanzamiento)
+
+1. "Por qué el 90% de los traders fallan evaluaciones" — carrusel 6 slides + thread 4 tweets
+2. "Qué es el revenge trading y cómo te sabotea" — imagen impacto + thread 4 tweets
+3. "Las 3 métricas que los prop firms realmente miden" — carrusel 4 slides + thread 4 tweets
+4. "El día más peligroso no es cuando pierdes, es cuando ganas demasiado" — imagen comparativa + thread 3 tweets
+- Ver detalle en `Marketing/Evergreen/posts-evergreen-lanzamiento.md`
+
+## Arco narrativo de 4 semanas (validado 2026-03-18)
+
+- S1: Awareness — problema puro, sin mencionar el producto. Identidad amenazada.
+- S2: Autoridad — métricas que las empresas de fondeo miden. Información asimétrica.
+- S3: Consideración — demo del dashboard + historia del fundador. Prueba social.
+- S4: Conversión — oferta explícita, CTA repetido, escasez real.
+- Regla de prioridad de plataforma (un fundador): X > TikTok > Instagram
+- Ver detalle completo en `Marketing/Estrategia/content-strategy-4-semanas.md`
 
 ## Preferencias de formato detectadas
 

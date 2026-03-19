@@ -2,14 +2,10 @@
   "_comment": "ZenTrade — Marketing Agent Workflow para n8n",
   "_instructions": [
     "1. Importa este JSON en n8n",
-    "2. Configura variables de entorno en n8n:",
-    "   - ANTHROPIC_API_KEY: tu API key de Anthropic",
-    "   - TELEGRAM_CHAT_ID: tu chat ID para recibir el contenido",
-    "   - TELEGRAM_BOT_TOKEN: token de tu bot",
+    "2. Configura credencial 'ZenTrade Telegram Bot' con tu Bot Token",
     "3. El workflow corre cada domingo a las 8pm (hora Bogotá)",
     "4. El contenido llega a Telegram para que lo revises y publiques manualmente",
-    "   (o conectas Buffer/Later en el futuro para publicación automática)",
-    "5. Cambia el 'topic' en el nodo 'Set Topic of the Week' cada semana"
+    "5. Cambia 'topic' y 'context' en el nodo 'Set — Tema de la semana' cada semana"
   ],
   "name": "ZenTrade — Marketing Agent (Semanal)",
   "nodes": [
@@ -60,28 +56,24 @@
       "position": [680, 160],
       "parameters": {
         "method": "POST",
-        "url": "https://api.anthropic.com/v1/messages",
+        "url": "https://www.zen-trader.com/api/agents/marketing",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "x-api-key", "value": "={{ $env.ANTHROPIC_API_KEY }}" },
-            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "Authorization", "value": "Bearer zentrade-support-2026-xK9mPqL7vN2026" },
             { "name": "Content-Type", "value": "application/json" }
           ]
         },
         "sendBody": true,
-        "contentType": "json",
-        "body": {
-          "model": "claude-sonnet-4-6",
-          "max_tokens": 2048,
-          "system": "Eres el content manager de ZenTrade en Instagram.\nZenTrade es un trading journal para traders de futuros en LATAM y USA.\nTarget: traders 25-40 años que quieren pasar evaluaciones de prop firms (FTMO, Apex, TopStep, Tradoverse, Uprofit).\n\nREGLAS DE BRAND VOICE (NO NEGOCIABLES):\n1. Nunca prometas rentabilidad, ganancias o resultados de trading\n2. El mensaje central es SIEMPRE: disciplina, sistema, consistencia, proceso\n3. Tono: directo, honesto, sin hype. Como un mentor que respeta tu inteligencia.\n4. Emoji: máximo 3 por caption, selectivos\n5. Español latinoamericano neutro\n\nFORMATO INSTAGRAM:\n- Caption con 3 bloques separados por línea en blanco:\n  Bloque 1 (Hook): 1-2 líneas que detengan el scroll\n  Bloque 2 (Valor): 4-6 líneas con valor concreto\n  Bloque 3 (CTA): 1 línea + 'link en bio'\n- Hashtags: 10-12 (mezcla nicho + generales)\n- Sugerencia de visual: 1 línea\n\nOUTPUT: Solo caption listo para copiar + hashtags en línea separada + sugerencia de visual.",
-          "messages": [
-            {
-              "role": "user",
-              "content": "=Genera contenido para esta semana.\n\nTEMA: {{ $json.topic }}\nCONTEXTO: {{ $json.context }}\n\nGenera 1 post de Instagram listo para publicar."
-            }
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            { "name": "platform", "value": "instagram" },
+            { "name": "topic", "value": "={{ $json.topic }}" },
+            { "name": "context", "value": "={{ $json.context }}" }
           ]
-        }
+        },
+        "options": { "timeout": 60000 }
       }
     },
     {
@@ -92,28 +84,24 @@
       "position": [680, 300],
       "parameters": {
         "method": "POST",
-        "url": "https://api.anthropic.com/v1/messages",
+        "url": "https://www.zen-trader.com/api/agents/marketing",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "x-api-key", "value": "={{ $env.ANTHROPIC_API_KEY }}" },
-            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "Authorization", "value": "Bearer zentrade-support-2026-xK9mPqL7vN2026" },
             { "name": "Content-Type", "value": "application/json" }
           ]
         },
         "sendBody": true,
-        "contentType": "json",
-        "body": {
-          "model": "claude-sonnet-4-6",
-          "max_tokens": 2048,
-          "system": "Eres el content manager de ZenTrade en Twitter/X.\nZenTrade es un trading journal para traders de futuros.\nTarget: traders de futuros que siguen comunidades de FTMO/Apex/TopStep.\n\nREGLAS DE BRAND VOICE (NO NEGOCIABLES):\n1. Nunca prometas rentabilidad ni ganancias\n2. Mensaje central: disciplina, sistema, consistencia\n3. Tono: directo, sin hype\n4. Máximo 1 emoji por tweet\n5. Español neutro\n\nGENERA UN THREAD DE 4-5 TWEETS:\n- Tweet 1: Hook fuerte (≤280 chars)\n- Tweets 2-4: desarrollo del tema, numerados (2/ 3/ 4/)\n- Tweet final: CTA a ZenTrade (prueba gratis / link)\n\nOUTPUT: Cada tweet separado por línea en blanco, numerado.",
-          "messages": [
-            {
-              "role": "user",
-              "content": "=Genera contenido para esta semana.\n\nTEMA: {{ $json.topic }}\nCONTEXTO: {{ $json.context }}\n\nGenera un thread de Twitter/X listo para publicar."
-            }
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            { "name": "platform", "value": "twitter" },
+            { "name": "topic", "value": "={{ $json.topic }}" },
+            { "name": "context", "value": "={{ $json.context }}" }
           ]
-        }
+        },
+        "options": { "timeout": 60000 }
       }
     },
     {
@@ -124,28 +112,24 @@
       "position": [680, 440],
       "parameters": {
         "method": "POST",
-        "url": "https://api.anthropic.com/v1/messages",
+        "url": "https://www.zen-trader.com/api/agents/marketing",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "x-api-key", "value": "={{ $env.ANTHROPIC_API_KEY }}" },
-            { "name": "anthropic-version", "value": "2023-06-01" },
+            { "name": "Authorization", "value": "Bearer zentrade-support-2026-xK9mPqL7vN2026" },
             { "name": "Content-Type", "value": "application/json" }
           ]
         },
         "sendBody": true,
-        "contentType": "json",
-        "body": {
-          "model": "claude-sonnet-4-6",
-          "max_tokens": 2048,
-          "system": "Eres el content strategist de ZenTrade en TikTok y Reels.\nZenTrade es un trading journal. No enseñamos a tradear — mostramos qué hace diferente a los traders que sí funcionan.\n\nREGLAS:\n1. Nunca prometas rentabilidad\n2. Mensaje: disciplina, sistema, proceso\n3. Tono conversacional, como hablarle a un trader amigo\n\nFORMATO (script 30-60 segundos):\n- [0-3s] HOOK: statement fuerte o pregunta incómoda\n- [3-15s] PROBLEMA: el contexto que el trader reconoce\n- [15-45s] SOLUCIÓN/INSIGHT: cómo ZenTrade o el proceso ayuda\n- [45-60s] CTA: concreto y sin presión\n- ON-SCREEN TEXTS: 2-3 frases cortas para mostrar en pantalla\n- VISUAL: cara a cámara / screen recording del app / ambos\n\nOUTPUT: Script completo + On-screen texts + Sugerencia visual.",
-          "messages": [
-            {
-              "role": "user",
-              "content": "=Genera contenido para esta semana.\n\nTEMA: {{ $json.topic }}\nCONTEXTO: {{ $json.context }}\n\nGenera un script de TikTok/Reels listo para grabar."
-            }
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            { "name": "platform", "value": "tiktok" },
+            { "name": "topic", "value": "={{ $json.topic }}" },
+            { "name": "context", "value": "={{ $json.context }}" }
           ]
-        }
+        },
+        "options": { "timeout": 60000 }
       }
     },
     {
@@ -155,7 +139,7 @@
       "typeVersion": 2,
       "position": [900, 300],
       "parameters": {
-        "jsCode": "const ig = $('generate-instagram').item.json;\nconst tw = $('generate-twitter').item.json;\nconst tt = $('generate-tiktok').item.json;\n\nconst getText = (r) => r?.content?.[0]?.text ?? '(error generando contenido)';\n\nreturn [{\n  json: {\n    instagram: getText(ig),\n    twitter: getText(tw),\n    tiktok: getText(tt)\n  }\n}];"
+        "jsCode": "const ig = $('Claude — Generar Instagram').item.json;\nconst tw = $('Claude — Generar Twitter/X').item.json;\nconst tt = $('Claude — Generar TikTok Script').item.json;\n\nconst getText = (r) => r?.content ?? '(error generando contenido)';\n\nreturn [{\n  json: {\n    instagram: getText(ig),\n    twitter: getText(tw),\n    tiktok: getText(tt)\n  }\n}];"
       }
     },
     {
@@ -165,11 +149,11 @@
       "typeVersion": 1,
       "position": [1120, 160],
       "parameters": {
-        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "chatId": "754505222",
         "text": "=📸 *INSTAGRAM — ZenTrade*\n\n{{ $json.instagram }}",
         "additionalFields": { "parse_mode": "Markdown" }
       },
-      "credentials": { "telegramApi": { "id": "CONFIGURE_ME", "name": "ZenTrade Telegram Bot" } }
+      "credentials": { "telegramApi": { "id": "CONECTAR_EN_N8N", "name": "ZenTrade Telegram Bot" } }
     },
     {
       "id": "telegram-twitter",
@@ -178,11 +162,11 @@
       "typeVersion": 1,
       "position": [1120, 300],
       "parameters": {
-        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "chatId": "754505222",
         "text": "=🐦 *TWITTER/X — ZenTrade*\n\n{{ $json.twitter }}",
         "additionalFields": { "parse_mode": "Markdown" }
       },
-      "credentials": { "telegramApi": { "id": "CONFIGURE_ME", "name": "ZenTrade Telegram Bot" } }
+      "credentials": { "telegramApi": { "id": "CONECTAR_EN_N8N", "name": "ZenTrade Telegram Bot" } }
     },
     {
       "id": "telegram-tiktok",
@@ -191,30 +175,38 @@
       "typeVersion": 1,
       "position": [1120, 440],
       "parameters": {
-        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "chatId": "754505222",
         "text": "=🎬 *TIKTOK/REELS — ZenTrade*\n\n{{ $json.tiktok }}",
         "additionalFields": { "parse_mode": "Markdown" }
       },
-      "credentials": { "telegramApi": { "id": "CONFIGURE_ME", "name": "ZenTrade Telegram Bot" } }
+      "credentials": { "telegramApi": { "id": "CONECTAR_EN_N8N", "name": "ZenTrade Telegram Bot" } }
     }
   ],
   "connections": {
-    "schedule-trigger": { "main": [[{ "node": "set-topic", "type": "main", "index": 0 }]] },
-    "set-topic": {
+    "Trigger — Domingo 8pm Bogotá": {
+      "main": [[{ "node": "Set — Tema de la semana", "type": "main", "index": 0 }]]
+    },
+    "Set — Tema de la semana": {
       "main": [[
-        { "node": "generate-instagram", "type": "main", "index": 0 },
-        { "node": "generate-twitter", "type": "main", "index": 0 },
-        { "node": "generate-tiktok", "type": "main", "index": 0 }
+        { "node": "Claude — Generar Instagram", "type": "main", "index": 0 },
+        { "node": "Claude — Generar Twitter/X", "type": "main", "index": 0 },
+        { "node": "Claude — Generar TikTok Script", "type": "main", "index": 0 }
       ]]
     },
-    "generate-instagram": { "main": [[{ "node": "extract-texts", "type": "main", "index": 0 }]] },
-    "generate-twitter": { "main": [[{ "node": "extract-texts", "type": "main", "index": 0 }]] },
-    "generate-tiktok": { "main": [[{ "node": "extract-texts", "type": "main", "index": 0 }]] },
-    "extract-texts": {
+    "Claude — Generar Instagram": {
+      "main": [[{ "node": "Extraer textos de respuestas Claude", "type": "main", "index": 0 }]]
+    },
+    "Claude — Generar Twitter/X": {
+      "main": [[{ "node": "Extraer textos de respuestas Claude", "type": "main", "index": 0 }]]
+    },
+    "Claude — Generar TikTok Script": {
+      "main": [[{ "node": "Extraer textos de respuestas Claude", "type": "main", "index": 0 }]]
+    },
+    "Extraer textos de respuestas Claude": {
       "main": [[
-        { "node": "telegram-instagram", "type": "main", "index": 0 },
-        { "node": "telegram-twitter", "type": "main", "index": 0 },
-        { "node": "telegram-tiktok", "type": "main", "index": 0 }
+        { "node": "Telegram — Enviar Instagram", "type": "main", "index": 0 },
+        { "node": "Telegram — Enviar Twitter/X", "type": "main", "index": 0 },
+        { "node": "Telegram — Enviar TikTok Script", "type": "main", "index": 0 }
       ]]
     }
   },

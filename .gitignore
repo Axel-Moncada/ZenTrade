@@ -35,3 +35,5 @@ next-env.d.ts
 
 # notas personales (no subir al repo)
 IDEAS.md
+lib\agents\n8n-workflows\support-agent-workflow.json
+

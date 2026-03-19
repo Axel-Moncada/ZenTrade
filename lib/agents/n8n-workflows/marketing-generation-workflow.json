@@ -1,0 +1,185 @@
+{
+  "name": "ZenTrade — Marketing: Generación Semanal",
+  "_instrucciones": [
+    "=== SETUP (hacer una sola vez) ===",
+    "",
+    "1. Crear Google Sheet llamado 'ZenTrade — Content Calendar'",
+    "   Columnas en fila 1 (exactamente así):",
+    "   A:Week | B:WeekStart | C:CycleWeek | D:CycleName | E:Platform",
+    "   F:Topic | G:PsychAngle | H:TargetAudience | I:Objective | J:WhyThisWeek",
+    "   K:Content | L:Hashtags | M:ImagePrompt | N:VideoPrompt | O:OnScreenTexts",
+    "   P:BestDay | Q:BestTime | R:Status | S:Notes",
+    "",
+    "2. n8n → Credentials → Google Sheets OAuth2 → conectar con tu Google",
+    "",
+    "3. En el nodo 'Google Sheets — Agregar fila':",
+    "   - Seleccionar credencial",
+    "   - Pegar Spreadsheet ID (en la URL: /d/XXXX/edit)",
+    "",
+    "4. En el nodo Telegram: conectar 'ZenTrade Telegram Bot'",
+    "",
+    "=== USO ===",
+    "El workflow corre solo cada domingo 8pm (Bogotá).",
+    "El strategist de IA decide el tema + ángulo psicológico automáticamente.",
+    "Si quieres override: pon el tema en 'topic_override' del nodo Set.",
+    "Dejar vacío = el agente decide solo (recomendado)."
+  ],
+  "nodes": [
+    {
+      "id": "schedule-trigger",
+      "name": "Trigger — Domingo 8pm Bogotá",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 20 * * 0" }]
+        },
+        "timezone": "America/Bogota"
+      }
+    },
+    {
+      "id": "set-override",
+      "name": "Set — Override (opcional)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [460, 300],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "topic_override",
+              "name": "topic_override",
+              "value": "",
+              "type": "string",
+              "_note": "Dejar VACÍO para que el agente decida el tema. Solo completar si quieres forzar un tema específico."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "generate-orchestrated",
+      "name": "Agente — Estrategia + Contenido",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [680, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://www.zen-trader.com/api/agents/marketing/orchestrate",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "Bearer zentrade-support-2026-xK9mPqL7vN2026" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            { "name": "topicOverride", "value": "={{ $json.topic_override }}" }
+          ]
+        },
+        "options": { "timeout": 120000 }
+      }
+    },
+    {
+      "id": "format-rows",
+      "name": "Formatear filas para Google Sheets",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300],
+      "parameters": {
+        "jsCode": "const d = items[0].json;\n\nconst s = d.strategy ?? {};\nconst ig = d.instagram ?? {};\nconst tw = d.twitter ?? {};\nconst tt = d.tiktok ?? {};\n\nconst tweetThread = Array.isArray(tw.tweets) ? tw.tweets.join('\\n\\n') : (tw.tweets ?? '');\nconst onScreen = Array.isArray(tt.onScreenTexts) ? tt.onScreenTexts.join(' | ') : '';\n\nconst base = {\n  Week: d.week ?? '',\n  WeekStart: d.weekStart ?? '',\n  CycleWeek: s.cycleWeek ?? '',\n  CycleName: s.cycleName ?? '',\n  Topic: s.topic ?? '',\n  PsychAngle: s.psychologicalAngle ?? '',\n  TargetAudience: s.targetAudience ?? '',\n  Objective: s.conversionObjective ?? '',\n  WhyThisWeek: s.whyThisWeek ?? '',\n  Status: 'pending',\n  Notes: ''\n};\n\nreturn [\n  {\n    json: {\n      ...base,\n      Platform: 'instagram',\n      Content: ig.caption ?? '',\n      Hashtags: ig.hashtags ?? '',\n      ImagePrompt: ig.imagePrompt ?? '',\n      VideoPrompt: '',\n      OnScreenTexts: '',\n      BestDay: 'Lunes / Viernes',\n      BestTime: '9:00am'\n    }\n  },\n  {\n    json: {\n      ...base,\n      Platform: 'twitter',\n      Content: tweetThread,\n      Hashtags: '',\n      ImagePrompt: '',\n      VideoPrompt: '',\n      OnScreenTexts: '',\n      BestDay: 'Martes / Jueves',\n      BestTime: '8:00am'\n    }\n  },\n  {\n    json: {\n      ...base,\n      Platform: 'tiktok',\n      Content: tt.script ?? '',\n      Hashtags: '',\n      ImagePrompt: '',\n      VideoPrompt: tt.videoPrompt ?? '',\n      OnScreenTexts: onScreen,\n      BestDay: 'Miércoles / Sábado',\n      BestTime: '6:00pm'\n    }\n  }\n];"
+      }
+    },
+    {
+      "id": "google-sheets-append",
+      "name": "Google Sheets — Agregar fila",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [1120, 300],
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "PEGAR_SPREADSHEET_ID_AQUI"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Hoja 1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Week": "={{ $json.Week }}",
+            "WeekStart": "={{ $json.WeekStart }}",
+            "CycleWeek": "={{ $json.CycleWeek }}",
+            "CycleName": "={{ $json.CycleName }}",
+            "Platform": "={{ $json.Platform }}",
+            "Topic": "={{ $json.Topic }}",
+            "PsychAngle": "={{ $json.PsychAngle }}",
+            "TargetAudience": "={{ $json.TargetAudience }}",
+            "Objective": "={{ $json.Objective }}",
+            "WhyThisWeek": "={{ $json.WhyThisWeek }}",
+            "Content": "={{ $json.Content }}",
+            "Hashtags": "={{ $json.Hashtags }}",
+            "ImagePrompt": "={{ $json.ImagePrompt }}",
+            "VideoPrompt": "={{ $json.VideoPrompt }}",
+            "OnScreenTexts": "={{ $json.OnScreenTexts }}",
+            "BestDay": "={{ $json.BestDay }}",
+            "BestTime": "={{ $json.BestTime }}",
+            "Status": "={{ $json.Status }}",
+            "Notes": "={{ $json.Notes }}"
+          }
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "Google Sheets — ZenTrade"
+        }
+      }
+    },
+    {
+      "id": "telegram-confirm",
+      "name": "Telegram — Brief estratégico + confirmación",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [1340, 300],
+      "parameters": {
+        "chatId": "754505222",
+        "text": "=🧠 *Semana {{ $('Agente — Estrategia + Contenido').item.json.week }} — Brief del Strategist*\n\n*Ciclo:* {{ $('Agente — Estrategia + Contenido').item.json.strategy.cycleWeek }} — {{ $('Agente — Estrategia + Contenido').item.json.strategy.cycleName }}\n\n*Tema decidido:*\n{{ $('Agente — Estrategia + Contenido').item.json.strategy.topic }}\n\n*Ángulo psicológico:*\n{{ $('Agente — Estrategia + Contenido').item.json.strategy.psychologicalAngle }}\n\n*Audiencia objetivo:*\n{{ $('Agente — Estrategia + Contenido').item.json.strategy.targetAudience }}\n\n*Por qué esta semana:*\n{{ $('Agente — Estrategia + Contenido').item.json.strategy.whyThisWeek }}\n\n━━━━━━━━━━━━━━━━\n✅ 3 posts guardados en Google Sheets con prompts de imagen y video.\n\n📅 Calendario:\n• 📸 Instagram → Lunes/Viernes 9am\n• 🐦 Twitter/X → Martes/Jueves 8am  \n• 🎬 TikTok/Reels → Miércoles/Sábado 6pm",
+        "additionalFields": { "parse_mode": "Markdown" }
+      },
+      "credentials": {
+        "telegramApi": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "ZenTrade Telegram Bot"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Trigger — Domingo 8pm Bogotá": {
+      "main": [[{ "node": "Set — Override (opcional)", "type": "main", "index": 0 }]]
+    },
+    "Set — Override (opcional)": {
+      "main": [[{ "node": "Agente — Estrategia + Contenido", "type": "main", "index": 0 }]]
+    },
+    "Agente — Estrategia + Contenido": {
+      "main": [[{ "node": "Formatear filas para Google Sheets", "type": "main", "index": 0 }]]
+    },
+    "Formatear filas para Google Sheets": {
+      "main": [[{ "node": "Google Sheets — Agregar fila", "type": "main", "index": 0 }]]
+    },
+    "Google Sheets — Agregar fila": {
+      "main": [[{ "node": "Telegram — Brief estratégico + confirmación", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}

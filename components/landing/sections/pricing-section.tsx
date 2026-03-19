@@ -37,7 +37,7 @@ export default function PricingSection() {
         {/* ── Billing toggle ─────────────────────────────────────────────────── */}
         <div className="flex items-center justify-center mb-16">
           <div
-            className="relative flex items-center gap-1 rounded-full p-1.5"
+            className="landing-billing-toggle relative flex items-center gap-1 rounded-full p-1.5"
             style={{
               background: "rgba(0,0,0,0.25)",
               border: "1px solid rgba(255,255,255,0.07)",
@@ -143,7 +143,7 @@ export default function PricingSection() {
                     {isAnnual && !isComingSoon && savingsPct > 0 && (
                       <div className="mt-2 flex items-center gap-1.5">
                         <span
-                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
+                          className="landing-savings-badge inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
                           style={{ background: "rgba(0,193,124,0.15)", color: "#00C17C" }}
                         >
                           <Zap className="h-3 w-3" />

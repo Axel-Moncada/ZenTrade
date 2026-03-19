@@ -799,6 +799,147 @@ html.light-mode [role="listbox"] .hover\:bg-zen-rich-black:hover { background-co
 
 
 
+/* ================================================================
+   LANDING PAGE — Light mode
+   Scoped to .landing-page wrapper — NO afecta el dashboard.
+   Especificidad > html.light-mode main (agrega .landing-page en el path).
+   Dark mode de la landing queda intacto — estas reglas solo aplican
+   cuando html tiene clase .light-mode.
+   ================================================================ */
+
+/* ── 1. Page wrapper: fondo sage-blanco con glows verdes ── */
+html.light-mode .landing-page {
+  background-color: #FFFFFF;
+  background-image:
+    radial-gradient(ellipse 75% 45% at 12% -8%,  rgba(0, 193, 124, 0.09) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 88% 108%, rgba(0, 122, 66,  0.07) 0%, transparent 50%),
+    linear-gradient(175deg, #F2FAF6 0%, #FAFCFB 22%, #FFFFFF 50%, #FAFCFB 78%, #F3FAF7 100%);
+}
+
+/* ── 2. Kill gradient overlays (sección wrappers + divs absolute atmosféricos) ──
+   Se recuperan individualmente abajo los casos que son fondos de card. ── */
+html.light-mode .landing-page main section[class*="bg-gradient-"] {
+  background-image: none;
+  background-color: transparent;
+}
+html.light-mode .landing-page main .absolute[class*="bg-gradient-"] {
+  background-image: none;
+  background-color: transparent;
+}
+
+/* ── 3. Recuperar: problem-section cards usan from-zen-surface gradient ── */
+html.light-mode .landing-page main .from-zen-surface {
+  background-image: none;
+  background-color: #FFFFFF;
+}
+
+/* ── 4. Zen surface tokens ── */
+html.light-mode .landing-page main .bg-zen-surface          { background-color: #FFFFFF; }
+html.light-mode .landing-page main .bg-zen-surface-elevated  { background-color: #EDF5F1; }
+html.light-mode .landing-page main .bg-zen-dark-green        { background-color: #F6FAF8; }
+html.light-mode .landing-page main .bg-zen-rich-black        { background-color: #EFF6F2; }
+html.light-mode .landing-page main .bg-zen-bangladesh-green  { background-color: #E8F5EE; }
+html.light-mode .landing-page main .bg-zen-forest            { background-color: #E6EDE9; }
+
+html.light-mode .landing-page main .bg-zen-surface\/80  { background-color: rgba(255,255,255,0.95); }
+html.light-mode .landing-page main .bg-zen-surface\/40  { background-color: rgba(255,255,255,0.80); }
+html.light-mode .landing-page main .bg-zen-surface\/30  { background-color: rgba(255,255,255,0.70); }
+html.light-mode .landing-page main .bg-zen-surface\/25  { background-color: rgba(255,255,255,0.60); }
+
+/* ── 5. bg-zen-border-soft: rgba blanco → invisible en light, dar color sólido ── */
+html.light-mode .landing-page main .bg-zen-border-soft { background-color: #C4D4CD; }
+
+/* ── 6. Caribbean green tint backgrounds ── */
+html.light-mode .landing-page main .bg-zen-caribbean-green\/5  { background-color: #F2FBF7; }
+html.light-mode .landing-page main .bg-zen-caribbean-green\/8  { background-color: #EAF9F3; }
+html.light-mode .landing-page main .bg-zen-caribbean-green\/10 { background-color: #E2F7EE; }
+html.light-mode .landing-page main .bg-zen-caribbean-green\/15 { background-color: #D5F2E7; }
+html.light-mode .landing-page main .bg-zen-caribbean-green\/20 { background-color: #C8EDDF; }
+
+/* ── 7. Danger tints ── */
+html.light-mode .landing-page main .bg-zen-danger\/10 { background-color: #FEE2E2; }
+html.light-mode .landing-page main .bg-zen-danger\/20 { background-color: #FECACA; }
+
+/* ── 8. Border colors — visibles y con tono verde profesional ── */
+html.light-mode .landing-page main .border-zen-border-soft          { border-color: #C4D4CD; }
+html.light-mode .landing-page main .border-zen-border-soft\/50      { border-color: #D6E4DF; }
+html.light-mode .landing-page main .border-zen-caribbean-green       { border-color: #009C63; }
+html.light-mode .landing-page main .border-zen-caribbean-green\/10   { border-color: #D5F2E7; }
+html.light-mode .landing-page main .border-zen-caribbean-green\/20   { border-color: #AADFC5; }
+html.light-mode .landing-page main .border-zen-caribbean-green\/30   { border-color: #7FCEAD; }
+html.light-mode .landing-page main .border-zen-caribbean-green\/40   { border-color: #52BD93; }
+html.light-mode .landing-page main .border-zen-caribbean-green\/50   { border-color: #2AAD7A; }
+
+/* ── 9. Text — contraste AA/AAA garantizado ── */
+html.light-mode .landing-page main .text-zen-anti-flash      { color: #0C1B14; }   /* ~17:1 AAA */
+html.light-mode .landing-page main .text-zen-anti-flash\/80  { color: #243B2E; }
+html.light-mode .landing-page main .text-zen-anti-flash\/70  { color: #2E4A3C; }
+html.light-mode .landing-page main .text-zen-anti-flash\/60  { color: #3D5A4D; }
+html.light-mode .landing-page main .text-zen-anti-flash\/50  { color: #4D6B5D; }
+html.light-mode .landing-page main .text-zen-anti-flash\/40  { color: #5E7D6E; }
+html.light-mode .landing-page main .text-zen-text-muted      { color: #3E5A4A; }   /* ~8.1:1 AAA */
+html.light-mode .landing-page main .text-zen-caribbean-green { color: #006B42; }   /* ~5.4:1 AA  */
+html.light-mode .landing-page main .text-zen-danger          { color: #DC2626; }   /* ~4.9:1 AA  */
+html.light-mode .landing-page main .text-white               { color: #0C1B14; }
+
+/* ── 10. Hover text ── */
+html.light-mode .landing-page main .hover\:text-zen-caribbean-green:hover { color: #006B42; }
+html.light-mode .landing-page main .hover\:text-zen-anti-flash\/80:hover  { color: #243B2E; }
+
+/* ── 11. Hover borders ── */
+html.light-mode .landing-page main .hover\:border-zen-caribbean-green\/30:hover  { border-color: #7FCEAD; }
+html.light-mode .landing-page main .hover\:border-zen-caribbean-green\/20:hover  { border-color: #AADFC5; }
+html.light-mode .landing-page main .hover\:border-zen-caribbean-green:hover      { border-color: #009C63; }
+html.light-mode .landing-page main .group:hover .group-hover\:border-zen-caribbean-green { border-color: #009C63; }
+
+/* ── 12. Hover backgrounds ── */
+html.light-mode .landing-page main .hover\:bg-zen-caribbean-green\/10:hover { background-color: #E2F7EE; }
+html.light-mode .landing-page main .hover\:bg-zen-caribbean-green\/30:hover { background-color: #C8EDDF; }
+html.light-mode .landing-page main .hover\:bg-zen-caribbean-green:hover     { background-color: #009C63; }
+html.light-mode .landing-page main .hover\:bg-zen-forest\/30:hover          { background-color: #D6E4DF; }
+html.light-mode .landing-page main .hover\:bg-zen-danger\/10:hover          { background-color: #FEE2E2; }
+html.light-mode .landing-page main .group:hover .group-hover\:bg-zen-caribbean-green\/20 { background-color: #C8EDDF; }
+
+/* ── 13. Card lift shadows — dan profundidad a las tarjetas ── */
+html.light-mode .landing-page main .bg-zen-surface,
+html.light-mode .landing-page main .bg-zen-surface-elevated,
+html.light-mode .landing-page main .from-zen-surface {
+  box-shadow: 0 1px 3px rgba(0, 80, 50, 0.05), 0 5px 20px rgba(0, 80, 50, 0.07);
+}
+
+/* ── 14. shadow-zen-caribbean-green → sombra sutil en light ── */
+html.light-mode .landing-page main [class*="shadow-zen-caribbean-green"] {
+  --tw-shadow-color: rgba(0, 80, 50, 0.12);
+}
+
+/* ── 15. Backdrop blur — mantener efecto premium ── */
+html.light-mode .landing-page main .backdrop-blur-sm { backdrop-filter: blur(6px); }
+html.light-mode .landing-page main .backdrop-blur-md { backdrop-filter: blur(10px); }
+
+/* ── 16. Pricing billing toggle (inline style override) ── */
+html.light-mode .landing-billing-toggle {
+  background: rgba(0, 107, 66, 0.07) !important;
+  border-color: rgba(0, 107, 66, 0.22) !important;
+}
+
+/* ── 17. Annual savings badge (inline color #00C17C falla AA en blanco) ── */
+html.light-mode .landing-savings-badge {
+  background: rgba(0, 107, 66, 0.11) !important;
+  color: #006B42 !important;
+}
+
+/* ── 18. Pricing toggle: inactive button text ── */
+html.light-mode .landing-page main .text-zen-anti-flash\/50 { color: #4D6B5D; }
+
+/* ── 19. Glow div detrás de pricing card — transparente en light ── */
+html.light-mode .landing-page main .bg-zen-caribbean-green\/5.blur-xl { background-color: transparent; }
+
+/* ── 20. Section highlight badge (inline en hero) ── */
+html.light-mode .landing-page main .bg-zen-surface-elevated.border.rounded-full {
+  background-color: #E8F5EE;
+  border-color: #7FCEAD;
+}
+
 .main-bg-login{
   background-image: url(../data/assets/bg-login.jpg);
   background-size: left 50% 100%;

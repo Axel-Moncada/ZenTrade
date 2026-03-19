@@ -1,0 +1,319 @@
+{
+  "name": "ZenTrade — Marketing: Recordatorios de Publicación",
+  "_instrucciones": [
+    "=== SETUP ===",
+    "1. Conectar credencial Google Sheets (mismo que en el workflow de generación)",
+    "2. Pegar el mismo Spreadsheet ID en los 3 nodos de Google Sheets",
+    "3. Conectar credencial 'ZenTrade Telegram Bot' en los nodos de Telegram",
+    "",
+    "=== FLUJO ===",
+    "Lunes/Viernes 9am   → recordatorio Instagram (envía caption + hashtags listos)",
+    "Martes/Jueves 8am   → recordatorio Twitter/X (envía thread listo)",
+    "Miércoles/Sáb 6pm   → recordatorio TikTok (envía script + on-screen texts)",
+    "",
+    "Cuando publiques: cambia 'Status' a 'published' en el Sheet.",
+    "El workflow lee solo filas con Status = 'pending' de la semana actual."
+  ],
+  "nodes": [
+    {
+      "id": "trigger-instagram",
+      "name": "Trigger — Instagram (Lun/Vie 9am)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 160],
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 9 * * 1,5" }]
+        },
+        "timezone": "America/Bogota"
+      }
+    },
+    {
+      "id": "trigger-twitter",
+      "name": "Trigger — Twitter (Mar/Jue 8am)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 8 * * 2,4" }]
+        },
+        "timezone": "America/Bogota"
+      }
+    },
+    {
+      "id": "trigger-tiktok",
+      "name": "Trigger — TikTok (Mié/Sáb 6pm)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 440],
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 18 * * 3,6" }]
+        },
+        "timezone": "America/Bogota"
+      }
+    },
+    {
+      "id": "read-instagram",
+      "name": "Sheet — Leer Instagram pendiente",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [480, 160],
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "PEGAR_SPREADSHEET_ID_AQUI"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Hoja 1"
+        },
+        "filtersUI": {
+          "values": [
+            { "lookupColumn": "Platform", "lookupValue": "instagram" },
+            { "lookupColumn": "Status", "lookupValue": "pending" }
+          ]
+        },
+        "options": { "returnAllMatches": false }
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "Google Sheets — ZenTrade"
+        }
+      }
+    },
+    {
+      "id": "read-twitter",
+      "name": "Sheet — Leer Twitter pendiente",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [480, 300],
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "PEGAR_SPREADSHEET_ID_AQUI"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Hoja 1"
+        },
+        "filtersUI": {
+          "values": [
+            { "lookupColumn": "Platform", "lookupValue": "twitter" },
+            { "lookupColumn": "Status", "lookupValue": "pending" }
+          ]
+        },
+        "options": { "returnAllMatches": false }
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "Google Sheets — ZenTrade"
+        }
+      }
+    },
+    {
+      "id": "read-tiktok",
+      "name": "Sheet — Leer TikTok pendiente",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [480, 440],
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "PEGAR_SPREADSHEET_ID_AQUI"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Hoja 1"
+        },
+        "filtersUI": {
+          "values": [
+            { "lookupColumn": "Platform", "lookupValue": "tiktok" },
+            { "lookupColumn": "Status", "lookupValue": "pending" }
+          ]
+        },
+        "options": { "returnAllMatches": false }
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONECTAR_EN_N8N",
+          "name": "Google Sheets — ZenTrade"
+        }
+      }
+    },
+    {
+      "id": "check-instagram",
+      "name": "¿Hay Instagram pendiente?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [720, 160],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "loose" },
+          "conditions": [
+            {
+              "id": "ig-check",
+              "leftValue": "={{ $json.Content }}",
+              "rightValue": "",
+              "operator": { "type": "string", "operation": "notEmpty" }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "check-twitter",
+      "name": "¿Hay Twitter pendiente?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [720, 300],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "loose" },
+          "conditions": [
+            {
+              "id": "tw-check",
+              "leftValue": "={{ $json.Content }}",
+              "rightValue": "",
+              "operator": { "type": "string", "operation": "notEmpty" }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "check-tiktok",
+      "name": "¿Hay TikTok pendiente?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [720, 440],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "loose" },
+          "conditions": [
+            {
+              "id": "tt-check",
+              "leftValue": "={{ $json.Content }}",
+              "rightValue": "",
+              "operator": { "type": "string", "operation": "notEmpty" }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "send-instagram",
+      "name": "Telegram — Recordatorio Instagram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [960, 120],
+      "parameters": {
+        "chatId": "754505222",
+        "text": "=📸 *Instagram — hora de publicar*\n\n*Semana:* {{ $json.Week }}\n\n━━━━━━━━━━━━━━━━\n{{ $json.Content }}\n\n{{ $json.Hashtags }}\n━━━━━━━━━━━━━━━━\n\n🖼 *Prompt para imagen:*\n{{ $json.ImagePrompt }}\n\n✅ Cuando publiques, cambia Status a 'published' en el Sheet.",
+        "additionalFields": { "parse_mode": "Markdown" }
+      },
+      "credentials": {
+        "telegramApi": { "id": "CONECTAR_EN_N8N", "name": "ZenTrade Telegram Bot" }
+      }
+    },
+    {
+      "id": "send-twitter",
+      "name": "Telegram — Recordatorio Twitter",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "parameters": {
+        "chatId": "754505222",
+        "text": "=🐦 *Twitter/X — hora de publicar*\n\n*Semana:* {{ $json.Week }}\n\n━━━━━━━━━━━━━━━━\n{{ $json.Content }}\n━━━━━━━━━━━━━━━━\n\n✅ Cuando publiques, cambia Status a 'published' en el Sheet.",
+        "additionalFields": { "parse_mode": "Markdown" }
+      },
+      "credentials": {
+        "telegramApi": { "id": "CONECTAR_EN_N8N", "name": "ZenTrade Telegram Bot" }
+      }
+    },
+    {
+      "id": "send-tiktok",
+      "name": "Telegram — Recordatorio TikTok",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [960, 460],
+      "parameters": {
+        "chatId": "754505222",
+        "text": "=🎬 *TikTok/Reels — hora de grabar y publicar*\n\n*Semana:* {{ $json.Week }}\n\n━━━━━━━━━━━━━━━━\n{{ $json.Content }}\n━━━━━━━━━━━━━━━━\n\n📱 *On-screen texts:*\n{{ $json.OnScreenTexts }}\n\n🎥 *Prompt para video IA (Runway/Kling):*\n{{ $json.VideoPrompt }}\n\n✅ Cuando publiques, cambia Status a 'published' en el Sheet.",
+        "additionalFields": { "parse_mode": "Markdown" }
+      },
+      "credentials": {
+        "telegramApi": { "id": "CONECTAR_EN_N8N", "name": "ZenTrade Telegram Bot" }
+      }
+    },
+    {
+      "id": "no-instagram",
+      "name": "Telegram — Sin Instagram pendiente",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [960, 220],
+      "parameters": {
+        "chatId": "754505222",
+        "text": "📸 No hay Instagram pendiente para esta semana. ¿Ya publicaste o falta generar el contenido?",
+        "additionalFields": {}
+      },
+      "credentials": {
+        "telegramApi": { "id": "CONECTAR_EN_N8N", "name": "ZenTrade Telegram Bot" }
+      }
+    }
+  ],
+  "connections": {
+    "Trigger — Instagram (Lun/Vie 9am)": {
+      "main": [[{ "node": "Sheet — Leer Instagram pendiente", "type": "main", "index": 0 }]]
+    },
+    "Trigger — Twitter (Mar/Jue 8am)": {
+      "main": [[{ "node": "Sheet — Leer Twitter pendiente", "type": "main", "index": 0 }]]
+    },
+    "Trigger — TikTok (Mié/Sáb 6pm)": {
+      "main": [[{ "node": "Sheet — Leer TikTok pendiente", "type": "main", "index": 0 }]]
+    },
+    "Sheet — Leer Instagram pendiente": {
+      "main": [[{ "node": "¿Hay Instagram pendiente?", "type": "main", "index": 0 }]]
+    },
+    "Sheet — Leer Twitter pendiente": {
+      "main": [[{ "node": "¿Hay Twitter pendiente?", "type": "main", "index": 0 }]]
+    },
+    "Sheet — Leer TikTok pendiente": {
+      "main": [[{ "node": "¿Hay TikTok pendiente?", "type": "main", "index": 0 }]]
+    },
+    "¿Hay Instagram pendiente?": {
+      "main": [
+        [{ "node": "Telegram — Recordatorio Instagram", "type": "main", "index": 0 }],
+        [{ "node": "Telegram — Sin Instagram pendiente", "type": "main", "index": 0 }]
+      ]
+    },
+    "¿Hay Twitter pendiente?": {
+      "main": [
+        [{ "node": "Telegram — Recordatorio Twitter", "type": "main", "index": 0 }],
+        []
+      ]
+    },
+    "¿Hay TikTok pendiente?": {
+      "main": [
+        [{ "node": "Telegram — Recordatorio TikTok", "type": "main", "index": 0 }],
+        []
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}
