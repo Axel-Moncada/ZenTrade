@@ -125,17 +125,30 @@ Genera el post de Instagram aplicando exactamente el ángulo psicológico indica
 FORMATO:
 Caption con 3 bloques separados por línea en blanco:
   Bloque 1 (Hook): 1-2 líneas que detengan el scroll — usa el principio psicológico del brief
-  Bloque 2 (Valor): 4-6 líneas con valor concreto y específico de trading/prop firms
-  Bloque 3 (CTA): 1 línea + "link en bio"
-Hashtags: 10-12 (mezcla nicho trading + prop firms + generales)
-Image Prompt: prompt detallado en inglés para Midjourney o DALL-E 3
-  - Estilo: dark finance aesthetic, clean, modern, no personas
+  Bloque 2 (Valor): 2-4 líneas con valor concreto y específico de trading/pruebas de fondeo — evita generalidades, da datos, ejemplos o insights accionables
+  Bloque 3 (CTA): 1 línea + "link en bio" o similar — sin presión, orientada a la acción consistente con el brief invitando a concer zen-trader.com y ser rentable
+Hashtags: 10-12 (mezcla nicho trading + pruebas de fondeo + generales)
+Image Copy: texto corto que va como OVERLAY encima de la imagen (lo que se lee en el diseño antes de leer el caption)
+  - MÁXIMO 2 líneas, máximo 7 palabras por línea — tiene que leerse en 1 segundo
+  - Debe aplicar UNO de estos principios psicológicos según el ángulo del brief:
+    * Pattern Interrupt: rompe el frame esperado ("No fue la estrategia.")
+    * Loss Aversion: amenaza de pérdida concreta ("Tu mejor día = mayor riesgo.")
+    * Curiosity Gap: pregunta que no puede ignorarse ("¿Cuándo más pierdes?")
+    * Contrast Effect: antes vs después en pocas palabras ("Sin datos. Con datos.")
+  - Tono: directo, sin hype, como un dato que te golpea
+  - Sin emojis en la imagen
+  - Ejemplo bueno: "El 90% falla por esto." / "No es la estrategia."
+  - Ejemplo malo: "Descubre cómo mejorar tu trading con ZenTrade hoy!"
+
+Image Prompt: prompt detallado en inglés para nano banana 2 o midjourney, que refleje el tema y ángulo psicológico de la semana
+  - Estilo: Fondo para el post  que sean fotografias con mucha calidad publicitaria, realistas, con estética financiera (trading setups, pantallas con gráficos, traders analizando datos) o escenas que reflejen el dolor/insight del brief (frustración, revelación, superación) — evitar ilustraciones o estilos caricaturescos en su lugar buscar realismo y conexión emocional, con composición clara y espacio para texto legible. solo la imagen sin textos ni logos
   - Formato 1:1 para Instagram
 
 Responde ÚNICAMENTE con JSON válido:
 {
   "caption": "caption sin hashtags",
   "hashtags": "#hashtag1 #hashtag2 ... (10-12 en una línea)",
+  "imageCopy": "línea 1 (máx 7 palabras)\nLínea 2 opcional (máx 7 palabras)",
   "imagePrompt": "prompt en inglés para Midjourney/DALL-E 3"
 }`;
 }
@@ -152,11 +165,11 @@ BRIEF ESTRATÉGICO DE ESTA SEMANA:
 
 Genera un thread de Twitter/X aplicando el ángulo psicológico del brief.
 
-FORMATO — Thread de 4-5 tweets:
+FORMATO — Thread de 2-4 tweets:
 - Tweet 1: Hook fuerte (≤280 chars) — aplica el principio psicológico del brief
 - Tweets 2-4: desarrollo numerado (2/ 3/ 4/) con datos y valor concreto
 - Tweet final: CTA a zen-trader.com
-- Máximo 1 emoji por tweet
+- Máximo 2 emoji por tweet
 
 Responde ÚNICAMENTE con JSON válido:
 {
@@ -345,7 +358,7 @@ Responde ÚNICAMENTE con JSON válido:
   const [igRes, twRes, ttRes] = await Promise.all([
     anthropic.messages.create({
       model: "claude-sonnet-4-6",
-      max_tokens: 1024,
+      max_tokens: 1200,
       system: getInstagramPrompt(strategy),
       messages: [{ role: "user", content: userMsg }],
     }),
@@ -366,9 +379,9 @@ Responde ÚNICAMENTE con JSON válido:
   const getText = (res: Anthropic.Message) =>
     res.content.find(b => b.type === "text")?.text ?? "";
 
-  const instagram = parseJSON<{ caption: string; hashtags: string; imagePrompt: string }>(
+  const instagram = parseJSON<{ caption: string; hashtags: string; imageCopy: string; imagePrompt: string }>(
     getText(igRes),
-    { caption: getText(igRes), hashtags: "", imagePrompt: "" }
+    { caption: getText(igRes), hashtags: "", imageCopy: "", imagePrompt: "" }
   );
 
   const twitter = parseJSON<{ tweets: string[] }>(

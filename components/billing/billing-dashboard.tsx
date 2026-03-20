@@ -227,8 +227,30 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
         </div>
       )}
 
-      {/* ── Interval toggle + heading ── */}
-      <div className="flex items-center justify-between gap-4">
+      {/* ── Coming soon wrapper — quitar cuando pagos estén activos ── */}
+      <div className="relative rounded-xl overflow-hidden">
+        {/* Blur overlay — quitar este bloque cuando pagos estén activos */}
+        <div
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 rounded-xl"
+          style={{ backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", background: "rgba(0,12,8,0.78)" }}
+        >
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zen-caribbean-green/40"
+            style={{ background: "rgba(0,193,124,0.08)" }}
+          >
+            <Clock className="h-4 w-4 text-zen-caribbean-green" />
+            <span className="text-sm font-semibold text-zen-caribbean-green">Muy pronto</span>
+          </div>
+          <p className="text-lg font-semibold text-zen-anti-flash text-center px-4">
+            Los planes de pago llegan muy pronto
+          </p>
+          <p className="text-sm text-stone-400 text-center max-w-xs px-4">
+            Actualmente solo está disponible el plan gratuito. Te notificaremos cuando los planes de pago se activen.
+          </p>
+        </div>
+
+        {/* ── Interval toggle + heading ── */}
+        <div className="flex items-center justify-between gap-4">
         <h2 className="text-lg font-semibold text-zen-anti-flash">
           {activeSub ? 'Planes disponibles' : 'Elige tu plan'}
         </h2>
@@ -372,6 +394,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
           );
         })}
       </div>
+      </div>{/* /coming-soon wrapper */}
     </div>
   );
 }

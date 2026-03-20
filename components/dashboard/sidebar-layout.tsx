@@ -190,7 +190,15 @@ export function SidebarLayout({ userEmail, userName, children }: SidebarLayoutPr
                 <CreditCard className="h-4 w-4 text-zen-caribbean-green" />
               </div>
               {!isCollapsed && (
-                <span className="font-medium text-lg ml-3">Facturación</span>
+                <span className="font-medium text-lg ml-3 flex items-center gap-2">
+                  Facturación
+                  <span
+                    className="text-xs px-1.5 py-0.5 rounded-full font-semibold"
+                    style={{ background: "rgba(0,193,124,0.12)", color: "#00C17C" }}
+                  >
+                    Pronto
+                  </span>
+                </span>
               )}
             </Button>
           </Link>

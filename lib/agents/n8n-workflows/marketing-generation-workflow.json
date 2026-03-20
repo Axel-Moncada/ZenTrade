@@ -7,8 +7,8 @@
     "   Columnas en fila 1 (exactamente así):",
     "   A:Week | B:WeekStart | C:CycleWeek | D:CycleName | E:Platform",
     "   F:Topic | G:PsychAngle | H:TargetAudience | I:Objective | J:WhyThisWeek",
-    "   K:Content | L:Hashtags | M:ImagePrompt | N:VideoPrompt | O:OnScreenTexts",
-    "   P:BestDay | Q:BestTime | R:Status | S:Notes",
+    "   K:Content | L:Hashtags | M:ImageCopy | N:ImagePrompt | O:VideoPrompt",
+    "   P:OnScreenTexts | Q:BestDay | R:BestTime | S:Status | T:Notes",
     "",
     "2. n8n → Credentials → Google Sheets OAuth2 → conectar con tu Google",
     "",
@@ -91,7 +91,7 @@
       "typeVersion": 2,
       "position": [900, 300],
       "parameters": {
-        "jsCode": "const d = items[0].json;\n\nconst s = d.strategy ?? {};\nconst ig = d.instagram ?? {};\nconst tw = d.twitter ?? {};\nconst tt = d.tiktok ?? {};\n\nconst tweetThread = Array.isArray(tw.tweets) ? tw.tweets.join('\\n\\n') : (tw.tweets ?? '');\nconst onScreen = Array.isArray(tt.onScreenTexts) ? tt.onScreenTexts.join(' | ') : '';\n\nconst base = {\n  Week: d.week ?? '',\n  WeekStart: d.weekStart ?? '',\n  CycleWeek: s.cycleWeek ?? '',\n  CycleName: s.cycleName ?? '',\n  Topic: s.topic ?? '',\n  PsychAngle: s.psychologicalAngle ?? '',\n  TargetAudience: s.targetAudience ?? '',\n  Objective: s.conversionObjective ?? '',\n  WhyThisWeek: s.whyThisWeek ?? '',\n  Status: 'pending',\n  Notes: ''\n};\n\nreturn [\n  {\n    json: {\n      ...base,\n      Platform: 'instagram',\n      Content: ig.caption ?? '',\n      Hashtags: ig.hashtags ?? '',\n      ImagePrompt: ig.imagePrompt ?? '',\n      VideoPrompt: '',\n      OnScreenTexts: '',\n      BestDay: 'Lunes / Viernes',\n      BestTime: '9:00am'\n    }\n  },\n  {\n    json: {\n      ...base,\n      Platform: 'twitter',\n      Content: tweetThread,\n      Hashtags: '',\n      ImagePrompt: '',\n      VideoPrompt: '',\n      OnScreenTexts: '',\n      BestDay: 'Martes / Jueves',\n      BestTime: '8:00am'\n    }\n  },\n  {\n    json: {\n      ...base,\n      Platform: 'tiktok',\n      Content: tt.script ?? '',\n      Hashtags: '',\n      ImagePrompt: '',\n      VideoPrompt: tt.videoPrompt ?? '',\n      OnScreenTexts: onScreen,\n      BestDay: 'Miércoles / Sábado',\n      BestTime: '6:00pm'\n    }\n  }\n];"
+        "jsCode": "const d = items[0].json;\n\nconst s = d.strategy ?? {};\nconst ig = d.instagram ?? {};\nconst tw = d.twitter ?? {};\nconst tt = d.tiktok ?? {};\n\nconst tweetThread = Array.isArray(tw.tweets) ? tw.tweets.join('\\n\\n') : (tw.tweets ?? '');\nconst onScreen = Array.isArray(tt.onScreenTexts) ? tt.onScreenTexts.join(' | ') : '';\n\nconst base = {\n  Week: d.week ?? '',\n  WeekStart: d.weekStart ?? '',\n  CycleWeek: s.cycleWeek ?? '',\n  CycleName: s.cycleName ?? '',\n  Topic: s.topic ?? '',\n  PsychAngle: s.psychologicalAngle ?? '',\n  TargetAudience: s.targetAudience ?? '',\n  Objective: s.conversionObjective ?? '',\n  WhyThisWeek: s.whyThisWeek ?? '',\n  Status: 'pending',\n  Notes: ''\n};\n\nreturn [\n  {\n    json: {\n      ...base,\n      Platform: 'instagram',\n      Content: ig.caption ?? '',\n      Hashtags: ig.hashtags ?? '',\n      ImageCopy: ig.imageCopy ?? '',\n      ImagePrompt: ig.imagePrompt ?? '',\n      VideoPrompt: '',\n      OnScreenTexts: '',\n      BestDay: 'Lunes / Viernes',\n      BestTime: '9:00am'\n    }\n  },\n  {\n    json: {\n      ...base,\n      Platform: 'twitter',\n      Content: tweetThread,\n      Hashtags: '',\n      ImageCopy: '',\n      ImagePrompt: '',\n      VideoPrompt: '',\n      OnScreenTexts: '',\n      BestDay: 'Martes / Jueves',\n      BestTime: '8:00am'\n    }\n  },\n  {\n    json: {\n      ...base,\n      Platform: 'tiktok',\n      Content: tt.script ?? '',\n      Hashtags: '',\n      ImageCopy: '',\n      ImagePrompt: '',\n      VideoPrompt: tt.videoPrompt ?? '',\n      OnScreenTexts: onScreen,\n      BestDay: 'Miércoles / Sábado',\n      BestTime: '6:00pm'\n    }\n  }\n];"
       }
     },
     {
@@ -127,6 +127,7 @@
             "WhyThisWeek": "={{ $json.WhyThisWeek }}",
             "Content": "={{ $json.Content }}",
             "Hashtags": "={{ $json.Hashtags }}",
+            "ImageCopy": "={{ $json.ImageCopy }}",
             "ImagePrompt": "={{ $json.ImagePrompt }}",
             "VideoPrompt": "={{ $json.VideoPrompt }}",
             "OnScreenTexts": "={{ $json.OnScreenTexts }}",

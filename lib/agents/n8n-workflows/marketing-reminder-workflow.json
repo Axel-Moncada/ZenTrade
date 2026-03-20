@@ -224,7 +224,7 @@
       "position": [960, 120],
       "parameters": {
         "chatId": "754505222",
-        "text": "=📸 *Instagram — hora de publicar*\n\n*Semana:* {{ $json.Week }}\n\n━━━━━━━━━━━━━━━━\n{{ $json.Content }}\n\n{{ $json.Hashtags }}\n━━━━━━━━━━━━━━━━\n\n🖼 *Prompt para imagen:*\n{{ $json.ImagePrompt }}\n\n✅ Cuando publiques, cambia Status a 'published' en el Sheet.",
+        "text": "=📸 *Instagram — hora de publicar*\n\n*Semana:* {{ $json.Week }}\n\n━━━━━━━━━━━━━━━━\n{{ $json.Content }}\n\n{{ $json.Hashtags }}\n━━━━━━━━━━━━━━━━\n\n✏️ *Copy de la imagen (overlay):*\n{{ $json.ImageCopy }}\n\n🖼 *Prompt para imagen (Midjourney/nano banana 2):*\n{{ $json.ImagePrompt }}\n\n✅ Cuando publiques, cambia Status a 'published' en el Sheet.",
         "additionalFields": { "parse_mode": "Markdown" }
       },
       "credentials": {

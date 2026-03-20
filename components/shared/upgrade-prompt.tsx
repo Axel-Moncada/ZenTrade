@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Zap, X, ArrowRight, Lock } from "lucide-react";
+import { Zap, X, ArrowRight, Lock, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import type { PlanKey, BillingInterval } from "@/lib/lemonsqueezy/client";
@@ -113,13 +113,12 @@ export function UpgradePrompt({
         <div className="flex items-center gap-2 shrink-0">
           <Button
             size="sm"
-            onClick={handleUpgrade}
-            disabled={loading}
-            className="font-semibold text-xs h-8"
-            style={{ background: "#00C17C", color: "#001B1F" }}
+            disabled
+            className="font-semibold text-xs h-8 cursor-not-allowed"
+            style={{ background: "rgba(0,193,124,0.12)", color: "#00C17C", border: "1px solid rgba(0,193,124,0.3)" }}
           >
-            {loading ? "Cargando..." : `Ver ${plan.name}`}
-            {!loading && <ArrowRight className="w-3.5 h-3.5 ml-1" />}
+            <Clock className="w-3.5 h-3.5 mr-1" />
+            Muy pronto
           </Button>
 
           {onDismiss && (
@@ -180,13 +179,12 @@ export function UpgradePrompt({
 
         <Button
           size="sm"
-          onClick={handleUpgrade}
-          disabled={loading}
-          className="w-full font-semibold text-sm"
-          style={{ background: "#00C17C", color: "#001B1F" }}
+          disabled
+          className="w-full font-semibold text-sm cursor-not-allowed"
+          style={{ background: "rgba(0,193,124,0.12)", color: "#00C17C", border: "1px solid rgba(0,193,124,0.3)" }}
         >
-          {loading ? "Cargando..." : `Actualizar a ${plan.name} · $${plan.monthlyPrice}/mes`}
-          {!loading && <ArrowRight className="w-4 h-4 ml-1.5" />}
+          <Clock className="w-4 h-4 mr-1.5" />
+          Muy pronto
         </Button>
       </div>
     );
@@ -300,17 +298,16 @@ export function UpgradePrompt({
         </div>
 
         <Button
-          onClick={handleUpgrade}
-          disabled={loading}
-          className="w-full font-semibold h-11"
-          style={{ background: "#00C17C", color: "#001B1F" }}
+          disabled
+          className="w-full font-semibold h-11 cursor-not-allowed"
+          style={{ background: "rgba(0,193,124,0.12)", color: "#00C17C", border: "1px solid rgba(0,193,124,0.3)" }}
         >
-          {loading ? "Procesando..." : `Comenzar con ${plan.name}`}
-          {!loading && <ArrowRight className="w-4 h-4 ml-2" />}
+          <Clock className="w-4 h-4 mr-2" />
+          Muy pronto
         </Button>
 
         <p className="text-center text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
-          Cancela cuando quieras · Sin permanencia
+          Disponible muy pronto · Únete gratis ahora
         </p>
       </div>
     </div>
