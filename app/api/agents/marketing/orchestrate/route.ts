@@ -231,7 +231,13 @@ function parseJSON<T>(text: string, fallback: T): T {
     const cleaned = text.replace(/```(?:json)?\s*([\s\S]*?)```/g, "$1").trim();
     const match = cleaned.match(/\{[\s\S]*\}/);
     if (!match) return fallback;
-    return JSON.parse(match[0]) as T;
+    const jsonStr = match[0];
+    try {
+      return JSON.parse(jsonStr) as T;
+    } catch {
+      // Claude sometimes emits literal newlines inside JSON strings — replace with spaces
+      return JSON.parse(jsonStr.replace(/\r?\n/g, " ")) as T;
+    }
   } catch {
     return fallback;
   }
@@ -381,7 +387,7 @@ Responde ÚNICAMENTE con JSON válido:
 
   const instagram = parseJSON<{ caption: string; hashtags: string; imageCopy: string; imagePrompt: string }>(
     getText(igRes),
-    { caption: getText(igRes), hashtags: "", imageCopy: "", imagePrompt: "" }
+    { caption: "", hashtags: "", imageCopy: "", imagePrompt: "" }
   );
 
   const twitter = parseJSON<{ tweets: string[] }>(
