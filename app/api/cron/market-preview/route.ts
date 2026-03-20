@@ -177,7 +177,7 @@ async function getZenModeInstruments(userIds: string[]): Promise<string[]> {
   ]);
 
   const fromTrades = (tradesResult.data ?? [])
-    .map((t) => (t.instrument as { symbol: string } | null)?.symbol)
+    .map((t) => (t.instrument as unknown as { symbol: string } | null)?.symbol)
     .filter((s): s is string => Boolean(s));
 
   const fromPlans = (plansResult.data ?? [])
