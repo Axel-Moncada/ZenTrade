@@ -1,6 +1,6 @@
 # ZenTrade — Roadmap hacia el lanzamiento
 
-Última actualización: 2026-03-20
+Última actualización: 2026-03-22
 
 ---
 
@@ -16,8 +16,8 @@
 | Fase 5 | ✅ Completa | Reportes + export/import + Trading Plan |
 | Fase 6 | ✅ Completa | Hardening: pricing, gating, UX de conversión, free-only mode |
 | Fase 7 | 🔄 En progreso | ZenMode features (IA) — 3 de 6 completadas |
-| Fase 8 | 🔴 Prioridad | QA, testing, pre-launch — **próximo paso** |
-| Fase 9 | ⏳ Pendiente | Launch |
+| Fase 8 | ✅ Completa | QA, testing, pre-launch — auditoría de seguridad ejecutada |
+| Fase 9 | 🔄 En progreso | Launch — **DEPLOYED en zen-trader.com** |
 
 ---
 
@@ -55,6 +55,20 @@
 - [x] **Radar de Mercado (Market Preview)** — email semanal ZenMode con eventos de alto impacto (Gemini 2.5 Flash)
 - [x] **Agent Teams** — ZenCoach, Support Agent, Marketing Agent via n8n + Telegram
 - [x] **Wompi integrado** — checkout + webhook + cancelación + cron de expiración. Precios en COP ($38k/$120k/$250k mensual). Blur quitado de billing y landing.
+
+### ✅ Completado sesión (2026-03-22) — Auditoría final + Sistema de afiliados + Deploy a producción
+
+- [x] **Auditoría de seguridad completa** (`zentrade-security-tester`) — ver `SECURITY-AUDIT-2026-03-22.md`
+  - CRÍTICO: Import CSV ahora verifica plan server-side (usuarios Free no pueden importar vía API)
+  - CRÍTICO: Webhook Wompi usa `upsert` idempotente — previene doble comisión por retries
+  - IMPORTANTE: `billing/cancel` cambiado a `supabaseAdmin` (RLS solo permite SELECT al user client)
+  - IMPORTANTE: `increment_affiliate_uses` con `SECURITY DEFINER` en migración 017
+  - Eliminados tipos `any` en `app/api/trades/import/route.ts`
+- [x] **Sistema de afiliados completo** — `app/api/admin/affiliates/`, `app/api/affiliate/validate/`, `app/dashboard/admin/affiliates/`, `supabase/016_affiliate_system.sql`
+- [x] **Migración 017** — `UNIQUE (transaction_id)` en `affiliate_conversions` + `SECURITY DEFINER` en `increment_affiliate_uses`
+- [x] **Script de prueba webhook** — `scripts/test-webhook-wompi.mjs` (simula pago con código de afiliado)
+- [x] **Deploy a producción** — push a `main` → Vercel → zen-trader.com
+- [x] **Pasarelas obsoletas eliminadas** — FastSpring, LemonSqueezy, MercadoPago, PayPal completamente removidos del repo
 
 ### ✅ Completado sesión (2026-03-21) — Seguridad + Pagos + UX
 - [x] **Security audit completo** — 8+ vulnerabilidades críticas/medias resueltas:
@@ -268,32 +282,52 @@ MENSUAL (día 1, mes anterior):
 
 ---
 
-## Próxima sesión — por dónde empezar
+## Estado actual (2026-03-22) — LANZADO ✅
 
-**Recomendación de orden (sesión 2026-03-21):**
+**Zentrade está live en zen-trader.com.** El producto está en producción con Wompi activo.
 
-### 🔴 Paso 1 — Testing completo (Fase 8)
-Ejecutar todos los tests de la sección de Fase 8, empezando por:
-1. Flujo core: registro → cuenta → trade → dashboard
-2. Modo free-only: blur en pricing/billing, upgrade prompts
-3. Emails: activación, reporte semanal, radar de mercado
+Esta semana: **sin features nuevas**. Solo lanzamiento + piezas publicitarias + escuchar feedback.
 
-### 🟡 Paso 2 — Deploy a producción
-1. Configurar env vars en Vercel (producción)
-2. Deploy + smoke test en zen-trader.com
-3. Verificar DNS de Resend (DKIM/SPF/DMARC) — los emails van a spam hasta que propaguen
+---
 
-### 🟢 Paso 3 — Lanzamiento blando
-- Compartir con 5-10 traders conocidos
-- Activar cuentas Pro manualmente en Supabase para embajadores/influencers
-- Recopilar feedback
+## Próxima prioridad técnica — Import CSV multi-broker
 
-### ⏳ Después (cuando Wompi apruebe)
-- Integrar Wompi en checkout + webhook
-- Quitar blur overlays de billing y pricing
-- Probar checkout end-to-end Colombia
+**Contexto**: El import fue probado con NinjaTrader y Rithmic. Brokers no verificados:
 
-### 💡 Backlog de features (de IDEAS.md)
+| Broker | Estado | Formato CSV típico |
+|--------|--------|-------------------|
+| NinjaTrader | ✅ Probado | — |
+| Rithmic | ✅ Probado | — |
+| Tradovate | ❓ Sin probar | Fecha en `MM/DD/YYYY HH:mm`, columnas distintas |
+| Apex Trader Funding (portal) | ❓ Sin probar | Export propio, puede variar |
+| TopStep | ❓ Sin probar | Export desde dashboard propio |
+| Interactive Brokers (Flex Query) | ❓ Sin probar | XML o CSV con headers en inglés |
+| TradeStation | ❓ Sin probar | CSV con decimales en punto, fechas ISO |
+| Tradingview | ❓ Sin probar | — |
+
+**Lo que hay que hacer:**
+1. Conseguir archivos CSV de muestra de cada broker (búsqueda en GitHub/Reddit o usuarios beta)
+2. Probar el flow de import con cada uno en la UI
+3. Detectar qué columnas fallan en el mapeo automático
+4. Ajustar el parser o ampliar los formatos de fecha soportados si es necesario
+
+**Impacto**: El import CSV es el hook de activación más poderoso — un usuario que importa sus trades del mes pasado ya está engaged. Vale la pena asegurar que funciona con los 3 brokers más usados por prop traders: Tradovate, NinjaTrader, Rithmic.
+
+---
+
+## Post-lanzamiento (semanas siguientes)
+
+### 🟡 Cuando llega feedback de usuarios
+- Escuchar qué features usan más y cuáles ignoran
+- Identificar fricciones en el onboarding (primer trade, primer cuenta)
+- Decidir qué construir a continuación basado en datos reales
+
+### 🟢 Fase 7 — features ZenMode pendientes
+- 7.2 Alertas de reglas de riesgo (cross-reference trading plan)
+- 7.5 Análisis de horario óptimo (heatmap de win rate por hora)
+- 7.6 Benchmark vs prop firms (FTMO, Apex, TopStep)
+
+### ⏳ Backlog de features
 Ver sección "Ideas — Backlog" al final de este archivo.
 
 
@@ -306,11 +340,11 @@ Ver sección "Ideas — Backlog" al final de este archivo.
 5. ~~Reporte semanal con IA (Gemini 2.5 Flash)~~ ✅ Resuelto (2026-03-04)
 6. ~~Revenge Trading Detection~~ ✅ Resuelto (2026-03-04)
 7. Backtesting
-8. Configurar DNS completos para Resend (DKIM/SPF/DMARC) — email llega a spam hasta que propaguen
-9. Pasarela de pagos — **Wompi en aprobación** (Colombia). Blur activo en billing/pricing hasta que aprueben
-10. DNS Resend — DKIM/SPF/DMARC pendientes de propagación (emails van a spam)
-11. i18n por URL — `/en` todo en inglés con flag en newsletter_subscribers para emails en el idioma correcto
-12. Deploy a producción — Vercel con env vars reales
+8. DNS Resend — DKIM/SPF/DMARC pendientes de propagación (emails van a spam hasta que propaguen)
+9. ~~Deploy a producción~~ ✅ Resuelto (2026-03-22) — zen-trader.com live
+10. ~~Wompi en aprobación~~ ✅ Resuelto (2026-03-22) — Wompi activo, blur quitado de billing/pricing
+11. **Import CSV multi-broker** — probado solo NinjaTrader y Rithmic. Pendiente: Tradovate, TopStep, IBKR
+12. i18n por URL — `/en` todo en inglés (post-lanzamiento)
 
 
 ---
