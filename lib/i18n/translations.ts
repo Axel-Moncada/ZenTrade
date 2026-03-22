@@ -311,8 +311,8 @@ const translations = {
       faqBadge: 'Preguntas Frecuentes',
       faqTitle1: 'Todo Lo Que Necesitas',
       faqTitle2: 'Saber',
-      faqSubtitle: 'Si tienes más preguntas, escríbenos a soporte@zen-trader.com y te respondemos en menos de 24 horas.',
-      faqContact: '¿Otra pregunta? Escríbenos a soporte@zen-trader.com',
+      faqSubtitle: 'Si tienes más preguntas, escríbenos a support@zen-trader.com y te respondemos en menos de 24 horas.',
+      faqContact: '¿Otra pregunta? Escríbenos a support@zen-trader.com',
       faqItems: [
         {
           q: '¿Necesito tarjeta de crédito para la prueba gratis?',
@@ -445,7 +445,7 @@ const translations = {
             heading: '8. Modificaciones y Contacto',
             body: [
               'Nos reservamos el derecho de modificar estos Términos en cualquier momento. Los cambios materiales se notificarán por email con al menos 15 días de anticipación. El uso continuado del Servicio tras la notificación implica aceptación de los nuevos términos.',
-              'Para consultas sobre estos Términos de Servicio: soporte@zen-trader.com',
+              'Para consultas sobre estos Términos de Servicio: support@zen-trader.com',
             ],
           },
         ],
@@ -458,7 +458,7 @@ const translations = {
           {
             heading: '1. Responsable del Tratamiento',
             body: [
-              'ZenTrade ("nosotros", "nuestro") es el responsable del tratamiento de tus datos personales. Para cualquier consulta relacionada con privacidad, contáctanos en: soporte@zen-trader.com',
+              'ZenTrade ("nosotros", "nuestro") es el responsable del tratamiento de tus datos personales. Para cualquier consulta relacionada con privacidad, contáctanos en: support@zen-trader.com',
             ],
           },
           {
@@ -496,7 +496,7 @@ const translations = {
             heading: '6. Tus Derechos (GDPR)',
             body: [
               'Si eres residente del Espacio Económico Europeo, tienes derecho a: Acceso (obtener una copia de tus datos); Rectificación (corregir datos inexactos); Supresión ("derecho al olvido"); Portabilidad (recibir tus datos en formato estructurado); Oposición (oponerte al tratamiento por interés legítimo); Restricción del tratamiento en ciertas circunstancias.',
-              'Para ejercer cualquiera de estos derechos, escríbenos a soporte@zen-trader.com. Tienes también el derecho de presentar una reclamación ante la autoridad de protección de datos de tu país.',
+              'Para ejercer cualquiera de estos derechos, escríbenos a support@zen-trader.com. Tienes también el derecho de presentar una reclamación ante la autoridad de protección de datos de tu país.',
             ],
           },
           {
@@ -510,7 +510,7 @@ const translations = {
             heading: '8. Cambios y Contacto',
             body: [
               'Notificaremos cualquier cambio significativo a esta política por email con al menos 15 días de anticipación. El uso continuado del Servicio tras la notificación implica aceptación de la política actualizada.',
-              'Para consultas sobre privacidad: soporte@zen-trader.com',
+              'Para consultas sobre privacidad: support@zen-trader.com',
             ],
           },
         ],
@@ -538,7 +538,7 @@ const translations = {
             heading: '3. Excepciones',
             body: [
               'Evaluaremos solicitudes de reembolso en los siguientes casos excepcionales: (a) cobro duplicado verificable por error técnico de nuestra parte; (b) interrupción del servicio de más de 72 horas consecutivas atribuible exclusivamente a ZenTrade; (c) primer cargo a un nuevo suscriptor dentro de las 24 horas, sin uso registrado de funciones premium.',
-              'Para solicitar un reembolso por excepción, escríbenos a soporte@zen-trader.com con el asunto "Solicitud de Reembolso" e incluye tu comprobante de pago. Respondemos en menos de 48 horas hábiles.',
+              'Para solicitar un reembolso por excepción, escríbenos a support@zen-trader.com con el asunto "Solicitud de Reembolso" e incluye tu comprobante de pago. Respondemos en menos de 48 horas hábiles.',
             ],
           },
           {
@@ -552,7 +552,7 @@ const translations = {
             heading: '5. Disputas de Cargos',
             body: [
               'Antes de iniciar una disputa de cargo (chargeback) con tu institución bancaria, te pedimos que nos contactes directamente. Respondemos el 100% de los casos en menos de 48 horas hábiles y resolvemos los casos legítimos sin necesidad de procesos bancarios.',
-              'Los chargebacks iniciados sin contacto previo con nuestro soporte pueden resultar en la suspensión inmediata de la cuenta. Soporte de pagos: soporte@zen-trader.com',
+              'Los chargebacks iniciados sin contacto previo con nuestro soporte pueden resultar en la suspensión inmediata de la cuenta. Soporte de pagos: support@zen-trader.com',
             ],
           },
         ],
@@ -597,7 +597,7 @@ const translations = {
           {
             heading: '6. Contacto',
             body: [
-              'Para cualquier consulta sobre nuestra política de cookies: soporte@zen-trader.com',
+              'Para cualquier consulta sobre nuestra política de cookies: support@zen-trader.com',
             ],
           },
         ],
@@ -650,7 +650,7 @@ const translations = {
             heading: '6. Cumplimiento Regulatorio',
             body: [
               'El usuario es responsable de asegurar que sus actividades de trading cumplan con todas las leyes, regulaciones y requisitos fiscales aplicables en su jurisdicción. ZenTrade no garantiza que el uso de la plataforma sea apropiado o legal en todas las jurisdicciones.',
-              'Para consultas generales: soporte@zen-trader.com',
+              'Para consultas generales: support@zen-trader.com',
             ],
           },
         ],
@@ -968,8 +968,8 @@ const translations = {
       faqBadge: 'Frequently Asked Questions',
       faqTitle1: 'Everything You Need',
       faqTitle2: 'To Know',
-      faqSubtitle: 'If you have more questions, write to us at soporte@zen-trader.com and we will respond within 24 hours.',
-      faqContact: 'Another question? Write to us at soporte@zen-trader.com',
+      faqSubtitle: 'If you have more questions, write to us at support@zen-trader.com and we will respond within 24 hours.',
+      faqContact: 'Another question? Write to us at support@zen-trader.com',
       faqItems: [
         {
           q: 'Do I need a credit card for the free trial?',
@@ -1102,7 +1102,7 @@ const translations = {
             heading: '8. Changes and Contact',
             body: [
               'We reserve the right to modify these Terms at any time. Material changes will be notified by email with at least 15 days advance notice. Continued use of the Service after notification implies acceptance of the new terms.',
-              'For inquiries about these Terms of Service: soporte@zen-trader.com',
+              'For inquiries about these Terms of Service: support@zen-trader.com',
             ],
           },
         ],
@@ -1115,7 +1115,7 @@ const translations = {
           {
             heading: '1. Data Controller',
             body: [
-              'ZenTrade ("we", "our") is the data controller for your personal data. For any privacy-related inquiries, contact us at: soporte@zen-trader.com',
+              'ZenTrade ("we", "our") is the data controller for your personal data. For any privacy-related inquiries, contact us at: support@zen-trader.com',
             ],
           },
           {
@@ -1153,7 +1153,7 @@ const translations = {
             heading: '6. Your Rights (GDPR)',
             body: [
               'If you are a resident of the European Economic Area, you have the right to: Access (obtain a copy of your data); Rectification (correct inaccurate data); Erasure ("right to be forgotten"); Portability (receive your data in a structured format); Objection (object to processing based on legitimate interest); Restriction of processing in certain circumstances.',
-              'To exercise any of these rights, write to us at soporte@zen-trader.com. You also have the right to file a complaint with the data protection authority in your country.',
+              'To exercise any of these rights, write to us at support@zen-trader.com. You also have the right to file a complaint with the data protection authority in your country.',
             ],
           },
           {
@@ -1167,7 +1167,7 @@ const translations = {
             heading: '8. Changes and Contact',
             body: [
               'We will notify any significant changes to this policy by email with at least 15 days advance notice. Continued use of the Service after notification implies acceptance of the updated policy.',
-              'For privacy inquiries: soporte@zen-trader.com',
+              'For privacy inquiries: support@zen-trader.com',
             ],
           },
         ],
@@ -1195,7 +1195,7 @@ const translations = {
             heading: '3. Exceptions',
             body: [
               'We will evaluate refund requests in the following exceptional cases: (a) verifiable duplicate charge due to a technical error on our part; (b) service outage of more than 72 consecutive hours attributable solely to ZenTrade; (c) first charge to a new subscriber within 24 hours, with no recorded use of premium features.',
-              'To request an exception refund, email us at soporte@zen-trader.com with the subject "Refund Request" and include your payment receipt. We respond within 48 business hours.',
+              'To request an exception refund, email us at support@zen-trader.com with the subject "Refund Request" and include your payment receipt. We respond within 48 business hours.',
             ],
           },
           {
@@ -1209,7 +1209,7 @@ const translations = {
             heading: '5. Payment Disputes',
             body: [
               'Before initiating a chargeback with your bank, please contact us directly. We respond to 100% of cases within 48 business hours and resolve legitimate cases without the need for banking disputes.',
-              'Chargebacks initiated without prior contact with our support may result in immediate account suspension. Payment support: soporte@zen-trader.com',
+              'Chargebacks initiated without prior contact with our support may result in immediate account suspension. Payment support: support@zen-trader.com',
             ],
           },
         ],
@@ -1254,7 +1254,7 @@ const translations = {
           {
             heading: '6. Contact',
             body: [
-              'For any inquiries about our cookie policy: soporte@zen-trader.com',
+              'For any inquiries about our cookie policy: support@zen-trader.com',
             ],
           },
         ],
@@ -1307,7 +1307,7 @@ const translations = {
             heading: '6. Regulatory Compliance',
             body: [
               'The user is responsible for ensuring that their trading activities comply with all laws, regulations and tax requirements applicable in their jurisdiction. ZenTrade does not guarantee that use of the platform is appropriate or legal in all jurisdictions.',
-              'For general inquiries: soporte@zen-trader.com',
+              'For general inquiries: support@zen-trader.com',
             ],
           },
         ],

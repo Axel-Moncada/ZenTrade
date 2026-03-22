@@ -340,7 +340,7 @@ Ver sección "Ideas — Backlog" al final de este archivo.
 5. ~~Reporte semanal con IA (Gemini 2.5 Flash)~~ ✅ Resuelto (2026-03-04)
 6. ~~Revenge Trading Detection~~ ✅ Resuelto (2026-03-04)
 7. Backtesting
-8. DNS Resend — DKIM/SPF/DMARC pendientes de propagación (emails van a spam hasta que propaguen)
+8. **DNS Resend — DKIM/SPF/DMARC pendientes** — emails van a spam hasta que propaguen. Verificar en resend.com → Domains → zen-trader.com → DNS records. Puede tardar 24-72h después de agregar los registros en el proveedor de dominio.
 9. ~~Deploy a producción~~ ✅ Resuelto (2026-03-22) — zen-trader.com live
 10. ~~Wompi en aprobación~~ ✅ Resuelto (2026-03-22) — Wompi activo, blur quitado de billing/pricing
 11. **Import CSV multi-broker** — probado solo NinjaTrader y Rithmic. Pendiente: Tradovate, TopStep, IBKR

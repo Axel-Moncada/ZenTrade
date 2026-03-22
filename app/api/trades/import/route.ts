@@ -134,7 +134,7 @@ export async function POST(request: NextRequest) {
     console.log('[Import API] Preparando trades para insertar...')
     const tradesToInsert = trades.map((trade: Record<string, unknown>) => {
       // Convertir formato de fecha
-      const tradeDate = parseDate(trade.trade_date)
+      const tradeDate = parseDate(String(trade.trade_date ?? ''))
       
       // Procesar emociones: convertir string separado por comas a array
       let emotions = null
