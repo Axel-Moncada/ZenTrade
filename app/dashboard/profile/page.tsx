@@ -356,7 +356,7 @@ export default function ProfilePage() {
 
         {/* Comparativa de planes */}
         <PlanFeatures
-          highlightPlan={plan.isStarter ? "starter" : plan.isPro ? "pro" : undefined}
+          highlightPlan={plan.isStarter ? "starter" : plan.isPro ? "pro" : plan.isZenMode ? "zenmode" : undefined}
         />
       </div>
 

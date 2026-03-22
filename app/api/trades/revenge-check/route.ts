@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { getUserPlan } from "@/lib/lemonsqueezy/get-user-plan";
 import { detectRevengeTradingPatterns } from "@/lib/utils/revenge-trading";
 import type { TradeWithInstrument } from "@/types/trades";
 
@@ -7,6 +8,7 @@ import type { TradeWithInstrument } from "@/types/trades";
  * GET /api/trades/revenge-check?account_id=...&start_date=...&end_date=...
  *
  * Retorna un array de fechas (YYYY-MM-DD) donde se detectó revenge trading.
+ * Solo disponible para usuarios con plan ZenMode activo.
  * Si se omite start_date/end_date, usa la fecha de hoy.
  */
 export async function GET(request: Request) {
@@ -17,6 +19,15 @@ export async function GET(request: Request) {
 
   if (!user) {
     return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+  }
+
+  // Plan gate — solo ZenMode
+  const plan = await getUserPlan(supabase, user.id);
+  if (!plan.isZenMode) {
+    return NextResponse.json(
+      { error: "La detección de revenge trading requiere el plan ZenMode." },
+      { status: 403 }
+    );
   }
 
   const { searchParams } = new URL(request.url);

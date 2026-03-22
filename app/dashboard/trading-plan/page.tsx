@@ -83,7 +83,7 @@ export default function TradingPlanPage() {
         {!showForm && (
           <div className="flex gap-2">
             {activePlan && (
-              plan.isPro ? (
+              (plan.isPro || plan.isZenMode) ? (
                 <ExportPlanPDF
                   plan={activePlan}
                   accountName={accounts.find(a => a.id === selectedAccount)?.name ?? 'cuenta'}
@@ -116,7 +116,7 @@ export default function TradingPlanPage() {
       </Card>
 
       {/* Upgrade prompt — PDF export bloqueado */}
-      {showPdfUpgrade && !plan.isPro && (
+      {showPdfUpgrade && !plan.isPro && !plan.isZenMode && (
         <UpgradePrompt
           requiredPlan="pro"
           variant="inline"
