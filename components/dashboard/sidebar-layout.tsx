@@ -199,7 +199,7 @@ export function SidebarLayout({ userEmail, userName, isAdmin, children }: Sideba
             </Button>
           </Link>
           {isAdmin && (
-            <Link href="/dashboard/admin/affiliates">
+            <Link href="/dashboard/admin/users">
               <Button
                 variant="ghost"
                 className={`w-full text-amber-400/70 hover:text-amber-400 hover:bg-amber-400/10 transition-colors group my-1 ${
@@ -210,7 +210,7 @@ export function SidebarLayout({ userEmail, userName, isAdmin, children }: Sideba
                   <Users className="h-4 w-4 text-amber-400" />
                 </div>
                 {!isCollapsed && (
-                  <span className="font-medium text-lg ml-3">Afiliados</span>
+                  <span className="font-medium text-lg ml-3">Admin</span>
                 )}
               </Button>
             </Link>

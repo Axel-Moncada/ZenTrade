@@ -24,10 +24,10 @@ export default async function AffiliatesAdminPage() {
     .order('created_at', { ascending: false });
 
   return (
-    <div className="p-6 max-w-5xl mx-auto space-y-8">
+    <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold text-zen-anti-flash">Panel de Afiliados</h1>
-        <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>
+        <h1 className="text-2xl font-semibold text-zen-anti-flash">Afiliados</h1>
+        <p className="text-sm text-zen-text-muted mt-1">
           Gestiona códigos de influencers y códigos de descuento
         </p>
       </div>
