@@ -336,7 +336,7 @@ const translations = {
         },
         {
           q: '¿Cómo se procesan los pagos?',
-          a: 'A través de Lemon Squeezy, quien actúa como Merchant of Record y gestiona toda la facturación de forma segura. Aceptamos las principales tarjetas de crédito y débito. ZenTrade no almacena datos de tarjeta.',
+          a: 'A través de Wompi (wompi.com), pasarela de pago segura para Colombia y LATAM. Aceptamos las principales tarjetas de crédito y débito. ZenTrade no almacena datos de tarjeta.',
         },
         {
           q: '¿Puedo usar ZenTrade desde cualquier dispositivo?',
@@ -416,7 +416,7 @@ const translations = {
           {
             heading: '4. Suscripciones y Pagos',
             body: [
-              'Los planes de pago se facturan según el ciclo elegido (mensual o anual) y se renuevan automáticamente hasta que se cancelen. Los pagos son procesados por Lemon Squeezy, LLC, quien actúa como Merchant of Record en todas las transacciones.',
+              'Los planes de pago se facturan según el ciclo elegido (mensual o anual) y se renuevan automáticamente hasta que se cancelen. Los pagos son procesados por Wompi (wompi.com), pasarela de pago segura para Colombia y LATAM.',
               'Nos reservamos el derecho de modificar los precios con un aviso previo de al menos 30 días por email. El precio vigente en el momento de la renovación se aplicará al siguiente ciclo de facturación.',
             ],
           },
@@ -466,7 +466,7 @@ const translations = {
             body: [
               'Datos de cuenta: nombre, dirección de email y contraseña (almacenada de forma hasheada; nunca guardamos contraseñas en texto plano).',
               'Datos de trading: registros de operaciones, métricas, notas de journal y configuraciones de cuentas que introduces voluntariamente en la plataforma.',
-              'Datos de facturación: gestionados directamente por Lemon Squeezy. ZenTrade no almacena datos de tarjetas de crédito ni información bancaria.',
+              'Datos de facturación: gestionados directamente por Wompi. ZenTrade no almacena datos de tarjetas de crédito ni información bancaria.',
               'Datos técnicos: dirección IP, tipo de navegador, sistema operativo y logs de acceso, recopilados automáticamente para seguridad y diagnóstico.',
             ],
           },
@@ -481,7 +481,7 @@ const translations = {
             heading: '4. Servicios de Terceros',
             body: [
               'Supabase (supabase.com): proveedor de base de datos y autenticación. Tus datos se almacenan en servidores de Supabase. Consulta su política de privacidad en supabase.com/privacy.',
-              'Lemon Squeezy (lemonsqueezy.com): procesamiento de pagos y gestión de suscripciones como Merchant of Record. Gestionan de forma independiente los datos de pago. Consulta su política en lemonsqueezy.com/privacy.',
+              'Wompi (wompi.com): procesamiento de pagos y gestión de suscripciones. Gestionan de forma independiente los datos de pago. Consulta su política en wompi.com/privacidad.',
               'Resend (resend.com): servicio de envío de emails transaccionales. Reciben únicamente tu dirección de email y el contenido de los mensajes que te enviamos. Consulta su política en resend.com/privacy.',
               'Vercel (vercel.com): infraestructura de hosting y despliegue de la aplicación. Pueden procesar logs de acceso y métricas de rendimiento. Consulta su política en vercel.com/legal/privacy-policy.',
             ],
@@ -521,10 +521,10 @@ const translations = {
         subtitle: 'Esta política explica nuestro enfoque de reembolsos de forma transparente.',
         sections: [
           {
-            heading: '1. Lemon Squeezy como Merchant of Record',
+            heading: '1. Procesamiento de Pagos con Wompi',
             body: [
-              'Todos los pagos realizados en ZenTrade son procesados por Lemon Squeezy, LLC ("Lemon Squeezy"), quien actúa como Merchant of Record en todas las transacciones. Esto significa que Lemon Squeezy es el vendedor legal, gestiona la facturación, la recaudación de impuestos aplicables y el cumplimiento de normativas de pago.',
-              'Al completar una compra, recibirás una factura emitida por Lemon Squeezy. Para consultas técnicas sobre pagos, puedes contactar también a Lemon Squeezy directamente a través de su sitio web.',
+              'Todos los pagos realizados en ZenTrade son procesados por Wompi (wompi.com), pasarela de pago segura para Colombia y LATAM. Wompi gestiona la facturación, la seguridad de las transacciones y el cumplimiento de normativas de pago en Colombia.',
+              'Al completar una compra, recibirás una confirmación de pago. Para consultas técnicas sobre pagos, puedes contactar a Wompi directamente a través de su sitio web wompi.com.',
             ],
           },
           {
@@ -993,7 +993,7 @@ const translations = {
         },
         {
           q: 'How are payments processed?',
-          a: 'Through Lemon Squeezy, who acts as Merchant of Record and handles all billing securely. We accept major credit and debit cards. ZenTrade does not store card data.',
+          a: 'Through Wompi (wompi.com), a secure payment gateway for Colombia and LATAM. We accept major credit and debit cards. ZenTrade does not store card data.',
         },
         {
           q: 'Can I use ZenTrade from any device?',
@@ -1073,7 +1073,7 @@ const translations = {
           {
             heading: '4. Subscriptions and Payments',
             body: [
-              'Paid plans are billed according to the chosen cycle (monthly or annual) and renew automatically until cancelled. Payments are processed by Lemon Squeezy, LLC, who acts as Merchant of Record for all transactions.',
+              'Paid plans are billed according to the chosen cycle (monthly or annual) and renew automatically until cancelled. Payments are processed by Wompi (wompi.com), a secure payment gateway for Colombia and LATAM.',
               'We reserve the right to modify prices with at least 30 days prior email notice. The price in effect at the time of renewal will apply to the next billing cycle.',
             ],
           },
@@ -1123,7 +1123,7 @@ const translations = {
             body: [
               'Account data: name, email address and password (stored in hashed form; we never store passwords in plain text).',
               'Trading data: trade records, metrics, journal notes and account configurations you voluntarily enter into the platform.',
-              'Billing data: managed directly by Lemon Squeezy. ZenTrade does not store credit card data or banking information.',
+              'Billing data: managed directly by Wompi. ZenTrade does not store credit card data or banking information.',
               'Technical data: IP address, browser type, operating system and access logs, collected automatically for security and diagnostics.',
             ],
           },
@@ -1138,7 +1138,7 @@ const translations = {
             heading: '4. Third-Party Services',
             body: [
               'Supabase (supabase.com): database and authentication provider. Your data is stored on Supabase servers. See their privacy policy at supabase.com/privacy.',
-              'Lemon Squeezy (lemonsqueezy.com): payment processing and subscription management as Merchant of Record. They independently manage payment data. See their policy at lemonsqueezy.com/privacy.',
+              'Wompi (wompi.com): payment processing and subscription management. They independently manage payment data. See their policy at wompi.com/privacidad.',
               'Resend (resend.com): transactional email delivery service. They only receive your email address and the content of messages we send you. See their policy at resend.com/privacy.',
               'Vercel (vercel.com): application hosting and deployment infrastructure. They may process access logs and performance metrics. See their policy at vercel.com/legal/privacy-policy.',
             ],
@@ -1178,10 +1178,10 @@ const translations = {
         subtitle: 'This policy explains our approach to refunds in a transparent manner.',
         sections: [
           {
-            heading: '1. Lemon Squeezy as Merchant of Record',
+            heading: '1. Payment Processing with Wompi',
             body: [
-              'All payments made on ZenTrade are processed by Lemon Squeezy, LLC ("Lemon Squeezy"), who acts as Merchant of Record for all transactions. This means Lemon Squeezy is the legal seller, managing billing, applicable tax collection and payment compliance.',
-              'Upon completing a purchase, you will receive an invoice issued by Lemon Squeezy. For technical payment inquiries, you may also contact Lemon Squeezy directly through their website.',
+              'All payments made on ZenTrade are processed by Wompi (wompi.com), a secure payment gateway for Colombia and LATAM. Wompi handles billing, transaction security and payment compliance in Colombia.',
+              'Upon completing a purchase, you will receive a payment confirmation. For technical payment inquiries, you may contact Wompi directly through their website wompi.com.',
             ],
           },
           {
