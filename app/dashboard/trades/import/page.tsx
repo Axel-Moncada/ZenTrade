@@ -61,8 +61,8 @@ export default function ImportPage() {
         </Link>
       </div>
 
-      {/* Plan check — mostrar upgrade wall para Starter/Free */}
-      {!plan.loading && !plan.isPro ? (
+      {/* Plan check — mostrar upgrade wall para Free/Starter */}
+      {!plan.loading && !plan.isPro && !plan.isZenMode ? (
         <div className="max-w-md mx-auto pt-8">
           <UpgradePrompt
             requiredPlan="pro"
@@ -74,7 +74,7 @@ export default function ImportPage() {
             Professional importa todo en 1 clic desde Rithmic, NinjaTrader y Tradoverse.
           </p>
         </div>
-      ) : !plan.loading && plan.isPro ? (
+      ) : !plan.loading && (plan.isPro || plan.isZenMode) ? (
         <>
           {/* Account Selector */}
           <Card className="p-4 border-zen-forest/40 bg-zen-surface/60">

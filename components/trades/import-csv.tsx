@@ -103,6 +103,15 @@ const PLATFORM_LABELS: Record<PlatformType, string> = {
   custom: 'Plantilla ZenTrade (Custom)',
 }
 
+// Plataformas probadas y verificadas en producción
+const PLATFORM_VERIFIED: Record<PlatformType, boolean> = {
+  ninjatrader: true,
+  rithmic: true,
+  tradovate: false,
+  'tradovate-web': false,
+  custom: true,
+}
+
 export function ImportCSV({ accountId, initialBalance, onImportSuccess }: ImportCSVProps) {
   const [isUploading, setIsUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -602,12 +611,23 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
             </SelectTrigger>
             <SelectContent className="bg-zen-rich-black border-zen-border-soft">
               {(Object.keys(PLATFORM_LABELS) as PlatformType[]).map((platform) => (
-                <SelectItem 
-                  key={platform} 
+                <SelectItem
+                  key={platform}
                   value={platform}
                   className="text-zen-anti-flash hover:bg-zen-surface focus:bg-zen-surface"
                 >
-                  {PLATFORM_LABELS[platform]}
+                  <div className="flex items-center gap-2">
+                    <span>{PLATFORM_LABELS[platform]}</span>
+                    {PLATFORM_VERIFIED[platform] ? (
+                      <span className="text-xs font-medium px-1.5 py-0.5 rounded bg-zen-caribbean-green/20 text-zen-caribbean-green border border-zen-caribbean-green/30">
+                        ✓ Verificado
+                      </span>
+                    ) : (
+                      <span className="text-xs font-medium px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                        Beta
+                      </span>
+                    )}
+                  </div>
                 </SelectItem>
               ))}
             </SelectContent>

@@ -60,14 +60,11 @@ export function usePlan(): PlanInfo {
         return;
       }
 
-      const { data: subscription, error: subError } = await supabase
+      const { data: subscriptions, error: subError } = await supabase
         .from("subscriptions")
         .select("plan_key, status, billing_interval, current_period_end")
         .eq("user_id", user.id)
-        .in("status", ACTIVE_STATUSES)
-        .order("created_at", { ascending: false })
-        .limit(1)
-        .maybeSingle();
+        .in("status", ACTIVE_STATUSES);
 
       if (subError) {
         console.error("[usePlan] Error fetching subscription:", subError);
@@ -77,12 +74,18 @@ export function usePlan(): PlanInfo {
         return;
       }
 
-      if (!subscription) {
+      if (!subscriptions || subscriptions.length === 0) {
         if (isMounted) {
           setInfo({ ...FREE_PLAN, loading: false, error: null });
         }
         return;
       }
+
+      // Si hay varias suscripciones activas, elegir la de mayor jerarquía
+      const PLAN_PRIORITY: Record<PlanKey, number> = { zenmode: 3, pro: 2, starter: 1, free: 0 };
+      const subscription = [...subscriptions].sort(
+        (a, b) => PLAN_PRIORITY[b.plan_key] - PLAN_PRIORITY[a.plan_key]
+      )[0];
 
       const isActive = ACTIVE_STATUSES.includes(subscription.status);
 
