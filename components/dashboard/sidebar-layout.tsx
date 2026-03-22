@@ -13,6 +13,7 @@ import {
   ChevronRight,
   UserCircle,
   CreditCard,
+  Users,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -25,10 +26,11 @@ import IsoWhite from "@/data/assets/Iso-white.png";
 interface SidebarLayoutProps {
   userEmail: string;
   userName?: string;
+  isAdmin?: boolean;
   children: React.ReactNode;
 }
 
-export function SidebarLayout({ userEmail, userName, children }: SidebarLayoutProps) {
+export function SidebarLayout({ userEmail, userName, isAdmin, children }: SidebarLayoutProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { t } = useI18n();
 
@@ -196,6 +198,23 @@ export function SidebarLayout({ userEmail, userName, children }: SidebarLayoutPr
               )}
             </Button>
           </Link>
+          {isAdmin && (
+            <Link href="/dashboard/admin/affiliates">
+              <Button
+                variant="ghost"
+                className={`w-full text-amber-400/70 hover:text-amber-400 hover:bg-amber-400/10 transition-colors group my-1 ${
+                  isCollapsed ? "justify-center px-0" : "justify-start"
+                }`}
+              >
+                <div className="p-1.5 bg-amber-400/20 group-hover:bg-amber-400/30 rounded-lg transition-colors">
+                  <Users className="h-4 w-4 text-amber-400" />
+                </div>
+                {!isCollapsed && (
+                  <span className="font-medium text-lg ml-3">Afiliados</span>
+                )}
+              </Button>
+            </Link>
+          )}
         </nav>
 
         {/* User Info & Logout */}

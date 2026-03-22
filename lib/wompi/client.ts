@@ -40,6 +40,7 @@ export interface WompiPaymentLinkParams {
   userEmail: string;
   userName?: string;
   redirectUrl: string;
+  amountOverride?: number; // para descuentos de afiliado
 }
 
 interface WompiPaymentLinkApiResponse {
@@ -150,10 +151,10 @@ const INTERVAL_NAMES: Record<BillingInterval, string> = {
 };
 
 export async function createPaymentLink(params: WompiPaymentLinkParams): Promise<CreatePaymentLinkResult> {
-  const { plan, interval, userId, userEmail, userName, redirectUrl } = params;
+  const { plan, interval, userId, userEmail, userName, redirectUrl, amountOverride } = params;
 
   const base           = getWompiApiBase();
-  const amountInCents  = WOMPI_PRICES_CENTS[plan][interval];
+  const amountInCents  = amountOverride ?? WOMPI_PRICES_CENTS[plan][interval];
   const reference      = buildReference(userId, plan, interval);
   const privateKey     = process.env.WOMPI_PRIVATE_KEY!;
 

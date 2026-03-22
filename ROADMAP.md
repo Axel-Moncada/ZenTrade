@@ -56,6 +56,21 @@
 - [x] **Agent Teams** — ZenCoach, Support Agent, Marketing Agent via n8n + Telegram
 - [x] **Wompi integrado** — checkout + webhook + cancelación + cron de expiración. Precios en COP ($38k/$120k/$250k mensual). Blur quitado de billing y landing.
 
+### ✅ Completado sesión (2026-03-21) — Seguridad + Pagos + UX
+- [x] **Security audit completo** — 8+ vulnerabilidades críticas/medias resueltas:
+  - CRIT-01: CRON_SECRET ahora requerido (era opcional → crons expuestos)
+  - CRIT-02: WOMPI_EVENTS_KEY faltante rechaza el webhook (antes aceptaba todo)
+  - CRIT-03: usePlan hook ya no expone wompi_payment_source_id al browser
+  - CRIT-04: webhook valida monto cobrado vs precio esperado (anti-fraude)
+  - MED-01: DELETE /api/accounts/[id] ahora filtra trades/summaries por user_id
+  - MED-02: Security headers en next.config.mjs (X-Frame-Options, CSP, etc.)
+  - MED-03: image remotePatterns narrowed a subdominio Supabase específico
+- [x] **Wompi suscripciones recurrentes** — payment_source_id tokenization + cron charge-subscriptions (10:00 UTC daily)
+- [x] **Cron check-subscriptions** — expira suscripciones vencidas (00:30 UTC daily)
+- [x] **pending_checkouts table** — mapeo linkId Wompi → usuario+plan (SQL: 015_pending_checkouts.sql)
+- [x] **Agent de seguridad** — `.claude/agents/zentrade-security-tester.md` custom agent
+- [x] **Página 404 creativa** — `app/not-found.tsx` con estética trading terminal, chart bajista animado, ticker, glitch effect en número 404
+
 ---
 
 ## Fase 7 — ZenMode features (IA)
@@ -388,11 +403,18 @@ Eso vale más que cualquier feature desarrollada a ciegas.
 - Etiquetas por etapa: evaluación, fondeado, en racha, en pérdida
 - **Por qué es valioso**: diferenciador emocional — ningún journal tiene esto. Conecta con la psicología del trader
 
-### 💡 Sistema de Códigos de Descuento + Afiliados (Alto impacto para adquisición)
+### 🔴 Sistema de Afiliados + Códigos de Descuento (PRIORIDAD ALTA — próximo a implementar)
 - Códigos de descuento generables desde admin panel
 - Códigos de afiliado para influencers traders: cada código trackea registros y conversiones
 - Pago de comisión por conversión (% del plan mensual o pago único)
-- Dashboard de afiliado: clicks, registros, pagos generados
+- Dashboard de afiliado: clicks, registros, conversiones, comisiones generadas
 - **Por qué es valioso**: canal de adquisición escalable — un influencer con 50k seguidores puede traer 200+ usuarios
-- **Prerequisito**: pasarela de pagos activa
+- **Prerequisito**: pasarela de pagos activa (Wompi ✅)
+- **Stack técnico propuesto**:
+  - Tabla `affiliate_codes` — código, influencer, % descuento, % comisión, activo/inactivo
+  - Tabla `affiliate_conversions` — código usado, usuario que registró, plan comprado, comisión generada
+  - `app/api/affiliate/validate/route.ts` — valida código al checkout
+  - `app/api/checkout/route.ts` — aplica descuento si hay código válido
+  - `app/dashboard/admin/affiliates/` — panel admin para crear/ver códigos y conversiones
+  - Webhook Wompi registra conversión cuando pago es APPROVED con código afiliado
 

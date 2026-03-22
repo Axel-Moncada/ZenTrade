@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Check, ExternalLink, AlertTriangle, CheckCircle2, Clock, XCircle } from 'lucide-react';
+import { Check, ExternalLink, AlertTriangle, CheckCircle2, Clock, XCircle, Tag, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   AlertDialog,
@@ -46,6 +46,9 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
   const [showCancelDialog, setShowCancelDialog] = useState(false);
   const [cancelling, setCancelling] = useState(false);
   const [cancelled, setCancelled] = useState(false);
+  const [affiliateInput, setAffiliateInput] = useState('');
+  const [appliedCode, setAppliedCode] = useState<{ code: string; discount_percent: number } | null>(null);
+  const [validatingCode, setValidatingCode] = useState(false);
 
   // Limpiar el param de la URL sin recargar
   useEffect(() => {
@@ -63,6 +66,26 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
     ? (STATUS_MAP[activeSub.status] ?? { label: activeSub.status, className: 'text-stone-400' })
     : null;
 
+  // ── Código de afiliado ─────────────────────────────────────────────────────
+
+  async function handleApplyCode() {
+    if (!affiliateInput.trim()) return;
+    setValidatingCode(true);
+    try {
+      const res = await fetch(`/api/affiliate/validate?code=${encodeURIComponent(affiliateInput.trim())}`);
+      const data = await res.json() as { valid: boolean; code?: string; discount_percent?: number; error?: string };
+      if (data.valid && data.code && data.discount_percent !== undefined) {
+        setAppliedCode({ code: data.code, discount_percent: data.discount_percent });
+        setAffiliateInput('');
+        toast.success(`Código aplicado: ${data.discount_percent}% de descuento`);
+      } else {
+        toast.error('Código inválido', { description: data.error ?? 'El código no existe o está inactivo' });
+      }
+    } finally {
+      setValidatingCode(false);
+    }
+  }
+
   // ── Checkout ───────────────────────────────────────────────────────────────
 
   async function handleCheckout(plan: PlanConfig) {
@@ -72,7 +95,11 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ plan: plan.slug, interval: apiInterval }),
+        body: JSON.stringify({
+          plan:           plan.slug,
+          interval:       apiInterval,
+          affiliate_code: appliedCode?.code,
+        }),
       });
       const data = await res.json() as { url?: string; error?: string };
       if (!res.ok) throw new Error(data.error ?? 'Error desconocido');
@@ -118,8 +145,13 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
   // ── Helpers ────────────────────────────────────────────────────────────────
 
   function displayPrice(plan: PlanConfig): string {
-    if (interval === 'month') return String(plan.price_monthly);
-    return String(Math.round((plan.price_annual / 12) * 100) / 100);
+    const base = interval === 'month'
+      ? plan.price_monthly
+      : Math.round((plan.price_annual / 12) * 100) / 100;
+    if (appliedCode?.discount_percent) {
+      return String(Math.round(base * (1 - appliedCode.discount_percent / 100) * 100) / 100);
+    }
+    return String(base);
   }
 
   // ── Render ─────────────────────────────────────────────────────────────────
@@ -269,6 +301,51 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
           ))}
         </div>
       </div>
+
+      {/* ── Código de afiliado (solo si no tiene suscripción activa) ── */}
+      {!activeSub && (
+        <div className="mt-4  mb-16">
+          {appliedCode ? (
+            <div
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium"
+              style={{ background: 'rgba(0,193,124,0.1)', border: '1px solid rgba(0,193,124,0.3)', color: '#00C17C' }}
+            >
+              <Tag className="w-4 h-4" />
+              Código <span className="font-mono">{appliedCode.code}</span> aplicado · {appliedCode.discount_percent}% de descuento
+              <button
+                onClick={() => setAppliedCode(null)}
+                className="ml-1 hover:opacity-70 transition-opacity"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 max-w-sm">
+              <input
+                type="text"
+                value={affiliateInput}
+                onChange={(e) => setAffiliateInput(e.target.value.toUpperCase())}
+                onKeyDown={(e) => e.key === 'Enter' && void handleApplyCode()}
+                placeholder="¿Tienes un código de descuento?"
+                className="flex-1 px-3 py-2 text-sm rounded-lg text-zen-anti-flash font-mono placeholder:font-sans placeholder:normal-case"
+                style={{
+                  background:  '#002E21',
+                  border:      '1px solid rgba(255,255,255,0.1)',
+                  outline:     'none',
+                }}
+              />
+              <button
+                onClick={() => void handleApplyCode()}
+                disabled={validatingCode || !affiliateInput.trim()}
+                className="px-3 py-2 text-sm rounded-lg font-medium transition-colors disabled:opacity-40"
+                style={{ background: '#006A4E', color: '#F2F3F4', border: '1px solid #0F5132' }}
+              >
+                {validatingCode ? '...' : 'Aplicar'}
+              </button>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* ── Plan cards ── */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

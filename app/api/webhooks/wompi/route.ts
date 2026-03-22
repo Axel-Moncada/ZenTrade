@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase/admin';
-import { validateWebhookChecksum } from '@/lib/wompi/client';
+import { validateWebhookChecksum, WOMPI_PRICES_CENTS } from '@/lib/wompi/client';
 import type { WompiWebhookPayload } from '@/lib/wompi/client';
 import type { PlanKey, BillingInterval } from '@/lib/lemonsqueezy/client';
-import { WOMPI_PRICES_CENTS } from '@/lib/wompi/client';
 
 /**
  * POST /api/webhooks/wompi
@@ -29,10 +28,10 @@ export async function POST(req: NextRequest) {
   // Extraer payment link ID del reference (formato Wompi: "{linkId}_{timestamp}_{random}")
   const linkId = transaction.reference.split('_')[0];
 
-  // Buscar el pending checkout para saber a qué usuario y plan corresponde
+  // Buscar el pending checkout (incluye affiliate_code y discounted_amount_cents)
   const { data: pending } = await supabaseAdmin
     .from('pending_checkouts')
-    .select('user_id, plan_key, billing_interval')
+    .select('user_id, plan_key, billing_interval, affiliate_code, discounted_amount_cents')
     .eq('id', linkId)
     .maybeSingle();
 
@@ -43,9 +42,11 @@ export async function POST(req: NextRequest) {
 
   const { user_id: userId, plan_key: plan, billing_interval: interval } = pending;
 
-  // Validar que el monto cobrado corresponde al plan (CRIT-04)
+  // Validar monto cobrado — si hay descuento, validar contra el monto descontado (CRIT-04)
   if (transaction.status === 'APPROVED') {
-    const expectedAmount = WOMPI_PRICES_CENTS[plan as PlanKey]?.[interval as BillingInterval];
+    const expectedAmount = pending.discounted_amount_cents
+      ?? WOMPI_PRICES_CENTS[plan as PlanKey]?.[interval as BillingInterval];
+
     if (!expectedAmount || transaction.amount_in_cents < expectedAmount) {
       console.error('[wompi-webhook] monto incorrecto:', transaction.amount_in_cents, 'esperado:', expectedAmount);
       return NextResponse.json({ error: 'Invalid amount' }, { status: 400 });
@@ -115,6 +116,39 @@ export async function POST(req: NextRequest) {
     if (error) {
       console.error('[wompi-webhook] error insertando:', error);
       return NextResponse.json({ error: 'DB error' }, { status: 500 });
+    }
+  }
+
+  // ── Registrar conversión de afiliado ───────────────────────────────────────
+  if (pending.affiliate_code) {
+    const { data: affCode } = await supabaseAdmin
+      .from('affiliate_codes')
+      .select('id, commission_percent')
+      .eq('code', pending.affiliate_code)
+      .maybeSingle();
+
+    if (affCode) {
+      const originalAmount    = WOMPI_PRICES_CENTS[plan as PlanKey][interval as BillingInterval];
+      const discountedAmount  = pending.discounted_amount_cents ?? originalAmount;
+      const commissionCents   = Math.round(discountedAmount * affCode.commission_percent / 100);
+
+      await supabaseAdmin.from('affiliate_conversions').upsert({
+        affiliate_code_id:       affCode.id,
+        code:                    pending.affiliate_code,
+        user_id:                 userId,
+        plan_key:                plan,
+        billing_interval:        interval,
+        original_amount_cents:   originalAmount,
+        discounted_amount_cents: discountedAmount,
+        commission_cents:        commissionCents,
+        transaction_id:          transaction.id,
+        status:                  'confirmed',
+      }, { onConflict: 'transaction_id', ignoreDuplicates: true });
+
+      // Incrementar uses_count de forma atómica
+      await supabaseAdmin.rpc('increment_affiliate_uses', { code_id: affCode.id });
+
+      console.log(`[wompi-webhook] afiliado registrado: ${pending.affiliate_code} | comisión: ${commissionCents} COP`);
     }
   }
 

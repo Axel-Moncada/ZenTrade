@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+import { getUserPlan } from '@/lib/lemonsqueezy/get-user-plan'
 
 const MAX_TRADES_PER_IMPORT = 50
 
@@ -44,6 +45,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
     }
 
+    // Plan gating: Import CSV requiere Professional o superior
+    const plan = await getUserPlan(supabase, user.id)
+    if (!plan.isPro && !plan.isZenMode) {
+      return NextResponse.json(
+        { error: 'La importación CSV requiere el plan Professional o superior.', code: 'UPGRADE_REQUIRED' },
+        { status: 403 }
+      )
+    }
+
     const { account_id, trades } = await request.json()
     console.log(`[Import API] Recibidos ${trades?.length} trades para cuenta ${account_id}`)
 
@@ -78,7 +88,7 @@ export async function POST(request: NextRequest) {
 
     // Obtener o crear instrumentos
     console.log('[Import API] Procesando instrumentos...')
-    const symbols = [...new Set(trades.map((t: any) => t.instrument_symbol))]
+    const symbols = [...new Set(trades.map((t: Record<string, unknown>) => t.instrument_symbol as string))]
     console.log('[Import API] Símbolos únicos:', symbols)
     
     const { data: existingInstruments } = await supabase
@@ -122,7 +132,7 @@ export async function POST(request: NextRequest) {
 
     // Preparar trades para insertar
     console.log('[Import API] Preparando trades para insertar...')
-    const tradesToInsert = trades.map((trade: any) => {
+    const tradesToInsert = trades.map((trade: Record<string, unknown>) => {
       // Convertir formato de fecha
       const tradeDate = parseDate(trade.trade_date)
       

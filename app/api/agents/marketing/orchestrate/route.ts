@@ -201,15 +201,15 @@ FORMATO — Script 30-60 segundos:
 [45-60s] CTA: concreto y sin presión
 
 ON-SCREEN TEXTS: 2-3 frases ≤5 palabras cada una
-VIDEO PROMPT: prompt en inglés para Runway ML, Kling AI o Pika
+VIDEO PROMPT: prompt en inglés para flow y nanobanana
   - Describe la escena visual, movimiento de cámara, atmósfera
-  - Estilo: cinematic, professional, finance aesthetic, 30-60s
+  - Estilo: cinematic, professional, finance aesthetic, de maximo 10 segundos cada escena y si la duracion es mayor a 60s, dividir en secciones en cada escena, evitando ilustraciones o estilos caricaturescos en su lugar buscar realismo y conexión emocional, con composición clara y espacio para texto legible. por ejemplo: si el video dura 60 segundos, haz un promt para cada escena de 10 segundos, describiendo la acción y atmósfera de cada una (frustración analizando gráficos, revelación al ver métricas claras, superación al mejorar resultados) — evitar ilustraciones o estilos caricaturescos en su lugar buscar realismo y conexión emocional, con composición clara y espacio para texto legible. y asi tendrias que generar 6 prompts para un video de 60 segundos, cada uno describiendo la escena y atmósfera de cada sección del video, asegurando que el estilo sea cinematic, profesional y con estética financiera. NO INCLUYAS TEXTO EN EL VIDEO PROMPT — SOLO LA DESCRIPCIÓN DE LAS ESCENAS Y ATMÓSFERA
 
 Responde ÚNICAMENTE con JSON válido:
 {
   "script": "script completo con timestamps",
   "onScreenTexts": ["Texto 1", "Texto 2", "Texto 3"],
-  "videoPrompt": "prompt en inglés para Runway/Kling"
+  "videoPrompt": "prompt en inglés para flow y nanobanana"
 }`;
 }
 

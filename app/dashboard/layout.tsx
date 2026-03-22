@@ -2,6 +2,14 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { SidebarLayout } from "@/components/dashboard/sidebar-layout";
 
+function isAdminEmail(email: string): boolean {
+  const adminEmails = (process.env.ADMIN_EMAILS ?? '')
+    .split(',')
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+  return adminEmails.includes(email.toLowerCase());
+}
+
 export default async function DashboardLayout({
   children,
 }: {
@@ -26,6 +34,7 @@ export default async function DashboardLayout({
     <SidebarLayout
       userEmail={user.email || ""}
       userName={profile?.full_name || ""}
+      isAdmin={!!user.email && isAdminEmail(user.email)}
     >
       {children}
     </SidebarLayout>
