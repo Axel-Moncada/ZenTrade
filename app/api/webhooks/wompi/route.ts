@@ -3,6 +3,7 @@ import { supabaseAdmin } from '@/lib/supabase/admin';
 import { validateWebhookChecksum } from '@/lib/wompi/client';
 import type { WompiWebhookPayload } from '@/lib/wompi/client';
 import type { PlanKey, BillingInterval } from '@/lib/lemonsqueezy/client';
+import { WOMPI_PRICES_CENTS } from '@/lib/wompi/client';
 
 /**
  * POST /api/webhooks/wompi
@@ -41,6 +42,15 @@ export async function POST(req: NextRequest) {
   }
 
   const { user_id: userId, plan_key: plan, billing_interval: interval } = pending;
+
+  // Validar que el monto cobrado corresponde al plan (CRIT-04)
+  if (transaction.status === 'APPROVED') {
+    const expectedAmount = WOMPI_PRICES_CENTS[plan as PlanKey]?.[interval as BillingInterval];
+    if (!expectedAmount || transaction.amount_in_cents < expectedAmount) {
+      console.error('[wompi-webhook] monto incorrecto:', transaction.amount_in_cents, 'esperado:', expectedAmount);
+      return NextResponse.json({ error: 'Invalid amount' }, { status: 400 });
+    }
+  }
 
   // Si el pago fue rechazado, marcar past_due
   if (transaction.status === 'DECLINED' || transaction.status === 'ERROR') {

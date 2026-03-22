@@ -62,7 +62,7 @@ export function usePlan(): PlanInfo {
 
       const { data: subscription, error: subError } = await supabase
         .from("subscriptions")
-        .select("*")
+        .select("plan_key, status, billing_interval, current_period_end")
         .eq("user_id", user.id)
         .in("status", ACTIVE_STATUSES)
         .order("created_at", { ascending: false })

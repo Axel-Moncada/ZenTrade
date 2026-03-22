@@ -22,9 +22,11 @@ export async function POST(req: NextRequest) {
 
   const { plan, interval } = parsed.data;
 
-  const origin = req.headers.get('origin')
-    ?? process.env.NEXT_PUBLIC_APP_URL
-    ?? 'https://www.zen-trader.com';
+  const allowedOrigins = ['https://www.zen-trader.com', 'https://zen-trader.com'];
+  const rawOrigin = req.headers.get('origin') ?? '';
+  const origin = allowedOrigins.includes(rawOrigin)
+    ? rawOrigin
+    : (process.env.NEXT_PUBLIC_APP_URL ?? 'https://www.zen-trader.com');
   const redirectUrl = `${origin}/dashboard/billing?success=true`;
 
   try {

@@ -200,7 +200,8 @@ export async function DELETE(
     const { error: tradesError } = await supabase
       .from("trades")
       .delete()
-      .eq("account_id", id);
+      .eq("account_id", id)
+      .eq("user_id", user.id);
 
     if (tradesError) {
       console.error("Error deleting trades:", tradesError);
@@ -214,7 +215,8 @@ export async function DELETE(
     const { error: summariesError } = await supabase
       .from("daily_summaries")
       .delete()
-      .eq("account_id", id);
+      .eq("account_id", id)
+      .eq("user_id", user.id);
 
     if (summariesError) {
       console.error("Error deleting daily_summaries:", summariesError);

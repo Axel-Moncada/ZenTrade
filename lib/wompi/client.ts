@@ -250,8 +250,8 @@ export async function chargePaymentSource(params: {
 export function validateWebhookChecksum(payload: WompiWebhookPayload): boolean {
   const eventsKey = process.env.WOMPI_EVENTS_KEY;
   if (!eventsKey) {
-    console.warn('[wompi] WOMPI_EVENTS_KEY no configurado — saltando validación');
-    return true;
+    console.error('[wompi] WOMPI_EVENTS_KEY no configurado — rechazando webhook');
+    return false;
   }
 
   const { properties, checksum } = payload.signature;

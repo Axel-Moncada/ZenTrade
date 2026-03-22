@@ -10,7 +10,7 @@ import { supabaseAdmin } from '@/lib/supabase/admin';
 export async function GET(request: Request) {
   const authHeader = request.headers.get('authorization');
   const cronSecret = process.env.CRON_SECRET;
-  if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
+  if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -31,5 +31,5 @@ export async function GET(request: Request) {
   const count = data?.length ?? 0;
   console.log(`[check-subscriptions] ${count} suscripción(es) expirada(s)`);
 
-  return NextResponse.json({ expired: count, subscriptions: data });
+  return NextResponse.json({ expired: count });
 }
