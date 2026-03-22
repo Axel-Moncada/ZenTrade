@@ -25,12 +25,13 @@ export type ActiveSubscription = {
 
 // ── Plan config ───────────────────────────────────────────────────────────────
 
+// Precios en USD — el cobro se hace en COP vía Wompi (~4,200 COP/USD)
 const PLAN_CONFIGS: PlanConfig[] = [
   {
     slug: 'starter',
     name: 'Starter',
     price_monthly: 9,
-    price_annual: 84,
+    price_annual:  84,
     badge: 'Ideal para Empezar',
     features: [
       '2 Cuentas de Trading',
@@ -45,7 +46,7 @@ const PLAN_CONFIGS: PlanConfig[] = [
     slug: 'pro',
     name: 'Professional',
     price_monthly: 29,
-    price_annual: 249,
+    price_annual:  249,
     highlight: true,
     badge: 'Lo Más Popular',
     features: [
@@ -64,7 +65,7 @@ const PLAN_CONFIGS: PlanConfig[] = [
     slug: 'zenmode',
     name: 'ZenMode',
     price_monthly: 59,
-    price_annual: 499,
+    price_annual:  499,
     disabled: true,
     badge: 'Próximamente',
     features: [

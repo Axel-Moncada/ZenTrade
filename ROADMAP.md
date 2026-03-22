@@ -1,6 +1,6 @@
 # ZenTrade — Roadmap hacia el lanzamiento
 
-Última actualización: 2026-03-04
+Última actualización: 2026-03-20
 
 ---
 
@@ -14,14 +14,14 @@
 | Fase 3 | ✅ Completa | Trades + cálculos + métricas básicas |
 | Fase 4 | ✅ Completa | Dashboard + charts |
 | Fase 5 | ✅ Completa | Reportes + export/import + Trading Plan |
-| Fase 6 | 🔄 En progreso | Hardening: pricing, gating, UX de conversión |
-| Fase 7 | 🔄 En progreso | ZenMode features (IA) |
-| Fase 8 | ⏳ Pendiente | QA, testing, pre-launch |
+| Fase 6 | ✅ Completa | Hardening: pricing, gating, UX de conversión, free-only mode |
+| Fase 7 | 🔄 En progreso | ZenMode features (IA) — 3 de 6 completadas |
+| Fase 8 | 🔴 Prioridad | QA, testing, pre-launch — **próximo paso** |
 | Fase 9 | ⏳ Pendiente | Launch |
 
 ---
 
-## Fase 6 — Hardening de pricing y conversión (EN PROGRESO)
+## Fase 6 — Hardening de pricing y conversión ✅ COMPLETA
 
 ### ✅ Completado
 - [x] Feature matrix unificada en todos los archivos
@@ -47,18 +47,14 @@
 - [x] Integración Resend configurada vía SMTP custom en Supabase
 - [x] Logo copiado a `public/assets/` para servir con URL absoluta
 
-### ⏳ Pendiente Fase 6
-- [x] **Pruebas de flujo de pago end-to-end** — probar checkout LemonSqueezy Starter y Pro (mensual + anual)
-- [x] **Probar webhook** — simular evento de pago exitoso y verificar que el plan se actualiza en DB
-- [x] **Probar downgrade/cancelación** — verificar que RLS y límites se aplican al bajar de plan
-- [x] **Verificar env vars de LemonSqueezy** — VARIANT_IDs configurados en producción
-- [x] **Agregar ZenMode a `plan_key` en DB** — migration SQL para añadir "zenmode" al enum (cuando lance)
-- [x] **usePlan.ts + get-user-plan.ts** — añadir `isZenMode` cuando el plan_key esté en DB
-- [x] **`lib/lemonsqueezy/client.ts`** — añadir zenmode a PLAN_VARIANTS cuando tenga variant IDs
-- [x] **Free plan onboarding** — mensaje de bienvenida claro explicando límites del plan free vs starter
-- [x] **Stripe/LemonSqueezy portal** — enlace a portal de cliente para cambiar método de pago
-- [x] **Página de éxito post-pago** — mensaje de confirmación claro con próximos pasos
-- [x] **Email de bienvenida post-upgrade** — configurar en LemonSqueezy o con Resend
+### ✅ Completado adicional (2026-03-21)
+- [x] **Modo free-only** — blur overlay en pricing/billing + "Muy pronto" mientras se aprueba pasarela
+- [x] **Upgrade prompts** — CTAs cambiados a "Muy pronto" (disabled) en las 3 variantes
+- [x] **Sidebar** — badge "Pronto" en Facturación
+- [x] **Limpieza de pasarelas muertas** — eliminados LemonSqueezy SDK, PayPal, MercadoPago, FastSpring
+- [x] **Radar de Mercado (Market Preview)** — email semanal ZenMode con eventos de alto impacto (Gemini 2.5 Flash)
+- [x] **Agent Teams** — ZenCoach, Support Agent, Marketing Agent via n8n + Telegram
+- [x] **Wompi integrado** — checkout + webhook + cancelación + cron de expiración. Precios en COP ($38k/$120k/$250k mensual). Blur quitado de billing y landing.
 
 ---
 
@@ -83,7 +79,7 @@ Prioridad de desarrollo basada en impacto percibido por el usuario:
 - Implementación: cross-reference entre `trades` y `trading_plans`
 - UI: banner de alerta en dashboard diario
 
-### ✅ 7.3 Reporte semanal y mensual por email con IA (COMPLETADO 2026-03-04)
+### ✅ 7.3 Reporte semanal por email con IA (COMPLETADO 2026-03-04)
 
 **Diseño:**
 - Un reporte **por cuenta** (no uno por usuario con todas las cuentas mezcladas)
@@ -147,13 +143,20 @@ MENSUAL (día 1, mes anterior):
 - Professional: reporte semanal completo con IA + capturas
 - ZenMode: semanal + mensual + análisis IA más profundo
 
-### 7.4 Análisis de horario óptimo (PRIORIDAD 4)
+### ✅ 7.4 Radar de Mercado — Market Preview (COMPLETADO 2026-03-20)
+- Email semanal exclusivo ZenMode, domingos 19:00 UTC via Vercel Cron
+- Gemini 2.5 Flash genera 4-6 eventos de alto impacto para la semana siguiente
+- Una sola llamada a Gemini con todos los instrumentos de usuarios ZenMode combinados
+- Badges por tipo (FED/EARNINGS/MACRO/INFLACIÓN/EMPLEO/GEOPOLÍTICA), left accent por impacto
+- `lib/ai/gemini-market-news.ts` + `lib/resend/emails/market-preview-email.tsx` + `app/api/cron/market-preview/route.ts`
+
+### 7.5 Análisis de horario óptimo (PRIORIDAD 4)
 - Calcular win rate y PnL promedio por hora del día
 - Calcular win rate por día de la semana
 - UI: heatmap o gráfica de barras en dashboard ZenMode
 - Implementación: query SQL agrupando por hora de entry_time
 
-### 7.5 Benchmark vs prop firm requirements (PRIORIDAD 5)
+### 7.6 Benchmark vs prop firm requirements (PRIORIDAD 5)
 - Comparar métricas del usuario vs requisitos típicos de prop firms
   - FTMO: max DD 10%, profit target 10%, min 10 días, consistency rule
   - Apex: max DD 6%, profit target 9%
@@ -161,7 +164,7 @@ MENSUAL (día 1, mes anterior):
 - UI: tarjetas de evaluación con semáforo verde/amarillo/rojo
 - Implementación: tabla `prop_firm_rules` + cálculo en dashboard
 
-### 7.6 AI Journaling prompts (PRIORIDAD 6)
+### 7.7 AI Journaling prompts (PRIORIDAD 6)
 - Prompt contextual después de sesión con pérdidas
 - Preguntas guiadas: "¿Seguiste el plan? ¿Cuál fue tu estado emocional?"
 - Integración con calendario de notas existente
@@ -169,27 +172,44 @@ MENSUAL (día 1, mes anterior):
 
 ---
 
-## Fase 8 — QA y testing pre-launch
+## Fase 8 — QA y testing pre-launch 🔴 PRIORIDAD ACTUAL
 
-### Tests manuales críticos
-- [ ] Flujo completo nuevo usuario: registro → onboarding → primera cuenta → primer trade
-- [ ] Flujo de upgrade: Starter → Professional (mensual y anual)
-- [ ] Flujo de límite: crear cuenta #3 con Starter → ver upgrade prompt → checkout → verificar que ya puede crear
-- [ ] CSV import: subir archivo de Rithmic/NinjaTrader/Tradoverse → verificar mapeo
-- [ ] PDF export Trading Plan: crear plan → exportar → verificar formato
-- [ ] Dark mode / Light mode: verificar todas las páginas en ambos modos
-- [ ] Responsive: verificar en 1280px, 1440px, 1920px (desktop-first)
-- [ ] Landing: verificar toggle anual/mensual, orden de planes, CTAs
+> Usar `.claude/testing/TESTING_GUIDE.md` y `.claude/testing/MANUAL_TESTS.md` como guías.
+
+### Tests manuales críticos — flujo core
+- [ ] **Registro completo**: email → confirmación → login → dashboard
+- [ ] **Primera cuenta**: crear cuenta evaluation → ver límite Free (1 cuenta)
+- [ ] **Primer trade manual**: crear → verificar en historial + calendario + dashboard KPIs
+- [ ] **Editar trade**: cambiar resultado → verificar que balance y KPIs se recalculan
+- [ ] **Eliminar trade**: verificar que balance se revierte
+- [ ] **Daily entry**: agregar nota del día + emoción → ver en calendario
+- [ ] **Trading Plan**: crear plan → exportar PDF (solo Pro — ver "Muy pronto" para Free)
+- [ ] **CSV import**: subir archivo NinjaTrader/Tradovate → verificar mapeo (solo Pro)
+- [ ] **CSV export**: descargar trades filtrados por fecha
+- [ ] **Withdrawals**: registrar retiro → verificar balance de cuenta
+
+### Tests del modo free-only (crítico antes de lanzar)
+- [ ] **Blur pricing landing**: sección de precios muestra overlay "Muy pronto" correctamente
+- [ ] **Blur billing dashboard**: planes de pago bloqueados al entrar a /dashboard/billing
+- [ ] **Upgrade prompts**: botones de upgrade muestran "Muy pronto" deshabilitado en los 6 puntos
+- [ ] **Sidebar badge**: "Pronto" aparece junto a Facturación
+- [ ] **Límite de cuentas Free**: intentar crear 2ª cuenta → ver prompt correcto
+
+### Tests de email
+- [ ] **Email activación**: registrarse con email nuevo → verificar que llega y tiene el diseño correcto
+- [ ] **Reporte semanal**: llamar endpoint `/api/cron/weekly-report` con `?week_start=` → verificar email
+- [ ] **Radar de Mercado**: llamar endpoint `/api/cron/market-preview` → verificar email ZenMode
+- [ ] **Newsletter**: suscribirse desde popup y footer → verificar email de confirmación
 
 ### Tests de seguridad
 - [ ] RLS: verificar que usuario A no puede ver datos de usuario B
 - [ ] API routes: verificar que todas retornan 401 sin auth
-- [ ] Plan gating: verificar que endpoints no sirven features de plan superior sin suscripción activa
+- [ ] Plan gating: endpoints de features Pro/ZenMode deniegan correctamente a usuarios Free
 
 ### Performance
-- [ ] Core Web Vitals landing page (LCP < 2.5s)
-- [ ] Dashboard con 500+ trades no se congela
-- [ ] Import CSV de 1000 trades funciona
+- [ ] Core Web Vitals landing page (LCP < 2.5s) — Vercel Analytics
+- [ ] Dashboard con 200+ trades no se congela
+- [ ] Import CSV de 500 trades funciona sin timeout
 
 ---
 
@@ -199,7 +219,7 @@ MENSUAL (día 1, mes anterior):
 - [ ] Dominio + SSL configurado
 - [ ] Variables de entorno de producción completas
 - [ ] Supabase en plan pago (no free tier) para producción
-- [ ] LemonSqueezy en modo live (no test)
+- [ ] Pasarela de pagos configurada en modo live (Paddle u otro cuando aprueben)
 - [ ] Analytics configurado (Vercel Analytics o PostHog)
 - [ ] Error monitoring (Sentry)
 - [ ] Backup automatizado de DB
@@ -223,6 +243,7 @@ MENSUAL (día 1, mes anterior):
 
 | Decisión | Razón |
 |---------|-------|
+| Lanzar con solo plan gratuito (2026-03-19) | Pasarelas de pago rechazadas por cuenta colombiana. Blur en pricing/billing hasta aprobación de Paddle. Permite salir al mercado y validar retención |
 | ZenMode como "coming soon" en landing | No vender lo que no existe. Mantener como ancla de precio |
 | Toggle anual visible pero no preseleccionado | Mostrar el ahorro como incentivo, no forzar |
 | Orden ZenMode→Pro→Starter | Anchoring effect: ver el precio más alto primero |
@@ -234,12 +255,31 @@ MENSUAL (día 1, mes anterior):
 
 ## Próxima sesión — por dónde empezar
 
-**Recomendación de orden:**
+**Recomendación de orden (sesión 2026-03-21):**
 
-1. **Fase 7.2 — Alertas de reglas de riesgo** (ZenMode, cross-reference trades vs trading_plans)
-2. **Fase 7.4 — Análisis de horario óptimo** (heatmap por hora en dashboard ZenMode)
-3. **i18n por URL** (`/en` → todo en inglés, flag en newsletter_subscribers)
-4. Paddle: migrar billing cuando aprueben
+### 🔴 Paso 1 — Testing completo (Fase 8)
+Ejecutar todos los tests de la sección de Fase 8, empezando por:
+1. Flujo core: registro → cuenta → trade → dashboard
+2. Modo free-only: blur en pricing/billing, upgrade prompts
+3. Emails: activación, reporte semanal, radar de mercado
+
+### 🟡 Paso 2 — Deploy a producción
+1. Configurar env vars en Vercel (producción)
+2. Deploy + smoke test en zen-trader.com
+3. Verificar DNS de Resend (DKIM/SPF/DMARC) — los emails van a spam hasta que propaguen
+
+### 🟢 Paso 3 — Lanzamiento blando
+- Compartir con 5-10 traders conocidos
+- Activar cuentas Pro manualmente en Supabase para embajadores/influencers
+- Recopilar feedback
+
+### ⏳ Después (cuando Wompi apruebe)
+- Integrar Wompi en checkout + webhook
+- Quitar blur overlays de billing y pricing
+- Probar checkout end-to-end Colombia
+
+### 💡 Backlog de features (de IDEAS.md)
+Ver sección "Ideas — Backlog" al final de este archivo.
 
 
 
@@ -252,8 +292,10 @@ MENSUAL (día 1, mes anterior):
 6. ~~Revenge Trading Detection~~ ✅ Resuelto (2026-03-04)
 7. Backtesting
 8. Configurar DNS completos para Resend (DKIM/SPF/DMARC) — email llega a spam hasta que propaguen
-9. Pasarela de pagos — pendiente de aprobación de Paddle
-10. Manejo de idiomas con la URL www.zen-trader.com/en : todo deberia salir en ingles hasta el popup y que en la lista de suscribcion quede grabado que el usuario es de lenguaje ingles para enviarles los email en ingles, y biseversa con españól
+9. Pasarela de pagos — **Wompi en aprobación** (Colombia). Blur activo en billing/pricing hasta que aprueben
+10. DNS Resend — DKIM/SPF/DMARC pendientes de propagación (emails van a spam)
+11. i18n por URL — `/en` todo en inglés con flag en newsletter_subscribers para emails en el idioma correcto
+12. Deploy a producción — Vercel con env vars reales
 
 
 ---
@@ -267,11 +309,20 @@ El loop core de valor está completo:
 
 ### Solo 2 blockers reales antes de lanzar
 
-**Blocker 1 — Pasarela de pagos** 🔄 EN ESPERA
-- LemonSqueezy rechazó la cuenta (Colombia)
-- Paddle: solicitud enviada — esperando aprobación
-- El código de LemonSqueezy sigue en el repo, se adaptará a Paddle cuando aprueben
-- **No bloquea el desarrollo de otras features**
+**Blocker 1 — Pasarela de pagos** ⏳ EN ESPERA (Wompi)
+- LemonSqueezy: rechazó la cuenta (Colombia)
+- MercadoPago: requería aprobación especial (error SUB17)
+- FastSpring: rechazado
+- PayPal: sandbox funcionó, Live descartado por ahora
+- Paddle: solicitud enviada — sin respuesta
+- **Wompi (actual)**: pasarela colombiana, proceso de aprobación en curso — permite cobrar en Colombia mientras se resuelve una pasarela global. [wompi.com](https://wompi.com)
+- **Decisión 2026-03-19**: lanzar con solo plan gratuito mientras se aprueba Wompi
+  - Blur + "Muy pronto" en pricing/billing — **NO TOCAR hasta aprobación**
+  - Para reactivar pagos cuando aprueben: quitar bloques marcados `/* quitar cuando pagos estén activos */`
+    en `billing-dashboard.tsx` y `pricing-section.tsx`, y restaurar botones en `upgrade-prompt.tsx`
+- Código de pasarelas muertas eliminado del repo
+- **Largo plazo**: Stripe Atlas (LLC Delaware ~$500) → mejor cobertura USA + menores fees
+- **No bloquea el lanzamiento — ya se puede salir al mercado con plan gratuito**
 
 **Blocker 2 — Privacy Policy + Terms of Service** ✅ RESUELTO (2026-03-04)
 Páginas implementadas en el proyecto:
@@ -294,21 +345,18 @@ Páginas implementadas en el proyecto:
 ### Plan de 5 días para lanzar
 
 ```
-Día 1-2  → Probar flujo de pago completo (sandbox → live)
-           Verificar webhook + actualización de plan en DB
-           Fix cualquier bug encontrado
+Día 1    → Configurar Vercel production con env vars reales
+           Deploy a producción
+           Prueba manual del flujo nuevo usuario completo (registro → trade → dashboard)
 
-Día 3    → Privacy Policy + Terms (2 horas)
-           Configurar Vercel production con env vars reales
-           LemonSqueezy en modo LIVE
-
-Día 4    → Deploy a producción
-           Prueba manual del flujo nuevo usuario completo
-           Pago de prueba con tarjeta real
-
-Día 5    → Lanzamiento blando
+Día 2    → Lanzamiento blando con plan gratuito
            Compartir con 5-10 traders conocidos
            Recopilar feedback directo
+
+Cuando aprueben Wompi:
+           Integrar Wompi en checkout + webhook
+           Quitar blur overlays de billing y pricing
+           Probar checkout end-to-end Colombia
 ```
 
 ### Las preguntas que solo los usuarios reales responden
@@ -324,4 +372,27 @@ Ninguna de estas hipótesis se valida con más código:
 Eso vale más que cualquier feature desarrollada a ciegas.
 
 > El MVP no es el producto perfecto. Es el producto más pequeño que genera aprendizaje real.
+
+---
+
+## Ideas — Backlog (de IDEAS.md)
+
+> Ideas para después del lanzamiento, ordenadas por impacto estimado.
+
+### 💡 Tablero de Motivación (Alto impacto)
+- Espacio para que el trader suba sus metas, imágenes de sus sueños y cuentas pasadas
+- Pop-ups contextuales según el estado del trader:
+  - 4 días perdiendo → mostrar todas las evaluaciones que ha pasado
+  - Racha de pérdidas → "Recuerda por qué empezaste" con sus imágenes y metas
+  - Gran ganancia → celebración con logros históricos
+- Etiquetas por etapa: evaluación, fondeado, en racha, en pérdida
+- **Por qué es valioso**: diferenciador emocional — ningún journal tiene esto. Conecta con la psicología del trader
+
+### 💡 Sistema de Códigos de Descuento + Afiliados (Alto impacto para adquisición)
+- Códigos de descuento generables desde admin panel
+- Códigos de afiliado para influencers traders: cada código trackea registros y conversiones
+- Pago de comisión por conversión (% del plan mensual o pago único)
+- Dashboard de afiliado: clicks, registros, pagos generados
+- **Por qué es valioso**: canal de adquisición escalable — un influencer con 50k seguidores puede traer 200+ usuarios
+- **Prerequisito**: pasarela de pagos activa
 

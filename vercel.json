@@ -7,6 +7,14 @@
     {
       "path": "/api/cron/market-preview",
       "schedule": "0 19 * * 0"
+    },
+    {
+      "path": "/api/cron/check-subscriptions",
+      "schedule": "30 0 * * *"
+    },
+    {
+      "path": "/api/cron/charge-subscriptions",
+      "schedule": "0 10 * * *"
     }
   ]
 }

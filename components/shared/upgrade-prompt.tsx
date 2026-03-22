@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Zap, X, ArrowRight, Lock, Clock } from "lucide-react";
+import { Zap, X, ArrowRight, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import type { PlanKey, BillingInterval } from "@/lib/lemonsqueezy/client";
@@ -113,12 +113,12 @@ export function UpgradePrompt({
         <div className="flex items-center gap-2 shrink-0">
           <Button
             size="sm"
-            disabled
-            className="font-semibold text-xs h-8 cursor-not-allowed"
-            style={{ background: "rgba(0,193,124,0.12)", color: "#00C17C", border: "1px solid rgba(0,193,124,0.3)" }}
+            onClick={handleUpgrade}
+            disabled={loading}
+            className="font-semibold text-xs h-8"
+            style={{ background: "#00C17C", color: "#001B1F" }}
           >
-            <Clock className="w-3.5 h-3.5 mr-1" />
-            Muy pronto
+            {loading ? 'Procesando...' : 'Actualizar plan'}
           </Button>
 
           {onDismiss && (
@@ -179,12 +179,13 @@ export function UpgradePrompt({
 
         <Button
           size="sm"
-          disabled
-          className="w-full font-semibold text-sm cursor-not-allowed"
-          style={{ background: "rgba(0,193,124,0.12)", color: "#00C17C", border: "1px solid rgba(0,193,124,0.3)" }}
+          onClick={handleUpgrade}
+          disabled={loading}
+          className="w-full font-semibold text-sm"
+          style={{ background: "#00C17C", color: "#001B1F" }}
         >
-          <Clock className="w-4 h-4 mr-1.5" />
-          Muy pronto
+          {loading ? 'Procesando...' : `Actualizar a ${plan.name}`}
+          {!loading && <ArrowRight className="w-3.5 h-3.5 ml-1.5" />}
         </Button>
       </div>
     );
@@ -298,16 +299,17 @@ export function UpgradePrompt({
         </div>
 
         <Button
-          disabled
-          className="w-full font-semibold h-11 cursor-not-allowed"
-          style={{ background: "rgba(0,193,124,0.12)", color: "#00C17C", border: "1px solid rgba(0,193,124,0.3)" }}
+          onClick={handleUpgrade}
+          disabled={loading}
+          className="w-full font-semibold h-11"
+          style={{ background: "#00C17C", color: "#001B1F" }}
         >
-          <Clock className="w-4 h-4 mr-2" />
-          Muy pronto
+          {loading ? 'Redirigiendo...' : `Comenzar con ${plan.name}`}
+          {!loading && <ArrowRight className="w-4 h-4 ml-2" />}
         </Button>
 
         <p className="text-center text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>
-          Disponible muy pronto · Únete gratis ahora
+          Pago seguro vía Wompi · Cancela cuando quieras
         </p>
       </div>
     </div>

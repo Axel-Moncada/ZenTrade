@@ -34,34 +34,8 @@ export default function PricingSection() {
           <p className="text-lg md:text-xl text-zen-text-muted">{l.pricingSubtitle}</p>
         </div>
 
-        {/* ── Coming soon wrapper — quitar cuando pagos estén activos ────────── */}
-        <div className="relative">
-
-          {/* Blur overlay — quitar este bloque cuando pagos estén activos */}
-          <div
-            className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-5 rounded-2xl"
-            style={{ backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", background: "rgba(0,12,8,0.72)" }}
-          >
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zen-caribbean-green/40"
-              style={{ background: "rgba(0,193,124,0.08)" }}
-            >
-              <Clock className="h-4 w-4 text-zen-caribbean-green" />
-              <span className="text-sm font-semibold text-zen-caribbean-green">Muy pronto</span>
-            </div>
-            <p className="text-xl font-semibold text-zen-anti-flash text-center px-4">
-              Los planes de pago llegan muy pronto
-            </p>
-            <p className="text-sm text-zen-text-muted text-center max-w-sm px-4">
-              Por ahora disfruta Zentrade completamente gratis. Te avisaremos cuando los planes estén disponibles.
-            </p>
-            <Link href="/register">
-              <Button className="bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black font-semibold mt-1">
-                Comenzar gratis
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
+        {/* ── Pricing content ── */}
+        <div>
 
           {/* ── Billing toggle ─────────────────────────────────────────────────── */}
           <div className="flex items-center justify-center mb-16">
@@ -234,7 +208,7 @@ export default function PricingSection() {
             );
           })}
         </div>
-        </div>{/* /coming-soon wrapper */}
+        </div>{/* /pricing-content */}
 
         {/* FAQ */}
         <div className="max-w-3xl mx-auto text-center pt-16 border-t border-zen-border-soft">

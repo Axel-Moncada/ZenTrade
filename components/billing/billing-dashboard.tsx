@@ -117,9 +117,9 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
 
   // ── Helpers ────────────────────────────────────────────────────────────────
 
-  function displayPrice(plan: PlanConfig) {
-    if (interval === 'month') return plan.price_monthly;
-    return Math.round((plan.price_annual / 12) * 100) / 100;
+  function displayPrice(plan: PlanConfig): string {
+    if (interval === 'month') return String(plan.price_monthly);
+    return String(Math.round((plan.price_annual / 12) * 100) / 100);
   }
 
   // ── Render ─────────────────────────────────────────────────────────────────
@@ -227,27 +227,8 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
         </div>
       )}
 
-      {/* ── Coming soon wrapper — quitar cuando pagos estén activos ── */}
-      <div className="relative rounded-xl overflow-hidden">
-        {/* Blur overlay — quitar este bloque cuando pagos estén activos */}
-        <div
-          className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 rounded-xl"
-          style={{ backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", background: "rgba(0,12,8,0.78)" }}
-        >
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zen-caribbean-green/40"
-            style={{ background: "rgba(0,193,124,0.08)" }}
-          >
-            <Clock className="h-4 w-4 text-zen-caribbean-green" />
-            <span className="text-sm font-semibold text-zen-caribbean-green">Muy pronto</span>
-          </div>
-          <p className="text-lg font-semibold text-zen-anti-flash text-center px-4">
-            Los planes de pago llegan muy pronto
-          </p>
-          <p className="text-sm text-stone-400 text-center max-w-xs px-4">
-            Actualmente solo está disponible el plan gratuito. Te notificaremos cuando los planes de pago se activen.
-          </p>
-        </div>
+      {/* ── Plans ── */}
+      <div>
 
         {/* ── Interval toggle + heading ── */}
         <div className="flex items-center justify-between gap-4">
@@ -338,7 +319,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                 </div>
                 {interval === 'year' && (
                   <p className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                    Facturado ${plan.price_annual} al año
+                    Facturado ${plan.price_annual} USD al año · cobrado en COP
                   </p>
                 )}
               </div>
@@ -370,11 +351,12 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                 </Button>
               ) : activeSub ? (
                 <Button
-                  disabled
+                  onClick={() => handleCheckout(plan)}
+                  disabled={isLoading}
                   variant="outline"
-                  className="w-full border-zen-forest/30 text-zen-anti-flash/40"
+                  className="w-full border-zen-forest/50 text-zen-anti-flash/70 hover:border-zen-forest hover:text-zen-anti-flash"
                 >
-                  Gestionar desde PayPal
+                  {isLoading ? 'Procesando...' : 'Cambiar a este plan'}
                 </Button>
               ) : (
                 <Button
@@ -394,7 +376,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
           );
         })}
       </div>
-      </div>{/* /coming-soon wrapper */}
+      </div>{/* /plans */}
     </div>
   );
 }

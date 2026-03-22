@@ -24,6 +24,7 @@ export interface Database {
           status: "active" | "cancelled" | "expired" | "paused" | "past_due" | "unpaid" | "on_trial";
           current_period_end: string | null;
           customer_portal_url: string | null;
+          wompi_payment_source_id: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -38,6 +39,7 @@ export interface Database {
           status: "active" | "cancelled" | "expired" | "paused" | "past_due" | "unpaid" | "on_trial";
           current_period_end?: string | null;
           customer_portal_url?: string | null;
+          wompi_payment_source_id?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -52,6 +54,7 @@ export interface Database {
           status?: "active" | "cancelled" | "expired" | "paused" | "past_due" | "unpaid" | "on_trial";
           current_period_end?: string | null;
           customer_portal_url?: string | null;
+          wompi_payment_source_id?: string | null;
           created_at?: string;
           updated_at?: string;
         };
