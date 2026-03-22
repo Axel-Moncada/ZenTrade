@@ -46,6 +46,11 @@ interface WompiPaymentLinkApiResponse {
   data: { id: string };
 }
 
+export interface CreatePaymentLinkResult {
+  url: string;
+  linkId: string;
+}
+
 interface WompiMerchantResponse {
   data: {
     presigned_acceptance: {
@@ -144,7 +149,7 @@ const INTERVAL_NAMES: Record<BillingInterval, string> = {
   annual:  'Anual',
 };
 
-export async function createPaymentLink(params: WompiPaymentLinkParams): Promise<string> {
+export async function createPaymentLink(params: WompiPaymentLinkParams): Promise<CreatePaymentLinkResult> {
   const { plan, interval, userId, userEmail, userName, redirectUrl } = params;
 
   const base           = getWompiApiBase();
@@ -182,7 +187,10 @@ export async function createPaymentLink(params: WompiPaymentLinkParams): Promise
   }
 
   const data = await res.json() as WompiPaymentLinkApiResponse;
-  return `https://checkout.wompi.co/l/${data.data.id}`;
+  return {
+    url:    `https://checkout.wompi.co/l/${data.data.id}`,
+    linkId: data.data.id,
+  };
 }
 
 // ── Charge payment source (cobro recurrente) ──────────────────────────────────

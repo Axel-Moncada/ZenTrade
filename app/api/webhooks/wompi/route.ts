@@ -1,17 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase/admin';
-import { validateWebhookChecksum, parseReference } from '@/lib/wompi/client';
+import { validateWebhookChecksum } from '@/lib/wompi/client';
 import type { WompiWebhookPayload } from '@/lib/wompi/client';
+import type { PlanKey, BillingInterval } from '@/lib/lemonsqueezy/client';
 
 /**
  * POST /api/webhooks/wompi
- * Recibe eventos transaction.updated de Wompi.
  *
- * Flujo de suscripción:
- * 1ª compra (payment link):
- *   → webhook crea/actualiza la suscripción + guarda payment_source_id
- * Cobros recurrentes (cron charge-subscriptions):
- *   → mismo webhook detecta referencia ZT- y extiende el período
+ * Wompi genera su propia reference para payment links (ej: "NmsoyG_1774144150_lvOuF203u").
+ * El primer segmento antes del "_" es el payment link ID.
+ * Usamos la tabla pending_checkouts para mapear linkId → usuario+plan.
  */
 export async function POST(req: NextRequest) {
   const payload = await req.json() as WompiWebhookPayload;
@@ -27,31 +25,39 @@ export async function POST(req: NextRequest) {
 
   const { transaction } = payload.data;
 
-  if (transaction.status !== 'APPROVED') {
-    // Si el cobro recurrente fue rechazado, marcar la suscripción como past_due
-    if (transaction.status === 'DECLINED' || transaction.status === 'ERROR') {
-      const parsed = parseReference(transaction.reference);
-      if (parsed) {
-        await supabaseAdmin
-          .from('subscriptions')
-          .update({ status: 'past_due', updated_at: new Date().toISOString() })
-          .eq('user_id', parsed.userId)
-          .in('status', ['active']);
-      }
-    }
+  // Extraer payment link ID del reference (formato Wompi: "{linkId}_{timestamp}_{random}")
+  const linkId = transaction.reference.split('_')[0];
+
+  // Buscar el pending checkout para saber a qué usuario y plan corresponde
+  const { data: pending } = await supabaseAdmin
+    .from('pending_checkouts')
+    .select('user_id, plan_key, billing_interval')
+    .eq('id', linkId)
+    .maybeSingle();
+
+  if (!pending) {
+    console.error('[wompi-webhook] no pending checkout para linkId:', linkId, '| ref:', transaction.reference);
+    return NextResponse.json({ error: 'Unknown payment link' }, { status: 400 });
+  }
+
+  const { user_id: userId, plan_key: plan, billing_interval: interval } = pending;
+
+  // Si el pago fue rechazado, marcar past_due
+  if (transaction.status === 'DECLINED' || transaction.status === 'ERROR') {
+    await supabaseAdmin
+      .from('subscriptions')
+      .update({ status: 'past_due', updated_at: new Date().toISOString() })
+      .eq('user_id', userId)
+      .in('status', ['active']);
     return NextResponse.json({ ok: true });
   }
 
-  const parsed = parseReference(transaction.reference);
-  if (!parsed) {
-    console.error('[wompi-webhook] referencia inválida:', transaction.reference);
-    return NextResponse.json({ error: 'Invalid reference' }, { status: 400 });
+  if (transaction.status !== 'APPROVED') {
+    return NextResponse.json({ ok: true });
   }
 
-  const { userId, plan, interval } = parsed;
+  // Calcular fin del período
   const now = new Date();
-
-  // Calcular fin del nuevo período
   const periodEnd = new Date(now);
   if (interval === 'monthly') {
     periodEnd.setDate(periodEnd.getDate() + 30);
@@ -60,22 +66,21 @@ export async function POST(req: NextRequest) {
   }
 
   const updateData = {
-    plan_key:                  plan,
-    billing_interval:          interval,
+    plan_key:                  plan as PlanKey,
+    billing_interval:          interval as BillingInterval,
     status:                    'active' as const,
     processor_subscription_id: transaction.id,
     processor_customer_id:     transaction.customer_email,
     variant_id:                `wompi-${plan}-${interval}`,
     current_period_end:        periodEnd.toISOString(),
     customer_portal_url:       null as string | null,
-    // Guardar payment_source_id si está disponible (permite cobros recurrentes)
     ...(transaction.payment_source_id
       ? { wompi_payment_source_id: transaction.payment_source_id }
       : {}),
     updated_at: now.toISOString(),
   };
 
-  // Buscar suscripción existente del usuario
+  // Upsert suscripción
   const { data: existing } = await supabaseAdmin
     .from('subscriptions')
     .select('id')
@@ -89,7 +94,6 @@ export async function POST(req: NextRequest) {
       .from('subscriptions')
       .update(updateData)
       .eq('id', existing.id);
-
     if (error) {
       console.error('[wompi-webhook] error actualizando:', error);
       return NextResponse.json({ error: 'DB error' }, { status: 500 });
@@ -98,17 +102,12 @@ export async function POST(req: NextRequest) {
     const { error } = await supabaseAdmin
       .from('subscriptions')
       .insert({ user_id: userId, ...updateData });
-
     if (error) {
       console.error('[wompi-webhook] error insertando:', error);
       return NextResponse.json({ error: 'DB error' }, { status: 500 });
     }
   }
 
-  console.log(
-    `[wompi-webhook] ✓ ${userId} → ${plan} (${interval}) hasta ${periodEnd.toISOString()}`,
-    transaction.payment_source_id ? `| ps: ${transaction.payment_source_id}` : '| sin payment_source',
-  );
-
+  console.log(`[wompi-webhook] ✓ ${userId} → ${plan} (${interval}) hasta ${periodEnd.toISOString()}`);
   return NextResponse.json({ ok: true });
 }

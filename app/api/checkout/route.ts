@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
+import { supabaseAdmin } from '@/lib/supabase/admin';
 import { createPaymentLink } from '@/lib/wompi/client';
 
 const CheckoutSchema = z.object({
@@ -23,11 +24,11 @@ export async function POST(req: NextRequest) {
 
   const origin = req.headers.get('origin')
     ?? process.env.NEXT_PUBLIC_APP_URL
-    ?? 'https://zen-trader.com';
+    ?? 'https://www.zen-trader.com';
   const redirectUrl = `${origin}/dashboard/billing?success=true`;
 
   try {
-    const checkoutUrl = await createPaymentLink({
+    const { url, linkId } = await createPaymentLink({
       plan,
       interval,
       userId:    user.id,
@@ -36,7 +37,15 @@ export async function POST(req: NextRequest) {
       redirectUrl,
     });
 
-    return NextResponse.json({ url: checkoutUrl });
+    // Guardar mapping payment_link_id → usuario+plan para el webhook
+    await supabaseAdmin.from('pending_checkouts').insert({
+      id:               linkId,
+      user_id:          user.id,
+      plan_key:         plan,
+      billing_interval: interval,
+    });
+
+    return NextResponse.json({ url });
   } catch (err) {
     console.error('[checkout]', err);
     return NextResponse.json({ error: 'Error al crear enlace de pago' }, { status: 500 });
