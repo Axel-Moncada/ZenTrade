@@ -404,9 +404,15 @@ Voz: "Los primeros 50 usuarios: 30 días del plan Professional gratis. Sin tarje
 
 ### Versión A — Para YouTubers/TikTokers de trading en LATAM
 
-**Asunto:** Zentrade — construí algo que creo que tu audiencia necesita
+**Asunto (TOP 1):** Lo que FTMO mide que el 85% de traders no sabe
 
-**Preview text:** Te cuento en 2 minutos. Sin rodeos.
+**Preview text:** Construí un tool que lo calcula automáticamente. Te lo muestro en 2 min.
+
+**Alternativas para A/B test:**
+- A2: `Pasaste el profit target. Te reprobaron igual. ¿Por qué?` — Preview: `La consistency rule. Y construí algo que la mide en tiempo real.`
+- A3: `Dev colombiano, acabo de lanzar algo para tu audiencia` — Preview: `Journal de trading con IA. Revenge trading detection. Hoy live.`
+- A4: `Construí el TradeZella en español. Hoy está live.` — Preview: `Con IA que detecta revenge trading y consistency rule en tiempo real.`
+- A5: `El 85% de tus seguidores va a fallar su próxima evaluación` — Preview: `No es la estrategia. Es algo que casi nadie mide y que acabo de resolver.`
 
 ---
 
@@ -439,7 +445,7 @@ zen-trader.com
 
 ---
 
-**Asunto alternativo (variante B):** "¿Cuántos de tus seguidores han fallado evaluaciones de fondeo por el mismo motivo?"
+**Asunto alternativo descartado:** "¿Cuántos de tus seguidores han fallado evaluaciones de fondeo por el mismo motivo?" — reemplazado por las 5 opciones de arriba.
 
 ---
 
@@ -449,9 +455,15 @@ zen-trader.com
 
 ### Versión B — Para coaches de prop firms / traders con comunidad pequeña (1K-20K seguidores)
 
-**Asunto:** Te traigo algo que tu comunidad puede usar desde hoy
+**Asunto (TOP 1):** 30% comisión recurrente — lancé mi journal de trading hoy
 
-**Preview text:** Con acceso gratis y comisiones recurrentes si quieres.
+**Preview text:** 12 meses de comisiones. Sin mínimos. Tu comunidad recibe 20% de descuento.
+
+**Alternativas para A/B test:**
+- B2: `Algo útil para tu comunidad de prop firms + ingresos para ti` — Preview: `Journal con IA para traders de futuros. Afiliados con 30% recurrente.`
+- B3: `Lo que te hubiera ahorrado 3 evaluaciones falladas` — Preview: `Zentrade detecta los patrones que te hacen sabotear tus evaluaciones.`
+- B4: `Tool gratis para tu comunidad + 30% recurrente para ti` — Preview: `Journal de trading con IA para traders de futuros. Lanzamiento hoy.`
+- B5: `El journal de trading para LATAM que nadie había hecho` — Preview: `En español, con IA, para pruebas de fondeo. Hoy live en zen-trader.com`
 
 ---
 
