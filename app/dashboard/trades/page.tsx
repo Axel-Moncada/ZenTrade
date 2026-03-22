@@ -220,7 +220,7 @@ export default function TradesPage() {
         </div>
         <div className="flex gap-3">
           {/* Importar — bloqueado para Starter/Free */}
-          {!plan.loading && plan.isPro ? (
+          {!plan.loading && (plan.isPro || plan.isZenMode) ? (
             <Link href="/dashboard/trades/import">
               <Button className="gap-2 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black">
                 <Upload className="h-4 w-4" />
@@ -251,7 +251,7 @@ export default function TradesPage() {
       </div>
 
       {/* Upgrade prompt inline — aparece al hacer click en el botón bloqueado */}
-      {showImportUpgrade && !plan.isPro && (
+      {showImportUpgrade && !plan.isPro && !plan.isZenMode && (
         <UpgradePrompt
           requiredPlan="pro"
           variant="banner"
