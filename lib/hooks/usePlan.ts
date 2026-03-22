@@ -84,7 +84,7 @@ export function usePlan(): PlanInfo {
       // Si hay varias suscripciones activas, elegir la de mayor jerarquía
       const PLAN_PRIORITY: Record<PlanKey, number> = { zenmode: 3, pro: 2, starter: 1, free: 0 };
       const subscription = [...subscriptions].sort(
-        (a, b) => PLAN_PRIORITY[b.plan_key] - PLAN_PRIORITY[a.plan_key]
+        (a, b) => PLAN_PRIORITY[b.plan_key as PlanKey] - PLAN_PRIORITY[a.plan_key as PlanKey]
       )[0];
 
       const isActive = ACTIVE_STATUSES.includes(subscription.status);
