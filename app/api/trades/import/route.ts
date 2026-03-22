@@ -144,8 +144,8 @@ export async function POST(request: NextRequest) {
         emotions = trade.emotions
       }
 
-      const contracts = typeof trade.contracts === 'number' ? trade.contracts : parseInt(trade.contracts)
-      const result = typeof trade.result === 'number' ? trade.result : parseFloat(trade.result)
+      const contracts = typeof trade.contracts === 'number' ? trade.contracts : parseInt(String(trade.contracts ?? ''))
+      const result = typeof trade.result === 'number' ? trade.result : parseFloat(String(trade.result ?? ''))
       
       // Validar que result y contracts sean números válidos
       if (isNaN(contracts) || isNaN(result)) {
@@ -155,9 +155,9 @@ export async function POST(request: NextRequest) {
       return {
         user_id: user.id,
         account_id,
-        instrument_id: instrumentsMap.get(trade.instrument_symbol),
+        instrument_id: instrumentsMap.get(trade.instrument_symbol as string),
         trade_date: tradeDate,
-        side: trade.side,
+        side: trade.side as string,
         contracts,
         result,
         exit_reason: trade.exit_reason || null,
