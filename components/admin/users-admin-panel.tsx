@@ -147,7 +147,7 @@ export function UsersAdminPanel() {
       {/* Table */}
       <div className="border border-zen-forest/30 rounded-xl overflow-hidden">
         {/* Header */}
-        <div className="grid grid-cols-[1fr_auto_auto_auto_auto] gap-4 px-5 py-3 bg-zen-surface/80 border-b border-zen-forest/30 text-xs font-semibold uppercase tracking-wider text-zen-text-muted">
+        <div className="grid grid-cols-[1fr_160px_80px_130px_130px] gap-4 px-5 py-3 bg-zen-surface/80 border-b border-zen-forest/30 text-xs font-semibold uppercase tracking-wider text-zen-text-muted">
           <span>Usuario</span>
           <span>Plan</span>
           <span className="text-right">Trades</span>
@@ -165,7 +165,7 @@ export function UsersAdminPanel() {
             return (
               <div key={u.id} className="border-b border-zen-forest/20 last:border-0">
                 {/* Row */}
-                <div className="grid grid-cols-[1fr_auto_auto_auto_auto] gap-4 px-5 py-4 items-center hover:bg-zen-surface/30 transition-colors">
+                <div className="grid grid-cols-[1fr_160px_80px_130px_130px] gap-4 px-5 py-4 items-center hover:bg-zen-surface/30 transition-colors">
                   {/* Email + name */}
                   <div className="min-w-0">
                     <p className="text-sm font-medium text-zen-anti-flash truncate">{u.email}</p>
