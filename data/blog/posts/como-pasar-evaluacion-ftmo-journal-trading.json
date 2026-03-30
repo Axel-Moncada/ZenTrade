@@ -1,0 +1,242 @@
+{
+  "slug": "como-pasar-evaluacion-ftmo-journal-trading",
+  "title": "Cómo Pasar la Evaluación de FTMO con un Journal de Trading",
+  "excerpt": "Guía completa para pasar la evaluación de FTMO: reglas de consistency, drawdown, profit target y cómo un trading journal como Zentrade te ayuda a cumplir cada una.",
+  "seoTitle": "Cómo Pasar la Evaluación de FTMO con un Journal | Zentrade",
+  "seoDescription": "Aprende cómo pasar la evaluación de FTMO cumpliendo la consistency rule, el max drawdown y el profit target. Un trading journal como Zentrade lo hace más fácil.",
+  "keywords": [
+    "cómo pasar evaluación FTMO",
+    "consistency rule FTMO",
+    "journal de trading para FTMO",
+    "pasar FTMO futuros",
+    "reglas FTMO explicadas"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-03-29",
+  "updatedAt": "2026-03-29",
+  "category": "prop-firms",
+  "tags": ["FTMO", "evaluación", "consistency rule", "journal de trading", "prop firms", "futuros"],
+  "readingTime": 10,
+  "featured": true,
+  "content": [
+    {
+      "type": "p",
+      "text": "Pasar la evaluación de FTMO no es solo cuestión de estrategia. Puedes tener un sistema rentable y seguir fallando la evaluación si no entiendes cómo funciona exactamente la <strong>consistency rule</strong>, el <strong>trailing drawdown</strong> y el proceso de verificación. Esta guía explica las reglas de FTMO de forma concreta y muestra cómo un journal de trading como <strong>Zentrade</strong> te ayuda a cumplir cada una de ellas en tiempo real."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "El error más frecuente en FTMO no es superar el drawdown máximo — es llegar al profit target pero ser rechazado en verificación por violar la consistency rule. Un journal de trading te alerta sobre esto antes de que sea demasiado tarde."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo pasar la evaluación de FTMO: las reglas que realmente importan"
+    },
+    {
+      "type": "p",
+      "text": "FTMO tiene dos fases: la <strong>FTMO Challenge</strong> (fase 1) y la <strong>Verification</strong> (fase 2). Ambas tienen las mismas reglas de riesgo, pero la fase de verificación es donde la mayoría de los traders que ya pasaron la primera fase se eliminan. Las reglas que debes cumplir en ambas fases son cuatro."
+    },
+    {
+      "type": "h3",
+      "text": "Regla 1: Profit Target"
+    },
+    {
+      "type": "p",
+      "text": "En la fase Challenge debes alcanzar un <strong>10% de ganancia sobre el capital inicial</strong>. En la Verification, el objetivo baja al 5%. El error más común aquí es apresurarse y romper las reglas de riesgo en los últimos días tratando de cerrar el profit target. Un journal de trading bien configurado te muestra cuánto te falta para el objetivo y cuántos días tienes disponibles, lo que te permite calcular el ritmo diario necesario sin arriesgar la evaluación."
+    },
+    {
+      "type": "h3",
+      "text": "Regla 2: Max Daily Loss"
+    },
+    {
+      "type": "p",
+      "text": "FTMO permite un máximo de <strong>5% de pérdida en un solo día</strong> (calculado sobre el balance o equity inicial del día, según la versión del contrato). Superar este límite en un solo día invalida la evaluación inmediatamente, sin importar si el resto del mes fue rentable. Zentrade registra las pérdidas de cada día en el calendario y te permite ver en tiempo real cuánto espacio de pérdida te queda antes de llegar al límite."
+    },
+    {
+      "type": "h3",
+      "text": "Regla 3: Max Overall Drawdown"
+    },
+    {
+      "type": "p",
+      "text": "El drawdown máximo permitido en FTMO es del <strong>10% sobre el capital inicial</strong> (no sobre el equity actual). Esto es importante: si tienes una cuenta de $100,000, el drawdown máximo es $10,000 desde el capital inicial — no desde el punto más alto de tu equity. El gráfico de equity curve de Zentrade visualiza este límite como una línea roja para que nunca pierdas de vista cuánto espacio de drawdown te queda."
+    },
+    {
+      "type": "h3",
+      "text": "Regla 4: Consistency Rule (la más subestimada)"
+    },
+    {
+      "type": "p",
+      "text": "Esta es la regla que más traders pasan por alto y la principal causa de rechazo en la fase de Verificación. La consistency rule de FTMO establece que <strong>ningún día puede representar más del 30% de tu ganancia neta total</strong>. Ejemplo: si al final de la evaluación tu ganancia neta es $5,000, ningún día individual puede haber generado más de $1,500 (30% de $5,000). Si tienes un día excepcional donde ganas $4,000 y el resto de la evaluación suma $1,000 de ganancia, ese día representa el 80% del total — violación directa de la regla."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Zentrade calcula el consistency % en tiempo real: en tu dashboard verás exactamente qué porcentaje de tu ganancia total corresponde al mejor día. Si estás por encima del 30%, la plataforma te lo señala antes de que finalice la evaluación."
+    },
+    {
+      "type": "h2",
+      "text": "Por qué el 85% de los traders falla la evaluación de FTMO"
+    },
+    {
+      "type": "p",
+      "text": "FTMO ha publicado estadísticas internas que muestran que más del 85% de las cuentas abiertas no superan el Challenge. Las causas más frecuentes, en orden de frecuencia, son:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Violación del Max Daily Loss — generalmente en días donde el mercado se mueve en contra y el trader sigue operando",
+        "No alcanzar el Profit Target en el tiempo disponible — por operar con tamaño de posición insuficiente o ser demasiado conservador",
+        "Violación de la Consistency Rule — el trader tiene un día excepcional que distorsiona el ratio",
+        "Revenge trading después de una pérdida grande — el trader intenta recuperar rápidamente y viola el Daily Loss",
+        "Abandono — el trader deja de operar después de una racha mala sin haber violado ninguna regla"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Los puntos 1, 3 y 4 de esta lista — los más frecuentes — son exactamente los patrones que un journal de trading bien diseñado puede detectar y alertarte antes de que los cometas. <strong>Zentrade</strong> está construido específicamente para cubrir estos tres vectores de fallo."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo usar Zentrade para pasar la evaluación de FTMO"
+    },
+    {
+      "type": "p",
+      "text": "La ventaja concreta de usar Zentrade durante una evaluación de FTMO no es solo tener los datos organizados — es tener un sistema de alertas y métricas que funciona como un copiloto de riesgo. Así es como cada feature se mapea a las reglas de FTMO:"
+    },
+    {
+      "type": "table",
+      "headers": ["Regla de FTMO", "Cómo Zentrade te ayuda", "Plan requerido"],
+      "rows": [
+        ["Profit Target 10%", "Dashboard muestra progreso diario hacia el objetivo", "Free"],
+        ["Max Daily Loss 5%", "Calendario con PnL diario, alerta si te acercas al límite", "Free"],
+        ["Max Overall Drawdown 10%", "Equity curve con línea de drawdown máximo visible", "Professional"],
+        ["Consistency Rule 30%", "Consistency % en tiempo real en el dashboard", "Free"],
+        ["Análisis de patrones emocionales", "Calendario emocional + tags por trade", "Professional"],
+        ["Detección de revenge trading", "IA que alerta si detecta el patrón", "ZenMode"],
+        ["Reporte semanal de rendimiento", "Análisis IA con contexto emocional y horario", "ZenMode"]
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "Paso 1: Configura tu cuenta en Zentrade como cuenta de evaluación"
+    },
+    {
+      "type": "p",
+      "text": "Cuando creas una cuenta en Zentrade, puedes configurarla como cuenta de <strong>Evaluation</strong> e ingresar el capital inicial, el profit target y los límites de drawdown de tu empresa de fondeo. Zentrade usa estos parámetros para calcular tu progreso relativo al objetivo — no solo en valores absolutos, sino como porcentaje del target. Esto te da una lectura instantánea de en qué punto de la evaluación estás."
+    },
+    {
+      "type": "h3",
+      "text": "Paso 2: Registra cada trade con su contexto emocional"
+    },
+    {
+      "type": "p",
+      "text": "El registro emocional es la función más ignorada de los journals de trading y la más importante para los traders que fallan evaluaciones por revenge trading. En Zentrade, cada trade tiene un campo de emotion tag: puedes registrar si entrabas con miedo, convicción, FOMO, frustración o claridad. Después de 20 o 30 trades registrados, el dashboard te muestra la correlación entre estado emocional y PnL — si el 70% de tus pérdidas ocurren cuando estás en estado 'frustración', ese dato vale más que cualquier indicador técnico."
+    },
+    {
+      "type": "h3",
+      "text": "Paso 3: Revisa el reporte semanal antes del lunes"
+    },
+    {
+      "type": "p",
+      "text": "En los planes Professional y ZenMode, Zentrade genera cada lunes un <strong>reporte semanal con IA</strong> que analiza tu semana de trading: cuándo operaste mejor, qué días fueron más consistentes, qué instrumentos te generaron más pérdidas, y — si tienes ZenMode — si detectó patrones de revenge trading en algún momento de la semana. Este reporte llega a tu email antes de que abras el mercado el lunes, lo que te permite ajustar tu plan de trading con datos reales en lugar de sensaciones."
+    },
+    {
+      "type": "cta",
+      "text": "Registra tu primera cuenta de evaluación en Zentrade. El plan gratuito incluye el dashboard de métricas, el calendario de trades y el cálculo de consistency % en tiempo real.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "h2",
+      "text": "Estrategia práctica para pasar FTMO: la regla de los 3 límites diarios"
+    },
+    {
+      "type": "p",
+      "text": "Más allá del journal, hay una estrategia operativa que aumenta significativamente la probabilidad de pasar la evaluación de FTMO. Se basa en establecer tres límites diarios que operas con disciplina antes de abrir el mercado:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Límite de pérdida diaria personal:</strong> Fija tu max daily loss personal en el 60-70% del límite de FTMO. Si FTMO permite 5% ($5,000 en una cuenta de $100K), tu límite personal es $3,000-$3,500. Esto te da margen para días malos sin eliminar la cuenta.",
+        "<strong>Límite de ganancia diaria:</strong> Establece un profit máximo diario que no supere el 25% de tu ganancia total acumulada. Esto te protege automáticamente de violar la consistency rule en días excepcionales.",
+        "<strong>Límite de trades consecutivos perdedores:</strong> Define cuántos trades perdedores consecutivos toleras antes de cerrar el día. La mayoría de los traders que violan el daily loss lo hacen después del tercer o cuarto trade perdedor consecutivo en un intento de recuperación."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Puedes guardar estos tres límites en tu Trading Plan dentro de Zentrade (disponible en Professional). El sistema te mostrará si los estás respetando semana a semana."
+    },
+    {
+      "type": "h2",
+      "text": "FTMO vs Apex vs TopStep: ¿cuál evaluación es más fácil de pasar?"
+    },
+    {
+      "type": "p",
+      "text": "Si estás eligiendo por qué empresa de fondeo empezar, la comparación más relevante es la estructura de reglas de cada una:"
+    },
+    {
+      "type": "table",
+      "headers": ["Empresa", "Profit Target Fase 1", "Max Daily Loss", "Max Drawdown", "Consistency Rule", "Trailing Drawdown"],
+      "rows": [
+        ["FTMO", "10%", "5%", "10%", "Sí (30%)", "No"],
+        ["Apex Trader Funding", "6% (variable)", "No fijo (trailing)", "Variable", "No", "Sí"],
+        ["TopStep", "6%", "No fijo (trailing)", "Variable", "No", "Sí"],
+        ["Tradoverse", "8%", "4%", "8%", "No", "No"],
+        ["Uprofit", "8%", "4%", "8%", "No", "No"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "La diferencia más importante: FTMO tiene consistency rule pero no trailing drawdown. Apex y TopStep tienen trailing drawdown (el drawdown se mueve con tu equity máximo alcanzado) pero no tienen consistency rule. Para traders con días de alta volatilidad donde generan grandes ganancias puntuales, Apex o TopStep pueden ser más adecuados. Para traders más consistentes y sistemáticos, FTMO es una buena opción. <strong>Zentrade soporta la configuración de cuentas para todas estas empresas de fondeo</strong>, con los parámetros correctos para cada una."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Qué es la consistency rule de FTMO y cómo se calcula?",
+          "a": "La consistency rule de FTMO establece que ningún día puede representar más del 30% de tu ganancia neta total al finalizar la evaluación. Se calcula dividiendo la ganancia de tu mejor día entre la suma de todas las ganancias netas del período. Si tu ganancia total es $5,000 y tu mejor día fue $1,200, estás en 24% — dentro del límite. Si tu mejor día fue $2,000 y el total es $4,000, estás en 50% — violación de la regla aunque hayas alcanzado el profit target."
+        },
+        {
+          "q": "¿Cuánto tiempo tengo para pasar el FTMO Challenge?",
+          "a": "El FTMO Challenge tiene un plazo de 30 días calendario con un mínimo de 4 días de trading activo. No necesitas operar todos los días — solo cumplir el profit target dentro del plazo respetando las reglas de riesgo. La fase de Verification tiene también 60 días y solo requiere alcanzar el 5% de profit target con el mismo perfil de riesgo."
+        },
+        {
+          "q": "¿Puedo usar Zentrade con mi cuenta de FTMO?",
+          "a": "Sí. Zentrade no se conecta directamente a FTMO, pero importa los trades desde el CSV de exportación de tu broker (MetaTrader, NinjaTrader, Tradovate). Creas una cuenta de tipo Evaluation en Zentrade con el capital y los límites de FTMO, y registras tus operaciones ahí. El dashboard calcula en tiempo real tu progreso hacia el profit target, tu consistency % y tu drawdown disponible."
+        },
+        {
+          "q": "¿Es mejor FTMO o Apex Trader Funding para traders de futuros?",
+          "a": "Depende de tu estilo de trading. FTMO tiene consistency rule (problemática para traders con días de alta volatilidad) pero no tiene trailing drawdown. Apex Trader Funding tiene trailing drawdown (el nivel de drawdown máximo sube con cada nuevo equity máximo alcanzado) pero no tiene consistency rule. Para traders de futuros que operan NQ o ES con días de alta volatilidad donde las ganancias son irregulares, Apex puede ser más adecuado. Para traders sistemáticos con resultados más uniformes, FTMO es una buena opción."
+        },
+        {
+          "q": "¿Qué pasa si violo la consistency rule en FTMO?",
+          "a": "Si al final de tu evaluación la consistency rule está violada — es decir, un día representa más del 30% de tu ganancia total — FTMO rechaza la cuenta aunque hayas alcanzado el profit target y respetado los límites de drawdown. No hay forma de 'corregir' esto retroactivamente. La única estrategia de mitigación es distribuir activamente las ganancias a lo largo de los días restantes o, si ya tienes un día excepcional, reducir deliberadamente el profit de los días siguientes para que el ratio mejore. Zentrade te alerta cuando el consistency % se acerca al límite."
+        },
+        {
+          "q": "¿Cuánto cuesta una cuenta FTMO para futuros?",
+          "a": "FTMO cobra una tarifa de evaluación que varía según el tamaño de la cuenta. Una cuenta de $100,000 cuesta aproximadamente $540-$600 USD por el proceso de evaluación. Si pasas, esta tarifa se devuelve en el primer pago de reparto de ganancias. FTMO opera con Forex, índices y materias primas — no tiene una oferta específica de futuros de CME como Apex o TopStep. Para traders de NQ, ES y otros futuros de CME, Apex Trader Funding y TopStep son opciones más directas."
+        },
+        {
+          "q": "¿Un journal de trading realmente ayuda a pasar evaluaciones?",
+          "a": "Sí, y hay una razón concreta: las evaluaciones de empresas de fondeo no miden solo rentabilidad — miden consistencia y gestión de riesgo. Un journal de trading bien llevado te da visibilidad sobre los patrones que arruinan la consistencia: el día de la semana donde pierdes más, el horario donde tomas malas decisiones, el número de trades consecutivos que preceden a tus violaciones de daily loss. Sin esos datos, estás piloteando a ciegas. Con un journal como Zentrade, puedes identificar y corregir esos patrones antes de que te eliminen la cuenta."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Empieza a trackear tu evaluación de FTMO con Zentrade hoy. El plan gratuito incluye el dashboard de métricas, el cálculo de consistency rule en tiempo real y el calendario de trades.",
+      "href": "/register",
+      "buttonText": "Probar Zentrade gratis"
+    }
+  ],
+  "relatedSlugs": [
+    "mejor-journal-trading-futuros-2025",
+    "consistency-rule-prop-firms-explicada",
+    "que-es-revenge-trading",
+    "que-es-drawdown-trading"
+  ]
+}

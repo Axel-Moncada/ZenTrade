@@ -1,11 +1,14 @@
+import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
 import LegalContent from "@/components/legal/legal-content";
 
-export const metadata = {
-  title: "Política de Privacidad — ZenTrade",
-  description: "Política de privacidad y protección de datos de ZenTrade. Cumple con el GDPR.",
+export const metadata: Metadata = {
+  title: "Política de Privacidad",
+  description: "Política de privacidad y protección de datos de Zentrade. Cumple con el GDPR y la normativa aplicable.",
+  alternates: { canonical: "https://zen-trader.com/privacy" },
+  robots: { index: true, follow: false },
 };
 
 export default async function PrivacyPage() {

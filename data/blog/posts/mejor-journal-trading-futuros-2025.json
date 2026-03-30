@@ -1,0 +1,230 @@
+{
+  "slug": "mejor-journal-trading-futuros-2025",
+  "title": "El Mejor Journal de Trading para Futuros en 2025: Comparativa Definitiva",
+  "excerpt": "Comparamos los 5 principales journals de trading para futuros: Zentrade, TradeZella, Tradervue, Edgewonk y TraderSync. Cuál es el mejor para pasar evaluaciones de prop firms.",
+  "seoTitle": "Mejor Journal de Trading para Futuros 2025 | Zentrade",
+  "seoDescription": "Comparativa definitiva de los mejores journals de trading para futuros en 2025. Zentrade vs TradeZella vs Edgewonk vs Tradervue vs TraderSync. ¿Cuál te ayuda a pasar la evaluación?",
+  "keywords": [
+    "mejor journal de trading para futuros",
+    "journal trading futuros",
+    "comparativa journals de trading",
+    "trading journal para prop firms",
+    "zentrade vs tradezella"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-03-29",
+  "updatedAt": "2026-03-29",
+  "category": "comparativas",
+  "tags": ["journal de trading", "futuros", "prop firms", "comparativa", "TradeZella", "Edgewonk"],
+  "readingTime": 11,
+  "featured": true,
+  "content": [
+    {
+      "type": "p",
+      "text": "Si estás buscando el <strong>mejor journal de trading para futuros</strong>, la respuesta corta es esta: el journal correcto para traders en evaluación de empresas de fondeo no es el más caro ni el más conocido, sino el que te ayuda a cumplir las reglas específicas de la empresa que elegiste — consistency rule, max daily loss y trailing drawdown incluidos. En 2025 hay cinco plataformas que dominan el mercado: <strong>Zentrade, TradeZella, Tradervue, Edgewonk y TraderSync</strong>. Esta comparativa analiza cada una con criterios concretos para que puedas elegir sin perder tiempo."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Esta comparativa está actualizada a marzo de 2026 con los precios y features reales de cada plataforma. Si detectas algún cambio en un competidor, escríbenos a soporte@zen-trader.com."
+    },
+    {
+      "type": "h2",
+      "text": "¿Por qué importa el journal de trading si eres trader de futuros?"
+    },
+    {
+      "type": "p",
+      "text": "La mayoría de los traders de futuros que fallan evaluaciones de empresas de fondeo no lo hacen por falta de estrategia. Lo hacen por falta de datos sobre su propio comportamiento. Según múltiples estudios en comunidades de trading, <strong>más del 85% de los traders que intenta pasar una evaluación de FTMO, Apex Trader Funding o TopStep falla</strong> — y la principal causa no es el mercado: es la inconsistencia en la ejecución y el revenge trading."
+    },
+    {
+      "type": "p",
+      "text": "Un journal de trading para futuros cumple tres funciones que ninguna plataforma de bróker cubre: registrar el contexto emocional de cada trade, calcular métricas de consistencia en tiempo real, y detectar patrones de comportamiento destructivo antes de que te cuesten la evaluación. Cuando comparamos los cinco journals del mercado, estas tres funciones son el criterio principal."
+    },
+    {
+      "type": "h2",
+      "text": "Comparativa completa: los 5 mejores journals de trading para futuros"
+    },
+    {
+      "type": "table",
+      "headers": ["Plataforma", "Precio mínimo", "En español", "IA emocional", "Prop firm rules", "App web", "Plan gratuito"],
+      "rows": [
+        ["Zentrade", "$0 (Free) / $9/mo", "Sí, nativo", "Sí (ZenMode)", "Sí, todos los planes", "Sí", "Sí"],
+        ["TradeZella", "$29/mo", "No", "Limitada", "Parcialmente", "Sí", "No (solo trial)"],
+        ["Tradervue", "$29/mo", "No", "No", "No", "Sí", "Limitado"],
+        ["Edgewonk", "$169/año", "No", "No", "No", "No (desktop)", "No"],
+        ["TraderSync", "$29.95/mo", "No", "No", "Parcialmente", "Sí", "No (solo trial)"]
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "Zentrade — El journal diseñado para traders en evaluación"
+    },
+    {
+      "type": "p",
+      "text": "<strong>Zentrade</strong> (zen-trader.com) es el único journal de trading construido específicamente para traders de futuros en LATAM y USA que buscan pasar evaluaciones de empresas de fondeo. Tiene cuatro planes: Free, Starter ($9/mes), Professional ($29/mes) y ZenMode ($59/mes). Incluso en el plan gratuito, el dashboard incluye las métricas críticas para una evaluación: consistency %, profit factor y equity curve."
+    },
+    {
+      "type": "p",
+      "text": "Lo que distingue a Zentrade de todos los demás journals es su <strong>IA de detección de revenge trading</strong> (disponible en ZenMode), que analiza el tiempo entre trades perdedores consecutivos y las secuencias de pérdidas para alertarte antes de que el patrón destruya tu evaluación. También incluye reportes semanales generados por IA con análisis emocional de tu semana de trading — una funcionalidad que ningún competidor ofrece en este momento."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "La consistency rule de FTMO establece que ningún día debe representar más del 30% de tu ganancia total. Zentrade calcula este porcentaje en tiempo real en tu dashboard, incluso en el plan gratuito."
+    },
+    {
+      "type": "h3",
+      "text": "TradeZella — Potente pero sin soporte en español"
+    },
+    {
+      "type": "p",
+      "text": "TradeZella es probablemente el competidor más conocido en el mercado anglosajón. Tiene un dashboard analítico completo, import automático de trades y buenas integraciones con brokers. Sin embargo, tiene tres problemas concretos para traders de LATAM: <strong>no tiene interfaz en español</strong>, su precio mínimo real para features avanzadas es $29/mes (sin plan gratuito funcional), y no tiene las reglas específicas de consistency de empresas de fondeo precargadas. Para traders de Colombia, México o Argentina que están aprendiendo a usar la plataforma mientras compiten en evaluaciones, la barrera del idioma genera fricción innecesaria."
+    },
+    {
+      "type": "h3",
+      "text": "Tradervue — Completo pero complejo"
+    },
+    {
+      "type": "p",
+      "text": "Tradervue existe desde 2011 y fue durante años el estándar del mercado. El problema es que su arquitectura y UX no han evolucionado al ritmo del mercado. <strong>No tiene ninguna funcionalidad específica para prop firms</strong>, su curva de aprendizaje es pronunciada para traders nuevos, y carece de cualquier feature de IA o análisis emocional. Es una herramienta sólida para traders con años de experiencia que quieren análisis estadístico puro, pero no para alguien que está navegando las reglas de FTMO por primera vez."
+    },
+    {
+      "type": "h3",
+      "text": "Edgewonk — Excelente estadística, tecnología de 2015"
+    },
+    {
+      "type": "p",
+      "text": "Edgewonk es popular en la comunidad de trading por su profundidad estadística. Pero tiene un problema de raíz: <strong>es una aplicación de escritorio</strong>. En 2025, cuando los traders trabajan desde múltiples dispositivos y necesitan acceder a su journal desde cualquier lugar antes de abrir el mercado, una app de escritorio es una limitación real. Además, no tiene ninguna feature de IA, el análisis emocional es manual y su precio ($169/año) no incluye actualizaciones automáticas. Para traders de futuros en evaluación que necesitan feedback inmediato, Edgewonk queda corto."
+    },
+    {
+      "type": "h3",
+      "text": "TraderSync — Funcional pero sin diferencial para prop firms"
+    },
+    {
+      "type": "p",
+      "text": "TraderSync cubre bien las necesidades básicas de journaling: import de trades, dashboard con métricas estándar, filtros por instrumento. Pero <strong>no tiene soporte en español, no tiene IA emocional y no tiene las reglas de empresas de fondeo integradas</strong>. Para un trader de USA que opera acciones y opciones puede funcionar bien. Para un trader de futuros en LATAM buscando pasar una evaluación de Apex o TopStep, el fit es bajo."
+    },
+    {
+      "type": "h2",
+      "text": "Comparativa de features avanzadas para traders en evaluación"
+    },
+    {
+      "type": "table",
+      "headers": ["Feature", "Zentrade", "TradeZella", "Tradervue", "Edgewonk", "TraderSync"],
+      "rows": [
+        ["Consistency % en tiempo real", "Sí (todos los planes)", "Parcial", "No", "No", "No"],
+        ["Equity curve", "Sí (Pro+)", "Sí", "Sí", "Sí", "Sí"],
+        ["Calendario emocional", "Sí (Pro+)", "No", "No", "Manual", "No"],
+        ["Revenge trading detection IA", "Sí (ZenMode)", "No", "No", "No", "No"],
+        ["Reporte semanal con IA", "Sí (ZenMode)", "No", "No", "No", "No"],
+        ["Import CSV futuros", "Sí (Pro+)", "Sí", "Sí", "Sí", "Sí"],
+        ["Dashboard en español", "Sí, nativo", "No", "No", "No", "No"],
+        ["Plan gratuito funcional", "Sí", "No", "Limitado", "No", "No"]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "¿Cuál es el mejor journal según tu perfil como trader?"
+    },
+    {
+      "type": "p",
+      "text": "La elección correcta depende de dónde estás en tu proceso. Aquí el mapa de decisión:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Trader nuevo en evaluación, presupuesto limitado:</strong> Zentrade Free. Tienes las métricas básicas que necesitas sin pagar nada.",
+        "<strong>Trader en activo en evaluación de FTMO, Apex o TopStep:</strong> Zentrade Professional ($29/mo). Import automático, consistency rule en tiempo real y reportes IA semanales.",
+        "<strong>Trader con historial de revenge trading o pérdidas emocionales:</strong> Zentrade ZenMode ($59/mo). La detección de revenge trading con IA es el único sistema del mercado que te alerta en tiempo real.",
+        "<strong>Trader avanzado, mercado USA, solo en inglés:</strong> TradeZella o TraderSync son opciones válidas si no necesitas el soporte en español.",
+        "<strong>Trader de largo plazo que quiere análisis estadístico profundo sin IA:</strong> Edgewonk es sólido si puedes vivir con una app de escritorio."
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade tiene un plan gratuito que incluye el dashboard de métricas completo. Puedes registrarte ahora y tener tu primer análisis de consistencia en menos de 10 minutos.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratuita"
+    },
+    {
+      "type": "h2",
+      "text": "Precios comparados: ¿cuánto cuesta cada journal de trading?"
+    },
+    {
+      "type": "table",
+      "headers": ["Plataforma", "Plan básico", "Plan avanzado", "Plan premium", "Facturación anual"],
+      "rows": [
+        ["Zentrade", "Free ($0)", "Starter ($9/mo)", "Professional ($29/mo) / ZenMode ($59/mo)", "Hasta 30% descuento"],
+        ["TradeZella", "Trial limitado", "$29/mo (Starter)", "$59/mo (Pro)", "Disponible"],
+        ["Tradervue", "$0 (muy limitado)", "$29/mo (Silver)", "$49/mo (Gold)", "No disponible"],
+        ["Edgewonk", "No", "$169/año", "$169/año", "Solo anual"],
+        ["TraderSync", "Trial", "$29.95/mo (Basic)", "$49.95/mo (Premium)", "Disponible"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "text": "Zentrade es el único journal de esta comparativa con un plan gratuito real — no un trial de 7 días — que incluye el dashboard de métricas para evaluaciones."
+    },
+    {
+      "type": "h2",
+      "text": "Veredicto final: el mejor journal de trading para futuros en 2025"
+    },
+    {
+      "type": "p",
+      "text": "Si eres trader de futuros en LATAM o USA buscando pasar una evaluación de empresa de fondeo, <strong>Zentrade es el journal de trading más completo del mercado para tu perfil específico</strong>. Es el único en español nativo, el único con IA de detección de revenge trading, el único con las reglas de consistency integradas desde el plan gratuito, y el único que genera reportes semanales con análisis emocional."
+    },
+    {
+      "type": "p",
+      "text": "TradeZella es una alternativa sólida para traders que operan en inglés y no necesitan la capa de IA emocional. Edgewonk es válido para traders avanzados con preferencia por estadística pura y sin necesidad de acceso desde múltiples dispositivos. Tradervue y TraderSync quedan por debajo en el criterio de enfoque en prop firms."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Qué es un journal de trading para futuros y en qué se diferencia de un diario normal?",
+          "a": "Un journal de trading para futuros es una herramienta que registra cada operación con datos estructurados: precio de entrada y salida, tamaño de posición, PnL, instrumento, hora de ejecución y contexto emocional. A diferencia de un diario en Excel o cuaderno, un journal digital calcula automáticamente métricas como profit factor, consistency %, equity curve y win rate por sesión, instrumento u horario. Esto permite detectar patrones en tu comportamiento que no son visibles revisando trades individuales."
+        },
+        {
+          "q": "¿Cuál es el mejor journal de trading para pasar FTMO?",
+          "a": "Para FTMO específicamente, el journal más útil es Zentrade porque incluye el cálculo de consistency rule en tiempo real — la regla que más traders pasan por alto y que representa el motivo más frecuente de rechazo en la fase de verificación. Zentrade calcula automáticamente qué porcentaje de tu ganancia total corresponde al mejor día, lo que te permite saber en todo momento si estás dentro del límite de FTMO (normalmente 30%). TradeZella también cubre esto parcialmente, pero sin la capa de IA emocional."
+        },
+        {
+          "q": "¿Zentrade vs TradeZella: cuál es mejor para traders de LATAM?",
+          "a": "Zentrade es claramente mejor para traders de LATAM por tres razones concretas: tiene interfaz 100% en español, tiene un plan gratuito funcional (TradeZella solo ofrece trial), y tiene IA de análisis emocional específicamente diseñada para detectar patrones de revenge trading. TradeZella es una plataforma sólida, pero está construida para el mercado anglosajón y no tiene las reglas de prop firms integradas con el mismo nivel de detalle que Zentrade."
+        },
+        {
+          "q": "¿Puede Edgewonk usarse para futuros de NQ y ES?",
+          "a": "Sí, Edgewonk soporta futuros incluyendo NQ (Nasdaq 100) y ES (S&P 500), pero el registro es manual. No tiene import automático de trades desde brokers de futuros ni integración con plataformas como NinjaTrader o Tradovate. Para traders que operan NQ y ES activamente, el trabajo manual de registro en Edgewonk consume tiempo valioso. Zentrade también soporta NQ, ES, CL, GC, MES, MNQ y otros futuros, con import automático desde CSV en el plan Professional."
+        },
+        {
+          "q": "¿Cuánto cuesta un buen journal de trading para futuros?",
+          "a": "El rango de precios en el mercado en 2025 va desde $0 (Zentrade Free) hasta $59/mo (Zentrade ZenMode) o $49/mo (TraderSync Premium). Para un trader en evaluación que necesita consistency tracking, equity curve y filtros avanzados, el punto de entrada razonable está entre $9/mo y $29/mo. Zentrade Professional a $29/mes incluye import CSV, reportes IA semanales y todas las métricas avanzadas. Zentrade también ofrece facturación anual con hasta 30% de descuento."
+        },
+        {
+          "q": "¿Los journals de trading funcionan con NinjaTrader y Tradovate?",
+          "a": "La mayoría de journals de trading para futuros, incluyendo Zentrade, TradeZella y Tradervue, son compatibles con NinjaTrader y Tradovate a través de exportación CSV. En el plan Professional, Zentrade permite importar el CSV de NinjaTrader con mapeo automático de campos. Para usuarios de Tradovate, el proceso es similar: exportas el reporte de operaciones en CSV y Zentrade lo procesa automáticamente."
+        },
+        {
+          "q": "¿Qué métricas de trading son las más importantes para pasar una evaluación de prop firm?",
+          "a": "Las métricas más importantes para evaluaciones de FTMO, Apex, TopStep y similares son: (1) Consistency % — ningún día debe representar más del 30% de la ganancia total en FTMO. (2) Max drawdown — distancia desde el equity máximo hasta el mínimo, nunca debe superar el límite de la empresa. (3) Profit factor — relación entre ganancias y pérdidas, idealmente mayor a 1.5. (4) Win rate — porcentaje de operaciones ganadoras. (5) Ratio riesgo/recompensa — promedio de cuánto ganas vs cuánto arriesgas por trade. Zentrade calcula todas estas métricas en tiempo real desde el dashboard."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Registra tus trades en Zentrade desde hoy y ten un análisis completo de tu consistencia antes del próximo mercado. El plan gratuito incluye el dashboard de métricas.",
+      "href": "/register",
+      "buttonText": "Empezar gratis — sin tarjeta"
+    }
+  ],
+  "relatedSlugs": [
+    "zentrade-vs-tradezella",
+    "consistency-rule-prop-firms-explicada",
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "que-es-revenge-trading"
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "slug": "best-trading-journal-prop-firms-2025",
+  "title": "Best Trading Journal for Prop Firms in 2025: Full Comparison",
+  "excerpt": "Complete comparison of the best trading journals for prop firm traders in 2025: Zentrade, TradeZella, Edgewonk, Tradervue and TraderSync. Which one actually helps you get funded?",
+  "seoTitle": "Best Trading Journal for Prop Firms 2025 | Zentrade",
+  "seoDescription": "Looking for the best trading journal for prop firms in 2025? We compare Zentrade, TradeZella, Edgewonk, Tradervue and TraderSync for FTMO, Apex, TopStep traders.",
+  "keywords": [
+    "best trading journal for prop firms",
+    "trading journal for funded traders",
+    "best futures trading journal 2025",
+    "trading journal FTMO Apex TopStep",
+    "Zentrade vs TradeZella"
+  ],
+  "author": "Zentrade Team",
+  "publishedAt": "2026-03-29",
+  "updatedAt": "2026-03-29",
+  "category": "comparativas",
+  "tags": ["trading journal", "prop firms", "futures", "comparison", "funded trading", "FTMO", "Apex"],
+  "readingTime": 12,
+  "featured": true,
+  "content": [
+    {
+      "type": "p",
+      "text": "If you're looking for the <strong>best trading journal for prop firms</strong>, here's the direct answer: the best journal for funded traders is not the most popular one — it's the one built specifically around the rules that prop firms actually enforce: consistency rule, max daily loss, trailing drawdown, and profit target tracking. In 2025, five platforms dominate the trading journal market: <strong>Zentrade, TradeZella, Tradervue, Edgewonk, and TraderSync</strong>. This comparison evaluates each one against the specific needs of prop firm traders."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "This comparison is based on publicly available pricing and feature information as of March 2026. We use Zentrade because we built it — but we've made an honest effort to represent every platform accurately."
+    },
+    {
+      "type": "h2",
+      "text": "What makes a trading journal good for prop firm trading?"
+    },
+    {
+      "type": "p",
+      "text": "A standard trading journal tracks your trades and calculates basic metrics like win rate and total PnL. A <strong>prop firm trading journal</strong> does something more specific: it tracks your compliance with the rules of your evaluation in real time. The metrics that matter most for FTMO, Apex Trader Funding, TopStep, Tradoverse, and Uprofit evaluations are not win rate or total profit — they are consistency percentage, daily loss proximity to the limit, overall drawdown consumed, and behavioral patterns like revenge trading that lead to rule violations."
+    },
+    {
+      "type": "p",
+      "text": "The number one reason traders fail prop firm evaluations is not a bad strategy. According to community data across FTMO and Apex forums, <strong>over 85% of traders who attempt a funded evaluation fail</strong> — and the leading causes are all behavioral: revenge trading after a losing streak, oversizing on a single day to chase the profit target, or unknowingly violating the consistency rule on a strong day."
+    },
+    {
+      "type": "h2",
+      "text": "Full comparison: the 5 best trading journals for prop firm traders"
+    },
+    {
+      "type": "table",
+      "headers": ["Platform", "Starting price", "Free plan", "Prop firm rules", "AI features", "Web app", "Languages"],
+      "rows": [
+        ["Zentrade", "$0 (Free)", "Yes — functional", "Yes, all plans", "Yes (ZenMode)", "Yes", "Spanish + English"],
+        ["TradeZella", "$29/mo", "Trial only", "Partial", "Limited", "Yes", "English only"],
+        ["Tradervue", "$0 (very limited)", "Yes — limited", "No", "No", "Yes", "English only"],
+        ["Edgewonk", "$169/year", "No", "No", "No", "No (desktop)", "English only"],
+        ["TraderSync", "$29.95/mo", "Trial only", "Partial", "No", "Yes", "English only"]
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "Zentrade — Built for prop firm traders from day one"
+    },
+    {
+      "type": "p",
+      "text": "<strong>Zentrade</strong> (zen-trader.com) is the trading journal built specifically for futures traders pursuing funded accounts through FTMO, Apex Trader Funding, TopStep, Tradoverse, and Uprofit. It is the only journal in this comparison that includes consistency percentage tracking, prop firm rule parameters, and an emotional calendar in its free plan — not as an upsell feature."
+    },
+    {
+      "type": "p",
+      "text": "The platform's most distinctive feature is its <strong>AI-powered revenge trading detection</strong>, available in the ZenMode plan ($59/mo). It monitors the time between consecutive losing trades, flags sequences of losses that historically precede rule violations, and sends an alert before the pattern escalates. This is the only feature of its kind in the trading journal market. Zentrade also generates weekly AI performance reports with emotional analysis — breaking down your best and worst trading hours, your consistency pattern, and specific behavioral risks for the coming week."
+    },
+    {
+      "type": "p",
+      "text": "For LATAM traders, Zentrade is the only native Spanish-language journal in this list. The interface, support, and content are all built in Spanish first — not translated from English as an afterthought."
+    },
+    {
+      "type": "h3",
+      "text": "TradeZella — Strong platform, wrong market fit for LATAM"
+    },
+    {
+      "type": "p",
+      "text": "TradeZella is arguably the most well-known trading journal in the English-speaking market. It has a clean interface, solid data visualization, and decent trade import capabilities. However, it has three specific problems for prop firm traders: <strong>it doesn't offer a functional free plan</strong> (only a short trial), its minimum price for advanced analytics is $29/month, and its prop firm rule integration is partial — it doesn't natively calculate consistency percentage against a configurable daily threshold the way Zentrade does. For traders outside North America, the English-only interface is an additional friction point."
+    },
+    {
+      "type": "h3",
+      "text": "Tradervue — A legacy tool that hasn't kept up"
+    },
+    {
+      "type": "p",
+      "text": "Tradervue was the gold standard for trading journals from 2011 to roughly 2019. It has deep statistical analysis, a large trade history database, and a reputation for reliability. But in 2025, it's showing its age: <strong>no prop firm-specific features, no AI functionality, no emotional tagging</strong>, and a UX that assumes the user already knows exactly what they're looking for. For an experienced discretionary trader who wants pure stats without guardrails, Tradervue is still usable. For someone navigating their first FTMO challenge while trying to understand consistency rule violations, it provides no guidance."
+    },
+    {
+      "type": "h3",
+      "text": "Edgewonk — Best-in-class statistics, 2015 delivery model"
+    },
+    {
+      "type": "p",
+      "text": "Edgewonk has the deepest statistical analysis of any journal in this list. Its trade optimization tools and R-multiple analysis are genuinely excellent. The fundamental problem is that <strong>it's a desktop application</strong>. In a world where traders review their journals on a phone before the market opens, access data from multiple devices, or share screenshots with a coach, a desktop app creates significant friction. Edgewonk also has no AI features, no emotional tracking beyond manual notes, and its $169/year price doesn't include a web version. For futures traders who need fast, multi-device access to their evaluation data, this is a dealbreaker."
+    },
+    {
+      "type": "h3",
+      "text": "TraderSync — Solid basics, low prop firm focus"
+    },
+    {
+      "type": "p",
+      "text": "TraderSync covers the basics well: trade import, P&L tracking, basic filtering, and a clean dashboard. It has some prop firm-adjacent features, but <strong>no Spanish support, no AI emotional analysis, and no native consistency rule calculator</strong>. For a US-based trader who primarily trades equities and options and wants a straightforward journal, TraderSync is a reasonable option. For a futures trader working through an Apex or TopStep evaluation, the fit is low."
+    },
+    {
+      "type": "h2",
+      "text": "Head-to-head: prop firm features comparison"
+    },
+    {
+      "type": "table",
+      "headers": ["Feature", "Zentrade", "TradeZella", "Tradervue", "Edgewonk", "TraderSync"],
+      "rows": [
+        ["Consistency % real-time", "Yes (all plans)", "Partial", "No", "No", "No"],
+        ["Daily loss proximity alert", "Yes", "Partial", "No", "No", "No"],
+        ["Equity curve with drawdown line", "Yes (Pro+)", "Yes", "Yes", "Yes", "Yes"],
+        ["Emotional calendar and tags", "Yes (Pro+)", "No", "No", "Manual", "No"],
+        ["AI revenge trading detection", "Yes (ZenMode)", "No", "No", "No", "No"],
+        ["Weekly AI performance report", "Yes (ZenMode)", "No", "No", "No", "No"],
+        ["CSV import from futures brokers", "Yes (Pro+)", "Yes", "Yes", "Yes", "Yes"],
+        ["Prop firm rule presets", "Yes", "Partial", "No", "No", "No"],
+        ["Mobile-accessible web app", "Yes", "Yes", "Yes", "No", "Yes"],
+        ["Spanish language", "Yes, native", "No", "No", "No", "No"]
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade offers a free plan with real metrics — no credit card, no trial countdown. Start tracking your prop firm evaluation today.",
+      "href": "/register",
+      "buttonText": "Start free — no card needed"
+    },
+    {
+      "type": "h2",
+      "text": "Pricing comparison: what does each trading journal actually cost?"
+    },
+    {
+      "type": "table",
+      "headers": ["Platform", "Free / Entry", "Mid tier", "Top tier", "Annual savings"],
+      "rows": [
+        ["Zentrade", "Free ($0)", "Starter ($9/mo) / Pro ($29/mo)", "ZenMode ($59/mo)", "Up to 30% off"],
+        ["TradeZella", "Short trial", "Starter ($29/mo)", "Pro ($59/mo)", "Available"],
+        ["Tradervue", "Free (very limited)", "Silver ($29/mo)", "Gold ($49/mo)", "Not available"],
+        ["Edgewonk", "None", "$169/year", "$169/year", "Annual only"],
+        ["TraderSync", "Short trial", "Basic ($29.95/mo)", "Premium ($49.95/mo)", "Available"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Zentrade's pricing structure has a meaningful advantage for traders who are still in the evaluation phase and want to manage costs: the free plan is genuinely functional for prop firm tracking, not just a stripped-down teaser. A trader can use Zentrade Free to log trades, see their consistency %, track daily PnL against limits, and monitor their equity curve — all without paying. The upgrade to Professional ($29/mo) unlocks CSV auto-import, the emotional calendar, and weekly AI reports."
+    },
+    {
+      "type": "h2",
+      "text": "Which trading journal should you choose for your prop firm?"
+    },
+    {
+      "type": "p",
+      "text": "The right choice depends on your specific situation:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>FTMO, Apex, TopStep — any firm, any level:</strong> Zentrade. It's the only journal purpose-built for prop firm rule compliance, with free tier access and AI features at higher plans.",
+        "<strong>You're a LATAM trader (Colombia, México, Argentina, Chile, Perú):</strong> Zentrade is the only Spanish-native option in this market. Every other journal is English-first.",
+        "<strong>You have a history of revenge trading or emotional losses:</strong> Zentrade ZenMode ($59/mo). The AI revenge trading detection is the only system of its kind in any trading journal.",
+        "<strong>Advanced US trader, English only, high-volume equities:</strong> TradeZella or TraderSync are functional alternatives if prop firm rule tracking isn't your primary need.",
+        "<strong>You want pure statistical depth and trade from one device:</strong> Edgewonk is genuinely excellent at statistics if the desktop limitation doesn't bother you."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "text": "Zentrade is the only trading journal in this comparison with a functional free plan that includes prop firm metric tracking. You can start today and have your consistency % calculated before your next trading session."
+    },
+    {
+      "type": "h2",
+      "text": "Verdict: the best trading journal for prop firms in 2025"
+    },
+    {
+      "type": "p",
+      "text": "For futures traders working toward a funded account through FTMO, Apex Trader Funding, TopStep, Tradoverse, or Uprofit — <strong>Zentrade is the best trading journal available in 2025</strong>. It's the only platform that combines prop firm rule compliance tracking, emotional analysis, AI-powered revenge trading detection, and a Spanish-native interface into a single product with a functional free tier."
+    },
+    {
+      "type": "p",
+      "text": "TradeZella remains a strong option for English-speaking traders who don't need the emotional AI layer. Edgewonk is worth considering if you trade from a single device and prioritize statistical depth over real-time accessibility. Tradervue and TraderSync serve specific use cases but fall short for the prop firm evaluation workflow."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "What is the best trading journal for prop firms in 2025?",
+          "a": "Zentrade is the best trading journal for prop firm traders in 2025, specifically for futures traders working through evaluations at FTMO, Apex Trader Funding, TopStep, Tradoverse, or Uprofit. It includes real-time consistency percentage tracking, max daily loss monitoring, equity curve with drawdown visualization, emotional tagging, and — in its ZenMode plan — AI-powered revenge trading detection. It's also the only journal in this market with a native Spanish interface and a functional free plan."
+        },
+        {
+          "q": "What is the difference between Zentrade and TradeZella?",
+          "a": "The main differences between Zentrade and TradeZella are: (1) Language — Zentrade is native Spanish, TradeZella is English only. (2) Pricing — Zentrade has a functional free plan, TradeZella starts at $29/month for meaningful features. (3) AI features — Zentrade has AI revenge trading detection and weekly AI performance reports; TradeZella has limited AI analysis. (4) Prop firm focus — Zentrade is built around prop firm rule compliance from day one; TradeZella is more general-purpose. For LATAM traders on prop firm evaluations, Zentrade is the better fit."
+        },
+        {
+          "q": "Can I use a trading journal with FTMO?",
+          "a": "Yes. Trading journals like Zentrade work alongside FTMO — they don't connect directly to FTMO's system, but they import your trades from your broker's CSV export (MetaTrader, NinjaTrader, Tradovate) and calculate your evaluation metrics independently. You create an Evaluation account in Zentrade with FTMO's specific parameters (10% profit target, 5% daily loss, 10% overall drawdown), and the dashboard tracks your real-time compliance against those limits."
+        },
+        {
+          "q": "Does Zentrade work for Apex Trader Funding and TopStep?",
+          "a": "Yes. Zentrade supports account configurations for all major prop firms including Apex Trader Funding, TopStep, FTMO, Tradoverse, and Uprofit. Each firm has different rules — for example, Apex and TopStep use trailing drawdown instead of static drawdown — and Zentrade lets you configure those parameters per account so the metrics display correctly for your specific evaluation."
+        },
+        {
+          "q": "Is TradeZella worth the price for prop firm traders?",
+          "a": "TradeZella is a capable platform, but at $29/month minimum it's priced for traders who are already generating consistent revenue from funded accounts. For traders in the evaluation phase who are still investing in their skills, Zentrade Professional ($29/mo) offers a better feature set for prop firm compliance — including native Spanish support, emotional calendar, and AI features — at the same price. Zentrade also has a free plan for traders who want to start without committing to a monthly fee."
+        },
+        {
+          "q": "What metrics should a trading journal track for prop firm evaluations?",
+          "a": "The critical metrics for prop firm evaluations are: (1) Consistency percentage — what portion of your total profit came from your single best day. FTMO limits this to 30%. (2) Daily P&L vs. max daily loss limit — how close you are to the firm's daily loss threshold at any moment. (3) Overall drawdown consumed — how much of your maximum allowed drawdown you've used. (4) Equity curve — visual representation of your account growth showing drawdown patterns. (5) Profit factor — ratio of gross profit to gross loss, ideally above 1.5. Zentrade tracks all five from the free plan."
+        },
+        {
+          "q": "Why do most traders fail prop firm evaluations?",
+          "a": "Over 85% of prop firm evaluations fail, and the main causes are behavioral rather than strategic: (1) Violating the max daily loss after a losing streak by continuing to trade to recover. (2) Unknowingly violating the consistency rule by having one exceptional day that represents too high a percentage of total profit. (3) Revenge trading — taking larger, lower-quality trades after losses in an attempt to recover quickly. (4) Not reaching the profit target because of overly conservative sizing. A trading journal with real-time metrics and behavioral alerts, like Zentrade, directly addresses causes 1, 2, and 3."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Start tracking your prop firm evaluation with Zentrade. Free plan includes real-time consistency %, daily P&L calendar, and equity curve — no credit card required.",
+      "href": "/register",
+      "buttonText": "Create free account"
+    }
+  ],
+  "relatedSlugs": [
+    "how-to-pass-ftmo-evaluation-trading-journal",
+    "zentrade-vs-tradezella-comparison",
+    "consistency-rule-prop-firms-explained",
+    "what-is-revenge-trading"
+  ]
+}

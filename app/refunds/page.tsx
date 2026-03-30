@@ -1,11 +1,14 @@
+import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
 import LegalContent from "@/components/legal/legal-content";
 
-export const metadata = {
-  title: "Política de Reembolsos — ZenTrade",
-  description: "Política de reembolsos y cancelaciones de ZenTrade. Pagos procesados por Lemon Squeezy.",
+export const metadata: Metadata = {
+  title: "Política de Reembolsos",
+  description: "Política de reembolsos y cancelaciones de Zentrade.",
+  alternates: { canonical: "https://zen-trader.com/refunds" },
+  robots: { index: true, follow: false },
 };
 
 export default async function RefundsPage() {

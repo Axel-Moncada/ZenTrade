@@ -35,6 +35,7 @@ export default function PublicFooter() {
         { label: l.footerLinkFeatures, href: "/#features" },
         { label: l.footerLinkPricing, href: "/#pricing" },
         { label: l.footerLinkDashboard, href: "/dashboard" },
+        { label: "Blog", href: "/blog" },
       ],
     },
     {

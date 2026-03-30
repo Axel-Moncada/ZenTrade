@@ -148,7 +148,7 @@ export function TradeForm({
   });
 
   const plan = usePlan();
-  const canUseTimes = plan.isPro || plan.isZenMode;
+  const canUseTimes = plan.loading || plan.isPro || plan.isZenMode;
   const [selectedEmotion, setSelectedEmotion] = useState<string>("");
 
   // Obtener userId del usuario autenticado

@@ -96,11 +96,57 @@ Ver tabla completa en `hashtags.md`
 - TikTok: texto superpuesto obligatorio (funciona sin audio), 30-60 seg
 - Reels: screen recording del dashboard > talking head para demos de producto
 
+## Programa de afiliados (estrategia diseñada 2026-03-21)
+
+- Descuento al usuario final: 20% (punto óptimo psicológico sin destruir margen)
+- Comisión al afiliado: 30% recurrente durante 12 meses
+- Tiers: Explorador (0–10) / Aliado (11–50) / Partner (51+ conversiones activas)
+- Afiliados iniciales: 3–5, onboardear 1 semana antes del lanzamiento público
+- Contenido top 1: screen recording "uso Zentrade en mi rutina" (TikTok/Reels)
+- KPI clave de salud del canal: churn de referidos <20% en 90 días
+- Ver estrategia completa en `Marketing/Afiliados/programa-afiliados-estrategia-completa.md`
+
 ## Horarios óptimos por plataforma (audiencia LATAM + ET)
 
 - X/Twitter: 09:00 AM ET (lunes-viernes), 01-02 PM para engagement posts
 - Instagram: 07:00 PM hora Colombia/México (martes y jueves mejores)
 - TikTok: 06:00-07:00 PM hora Colombia/México (miércoles, viernes, sábado)
+
+## Subject lines de outreach a influencers (principios validados 2026-03-22)
+
+- Para influencers 20K+ (escépticos): el asunto que convierte es uno que activa curiosidad sobre su audiencia, no sobre el producto. El dato del 85% + FTMO en el asunto supera cualquier framing de "te presento mi producto".
+- Para coaches/comunidades 1K-20K: poner la comisión recurrente (30%) directamente en el asunto supera cualquier beneficio de comunidad genérico. Este perfil abre primero lo que tiene número de ingreso visible.
+- Regla de 60 caracteres en el asunto — obligatoria para visibilidad móvil en este nicho.
+- Nunca usar "oportunidad", "colaboración", "te presento", "propuesta" — triggers de ignorar.
+- El comparador "el TradeZella en español" funciona para audiencias que ya conocen el competidor.
+- TOP 1 Versión A: `Lo que FTMO mide que el 85% de traders no sabe`
+- TOP 1 Versión B: `30% comisión recurrente — lancé mi journal de trading hoy`
+- Ver archivo con 5 opciones completas por versión en `D:/Development/2 - Zentrade/.claude/marketing/lanzamiento.md` Sección 3.
+
+## Plan de lanzamiento oficial (22 marzo 2026)
+
+- Archivo completo: `D:/Development/2 - Zentrade/.claude/marketing/lanzamiento.md`
+- Oferta early adopter activa: 50 primeros usuarios = 30 días Professional gratis (sin tarjeta)
+- Orden de publicación: X thread (9AM ET) → email newsletter → LinkedIn → TikTok/IG (tarde)
+- Comunidades LATAM prioritarias: Discord FTMO/Apex/TopStep en español, Telegram grupos Colombia/México/Argentina
+- KPI crítico día 1: checkout completion rate — si <60%, problema técnico, no de marketing
+- Pricing insight validado: no dar descuento en Starter ($9). Descuentos en planes bajos devalúan sin mejorar conversión
+- Copy de LinkedIn: desglose técnico completo (pasarelas fallidas + arquitectura IA) convierte mejor que narrativa perfecta
+- Social proof que convierte más: screenshot anónimo de dashboard con datos reales de usuario, no copy genérico
+
+## Estrategia SEO y blog (diseñada 2026-03-29)
+
+- Plan de 50 artículos: 30 ES + 20 EN. Ver `Marketing/SEO/plan-contenido-50-articulos.md`
+- Sistema de blog: archivos JSON en `data/blog/posts/[slug].json` — ver estructura en el prompt maestro
+- Prompt maestro para generar artículos: `Marketing/SEO/prompt-maestro-articulos-seo.md`
+- 3 artículos generados y listos en producción:
+  - `data/blog/posts/mejor-journal-trading-futuros-2025.json` (ES, comparativa, featured)
+  - `data/blog/posts/como-pasar-evaluacion-ftmo-journal-trading.json` (ES, prop-firms, featured)
+  - `data/blog/posts/best-trading-journal-prop-firms-2025.json` (EN, comparativa, featured)
+- LLM SEO (GEO): respuesta directa en primeros 2-3 párrafos, entidades nombradas, datos cuantificados, FAQ con preguntas de LLM
+- Dato ancla para artículos de awareness: "más del 85% de los traders que intenta pasar una evaluación falla"
+- Regla de terminología SEO: en cuerpo del artículo usar "empresa de fondeo"; en keywords usar tanto "prop firm" como "empresa de fondeo"; en hashtags solo inglés por volumen
+- Próximos artículos prioritarios: zentrade-vs-tradezella (ES+EN), consistency-rule-prop-firms (ES+EN), que-es-revenge-trading (ES)
 
 ---
 

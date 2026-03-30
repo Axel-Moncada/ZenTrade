@@ -7,12 +7,74 @@ import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const SITE_URL = "https://zen-trader.com";
+
 export const metadata: Metadata = {
-  title: "Zentrade - Journal de Trading",
-  description: "Gestiona tu journal de trading de futuros",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Zentrade — Journal de Trading para Futuros",
+    template: "%s | Zentrade",
+  },
+  description:
+    "Journal de trading para futuros con IA. Pasa pruebas de fondeo de FTMO, Apex y TopStep con métricas precisas, revenge trading detection y reportes inteligentes.",
+  keywords: [
+    "journal de trading",
+    "trading journal futuros",
+    "pruebas de fondeo futuros",
+    "prueba de fondeo",
+    "empresa de fondeo",
+    "FTMO",
+    "Apex Trader Funding",
+    "TopStep",
+    "Zentrade",
+    "trading journal LATAM",
+  ],
+  authors: [{ name: "Zentrade", url: SITE_URL }],
+  creator: "Zentrade",
+  publisher: "Zentrade",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    alternateLocale: "en_US",
+    url: SITE_URL,
+    siteName: "Zentrade",
+    title: "Zentrade — Journal de Trading para Futuros",
+    description:
+      "Journal de trading para futuros con IA. Pasa evaluaciones de FTMO, Apex y TopStep con métricas precisas y reportes inteligentes.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Zentrade — Journal de Trading para Futuros con IA",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zentrade — Journal de Trading para Futuros",
+    description:
+      "Pasa evaluaciones de FTMO, Apex y TopStep con métricas precisas, revenge trading detection y reportes IA semanales.",
+    images: ["/og-image.png"],
+    creator: "@zentrade",
+  },
   icons: {
     icon: icon.src,
+    shortcut: icon.src,
+    apple: icon.src,
   },
+  manifest: "/manifest.json",
+  category: "finance",
 };
 
 export default function RootLayout({

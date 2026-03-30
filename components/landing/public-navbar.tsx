@@ -22,6 +22,7 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
     { label: t.landing.features, href: "/#features" },
     { label: t.landing.pricing, href: "/#pricing" },
     { label: t.landing.faq, href: "/#faq" },
+    { label: "Blog", href: "/blog" },
   ];
 
   useEffect(() => {

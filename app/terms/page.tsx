@@ -1,11 +1,14 @@
+import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
 import LegalContent from "@/components/legal/legal-content";
 
-export const metadata = {
-  title: "Términos de Servicio — ZenTrade",
-  description: "Términos y condiciones de uso de la plataforma ZenTrade.",
+export const metadata: Metadata = {
+  title: "Términos de Servicio",
+  description: "Términos y condiciones de uso de la plataforma Zentrade.",
+  alternates: { canonical: "https://zen-trader.com/terms" },
+  robots: { index: true, follow: false },
 };
 
 export default async function TermsPage() {

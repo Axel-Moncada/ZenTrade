@@ -5,7 +5,11 @@
       "Bash(npm run build:*)",
       "Bash(npx tsc:*)",
       "Bash(tail:*)",
-      "Bash(cd \"D:\\\\Development\\\\2 - Zentrade\" && npx vitest run 2>&1)"
+      "Bash(cd \"D:\\\\Development\\\\2 - Zentrade\" && npx vitest run 2>&1)",
+      "WebFetch(domain:docs.wompi.co)",
+      "WebSearch",
+      "WebFetch(domain:www.remote-mcp.com)",
+      "mcp__canva__search-designs"
     ]
   }
 }

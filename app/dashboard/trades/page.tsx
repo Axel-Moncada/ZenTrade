@@ -353,7 +353,7 @@ export default function TradesPage() {
             trades={currentTrades}
             selectedTrades={selectedTrades}
             onSelectionChange={setSelectedTrades}
-            isPro={plan.isPro || plan.isZenMode}
+            isPro={plan.loading || plan.isPro || plan.isZenMode}
           />
 
           {/* Pagination */}
