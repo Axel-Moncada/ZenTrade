@@ -1,0 +1,325 @@
+{
+  "slug": "como-pasar-topstep-evaluacion",
+  "title": "Cómo Pasar la Evaluación de TopStep: Reglas, Estrategia y Errores a Evitar",
+  "excerpt": "Guía completa para pasar la prueba de fondeo de TopStep: reglas explicadas, la regla de consistencia con ejemplos, errores comunes y los hábitos diarios de los traders que sí pasan.",
+  "seoTitle": "Cómo Pasar TopStep 2025: Reglas y Estrategia para Traders",
+  "seoDescription": "Aprende cómo pasar la evaluación de TopStep con esta guía completa: reglas del Trading Combine, regla de consistencia con ejemplos, errores frecuentes y estrategia de diario de trading.",
+  "keywords": [
+    "cómo pasar TopStep",
+    "reglas evaluación TopStep futuros",
+    "TopStep Trading Combine",
+    "prueba de fondeo TopStep",
+    "TopStep consistency rule",
+    "journal trading TopStep",
+    "TopStep drawdown trailing"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-04-13",
+  "updatedAt": "2026-04-13",
+  "category": "fondeo",
+  "tags": [
+    "TopStep",
+    "prueba de fondeo",
+    "empresa de fondeo",
+    "futuros",
+    "regla de consistencia",
+    "journal de trading",
+    "cuenta fondeada"
+  ],
+  "readingTime": 9,
+  "featured": false,
+  "content": [
+    {
+      "type": "p",
+      "text": "TopStep es una de las empresas de fondeo más antiguas y reconocidas en el mercado de futuros. Su <strong>Trading Combine</strong> es la evaluación de referencia para miles de traders en todo el mundo — incluyendo LATAM — y su estructura de una sola fase la hace, en teoría, más directa que la evaluación de dos fases de FTMO. Sin embargo, sigue siendo una de las evaluaciones más difíciles de pasar correctamente."
+    },
+    {
+      "type": "p",
+      "text": "La respuesta corta sobre cómo pasar TopStep: no es un problema de estrategia. Es un problema de disciplina y gestión de riesgo. Los traders que fallan la evaluación de TopStep casi siempre lo hacen por una de tres razones: violan la pérdida máxima diaria en un día malo, acumulan demasiadas ganancias en un solo día y rompen la regla de consistencia, o dejan que el drawdown trailing los acorrale después de una racha de buenos días."
+    },
+    {
+      "type": "p",
+      "text": "Esta guía cubre cada regla del Trading Combine, los errores más comunes con ejemplos numéricos concretos, y cómo usar un <strong>diario de trading</strong> para mantenerte dentro de los parámetros todos los días."
+    },
+    {
+      "type": "h2",
+      "text": "Las Reglas del Trading Combine de TopStep"
+    },
+    {
+      "type": "p",
+      "text": "TopStep usa una evaluación de una sola fase. Una vez que alcanzas el objetivo de ganancia sin violar ninguna regla, recibes una cuenta fondeada. Las reglas varían según el tamaño de cuenta — aquí las comparamos para los tres tamaños más comunes:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Tamaño de Cuenta",
+        "Objetivo de Ganancia",
+        "Pérdida Máxima Diaria",
+        "Drawdown Trailing",
+        "Suscripción Mensual"
+      ],
+      "rows": [
+        [
+          "$50,000",
+          "$3,000 (6%)",
+          "$2,000",
+          "$2,000 trailing",
+          "~$165/mes"
+        ],
+        [
+          "$100,000",
+          "$6,000 (6%)",
+          "$3,000",
+          "$3,000 trailing",
+          "~$325/mes"
+        ],
+        [
+          "$150,000",
+          "$9,000 (6%)",
+          "$4,500",
+          "$4,500 trailing",
+          "~$375/mes"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Puntos clave que no siempre están en la letra pequeña:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>No hay mínimo de días de trading</strong> — puedes pasar en cualquier número de días mientras cumplas todas las reglas",
+        "<strong>El drawdown es trailing</strong> — tu floor sube conforme ganas, reduciendo tu margen de error al avanzar",
+        "<strong>Regla de consistencia:</strong> ningún día puede representar más del 30% de tus ganancias totales",
+        "<strong>Split de ganancias:</strong> 90% para el trader en los primeros $10,000 ganados; 100% del trader a partir de ahí",
+        "<strong>Sin noticias de alto impacto:</strong> TopStep no permite tener posiciones abiertas durante reportes de alta volatilidad como NFP o decisiones de la Fed"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "El 100% de ganancias para el trader después de los primeros $10,000 es uno de los mejores incentivos en el mercado de empresas de fondeo. Si planeas mantener la cuenta fondeada a largo plazo, TopStep puede ser más lucrativo que el 80/20 de FTMO en escenarios de alta rentabilidad mensual."
+    },
+    {
+      "type": "h2",
+      "text": "La Regla de Consistencia de TopStep: Ejemplos Numéricos"
+    },
+    {
+      "type": "p",
+      "text": "La regla de consistencia de TopStep establece que <strong>ningún día de trading puede representar más del 30% de tus ganancias totales netas</strong>. La fórmula es exactamente igual que en FTMO:"
+    },
+    {
+      "type": "p",
+      "text": "<strong>% de consistencia = Mejor día PnL ÷ Ganancia Total Neta</strong>"
+    },
+    {
+      "type": "p",
+      "text": "Veamos cómo funciona esto en la práctica con una cuenta de $50,000 (objetivo: $3,000):"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Escenario",
+        "Ganancia Total",
+        "Mejor Día",
+        "% Consistencia",
+        "¿Pasa?"
+      ],
+      "rows": [
+        [
+          "Distribución uniforme",
+          "$3,200",
+          "$700",
+          "21.9%",
+          "Sí"
+        ],
+        [
+          "Un día excepcional",
+          "$3,100",
+          "$950",
+          "30.6%",
+          "No — viola regla"
+        ],
+        [
+          "Cerca del límite",
+          "$3,000",
+          "$890",
+          "29.7%",
+          "Sí — por poco"
+        ],
+        [
+          "Recuperación después de violación",
+          "$3,000",
+          "$950",
+          "31.7%",
+          "No"
+        ],
+        [
+          "Recuperación ampliada",
+          "$3,500",
+          "$950",
+          "27.1%",
+          "Sí — si sigues operando"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Si un día excepcional te lleva por encima del 30%, no pánicas. Puedes recuperar la situación operando bien los días siguientes y aumentando tu ganancia total. El porcentaje cambia cada día — mientras no hayas pedido el pago, aún puedes corregirlo."
+    },
+    {
+      "type": "h2",
+      "text": "El Drawdown Trailing de TopStep: El Error que Más Atrapa a los Traders"
+    },
+    {
+      "type": "p",
+      "text": "El drawdown trailing es la regla que más confunde a los traders que vienen de evaluaciones con drawdown estático. En TopStep con la cuenta de $50,000, el drawdown trailing es de $2,000. Esto es lo que significa en la práctica:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Comienzas con $50,000 → tu floor es $48,000",
+        "Ganas $1,000 → tu equity es $51,000 → tu floor sube a $49,000",
+        "Ganas $2,000 más → tu equity es $52,000 → tu floor sube a $50,000",
+        "Ahora tienes $2,000 de ganancia pero tu floor ya llegó a tu punto de inicio",
+        "Si pierdes $2,000 en este momento → tu account llega exactamente al floor → evaluación terminada",
+        "Una vez que tu equity supera el drawdown máximo ($2,000 de ganancia = floor en $50,000), el floor se congela ahí para siempre"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "El momento más peligroso de la evaluación de TopStep es justo cuando empiezas a ir bien. Con el drawdown trailing, cuanto más ganas al inicio, <strong>menos margen de error tienes</strong> si el mercado se mueve en tu contra — hasta que tu floor se congela en tu punto de inicio."
+    },
+    {
+      "type": "h2",
+      "text": "Errores Comunes que Hacen Fallar el Trading Combine"
+    },
+    {
+      "type": "h3",
+      "text": "Error 1: Operar durante el NFP o la Decisión de la Fed"
+    },
+    {
+      "type": "p",
+      "text": "TopStep tiene una política explícita: <strong>no se deben tener posiciones abiertas durante eventos de alto impacto</strong> como el reporte de empleo (NFP), decisiones de la Fed, o datos de inflación del CPI. Si tienes una posición abierta en esos momentos y el mercado se mueve violentamente en tu contra, puedes golpear la pérdida máxima diaria en segundos. Mantén un calendario económico actualizado y salte del mercado antes de las noticias."
+    },
+    {
+      "type": "h3",
+      "text": "Error 2: Aumentar el Tamaño de Posición Después de Días Buenos"
+    },
+    {
+      "type": "p",
+      "text": "La confianza es el enemigo más peligroso después de una racha positiva. Muchos traders pasan los primeros 5-6 días bien, acumulan un buen colchón, y empiezan a operar con el doble de contratos porque 'se sienten bien'. El resultado: un día malo con tamaño aumentado los pone cerca de la pérdida máxima diaria, el revenge trading toma el control, y la evaluación termina exactamente cuando estaban a punto de pasarla."
+    },
+    {
+      "type": "h3",
+      "text": "Error 3: No Revisar el Porcentaje de Consistencia Antes de Cada Sesión"
+    },
+    {
+      "type": "p",
+      "text": "Muchos traders llegan a la evaluación con el objetivo de ganancia ya cumplido y luego descubren que no pueden pedir el pago porque un día excepcional pasado viola la regla de consistencia. Revisar este número toma 30 segundos al inicio de cada día de trading — pero la mayoría de los traders no lo hace porque no tienen un sistema que lo calcule automáticamente."
+    },
+    {
+      "type": "h3",
+      "text": "Error 4: Intentar 'Terminar Rápido' la Evaluación"
+    },
+    {
+      "type": "p",
+      "text": "TopStep no tiene fecha límite para completar la evaluación — solo pagas la suscripción mensual mientras estás en ella. Sin embargo, muchos traders sienten la presión del costo mensual y empiezan a asumir más riesgo para terminar antes. Esta mentalidad produce exactamente lo contrario: más violaciones de reglas y más meses pagando suscripción."
+    },
+    {
+      "type": "h2",
+      "text": "Estrategia Diaria para Pasar TopStep"
+    },
+    {
+      "type": "p",
+      "text": "Los traders que pasan el Trading Combine de TopStep en su primer o segundo intento siguen una rutina estructurada. Aquí está el marco que funciona:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Antes de abrir la plataforma:</strong> revisa el calendario económico y confirma si hay eventos de alto impacto en tu sesión",
+        "<strong>Calcula tu tamaño de posición máximo</strong> basado en tres trades perdedores consecutivos dentro del límite de pérdida diaria personal (no el de TopStep)",
+        "<strong>Verifica tu porcentaje de consistencia actual</strong> — si estás por encima del 25%, reduce el tamaño hoy",
+        "<strong>Define tu objetivo de ganancia diario</strong> — una vez que lo alcanzas, cierra la plataforma",
+        "<strong>Define tu stop de pérdida diario personal</strong> — alrededor del 60-70% del límite de TopStep",
+        "<strong>Registra cada trade en tu journal</strong> con estado emocional y si siguió el plan",
+        "<strong>Al cierre de la sesión:</strong> revisa el journal, anota el día en una frase, actualiza los KPIs"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Zentrade Te Ayuda a Pasar la Evaluación de TopStep"
+    },
+    {
+      "type": "p",
+      "text": "Todo lo que describimos arriba — monitorear el porcentaje de consistencia diario, rastrear el drawdown trailing, identificar patrones de revenge trading — requiere datos organizados y actualizados. Sin un sistema, es prácticamente imposible mantener todos estos números en la cabeza mientras también estás operando en vivo."
+    },
+    {
+      "type": "p",
+      "text": "<strong>Zentrade</strong> es un journal de trading diseñado para traders en pruebas de fondeo. Puedes configurar tu cuenta de TopStep con las reglas exactas de tu evaluación ($3,000 profit target, $2,000 daily loss, 30% consistency rule), y el dashboard te muestra en tiempo real tu progreso contra cada parámetro."
+    },
+    {
+      "type": "p",
+      "text": "El plan Professional de Zentrade incluye seguimiento de curva de equity, profit factor, porcentaje de consistencia y análisis de horarios óptimos. El plan ZenMode añade detección de revenge trading con IA — una alerta que identifica cuando tu patrón de entrada después de una pérdida coincide con comportamiento de revenge trading, antes de que ejecutes el trade."
+    },
+    {
+      "type": "cta",
+      "text": "Lleva el control de tu evaluación de TopStep con Zentrade. Monitorea tu consistencia, drawdown y emociones en tiempo real. Gratis para empezar.",
+      "href": "/register",
+      "buttonText": "Crear Cuenta Gratis"
+    },
+    {
+      "type": "h2",
+      "text": "Preguntas Frecuentes sobre la Evaluación de TopStep"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "¿Cuánto tiempo tengo para pasar el Trading Combine de TopStep?",
+          "a": "No hay fecha límite. Pagas una suscripción mensual mientras estás en la evaluación. No hay mínimo de días de trading — puedes pasar en 5 días o en 5 semanas. La clave es mantenerte dentro de todas las reglas hasta alcanzar el objetivo de ganancia, sin prisas."
+        },
+        {
+          "q": "¿Qué pasa si violo una regla en el Trading Combine?",
+          "a": "La evaluación termina automáticamente. Puedes volver a suscribirte y empezar de nuevo. TopStep no ofrece descuentos en reintentos de la misma forma que FTMO, pero sí tiene opciones de pausar la suscripción si necesitas un descanso antes de intentarlo de nuevo."
+        },
+        {
+          "q": "¿Cuáles son los instrumentos de futuros disponibles en TopStep?",
+          "a": "TopStep soporta los principales contratos de CME: índices de acciones (ES, NQ, YM, RTY y sus micros MES, MNQ), energía (CL), metales (GC), divisas (6E, 6B), y bonos (ZN, ZB). ES y NQ son los más usados por traders de TopStep."
+        },
+        {
+          "q": "¿Cómo funciona el split del 100% de ganancias en TopStep?",
+          "a": "TopStep divide las ganancias 90/10 (trader/firma) hasta que el trader acumula $10,000 en pagos totales. A partir de esa cifra, el split cambia a 100% para el trader. Es uno de los incentivos más competitivos del mercado para traders que planean mantener la cuenta fondeada a largo plazo."
+        },
+        {
+          "q": "¿Puedo usar la misma estrategia que uso en mi cuenta real?",
+          "a": "Sí, siempre que respetes las reglas específicas de TopStep. La principal diferencia con una cuenta personal es la regla de consistencia y el drawdown trailing — dos restricciones que no existen en cuentas propias. Es fundamental ajustar tu gestión de riesgo a estas reglas antes de empezar la evaluación."
+        },
+        {
+          "q": "¿Es TopStep mejor que FTMO para traders de LATAM?",
+          "a": "Depende de tu perfil. TopStep es más accesible al inicio (suscripción mensual vs. pago único de FTMO), tiene una sola fase en lugar de dos, y su split del 100% es superior para cuentas exitosas a largo plazo. FTMO tiene mayor reconocimiento global y cuenta con evaluaciones disponibles en español. Muchos traders de LATAM prueban ambos. Ver nuestra comparativa completa de empresas de fondeo para más detalle."
+        },
+        {
+          "q": "¿El journal de trading es obligatorio para la evaluación de TopStep?",
+          "a": "TopStep no exige que uses un journal de trading — pero todos los datos muestran que los traders que llevan registro sistemático de sus trades tienen tasas de éxito significativamente más altas. La regla de consistencia y el drawdown trailing son imposibles de gestionar sin datos históricos y KPIs actualizados en tiempo real."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade es el journal de trading en español para pasar pruebas de fondeo. Configura las reglas de TopStep en tu cuenta y monitorea cada KPI en tiempo real.",
+      "href": "/register",
+      "buttonText": "Empieza Gratis Hoy"
+    }
+  ],
+  "relatedSlugs": [
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "como-pasar-apex-trader-funding",
+    "consistency-rule-fondeo-explicada",
+    "mejores-empresas-fondeo-futuros-2025"
+  ],
+  "thumbnail": "/blog/trader-mujer-notas-graficas-multimonitor.jpg",
+  "thumbnailAlt": "Trader tomando notas frente a múltiples monitores con gráficas durante evaluación de TopStep"
+}

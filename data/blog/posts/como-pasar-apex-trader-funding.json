@@ -1,0 +1,212 @@
+{
+  "slug": "como-pasar-apex-trader-funding",
+  "title": "Cómo Pasar la Evaluación de Apex Trader Funding: Guía Paso a Paso",
+  "excerpt": "Guía completa para pasar la evaluación de Apex Trader Funding: reglas, drawdown trailing, estrategia de trading y el uso del journal que marca la diferencia.",
+  "seoTitle": "Cómo Pasar Apex Trader Funding: Guía Completa 2025",
+  "seoDescription": "Cómo pasar la evaluación de Apex Trader Funding paso a paso: reglas, drawdown trailing, estrategia y el journal de trading que aumenta tus probabilidades de fondeo.",
+  "keywords": ["cómo pasar Apex Trader Funding", "reglas Apex Trader Funding evaluación", "evaluación Apex futuros", "Apex drawdown trailing", "journal trading Apex", "empresa de fondeo futuros 2025"],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-04-07",
+  "updatedAt": "2026-04-07",
+  "category": "fondeo",
+  "tags": ["Apex Trader Funding", "prueba de fondeo", "futuros", "drawdown trailing", "journal de trading", "empresa de fondeo"],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/graficas-velas-japonesas-futuros.jpg",
+  "thumbnailAlt": "Gráfica de velas japonesas de futuros para pasar la evaluación de Apex Trader Funding",
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>Apex Trader Funding</strong> es una de las empresas de fondeo para futuros más populares en 2025, conocida por sus reglas relativamente sencillas, descuentos promocionales frecuentes y una estructura de pagos donde el trader puede quedarse hasta el 90% de las ganancias. Sin embargo, más del 85% de los traders que intenta la prueba falla — no porque el objetivo de ganancia sea inalcanzable, sino porque los requisitos de gestión de riesgo y consistencia los eliminan de formas predecibles y evitables."
+    },
+    {
+      "type": "p",
+      "text": "Esta guía cubre todo lo que necesitas saber para pasar la evaluación de Apex Trader Funding: tamaños de cuenta, objetivos de ganancia, reglas de drawdown, restricciones de trading y — lo más importante — la metodología de journaling diario y seguimiento de métricas que separa a los traders que pasan de los que repiten la evaluación una y otra vez."
+    },
+    {
+      "type": "h2",
+      "text": "Reglas de la Evaluación de Apex Trader Funding: Lo Esencial"
+    },
+    {
+      "type": "p",
+      "text": "La prueba de fondeo de Apex Trader Funding es de una sola fase: debes alcanzar el objetivo de ganancia mientras mantienes el drawdown dentro de los límites establecidos. No hay un período de tiempo fijo, aunque se recomienda un número mínimo de días de operación para demostrar consistencia."
+    },
+    {
+      "type": "table",
+      "headers": ["Tamaño de cuenta", "Objetivo de ganancia", "Drawdown máximo trailing", "Límite pérdida diaria", "Días mínimos recomendados"],
+      "rows": [
+        ["$25,000", "$1,500", "$1,500", "Sin límite fijo diario", "7+ recomendados"],
+        ["$50,000", "$3,000", "$2,500", "Sin límite fijo diario", "7+ recomendados"],
+        ["$75,000", "$4,250", "$2,750", "Sin límite fijo diario", "7+ recomendados"],
+        ["$100,000", "$6,000", "$3,000", "Sin límite fijo diario", "7+ recomendados"],
+        ["$150,000", "$9,000", "$5,000", "Sin límite fijo diario", "7+ recomendados"],
+        ["$250,000", "$15,000", "$6,500", "Sin límite fijo diario", "7+ recomendados"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Las reglas y condiciones de Apex Trader Funding cambian periódicamente, especialmente los requisitos de consistencia y las condiciones de las cuentas fondeadas. Verifica siempre los términos actuales en apextraderfunding.com antes de comenzar tu evaluación. Los datos de esta tabla son orientativos basados en información pública disponible a la fecha de publicación."
+    },
+    {
+      "type": "h2",
+      "text": "El Drawdown Trailing: La Regla Más Crítica de Apex"
+    },
+    {
+      "type": "p",
+      "text": "El concepto más importante — y más malinterpretado — de la evaluación de Apex es el <strong>drawdown trailing</strong> (drawdown rastreante). A diferencia de un drawdown fijo que solo mide desde el balance inicial, el drawdown trailing sigue tu equity a medida que crece. Esto significa que el piso de drawdown sube con cada ganancia que registras."
+    },
+    {
+      "type": "p",
+      "text": "Ejemplo concreto con una cuenta de $100,000 y drawdown de $3,000: inicias con un piso en $97,000. Ganas $2,000, tu equity es $102,000 y el piso sube a $99,000. Ganas $1,500 más, equity en $103,500, piso en $100,500. Ahora tienes una sesión mala de -$3,100: tu equity cae a $100,400. Has violado el piso. La cuenta está terminada — aunque estabas $3,500 por encima del balance inicial."
+    },
+    {
+      "type": "p",
+      "text": "La implicación más importante: <strong>el drawdown trailing hace posible fallar la evaluación después de haber sido significativamente rentable</strong>. Un trader que creció una cuenta de $100,000 a $106,000 tiene el piso en $103,000. Una sola sesión mala de -$3,100 desde ese máximo falla la evaluación, aunque el trader esté $6,000 arriba en términos netos."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Estrategia recomendada: una vez que hayas crecido tu cuenta en el 50% del objetivo de ganancia, reduce tu tamaño de posición a la mitad. El drawdown trailing ya está elevado y el costo de un episodio de pérdida aumenta dramáticamente. Protege el progreso reduciendo el riesgo."
+    },
+    {
+      "type": "h2",
+      "text": "Consistencia en Apex Trader Funding"
+    },
+    {
+      "type": "p",
+      "text": "Apex Trader Funding ha aplicado requisitos de consistencia que varían por tipo de cuenta y período. El principio general es consistente con el resto de las empresas de fondeo: tu rendimiento debe distribuirse a través de múltiples días de operación, no concentrarse en uno o dos días excepcionales."
+    },
+    {
+      "type": "p",
+      "text": "Para mantenerte dentro de los límites de forma conservadora, estructura tu trading de modo que <strong>ningún día represente más del 30% de tu ganancia neta total</strong>. Este umbral te mantiene seguro en prácticamente todos los requisitos de consistencia de las empresas de fondeo. Zentrade calcula este porcentaje automáticamente en el dashboard."
+    },
+    {
+      "type": "h2",
+      "text": "Guía Paso a Paso para Pasar la Evaluación de Apex"
+    },
+    {
+      "type": "h3",
+      "text": "Paso 1: Define tu tamaño de posición antes de empezar"
+    },
+    {
+      "type": "p",
+      "text": "La razón más frecuente por la que los traders fallan la evaluación de Apex no es la estrategia — es la inconsistencia en el tamaño de posición. Antes de tu primer trade, calcula el tamaño máximo de posición basándote en el límite de drawdown trailing. Para una cuenta de $100,000 con $3,000 de drawdown, arriesgar más de $300 por trade (10% del drawdown) al día es agresivo. Define ese número, escríbelo en tu plan de trading en Zentrade y no te desvíes de él."
+    },
+    {
+      "type": "h3",
+      "text": "Paso 2: Establece un stop de pérdida diaria y un techo de ganancia diaria"
+    },
+    {
+      "type": "p",
+      "text": "Tu stop de pérdida diaria debe ser un número fijo muy por debajo del límite de drawdown trailing. Una regla práctica: tu stop diario no debe superar el 30-40% del drawdown disponible. Para un drawdown de $3,000, eso significa detener el día con -$900 a -$1,200 en pérdidas. En el lado de las ganancias, define un techo que te mantenga dentro del umbral de consistencia — aproximadamente el 25-28% de tu ganancia neta acumulada actual."
+    },
+    {
+      "type": "h3",
+      "text": "Paso 3: Registra cada trade el mismo día"
+    },
+    {
+      "type": "p",
+      "text": "Los traders que pasan la evaluación de Apex de forma consistente tienen una cosa en común: conocen sus números en cualquier momento. Saben su equity actual, el piso del drawdown trailing, el porcentaje de consistencia y el PnL del día sin necesidad de calcularlo sobre la marcha. Un journal de trading como <strong>Zentrade</strong> te da esta visibilidad en el dashboard — actualizado con cada trade que registras."
+    },
+    {
+      "type": "h3",
+      "text": "Paso 4: Identifica y elimina las pérdidas de comportamiento"
+    },
+    {
+      "type": "p",
+      "text": "Separa tus pérdidas en dos categorías: pérdidas de estrategia (trades que siguieron tu plan pero no funcionaron) y pérdidas de comportamiento (trades tomados fuera del plan — revenge trading, entradas por FOMO, posiciones sobredimensionadas). Las pérdidas de estrategia son aceptables. Las de comportamiento son las que fallan las evaluaciones. Usa el sistema de tags emocionales de Zentrade para rastrear a qué categoría pertenece cada trade perdedor. Con una semana de datos, el patrón se vuelve innegable."
+    },
+    {
+      "type": "h3",
+      "text": "Paso 5: Revisa el reporte semanal antes de empezar cada semana"
+    },
+    {
+      "type": "p",
+      "text": "El reporte semanal con IA de Zentrade (disponible en planes Professional y ZenMode) te da un resumen cada lunes por la mañana: tus mejores y peores horarios de trading, patrones emocionales correlacionados con pérdidas, tendencia del porcentaje de consistencia y recomendaciones específicas. Revisar esto antes de abrir la plataforma el lunes significa que comienzas la semana con claridad sobre qué corregir."
+    },
+    {
+      "type": "h2",
+      "text": "Errores Comunes que Hacen Fallar la Evaluación de Apex"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Aumentar el tamaño de posición después de varios días ganadores — el drawdown trailing elevado hace esto especialmente peligroso",
+        "Revenge trading después de una sesión perdedora y violar el stop de pérdida diaria",
+        "Operar al final de la sesión para evitar cerrar el día en negativo — entradas de baja calidad que extienden las pérdidas",
+        "No tener en cuenta la naturaleza dinámica del drawdown trailing al calcular el riesgo por trade",
+        "Alcanzar el objetivo de ganancia en muy pocos días y saltarse el hábito de ganancias diarias constantes",
+        "No documentar los trades y no notar los patrones hasta que la evaluación ya terminó"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Instrumentos de Futuros Recomendados para la Evaluación de Apex"
+    },
+    {
+      "type": "p",
+      "text": "Apex permite operar en la mayoría de los instrumentos de futuros de CME y CBOT. Las opciones más populares entre los traders fondeados son NQ (Nasdaq-100), ES (S&P 500), CL (Petróleo Crudo) y GC (Oro), con los micro contratos MES y MNQ utilizados por traders que prefieren mayor control del riesgo. Zentrade tiene estos instrumentos preconfigurados con los multiplicadores de contrato correctos, por lo que tus cálculos de PnL siempre son precisos."
+    },
+    {
+      "type": "table",
+      "headers": ["Instrumento", "Contrato", "Valor del tick", "Riesgo por tick (1 contrato)", "Notas"],
+      "rows": [
+        ["NQ", "Nasdaq-100 E-mini", "$5/tick", "$5", "Alta volatilidad, alto potencial"],
+        ["ES", "S&P 500 E-mini", "$12.50/tick", "$12.50", "El contrato de futuros más líquido"],
+        ["MNQ", "Micro Nasdaq-100", "$0.50/tick", "$0.50", "NQ con 1/10 del riesgo"],
+        ["MES", "Micro S&P 500", "$1.25/tick", "$1.25", "ES con 1/10 del riesgo"],
+        ["CL", "Petróleo Crudo", "$10/tick", "$10", "Alta volatilidad en noticias de energía"],
+        ["GC", "Oro", "$10/tick", "$10", "Comportamiento tendencial, refugio seguro"]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Zentrade Ayuda a Pasar la Evaluación de Apex Trader Funding"
+    },
+    {
+      "type": "p",
+      "text": "<strong>Zentrade</strong> está diseñado específicamente para traders en pruebas de fondeo como la de Apex Trader Funding. El dashboard muestra tu exposición al drawdown trailing, equity actual, PnL del día y porcentaje de consistencia en tiempo real. La sección de trading plan te permite documentar tus reglas — tamaño de posición, stop de pérdida, horas de sesión — para tener una referencia escrita durante cada sesión. El reporte semanal con IA identifica patrones de comportamiento antes de que se conviertan en eventos que terminan evaluaciones."
+    },
+    {
+      "type": "p",
+      "text": "A diferencia de alternativas como TradeZella, que no tiene un tracker específico de consistency rule para empresas de fondeo, o Edgewonk, que funciona como aplicación de escritorio sin alertas en tiempo real, Zentrade fue construido con el trader en evaluación activa como usuario principal."
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "¿Qué es la evaluación de Apex Trader Funding?",
+          "a": "Es una prueba de fondeo de una sola fase donde operas una cuenta simulada de futuros y debes alcanzar un objetivo de ganancia mientras mantienes el drawdown dentro de los límites establecidos. Los traders que pasan reciben acceso a una cuenta fondeada y conservan hasta el 90% de las ganancias."
+        },
+        {
+          "q": "¿Cuánto tiempo toma pasar la evaluación de Apex Trader Funding?",
+          "a": "No hay un límite de tiempo fijo en la evaluación de Apex, pero se recomienda un mínimo de días de operación. La mayoría de los traders completa la evaluación en 2 a 6 semanas, aunque varía considerablemente según el tamaño de cuenta, el objetivo y la frecuencia de operación."
+        },
+        {
+          "q": "¿Qué es el drawdown trailing en Apex Trader Funding?",
+          "a": "Es la pérdida máxima desde el máximo de equity durante la evaluación. A medida que la cuenta crece, el piso de drawdown sube con el equity máximo — lo que significa que el monto en dólares que puedes perder antes de fallar es fijo, pero comienza desde un nivel de equity cada vez mayor a medida que eres rentable."
+        },
+        {
+          "q": "¿Apex Trader Funding tiene regla de consistencia?",
+          "a": "Apex ha aplicado periódicamente requisitos de consistencia que varían por tipo de cuenta. Para estar seguro, estructura tu trading de modo que ningún día represente más del 30% de tu ganancia neta total. Zentrade rastrea este porcentaje automáticamente."
+        },
+        {
+          "q": "¿Puedo operar NQ y ES en la evaluación de Apex Trader Funding?",
+          "a": "Sí. Apex permite operar en la mayoría de los instrumentos importantes de futuros de CME y CBOT, incluyendo NQ, ES, MNQ, MES, CL y GC. Estos son los instrumentos más populares entre los traders en evaluaciones de Apex."
+        },
+        {
+          "q": "¿Cuál es el mejor journal de trading para la evaluación de Apex Trader Funding?",
+          "a": "Zentrade está diseñado específicamente para pruebas de fondeo como la de Apex Trader Funding. Rastrea el drawdown trailing, el porcentaje de consistencia y los patrones de comportamiento en tiempo real, e incluye detección de revenge trading con IA para prevenir las fallas de comportamiento más comunes."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Empieza a registrar tu evaluación de Apex Trader Funding en Zentrade y ten el control total de las métricas que importan.",
+      "href": "/register",
+      "buttonText": "Empezar gratis — sin tarjeta"
+    }
+  ],
+  "relatedSlugs": ["como-pasar-evaluacion-ftmo-journal-trading", "consistency-rule-fondeo-explicada"]
+}

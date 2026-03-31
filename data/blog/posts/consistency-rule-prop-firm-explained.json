@@ -1,0 +1,199 @@
+{
+  "slug": "consistency-rule-prop-firm-explained",
+  "title": "Consistency Rule in Prop Firms Explained: What It Is and How to Pass It",
+  "excerpt": "The consistency rule is the hidden reason most traders fail prop firm evaluations even after hitting their profit target. Here's exactly how it works.",
+  "seoTitle": "Consistency Rule Prop Firm: What It Is and How to Pass It",
+  "seoDescription": "The consistency rule explained for FTMO, Apex, and TopStep evaluations. Learn how to calculate it, avoid violations, and track it in real time with a trading journal.",
+  "keywords": ["consistency rule prop firm", "how to pass consistency rule FTMO", "prop firm consistency rule explained", "FTMO consistency rule", "Apex consistency rule", "trading journal consistency tracking"],
+  "author": "Zentrade Team",
+  "publishedAt": "2026-04-04",
+  "updatedAt": "2026-04-04",
+  "category": "fondeo",
+  "tags": ["consistency rule", "prop firm rules", "FTMO", "Apex Trader Funding", "TopStep", "funded trading", "evaluation"],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/trader-setup-profesional-escritorio.jpg",
+  "thumbnailAlt": "Professional trader at multi-monitor setup tracking consistency rule metrics for prop firm evaluation",
+  "content": [
+    {
+      "type": "p",
+      "text": "The <strong>consistency rule</strong> is the most misunderstood requirement in prop firm evaluations — and the most common hidden reason traders get rejected even after reaching their profit target. In simple terms: no single trading day can account for more than a set percentage of your total net profit during the evaluation. The exact threshold varies by firm, but the consequence is always the same: violate it, and your evaluation fails regardless of your total P&L."
+    },
+    {
+      "type": "p",
+      "text": "If you've ever passed your profit target and still got rejected, there's a high probability the consistency rule is why. This guide explains exactly what it is, how it's calculated across the major prop firms — FTMO, Apex Trader Funding, TopStep, Uprofit, and Tradoverse — and what you can do to structure your trading so you never violate it."
+    },
+    {
+      "type": "h2",
+      "text": "Why Prop Firms Have a Consistency Rule"
+    },
+    {
+      "type": "p",
+      "text": "Prop firms are not in the business of funding lucky traders. They want to identify traders with <strong>replicable skill and disciplined risk management</strong> — because that's what protects their capital when they assign real money. A trader who generates 60% of their profit target in a single high-risk trade and then barely breaks even the rest of the month is not demonstrating that skill."
+    },
+    {
+      "type": "p",
+      "text": "The consistency rule is the mechanism that filters out these outlier cases. It rewards traders who distribute their performance evenly across many trading days, manage position size consistently, and avoid the behavioral trap of taking disproportionate risk on any single day."
+    },
+    {
+      "type": "h2",
+      "text": "Consistency Rule by Prop Firm: Comparison Table"
+    },
+    {
+      "type": "table",
+      "headers": ["Prop Firm", "Consistency Rule", "How It's Calculated", "Consequence of Violation"],
+      "rows": [
+        ["FTMO", "~30% of total net profit", "Best single day cannot exceed 30% of cumulative net profit", "Automatic evaluation rejection"],
+        ["Apex Trader Funding", "Varies by plan — check current terms", "Best day vs. total net profit", "Evaluation disqualification"],
+        ["TopStep", "No explicit consistency rule in standard Combine", "Drawdown and behavior-based rules apply", "Depends on specific infraction"],
+        ["Uprofit", "30% of net profit", "Same method as FTMO", "Automatic rejection"],
+        ["Tradoverse", "Check current terms — varies by plan", "Best day vs. total net profit", "Possible rejection"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Prop firm rules change periodically. Always verify the current terms on the firm's official website before starting your evaluation. This table reflects publicly available conditions at the time of publication and is for orientation only."
+    },
+    {
+      "type": "h2",
+      "text": "How to Calculate the Consistency Rule: Real Examples"
+    },
+    {
+      "type": "h3",
+      "text": "Example 1: Failing without knowing it"
+    },
+    {
+      "type": "p",
+      "text": "Suppose you're in FTMO Phase 1 with a $10,000 profit target. You have a strong start and your daily P&L looks like this: Mon +$700, Tue +$1,100, Wed +$600, Thu -$300, Fri +$3,800, Mon +$800, Tue +$400, Wed +$500. Total: <strong>$7,600 net profit</strong>."
+    },
+    {
+      "type": "p",
+      "text": "The problem: that Friday with +$3,800 represents <strong>50% of your total net profit</strong> ($3,800 / $7,600). With a 30% consistency rule, you've already violated it — even though you haven't reached the profit target yet. If you keep trading and reach $10,000, that Friday still represents 38%: still a violation. You would need your total net to reach approximately $12,667 for that Friday to drop below the 30% threshold."
+    },
+    {
+      "type": "h3",
+      "text": "Example 2: Structuring your trading to pass"
+    },
+    {
+      "type": "p",
+      "text": "For a $10,000 target with a 30% rule, your best single day cannot exceed $3,000 in net profit. This means that on an exceptional trading day where you're already at $2,700, the disciplined move is to <strong>stop trading for that day</strong>. Not because the setup isn't good — but because exceeding the threshold puts weeks of solid trading at risk for a single session."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Practical formula: divide your profit target by 4 and use the result as your daily profit ceiling. For a $10,000 target with a 30% rule, your daily ceiling is approximately $2,800 (leaving a small safety margin). When you hit that number, close the platform for the day."
+    },
+    {
+      "type": "h2",
+      "text": "The Dynamic Nature of the Consistency Rule (What Nobody Explains)"
+    },
+    {
+      "type": "p",
+      "text": "The mistake most traders make is treating the consistency rule as a fixed calculation. It isn't. <strong>The percentage changes with every trade you execute</strong>, because your total net profit changes with every P&L update. A day that was within the limit on Friday may be out of bounds by Monday if you have losing sessions in between that reduce your cumulative net profit."
+    },
+    {
+      "type": "p",
+      "text": "Example: you have $9,000 in net profit. Your best day was a Tuesday with +$2,400 — that's 26.7%, comfortably within the 30% limit. The following week, two losing sessions bring your net to $6,800. Now that Tuesday represents <strong>35.3% of your net</strong> — a retroactive violation. This is exactly why real-time tracking matters more than end-of-week reviews."
+    },
+    {
+      "type": "h2",
+      "text": "How Zentrade Tracks Your Consistency Rule in Real Time"
+    },
+    {
+      "type": "p",
+      "text": "<strong>Zentrade</strong> includes a consistency rule tracker in the main dashboard that updates with every trade registered. The consistency percentage — your best day as a percentage of total net profit — is always visible, and the system generates a visual alert when you approach the threshold configured for your specific firm. You can set the consistency limit per account, so if you're running an FTMO evaluation at 30% alongside a Uprofit account also at 30%, each account tracks independently."
+    },
+    {
+      "type": "p",
+      "text": "Unlike TradeZella, which shows daily P&L but doesn't have a prop-firm-specific consistency rule tracker, or Edgewonk, which operates as a desktop app without real-time alerts, Zentrade was built with the active evaluation trader as the primary user. The dashboard is designed so that the metrics most likely to cause a rejection — consistency percentage, daily drawdown, equity curve slope — are always visible without needing to navigate to a separate report."
+    },
+    {
+      "type": "h2",
+      "text": "Strategies to Pass the Consistency Rule Without Limiting Your Upside"
+    },
+    {
+      "type": "h3",
+      "text": "1. Set a daily profit stop"
+    },
+    {
+      "type": "p",
+      "text": "Just as you set a maximum daily loss stop, set a maximum daily profit stop. Calculate it dynamically: current net profit multiplied by the consistency rule percentage, then subtract a 5% safety buffer. When you hit that number, the trading day is over. This is counterintuitive on good days, but it's what separates traders who pass from those who fail at the finish line."
+    },
+    {
+      "type": "h3",
+      "text": "2. Distribute your gains across more trading days"
+    },
+    {
+      "type": "p",
+      "text": "The mathematics of the consistency rule favor traders who spread their performance across more days. Twenty days averaging +$500 creates a much healthier consistency percentage than five days at +$2,000 with fifteen breakeven sessions. This also gives you the added benefit of demonstrating the trading frequency that prop firms want to see."
+    },
+    {
+      "type": "h3",
+      "text": "3. Reduce position size after very profitable days"
+    },
+    {
+      "type": "p",
+      "text": "After a day where you approached your profit ceiling, the mathematically sound move is to reduce your position size for the next few sessions. This caps the potential impact of the next strong day relative to your already-large cumulative net, giving you a larger buffer before the consistency threshold becomes a constraint."
+    },
+    {
+      "type": "h3",
+      "text": "4. Track your emotional patterns around exceptional days"
+    },
+    {
+      "type": "p",
+      "text": "Exceptional trading days — the kind that push the consistency percentage toward the limit — often coincide with specific emotional states: overconfidence after a winning streak, FOMO on a high-volatility news day, or the recovery euphoria after a bad week. Logging these emotions in a trading journal like Zentrade creates a dataset that lets you anticipate and manage these states before they turn into evaluation-ending violations."
+    },
+    {
+      "type": "table",
+      "headers": ["Strategy", "Effectiveness", "Difficulty"],
+      "rows": [
+        ["Daily profit stop (fixed calculation)", "High — directly prevents overshoot", "Medium — requires discipline"],
+        ["More trading days, smaller size", "High — naturally distributes gains", "Low — adjust trading plan"],
+        ["Real-time tracker (Zentrade)", "High — constant visibility of percentage", "Low — automatic"],
+        ["Reduce size after big days", "Medium — buffers future big days", "High — counterintuitive"],
+        ["Emotional journal for patterns", "Medium — identifies behavioral precursors", "Medium — requires honesty"]
+      ]
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "What is the consistency rule in prop firm evaluations?",
+          "a": "The consistency rule requires that no single trading day account for more than a set percentage — typically 30% — of your total net profit during the evaluation. Violating it results in automatic evaluation rejection regardless of your overall P&L."
+        },
+        {
+          "q": "Does FTMO have a consistency rule?",
+          "a": "Yes. FTMO's consistency rule states that your best trading day cannot represent more than approximately 30% of your total net profit. This applies across both Phase 1 and Phase 2 of the FTMO evaluation."
+        },
+        {
+          "q": "How do I calculate if I'm violating the consistency rule?",
+          "a": "Divide your best single day's net profit by your total cumulative net profit. If the result is greater than the threshold percentage for your firm (e.g., 30%), you're in violation. Zentrade calculates this automatically and displays it in the dashboard."
+        },
+        {
+          "q": "Can I have a very profitable day without violating the rule?",
+          "a": "Yes, if your total net profit is large enough that the exceptional day represents less than the threshold. With a 30% rule and $10,000 profit target, you can have a +$3,000 day as long as your total net is at least $10,000 — so that one day represents exactly 30%."
+        },
+        {
+          "q": "Does the consistency rule apply to TopStep evaluations?",
+          "a": "TopStep's standard Combine evaluation does not have an explicit consistency rule in the same format as FTMO. However, TopStep monitors trading behavior and risk management patterns. Always verify current TopStep rules on their official site."
+        },
+        {
+          "q": "Does Zentrade track the consistency rule in real time?",
+          "a": "Yes. Zentrade's dashboard shows the consistency percentage updated with every trade. You can configure the threshold for each account based on your specific firm's rules, and the system generates a visual alert when you're approaching the limit."
+        },
+        {
+          "q": "What should I do if I'm about to violate the consistency rule?",
+          "a": "Stop trading for the day as soon as you reach the calculated profit ceiling. If you've already exceeded it on a previous day, focus on building your total net profit across multiple future sessions to mathematically reduce the percentage that day represents."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Track your consistency rule in real time with Zentrade and protect every evaluation from the most common hidden violation.",
+      "href": "/register",
+      "buttonText": "Start free — no credit card"
+    }
+  ],
+  "relatedSlugs": ["best-trading-journal-prop-firms-2025", "como-pasar-evaluacion-ftmo-journal-trading"]
+}

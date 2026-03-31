@@ -1,0 +1,282 @@
+{
+  "slug": "how-to-pass-ftmo-evaluation",
+  "title": "How to Pass the FTMO Evaluation: Complete Guide for Futures Traders",
+  "excerpt": "Learn how to pass the FTMO evaluation with a practical guide covering rules, common mistakes, consistency rule math, and the daily habits that get futures traders funded.",
+  "seoTitle": "How to Pass the FTMO Evaluation — Futures Trader Guide 2025",
+  "seoDescription": "Complete guide to passing the FTMO evaluation for futures traders: rules explained, consistency rule math, common failure patterns, and the daily habits that get you funded.",
+  "keywords": [
+    "how to pass FTMO evaluation",
+    "FTMO rules futures trading journal",
+    "FTMO consistency rule",
+    "FTMO challenge tips",
+    "FTMO funded account futures",
+    "FTMO prop firm review",
+    "FTMO max daily loss"
+  ],
+  "author": "Zentrade Team",
+  "publishedAt": "2026-04-12",
+  "updatedAt": "2026-04-12",
+  "category": "fondeo",
+  "tags": [
+    "FTMO",
+    "prop firm evaluation",
+    "funded account",
+    "futures trading",
+    "consistency rule",
+    "trading journal",
+    "FTMO challenge"
+  ],
+  "readingTime": 9,
+  "featured": false,
+  "content": [
+    {
+      "type": "p",
+      "text": "The FTMO evaluation is widely considered the most rigorous funded program in the industry — and the most respected. Passing it means something. But with a failure rate above 85%, understanding exactly how to pass the FTMO evaluation is not as obvious as it seems, even for experienced futures traders."
+    },
+    {
+      "type": "p",
+      "text": "The short answer: you pass the FTMO evaluation by treating it less like a performance challenge and more like a <strong>rule compliance challenge</strong>. Most traders who fail have profitable strategies — they fail because they violate the consistency rule, blow the max daily loss after a frustrating session, or take one oversized trade that destroys a week of careful progress."
+    },
+    {
+      "type": "p",
+      "text": "This guide covers every FTMO rule you need to know, the math behind the consistency rule, the behavioral patterns that kill most attempts, and the daily habits of traders who pass on their first or second try."
+    },
+    {
+      "type": "h2",
+      "text": "FTMO Evaluation: The Two-Phase Structure"
+    },
+    {
+      "type": "p",
+      "text": "Unlike most prop firms that use a single evaluation phase, FTMO uses a two-phase process before granting a funded account:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Phase",
+        "Profit Target",
+        "Max Daily Loss",
+        "Max Total Loss",
+        "Min Trading Days"
+      ],
+      "rows": [
+        [
+          "Phase 1 — Challenge",
+          "10%",
+          "5%",
+          "10%",
+          "10 days"
+        ],
+        [
+          "Phase 2 — Verification",
+          "5%",
+          "5%",
+          "10%",
+          "10 days"
+        ],
+        [
+          "Funded Account",
+          "No target",
+          "5%",
+          "10%",
+          "No minimum"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "On a $50,000 account: Phase 1 requires you to reach $5,000 in profits. Phase 2 requires $2,500. Both phases have the same loss limits: $2,500 max daily loss and $5,000 max total loss. You need to trade on at least 10 calendar days per phase — you cannot rush through in 3 days, even if your numbers look good."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "The minimum 10 trading days rule trips up traders who have a fast start and want to finish early. You must spread your trading over at least 10 distinct calendar days per phase. Attempting to bank your profits and wait does not accelerate this requirement."
+    },
+    {
+      "type": "h2",
+      "text": "The FTMO Consistency Rule: The Most Misunderstood Rule in Funded Trading"
+    },
+    {
+      "type": "p",
+      "text": "The consistency rule is the rule that eliminates more traders who have already hit their profit target than any other single rule. You can reach $5,000 in profit on Phase 1 and still fail — if one of your trading days generated more than 30% of that total."
+    },
+    {
+      "type": "h3",
+      "text": "How the Consistency Rule Is Calculated"
+    },
+    {
+      "type": "p",
+      "text": "The formula is simple: <strong>Best Day PnL ÷ Total Net Profit ≤ 30%</strong>."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Total net profit at end of evaluation: $5,200",
+        "Your single best day: $1,400",
+        "Consistency percentage: $1,400 ÷ $5,200 = 26.9% — PASS",
+        "",
+        "Total net profit: $5,200",
+        "Your single best day: $1,650",
+        "Consistency percentage: $1,650 ÷ $5,200 = 31.7% — FAIL (exceeds 30%)"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "The deceptive part: the consistency percentage changes every day. If your best day was $1,650 and your total profit is only $4,800, you are at 34.4%. But if you continue trading well and bring your total to $5,500, you drop to 30.0%. <strong>You can actually trade your way out of a consistency violation</strong> — but only if you realize you are in one."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Track your consistency percentage every single day during your FTMO evaluation. If a strong day pushes your best-day percentage above 28%, reduce your position size for the remaining days or stop trading once you approach the profit target."
+    },
+    {
+      "type": "h2",
+      "text": "Common FTMO Failure Patterns — And How to Avoid Them"
+    },
+    {
+      "type": "h3",
+      "text": "Failure Pattern 1: Revenge Trading After the Daily Loss"
+    },
+    {
+      "type": "p",
+      "text": "The max daily loss on FTMO ($2,500 on a $50K account) is a hard stop. Many traders hit 80% of their daily limit early in the session, feel frustrated, and take one more trade — the one that crosses the line. The solution is a <strong>personal daily loss limit set below FTMO's limit</strong>: if your rule is to stop trading at $1,800, you have a $700 buffer before the hard limit. When you hit your personal limit, you close the platform."
+    },
+    {
+      "type": "h3",
+      "text": "Failure Pattern 2: The Big Day Trap"
+    },
+    {
+      "type": "p",
+      "text": "A trader has an exceptional day — $2,000 in profit on a $50K account. They feel invincible. The next day they double their position size, confident the streak will continue. Instead, they give back $1,800 in two trades. This pattern — exceptional day followed by oversized loss — is the most common account-ending sequence in FTMO funded accounts. Journal your best days specifically and flag them as high-risk days for the following session."
+    },
+    {
+      "type": "h3",
+      "text": "Failure Pattern 3: Rushing Phase 1 to Avoid the Subscription Renewal"
+    },
+    {
+      "type": "p",
+      "text": "FTMO's evaluation is a one-time fee, not a subscription — but the psychological pressure of a ticking clock still exists. Traders who feel they are running out of time start taking lower-quality setups to try to reach the profit target faster. The result is more losses, more variance, and a higher chance of hitting a loss limit. The evaluation does not expire in 30 days — FTMO gives you unlimited time to complete each phase. There is no deadline. Trade your plan, not the calendar."
+    },
+    {
+      "type": "h3",
+      "text": "Failure Pattern 4: Forgetting the Trailing Drawdown"
+    },
+    {
+      "type": "p",
+      "text": "FTMO's max loss is a trailing drawdown — your maximum total loss limit rises as your account grows. If you start at $50,000 and your max loss is $5,000, your floor is $45,000. But if your account grows to $53,000, your floor rises to $48,000. You now have only $5,000 of breathing room — exactly the same as when you started — even though you are up $3,000 on the evaluation. Many traders forget this and think their cushion is growing when it is actually staying constant in percentage terms."
+    },
+    {
+      "type": "h2",
+      "text": "How to Structure Your Trading Plan for the FTMO Evaluation"
+    },
+    {
+      "type": "p",
+      "text": "Passing FTMO is not about trading more — it is about trading consistently within a defined structure. Here is the framework that the most successful FTMO traders use:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Define your maximum position size</strong> — not based on what you want to earn, but on what keeps you within the daily loss limit with three consecutive losing trades",
+        "<strong>Set a personal daily loss limit</strong> — 60-70% of FTMO's limit (e.g., $1,500 instead of $2,500 on the $50K account)",
+        "<strong>Set a daily profit target</strong> — once you hit it, stop trading. Prevents the Big Day Trap and keeps consistency % in check",
+        "<strong>Define the hours you trade</strong> — FTMO supports CME futures, which means the best liquidity windows are 8:30-11:00 AM ET and 1:30-3:30 PM ET. Stick to those windows",
+        "<strong>Journal every trade immediately</strong> — emotional state, rationale, compliance with plan",
+        "<strong>Check your consistency percentage every morning</strong> before the session opens",
+        "<strong>Take at least one full day off per week</strong> — fatigue is a direct cause of rule violations"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "FTMO vs. Other Prop Firms: Is the Two-Phase Process Worth It?"
+    },
+    {
+      "type": "p",
+      "text": "FTMO's two-phase structure is the most demanding in the industry. Apex Trader Funding and TopStep both use a single-phase evaluation. So why would a trader choose FTMO?"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Brand recognition:</strong> FTMO is the most recognized prop firm globally. Having an FTMO funded account carries credibility in trading communities worldwide",
+        "<strong>No monthly subscription:</strong> you pay once per evaluation — no recurring fees while you are in the evaluation",
+        "<strong>Larger account sizes:</strong> FTMO offers account sizes up to $200K — larger than most competitors",
+        "<strong>FTMO Mentor program:</strong> access to educational resources and performance coaching once funded",
+        "<strong>Clear payout track record:</strong> FTMO has paid out tens of millions of dollars to funded traders with public documentation"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "If you are deciding between FTMO and other programs, see our <a href='/blog/best-prop-firms-futures-traders-2025'>full comparison of the best prop firms for futures traders in 2025</a>."
+    },
+    {
+      "type": "h2",
+      "text": "Using a Trading Journal to Pass the FTMO Evaluation"
+    },
+    {
+      "type": "p",
+      "text": "Everything described above — tracking consistency percentage daily, flagging your best days as high-risk sessions, monitoring trailing drawdown in real time — requires data. Specifically, it requires organized, searchable, up-to-date data about your trades. A mental note or a disorganized spreadsheet will not cut it when you are 12 days into Phase 1 and three trades from the profit target."
+    },
+    {
+      "type": "p",
+      "text": "<strong>Zentrade</strong> is a trading journal built specifically for prop firm traders. You can configure each account with FTMO's specific rules — profit target, max daily loss, consistency threshold — and the dashboard will show you in real time where you stand on every metric. No manual formulas, no end-of-day surprises."
+    },
+    {
+      "type": "p",
+      "text": "Zentrade's ZenMode plan also includes AI-powered revenge trading detection that flags when your entry pattern after a loss matches the behavioral profile of revenge trading — giving you a warning before you take the trade that ends your evaluation."
+    },
+    {
+      "type": "cta",
+      "text": "Track your FTMO evaluation with Zentrade. Set up your account rules, monitor consistency daily, and pass with data — not just discipline.",
+      "href": "/register",
+      "buttonText": "Start Free — No Credit Card"
+    },
+    {
+      "type": "h2",
+      "text": "FTMO Evaluation: Frequently Asked Questions"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "How long does the FTMO evaluation take?",
+          "a": "There is no time limit on either phase of the FTMO evaluation — you can take as long as you need. The only requirement is a minimum of 10 trading days per phase. Most traders complete Phase 1 in 3-8 weeks depending on market conditions and how aggressively they pursue the profit target."
+        },
+        {
+          "q": "What happens if I fail the FTMO Challenge?",
+          "a": "If you violate a loss rule, the evaluation ends. You can repurchase the same challenge at a discount through FTMO's retry offer. If you lose due to the consistency rule after hitting the profit target, FTMO typically reviews the account on a case-by-case basis, but the rule is enforced in the majority of cases."
+        },
+        {
+          "q": "Does FTMO support futures trading?",
+          "a": "Yes. FTMO supports CME futures including ES, NQ, YM, CL, GC, and others. Micro contracts are also available. FTMO originally built its platform for forex and expanded to futures — the rules are the same across instruments."
+        },
+        {
+          "q": "What is the consistency rule on FTMO?",
+          "a": "No single trading day can represent more than 30% of your total net profits. If your best day's profit divided by your total profit exceeds 30%, you fail the evaluation — even if you have hit the profit target. Track this percentage daily, especially after strong sessions."
+        },
+        {
+          "q": "Can I hold trades overnight on FTMO?",
+          "a": "Yes. FTMO allows holding positions overnight and over the weekend. However, be aware that overnight gaps can move your position significantly, and the max daily loss rule applies to the end-of-day equity — not just intraday. Use tight overnight stops on volatile futures instruments."
+        },
+        {
+          "q": "How much does FTMO pay out to funded traders?",
+          "a": "FTMO pays 80% of profits to funded traders, with the firm keeping 20%. Their payout schedule is monthly, and FTMO has publicly documented tens of millions of dollars in total payouts. The payout process typically takes 1-3 business days after the request is submitted."
+        },
+        {
+          "q": "What is the FTMO trailing drawdown?",
+          "a": "FTMO uses a trailing drawdown, meaning your account floor rises as your equity increases. If your account starts at $50,000 with a 10% max loss ($45,000 floor) and grows to $53,000, your floor rises to $48,000. You always have $5,000 of risk buffer — but that buffer does not compound as you grow."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade gives you the dashboard to pass your FTMO evaluation — real-time consistency tracking, drawdown monitoring, and AI-powered behavioral alerts. Try it free.",
+      "href": "/register",
+      "buttonText": "Get Started Free"
+    }
+  ],
+  "relatedSlugs": [
+    "best-trading-journal-prop-firms-2025",
+    "consistency-rule-prop-firm-explained",
+    "how-to-pass-apex-trader-funding"
+  ],
+  "thumbnail": "/blog/trader-concentrado-analisis-graficas-futuros.jpg",
+  "thumbnailAlt": "Focused trader analyzing candlestick charts on dual monitors during FTMO evaluation"
+}

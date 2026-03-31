@@ -1,0 +1,289 @@
+{
+  "slug": "que-es-una-empresa-de-fondeo",
+  "title": "¿Qué es una Empresa de Fondeo y Cómo Funcionan las Pruebas de Fondeo?",
+  "excerpt": "Aprende qué es una empresa de fondeo, cómo funcionan las pruebas de fondeo de futuros, qué reglas debes cumplir y cómo prepararte para conseguir una cuenta fondeada.",
+  "seoTitle": "¿Qué es una Empresa de Fondeo? Guía Completa 2025",
+  "seoDescription": "Descubre qué es una empresa de fondeo, cómo funcionan las pruebas de fondeo de futuros y qué necesitas para conseguir una cuenta fondeada en FTMO, Apex o TopStep.",
+  "keywords": [
+    "qué es una empresa de fondeo",
+    "cómo funcionan las pruebas de fondeo de futuros",
+    "empresa de fondeo futuros",
+    "cuenta fondeada trading",
+    "prueba de fondeo FTMO",
+    "prop firm en español",
+    "trader fondeado"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-04-10",
+  "updatedAt": "2026-04-10",
+  "category": "guias",
+  "tags": [
+    "empresa de fondeo",
+    "prueba de fondeo",
+    "cuenta fondeada",
+    "futuros",
+    "FTMO",
+    "Apex",
+    "TopStep"
+  ],
+  "readingTime": 9,
+  "featured": false,
+  "content": [
+    {
+      "type": "p",
+      "text": "Una <strong>empresa de fondeo</strong> es una compañía que le da a un trader acceso a capital de trading — normalmente entre $25,000 y $200,000 — a cambio de que ese trader demuestre que puede operar de manera consistente y disciplinada. Si pasas la prueba de fondeo, operas con el capital de la empresa y te quedas con entre el 80% y el 90% de las ganancias. Si pierdes, la empresa asume la pérdida — tú solo perdiste el costo de la prueba."
+    },
+    {
+      "type": "p",
+      "text": "En términos simples: las empresas de fondeo te permiten hacer trading profesional <strong>sin arriesgar tu propio capital</strong>. El modelo existe porque hay traders con habilidad real pero sin el capital suficiente para operar en tamaños que generen ingresos significativos. La empresa pone el dinero; tú pones la disciplina y la estrategia."
+    },
+    {
+      "type": "p",
+      "text": "Las empresas de fondeo más reconocidas para traders de futuros son <strong>FTMO, Apex Trader Funding, TopStep, Tradoverse y Uprofit</strong>. Cada una tiene sus propias reglas, estructuras de evaluación y condiciones de pago — pero todas siguen el mismo modelo básico: primero demuestras que puedes operar bien, luego te dan el capital real."
+    },
+    {
+      "type": "h2",
+      "text": "¿Cómo Funciona una Empresa de Fondeo? El Modelo Paso a Paso"
+    },
+    {
+      "type": "p",
+      "text": "El proceso para obtener una cuenta fondeada sigue siempre la misma lógica general, aunque los detalles varían por empresa:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Pagas el costo de la evaluación (entre $100 y $350 dependiendo del tamaño de cuenta y la empresa)",
+        "Operas en una cuenta simulada con el capital elegido (ej. $50,000) durante el período de evaluación",
+        "Debes alcanzar el objetivo de ganancia (profit target) sin violar ninguna regla de riesgo",
+        "Si pasas la evaluación, recibes una cuenta fondeada real con el mismo tamaño",
+        "Operas la cuenta fondeada y retiras tus ganancias según el calendario de pagos de la empresa",
+        "La empresa asume las pérdidas; tú conservas entre el 80% y el 90% de las ganancias"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Más del 85% de los traders que intenta pasar una prueba de fondeo falla. La razón principal no es la estrategia — es el comportamiento: operar fuera de las reglas, tomar un trade emocional después de una pérdida, o violar la regla de consistencia sin saberlo."
+    },
+    {
+      "type": "h2",
+      "text": "Las Reglas Clave de una Prueba de Fondeo de Futuros"
+    },
+    {
+      "type": "p",
+      "text": "Cada empresa de fondeo tiene reglas propias, pero todas comparten un conjunto de métricas fundamentales que debes entender antes de empezar cualquier evaluación."
+    },
+    {
+      "type": "h3",
+      "text": "Objetivo de Ganancia (Profit Target)"
+    },
+    {
+      "type": "p",
+      "text": "Es el porcentaje de ganancia que debes alcanzar para pasar la prueba. Por ejemplo, en una cuenta de $50,000 con un profit target del 6%, debes ganar $3,000 netos antes de violar cualquier regla. Parece sencillo, pero hay un matiz importante: <strong>no basta con llegar al número — debes llegar sin violar el resto de las reglas</strong>."
+    },
+    {
+      "type": "h3",
+      "text": "Pérdida Máxima Diaria (Max Daily Loss)"
+    },
+    {
+      "type": "p",
+      "text": "Es el máximo que puedes perder en un solo día de trading. Si tienes una cuenta de $50,000 y la pérdida máxima diaria es del 3%, puedes perder como máximo $1,500 en ese día. Si superas ese umbral, la evaluación termina automáticamente — sin importar tu progreso total. Esta es la regla que más atrapados tiene a los traders que toman un trade de revenge para recuperar pérdidas."
+    },
+    {
+      "type": "h3",
+      "text": "Drawdown Máximo (Max Drawdown)"
+    },
+    {
+      "type": "p",
+      "text": "Es el límite absoluto de cuánto puede caer tu cuenta desde su valor máximo. Hay dos tipos: <strong>estático</strong> (el floor no cambia, siempre es el mismo desde el inicio) y <strong>trailing</strong> (el floor sube conforme ganas, reduciendo tu margen de error). La mayoría de las empresas de fondeo — FTMO, Apex, TopStep — usan drawdown trailing, que es el más difícil de gestionar porque se mueve con tu equity."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "El drawdown trailing es la regla más malentendida en el fondeo de futuros. Si tu cuenta crece $2,000, tu floor también sube $2,000. Esto significa que cuanto más ganas al inicio, menos margen de error tienes si el mercado se mueve en tu contra."
+    },
+    {
+      "type": "h3",
+      "text": "Regla de Consistencia (Consistency Rule)"
+    },
+    {
+      "type": "p",
+      "text": "No todas las empresas la aplican, pero es la regla que más sorpresas desagradables genera. La regla de consistencia establece que ningún día de trading puede representar más de un porcentaje fijo (típicamente 30%) de tus ganancias totales. Si tu ganancia total es $4,000 y un solo día ganaste $1,300, violaste la regla de consistencia en FTMO o TopStep — aunque hayas pasado el profit target."
+    },
+    {
+      "type": "p",
+      "text": "FTMO, TopStep y Tradoverse aplican esta regla. Apex Trader Funding y Uprofit no la aplican en la mayoría de sus planes. <a href='/blog/consistency-rule-fondeo-explicada'>Lee nuestra guía completa sobre la regla de consistencia aquí.</a>"
+    },
+    {
+      "type": "h2",
+      "text": "Comparación de las Principales Empresas de Fondeo en 2025"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Empresa",
+        "Objetivo de Ganancia",
+        "Pérdida Diaria",
+        "Drawdown",
+        "Regla de Consistencia",
+        "Split de Ganancias"
+      ],
+      "rows": [
+        [
+          "FTMO",
+          "10% (Fase 1) + 5% (Fase 2)",
+          "5%",
+          "10% trailing",
+          "Sí — 30%",
+          "80/20"
+        ],
+        [
+          "Apex Trader Funding",
+          "6%",
+          "3%",
+          "Trailing EOD",
+          "No (mayoría de planes)",
+          "90/10"
+        ],
+        [
+          "TopStep",
+          "6%",
+          "4%",
+          "6% trailing",
+          "Sí — 30%",
+          "90/10"
+        ],
+        [
+          "Tradoverse",
+          "8%",
+          "4%",
+          "8% estático",
+          "Sí — 40%",
+          "80/20"
+        ],
+        [
+          "Uprofit",
+          "8%",
+          "5%",
+          "8% trailing",
+          "No",
+          "80/20"
+        ]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "¿Por Qué el 85% de los Traders Falla las Pruebas de Fondeo?"
+    },
+    {
+      "type": "p",
+      "text": "La respuesta honesta no tiene nada que ver con la estrategia de trading. Los traders que fallan las pruebas de fondeo en su mayoría tienen estrategias funcionales. El problema es el comportamiento bajo presión:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Revenge trading:</strong> después de una pérdida, entran a un trade no planificado para recuperar — y violan la pérdida máxima diaria",
+        "<strong>Oversizing:</strong> en un día bueno, aumentan el tamaño de posición más allá de su plan — y violan la regla de consistencia sin saberlo",
+        "<strong>Ignorar las reglas de la empresa específica:</strong> cada firma tiene reglas distintas y muchos traders no las estudian a fondo antes de empezar",
+        "<strong>No llevar registro de su progreso:</strong> sin un journal que muestre el consistency % en tiempo real, es imposible saber si estás acercándote al límite",
+        "<strong>Operar demasiados días seguidos:</strong> el agotamiento mental lleva a decisiones de trading subóptimas que violan reglas de riesgo"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Prepararse para una Prueba de Fondeo: Los Pasos Esenciales"
+    },
+    {
+      "type": "p",
+      "text": "Antes de pagar el costo de cualquier evaluación, asegúrate de haber completado estos pasos:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Estudia el reglamento completo de la empresa:</strong> no solo el profit target y el drawdown — lee también la regla de consistencia, las reglas de noticias, los instrumentos permitidos y las condiciones de pago",
+        "<strong>Valida tu estrategia en demo durante al menos 30 días</strong> con las mismas reglas de la evaluación antes de pagar",
+        "<strong>Establece tu tamaño de posición máximo</strong> basado en el max daily loss — no en cuánto quieres ganar ese día",
+        "<strong>Lleva un journal de trading desde el primer día</strong> — registra cada trade, la razón de entrada, el estado emocional y el resultado",
+        "<strong>Monitorea tu consistency % cada día</strong> — si un día va muy bien, reduce el tamaño en los días siguientes para no violar el límite del 30%",
+        "<strong>Define tus condiciones de stop del día:</strong> qué pérdida te hace cerrar la plataforma — y cúmplela"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Un journal de trading no es opcional cuando estás en una prueba de fondeo — es tu herramienta de control. Sin datos históricos de tus trades, es imposible detectar los patrones de comportamiento que te hacen fallar repetidamente."
+    },
+    {
+      "type": "h2",
+      "text": "El Rol del Journal de Trading en las Pruebas de Fondeo"
+    },
+    {
+      "type": "p",
+      "text": "Los traders que pasan consistentemente las pruebas de fondeo tienen algo en común: revisan sus trades. No solo miran el PnL al final del día — analizan <strong>por qué tomaron cada trade, qué estaban sintiendo, si siguieron su plan y cuál fue el resultado</strong>. Este proceso convierte el trading en un ciclo de mejora en lugar de un ciclo de repetición de errores."
+    },
+    {
+      "type": "p",
+      "text": "<strong>Zentrade</strong> es un journal de trading diseñado específicamente para traders que están en pruebas de fondeo. Puedes crear una cuenta separada para cada evaluación, configurar las reglas de cada empresa (profit target, max daily loss, consistency %), y ver en tiempo real si tu comportamiento está dentro de los parámetros que necesitas para pasar."
+    },
+    {
+      "type": "p",
+      "text": "El dashboard de Zentrade muestra tu <strong>curva de equity, profit factor, porcentaje de consistencia y métricas de riesgo</strong> — todos los KPIs que una empresa de fondeo mide, disponibles para ti antes de que ellos los revisen."
+    },
+    {
+      "type": "cta",
+      "text": "Empieza a llevar tu journal de trading para pruebas de fondeo. Zentrade es gratuito para comenzar — sin tarjeta de crédito.",
+      "href": "/register",
+      "buttonText": "Crear Cuenta Gratis"
+    },
+    {
+      "type": "h2",
+      "text": "Preguntas Frecuentes"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "¿Es legal una empresa de fondeo?",
+          "a": "Sí. Las empresas de fondeo como FTMO, Apex Trader Funding y TopStep operan de forma legal en sus jurisdicciones. Son empresas privadas que ofrecen acceso a capital a traders evaluados. Sin embargo, es importante verificar la reputación y el historial de pagos de cualquier empresa antes de participar."
+        },
+        {
+          "q": "¿Cuánto cuesta una prueba de fondeo?",
+          "a": "El costo varía por empresa y tamaño de cuenta. Las evaluaciones de $50,000 cuestan entre $100 y $350 dependiendo de la empresa. Apex y TopStep usan un modelo de suscripción mensual (alrededor de $150–$170/mes), mientras que FTMO cobra una tarifa única por evaluación (alrededor de $345 para $50K)."
+        },
+        {
+          "q": "¿Puedo retirar ganancias durante la prueba de fondeo?",
+          "a": "No. Durante la fase de evaluación solo puedes retirar ganancias una vez que hayas pasado y tengas una cuenta fondeada activa. Los retiros están disponibles según el calendario de pagos de cada empresa (mensual, quincenal o semanal dependiendo del programa)."
+        },
+        {
+          "q": "¿Qué pasa si fallo la prueba de fondeo?",
+          "a": "Pierdes el costo de la evaluación. Muchas empresas ofrecen descuentos en reintentos o cuentas de práctica adicionales. Algunos programas como Apex y TopStep permiten reiniciar la evaluación con descuento si la primera falla. Antes de reintentar, es fundamental analizar qué regla violaste y por qué."
+        },
+        {
+          "q": "¿Cuánto tiempo lleva pasar una prueba de fondeo?",
+          "a": "Depende de la empresa. FTMO requiere mínimo 10 días de trading por fase (dos fases). Apex y TopStep no tienen mínimo de días — puedes pasar en una semana si alcanzas el profit target sin violar las reglas. La mayoría de los traders tarda entre 2 y 8 semanas en condiciones normales de mercado."
+        },
+        {
+          "q": "¿Se puede vivir del fondeo de trading de futuros?",
+          "a": "Sí, muchos traders lo hacen. Para lograrlo generalmente se necesitan varias cuentas fondeadas activas en paralelo. Con dos o tres cuentas de $100,000 y un split del 90%, un trader que genera el 5% mensual podría estar ganando entre $4,500 y $13,500 al mes. Sin embargo, mantener varias cuentas fondeadas requiere una disciplina de gestión de riesgo muy superior al promedio."
+        },
+        {
+          "q": "¿Qué instrumentos de futuros se pueden operar en estas empresas?",
+          "a": "Las principales empresas de fondeo de futuros soportan: índices de acciones (ES, NQ, YM, RTY y sus contratos micro MES, MNQ), energía (CL, NG), metales (GC, SI), divisas (6E, 6B), y bonos del tesoro (ZN, ZB). Los instrumentos exactos varían por empresa — siempre verifica el catálogo antes de elegir tu evaluación."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade es el journal de trading en español para traders que van en serio con las empresas de fondeo. Monitorea tu consistencia, equity y riesgo en tiempo real.",
+      "href": "/register",
+      "buttonText": "Empieza Gratis Hoy"
+    }
+  ],
+  "relatedSlugs": [
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "mejores-empresas-fondeo-futuros-2025",
+    "consistency-rule-fondeo-explicada"
+  ],
+  "thumbnail": "/blog/trader-analista-grafica-proyectada.jpg",
+  "thumbnailAlt": "Analista frente a gráfica proyectada entendiendo cómo funciona una empresa de fondeo de futuros"
+}

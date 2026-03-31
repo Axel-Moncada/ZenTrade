@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ChevronRight, Clock, Calendar, User } from "lucide-react";
+import { ChevronRight, ArrowLeft } from "lucide-react";
 import {
   getAllSlugs,
   getPostBySlug,
   getRelatedPosts,
-  formatDate,
   CATEGORY_LABELS,
 } from "@/lib/blog";
-
-// Revalida cada hora — artículos programados aparecen sin redeploy
-export const revalidate = 3600;
 import PostContent from "@/components/blog/post-content";
+import PostHero from "@/components/blog/post-hero";
 import PostCard from "@/components/blog/post-card";
 import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
 import { createClient } from "@/lib/supabase/server";
+
+// Revalida cada hora — artículos programados aparecen sin redeploy
+export const revalidate = 3600;
 
 const SITE_URL = "https://zen-trader.com";
 
@@ -36,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = post.seoTitle ?? post.title;
   const description = post.seoDescription;
   const canonical = `${SITE_URL}/blog/${slug}`;
+  const ogImage = `${SITE_URL}/blog/og/${slug}`;
 
   return {
     title,
@@ -50,6 +51,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: post.updatedAt,
       authors: [post.author],
       tags: post.tags,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+          type: "image/png",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
     },
     alternates: {
       canonical,
@@ -62,12 +78,19 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
 
   const canonical = `${SITE_URL}/blog/${post.slug}`;
   const hasFaq = post.content.some((b) => b.type === "faq");
+  const ogImageUrl = `${SITE_URL}/blog/og/${post.slug}`;
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.seoDescription,
+    image: {
+      "@type": "ImageObject",
+      url: ogImageUrl,
+      width: 1200,
+      height: 630,
+    },
     author: {
       "@type": "Organization",
       name: post.author,
@@ -89,24 +112,9 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Inicio",
-        item: SITE_URL,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Blog",
-        item: `${SITE_URL}/blog`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: post.title,
-        item: canonical,
-      },
+      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: canonical },
     ],
   };
 
@@ -121,10 +129,7 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
         mainEntity: faqBlock.faqItems.map((item) => ({
           "@type": "Question",
           name: item.q,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.a,
-          },
+          acceptedAnswer: { "@type": "Answer", text: item.a },
         })),
       });
     }
@@ -145,11 +150,9 @@ export default async function BlogPostPage({ params }: Props) {
 
   const related = getRelatedPosts(post);
   const schemas = buildJsonLd(post);
-  const categoryLabel = CATEGORY_LABELS[post.category] ?? post.category;
 
   return (
-    <div className="min-h-screen bg-zen-bg">
-      {/* JSON-LD structured data */}
+    <div className="min-h-screen bg-zen-rich-black">
       {schemas && (
         <script
           type="application/ld+json"
@@ -160,66 +163,28 @@ export default async function BlogPostPage({ params }: Props) {
       <PublicNavbar isAuthenticated={!!user} />
 
       <main className="max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-24">
-        <div className="max-w-3xl mx-auto">
-          {/* Breadcrumb */}
+        <div className="max-w-5xl mx-auto">
+
+          {/* ── Breadcrumb ── */}
           <nav
-            className="flex items-center gap-1 text-xs text-zen-text-muted mb-8"
+            className="flex items-center gap-1.5 text-xs text-zen-anti-flash/60 mb-8"
             aria-label="Breadcrumb"
           >
-            <Link href="/" className="hover:text-zen-caribbean-green transition-colors">
+            <Link href="/" className="hover:text-zen-caribbean-green transition-colors duration-200">
               Inicio
             </Link>
-            <ChevronRight className="w-3 h-3" />
-            <Link href="/blog" className="hover:text-zen-caribbean-green transition-colors">
+            <ChevronRight className="w-3 h-3 text-zen-anti-flash/30" />
+            <Link href="/blog" className="hover:text-zen-caribbean-green transition-colors duration-200">
               Blog
             </Link>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-zen-anti-flash truncate max-w-[200px]">{post.title}</span>
+            <ChevronRight className="w-3 h-3 text-zen-anti-flash/30" />
+            <span className="text-zen-anti-flash/80 truncate max-w-[220px]">{post.title}</span>
           </nav>
 
-          {/* Article header */}
-          <header className="mb-10">
-            <div className="flex items-center gap-3 mb-5">
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-zen-caribbean-green/10 text-zen-caribbean-green border border-zen-caribbean-green/20">
-                {categoryLabel}
-              </span>
-              <span className="text-xs text-zen-text-muted flex items-center gap-1">
-                <Clock className="w-3 h-3" />
-                {post.readingTime} min de lectura
-              </span>
-            </div>
+          {/* ── Hero banner — categoría, título, author, fecha ── */}
+          <PostHero post={post} />
 
-            <h1 className="text-3xl lg:text-4xl font-bold text-zen-anti-flash leading-tight mb-5">
-              {post.title}
-            </h1>
-
-            <p className="text-zen-text-muted text-lg leading-relaxed mb-6">{post.excerpt}</p>
-
-            <div className="flex items-center gap-5 border-t border-zen-border-soft pt-5">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-zen-caribbean-green/20 flex items-center justify-center">
-                  <span className="text-zen-caribbean-green text-sm font-bold">Z</span>
-                </div>
-                <div>
-                  <p className="text-xs font-medium text-zen-anti-flash flex items-center gap-1">
-                    <User className="w-3 h-3" />
-                    {post.author}
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-1 text-xs text-zen-text-muted">
-                <Calendar className="w-3 h-3" />
-                <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
-              </div>
-              {post.updatedAt !== post.publishedAt && (
-                <p className="text-xs text-zen-text-muted">
-                  Actualizado: <time dateTime={post.updatedAt}>{formatDate(post.updatedAt)}</time>
-                </p>
-              )}
-            </div>
-          </header>
-
-          {/* Article body */}
+          {/* ── Article body ── */}
           <article
             itemScope
             itemType="https://schema.org/Article"
@@ -228,14 +193,14 @@ export default async function BlogPostPage({ params }: Props) {
             <PostContent blocks={post.content} />
           </article>
 
-          {/* Tags */}
+          {/* ── Tags ── */}
           {post.tags.length > 0 && (
             <div className="flex items-center gap-2 flex-wrap mt-10 pt-8 border-t border-zen-border-soft">
-              <span className="text-xs text-zen-text-muted font-medium">Tags:</span>
+              <span className="text-xs text-zen-anti-flash/60 font-medium">Tags:</span>
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs px-2.5 py-1 rounded-full bg-zen-surface border border-zen-border-soft text-zen-text-muted"
+                  className="text-xs px-2.5 py-1 rounded-full bg-zen-surface border border-zen-border-soft text-zen-anti-flash/60 hover:border-zen-caribbean-green/30 hover:text-zen-caribbean-green transition-colors duration-200 cursor-default"
                 >
                   {tag}
                 </span>
@@ -244,12 +209,15 @@ export default async function BlogPostPage({ params }: Props) {
           )}
         </div>
 
-        {/* Related posts */}
+        {/* ── Related posts ── */}
         {related.length > 0 && (
-          <section className="max-w-3xl mx-auto mt-16">
-            <h2 className="text-xs uppercase tracking-widest text-zen-caribbean-green font-semibold mb-6">
-              Artículos relacionados
-            </h2>
+          <section className="max-w-3xl mx-auto mt-16 pt-12 border-t border-zen-border-soft">
+            <div className="flex items-center gap-3 mb-7">
+              <span className="w-1 h-5 rounded-full bg-zen-caribbean-green shrink-0" />
+              <h2 className="text-xs uppercase tracking-[0.15em] text-zen-anti-flash font-semibold">
+                Artículos relacionados
+              </h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {related.map((rel) => (
                 <PostCard key={rel.slug} post={rel} />
@@ -258,13 +226,14 @@ export default async function BlogPostPage({ params }: Props) {
           </section>
         )}
 
-        {/* Back to blog */}
+        {/* ── Back to blog ── */}
         <div className="max-w-3xl mx-auto mt-12">
           <Link
             href="/blog"
-            className="text-sm text-zen-text-muted hover:text-zen-caribbean-green transition-colors flex items-center gap-1"
+            className="inline-flex items-center gap-2 text-sm text-zen-anti-flash/60 hover:text-zen-caribbean-green transition-colors duration-200 group"
           >
-            ← Volver al blog
+            <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
+            Volver al blog
           </Link>
         </div>
       </main>

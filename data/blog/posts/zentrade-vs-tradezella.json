@@ -1,0 +1,243 @@
+{
+  "slug": "zentrade-vs-tradezella",
+  "title": "Zentrade vs TradeZella: ¿Cuál es el Mejor Journal para Pruebas de Fondeo?",
+  "excerpt": "Comparamos Zentrade y TradeZella en precio, funciones de IA, soporte en español y utilidad para pasar pruebas de fondeo de futuros en 2025.",
+  "seoTitle": "Zentrade vs TradeZella: Mejor Journal para Pruebas de Fondeo",
+  "seoDescription": "Zentrade vs TradeZella: comparamos precio, IA, español y funciones clave para traders de futuros que buscan pasar pruebas de fondeo en 2025. Descubre cuál es mejor.",
+  "keywords": ["Zentrade vs TradeZella", "journal de trading para pruebas de fondeo", "mejor journal futuros", "TradeZella alternativa", "journal trading español", "prop firm journal comparativa"],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-03-31",
+  "updatedAt": "2026-03-31",
+  "category": "comparativas",
+  "tags": ["comparativa", "TradeZella", "journal de trading", "pruebas de fondeo", "futuros", "FTMO", "Apex"],
+  "readingTime": 12,
+  "featured": true,
+  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
+  "thumbnailAlt": "Trader con múltiples monitores comparando plataformas de journal de trading para futuros",
+  "content": [
+    {
+      "type": "p",
+      "text": "Si estás intentando pasar una prueba de fondeo de futuros, el journal de trading que elijas puede marcar la diferencia entre avanzar a una cuenta fondeada o repetir la evaluación por tercera vez. Dos de las opciones más buscadas hoy son <strong>Zentrade y TradeZella</strong>. En esta comparativa directa analizamos precio, funciones de IA, soporte en español, enfoque en empresas de fondeo y todo lo que necesitas saber antes de decidir."
+    },
+    {
+      "type": "p",
+      "text": "La respuesta corta: si operas futuros, buscas pasar evaluaciones de FTMO, Apex Trader Funding o TopStep, y necesitas una herramienta en español con IA emocional, <strong>Zentrade es la opción más completa para este caso de uso específico</strong>. Si ya tienes cuenta en TradeZella y operas principalmente acciones o forex, puede que cambiar no sea urgente. Pero si empiezas desde cero, los números cuentan una historia clara."
+    },
+    {
+      "type": "h2",
+      "text": "Zentrade vs TradeZella: Resumen Ejecutivo"
+    },
+    {
+      "type": "table",
+      "headers": ["Criterio", "Zentrade", "TradeZella"],
+      "rows": [
+        ["Plan de entrada", "$0 (Free real)", "$29/mo mínimo para análisis", ""],
+        ["Plan con IA completa", "$59/mo (ZenMode)", "$59/mo (Essential+)", ""],
+        ["Idioma", "Español + Inglés", "Solo inglés", ""],
+        ["Enfoque en futuros", "Nativo — NQ, ES, CL, GC, MES, MNQ", "Acciones, opciones, futuros (genérico)", ""],
+        ["Detección de revenge trading", "Sí — IA exclusiva ZenMode", "No", ""],
+        ["Benchmark vs empresas de fondeo", "Sí — consistency rule, trailing drawdown", "Parcial — sin reglas LATAM", ""],
+        ["Reporte semanal con IA", "Sí — análisis emocional incluido", "No", ""],
+        ["Plan gratuito funcional", "Sí — 1 cuenta, registro manual", "Plan demo muy limitado", ""],
+        ["Soporte en español", "Sí", "No", ""]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Esta comparativa se basa en las funciones disponibles en marzo de 2026. Los precios de TradeZella pueden variar — verifica siempre en su sitio oficial antes de suscribirte."
+    },
+    {
+      "type": "h2",
+      "text": "Comparativa de Precios: Zentrade vs TradeZella"
+    },
+    {
+      "type": "p",
+      "text": "El precio es el primer filtro para la mayoría de traders que están en fase de evaluación: ya pagan la prueba de fondeo (entre $99 y $600 dependiendo del tamaño de la cuenta), y necesitan una herramienta que no les cueste una fortuna adicional mientras intentan fondearse."
+    },
+    {
+      "type": "h3",
+      "text": "Estructura de precios de Zentrade"
+    },
+    {
+      "type": "p",
+      "text": "<strong>Zentrade</strong> ofrece cuatro niveles. El plan Free incluye 1 cuenta, registro manual de trades y dashboard básico — sin tarjeta de crédito. El plan Starter cuesta <strong>$9/mes</strong> (o $84/año) e incluye hasta 2 cuentas, export CSV y calendario de trades. El plan Professional a <strong>$29/mes</strong> ($249/año) desbloquea importación CSV automática, equity curve, profit factor, consistency tracker y filtros avanzados. El plan ZenMode a <strong>$59/mes</strong> ($499/año) añade detección de revenge trading con IA, reporte semanal emocional, alertas de reglas de riesgo y benchmark contra empresas de fondeo."
+    },
+    {
+      "type": "h3",
+      "text": "Estructura de precios de TradeZella"
+    },
+    {
+      "type": "p",
+      "text": "TradeZella no tiene un plan gratuito real con funciones útiles. Su plan de entrada con análisis básico parte de <strong>$29/mes</strong>, lo que significa que para obtener las funciones que en Zentrade están disponibles desde $9, en TradeZella ya estás pagando el equivalente al plan Professional de Zentrade. Para acceder a funciones de IA, el costo sube considerablemente, y todo el producto está disponible <strong>únicamente en inglés</strong>."
+    },
+    {
+      "type": "table",
+      "headers": ["Funcionalidad", "Zentrade (precio mínimo)", "TradeZella (precio mínimo)"],
+      "rows": [
+        ["Registro manual + dashboard básico", "Gratis", "$29/mes"],
+        ["Import CSV automático", "$29/mes (Professional)", "$29/mes"],
+        ["Equity curve + profit factor", "$29/mes (Professional)", "$29/mes"],
+        ["Análisis con IA", "$59/mes (ZenMode)", "$59/mes+"],
+        ["Detección revenge trading con IA", "$59/mes (ZenMode)", "No disponible"],
+        ["Soporte en español", "Incluido en todos", "No disponible"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Si estás en fase de evaluación y no quieres comprometerte con una suscripción larga, el plan Professional de Zentrade en modalidad mensual ($29) cubre todas las métricas que necesitas para pasar: consistency %, equity curve, profit factor y filtros por sesión."
+    },
+    {
+      "type": "h2",
+      "text": "Funciones Clave para Pasar Pruebas de Fondeo"
+    },
+    {
+      "type": "p",
+      "text": "Más del 85% de los traders que intenta pasar una evaluación falla — y la mayoría no falla por su estrategia. Falla porque no tiene visibilidad sobre sus patrones de comportamiento: revenge trading después de una pérdida, operar en horarios donde históricamente pierde, o violar la consistency rule sin darse cuenta. Un journal de trading no es solo un registro; es la herramienta que convierte esa data en correcciones concretas."
+    },
+    {
+      "type": "h3",
+      "text": "Consistency Rule Tracker"
+    },
+    {
+      "type": "p",
+      "text": "La <strong>consistency rule</strong> es la regla más incomprendida de todas las empresas de fondeo, y la causa de muchos rechazos aunque el trader haya alcanzado el profit target. En términos simples: ningún día puede representar más del 30-50% de tu ganancia neta total (el porcentaje exacto varía por empresa). <strong>Zentrade</strong> calcula este porcentaje en tiempo real en el dashboard, con alerta visual cuando estás acercándote al umbral. TradeZella tiene un tracker de P&L por día, pero no está específicamente diseñado para detectar violaciones de consistency rule según las reglas de empresas de fondeo específicas."
+    },
+    {
+      "type": "h3",
+      "text": "Detección de Revenge Trading con IA"
+    },
+    {
+      "type": "p",
+      "text": "Esta es la diferencia más significativa entre ambas plataformas. <strong>Zentrade ZenMode</strong> incluye un motor de detección de revenge trading basado en IA que analiza dos patrones críticos: (1) entrada en un trade en menos de 30 minutos después de cerrar una posición perdedora, y (2) tres o más pérdidas consecutivas en la misma sesión. Cuando detecta uno de estos patrones, muestra un banner de alerta en el dashboard y marca los días afectados en el calendario con un badge naranja. <strong>TradeZella no tiene esta función</strong> — ni en su plan más caro."
+    },
+    {
+      "type": "h3",
+      "text": "Reporte Semanal con Análisis Emocional"
+    },
+    {
+      "type": "p",
+      "text": "Cada lunes, los usuarios de Zentrade Professional y ZenMode reciben un reporte generado por IA que analiza su semana de trading: rendimiento por horario, emociones registradas en el diario, patrones de consistencia y recomendaciones concretas. El reporte incluye el contexto del trading plan del trader, lo que hace que las sugerencias sean personalizadas. TradeZella no ofrece este tipo de reporte emocional semanal automatizado."
+    },
+    {
+      "type": "h2",
+      "text": "Soporte en Español y Foco en LATAM"
+    },
+    {
+      "type": "p",
+      "text": "Este punto es determinante para traders de Colombia, México, Argentina, Chile, Perú y el resto de LATAM. <strong>Zentrade fue diseñado desde el principio para el mercado hispanohablante</strong>: toda la interfaz está en español, el soporte está en español, y los conceptos técnicos como \"empresa de fondeo\", \"prueba de fondeo\", \"regla de consistencia\" y \"curva de equity\" están traducidos de forma natural, no con traducciones automáticas genéricas."
+    },
+    {
+      "type": "p",
+      "text": "TradeZella es un producto 100% en inglés. Para un trader de Bogotá o Ciudad de México que no domina el inglés técnico de trading, esto significa una curva de aprendizaje adicional que se suma a la ya exigente curva de aprender a pasar una evaluación. No es una diferencia menor — cuando estás tomando decisiones de trading bajo presión, operar en tu idioma reduce errores de interpretación."
+    },
+    {
+      "type": "h2",
+      "text": "UX y Facilidad de Uso"
+    },
+    {
+      "type": "p",
+      "text": "Ambas plataformas tienen un dashboard en modo oscuro como interfaz principal. <strong>Zentrade</strong> ofrece también un modo claro moderno, activable desde el sidebar. La organización del menú de Zentrade prioriza el flujo de un trader en evaluación: Cuentas → Trades → Dashboard → Calendario → Trading Plan. La navegación está pensada para uso diario rápido, no para análisis ocasional."
+    },
+    {
+      "type": "p",
+      "text": "TradeZella tiene una interfaz bien diseñada y con más años de iteración visual. Para traders que operan acciones en bolsas americanas, su flujo de importación desde brókers como TD Ameritrade o Interactive Brokers está más pulido. Sin embargo, para traders de futuros con instrumentos como NQ, ES, MES o MNQ, la configuración de contratos y multiplicadores en Zentrade está optimizada de fábrica sin configuración manual."
+    },
+    {
+      "type": "cta",
+      "text": "Prueba Zentrade gratis y comprueba la diferencia en tu primera semana de trading.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "h2",
+      "text": "¿Para Quién es Mejor Cada Plataforma?"
+    },
+    {
+      "type": "h3",
+      "text": "Zentrade es la mejor opción si..."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Operas futuros (NQ, ES, CL, GC, MES, MNQ) y buscas pasar una evaluación de FTMO, Apex, TopStep, Uprofit o Tradoverse",
+        "Necesitas la plataforma en español o atiendes a una audiencia LATAM",
+        "Quieres detección automática de revenge trading con IA sin costo adicional",
+        "Buscas un plan gratuito real con el que puedas empezar sin tarjeta",
+        "Valoras el reporte semanal con análisis emocional para corregir patrones conductuales",
+        "Quieres pagar menos: desde $9/mes con funciones útiles, no desde $29"
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "TradeZella puede ser mejor si..."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Operas principalmente acciones o opciones en brókers americanos populares (TD, IBKR, Webull)",
+        "Tu idioma primario de trabajo es el inglés y no necesitas soporte en español",
+        "Ya tienes semanas de historial en TradeZella y el costo de migración supera el beneficio",
+        "Priorizas la madurez del producto sobre las funciones de IA emocional"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Veredicto Final: Zentrade vs TradeZella para Pruebas de Fondeo"
+    },
+    {
+      "type": "p",
+      "text": "Para traders de futuros que buscan pasar evaluaciones de empresas de fondeo, especialmente en LATAM, <strong>Zentrade gana esta comparativa en el criterio que más importa: está construido específicamente para ti</strong>. El tracker de consistency rule, la detección de revenge trading con IA, el reporte semanal emocional y la interfaz en español son funciones que TradeZella simplemente no ofrece en el mismo paquete ni al mismo precio."
+    },
+    {
+      "type": "p",
+      "text": "TradeZella es un buen producto — pero fue diseñado para el mercado angloparlante con un foco más amplio (acciones, opciones, forex). Si tu objetivo es pasar una prueba de fondeo de futuros y entrar a una cuenta fondeada, las herramientas específicas de Zentrade tienen un impacto directo en ese resultado. Y puedes empezar gratis hoy mismo para comprobarlo."
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "text": "Zentrade ofrece un plan gratuito sin tarjeta de crédito. Puedes registrar tus primeros trades, ver tu dashboard y explorar el tracker de consistency rule antes de decidir si actualizar a un plan de pago."
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "¿Zentrade tiene plan gratuito?",
+          "a": "Sí. Zentrade ofrece un plan Free sin tarjeta de crédito que incluye 1 cuenta, registro manual de trades y dashboard básico. Es suficiente para empezar a registrar y analizar tus primeras sesiones."
+        },
+        {
+          "q": "¿TradeZella está disponible en español?",
+          "a": "No. TradeZella es una plataforma disponible únicamente en inglés, sin localización al español ni soporte en idioma español."
+        },
+        {
+          "q": "¿Qué journal de trading tiene mejor detección de revenge trading?",
+          "a": "Zentrade es el único de los dos que ofrece detección automática de revenge trading mediante IA, disponible en el plan ZenMode ($59/mes). Identifica entradas en menos de 30 minutos tras una pérdida y rachas de 3 o más pérdidas consecutivas."
+        },
+        {
+          "q": "¿Zentrade sirve para pasar evaluaciones de FTMO?",
+          "a": "Sí. Zentrade incluye un tracker de consistency rule alineado con las reglas de FTMO, Apex Trader Funding, TopStep, Uprofit y Tradoverse. El dashboard muestra en tiempo real si algún día está acercándose a violar la regla."
+        },
+        {
+          "q": "¿Cuánto cuesta el plan Professional de Zentrade comparado con TradeZella?",
+          "a": "El plan Professional de Zentrade cuesta $29/mes o $249/año. Para funciones equivalentes en TradeZella, el precio de entrada también es similar, pero TradeZella no incluye el tracker de consistency rule para pruebas de fondeo ni el soporte en español."
+        },
+        {
+          "q": "¿Puedo migrar mis trades de TradeZella a Zentrade?",
+          "a": "Si exportas tus trades de TradeZella en formato CSV, puedes importarlos en Zentrade con el plan Professional o ZenMode, que incluyen importación CSV automática con mapeo de columnas."
+        },
+        {
+          "q": "¿Zentrade funciona para futuros como NQ, ES, MES y MNQ?",
+          "a": "Sí. Zentrade está optimizado de fábrica para los instrumentos de futuros más comunes en las evaluaciones de empresas de fondeo: NQ, ES, MES, MNQ, CL, GC, entre otros. Los multiplicadores de contrato están preconfigurados."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Empieza hoy con Zentrade y ten el control total de tus métricas para tu próxima prueba de fondeo.",
+      "href": "/register",
+      "buttonText": "Empezar gratis — sin tarjeta"
+    }
+  ],
+  "relatedSlugs": ["mejor-journal-trading-futuros-2025", "best-trading-journal-prop-firms-2025"]
+}

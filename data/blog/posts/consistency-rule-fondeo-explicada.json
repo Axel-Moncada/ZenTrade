@@ -1,0 +1,187 @@
+{
+  "slug": "consistency-rule-fondeo-explicada",
+  "title": "Consistency Rule en Pruebas de Fondeo: Guía Completa con Ejemplos",
+  "excerpt": "La regla de consistencia es la razón oculta por la que muchos traders fallan su evaluación. Aprende qué es, cómo calcularla y cómo no violarla.",
+  "seoTitle": "Consistency Rule Prueba de Fondeo: Guía Completa con Ejemplos",
+  "seoDescription": "Qué es la consistency rule en pruebas de fondeo, cómo calcularla para FTMO, Apex y TopStep, y cómo evitar violarla. Guía con ejemplos reales y calculadora.",
+  "keywords": ["consistency rule prueba de fondeo", "regla de consistencia FTMO", "consistency rule futuros", "cómo calcular consistency rule", "regla de consistencia Apex", "prueba de fondeo reglas"],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-04-03",
+  "updatedAt": "2026-04-03",
+  "category": "fondeo",
+  "tags": ["consistency rule", "reglas de fondeo", "FTMO", "Apex Trader Funding", "TopStep", "prueba de fondeo", "futuros"],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/trader-analizando-estrategia-grafica.jpg",
+  "thumbnailAlt": "Trader analizando estrategia en monitores para cumplir la consistency rule de la prueba de fondeo",
+  "content": [
+    {
+      "type": "p",
+      "text": "La <strong>consistency rule</strong> (regla de consistencia) es la regla más incomprendida y más violada en las pruebas de fondeo de futuros. Cada año, miles de traders alcanzan el profit target de su evaluación y son rechazados de todos modos — porque un solo día de trading excepcional superó el porcentaje máximo permitido de su ganancia neta total. Esta guía explica exactamente qué es la consistency rule, cómo calcularla para las principales empresas de fondeo, y cómo estructurar tu trading para nunca violarla."
+    },
+    {
+      "type": "p",
+      "text": "En términos simples: la regla de consistencia dice que <strong>ningún día individual de trading puede representar más de un porcentaje determinado de tu ganancia neta total durante la evaluación</strong>. Si ganas $10,000 netos en tu evaluación y uno solo de esos días aportó $4,000 (el 40%), puede que hayas violado la regla aunque el total sea perfecto. El porcentaje exacto varía por empresa de fondeo."
+    },
+    {
+      "type": "h2",
+      "text": "¿Por Qué Existe la Consistency Rule?"
+    },
+    {
+      "type": "p",
+      "text": "Las empresas de fondeo como FTMO, Apex Trader Funding y TopStep no quieren un trader que tuvo un día de suerte con una posición enorme y luego operó de forma mediocre el resto del tiempo. Quieren traders que demuestren <strong>habilidad replicable y gestión de riesgo consistente</strong> — porque cuando les asignan capital real, ese patrón de comportamiento es lo que protege sus fondos."
+    },
+    {
+      "type": "p",
+      "text": "La consistency rule es el mecanismo que descarta a los traders que pasan la evaluación por azar o por tomar un riesgo desproporcionado en un momento de buena suerte. Un trader que gana el 60% de su profit target en un solo trade de alto riesgo no demuestra la disciplina que las empresas de fondeo necesitan ver."
+    },
+    {
+      "type": "h2",
+      "text": "Consistency Rule por Empresa de Fondeo: Comparativa"
+    },
+    {
+      "type": "table",
+      "headers": ["Empresa de fondeo", "Regla de consistencia", "Cómo se calcula", "Consecuencia si se viola"],
+      "rows": [
+        ["FTMO", "~30% del profit neto total", "El mejor día no puede superar el 30% de la ganancia neta de toda la evaluación", "Rechazo de la evaluación"],
+        ["Apex Trader Funding", "Varía por plan — revisar términos actuales", "Mejor día vs. ganancia neta total", "Evaluación no califica"],
+        ["TopStep", "No tiene consistency rule explícita en el Combine estándar", "Basado en reglas de drawdown y comportamiento", "Depende de la infracción"],
+        ["Uprofit", "30% del profit neto", "Mismo método que FTMO", "Rechazo automático"],
+        ["Tradoverse", "Revisar términos actuales — varía por plan", "Mejor día vs. profit neto total", "Posible rechazo"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Las reglas de las empresas de fondeo cambian periódicamente. Siempre verifica los términos actuales en el sitio oficial de la empresa antes de comenzar tu evaluación. Esta tabla es orientativa basada en condiciones públicamente disponibles a la fecha de publicación."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Calcular la Consistency Rule: Ejemplos Prácticos"
+    },
+    {
+      "type": "h3",
+      "text": "Ejemplo 1: Violación sin saberlo"
+    },
+    {
+      "type": "p",
+      "text": "Imagina que estás haciendo la prueba Fase 1 de FTMO con objetivo de $10,000 de ganancia neta. Tienes una racha excelente y en 8 días de trading tu registro es el siguiente: Lunes +$800, Martes +$1,200, Miércoles +$600, Jueves -$200, Viernes +$3,500, Lunes +$900, Martes +$500, Miércoles +$700. Total: <strong>$8,000 de ganancia neta</strong>."
+    },
+    {
+      "type": "p",
+      "text": "El problema: ese viernes con +$3,500 representa el <strong>43.75% de tu ganancia neta total</strong> ($3,500 / $8,000). Si la regla de consistencia de FTMO dice que ningún día puede superar el 30%, <strong>ya violaste la regla</strong> aunque no hayas alcanzado aún el profit target. Y lo más doloroso: si continúas operando y alcanzas los $10,000, ese viernes ahora representa el 35% — seguirías violando la regla."
+    },
+    {
+      "type": "h3",
+      "text": "Ejemplo 2: Cómo estructurar el trading para cumplir la regla"
+    },
+    {
+      "type": "p",
+      "text": "Para un objetivo de $10,000 con una regla del 30%, tu mejor día no puede superar $3,000 de ganancia neta. Esto significa que en un día donde estás teniendo una racha excepcionalmente buena y ya llevas $2,800 de ganancia, la respuesta disciplinada es <strong>dejar de operar por ese día</strong>. No porque la estrategia no funcione, sino porque el exceso de ganancia en un solo día viola la regla y pone en riesgo todo el trabajo de semanas anteriores."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Regla práctica: define tu límite diario de ganancia al inicio de la evaluación. Para una consistency rule del 30%, divide tu profit target por 4. Ese número es el techo que no deberías superar en ningún día individual."
+    },
+    {
+      "type": "h2",
+      "text": "La Consistency Rule es Dinámica: El Error que Nadie Explica"
+    },
+    {
+      "type": "p",
+      "text": "El error más frecuente es calcular la consistency rule solo al final de la evaluación, como si fuera estática. En realidad, <strong>el porcentaje cambia con cada trade que realizas</strong>. Tu ganancia neta total crece con cada sesión positiva, y también cambia cuando tienes días negativos. Esto significa que un día que estaba dentro del límite puede quedar fuera si después tienes pérdidas que reducen tu ganancia neta total."
+    },
+    {
+      "type": "p",
+      "text": "Ejemplo: tienes $8,000 de ganancia neta, y tu mejor día fue un viernes con $2,200 (27.5% — dentro del límite del 30%). Perfectamente bien. Pero la semana siguiente tienes dos días malos y tu ganancia neta cae a $6,500. Ahora ese mismo viernes representa el <strong>33.8% de tu ganancia neta</strong> — y violaste la regla retroactivamente. Este es el caso donde un tracker en tiempo real como el de Zentrade marca la diferencia real."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Zentrade Ayuda a Cumplir la Consistency Rule"
+    },
+    {
+      "type": "p",
+      "text": "<strong>Zentrade</strong> incluye un tracker de consistency rule en el dashboard principal, visible en todo momento durante la evaluación. El sistema calcula en tiempo real el porcentaje de tu mejor día respecto a la ganancia neta acumulada, y muestra una alerta visual cuando ese porcentaje se acerca al umbral configurado para tu empresa de fondeo. El porcentaje de consistencia es configurable en la configuración de cada cuenta — puedes establecer el 30% para FTMO o el porcentaje que aplique a tu empresa específica."
+    },
+    {
+      "type": "p",
+      "text": "A diferencia de herramientas como TradeZella, que muestran el PnL por día pero no tienen un tracker específico para esta regla, o Edgewonk, que funciona como aplicación de escritorio sin actualizaciones en tiempo real, Zentrade fue diseñado con esta funcionalidad como prioridad para traders en evaluación activa."
+    },
+    {
+      "type": "h2",
+      "text": "Estrategias para Cumplir la Consistency Rule sin Sacrificar Rendimiento"
+    },
+    {
+      "type": "h3",
+      "text": "1. Define un profit stop diario"
+    },
+    {
+      "type": "p",
+      "text": "Igual que defines un stop de pérdida máxima diaria, define un techo de ganancia diaria. Para una regla del 30% con objetivo de $10,000, ese techo es $2,800-$3,000 (con un margen de seguridad del 3-5% por encima del límite calculado dinámicamente). Cuando alcanzas ese techo, cierras el mercado por el día."
+    },
+    {
+      "type": "h3",
+      "text": "2. Aumenta los días de trading, no el tamaño de posición"
+    },
+    {
+      "type": "p",
+      "text": "La matemática de la consistency rule favorece a los traders que distribuyen su ganancia en más días. 20 días con +$500 de promedio genera un consistency percentage mucho más sano que 5 días con +$2,000 y 15 días de ruptura de patrón. Esto tiene la ventaja adicional de demostrar la disciplina que las empresas de fondeo buscan."
+    },
+    {
+      "type": "h3",
+      "text": "3. Usa el diario emocional para identificar los días de sobreoperación"
+    },
+    {
+      "type": "p",
+      "text": "Los días de ganancia excesiva a menudo correlacionan con estados emocionales específicos: euforia después de recuperar pérdidas, exceso de confianza después de una racha positiva, o impulsividad provocada por noticias de mercado. Registrar estas emociones en el journal de trading con Zentrade crea la evidencia que te permite identificar y anticipar esos días antes de que violen tu regla de consistencia."
+    },
+    {
+      "type": "table",
+      "headers": ["Estrategia", "Impacto en consistency rule", "Dificultad"],
+      "rows": [
+        ["Profit stop diario fijo", "Alto — previene días desbordados directamente", "Medio — requiere disciplina"],
+        ["Más días de trading, menor tamaño", "Alto — distribuye la ganancia naturalmente", "Bajo — ajuste de plan de trading"],
+        ["Tracker en tiempo real (Zentrade)", "Alto — visibilidad constante del porcentaje", "Bajo — automático"],
+        ["Revisión emocional del journal", "Medio — identifica patrones que preceden sobreoperación", "Medio — requiere honestidad"],
+        ["Reducir tamaño de posición después de buen día", "Medio — limita el upside de los mejores días", "Alto — contra-intuitivo"]
+      ]
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "¿Qué es la consistency rule en FTMO?",
+          "a": "La consistency rule de FTMO establece que el día más rentable de tu evaluación no puede representar más del 30% de tu ganancia neta total. Si violas esta regla, la evaluación se rechaza aunque hayas alcanzado el profit target y respetado el drawdown."
+        },
+        {
+          "q": "¿La consistency rule aplica a la Fase 1 y la Fase 2?",
+          "a": "Sí, la regla de consistencia aplica en ambas fases de la evaluación de FTMO y empresas similares. Debes mantenerla activa durante todo el proceso de evaluación, no solo en una fase."
+        },
+        {
+          "q": "¿Cómo calculo si estoy violando la consistency rule?",
+          "a": "Divide el PnL de tu mejor día entre tu ganancia neta total acumulada. Si el resultado es mayor al porcentaje límite de tu empresa de fondeo (usualmente 30%), estás violando la regla. Zentrade calcula este porcentaje automáticamente en el dashboard."
+        },
+        {
+          "q": "¿Puedo tener un día muy bueno sin violar la consistency rule?",
+          "a": "Sí, si tu ganancia neta total es lo suficientemente grande para que ese día represente menos del umbral permitido. Por ejemplo, con una regla del 30% y objetivo de $10,000, puedes tener un día de +$3,000 siempre que tu ganancia neta total sea de al menos $10,000."
+        },
+        {
+          "q": "¿Qué pasa si violo la consistency rule en Apex Trader Funding?",
+          "a": "Las consecuencias varían por empresa y plan específico. En la mayoría de los casos, la evaluación no califica para una cuenta fondeada. Siempre verifica los términos específicos de tu plan en el sitio oficial de Apex Trader Funding."
+        },
+        {
+          "q": "¿Zentrade me avisa si estoy a punto de violar la consistency rule?",
+          "a": "Sí. El dashboard de Zentrade muestra el consistency percentage en tiempo real y genera una alerta visual cuando te estás acercando al umbral configurado para tu empresa de fondeo. Puedes configurar el porcentaje límite en la configuración de cada cuenta."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Monitorea tu consistency rule en tiempo real con Zentrade y nunca más pierdas una evaluación por esta regla.",
+      "href": "/register",
+      "buttonText": "Empezar gratis — sin tarjeta"
+    }
+  ],
+  "relatedSlugs": ["como-pasar-evaluacion-ftmo-journal-trading", "mejor-journal-trading-futuros-2025"]
+}

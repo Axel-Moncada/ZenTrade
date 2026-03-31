@@ -1,0 +1,369 @@
+{
+  "slug": "how-to-pass-topstep-evaluation",
+  "title": "How to Pass TopStep Evaluation: Rules, Strategy & Common Mistakes",
+  "excerpt": "Complete guide to passing the TopStep Trading Combine: rules explained, consistency rule math, trailing drawdown explained, and the daily habits of traders who get funded.",
+  "seoTitle": "How to Pass TopStep Evaluation — Rules & Strategy Guide 2025",
+  "seoDescription": "Learn how to pass the TopStep Trading Combine for futures traders: rules, consistency rule with examples, trailing drawdown explained, and the habits that get you funded.",
+  "keywords": [
+    "how to pass TopStep evaluation",
+    "TopStep futures trading rules 2025",
+    "TopStep Trading Combine rules",
+    "TopStep consistency rule",
+    "TopStep trailing drawdown",
+    "TopStep funded account",
+    "pass TopStep challenge"
+  ],
+  "author": "Zentrade Team",
+  "publishedAt": "2026-04-14",
+  "updatedAt": "2026-04-14",
+  "category": "fondeo",
+  "tags": [
+    "TopStep",
+    "prop firm evaluation",
+    "funded account",
+    "futures trading",
+    "consistency rule",
+    "trading journal",
+    "Trading Combine"
+  ],
+  "readingTime": 9,
+  "featured": false,
+  "content": [
+    {
+      "type": "p",
+      "text": "TopStep is one of the oldest and most respected funded futures programs in the industry. Their <strong>Trading Combine</strong> is a single-phase evaluation that, in theory, is simpler than FTMO's two-phase structure — but the failure rate is just as high. Most traders who fail the TopStep evaluation do not fail because of poor strategy. They fail because of behavioral mistakes that a better understanding of the rules would have prevented."
+    },
+    {
+      "type": "p",
+      "text": "The short answer to how to pass TopStep evaluation: treat every single rule as a hard boundary, not a guideline. The three rules that eliminate most traders are the <strong>consistency rule</strong> (no single day can represent more than 30% of total profits), the <strong>trailing drawdown</strong> (your floor rises as you profit, which surprises many traders at the worst moment), and the <strong>news trading restriction</strong> (no open positions during high-impact economic events)."
+    },
+    {
+      "type": "p",
+      "text": "This guide explains every TopStep rule with concrete numbers, walks through the most common failure patterns, and shows you how to structure your daily trading routine to stay inside the parameters from day one."
+    },
+    {
+      "type": "h2",
+      "text": "TopStep Trading Combine Rules: Complete Breakdown"
+    },
+    {
+      "type": "p",
+      "text": "TopStep uses a subscription-based evaluation model — you pay monthly while you are in the combine. The rules differ by account size:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Account Size",
+        "Profit Target",
+        "Max Daily Loss",
+        "Trailing Drawdown",
+        "Monthly Fee"
+      ],
+      "rows": [
+        [
+          "$50,000",
+          "$3,000 (6%)",
+          "$2,000 (4%)",
+          "$2,000 trailing",
+          "~$165/mo"
+        ],
+        [
+          "$100,000",
+          "$6,000 (6%)",
+          "$3,000 (3%)",
+          "$3,000 trailing",
+          "~$325/mo"
+        ],
+        [
+          "$150,000",
+          "$9,000 (6%)",
+          "$4,500 (3%)",
+          "$4,500 trailing",
+          "~$375/mo"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Key points that are easy to miss in the fine print:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>No minimum trading days</strong> — you can pass in any number of sessions as long as you follow all rules",
+        "<strong>Trailing drawdown</strong> — your floor rises as your account grows, reducing your error margin",
+        "<strong>Consistency rule:</strong> no single trading day can exceed 30% of total net profits",
+        "<strong>Payout split:</strong> 90% to the trader on the first $10,000 earned, then 100% thereafter",
+        "<strong>No positions during high-impact news</strong> — NFP, Fed decisions, CPI data",
+        "<strong>Instruments:</strong> CME futures including ES, NQ, CL, GC, and micro contracts"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "TopStep's 100% profit split after the first $10,000 is one of the most competitive payout structures available. For traders who maintain a funded account for several months, this can substantially outperform FTMO's 80/20 split."
+    },
+    {
+      "type": "h2",
+      "text": "The TopStep Consistency Rule: Math With Real Numbers"
+    },
+    {
+      "type": "p",
+      "text": "The consistency rule is the silent account-killer in the TopStep Trading Combine. You can reach the profit target, feel confident, and then discover during the payout review that one exceptional day violated the 30% cap — and your evaluation is void."
+    },
+    {
+      "type": "h3",
+      "text": "The Formula"
+    },
+    {
+      "type": "p",
+      "text": "<strong>Consistency % = Best Day PnL ÷ Total Net Profit</strong>"
+    },
+    {
+      "type": "p",
+      "text": "Here is how the same best-day performance plays out under different total profit scenarios on the $50,000 account:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Total Net Profit",
+        "Best Day PnL",
+        "Consistency %",
+        "Result"
+      ],
+      "rows": [
+        [
+          "$3,200",
+          "$700",
+          "21.9%",
+          "Pass"
+        ],
+        [
+          "$3,100",
+          "$950",
+          "30.6%",
+          "Fail — exceeds 30%"
+        ],
+        [
+          "$3,000",
+          "$890",
+          "29.7%",
+          "Pass — barely"
+        ],
+        [
+          "$3,500",
+          "$950",
+          "27.1%",
+          "Pass — kept trading after strong day"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "The important insight: <strong>you can trade your way out of a consistency violation</strong>. If your best day is $950 and your total is $3,000 (31.7%), you have not failed yet — you just cannot request payout. If you continue trading and bring your total to $3,500 or more, your consistency drops to 27.1% and you are in compliance. The key is knowing this is happening in real time, not after you submit for payout."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "After any unusually strong trading day, check your consistency percentage immediately. If it is above 26%, consider reducing your position size for the next few sessions and letting your overall total catch up before approaching the profit target."
+    },
+    {
+      "type": "h2",
+      "text": "How Trailing Drawdown Works in TopStep — And When It Catches Traders Off Guard"
+    },
+    {
+      "type": "p",
+      "text": "The trailing drawdown is the single most misunderstood mechanic in the TopStep Trading Combine. Here is exactly how it works on the $50,000 account with a $2,000 trailing drawdown:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Start: Account = $50,000 → Floor = $48,000 (2,000 below)",
+        "Gain $1,000 → Account = $51,000 → Floor rises to $49,000",
+        "Gain $1,000 more → Account = $52,000 → Floor rises to $50,000",
+        "At this point: you are up $2,000, but your floor has reached your starting balance",
+        "If you now lose $2,000 → Account hits $50,000 → You are exactly at the floor → Evaluation ends",
+        "Once your account reaches $52,000+ (gain equal to drawdown amount), the floor locks permanently at $50,000",
+        "After the floor locks, any further gains give you additional buffer above the floor"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "The dangerous window is <strong>between 0% and 4% profit</strong>. During this range, your floor is trailing your equity with no cushion building — every dollar you earn also raises the floor by a dollar. This is why many traders who have a fast start actually feel more pressure, not less. The floor has followed them up and left them with the same $2,000 buffer they started with."
+    },
+    {
+      "type": "h2",
+      "text": "Common Failure Patterns in the TopStep Trading Combine"
+    },
+    {
+      "type": "h3",
+      "text": "Pattern 1: Trading During High-Impact News Events"
+    },
+    {
+      "type": "p",
+      "text": "TopStep explicitly prohibits open positions during events like the Non-Farm Payroll report, Federal Reserve rate decisions, and CPI data releases. If you hold a position into one of these events and the market moves against you violently — which it often does — you can hit the daily loss limit in seconds. Keep an economic calendar open every day and close all positions at least 5 minutes before any high-impact announcement."
+    },
+    {
+      "type": "h3",
+      "text": "Pattern 2: Increasing Position Size After a Good Day"
+    },
+    {
+      "type": "p",
+      "text": "This is statistically the most common account-ending sequence: a trader has 4-5 good days in a row, feels confident, doubles their contract size on day 6, and takes a larger-than-normal loss. The loss itself may not violate the daily limit — but it triggers revenge trading, which does. Journal every session and flag your best days as high-risk behavioral triggers for the following session."
+    },
+    {
+      "type": "h3",
+      "text": "Pattern 3: Ignoring the Consistency Percentage"
+    },
+    {
+      "type": "p",
+      "text": "Traders often reach the profit target and immediately request a payout — without checking whether the consistency rule was met. TopStep will reject the payout if the 30% cap was violated at any point. The fix is simple: check your consistency percentage every morning before your session begins. If it is above 27%, trade smaller that day and let your total grow more gradually."
+    },
+    {
+      "type": "h3",
+      "text": "Pattern 4: Letting Losing Days Compound"
+    },
+    {
+      "type": "p",
+      "text": "A single losing day does not fail an evaluation. But traders who push through two or three bad days in a row — trying to 'make it back' — are the ones who eventually hit the max daily loss on day four when the drawdown is already stretched. Set a personal daily stop-loss at 60-70% of TopStep's limit and close the platform when you hit it. No exceptions."
+    },
+    {
+      "type": "h2",
+      "text": "Daily Routine for Passing the TopStep Trading Combine"
+    },
+    {
+      "type": "p",
+      "text": "Traders who pass on their first or second attempt follow a structured daily routine. Here is the framework:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Morning (before market open):</strong> check economic calendar for high-impact events, note blackout windows",
+        "<strong>Calculate position sizing:</strong> maximum contracts based on 3 consecutive losses staying within your personal daily stop",
+        "<strong>Check consistency percentage:</strong> if above 26%, reduce target size for the day",
+        "<strong>Set a daily profit target:</strong> a ceiling that prevents the Big Day Trap — stop trading when you reach it",
+        "<strong>Set your personal daily loss limit:</strong> approximately $1,200-$1,400 on the $50K account (60-70% of TopStep's $2,000)",
+        "<strong>During session:</strong> log every trade with emotional state and plan-compliance tag immediately after close",
+        "<strong>After session:</strong> update your journal with end-of-day equity, trailing floor position, and consistency %",
+        "<strong>Weekly review:</strong> 30 minutes on Sunday to identify the worst decision of the week and set one behavioral goal"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "TopStep vs. Other Prop Firms: Should You Choose TopStep in 2025?"
+    },
+    {
+      "type": "p",
+      "text": "TopStep is not the right choice for every futures trader. Here is an honest comparison of when TopStep makes sense and when another program might serve you better:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Choose TopStep if...",
+        "Consider Alternatives if..."
+      ],
+      "rows": [
+        [
+          "You want structured accountability and educational resources",
+          "You want zero consistency rule (try Apex or Uprofit)"
+        ],
+        [
+          "You plan to hold the funded account for months (100% split)",
+          "You prefer a one-time fee over a monthly subscription (try FTMO)"
+        ],
+        [
+          "You trade CME futures during standard US session hours",
+          "You frequently trade during news events"
+        ],
+        [
+          "You want the most well-documented payout history",
+          "You want the largest funded account size (FTMO offers up to $200K)"
+        ],
+        [
+          "You are newer to funded programs and want a clear one-phase path",
+          "You want no minimum days and no consistency rule (Apex)"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "For a full comparison of all major prop firms, see our guide: <a href='/blog/best-prop-firms-futures-traders-2025'>Best Prop Firms for Futures Traders in 2025</a>."
+    },
+    {
+      "type": "h2",
+      "text": "How a Trading Journal Helps You Pass TopStep"
+    },
+    {
+      "type": "p",
+      "text": "Every tactic described in this guide — monitoring consistency percentage daily, checking your trailing floor position, catching the behavioral signals of revenge trading before you act on them — requires organized, real-time data about your trades. A mental log or a disorganized spreadsheet will not catch a consistency rule violation in time."
+    },
+    {
+      "type": "p",
+      "text": "<strong>Zentrade</strong> is a trading journal built for futures traders in prop firm evaluations. You configure each account with the specific rules of your TopStep combine — profit target, daily loss limit, consistency threshold — and the dashboard shows your real-time standing against every benchmark every day."
+    },
+    {
+      "type": "p",
+      "text": "The Professional plan includes full equity curve visualization, daily consistency percentage tracking, profit factor calculation, and advanced filtering. The ZenMode plan adds AI-powered revenge trading detection — a real-time flag when your post-loss behavior matches the profile of a revenge trade, before you execute it."
+    },
+    {
+      "type": "p",
+      "text": "Zentrade is free to start. <a href='/blog/best-trading-journal-prop-firms-2025'>See our full comparison of the best trading journals for prop firm traders</a> to understand how Zentrade compares to other tools on the market."
+    },
+    {
+      "type": "cta",
+      "text": "Track your TopStep Trading Combine with Zentrade. Real-time consistency monitoring, trailing drawdown tracking, and behavioral alerts — built for futures traders.",
+      "href": "/register",
+      "buttonText": "Start Free — No Credit Card"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions About Passing TopStep"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "How long does it take to pass the TopStep Trading Combine?",
+          "a": "There is no time limit and no minimum trading days. Some traders pass in 5-7 sessions; others take 6-8 weeks. The subscription model means you pay monthly while in the evaluation, so there is a natural incentive to pass efficiently — but do not rush it. Rushed evaluations lead to rule violations."
+        },
+        {
+          "q": "What happens if I violate the max daily loss on TopStep?",
+          "a": "The evaluation ends immediately and automatically. You can restart by purchasing a new subscription. TopStep does not have a formal retry discount, but they do offer account pause options if you need a break before starting again."
+        },
+        {
+          "q": "Does TopStep have a consistency rule?",
+          "a": "Yes. No single trading day can represent more than 30% of your total net profits. This rule is reviewed when you submit for payout — not daily. Track it yourself every day to avoid discovering a violation only after you have hit the profit target."
+        },
+        {
+          "q": "Can I trade micro futures on TopStep?",
+          "a": "Yes. TopStep supports micro contracts including MES, MNQ, MYM, and others. Micro contracts are ideal for managing position sizing within the daily loss limit, especially when you are newer to the evaluation or during high-volatility sessions."
+        },
+        {
+          "q": "What instruments can I trade on TopStep?",
+          "a": "TopStep supports CME and CBOT futures: equity indices (ES, NQ, YM, RTY, MES, MNQ), energy (CL, NG), metals (GC, SI), currencies (6E, 6B, 6J), and interest rates (ZN, ZB, UB). ES and NQ are by far the most commonly traded instruments on the platform."
+        },
+        {
+          "q": "Is TopStep's trailing drawdown based on intraday or end-of-day equity?",
+          "a": "TopStep's trailing drawdown tracks intraday equity — meaning your floor can rise during the session if you are up significantly before the close. This is more restrictive than end-of-day trailing (used by Apex), because a temporary intraday high can lock in a higher floor even if you give back those gains before market close."
+        },
+        {
+          "q": "How does TopStep compare to FTMO for futures traders?",
+          "a": "TopStep has one evaluation phase vs. FTMO's two. TopStep's subscription model has lower upfront cost but ongoing monthly fees. FTMO is a one-time fee per evaluation. Both enforce a consistency rule at 30%. TopStep offers a 100% payout split after $10,000 — better than FTMO's 80/20 for long-term funded traders. FTMO has broader global brand recognition. For LATAM traders, both have active communities."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade is the trading journal built for futures traders passing prop firm evaluations. Configure your TopStep rules, track every KPI in real time, and stop failing on rules you already know.",
+      "href": "/register",
+      "buttonText": "Try Zentrade Free"
+    }
+  ],
+  "relatedSlugs": [
+    "best-trading-journal-prop-firms-2025",
+    "how-to-pass-ftmo-evaluation",
+    "consistency-rule-prop-firm-explained",
+    "how-to-pass-apex-trader-funding"
+  ],
+  "thumbnail": "/blog/trader-sonriente-setup-trading.jpg",
+  "thumbnailAlt": "Smiling trader at multi-monitor workstation after successfully passing TopStep evaluation"
+}

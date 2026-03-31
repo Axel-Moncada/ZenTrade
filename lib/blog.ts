@@ -62,7 +62,13 @@ export interface BlogPost {
   tags: string[];
   readingTime: number;
   featured: boolean;
+  /**
+   * Ruta relativa desde /public — ej: "/blog/journal-trading-futuros.webp"
+   * Recomendado: WebP, 1200×630 para hero / 800×450 para cards (16:9)
+   */
   thumbnail?: string;
+  /** Alt text de la imagen. Si se omite, se usa el título del post. */
+  thumbnailAlt?: string;
   content: BlogContentBlock[];
   relatedSlugs?: string[];
 }
