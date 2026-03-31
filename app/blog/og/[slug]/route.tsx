@@ -48,8 +48,6 @@ export async function GET(_req: Request, { params }: Props) {
   const titleFontSize = post.title.length > 70 ? 44 : post.title.length > 50 ? 50 : 56;
 
   return new ImageResponse(
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore — JSX en .ts route file requiere esta excepción
     <div
       style={{
         width: "1200px",
