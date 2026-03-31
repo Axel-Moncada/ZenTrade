@@ -4,6 +4,9 @@ import "./globals.css";
 import icon from "@/data/assets/Favicon-2.png";
 import { Toaster } from "sonner";
 import { Providers } from "./providers";
+import Script from "next/script";
+
+const GA_ID = "G-DD0ZL0XYVT";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -97,6 +100,18 @@ export default function RootLayout({
           {children}
           <Toaster richColors theme="dark" position="bottom-right" />
         </Providers>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+          `}
+        </Script>
       </body>
     </html>
   );
