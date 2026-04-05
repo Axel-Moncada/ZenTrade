@@ -52,13 +52,17 @@ const LIGHT = {
 
 // ─── Badge de tipo de evento ──────────────────────────────────────────────────
 const TYPE_BADGE: Record<NewsItemType, { bg: string; label: string }> = {
-  FED:         { bg: "#7C3AED", label: "FED / FOMC" },
-  EARNINGS:    { bg: "#1D4ED8", label: "EARNINGS" },
-  MACRO:       { bg: "#0369A1", label: "MACRO" },
-  INFLACIÓN:   { bg: "#B45309", label: "INFLACIÓN" },
-  EMPLEO:      { bg: "#047857", label: "EMPLEO" },
-  GEOPOLÍTICA: { bg: "#B91C1C", label: "GEOPOLÍTICA" },
-  OTRO:        { bg: "#4B5563", label: "EVENTO" },
+  FED:          { bg: "#7C3AED", label: "FED / FOMC" },
+  BANCO_CENTRAL:{ bg: "#6D28D9", label: "BANCO CENTRAL" },
+  EARNINGS:     { bg: "#1D4ED8", label: "EARNINGS" },
+  MACRO:        { bg: "#0369A1", label: "MACRO" },
+  INFLACIÓN:    { bg: "#B45309", label: "INFLACIÓN" },
+  EMPLEO:       { bg: "#047857", label: "EMPLEO" },
+  GEOPOLÍTICA:  { bg: "#B91C1C", label: "GEOPOLÍTICA" },
+  GUERRA:       { bg: "#7F1D1D", label: "GUERRA" },
+  POLÍTICA:     { bg: "#92400E", label: "POLÍTICA" },
+  COMMODITIES:  { bg: "#065F46", label: "COMMODITIES" },
+  OTRO:         { bg: "#4B5563", label: "EVENTO" },
 };
 
 // ─── Estilo de impacto ────────────────────────────────────────────────────────
