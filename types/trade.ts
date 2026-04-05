@@ -12,6 +12,9 @@ export interface Trade {
   emotions: string[] | null
   notes: string | null
   screenshot_url: string | null
+  screenshot_urls: string[] | null
+  entry_time: string | null
+  exit_time: string | null
   created_at: string
   updated_at: string
   instrument?: {

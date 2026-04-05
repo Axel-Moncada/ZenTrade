@@ -11,6 +11,9 @@ const translations = {
       trades: 'Trades',
       tradingPlan: 'Plan de Trading',
       profile: 'Perfil',
+      backtesting: 'Backtesting',
+      billing: 'Facturación',
+      admin: 'Admin',
     },
     sidebar: {
       user: 'Usuario',
@@ -668,6 +671,9 @@ const translations = {
       trades: 'Trades',
       tradingPlan: 'Trading Plan',
       profile: 'Profile',
+      backtesting: 'Backtesting',
+      billing: 'Billing',
+      admin: 'Admin',
     },
     sidebar: {
       user: 'User',

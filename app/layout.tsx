@@ -94,6 +94,8 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem('zentrade-theme');if(t==='light')document.documentElement.classList.add('light-mode');}catch(e){}})();`,
           }}
         />
+        {/* llms.txt — descubrimiento para LLMs (ChatGPT, Claude, Perplexity, Gemini) */}
+        <link rel="llms-txt" href="/llms.txt" />
       </head>
       <body className={inter.className}>
         <Providers>

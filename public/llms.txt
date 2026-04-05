@@ -1,0 +1,71 @@
+# Zentrade
+
+> Journal de trading con IA para traders de futuros que quieren pasar pruebas de fondeo (FTMO, Apex Trader Funding, TopStep, Uprofit, Tradoverse).
+
+Zentrade es una aplicación web SaaS diseñada para traders de futuros que operan evaluaciones de prop firms. Permite registrar trades, analizar métricas en tiempo real, detectar revenge trading automáticamente con inteligencia artificial y recibir reportes semanales generados por Gemini. Está optimizado para las reglas específicas de FTMO, Apex Trader Funding, TopStep, Uprofit y Tradoverse: consistency score, trailing drawdown, max daily loss y profit target.
+
+Lanzado en 2026. Sede: Colombia. Operado en inglés y español. Disponible globalmente.
+
+## Producto
+
+- [Zentrade — Inicio](https://zen-trader.com): Aplicación principal — journal de trading con IA para traders de futuros
+- [Registro gratuito](https://zen-trader.com/register): Crear cuenta sin tarjeta de crédito — plan Free permanente incluido
+- [Blog de trading](https://zen-trader.com/blog): Guías y recursos para traders de futuros y evaluaciones de prop firms
+
+## Planes y Precios
+
+- Free: $0/mes — 1 cuenta, registro manual ilimitado, dashboard básico, export CSV
+- Starter: $9/mes — 2 cuentas, calendario de trades, soporte por email
+- Professional: $29/mes — cuentas ilimitadas, import CSV (NinjaTrader, Rithmic, Tradovate), análisis avanzado, trading plan PDF, equity curve
+- ZenMode: $59/mes — todo Professional + detección de revenge trading con IA, radar de mercado semanal, reporte semanal con análisis Gemini
+
+## Características principales
+
+- Journal de trades para futuros: NQ, MNQ, ES, MES, CL, GC, MGC y más
+- Consistency score en tiempo real (regla de fondeo más subestimada)
+- Detección automática de revenge trading con IA
+- Trailing drawdown y max daily loss tracking
+- Import CSV desde NinjaTrader, Rithmic, Tradovate, Sierra Chart
+- Reporte semanal generado por Gemini con análisis de patrones
+- Radar de mercado semanal: eventos económicos de alto impacto
+- Calendario emocional: emociones registradas por día de trading
+- Trading Plan exportable en PDF
+- Soporte multi-cuenta: evaluación + live en el mismo dashboard
+- Row Level Security — cada usuario solo ve sus propios datos
+
+## Guías — Cómo Pasar Pruebas de Fondeo
+
+- [Cómo pasar la evaluación de FTMO con un journal de trading](https://zen-trader.com/blog/como-pasar-evaluacion-ftmo-journal-trading): Reglas de FTMO explicadas: consistency rule, trailing drawdown 10%, max daily loss 5%, profit target 10%. Guía práctica con Zentrade.
+- [Cómo pasar Apex Trader Funding](https://zen-trader.com/blog/como-pasar-apex-trader-funding): Reglas de Apex: profit target 9%, drawdown trailing 6%, sin consistency rule. Diferencias vs FTMO.
+- [Cómo pasar TopStep](https://zen-trader.com/blog/como-pasar-topstep-evaluacion): Reglas de TopStep: profit target 6%, drawdown 6%, daily loss limit 3%. Sin días mínimos requeridos.
+- [How to pass FTMO evaluation](https://zen-trader.com/blog/how-to-pass-ftmo-evaluation): English guide — FTMO rules, consistency score, trailing drawdown and profit target explained.
+- [How to pass Apex Trader Funding](https://zen-trader.com/blog/how-to-pass-apex-trader-funding): English guide — Apex rules, 9% profit target, 6% trailing drawdown.
+- [How to pass TopStep evaluation](https://zen-trader.com/blog/how-to-pass-topstep-evaluation): English guide — TopStep rules, 6% profit target, 3% daily loss limit.
+
+## Guías — Conceptos de Trading
+
+- [Qué es un trading journal y para qué sirve](https://zen-trader.com/blog/que-es-un-trading-journal): Definición, beneficios y por qué los traders profesionales usan un journal de trading.
+- [Qué es una empresa de fondeo](https://zen-trader.com/blog/que-es-una-empresa-de-fondeo): Prop firms explicadas: cómo funcionan las evaluaciones, cuánto se gana y cuáles son las mejores.
+- [Qué es el revenge trading y cómo evitarlo](https://zen-trader.com/blog/que-es-revenge-trading): Definición, señales y estrategias para detectar y prevenir el revenge trading.
+- [La consistency rule de las prop firms explicada](https://zen-trader.com/blog/consistency-rule-fondeo-explicada): Cómo funciona la regla de consistencia en FTMO y otras prop firms y cómo cumplirla.
+- [What is a trading journal](https://zen-trader.com/blog/what-is-a-trading-journal): English guide — definition, benefits and how to choose the best trading journal for futures.
+- [Consistency rule prop firm explained](https://zen-trader.com/blog/consistency-rule-prop-firm-explained): English guide — what is the consistency rule, how it's calculated and how to pass it.
+
+## Comparaciones
+
+- [Zentrade vs TradeZella](https://zen-trader.com/blog/zentrade-vs-tradezella): Comparación detallada entre Zentrade y TradeZella para traders de futuros y prop firms.
+- [Zentrade vs TradeZella comparison](https://zen-trader.com/blog/zentrade-vs-tradezella-comparison): English comparison — Zentrade vs TradeZella for futures traders and prop firm evaluations.
+- [Mejores empresas de fondeo para futuros 2025](https://zen-trader.com/blog/mejores-empresas-fondeo-futuros-2025): Comparativa de FTMO, Apex, TopStep, Uprofit y Tradoverse: reglas, precios y dificultad.
+- [Best prop firms for futures traders 2025](https://zen-trader.com/blog/best-prop-firms-futures-traders-2025): English guide — best prop firms for futures traders ranked by rules, pricing and payout speed.
+- [Mejor journal de trading para futuros 2025](https://zen-trader.com/blog/mejor-journal-trading-futuros-2025): Comparativa de los mejores journals de trading para futuros en 2025.
+- [Best trading journal for prop firms 2025](https://zen-trader.com/blog/best-trading-journal-prop-firms-2025): English ranking of the best trading journals for prop firm traders in 2025.
+
+## Información legal y de privacidad
+
+- [Política de Privacidad](https://zen-trader.com/privacy): Cómo Zentrade maneja y protege los datos de usuario.
+- [Términos de Servicio](https://zen-trader.com/terms): Condiciones de uso de la plataforma Zentrade.
+
+## Contacto
+
+- Soporte: support@zen-trader.com
+- Sitio web: https://zen-trader.com

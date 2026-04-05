@@ -120,6 +120,7 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
 
   const schemas: object[] = [articleSchema, breadcrumbSchema];
 
+  // FAQPage schema — cuando el post tiene un bloque faq
   if (hasFaq) {
     const faqBlock = post.content.find((b) => b.type === "faq");
     if (faqBlock?.faqItems?.length) {
@@ -133,6 +134,34 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
         })),
       });
     }
+  }
+
+  // HowTo schema — auto-generado desde h3 que empiecen con "Paso" o "Step"
+  // Permite a LLMs citar instrucciones como pasos estructurados
+  const howToSteps = post.content
+    .map((block, idx) => ({ block, idx }))
+    .filter(({ block }) => block.type === "h3" && /^(paso|step)\s+\d/i.test(block.text ?? ""))
+    .map(({ block, idx }, position) => {
+      // Buscar el párrafo inmediato siguiente al h3 para usar como descripción del paso
+      const nextP = post.content.slice(idx + 1).find((b) => b.type === "p");
+      const description = nextP?.text?.replace(/<[^>]+>/g, "") ?? block.text ?? "";
+      return {
+        "@type": "HowToStep",
+        position: position + 1,
+        name: block.text,
+        text: description.slice(0, 300),
+      };
+    });
+
+  if (howToSteps.length >= 2) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: post.title,
+      description: post.seoDescription,
+      inLanguage: post.slug.startsWith("how-to") || post.slug.startsWith("what-is") || post.slug.startsWith("best-") || post.slug.startsWith("consistency-rule-prop") ? "en" : "es",
+      step: howToSteps,
+    });
   }
 
   return schemas;
