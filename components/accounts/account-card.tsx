@@ -107,12 +107,24 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
     ? ((account.current_balance - account.initial_balance) / account.profit_target) * 100
     : 0;
 
+  const isFailed = account.status === "failed";
+
   return (
-    <Card className="hover:shadow-lg transition-shadow border-zen-forest/50 rounded-xl backdrop-blur-sm p-6 bg-zen-bangladesh-green/60">
+    <Card className={`hover:shadow-lg transition-shadow rounded-xl backdrop-blur-sm p-6 ${
+      isFailed
+        ? "border-red-900/50 bg-zen-bangladesh-green/30 opacity-75"
+        : "border-zen-forest/50 bg-zen-bangladesh-green/60"
+    }`}>
+      {/* Banner de evaluación fallida */}
+      {isFailed && (
+        <div className="mb-4 -mx-6 -mt-6 px-4 py-2 bg-red-900/40 border-b border-red-900/50 flex items-center gap-2 rounded-t-xl">
+          <span className="text-xs font-bold text-red-400 tracking-wide uppercase">Evaluación Fallida · Solo lectura</span>
+        </div>
+      )}
       <CardHeader>
         <div className="flex items-start justify-between text-zen-anti-flash">
           <div className="flex-1">
-            <CardTitle className="text-2xl">{account.name}</CardTitle>
+            <CardTitle className={`text-2xl ${isFailed ? "text-zen-anti-flash/70" : ""}`}>{account.name}</CardTitle>
             <CardDescription className="mt-1">
               {account.broker && `${account.broker} · `}
               {account.platform || "Sin plataforma"}
@@ -285,10 +297,24 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
         {/* Botones */}
         <div className="flex gap-2 pt-3">
           <Link href={`/dashboard/accounts/${account.id}`} className="flex-1">
-            <Button variant="outline" className="w-full bg-zen-caribbean-green hover:bg-zen-caribbean-green/70 font-bold border-0  hover:text-zen-rich-black" size="sm">
-              <Pencil className="h-4 w-4 mr-2" />
-              Ver / Editar
-            </Button>
+            {isFailed ? (
+              <Button
+                size="sm"
+                className="w-full font-bold bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700"
+              >
+                <Pencil className="h-4 w-4 mr-2" />
+                Ver Historial
+              </Button>
+            ) : (
+              <Button
+                variant="outline"
+                className="w-full font-bold border-0 bg-zen-caribbean-green hover:bg-zen-caribbean-green/70 hover:text-zen-rich-black"
+                size="sm"
+              >
+                <Pencil className="h-4 w-4 mr-2" />
+                Ver / Editar
+              </Button>
+            )}
           </Link>
           <AlertDialog>
             <AlertDialogTrigger asChild>
@@ -296,19 +322,19 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
                 <Trash2 className="h-4 w-4" />
               </Button>
             </AlertDialogTrigger>
-            <AlertDialogContent>
+            <AlertDialogContent className="bg-zen-dark-green border border-zen-forest/40 rounded-xl">
               <AlertDialogHeader>
-                <AlertDialogTitle>¿Eliminar cuenta?</AlertDialogTitle>
-                <AlertDialogDescription>
+                <AlertDialogTitle className="text-zen-anti-flash">¿Eliminar cuenta?</AlertDialogTitle>
+                <AlertDialogDescription className="text-zen-anti-flash/60">
                   Esta acción eliminará permanentemente la cuenta {`"${account.name}"`} y
                   todos sus trades asociados. Esta acción no se puede deshacer.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                <AlertDialogCancel className="bg-zen-bangladesh-green/30 border-zen-forest/40 text-zen-anti-flash hover:bg-zen-bangladesh-green/50 hover:text-zen-anti-flash">Cancelar</AlertDialogCancel>
                 <AlertDialogAction
                   onClick={handleDelete}
-                  className="bg-red-600 hover:bg-red-700"
+                  className="bg-red-600 hover:bg-red-700 text-white border-0"
                 >
                   Eliminar
                 </AlertDialogAction>

@@ -1,0 +1,264 @@
+{
+  "slug": "como-pasar-uprofit-evaluacion",
+  "title": "Cómo Pasar la Evaluación de Uprofit: Guía Paso a Paso para Traders",
+  "excerpt": "Guía práctica para pasar la evaluación de Uprofit: reglas, estrategias, errores frecuentes y cómo llevar el tracking con un journal de trading para aumentar tu probabilidad de éxito.",
+  "seoTitle": "Cómo Pasar la Evaluación de Uprofit | Guía Completa 2025",
+  "seoDescription": "Aprende cómo pasar la evaluación de Uprofit paso a paso. Reglas de drawdown, profit target, daily loss y la estrategia de gestión de riesgo que maximiza tu probabilidad de éxito.",
+  "keywords": [
+    "como pasar evaluación Uprofit",
+    "Uprofit evaluación guía",
+    "pasar Uprofit futuros",
+    "estrategia evaluación prop firm",
+    "Uprofit reglas evaluación",
+    "journal para pasar Uprofit",
+    "como pasar fondeo futuros Colombia"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-04-09",
+  "updatedAt": "2026-04-09",
+  "category": "fondeo",
+  "tags": ["Uprofit", "evaluación", "estrategia", "Colombia", "guía", "futuros", "prop firm"],
+  "readingTime": 12,
+  "featured": false,
+  "thumbnail": "/blog/trader-revisando-metricas-evaluacion.jpg",
+  "thumbnailAlt": "Trader revisando métricas de su evaluación de prop firm de futuros en computadora",
+  "content": [
+    {
+      "type": "p",
+      "text": "Pasar la evaluación de Uprofit es más simple que FTMO o Apex — una sola fase, sin consistency rule y drawdown estático. Sin embargo, sigue siendo eliminado un alto porcentaje de los intentos. Esta guía cubre exactamente qué necesitas hacer (y qué debes evitar) para pasar la evaluación de Uprofit de la forma más eficiente posible."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Uprofit tiene una de las estructuras de reglas más simples entre las empresas de fondeo de futuros: 8% de profit target, 4% de daily loss limit, 8% de drawdown máximo estático. Sin consistency rule, sin tiempo mínimo y sin límite de días."
+    },
+    {
+      "type": "h2",
+      "text": "Las reglas de Uprofit explicadas (sin jerga)"
+    },
+    {
+      "type": "p",
+      "text": "Antes de la estrategia, necesitas entender perfectamente las tres reglas de Uprofit. Son menos que en otras empresas, pero violar cualquiera elimina la cuenta de inmediato."
+    },
+    {
+      "type": "h3",
+      "text": "Regla 1: Profit Target del 8%"
+    },
+    {
+      "type": "p",
+      "text": "Tu objetivo es generar el <strong>8% del balance inicial de la cuenta</strong> en ganancias netas (suma de todos los trades: ganancias menos pérdidas). Para cada tamaño de cuenta:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Cuenta $25,000 → objetivo: $2,000",
+        "Cuenta $50,000 → objetivo: $4,000",
+        "Cuenta $100,000 → objetivo: $8,000",
+        "Cuenta $200,000 → objetivo: $16,000"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "No hay consistency rule — puedes alcanzar el objetivo en un solo día de trading excepcional. No hay tiempo mínimo ni máximo. Cuando alcanzas el profit target respetando las otras reglas, solicitas la cuenta financiada."
+    },
+    {
+      "type": "h3",
+      "text": "Regla 2: Max Daily Loss del 4%"
+    },
+    {
+      "type": "p",
+      "text": "La pérdida máxima permitida en un solo día es el <strong>4% del balance inicial de la cuenta</strong>. Ejemplo con cuenta de $25,000: máximo $1,000 de pérdida por día. Puntos clave sobre el daily loss de Uprofit:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Se calcula sobre el <strong>balance inicial fijo</strong>, no sobre el balance actual",
+        "Generalmente aplica solo a <strong>trades cerrados</strong> — no incluye P&L no realizado de posiciones abiertas",
+        "Si llegas al límite, debes cerrar todas las posiciones y no operar el resto del día",
+        "El contador se reinicia al inicio de cada nueva sesión de trading"
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "Regla 3: Max Drawdown del 8% (Estático)"
+    },
+    {
+      "type": "p",
+      "text": "El drawdown máximo permitido durante toda la evaluación es el <strong>8% del balance inicial</strong>. Uprofit usa drawdown estático — el nivel de eliminación se fija desde el inicio y no cambia aunque ganes dinero. Ejemplo:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Balance inicial: $25,000",
+        "Nivel de eliminación fijo: $23,000 ($25,000 - $2,000)",
+        "Si llegas a $30,000, el nivel de eliminación sigue siendo $23,000",
+        "Tienes $7,000 de cushion en ese punto — a diferencia del trailing donde solo tendrías $2,000"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "El drawdown estático de Uprofit es una de sus grandes ventajas. A medida que creces tu balance durante la evaluación, el 'colchón' de seguridad entre tu balance actual y el nivel de eliminación se amplía. Esto te da más libertad operativa en las últimas etapas de la evaluación."
+    },
+    {
+      "type": "h2",
+      "text": "Estrategia para pasar Uprofit: los tres principios"
+    },
+    {
+      "type": "h3",
+      "text": "Principio 1: Calcula tu riesgo por trade antes de abrir el mercado"
+    },
+    {
+      "type": "p",
+      "text": "El error más común en Uprofit es no hacer este cálculo explícito antes de cada sesión. Antes de abrir la plataforma cada día, define:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Mi límite de pérdida personal hoy:</strong> 50-60% del Daily Loss Limit de Uprofit. Para cuenta de $25,000: $500-$600 (no $1,000)",
+        "<strong>Mi tamaño de posición máximo:</strong> Define cuántos contratos usarás y no lo cambies durante el día",
+        "<strong>Mi objetivo de ganancia para hoy:</strong> Un target realista que, acumulado en días similares, te lleve al profit target dentro de un período razonable"
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "Principio 2: Sé consistente, no agresivo"
+    },
+    {
+      "type": "p",
+      "text": "La trampa más frecuente en evaluaciones de prop firm es intentar 'terminar rápido' siendo agresivo en los primeros días. Los traders que pasan Uprofit consistentemente tienen este perfil:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Ganancias moderadas y consistentes cada semana (no un día de $2,000 seguido de cuatro días de pérdidas)",
+        "Winrate consistente: 55-70% con R:R positivo (ganando más cuando ganan que cuando pierden)",
+        "Número de trades manejable: 3-8 trades por día en lugar de 20-30 scalps que generan más slippage y fees",
+        "Respeto estricto del stop loss: si el stop lo pones en 10 ticks, lo respetas en 10 ticks — no 15 ni 20"
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "Principio 3: Lleva un journal de trading detallado"
+    },
+    {
+      "type": "p",
+      "text": "Un journal de trading no es opcional si quieres pasar una evaluación de Uprofit. El journal tiene tres funciones críticas durante la evaluación:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Compliance en tiempo real:</strong> Ver exactamente cuánto P&L llevas acumulado hoy vs tu límite personal y el de Uprofit",
+        "<strong>Detección de patrones:</strong> Identificar en qué día de la semana u hora del día tienes mejores resultados",
+        "<strong>Control emocional:</strong> El registro emocional te permite detectar cuándo estás operando desde la frustración (revenge trading) vs la claridad"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Plan de trading específico para evaluación de Uprofit $25,000"
+    },
+    {
+      "type": "p",
+      "text": "Este es un plan de ejemplo conservador para pasar la evaluación de $25,000 en 3-4 semanas sin tomar riesgos innecesarios:"
+    },
+    {
+      "type": "table",
+      "headers": ["Parámetro", "Valor", "Justificación"],
+      "rows": [
+        ["Instrumento", "MNQ o MES", "Volatilidad manejable, fees bajos"],
+        ["Contratos por trade", "2-3 MNQ", "Permite P&L de $100-$300 por operación con riesgo controlado"],
+        ["Stop loss personal", "10-15 ticks en MNQ ($20-$30)", "Riesgo por trade: $40-$90 con 2-3 contratos"],
+        ["Pérdida máxima personal por día", "$500 (50% del límite de Uprofit)", "Margen de seguridad sobre el 4% oficial"],
+        ["Objetivo diario", "$200-$300", "3-5 sesiones ganadoras → $600-$1,500/semana"],
+        ["Objetivo semanal", "$600-$1,000", "4 semanas → $2,400-$4,000 → alcanzas el target"],
+        ["Días de operación por semana", "3-4 días", "Calidad sobre cantidad — no operar días de baja convicción"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Con este plan, alcanzas el profit target de $2,000 en 2-4 semanas operando 3-4 días por semana con objetivos diarios moderados. La clave es la consistencia — no buscar el home run en un día."
+    },
+    {
+      "type": "h2",
+      "text": "Los errores más frecuentes que eliminan evaluaciones de Uprofit"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Revenge trading después de una mala mañana:</strong> El trader pierde $500 en la mañana, se frustra, y entra en un trade de mayor tamaño para recuperar. Si ese trade también pierde, supera el daily loss limit y la cuenta se elimina. Solución: si llegas al 50% de tu límite personal, cierra la plataforma por ese día.",
+        "<strong>Mantener posiciones durante publicaciones de datos importantes:</strong> CPI, NFP, decisión del Fed pueden mover el mercado 100+ puntos en segundos. Si tienes una posición abierta con 10 contratos de MNQ y el mercado se mueve 50 puntos en tu contra, eso son $1,000 de pérdida instantánea — el 100% de tu daily loss limit en una cuenta de $25,000. Solución: cierra todas las posiciones 5 minutos antes de cualquier publicación de alto impacto.",
+        "<strong>Aumentar el tamaño de posición a medida que progresas:</strong> Cuando llevas $1,500 de $2,000 del objetivo, el trader tienta a 'terminar de una vez' y dobla el tamaño. Un día malo con el doble de contratos puede borrar el progreso en horas. Solución: mantén el mismo tamaño de posición de principio a fin.",
+        "<strong>No registrar los trades en tiempo real:</strong> Si no sabes exactamente cuánto P&L llevas hoy, no sabes cuándo debes parar. Muchos traders se acercan al daily loss limit sin darse cuenta porque no tienen visibilidad del número acumulado del día."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo llevar el tracking de tu evaluación en Zentrade"
+    },
+    {
+      "type": "p",
+      "text": "Configurar Zentrade para el tracking de tu evaluación de Uprofit toma 5 minutos:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Crea una nueva cuenta en Zentrade → tipo 'Evaluación'",
+        "Balance inicial: el tamaño de tu cuenta Uprofit (ej: $25,000)",
+        "Drawdown type: 'Estático'",
+        "Max drawdown: 8% del balance (ej: $2,000 para $25,000)",
+        "Profit target: 8% del balance (ej: $2,000 para $25,000)",
+        "Registra o importa tus trades después de cada sesión (CSV de NinjaTrader o Rithmic)",
+        "Revisa el dashboard diariamente: progreso hacia el profit target, drawdown disponible y P&L de los últimos días"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Si tienes el plan ZenMode de Zentrade, el sistema detectará automáticamente los patrones de revenge trading en tu cuenta — especialmente relevante para las últimas etapas de la evaluación cuando la presión de cerrar el objetivo puede distorsionar la toma de decisiones."
+    },
+    {
+      "type": "cta",
+      "text": "Empieza a llevar el tracking de tu evaluación de Uprofit en Zentrade. El plan gratuito incluye una cuenta de evaluación, dashboard de métricas y calendario de trades.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Cuánto tiempo tarda pasar la evaluación de Uprofit?",
+          "a": "No hay tiempo mínimo ni máximo en Uprofit. Los traders con estrategias consistentes tardan típicamente 2-5 semanas operando 3-4 días por semana. Si tienes días de muy alta rentabilidad, puedes alcanzar el 8% del objetivo en menos de una semana. La clave es no apresurarse y respetar las reglas de riesgo durante todo el proceso."
+        },
+        {
+          "q": "¿Qué pasa si pierdo la evaluación de Uprofit?",
+          "a": "Si la cuenta de evaluación es eliminada (por violar el daily loss limit o el drawdown máximo), debes comprar una nueva evaluación para intentarlo de nuevo. Uprofit frecuentemente ofrece descuentos del 30-50% para reintentos. Antes de comprar otro intento, analiza exactamente qué causó la eliminación — el mismo error en una nueva cuenta producirá el mismo resultado."
+        },
+        {
+          "q": "¿Uprofit tiene tiempo mínimo de trading?",
+          "a": "No. Uprofit no tiene un mínimo de días de trading ni de trades. Si alcanzas el profit target del 8% en el primer día respetando todas las reglas, puedes solicitar la cuenta financiada inmediatamente. Esto lo diferencia de FTMO, que requiere al menos 4 días mínimos de trading activo."
+        },
+        {
+          "q": "¿Qué instrumentos puedo operar en Uprofit?",
+          "a": "Uprofit permite operar todos los contratos de futuros disponibles en CME: NQ, ES, MNQ, MES, CL, GC, MGC, RTY, M2K, ZB, ZN, entre otros. Los contratos micro (MNQ, MES) son muy populares entre traders que están empezando porque requieren menos margen y las pérdidas son proporcionales al capital de la cuenta."
+        },
+        {
+          "q": "¿Cuál es la diferencia entre pasar la evaluación de Uprofit y pasar la de FTMO?",
+          "a": "Las diferencias principales son: Uprofit tiene una sola fase (FTMO tiene dos: Challenge y Verification), Uprofit no tiene consistency rule (FTMO sí tiene, y es causa frecuente de rechazo en la fase 2), Uprofit usa drawdown estático igual que FTMO, pero Uprofit es solo para futuros de CME mientras FTMO opera Forex y CFDs principalmente. Para traders de futuros en Colombia, Uprofit suele ser más accesible y directa."
+        },
+        {
+          "q": "¿Es difícil pasar la evaluación de Uprofit?",
+          "a": "Las estadísticas exactas de tasa de éxito de Uprofit no son públicas, pero en general las evaluaciones de prop firms tienen tasas de éxito del 10-20% de los intentos. Los factores que más aumentan la probabilidad de pasar son: tener una estrategia con winrate documentado mayor al 55%, gestión de riesgo estricta (stop loss definido antes de cada trade), evitar revenge trading y llevar un journal de trading que muestre el P&L diario en tiempo real."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "uprofit-colombia-empresa-fondeo",
+    "como-llevar-journal-trading-futuros",
+    "reglas-riesgo-diario-fondeo",
+    "que-es-revenge-trading"
+  ]
+}

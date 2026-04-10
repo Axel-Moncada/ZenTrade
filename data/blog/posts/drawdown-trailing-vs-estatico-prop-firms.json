@@ -1,0 +1,225 @@
+{
+  "slug": "drawdown-trailing-vs-estatico-prop-firms",
+  "title": "Drawdown Trailing vs Estático en Empresas de Fondeo: Cuál Te Conviene",
+  "excerpt": "La diferencia entre drawdown trailing y drawdown estático en prop firms es la regla más malentendida del trading de futuros. Esta guía la explica con ejemplos reales.",
+  "seoTitle": "Drawdown Trailing vs Estático en Prop Firms | Zentrade",
+  "seoDescription": "Aprende la diferencia entre drawdown trailing y drawdown estático en empresas de fondeo como Apex, TopStep y FTMO. Con ejemplos reales para traders de futuros.",
+  "keywords": [
+    "drawdown trailing futuros",
+    "drawdown estático prop firm",
+    "trailing drawdown Apex",
+    "max drawdown empresa de fondeo",
+    "drawdown FTMO",
+    "drawdown TopStep futuros",
+    "como funciona el drawdown en fondeo"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-04-09",
+  "updatedAt": "2026-04-09",
+  "category": "fondeo",
+  "tags": ["drawdown", "prop firms", "Apex", "TopStep", "FTMO", "reglas de riesgo", "futuros"],
+  "readingTime": 9,
+  "featured": false,
+  "thumbnail": "/blog/trader-analizando-graficas-pantalla.jpg",
+  "thumbnailAlt": "Trader analizando gráficas de futuros en pantalla con métricas de drawdown",
+  "content": [
+    {
+      "type": "p",
+      "text": "Si estás evaluando en qué empresa de fondeo inscribirte, la diferencia entre <strong>drawdown trailing</strong> y <strong>drawdown estático</strong> es probablemente la variable más importante a entender — y la más malentendida. La mayoría de los traders la confunden, lo que los lleva a eliminar su cuenta sin entender exactamente por qué. Esta guía lo explica con números reales."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "El trailing drawdown es la regla que más cuentas elimina en Apex Trader Funding y TopStep. Un trader puede tener una semana rentable y aun así acercarse peligrosamente al límite si no entiende cómo funciona el trailing."
+    },
+    {
+      "type": "h2",
+      "text": "¿Qué es el drawdown estático?"
+    },
+    {
+      "type": "p",
+      "text": "El drawdown estático es el tipo de drawdown más intuitivo. Se fija desde el principio y no cambia. Si empiezas con una cuenta de <strong>$100,000</strong> y el drawdown estático es del 10%, tu nivel de eliminación siempre estará en <strong>$90,000</strong>, independientemente de cuánto ganes."
+    },
+    {
+      "type": "p",
+      "text": "Ejemplo concreto con drawdown estático:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Balance inicial: $100,000",
+        "Max drawdown estático: $10,000 (10%)",
+        "Nivel de eliminación: $90,000 (fijo, nunca cambia)",
+        "Si llegas a $120,000, tu nivel de eliminación sigue siendo $90,000",
+        "Tienes hasta $30,000 de espacio antes de la eliminación en ese punto"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "<strong>FTMO</strong> usa drawdown estático en sus evaluaciones. Es el modelo más favorable para el trader porque a medida que creces el equity, el 'colchón' de seguridad entre tu balance actual y el nivel de eliminación se amplía. Puedes tener un mal día sin que eso ponga en peligro todo tu progreso anterior."
+    },
+    {
+      "type": "h2",
+      "text": "¿Qué es el drawdown trailing?"
+    },
+    {
+      "type": "p",
+      "text": "El trailing drawdown es considerablemente más agresivo. El nivel de eliminación <strong>sube automáticamente</strong> cada vez que tu equity alcanza un nuevo máximo. Es decir, el 'piso' que te elimina siempre está a la misma distancia de tu punto más alto — pero ese punto más alto se actualiza en tiempo real."
+    },
+    {
+      "type": "p",
+      "text": "Ejemplo concreto con trailing drawdown (Apex Trader Funding):"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Balance inicial: $100,000",
+        "Max trailing drawdown: $3,000",
+        "Nivel de eliminación inicial: $97,000",
+        "Llegas a $103,000 → nivel de eliminación sube a $100,000",
+        "Llegas a $110,000 → nivel de eliminación sube a $107,000",
+        "Si desde $110,000 caes $3,000 a $107,000 → eliminado, aunque tengas $7,000 de ganancia neta"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "El trailing drawdown no baja nunca. Cuando tu equity sube, el nivel de eliminación sube con él. Cuando tu equity baja, el nivel de eliminación se queda donde está. Este mecanismo protege a la empresa de fondeo pero puede eliminar al trader incluso en una semana rentable."
+    },
+    {
+      "type": "h2",
+      "text": "Comparación lado a lado: trailing vs estático"
+    },
+    {
+      "type": "table",
+      "headers": ["Característica", "Drawdown Estático", "Trailing Drawdown"],
+      "rows": [
+        ["Empresas que lo usan", "FTMO, Uprofit, Tradoverse", "Apex Trader Funding, TopStep"],
+        ["Nivel de eliminación", "Fijo desde el inicio", "Se mueve con tu equity máximo"],
+        ["Impacto de una racha ganadora", "Aumenta tu colchón de seguridad", "Sube el nivel de eliminación (más riesgo)"],
+        ["Impacto de una racha perdedora", "Solo reduce tu margen disponible", "Puede eliminar incluso si tienes ganancias netas"],
+        ["Traders beneficiados", "Traders agresivos con días de alta volatilidad", "Traders consistentes con ganancias graduales"],
+        ["Riesgo en días de alta vol.", "Moderado", "Alto — una recuperación rápida puede ser tramposa"]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "El caso donde el trailing drawdown elimina a un trader rentable"
+    },
+    {
+      "type": "p",
+      "text": "Este es el escenario más frustrante y el más frecuente entre traders que no entienden el trailing. Imagina que operas en Apex con una cuenta de $50,000 y un trailing drawdown de $2,000:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Día 1: ganas $1,500 → balance $51,500 → nivel de eliminación sube a $49,500",
+        "Día 2: ganas $800 → balance $52,300 → nivel de eliminación sube a $50,300",
+        "Día 3: mercado volátil, caes $1,800 → balance $50,500 → nivel de eliminación sigue en $50,300",
+        "Día 4: otro día difícil, caes $300 más → balance $50,200 → ELIMINADO (estás a $100 del límite de $50,300)"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "En este escenario, el trader terminó con <strong>$200 de ganancia neta</strong> (empezó con $50,000, terminó en $50,200) pero su cuenta fue eliminada. Esto ocurre porque el trailing drawdown 'captura' las ganancias y las convierte en el nuevo piso mínimo de supervivencia."
+    },
+    {
+      "type": "h2",
+      "text": "Estrategias para gestionar el trailing drawdown"
+    },
+    {
+      "type": "p",
+      "text": "Si operas en una empresa con trailing drawdown, hay tres estrategias operativas que reducen el riesgo de eliminación en escenarios rentables:"
+    },
+    {
+      "type": "h3",
+      "text": "1. Establece tu propio límite de retroceso diario"
+    },
+    {
+      "type": "p",
+      "text": "Define un máximo de pérdida diaria personal que sea el <strong>50-60% del trailing drawdown total</strong>. En una cuenta con $2,000 de trailing, tu límite personal es $1,000-$1,200 por día. Si llegas a ese número, cierras todas las posiciones y terminas el día. Esto te protege de los escenarios donde un mal día destruye el cushion creado por días previos buenos."
+    },
+    {
+      "type": "h3",
+      "text": "2. Monitorea tu equity máximo, no solo el balance actual"
+    },
+    {
+      "type": "p",
+      "text": "En el trailing, lo que importa es tu <strong>equity peak</strong> (el máximo alcanzado durante la evaluación), no tu balance de cierre del día. Si tu equity intradía llegó a $53,000 aunque cerraste el día en $51,500, el nivel de eliminación ya está en $51,000 ($53,000 - $2,000). Zentrade te muestra el equity peak de la cuenta para que nunca pierdas de vista ese número."
+    },
+    {
+      "type": "h3",
+      "text": "3. Sé más conservador a medida que subes"
+    },
+    {
+      "type": "p",
+      "text": "Contraintuitivamente, en una cuenta con trailing drawdown <strong>debes ser más conservador a medida que creces</strong>, no más agresivo. Cada nuevo máximo de equity significa que el nivel de eliminación también subió y tienes menos espacio relativo. Un trader con $50,000 de cushion inicial se lo puede permitir ser más agresivo que uno que tiene solo $2,000 de margen — aunque el balance total sea mayor."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Zentrade permite configurar el tipo de drawdown (trailing o estático) al crear una cuenta. El dashboard calcula automáticamente tu cushion disponible y te alerta cuando te acercas al límite de eliminación."
+    },
+    {
+      "type": "h2",
+      "text": "¿Cuál tipo de drawdown conviene más según tu estilo de trading?"
+    },
+    {
+      "type": "p",
+      "text": "La respuesta depende de cómo distribuyes tus ganancias a lo largo del tiempo:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Drawdown estático (FTMO, Uprofit):</strong> Conviene si tienes días de alta volatilidad donde generas ganancias grandes en momentos puntuales. El estático no penaliza los días excepcionales — de hecho, los premia porque amplían tu colchón.",
+        "<strong>Trailing drawdown (Apex, TopStep):</strong> Conviene si tienes resultados graduales y uniformes, con ganancias modestas y consistentes cada día. El trailing te perjudica menos si nunca tienes rebounds bruscos después de máximos de equity.",
+        "<strong>Traders scalpers:</strong> Generalmente el trailing es más riesgoso porque el equity puede subir y bajar múltiples veces en un solo día, y el trailing sigue al máximo intradía en algunas versiones de contratos.",
+        "<strong>Traders swing:</strong> El trailing puede ser manejable si mantienes posiciones abiertas con stops bien definidos y evitas equity drawdowns intradía grandes."
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Cuál es la diferencia entre drawdown trailing y drawdown estático?",
+          "a": "El drawdown estático fija el nivel de eliminación desde el inicio y nunca cambia — en una cuenta de $100,000 con 10% de drawdown estático, el límite siempre es $90,000. El drawdown trailing sube automáticamente cada vez que tu equity alcanza un nuevo máximo — si llegas a $110,000 con un trailing de $3,000, tu nivel de eliminación sube a $107,000 aunque luego bajes."
+        },
+        {
+          "q": "¿Apex Trader Funding usa trailing drawdown?",
+          "a": "Sí. Apex Trader Funding usa trailing drawdown en la mayoría de sus planes. El trailing se calcula sobre el equity máximo alcanzado durante la evaluación (incluyendo equity intradía en muchos contratos). Esto significa que si tu posición abierta toca un equity máximo y luego cierra en pérdida, el nivel de eliminación ya subió al máximo intradía."
+        },
+        {
+          "q": "¿FTMO usa trailing drawdown?",
+          "a": "No. FTMO usa drawdown estático en su modelo estándar. El nivel de eliminación (10% sobre el capital inicial) es fijo y no cambia durante la evaluación, sin importar cuánto suba tu equity. Esto hace que el modelo de FTMO sea más favorable para traders con días de alta volatilidad."
+        },
+        {
+          "q": "¿Cómo se calcula el trailing drawdown en Apex?",
+          "a": "En Apex, el trailing drawdown se calcula sobre el equity máximo alcanzado durante toda la evaluación. Si empiezas con $50,000, el trailing es $2,000 y llegas a un equity máximo de $54,000 (incluyendo posiciones abiertas), tu nuevo nivel de eliminación es $52,000. Si tu equity cae a $52,000 o menos, la cuenta se elimina."
+        },
+        {
+          "q": "¿Qué empresa de fondeo tiene el drawdown más favorable para traders de futuros?",
+          "a": "Depende del estilo de trading. Para traders con alta volatilidad y días excepcionales, FTMO, Uprofit o Tradoverse (drawdown estático) son más favorables. Para traders más consistentes y graduales, Apex o TopStep (trailing) pueden ser adecuados si gestionan bien el cushion. Zentrade permite configurar el tipo de drawdown para cualquier empresa y calcula en tiempo real cuánto margen te queda."
+        },
+        {
+          "q": "¿El trailing drawdown de Apex incluye el equity intradía o solo el balance de cierre?",
+          "a": "En los contratos estándar de Apex, el trailing drawdown rastrea el equity en tiempo real incluyendo posiciones abiertas (intradía). Esto significa que si durante una sesión tu equity sube a un nuevo máximo y luego el mercado revierte, el nivel de eliminación ya subió aunque hayas cerrado el día en un balance menor. Es uno de los aspectos más agresivos del modelo de trailing."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Configura tu cuenta de evaluación en Zentrade con el tipo de drawdown correcto (trailing o estático) para tu empresa de fondeo. El dashboard calcula automáticamente tu nivel de eliminación y cuánto margen te queda.",
+      "href": "/register",
+      "buttonText": "Probar Zentrade gratis"
+    }
+  ],
+  "relatedSlugs": [
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "como-pasar-apex-trader-funding",
+    "reglas-riesgo-diario-fondeo",
+    "mejores-empresas-fondeo-futuros-2025"
+  ]
+}

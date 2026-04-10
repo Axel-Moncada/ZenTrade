@@ -4,13 +4,14 @@ import "./globals.css";
 import icon from "@/data/assets/Favicon-2.png";
 import { Toaster } from "sonner";
 import { Providers } from "./providers";
+import { SupportChat } from "@/components/landing/support-chat";
 import Script from "next/script";
 
 const GA_ID = "G-DD0ZL0XYVT";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const SITE_URL = "https://zen-trader.com";
+const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -100,6 +101,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           {children}
+          <SupportChat />
           <Toaster richColors theme="dark" position="bottom-right" />
         </Providers>
         <Script

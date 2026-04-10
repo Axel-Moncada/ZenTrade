@@ -1,0 +1,232 @@
+{
+  "slug": "uprofit-colombia-empresa-fondeo",
+  "title": "Uprofit: La Empresa de Fondeo Más Popular en Colombia para Traders de Futuros",
+  "excerpt": "Uprofit es la empresa de fondeo más accesible para traders colombianos: pago en pesos, evaluaciones desde $79 USD y reglas simples. Todo lo que necesitas saber antes de inscribirte.",
+  "seoTitle": "Uprofit Colombia — Empresa de Fondeo para Traders | Zentrade",
+  "seoDescription": "Todo sobre Uprofit para traders colombianos: precios, reglas de evaluación, reparto de ganancias y cómo llevar el journal con Zentrade para pasar la evaluación.",
+  "keywords": [
+    "Uprofit Colombia",
+    "Uprofit empresa de fondeo",
+    "Uprofit futuros Colombia",
+    "empresa de fondeo para colombianos",
+    "prop firm Colombia",
+    "Uprofit evaluación precio",
+    "mejor empresa de fondeo Colombia"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-04-09",
+  "updatedAt": "2026-04-09",
+  "category": "fondeo",
+  "tags": ["Uprofit", "Colombia", "empresa de fondeo", "evaluación", "futuros", "LATAM", "prop firm"],
+  "readingTime": 9,
+  "featured": true,
+  "thumbnail": "/blog/trader-colombiano-pasando-fondeo.jpg",
+  "thumbnailAlt": "Trader colombiano celebrando tras pasar evaluación de empresa de fondeo de futuros",
+  "content": [
+    {
+      "type": "p",
+      "text": "Si eres trader de futuros en Colombia y estás evaluando empresas de fondeo, <strong>Uprofit</strong> es probablemente el nombre que más escuchas en la comunidad local. No es casualidad: Uprofit tiene una de las estructuras de precios más accesibles del mercado, reglas simples y claras, y una base de usuarios importante en LATAM. Esta guía cubre todo lo que necesitas saber antes de abrir tu primera evaluación."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Zentrade es compatible con cuentas de Uprofit. Puedes importar tus trades desde la plataforma de trading que uses con Uprofit (Rithmic, NinjaTrader) o registrarlos manualmente para llevar el tracking completo de tu evaluación."
+    },
+    {
+      "type": "h2",
+      "text": "¿Qué es Uprofit?"
+    },
+    {
+      "type": "p",
+      "text": "Uprofit es una empresa de fondeo (prop firm) especializada en futuros de CME que financia a traders después de que pasan una evaluación de sus habilidades de gestión de riesgo y consistencia. A diferencia de FTMO (que opera principalmente con Forex y CFDs), Uprofit opera exclusivamente con futuros — lo que la hace especialmente relevante para traders de NQ, ES, CL, GC y otros contratos de CME."
+    },
+    {
+      "type": "p",
+      "text": "Uprofit fue ganando popularidad en Colombia y LATAM por tres razones principales:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Precio de entrada bajo:</strong> Las evaluaciones comienzan desde $79 USD para cuentas de $25,000 — significativamente más barato que FTMO o Apex en cuentas equivalentes",
+        "<strong>Un solo paso:</strong> A diferencia de FTMO (que tiene dos fases), Uprofit tiene un proceso de evaluación de una sola fase, lo que simplifica el proceso",
+        "<strong>Sin tiempo mínimo:</strong> Puedes pasar la evaluación en menos días de los que requieren otras empresas — si cumples los objetivos y las reglas, puedes solicitar la cuenta financiada"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Precios y planes de Uprofit (2025)"
+    },
+    {
+      "type": "table",
+      "headers": ["Tamaño de cuenta", "Precio evaluación", "Profit target", "Max daily loss", "Max drawdown", "Reparto ganancias"],
+      "rows": [
+        ["$25,000", "$79 USD", "$2,000 (8%)", "$1,000 (4%)", "$2,000 (8%)", "80/20"],
+        ["$50,000", "$139 USD", "$4,000 (8%)", "$2,000 (4%)", "$4,000 (8%)", "80/20"],
+        ["$100,000", "$219 USD", "$8,000 (8%)", "$4,000 (4%)", "$8,000 (8%)", "80/20"],
+        ["$200,000", "$389 USD", "$16,000 (8%)", "$8,000 (4%)", "$16,000 (8%)", "80/20"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Uprofit frecuentemente ofrece descuentos del 30-50% en sus evaluaciones, especialmente alrededor de fechas especiales. Vale la pena revisar su sitio oficial antes de comprar a precio completo."
+    },
+    {
+      "type": "h2",
+      "text": "Reglas de la evaluación de Uprofit"
+    },
+    {
+      "type": "p",
+      "text": "Las reglas de Uprofit son straightforward comparadas con otras empresas de fondeo:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Profit Target:</strong> 8% del balance inicial (ej: $2,000 en cuenta de $25,000)",
+        "<strong>Max Daily Loss:</strong> 4% del balance inicial — solo trades cerrados (no incluye unrealized P&L)",
+        "<strong>Max Overall Drawdown:</strong> 8% estático — fijo desde el inicio, no trailing",
+        "<strong>Sin consistency rule:</strong> A diferencia de FTMO, Uprofit no tiene regla de consistencia. Puedes tener un día excepcional que genere el 100% de tu profit target.",
+        "<strong>Sin mínimo de días de trading:</strong> Si llegas al profit target respetando las reglas desde el día 1, puedes solicitar la cuenta financiada",
+        "<strong>Sin límite de tiempo:</strong> La evaluación no tiene fecha de expiración — tienes tiempo indefinido para alcanzar el objetivo"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Ventajas de Uprofit para traders colombianos"
+    },
+    {
+      "type": "h3",
+      "text": "1. Drawdown estático: no hay trailing"
+    },
+    {
+      "type": "p",
+      "text": "El drawdown de Uprofit es <strong>estático</strong> — el nivel de eliminación se fija al inicio y no cambia aunque ganes dinero. En una cuenta de $25,000 con 8% de drawdown, el nivel siempre es $23,000. Si llegas a $30,000, tu nivel de eliminación sigue siendo $23,000. Esto es significativamente más favorable que el trailing drawdown de Apex o TopStep, especialmente para traders con días de alta volatilidad."
+    },
+    {
+      "type": "h3",
+      "text": "2. Sin consistency rule"
+    },
+    {
+      "type": "p",
+      "text": "Esta es una de las reglas más problemáticas de FTMO — y Uprofit no la tiene. Si en un día excepcional capturas el 8% del objetivo completo, puedes solicitar la cuenta financiada ese mismo día (si respetaste las reglas de riesgo). Esto hace a Uprofit más adecuado para traders con resultados irregulares pero que tienen días de rendimiento excepcional."
+    },
+    {
+      "type": "h3",
+      "text": "3. Precio accesible desde Colombia"
+    },
+    {
+      "type": "p",
+      "text": "Con una evaluación de $79 USD para una cuenta de $25,000, la barrera de entrada es considerablemente menor que otras empresas. Para un trader colombiano, $79 USD (~320,000 COP a la tasa actual) es un costo accesible para validar una estrategia de trading con capital real."
+    },
+    {
+      "type": "h3",
+      "text": "4. Reparto de ganancias del 80%"
+    },
+    {
+      "type": "p",
+      "text": "Una vez fondeado, el trader se queda con el <strong>80% de las ganancias generadas</strong>. El 20% restante queda con Uprofit. En una cuenta de $100,000 donde generas $5,000 en el mes, recibes $4,000 netos. Los pagos se realizan via transferencia bancaria o PayPal."
+    },
+    {
+      "type": "h2",
+      "text": "¿Cómo cobrar las ganancias de Uprofit desde Colombia?"
+    },
+    {
+      "type": "p",
+      "text": "El proceso de cobro desde Colombia requiere algunos pasos adicionales comparado con países donde PayPal tiene integración bancaria directa:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Solicitar el retiro en la plataforma de Uprofit</strong> una vez que superas el umbral mínimo de retiro",
+        "<strong>PayPal o transferencia SWIFT:</strong> Uprofit procesa pagos vía PayPal o transferencia bancaria internacional. Para Colombia, PayPal es la opción más rápida",
+        "<strong>Conversión a pesos:</strong> Desde PayPal puedes transferir a tu cuenta bancaria colombiana o usar una plataforma como Payoneer o Wise para la conversión con mejor tasa",
+        "<strong>Declaración DIAN:</strong> Los ingresos del exterior deben declararse ante la DIAN. Consulta con un contador colombiano sobre el tratamiento tributario adecuado"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Los ingresos de prop firms son ingresos del exterior sujetos a declaración ante la DIAN. El desconocimiento de esta obligación no exime de la responsabilidad tributaria. Consulta con un contador antes de empezar a recibir pagos."
+    },
+    {
+      "type": "h2",
+      "text": "Uprofit vs Apex vs FTMO: ¿cuál conviene a un trader colombiano?"
+    },
+    {
+      "type": "table",
+      "headers": ["Factor", "Uprofit", "Apex Trader Funding", "FTMO"],
+      "rows": [
+        ["Precio evaluación $25K", "$79", "~$147", "No tiene $25K"],
+        ["Tipo de drawdown", "Estático (favorable)", "Trailing (más restrictivo)", "Estático (favorable)"],
+        ["Consistency rule", "No", "No", "Sí (30%) — puede eliminar en verificación"],
+        ["Número de fases", "1 fase", "1 fase", "2 fases (Challenge + Verification)"],
+        ["Límite de tiempo", "Sin límite", "Sin límite", "30 días Challenge / 60 días Verification"],
+        ["Instrumentos", "Futuros CME", "Futuros CME", "Forex, CFDs, índices"],
+        ["Reparto ganancias", "80/20", "90/10 a 100/0 según plan", "80/20 inicial, hasta 90/10"],
+        ["Accesibilidad desde Colombia", "Alta — precio en USD accesible", "Alta", "Media — proceso de dos fases"]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo usar Zentrade para la evaluación de Uprofit"
+    },
+    {
+      "type": "p",
+      "text": "La forma más efectiva de llevar el tracking de tu evaluación de Uprofit en Zentrade:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Crea una cuenta de tipo 'Evaluación' en Zentrade</strong> con el balance inicial de tu Uprofit (ej: $25,000)",
+        "<strong>Configura el drawdown como 'Estático'</strong> con $2,000 de max drawdown (8%)",
+        "<strong>Agrega el profit target</strong> de $2,000 y el daily loss limit de $1,000 (4%)",
+        "<strong>Importa tus trades</strong> desde la exportación CSV de Rithmic o NinjaTrader, o regístralos manualmente después de cada sesión",
+        "<strong>Monitorea el dashboard diariamente</strong> para ver tu progreso hacia el profit target y cuánto drawdown llevas usado"
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Lleva el tracking de tu evaluación de Uprofit con Zentrade. El plan gratuito incluye una cuenta de evaluación, el dashboard de métricas y el calendario de trades.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Es Uprofit confiable para traders colombianos?",
+          "a": "Uprofit tiene una presencia establecida en el mercado de prop firms desde hace varios años y una comunidad activa de traders latinoamericanos. Ha pagado a traders de Colombia y otros países de LATAM. Sin embargo, como con cualquier empresa de fondeo, se recomienda empezar con cuentas pequeñas, verificar referencias en comunidades de traders colombianos y no invertir capital que no puedas permitirte perder en el costo de evaluación."
+        },
+        {
+          "q": "¿Uprofit acepta pagos desde Colombia?",
+          "a": "Sí. Uprofit acepta pagos internacionales con tarjeta de crédito/débito Visa o Mastercard. La mayoría de tarjetas colombianas con habilitación para compras internacionales funcionan sin problemas. El precio se cobra en USD."
+        },
+        {
+          "q": "¿Cuánto tiempo tarda pasar la evaluación de Uprofit?",
+          "a": "No hay un tiempo mínimo ni máximo. Si alcanzas el profit target (8%) respetando las reglas de riesgo desde el primer día, puedes solicitar la cuenta financiada inmediatamente. La mayoría de traders toman entre 1 y 4 semanas dependiendo de su estilo de trading y el número de días que operan."
+        },
+        {
+          "q": "¿Qué plataformas de trading son compatibles con Uprofit?",
+          "a": "Uprofit opera con Rithmic como proveedor de datos y ejecución. Puedes usar cualquier plataforma de trading que se conecte a Rithmic: NinjaTrader, Sierra Chart, Tradovate, Bookmap, entre otras. La mayoría de los traders colombianos que operan Uprofit usan NinjaTrader 8 o Sierra Chart."
+        },
+        {
+          "q": "¿Uprofit tiene consistency rule como FTMO?",
+          "a": "No. Uprofit no tiene consistency rule. Esto significa que puedes tener un solo día donde generes el 100% del profit target sin que eso invalide tu evaluación. Es una de las principales ventajas de Uprofit sobre FTMO para traders con resultados irregulares o que tienen días de rendimiento excepcional."
+        },
+        {
+          "q": "¿Cuánto se gana con una cuenta de Uprofit de $100,000?",
+          "a": "Con una cuenta de $100,000 de Uprofit, el reparto es 80/20 — el trader se queda con el 80% de las ganancias. Si generas $5,000 en un mes, recibes $4,000. Si generas $10,000, recibes $8,000. No hay límite mensual de retiro una vez que estás fondeado. Los pagos se procesan vía PayPal o transferencia bancaria."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "como-pasar-uprofit-evaluacion",
+    "mejores-empresas-fondeo-futuros-2025",
+    "reglas-riesgo-diario-fondeo",
+    "drawdown-trailing-vs-estatico-prop-firms"
+  ]
+}

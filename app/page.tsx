@@ -12,7 +12,7 @@ import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
 import NewsletterPopup from "@/components/landing/newsletter-popup";
 
-const SITE_URL = "https://zen-trader.com";
+const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
   title: "Journal de Trading para Pruebas de Fondeo de Futuros | Zentrade",
@@ -35,10 +35,6 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: SITE_URL,
-    languages: {
-      "es-ES": SITE_URL,
-      "en-US": `${SITE_URL}/en`,
-    },
   },
   openGraph: {
     title: "Journal de Trading para Pruebas de Fondeo de Futuros | Zentrade",
@@ -122,7 +118,24 @@ const organizationSchema = {
   url: SITE_URL,
   logo: `${SITE_URL}/assets/Logo hori-white.png`,
   description:
-    "Zentrade es el journal de trading con IA para traders de futuros que buscan pasar evaluaciones de prop firms como FTMO, Apex Trader Funding y TopStep.",
+    "Zentrade es el journal de trading con IA para traders de futuros que buscan pasar evaluaciones de prop firms como FTMO, Apex Trader Funding, TopStep, Uprofit y Tradoverse. Creado en Colombia para traders de LATAM.",
+  foundingDate: "2024",
+  foundingLocation: {
+    "@type": "Place",
+    addressCountry: "CO",
+    name: "Colombia",
+  },
+  areaServed: [
+    { "@type": "Country", name: "Colombia" },
+    { "@type": "Country", name: "México" },
+    { "@type": "Country", name: "Argentina" },
+    { "@type": "Country", name: "Chile" },
+    { "@type": "Country", name: "Perú" },
+    { "@type": "Country", name: "Venezuela" },
+    { "@type": "Country", name: "Ecuador" },
+    { "@type": "Country", name: "España" },
+    { "@type": "Country", name: "Estados Unidos" },
+  ],
   contactPoint: {
     "@type": "ContactPoint",
     email: "support@zen-trader.com",
@@ -130,6 +143,43 @@ const organizationSchema = {
     availableLanguage: ["Spanish", "English"],
   },
   sameAs: [],
+};
+
+// SiteNavigationElement — ayuda a Google a generar sitelinks
+const siteNavigationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Zentrade — Navegación principal",
+  itemListElement: [
+    {
+      "@type": "SiteNavigationElement",
+      position: 1,
+      name: "Blog de Trading",
+      description: "Guías, comparativas y estrategias para traders de futuros",
+      url: `${SITE_URL}/blog`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 2,
+      name: "Precios y Planes",
+      description: "Planes desde gratis hasta ZenMode con IA — sin tarjeta requerida",
+      url: `${SITE_URL}/#pricing`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 3,
+      name: "Crear Cuenta Gratis",
+      description: "Regístrate y empieza a usar Zentrade sin costo",
+      url: `${SITE_URL}/register`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 4,
+      name: "Iniciar Sesión",
+      description: "Accede a tu journal de trading",
+      url: `${SITE_URL}/login`,
+    },
+  ],
 };
 
 const websiteSchema = {
@@ -226,6 +276,7 @@ export default async function Home() {
             organizationSchema,
             websiteSchema,
             faqSchema,
+            siteNavigationSchema,
           ]),
         }}
       />

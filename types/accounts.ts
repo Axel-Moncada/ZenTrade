@@ -48,10 +48,10 @@ export const ACCOUNT_STATUS_LABELS: Record<AccountStatus, string> = {
 
 // Colores para badges de estado (usando paleta Zentrade)
 export const ACCOUNT_STATUS_COLORS: Record<AccountStatus, string> = {
-  active: " text-emerald-400 !border-emerald-500/50",
-  passed: "bg-green-500/20 text-green-400 !border-green-500/50",
-  failed: "bg-red-500/20 text-red-400 !border-red-500/50",
-  inactive: "bg-slate-600/20 text-slate-400 !border-slate-600/50",
+  active: "bg-emerald-500/20 text-emerald-400 border-emerald-500/50",
+  passed: "bg-green-500/20 text-green-400 border-green-500/50",
+  failed: "bg-red-500/20 text-red-400 border-red-500/50",
+  inactive: "bg-slate-600/20 text-slate-400 border-slate-600/50",
 };
 
 // Colores para badges de tipo (usando paleta Zentrade)

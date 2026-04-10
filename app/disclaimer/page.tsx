@@ -7,7 +7,7 @@ import LegalContent from "@/components/legal/legal-content";
 export const metadata: Metadata = {
   title: "Aviso Legal",
   description: "Aviso legal de Zentrade. La plataforma no proporciona asesoría financiera.",
-  alternates: { canonical: "https://zen-trader.com/disclaimer" },
+  alternates: { canonical: "https://www.zen-trader.com/disclaimer" },
   robots: { index: true, follow: false },
 };
 

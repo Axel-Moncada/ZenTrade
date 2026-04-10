@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AlertCircle, Lightbulb, CheckCircle, AlertTriangle, ArrowRight } from "lucide-react";
-import { BlogContentBlock, CalloutVariant } from "@/lib/blog";
+import { BlogContentBlock, CalloutVariant, FaqItem } from "@/lib/blog";
 
 interface PostContentProps {
   blocks: BlogContentBlock[];
@@ -152,10 +152,11 @@ function renderBlock(block: BlogContentBlock, idx: number) {
         </div>
       );
 
-    case "faq":
+    case "faq": {
+      const faqEntries = (block.faqItems ?? block.items ?? []) as FaqItem[];
       return (
         <div key={idx} className="mb-8 space-y-3">
-          {(block.faqItems ?? []).map((item, i) => (
+          {faqEntries.map((item, i) => (
             <div
               key={i}
               className="rounded-xl border border-zen-border-soft bg-zen-surface overflow-hidden"
@@ -188,6 +189,7 @@ function renderBlock(block: BlogContentBlock, idx: number) {
           ))}
         </div>
       );
+    }
 
     case "table":
       return (

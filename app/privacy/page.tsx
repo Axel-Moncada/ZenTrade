@@ -7,7 +7,7 @@ import LegalContent from "@/components/legal/legal-content";
 export const metadata: Metadata = {
   title: "Política de Privacidad",
   description: "Política de privacidad y protección de datos de Zentrade. Cumple con el GDPR y la normativa aplicable.",
-  alternates: { canonical: "https://zen-trader.com/privacy" },
+  alternates: { canonical: "https://www.zen-trader.com/privacy" },
   robots: { index: true, follow: false },
 };
 

@@ -171,6 +171,8 @@ export interface Database {
           starting_balance: number | null;
           ending_balance: number | null;
           notes: string | null;
+          micro_photo_path: string | null;
+          macro_photo_path: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -188,6 +190,8 @@ export interface Database {
           starting_balance?: number | null;
           ending_balance?: number | null;
           notes?: string | null;
+          micro_photo_path?: string | null;
+          macro_photo_path?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -205,6 +209,8 @@ export interface Database {
           starting_balance?: number | null;
           ending_balance?: number | null;
           notes?: string | null;
+          micro_photo_path?: string | null;
+          macro_photo_path?: string | null;
           created_at?: string;
           updated_at?: string;
         };

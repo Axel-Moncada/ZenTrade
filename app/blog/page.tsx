@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     "trading futuros LATAM",
   ],
   alternates: {
-    canonical: "https://zen-trader.com/blog",
+    canonical: "https://www.zen-trader.com/blog",
   },
   openGraph: {
     title: "Blog de Trading — Guías, Prop Firms y Estrategias | Zentrade",
     description:
       "Guías prácticas sobre trading de futuros, prop firms y journal de trading.",
     type: "website",
-    url: "https://zen-trader.com/blog",
+    url: "https://www.zen-trader.com/blog",
   },
 };
 

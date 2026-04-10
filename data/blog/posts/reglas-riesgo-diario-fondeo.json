@@ -1,0 +1,226 @@
+{
+  "slug": "reglas-riesgo-diario-fondeo",
+  "title": "Reglas de Riesgo Diario en Empresas de Fondeo: Cómo No Perder la Cuenta",
+  "excerpt": "Las reglas de riesgo diario son la causa número uno de eliminación en evaluaciones de prop firms. Esta guía explica cómo entenderlas, respetarlas y configurar alertas para no violarlas.",
+  "seoTitle": "Reglas de Riesgo Diario en Prop Firms | Zentrade",
+  "seoDescription": "Aprende las reglas de riesgo diario de FTMO, Apex, TopStep y Uprofit. Cómo calcular tu límite de pérdida diaria y configurar alertas para no perder la cuenta de evaluación.",
+  "keywords": [
+    "reglas de riesgo diario fondeo",
+    "daily loss limit prop firm",
+    "max daily loss FTMO",
+    "límite pérdida diaria futuros",
+    "gestión de riesgo evaluación fondeo",
+    "como no perder cuenta de fondeo",
+    "risk management prop firm Colombia"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-04-09",
+  "updatedAt": "2026-04-09",
+  "category": "fondeo",
+  "tags": ["riesgo", "gestión de riesgo", "prop firms", "daily loss limit", "evaluación", "disciplina"],
+  "readingTime": 9,
+  "featured": false,
+  "thumbnail": "/blog/trader-gestion-riesgo-pantalla.jpg",
+  "thumbnailAlt": "Trader monitoreando métricas de gestión de riesgo en pantalla durante sesión de trading",
+  "content": [
+    {
+      "type": "p",
+      "text": "Las evaluaciones de empresas de fondeo eliminan el 85%+ de los intentos — y la razón número uno no es falta de estrategia o de conocimiento técnico. Es la <strong>violación del Daily Loss Limit</strong>: un solo día fuera de control que cancela semanas de trabajo. Esta guía explica exactamente cómo funciona el límite de pérdida diaria en las principales prop firms, cómo calcularlo correctamente y cómo estructurar tu trading para nunca violarlo."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "La violación del Daily Loss Limit es instantánea e irreversible en todas las empresas de fondeo. No importa si el resto del mes fue rentable — un día que supera el límite elimina la cuenta en el acto."
+    },
+    {
+      "type": "h2",
+      "text": "¿Qué es el Daily Loss Limit en prop firms?"
+    },
+    {
+      "type": "p",
+      "text": "El Daily Loss Limit (o Max Daily Loss) es la pérdida máxima permitida en un solo día de trading. Dependiendo de la empresa, puede calcularse sobre el <strong>balance de inicio del día</strong> (el más común) o sobre el <strong>equity de inicio del día</strong> (que incluye posiciones abiertas). Esta diferencia puede ser crítica en ciertos escenarios."
+    },
+    {
+      "type": "h3",
+      "text": "Calculado sobre balance vs equity: el detalle que muchos ignoran"
+    },
+    {
+      "type": "p",
+      "text": "La mayoría de los traders asume que el Daily Loss Limit se mide solo contra los trades cerrados del día. En algunas empresas de fondeo, el límite incluye el <strong>P&L de posiciones abiertas en tiempo real</strong>. Esto significa que si tienes una posición abierta en pérdida que toca el límite, la cuenta puede ser eliminada aunque no hayas cerrado el trade."
+    },
+    {
+      "type": "table",
+      "headers": ["Empresa de fondeo", "Daily Loss Limit", "Base de cálculo", "Nota"],
+      "rows": [
+        ["FTMO", "5% del balance inicial", "Balance + equity de posiciones abiertas", "Incluye unrealized P&L en tiempo real"],
+        ["Apex Trader Funding", "Sin límite diario fijo", "Trailing drawdown total", "No hay daily loss limit — solo el trailing drawdown aplica"],
+        ["TopStep", "Sin límite diario fijo", "Trailing drawdown total", "Similar a Apex — el trailing aplica sobre el equity máximo"],
+        ["Uprofit", "4% del balance inicial", "Balance de inicio del día", "Claro y predecible — solo trades cerrados"],
+        ["Tradoverse", "4% del balance inicial", "Balance de inicio del día", "Aplica solo a trades cerrados"],
+        ["The Funded Trader", "5% del balance", "Balance diario", "Varía según el contrato elegido"]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo calcular tu Daily Loss Limit en tiempo real"
+    },
+    {
+      "type": "p",
+      "text": "Antes de abrir el mercado cada día, debes saber exactamente cuánto puedes perder. El cálculo es simple:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Identifica el porcentaje de tu empresa:</strong> FTMO = 5%, Uprofit = 4%, Tradoverse = 4%",
+        "<strong>Multiplica por el balance de inicio del día:</strong> Si tienes $52,000 y el límite es 5%, tu máximo de pérdida hoy es $2,600",
+        "<strong>Convierte a contratos y stops:</strong> Si operas MNQ (2 puntos = $4), $2,600 son 650 puntos de NQ — pero nunca debes llegar a ese límite real"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "La regla práctica: tu stop de pérdida diaria personal debe ser el 50-60% del límite oficial de la empresa. Si FTMO te permite perder $2,600, tu cierre personal debe estar en $1,300-$1,560. El margen restante es para los escenarios donde el mercado te mueve en contra entre el momento de tu último trade y cuando cierras la plataforma."
+    },
+    {
+      "type": "h2",
+      "text": "Los tres escenarios que eliminan cuentas por Daily Loss"
+    },
+    {
+      "type": "h3",
+      "text": "Escenario 1: El día de revenge trading"
+    },
+    {
+      "type": "p",
+      "text": "Es el escenario más frecuente. El trader tiene una racha perdedora en la mañana, se frustra, aumenta el tamaño de posición para recuperar rápido, y un movimiento en contra en el segundo intento elimina la cuenta. El patrón típico:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Trade 1: -$400 (mal setup, pero dentro del rango normal)",
+        "Trade 2: -$600 (doble el tamaño para recuperar)",
+        "Trade 3: -$900 (triple el tamaño, convencido que el mercado va a rebotar)",
+        "Total: -$1,900 → puede estar cerca o superar el Daily Loss Limit dependiendo de la cuenta"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "La detección de revenge trading es exactamente para esto. <strong>Zentrade ZenMode</strong> detecta automáticamente cuando hay un patrón de trade perdedor seguido de re-entrada rápida con mayor tamaño, y te lo alerta antes de que la situación escale."
+    },
+    {
+      "type": "h3",
+      "text": "Escenario 2: El evento de noticias inesperado"
+    },
+    {
+      "type": "p",
+      "text": "Un dato económico (CPI, NFP, decisión de Fed) sale inesperadamente fuerte o débil mientras tienes una posición abierta. El mercado se mueve 100+ puntos en segundos. Si no tenías stop loss configurado o el stop fue superado por el slippage, puedes acercarte peligrosamente al Daily Loss Limit en segundos. Solución: nunca mantener posiciones abiertas durante publicaciones de datos de alto impacto, especialmente en las primeras semanas de una evaluación."
+    },
+    {
+      "type": "h3",
+      "text": "Escenario 3: El unrealized P&L que no ves"
+    },
+    {
+      "type": "p",
+      "text": "Este escenario aplica principalmente en FTMO. Si tienes una posición abierta con -$1,500 de P&L no realizado, y tu balance del día en trades cerrados es -$800, tu pérdida total contabilizada por FTMO puede ser -$2,300 — cercana o igual al límite diario. El trader cree que todavía tiene margen porque no ha cerrado trades suficientes, pero la empresa ya cuenta la posición abierta."
+    },
+    {
+      "type": "h2",
+      "text": "Sistema de tres límites: cómo estructurar tu riesgo diario"
+    },
+    {
+      "type": "p",
+      "text": "La mejor protección contra la violación del Daily Loss Limit es establecer un sistema de tres niveles de alerta personal antes de abrir el mercado cada mañana:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Límite amarillo (50% del máximo oficial):</strong> Cuando alcanzas este punto, reduces el tamaño de posición a la mitad. Ejemplo: si el máximo es $2,000, al llegar a -$1,000 solo operas con la mitad de contratos.",
+        "<strong>Límite naranja (75% del máximo oficial):</strong> Cuando alcanzas este punto, cierras todas las posiciones abiertas y no abres nuevos trades hasta el día siguiente. Ejemplo: al llegar a -$1,500 cierras todo.",
+        "<strong>Límite rojo (90% del máximo oficial):</strong> Este es el hard stop automático — si llegas aquí, el broker o la plataforma debería cerrarlo automáticamente (si configuraste el parámetro). Nunca dejes que la cuenta llegue al límite oficial de la empresa."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Zentrade muestra el P&L diario en el calendario mes a mes. Si configuras el max daily loss de tu empresa en los parámetros de la cuenta, el dashboard calcula en tiempo real qué porcentaje del límite llevas usado hoy."
+    },
+    {
+      "type": "h2",
+      "text": "Empresas de fondeo sin Daily Loss Limit: Apex y TopStep"
+    },
+    {
+      "type": "p",
+      "text": "Una característica que diferencia a Apex Trader Funding y TopStep de FTMO, Uprofit y Tradoverse es que <strong>no tienen Daily Loss Limit</strong>. En Apex y TopStep, el único límite es el <strong>trailing drawdown total</strong>. Esto significa que en teoría puedes perder todo en un día — el sistema solo te elimina si tu equity cae hasta el nivel del trailing drawdown."
+    },
+    {
+      "type": "p",
+      "text": "Esto puede parecer más flexible, pero en la práctica el trailing drawdown es más restrictivo que el Daily Loss Limit en escenarios de alta volatilidad. La diferencia es filosófica:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>FTMO con Daily Loss Limit:</strong> Puedes tener días malos (dentro del límite diario) sin poner en riesgo toda la evaluación",
+        "<strong>Apex con trailing drawdown:</strong> Un solo día muy malo puede llevarte al límite del trailing sin que hayas violado ningún 'límite diario' — simplemente el movimiento fue tan grande que consumió todo el cushion"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Reglas de riesgo diario por empresa — resumen práctico"
+    },
+    {
+      "type": "table",
+      "headers": ["Empresa", "Daily Loss Limit", "Tu límite personal sugerido", "Nota para traders colombianos"],
+      "rows": [
+        ["FTMO $100K", "$5,000 (5%)", "$2,500-$3,000", "Recuerda que incluye unrealized P&L"],
+        ["FTMO $50K", "$2,500 (5%)", "$1,250-$1,500", "Mínimo 4 días activos de trading requeridos"],
+        ["Apex $50K", "No hay daily limit", "Define tu propio (ej: $1,500)", "El trailing drawdown es $2,500"],
+        ["Uprofit $100K", "$4,000 (4%)", "$2,000-$2,400", "Solo trades cerrados cuentan"],
+        ["Uprofit $25K", "$1,000 (4%)", "$500-$600", "Popular en Colombia — precio accesible"],
+        ["Tradoverse $100K", "$4,000 (4%)", "$2,000-$2,400", "Balance de cierre del día"]
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Configura el Daily Loss Limit de tu empresa de fondeo en Zentrade y monitorea tu riesgo diario en tiempo real. El plan gratuito incluye el dashboard de métricas y el calendario de P&L por día.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Qué pasa si violo el Daily Loss Limit en FTMO?",
+          "a": "Si superas el Daily Loss Limit en FTMO, la cuenta de evaluación es eliminada inmediatamente y de forma permanente. No hay posibilidad de recuperación ni de apelar. FTMO te permite comprar un nuevo intento de evaluación a precio reducido (generalmente 25-50% de descuento), pero la cuenta violada no tiene recuperación."
+        },
+        {
+          "q": "¿El Daily Loss Limit incluye las posiciones abiertas?",
+          "a": "Depende de la empresa. FTMO sí incluye el P&L no realizado de posiciones abiertas en el cálculo del Daily Loss Limit. Esto significa que una posición abierta con pérdidas puede acercarte al límite aunque no la hayas cerrado. Uprofit y Tradoverse generalmente calculan solo sobre trades cerrados. Siempre verifica el reglamento específico de tu empresa."
+        },
+        {
+          "q": "¿Qué es el Daily Loss Limit en prop firms?",
+          "a": "El Daily Loss Limit (límite de pérdida diaria) es la pérdida máxima permitida en un solo día de trading durante una evaluación o cuenta fondeada. Si superas este límite, la cuenta es eliminada automáticamente. Varía entre el 4% y el 5% del balance en la mayoría de las empresas de fondeo. Es la regla que más cuentas elimina en evaluaciones."
+        },
+        {
+          "q": "¿Apex Trader Funding tiene Daily Loss Limit?",
+          "a": "No. Apex Trader Funding no tiene un Daily Loss Limit. El único límite en Apex es el trailing drawdown total de la cuenta. Sin embargo, esto no significa que no haya riesgo — el trailing drawdown puede consumirse en un solo día si el mercado se mueve fuertemente en tu contra. Se recomienda igualmente establecer un límite de pérdida diaria personal aunque Apex no lo requiera."
+        },
+        {
+          "q": "¿Cómo puedo evitar violar el Daily Loss Limit?",
+          "a": "La estrategia más efectiva es el sistema de tres límites: establece un límite amarillo al 50% del máximo (reduce posiciones), naranja al 75% (cierra todo y termina el día), y rojo al 90% (never should reach). El principal factor de riesgo es el revenge trading — entrar de nuevo después de una pérdida con más tamaño para recuperar. Zentrade ZenMode detecta este patrón automáticamente."
+        },
+        {
+          "q": "¿Cómo se calcula el máximo diario de pérdida en una evaluación de fondeo?",
+          "a": "El cálculo base: (Balance de inicio del día) × (Porcentaje del Daily Loss Limit de la empresa). Ejemplo: si tienes $52,000 al inicio del día y la empresa permite 5%, tu máximo es $2,600. Para tu límite personal, multiplica ese número por 0.5-0.6 para tener margen de seguridad. En empresas como FTMO que incluyen P&L no realizado, también debes considerar las posiciones abiertas en este cálculo."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "drawdown-trailing-vs-estatico-prop-firms",
+    "que-es-revenge-trading",
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "uprofit-colombia-empresa-fondeo"
+  ]
+}

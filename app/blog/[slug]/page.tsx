@@ -18,7 +18,7 @@ import { createClient } from "@/lib/supabase/server";
 // Revalida cada hora — artículos programados aparecen sin redeploy
 export const revalidate = 3600;
 
-const SITE_URL = "https://zen-trader.com";
+const SITE_URL = "https://www.zen-trader.com";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -123,11 +123,12 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
   // FAQPage schema — cuando el post tiene un bloque faq
   if (hasFaq) {
     const faqBlock = post.content.find((b) => b.type === "faq");
-    if (faqBlock?.faqItems?.length) {
+    const faqEntries = faqBlock?.faqItems ?? (faqBlock?.items as { q: string; a: string }[] | undefined);
+    if (faqEntries?.length) {
       schemas.push({
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: faqBlock.faqItems.map((item) => ({
+        mainEntity: faqEntries.map((item) => ({
           "@type": "Question",
           name: item.q,
           acceptedAnswer: { "@type": "Answer", text: item.a },

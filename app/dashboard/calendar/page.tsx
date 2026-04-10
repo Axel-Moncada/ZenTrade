@@ -53,7 +53,10 @@ export default function CalendarPage() {
           return;
         }
 
-        const accountsList = data.accounts || [];
+        // Excluir cuentas fallidas del calendario — solo activas y live activas
+        const accountsList = (data.accounts || []).filter(
+          (a: Account) => a.status !== "failed"
+        );
         setAccounts(accountsList);
 
         // Seleccionar primera cuenta por defecto

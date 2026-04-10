@@ -25,14 +25,14 @@ export interface BlogContentBlock {
   type: BlogContentType;
   // h2, h3, p, callout
   text?: string;
-  // ul, ol
-  items?: string[];
+  // ul, ol (string[]) or faq (FaqItem[]) — JSON posts use items for both
+  items?: string[] | FaqItem[];
   // callout
   variant?: CalloutVariant;
   // cta
   href?: string;
   buttonText?: string;
-  // faq
+  // faq — alias for items when type === "faq"
   faqItems?: FaqItem[];
   // table
   headers?: string[];
@@ -172,4 +172,5 @@ export const CATEGORY_LABELS: Record<string, string> = {
   estrategias: "Estrategias",
   fondeo: "Pruebas de Fondeo",
   psicologia: "Psicología",
+  educacion: "Educación",
 };

@@ -21,9 +21,13 @@ export default function AccountsPage() {
   const [error, setError] = useState("");
   const [showLimitBanner, setShowLimitBanner] = useState(false);
 
-  // Límite del plan actual (null = ilimitadas)
+  // Separar cuentas activas de fallidas
+  const activeAccounts = accounts.filter((a) => a.status !== "failed");
+  const failedAccounts = accounts.filter((a) => a.status === "failed");
+
+  // El límite aplica solo a cuentas NO fallidas
   const accountLimit: number | null = plan.isFree ? 1 : plan.isStarter ? 2 : null;
-  const isAtLimit = accountLimit !== null && accounts.length >= accountLimit;
+  const isAtLimit = accountLimit !== null && activeAccounts.length >= accountLimit;
 
   const fetchAccounts = useCallback(async () => {
     try {
@@ -113,9 +117,9 @@ export default function AccountsPage() {
         <div>
           <h1 className="text-3xl font-bold text-zen-anti-flash">{t.accounts.title}</h1>
           <p className="text-zen-anti-flash/60 mt-2">{t.accounts.subtitle}</p>
-          {accountLimit !== null && accounts.length > 0 && (
+          {accountLimit !== null && activeAccounts.length > 0 && (
             <p className="text-xs text-zen-anti-flash/40 mt-1">
-              {accounts.length} / {accountLimit} cuentas · {isAtLimit ? "Límite alcanzado" : `${accountLimit - accounts.length} disponible${accountLimit - accounts.length === 1 ? "" : "s"}`}
+              {activeAccounts.length} / {accountLimit} cuentas · {isAtLimit ? "Límite alcanzado" : `${accountLimit - activeAccounts.length} disponible${accountLimit - activeAccounts.length === 1 ? "" : "s"}`}
             </p>
           )}
         </div>
@@ -159,10 +163,33 @@ export default function AccountsPage() {
           </div>
         </div>
       ) : (
-        <div className="grid gap-16 md:grid-cols-3 lg:grid-cols-3">
-          {accounts.map((account) => (
-            <AccountCard key={account.id} account={account} onDelete={handleDeleteAccount} />
-          ))}
+        <div className="space-y-10">
+          {/* Cuentas activas */}
+          {activeAccounts.length > 0 && (
+            <div className="grid gap-16 md:grid-cols-3 lg:grid-cols-3">
+              {activeAccounts.map((account) => (
+                <AccountCard key={account.id} account={account} onDelete={handleDeleteAccount} />
+              ))}
+            </div>
+          )}
+
+          {/* Evaluaciones fallidas */}
+          {failedAccounts.length > 0 && (
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="h-px flex-1 bg-red-900/30" />
+                <p className="text-xs font-semibold text-red-400/60 uppercase tracking-widest">
+                  Evaluaciones Fallidas ({failedAccounts.length})
+                </p>
+                <div className="h-px flex-1 bg-red-900/30" />
+              </div>
+              <div className="grid gap-16 md:grid-cols-3 lg:grid-cols-3">
+                {failedAccounts.map((account) => (
+                  <AccountCard key={account.id} account={account} onDelete={handleDeleteAccount} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

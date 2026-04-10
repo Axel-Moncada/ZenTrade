@@ -5,6 +5,17 @@ const nextConfig = {
       { protocol: "https", hostname: "rsunvtanukainhbtnmlu.supabase.co" },
     ],
   },
+  async redirects() {
+    return [
+      // Redirect non-www → www (canonical authority: www.zen-trader.com, coincide con Vercel)
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "zen-trader.com" }],
+        destination: "https://www.zen-trader.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

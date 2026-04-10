@@ -23,10 +23,12 @@ import type { DailySummary } from "@/types/daily-summaries";
 import type { TradeWithInstrument, CreateTradeInput } from "@/types/trades";
 import type { Account } from "@/types/accounts";
 import { formatDateToReadable, formatDateToISO } from "@/lib/utils/date-helpers";
-import { TrendingUp, TrendingDown, BarChart3, DollarSign, Users, Plus, Percent, X } from "lucide-react";
+import { TrendingUp, TrendingDown, BarChart3, Plus, X, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TradesList } from "@/components/trades/trades-list";
 import { TradeForm } from "@/components/trades/trade-form";
+import { DailyPhotoUpload } from "@/components/calendar/daily-photo-upload";
+import { createClient } from "@/lib/supabase/client";
 
 interface DayModalProps {
   open: boolean;
@@ -56,11 +58,20 @@ export function DayModal({
   const [tradeToDelete, setTradeToDelete] = useState<string | null>(null);
   const [account, setAccount] = useState<Account | null>(null);
   const [dailyQuote, setDailyQuote] = useState("");
+  const [userId, setUserId] = useState<string>("");
 
   // Cargar quote aleatoria solo en el cliente para evitar hydration error
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * tradingQuotes.quotes.length);
     setDailyQuote(tradingQuotes.quotes[randomIndex]);
+  }, []);
+
+  // Obtener userId para foto upload
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      if (data.user) setUserId(data.user.id);
+    });
   }, []);
 
   const hasTrades = summary && summary.total_trades > 0;
@@ -72,6 +83,9 @@ export function DayModal({
   const accountPercentage = account && summary && account.current_balance > 0
     ? (summary.net_pnl / account.current_balance) * 100
     : 0;
+
+  // Cuenta fallida → solo lectura
+  const isReadOnly = account?.status === "failed";
 
   const fetchAccount = useCallback(async () => {
     try {
@@ -217,10 +231,15 @@ export function DayModal({
           animate={{ opacity: 1, y: 0 }}
           className="sticky top-0 bg-zen-dark-green/90 backdrop-blur-md border-b border-zen-forest/40 px-6 py-4 flex items-center justify-between z-10"
         >
-          <div>
+          <div className="flex items-center gap-3">
             <h2 className="text-2xl font-bold text-zen-anti-flash capitalize">
               {formatDateToReadable(date)}
             </h2>
+            {isReadOnly && (
+              <span className="inline-flex items-center gap-1 text-xs bg-red-500/20 border border-red-500/40 text-red-400 rounded-full px-2.5 py-0.5 font-medium">
+                <Lock className="h-3 w-3" /> Evaluación Fallida · Solo lectura
+              </span>
+            )}
           </div>
           <button
             onClick={() => onOpenChange(false)}
@@ -347,16 +366,56 @@ export function DayModal({
               rows={8}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              disabled={saving}
-              className="bg-zen-caribbean-green/20 border-zen-forest/40 text-zen-anti-flash placeholder:text-zen-anti-flash/40 rounded-lg resize-none hover:border-zen-caribbean-green/60 focus:border-zen-caribbean-green/60 focus:ring-0 focus-visible:ring-0 transition-colors"
+              disabled={saving || isReadOnly}
+              readOnly={isReadOnly}
+              className="bg-zen-caribbean-green/20 border-zen-forest/40 text-zen-anti-flash placeholder:text-zen-anti-flash/40 rounded-lg resize-none hover:border-zen-caribbean-green/60 focus:border-zen-caribbean-green/60 focus:ring-0 focus-visible:ring-0 transition-colors disabled:opacity-60 disabled:cursor-default"
             />
-            <div className="flex items-center justify-between text-xs text-zen-anti-flash/60">
-              <span>{notes.length} / 2000</span>
-              {notes !== (summary?.notes || "") && (
-                <span className="text-zen-pistachio">✦ Sin guardar</span>
-              )}
-            </div>
+            {!isReadOnly && (
+              <div className="flex items-center justify-between text-xs text-zen-anti-flash/60">
+                <span>{notes.length} / 2000</span>
+                {notes !== (summary?.notes || "") && (
+                  <span className="text-zen-pistachio">✦ Sin guardar</span>
+                )}
+              </div>
+            )}
           </motion.div>
+
+          {/* Fotos del Día */}
+          {userId && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+              className="space-y-3 border-t border-zen-forest/30 pt-4"
+            >
+              <p className="text-sm font-bold text-zen-anti-flash flex items-center gap-2">
+                <div className="w-1 h-1 rounded-full bg-zen-caribbean-green" />
+                Fotos del Día
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                <DailyPhotoUpload
+                  label="Foto Micro"
+                  description="Gráfico del trade / entrada"
+                  path={summary?.micro_photo_path ?? null}
+                  userId={userId}
+                  accountId={accountId}
+                  summaryDate={formatDateToISO(date)}
+                  photoType="micro"
+                  readOnly={isReadOnly}
+                />
+                <DailyPhotoUpload
+                  label="Foto Macro"
+                  description="Contexto de mercado / TF mayor"
+                  path={summary?.macro_photo_path ?? null}
+                  userId={userId}
+                  accountId={accountId}
+                  summaryDate={formatDateToISO(date)}
+                  photoType="macro"
+                  readOnly={isReadOnly}
+                />
+              </div>
+            </motion.div>
+          )}
         </div>
         <div>
          
@@ -373,7 +432,7 @@ export function DayModal({
                 <div className="w-1 h-1 rounded-full bg-zen-caribbean-green" />
                 Trades del Día
               </h3>
-              {!showTradeForm && (
+              {!showTradeForm && !isReadOnly && (
                 <Button
                   onClick={() => {
                     setTradeToEdit(null);
@@ -387,7 +446,7 @@ export function DayModal({
               )}
             </div>
 
-            {showTradeForm ? (
+            {showTradeForm && !isReadOnly ? (
               <TradeForm
                 accountId={accountId}
                 tradeDate={formatDateToISO(date)}
@@ -406,8 +465,8 @@ export function DayModal({
             ) : (
               <TradesList
                 trades={trades}
-                onEdit={handleEditTrade}
-                onDelete={handleDeleteTrade}
+                onEdit={isReadOnly ? undefined : handleEditTrade}
+                onDelete={isReadOnly ? undefined : handleDeleteTrade}
               />
             )}
           </motion.div>
@@ -427,13 +486,15 @@ export function DayModal({
               >
                 Cerrar
               </Button>
-              <Button
-                onClick={handleSaveNotes}
-                disabled={saving || notes === (summary?.notes || "")}
-                className="h-9 px-4 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black rounded-lg font-semibold transition-colors"
-              >
-                {saving ? "Guardando..." : "Guardar"}
-              </Button>
+              {!isReadOnly && (
+                <Button
+                  onClick={handleSaveNotes}
+                  disabled={saving || notes === (summary?.notes || "")}
+                  className="h-9 px-4 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black rounded-lg font-semibold transition-colors"
+                >
+                  {saving ? "Guardando..." : "Guardar"}
+                </Button>
+              )}
             </motion.div>
           )}
         </div>

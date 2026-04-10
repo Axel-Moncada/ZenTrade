@@ -7,7 +7,7 @@ import LegalContent from "@/components/legal/legal-content";
 export const metadata: Metadata = {
   title: "Términos de Servicio",
   description: "Términos y condiciones de uso de la plataforma Zentrade.",
-  alternates: { canonical: "https://zen-trader.com/terms" },
+  alternates: { canonical: "https://www.zen-trader.com/terms" },
   robots: { index: true, follow: false },
 };
 

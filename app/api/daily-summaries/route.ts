@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { updateDailySummaryNotesSchema } from "@/lib/validations/daily-summary.schema";
+import { updateDailySummarySchema } from "@/lib/validations/daily-summary.schema";
 
 // GET /api/daily-summaries - Listar summaries filtrados
 export async function GET(request: NextRequest) {
@@ -94,7 +94,7 @@ export async function PATCH(request: NextRequest) {
 
     // Parsear body
     const body = await request.json();
-    const { account_id, summary_date, notes } = body;
+    const { account_id, summary_date, notes, micro_photo_path, macro_photo_path } = body;
 
     if (!account_id || !summary_date) {
       return NextResponse.json(
@@ -103,8 +103,8 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
-    // Validar notas con Zod
-    const validation = updateDailySummaryNotesSchema.safeParse({ notes });
+    // Validar con Zod
+    const validation = updateDailySummarySchema.safeParse({ notes, micro_photo_path, macro_photo_path });
 
     if (!validation.success) {
       const errors = validation.error.errors.map((err) => ({
@@ -133,20 +133,25 @@ export async function PATCH(request: NextRequest) {
       );
     }
 
+    // Construir datos del upsert (solo incluir campos presentes en el body)
+    type UpsertData = {
+      user_id: string;
+      account_id: string;
+      summary_date: string;
+      notes?: string | null;
+      micro_photo_path?: string | null;
+      macro_photo_path?: string | null;
+    };
+
+    const upsertData: UpsertData = { user_id: user.id, account_id, summary_date };
+    if (notes !== undefined) upsertData.notes = validation.data.notes;
+    if (micro_photo_path !== undefined) upsertData.micro_photo_path = validation.data.micro_photo_path;
+    if (macro_photo_path !== undefined) upsertData.macro_photo_path = validation.data.macro_photo_path;
+
     // Upsert: insertar o actualizar el summary
     const { data: summary, error } = await supabase
       .from("daily_summaries")
-      .upsert(
-        {
-          user_id: user.id,
-          account_id,
-          summary_date,
-          notes: validation.data.notes,
-        },
-        {
-          onConflict: "user_id,account_id,summary_date",
-        }
-      )
+      .upsert(upsertData, { onConflict: "user_id,account_id,summary_date" })
       .select()
       .single();
 

@@ -116,6 +116,10 @@ export function AccountForm({ account, mode }: AccountFormProps) {
   const inputCls =
     "account-input border-zen-bangladesh-green bg-zen-bangladesh-green/40 text-zen-anti-flash placeholder:text-zen-anti-flash/50 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none";
 
+  // Shared select trigger class
+  const selectTriggerCls =
+    "border-zen-bangladesh-green bg-zen-bangladesh-green/40 text-zen-anti-flash";
+
   // Límite de plan alcanzado: reemplazar el formulario con el upgrade prompt
   if (planLimitReached) {
     return (
@@ -177,7 +181,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                 }
                 disabled={loading}
               >
-                <SelectTrigger className="text-zen-anti-flash">
+                <SelectTrigger className={selectTriggerCls}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
@@ -278,7 +282,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                 }
                 disabled={loading}
               >
-                <SelectTrigger className="text-zen-anti-flash">
+                <SelectTrigger className={selectTriggerCls}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
@@ -381,7 +385,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                 }
                 disabled={loading}
               >
-                <SelectTrigger className="text-zen-anti-flash">
+                <SelectTrigger className={selectTriggerCls}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
@@ -405,7 +409,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                 }
                 disabled={loading}
               >
-                <SelectTrigger className="text-zen-anti-flash">
+                <SelectTrigger className={selectTriggerCls}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">

@@ -7,7 +7,7 @@ import LegalContent from "@/components/legal/legal-content";
 export const metadata: Metadata = {
   title: "Política de Reembolsos",
   description: "Política de reembolsos y cancelaciones de Zentrade.",
-  alternates: { canonical: "https://zen-trader.com/refunds" },
+  alternates: { canonical: "https://www.zen-trader.com/refunds" },
   robots: { index: true, follow: false },
 };
 
