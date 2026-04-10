@@ -53,10 +53,9 @@ export default function CalendarPage() {
           return;
         }
 
-        // Excluir cuentas fallidas del calendario — solo activas y live activas
-        const accountsList = (data.accounts || []).filter(
-          (a: Account) => a.status !== "failed"
-        );
+        // El AccountSelector filtra las fallidas por defecto; aquí se pasan todas
+        // para que el calendario pueda mostrarlas con hideFailed={false}
+        const accountsList = data.accounts || [];
         setAccounts(accountsList);
 
         // Seleccionar primera cuenta por defecto
@@ -306,7 +305,7 @@ export default function CalendarPage() {
             onValueChange={setSelectedAccountId}
             label="Cuenta"
             showLabel={false}
-            
+            hideFailed={false}
           />
         </div>
       </div>

@@ -19,6 +19,8 @@ interface AccountSelectorProps {
   label?: string;
   showLabel?: boolean;
   allowAll?: boolean;
+  /** Si true (default), oculta cuentas con status "failed" del selector */
+  hideFailed?: boolean;
 }
 
 export function AccountSelector({
@@ -29,7 +31,11 @@ export function AccountSelector({
   label = "Cuenta",
   showLabel = true,
   allowAll = false,
+  hideFailed = true,
 }: AccountSelectorProps) {
+  const visibleAccounts = hideFailed
+    ? accounts.filter((a) => a.status !== "failed")
+    : accounts;
   return (
     <div className="space-y-2">
       {showLabel && <Label>{label}</Label>}
@@ -37,14 +43,14 @@ export function AccountSelector({
         <SelectTrigger>
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        <SelectContent className="text-zen-caribbean-green bg-zen-dark-green   ">
+        <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
           {allowAll && <SelectItem value="all">Todas las cuentas</SelectItem>}
-          {accounts.length === 0 ? (
-            <div className="px-2 py-6 text-center text-sm text-zen-caribbean-green ">
+          {visibleAccounts.length === 0 ? (
+            <div className="px-2 py-6 text-center text-sm text-zen-caribbean-green">
               No hay cuentas disponibles
             </div>
           ) : (
-            accounts.map((account) => (
+            visibleAccounts.map((account) => (
               <SelectItem key={account.id} value={account.id} className='hover:bg-zen-rich-black'>
                 <div className="flex items-center gap-2 text-zen-caribbean-green ">
                   <span className="font-medium">{account.name}</span>
