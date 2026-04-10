@@ -25,8 +25,8 @@ export interface BlogContentBlock {
   type: BlogContentType;
   // h2, h3, p, callout
   text?: string;
-  // ul, ol (string[]) or faq (FaqItem[]) — JSON posts use items for both
-  items?: string[] | FaqItem[];
+  // ul, ol — string items. For faq blocks JSON posts also use items (cast in renderer)
+  items?: string[];
   // callout
   variant?: CalloutVariant;
   // cta

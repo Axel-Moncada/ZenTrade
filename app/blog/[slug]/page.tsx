@@ -123,7 +123,7 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
   // FAQPage schema — cuando el post tiene un bloque faq
   if (hasFaq) {
     const faqBlock = post.content.find((b) => b.type === "faq");
-    const faqEntries = faqBlock?.faqItems ?? (faqBlock?.items as { q: string; a: string }[] | undefined);
+    const faqEntries = faqBlock?.faqItems ?? (faqBlock?.items as unknown as { q: string; a: string }[] | undefined);
     if (faqEntries?.length) {
       schemas.push({
         "@context": "https://schema.org",

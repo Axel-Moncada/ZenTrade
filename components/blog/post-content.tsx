@@ -153,7 +153,7 @@ function renderBlock(block: BlogContentBlock, idx: number) {
       );
 
     case "faq": {
-      const faqEntries = (block.faqItems ?? block.items ?? []) as FaqItem[];
+      const faqEntries = (block.faqItems ?? (block.items as unknown as FaqItem[]) ?? []) as FaqItem[];
       return (
         <div key={idx} className="mb-8 space-y-3">
           {faqEntries.map((item, i) => (
