@@ -15,7 +15,7 @@ import NewsletterPopup from "@/components/landing/newsletter-popup";
 const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
-  title: "Journal de Trading para Pruebas de Fondeo de Futuros | Zentrade",
+  title: "Zentrade — Journal de Trading con IA para Prop Firms | Gratis",
   description:
     "El journal de trading con IA para pasar pruebas de fondeo de futuros. Mide tu consistency score, drawdown y detecta revenge trading en tiempo real. FTMO, Apex, TopStep.",
   keywords: [
@@ -163,7 +163,7 @@ const siteNavigationSchema = {
       position: 2,
       name: "Precios y Planes",
       description: "Planes desde gratis hasta ZenMode con IA — sin tarjeta requerida",
-      url: `${SITE_URL}/#pricing`,
+      url: `${SITE_URL}/pricing`,
     },
     {
       "@type": "SiteNavigationElement",
@@ -218,10 +218,26 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "¿Necesito tarjeta de crédito para la prueba gratis?",
+      name: "¿Cuánto cuesta Zentrade?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. Los 14 días de prueba son completamente gratis sin necesidad de ingresar datos de pago. Solo creas tu cuenta y empiezas.",
+        text: "Zentrade tiene plan gratuito para siempre. Los planes de pago son: Starter $9/mes, Professional $29/mes y ZenMode $59/mes. Con facturación anual: Starter $84/año, Professional $249/año, ZenMode $499/año. No se requiere tarjeta de crédito para empezar.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Zentrade tiene plan gratuito?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. El plan Free es gratuito para siempre e incluye 1 cuenta, registro manual ilimitado de trades, dashboard con KPIs y calendario mensual. Sin tarjeta de crédito ni fecha de expiración.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "¿Zentrade funciona para traders en Colombia?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sí. Zentrade fue creado en Colombia y está diseñado para traders latinoamericanos. La plataforma está completamente en español, acepta pagos desde Colombia, y es ideal para traders colombianos que operan futuros (NQ, MNQ, GC) y quieren pasar evaluaciones de Uprofit, FTMO, Apex o TopStep.",
       },
     },
     {

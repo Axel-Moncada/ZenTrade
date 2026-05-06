@@ -1,0 +1,199 @@
+{
+  "slug": "profit-factor-trading-explained",
+  "title": "Profit Factor in Trading: What It Is, How to Calculate It, and Why Prop Firms Care",
+  "excerpt": "Profit factor is the metric that separates profitable traders from lucky ones. Learn the formula, real NQ/MNQ examples, and what FTMO, Apex, and TopStep actually expect from your evaluation.",
+  "seoTitle": "Profit Factor in Trading Explained: Formula + Prop Firm Standards | Zentrade",
+  "seoDescription": "Profit factor in trading: definition, formula, NQ/MNQ examples, and what FTMO, Apex, and TopStep require. Complete guide for prop firm evaluation traders.",
+  "keywords": [
+    "profit factor trading",
+    "profit factor prop firm",
+    "what is profit factor futures trading",
+    "profit factor FTMO",
+    "profit factor Apex TopStep",
+    "how to calculate profit factor trading",
+    "profit factor NQ MNQ",
+    "profit factor minimum prop firm evaluation",
+    "profit factor vs win rate trading",
+    "profit factor futures trader"
+  ],
+  "author": "Zentrade Team",
+  "publishedAt": "2026-05-09",
+  "updatedAt": "2026-05-09",
+  "category": "metricas",
+  "tags": ["profit factor", "trading metrics", "prop firm evaluation", "FTMO", "Apex", "TopStep", "NQ", "MNQ", "futures trading"],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
+  "thumbnailAlt": "Futures trader analyzing profit factor on a trading dashboard with NQ and MNQ charts on multiple monitors",
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>Profit factor</strong> is the most honest metric in trading. It doesn't care about your win rate, your equity curve shape, or how many days you had in the green. It tells you one thing: for every dollar you lose, how many dollars do you make? For prop firms like FTMO, Apex Trader Funding, and TopStep, profit factor is one of the key signals they use to determine whether a trader operates systematically or relies on luck. This guide breaks down the formula, shows real examples with NQ and MNQ futures, and explains exactly what profit factor benchmarks you need to target for your evaluation."
+    },
+    {
+      "type": "h2",
+      "text": "What Is Profit Factor? The Technical Definition"
+    },
+    {
+      "type": "p",
+      "text": "Profit factor is the ratio of gross profits to gross losses over a defined trading period. It does not account for commissions or fees in its base form — it measures raw trade performance."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Profit Factor = Total Gross Profits ÷ Total Gross Losses\n\nExample: If you made $3,000 in winning trades and lost $1,500 in losing trades → Profit Factor = 3,000 ÷ 1,500 = 2.0"
+    },
+    {
+      "type": "p",
+      "text": "Interpreting the number: a profit factor of <strong>1.0</strong> means you break even — you earn exactly what you lose. Below 1.0, you're losing money systematically. Above 1.0, you're net profitable. As general benchmarks: below 1.2 is weak, 1.2–1.5 is acceptable, 1.5–2.0 is solid, and above 2.0 is excellent. Most professional traders who hold funded accounts long-term operate in the 1.4–2.2 range."
+    },
+    {
+      "type": "h2",
+      "text": "Real NQ and MNQ Examples"
+    },
+    {
+      "type": "p",
+      "text": "NQ (Nasdaq 100 E-mini Futures) and MNQ (Micro Nasdaq 100 Futures) are the most popular instruments for prop firm evaluations among retail traders in the US and Latin America. Here are concrete examples based on typical 30-day evaluation periods:"
+    },
+    {
+      "type": "table",
+      "headers": ["Trader", "Winning Trades", "Gross Profit", "Losing Trades", "Gross Loss", "Profit Factor"],
+      "rows": [
+        ["Trader A — MNQ 30 days", "20 trades", "$2,400", "10 trades", "$1,200", "2.00"],
+        ["Trader B — NQ 30 days", "14 trades", "$5,600", "16 trades", "$4,480", "1.25"],
+        ["Trader C — MNQ 30 days", "25 trades", "$2,000", "15 trades", "$2,200", "0.91"],
+        ["Trader D — NQ 30 days", "9 trades", "$7,200", "11 trades", "$2,880", "2.50"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "<strong>Key insight from the table:</strong> Trader C has a 63% win rate but loses money — his losers average significantly larger than his winners. Trader B has a below-50% win rate but is profitable because his winners are larger. Profit factor tells the true story that win rate hides. Trader D's 2.50 profit factor from 20 total trades may be strong but also has low sample size — prop firms want to see this sustained over more trades."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "High win rate does not equal high profit factor. A trader with a 70% win rate can have a profit factor below 1.0 if their average losing trade is 3x larger than their average winning trade. This is one of the most common misconceptions among traders preparing for FTMO or Apex evaluations."
+    },
+    {
+      "type": "h2",
+      "text": "What Profit Factor Do Prop Firms Actually Require?"
+    },
+    {
+      "type": "p",
+      "text": "Most prop firms don't publish a hard minimum profit factor in their evaluation rules. The focus is usually on drawdown limits, profit targets, and consistency rules. However, profit factor plays a role in qualitative review, especially when an evaluation is flagged for inconsistency."
+    },
+    {
+      "type": "table",
+      "headers": ["Prop Firm", "Practical Minimum PF", "Recommended PF", "Notes"],
+      "rows": [
+        ["FTMO", "1.2 (implied)", "1.5 or higher", "Consistency rule + PF together determine approval"],
+        ["Apex Trader Funding", "1.0+ (any positive)", "1.3 or higher", "Primary focus is on drawdown rules, not PF explicitly"],
+        ["TopStep", "1.2 (implied)", "1.5 or higher", "Consistency score incorporates PF indirectly"],
+        ["Uprofit", "1.0+ (any positive)", "1.3 or higher", "More flexible in qualitative review process"],
+        ["Tradovate (as platform)", "N/A (brokerage)", "N/A", "Tradovate is the platform — used with Apex, TopStep"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "The practical rule: if you hit your profit target but your profit factor is below 1.2, there's a non-trivial risk of rejection based on behavioral inconsistency. This typically happens when one exceptional trading day accounts for most of the total profit — which some firms flag as not representative of sustainable performance."
+    },
+    {
+      "type": "h2",
+      "text": "Profit Factor vs Win Rate: Which Matters More?"
+    },
+    {
+      "type": "p",
+      "text": "This is the most common question from traders preparing for their first prop firm evaluation. The direct answer: <strong>profit factor is more important than win rate</strong> as a measure of long-term strategy viability."
+    },
+    {
+      "type": "p",
+      "text": "Win rate tells you what percentage of trades close in profit. Profit factor tells you whether the overall strategy makes money. A scalper trading MNQ with a 65% win rate, but winners averaging 3 ticks and losers averaging 10 ticks, has a profit factor well below 1.0 — he wins more than he loses in count, but loses money in dollars. The math is what matters."
+    },
+    {
+      "type": "h2",
+      "text": "How to Improve Profit Factor During a Prop Firm Evaluation"
+    },
+    {
+      "type": "h3",
+      "text": "1. Fix the risk-reward ratio first"
+    },
+    {
+      "type": "p",
+      "text": "If your average winner is 8 ticks on MNQ and your average loser is 14 ticks, the system is structurally broken regardless of setup quality. Before working on entries and signals, audit your stop placement and targets. Many traders who move stops after entry are the ones with the weakest profit factors — because the actual risk-reward ratio executed is completely different from the planned one."
+    },
+    {
+      "type": "h3",
+      "text": "2. Separate strategy trades from impulse trades"
+    },
+    {
+      "type": "p",
+      "text": "Revenge trades and FOMO entries are typically the trades with the worst risk-reward ratios taken in the worst emotional states. A trading journal that tags trades as 'in-strategy' vs 'impulsive' lets you calculate two separate profit factors. Most traders discover that their in-strategy profit factor is significantly higher than their total profit factor — meaning the impulse trades are dragging down an otherwise solid approach."
+    },
+    {
+      "type": "h3",
+      "text": "3. Reduce trade frequency on low-confidence days"
+    },
+    {
+      "type": "p",
+      "text": "Profit factor is calculated across all trades in the period. Six impulse trades on one bad day can tank a week's profit factor even if the other four days were solid. The traders with the best profit factors in prop firm evaluations aren't the ones trading most — they're the ones who are most selective. Tracking profit factor by day of week and time of day reveals exactly when your edge is real and when it isn't."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Zentrade Professional and ZenMode display profit factor by instrument, by time of day, and by week directly in the dashboard. You can see whether your NQ trade from 9:30–10:30 AM ET has a better profit factor than your afternoon session — and use that data to trade fewer, better hours."
+    },
+    {
+      "type": "h2",
+      "text": "Profit Factor in Zentrade's Dashboard"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade calculates profit factor automatically across all plans. In the free plan, the dashboard shows overall profit factor for the selected period. In Professional and ZenMode, you get profit factor broken down by instrument, trading session, and day of week. ZenMode's weekly AI report includes an analysis of how your profit factor evolved over the past seven days and which specific behaviors drove changes — up or down."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "What profit factor do I need to pass the FTMO evaluation?",
+          "a": "FTMO doesn't publish a hard minimum profit factor, but evaluations with profit factor below 1.2 carry higher risk of rejection during qualitative review. The recommended target is 1.5 or higher — not because of a stated rule, but because it demonstrates that your strategy generates structurally consistent results rather than relying on one or two outlier days."
+        },
+        {
+          "q": "Can I pass Apex Trader Funding with a profit factor below 1.5?",
+          "a": "Yes. Apex Trader Funding focuses primarily on drawdown rules and hitting the profit target. A profit factor of 1.1 or 1.2 will not disqualify you as long as you didn't violate the daily loss limit or trailing drawdown. That said, a higher profit factor generally correlates with more consistent behavior — which is what you want for the live funded account."
+        },
+        {
+          "q": "What's a realistic profit factor for a 30-day NQ evaluation?",
+          "a": "For a disciplined trader with a defined strategy, a profit factor between 1.3 and 1.8 is realistic and sustainable over 30 days. Profit factors above 2.5 in a single evaluation month are possible but often reflect cherry-picking (few trades, all winners) or an unusually favorable market environment. Prop firms value repeatability over maximum numbers."
+        },
+        {
+          "q": "Why does my profit factor look different from week to week?",
+          "a": "Week-to-week variance in profit factor is normal, especially in NQ/MNQ where a single high-volatility trade can represent 30%+ of weekly PnL. What you want to avoid are weeks where profit factor drops below 1.0 — those almost always correlate with revenge trading sessions or trades taken outside your strategy rules. A trading journal helps you identify exactly which trades caused the drop."
+        },
+        {
+          "q": "Does Zentrade calculate profit factor automatically?",
+          "a": "Yes. Zentrade calculates profit factor automatically for every trade you log, no manual calculation needed. In the free plan, you see overall profit factor in the KPI dashboard. In Professional and ZenMode plans, profit factor is broken down by instrument, time slot, and week — so you can see exactly where your edge is strongest and weakest."
+        },
+        {
+          "q": "Is profit factor the same as profit/loss ratio?",
+          "a": "They're related but not identical. Profit/loss ratio (or risk-reward ratio) typically refers to the ratio of average winning trade size to average losing trade size — a per-trade metric. Profit factor is an aggregate metric: total gross profit divided by total gross loss across all trades in a period. A good risk-reward ratio per trade usually produces a good profit factor overall, but not always, because trade frequency and win rate also affect the aggregate."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "href": "/register",
+      "buttonText": "Start Free on Zentrade — No Credit Card Required"
+    }
+  ],
+  "relatedSlugs": [
+    "consistency-rule-prop-firm-explained",
+    "drawdown-trailing-vs-estatico-prop-firms",
+    "best-trading-journal-prop-firms-2025",
+    "how-to-pass-ftmo-evaluation",
+    "how-to-pass-apex-trader-funding",
+    "how-to-track-emotions-trading"
+  ]
+}

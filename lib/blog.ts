@@ -43,6 +43,34 @@ export interface BlogContentBlock {
   caption?: string;
 }
 
+/** Pares de posts ES ↔ EN para hreflang. Clave = slug ES, valor = slug EN */
+export const HREFLANG_PAIRS: Record<string, string> = {
+  "zentrade-vs-tradezella":                  "zentrade-vs-tradezella-comparison",
+  "como-pasar-apex-trader-funding":          "how-to-pass-apex-trader-funding",
+  "como-pasar-topstep-evaluacion":           "how-to-pass-topstep-evaluation",
+  "como-pasar-evaluacion-ftmo-journal-trading": "how-to-pass-ftmo-evaluation",
+  "consistency-rule-fondeo-explicada":       "consistency-rule-prop-firm-explained",
+  "que-es-un-trading-journal":               "what-is-a-trading-journal",
+  "mejor-journal-trading-futuros-2025":      "best-trading-journal-prop-firms-2025",
+  "mejores-empresas-fondeo-futuros-2025":    "best-prop-firms-futures-traders-2025",
+};
+
+/** Índice inverso EN → ES generado automáticamente desde HREFLANG_PAIRS */
+const HREFLANG_REVERSE: Record<string, string> = Object.fromEntries(
+  Object.entries(HREFLANG_PAIRS).map(([es, en]) => [en, es])
+);
+
+/** Devuelve el slug del post alternativo en el otro idioma, o null */
+export function getHreflangAlternate(slug: string): string | null {
+  return HREFLANG_PAIRS[slug] ?? HREFLANG_REVERSE[slug] ?? null;
+}
+
+/** Detecta el idioma del post: prioriza campo `lang`, luego infiere desde el autor */
+export function getBlogPostLang(post: BlogPost): "es" | "en" {
+  if (post.lang) return post.lang;
+  return post.author === "Zentrade Team" ? "en" : "es";
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -51,6 +79,8 @@ export interface BlogPost {
   seoDescription: string;
   keywords: string[];
   author: string;
+  /** Idioma explícito del post. Si se omite, se infiere desde el campo `author`. */
+  lang?: "es" | "en";
   /**
    * Fecha de publicación en formato "YYYY-MM-DD".
    * Si la fecha es futura, el artículo NO aparece en producción

@@ -6,6 +6,8 @@ import {
   getAllSlugs,
   getPostBySlug,
   getRelatedPosts,
+  getHreflangAlternate,
+  getBlogPostLang,
   CATEGORY_LABELS,
 } from "@/lib/blog";
 import PostContent from "@/components/blog/post-content";
@@ -37,6 +39,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = post.seoDescription;
   const canonical = `${SITE_URL}/blog/${slug}`;
   const ogImage = `${SITE_URL}/blog/og/${slug}`;
+  const lang = getBlogPostLang(post);
+  const alternateSlug = getHreflangAlternate(slug);
 
   return {
     title,
@@ -69,6 +73,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     alternates: {
       canonical,
+      ...(alternateSlug && {
+        languages: {
+          [lang === "es" ? "en" : "es"]: `${SITE_URL}/blog/${alternateSlug}`,
+          [lang]: canonical,
+        },
+      }),
     },
   };
 }
@@ -79,6 +89,7 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
   const canonical = `${SITE_URL}/blog/${post.slug}`;
   const hasFaq = post.content.some((b) => b.type === "faq");
   const ogImageUrl = `${SITE_URL}/blog/og/${post.slug}`;
+  const lang = getBlogPostLang(post);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -105,7 +116,7 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
     dateModified: post.updatedAt,
     url: canonical,
     keywords: post.keywords.join(", "),
-    inLanguage: "es-ES",
+    inLanguage: lang === "en" ? "en-US" : "es-ES",
   };
 
   const breadcrumbSchema = {
@@ -160,7 +171,7 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
       "@type": "HowTo",
       name: post.title,
       description: post.seoDescription,
-      inLanguage: post.slug.startsWith("how-to") || post.slug.startsWith("what-is") || post.slug.startsWith("best-") || post.slug.startsWith("consistency-rule-prop") ? "en" : "es",
+      inLanguage: lang === "en" ? "en-US" : "es-ES",
       step: howToSteps,
     });
   }

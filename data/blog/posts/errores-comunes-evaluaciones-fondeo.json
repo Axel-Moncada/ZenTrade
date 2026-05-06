@@ -1,0 +1,212 @@
+{
+  "slug": "errores-comunes-evaluaciones-fondeo",
+  "title": "Los 7 Errores Más Comunes en las Evaluaciones de Fondeo (y Cómo Evitarlos con un Journal)",
+  "excerpt": "Más del 85% de los traders falla las evaluaciones de fondeo — y no es por falta de estrategia. Estos son los 7 errores más comunes que destruyen evaluaciones de FTMO, Apex y Uprofit, y cómo un trading journal los elimina.",
+  "seoTitle": "7 Errores Más Comunes en Evaluaciones de Fondeo | Zentrade",
+  "seoDescription": "Descubre los 7 errores que hacen fallar las evaluaciones de FTMO, Apex y Uprofit. Cada error tiene solución directa con un trading journal. Incluye casos reales.",
+  "keywords": [
+    "errores evaluación prop firm",
+    "por qué fallo evaluación fondeo",
+    "errores traders Colombia fondeo",
+    "errores evaluacion FTMO",
+    "cómo evitar fallar evaluación fondeo",
+    "errores comunes futuros evaluación",
+    "traders Colombia evaluación fondeo errores",
+    "journal trading errores evaluación",
+    "por qué fallo la evaluación de fondeo",
+    "mistakes prop firm evaluation"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-05-07",
+  "updatedAt": "2026-05-07",
+  "category": "fondeo",
+  "tags": ["evaluación fondeo", "errores trading", "FTMO", "Apex", "Uprofit", "journal de trading", "Colombia", "pruebas de fondeo", "psicología trading"],
+  "readingTime": 11,
+  "featured": false,
+  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
+  "thumbnailAlt": "Trader frente a múltiples monitores analizando sus errores en la evaluación de fondeo de futuros",
+  "content": [
+    {
+      "type": "p",
+      "text": "Más del <strong>85% de los traders que intenta pasar una evaluación de fondeo falla</strong> — y en la mayoría de los casos, el problema no es la estrategia. Los traders que llegan a FTMO, Apex Trader Funding, TopStep o Uprofit generalmente saben leer el mercado. El problema es lo que hacen con ese conocimiento cuando la presión aumenta. Esta guía analiza los <strong>7 errores más comunes que destruyen evaluaciones de fondeo</strong>, cada uno con su solución directa usando un trading journal."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Esta guía aplica a evaluaciones de FTMO, Apex Trader Funding, TopStep, Uprofit y Tradoverse. Los ejemplos usan NQ/MNQ (Nasdaq 100 Futures) porque es el instrumento más popular entre traders colombianos y de LATAM en estas plataformas."
+    },
+    {
+      "type": "h2",
+      "text": "Error #1: No Registrar el Estado Emocional Antes de Operar"
+    },
+    {
+      "type": "p",
+      "text": "Este es el error que más se subestima. La mayoría de los traders registra sus trades — entrada, salida, PnL — pero no registra <strong>cómo se sentían cuando tomaron esa decisión</strong>. ¿Estaban enfocados? ¿Frustrados por el trade anterior? ¿Impacientes porque el mercado no se movía? El estado emocional en el momento de la entrada predice la calidad de la decisión con más precisión que el setup técnico."
+    },
+    {
+      "type": "p",
+      "text": "Un trader colombiano que opera MNQ antes de entrar a trabajar a las 8 AM tiene un perfil emocional completamente diferente al que opera a las 11 AM con tiempo disponible. Sin registrar esto, es imposible identificar el patrón. Con un journal que incluye tags emocionales — ansiedad, confianza, FOMO, calma — puedes ver en 4 semanas exactamente en qué estado emocional cometes más errores. Esa información es la diferencia entre pasar y reprobar."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Zentrade incluye tags emocionales por trade en todos los planes. Puedes marcar: Enfocado, Ansioso, Impaciente, Confiado, Frustrado, Neutral — y el dashboard agrupa tus resultados por emoción automáticamente."
+    },
+    {
+      "type": "h2",
+      "text": "Error #2: Ignorar la Consistency Rule"
+    },
+    {
+      "type": "p",
+      "text": "La <strong>consistency rule</strong> es la regla que más traders pasan por alto — y la que más evaluaciones cancela en fase final. La mayoría de las empresas de fondeo establece que ningún día individual debe representar más del 30% de tu ganancia total del período. En FTMO, esta regla es explícita. En otras empresas como TopStep, se aplica de forma implícita a través del análisis de consistencia."
+    },
+    {
+      "type": "p",
+      "text": "El escenario típico: un trader alcanza el profit target en 8 días, pero el 60% de esa ganancia la hizo en un solo día excepcional. Resultado: evaluación rechazada por inconsistencia, aunque técnicamente llegó al objetivo. Sin un journal que calcule este porcentaje en tiempo real, no puedes saber cuándo estás en riesgo de violar la regla — hasta que es demasiado tarde."
+    },
+    {
+      "type": "h2",
+      "text": "Error #3: Revenge Trading Después de una Pérdida"
+    },
+    {
+      "type": "p",
+      "text": "El <strong>revenge trading</strong> es responsable de más evaluaciones fallidas que cualquier otro comportamiento. El patrón es siempre el mismo: trade perdedor → cierre inmediato → nueva entrada en menos de 30 minutos → segundo trade también perdedor → la evaluación se va acercando al max daily loss. En el peor caso, en una sola sesión se pierde lo que costó conseguir en 5 días."
+    },
+    {
+      "type": "p",
+      "text": "Los datos de comunidades de trading en Colombia muestran que este patrón es especialmente frecuente entre traders que operan con tiempo limitado. Cuando solo tienes 90 minutos para operar y los primeros 30 minutos van mal, la presión psicológica de \"recuperar\" es enorme. Documentar este patrón en un journal con marca de tiempo te da la evidencia empírica para identificarlo y cortarlo."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "ZenMode de Zentrade detecta automáticamente patrones de revenge trading: trade perdedor seguido de nueva entrada en menos de 30 minutos, o 3 pérdidas consecutivas en la misma sesión. Te envía una alerta antes de que el patrón destruya tu evaluación."
+    },
+    {
+      "type": "h2",
+      "text": "Error #4: No Respetar el Max Daily Loss"
+    },
+    {
+      "type": "p",
+      "text": "El <strong>max daily loss</strong> es la regla más mecánica de todas — y aun así se viola constantemente. En FTMO una cuenta de $100,000 tiene un límite diario de $500 en pérdidas (0.5%). En Apex Trader Funding, el límite varía por cuenta pero está siempre claramente documentado. El error no es no saber el límite: es no tenerlo presente cuando el mercado va en contra y el trader está dentro de 3 posiciones simultáneas."
+    },
+    {
+      "type": "p",
+      "text": "Un journal de trading que muestra el PnL del día en tiempo real — incluyendo posiciones abiertas — previene este error. Sin esa visibilidad, el trader puede estar a $80 del límite sin saberlo mientras mantiene una posición abierta que se está moviendo en su contra. Muchos traders colombianos que operan con plataformas como NinjaTrader o Tradovate no tienen esta vista integrada — el journal la llena."
+    },
+    {
+      "type": "h2",
+      "text": "Error #5: No Revisar la Semana Antes de Empezar la Siguiente"
+    },
+    {
+      "type": "p",
+      "text": "La mayoría de los traders cierra el viernes y abre el lunes con la misma mentalidad que la semana anterior — sin analizar qué funcionó y qué no. Un trader que perdió 3 de 5 días por operar en la primera media hora de apertura seguirá operando en la primera media hora el lunes siguiente, porque nunca documentó ese patrón."
+    },
+    {
+      "type": "p",
+      "text": "El análisis semanal no toma más de 15 minutos si tienes los datos organizados. ¿En qué horario tuviste mejores resultados? ¿Qué instrumento (NQ, MNQ, YM) te funcionó mejor? ¿Hubo correlación entre el día de la semana y el resultado? Estas preguntas solo se pueden responder con datos históricos estructurados — que es exactamente lo que construye un trading journal."
+    },
+    {
+      "type": "h2",
+      "text": "Error #6: Operar con Tamaño de Posición Inconsistente"
+    },
+    {
+      "type": "p",
+      "text": "El <strong>position sizing inconsistente</strong> destruye la fiabilidad de cualquier estrategia. Un trader con win rate del 55% y profit factor de 1.4 puede fallar una evaluación si duplica el tamaño de posición en días de alta confianza (y esos días resultan ser días de pérdida). Las empresas de fondeo no solo miden el resultado: miden la consistencia del proceso."
+    },
+    {
+      "type": "p",
+      "text": "Registrar el número de contratos por trade en el journal permite visualizar cuándo el tamaño de posición se desvía del plan. Si tu plan dice 2 contratos de MNQ máximo y hay 4 entradas con 4 contratos en la misma semana, el journal lo muestra. Sin ese registro, solo lo notas cuando el drawdown ya ocurrió."
+    },
+    {
+      "type": "h2",
+      "text": "Error #7: No Tener un Plan de Trading Escrito y Consultado Antes de Operar"
+    },
+    {
+      "type": "p",
+      "text": "El último error es estructural: operar sin un plan escrito consultado activamente. Un plan de trading que vive en la cabeza no existe — existe solo la versión que recuerdas en el momento, que cambia según tu estado emocional del día. Un plan de trading que existe como documento — con reglas de entrada, reglas de salida, max contratos, horarios permitidos, instrumentos aprobados — crea un ancla objetiva que reduce las decisiones impulsivas."
+    },
+    {
+      "type": "p",
+      "text": "Los traders de Colombia y LATAM que pasan evaluaciones de fondeo consistentemente comparten este hábito: revisan su plan antes de abrir la plataforma. No para memorizarlo, sino para activar el modo mental correcto antes del mercado. Un journal con sección de trading plan integrada elimina la fricción de tener este documento separado."
+    },
+    {
+      "type": "callout",
+      "variant": "success",
+      "text": "Zentrade Professional y ZenMode incluyen una sección de Trading Plan integrada directamente con tu dashboard. Puedes consultarlo antes de operar y el sistema compara tu comportamiento real con las reglas que tú mismo definiste."
+    },
+    {
+      "type": "h2",
+      "text": "Resumen: Los 7 Errores y Sus Soluciones"
+    },
+    {
+      "type": "table",
+      "headers": ["Error", "Consecuencia", "Solución con Journal"],
+      "rows": [
+        ["No registrar emociones", "Repites errores sin saberlo", "Tags emocionales por trade + análisis semanal"],
+        ["Ignorar consistency rule", "Evaluación rechazada aunque llegues al target", "Dashboard con % de consistencia en tiempo real"],
+        ["Revenge trading", "Pérdidas en cascada en una sola sesión", "Detección automática + alerta (ZenMode)"],
+        ["Violar max daily loss", "Eliminación inmediata de la evaluación", "PnL del día visible en dashboard"],
+        ["No revisar la semana anterior", "Repites patrones perdedores indefinidamente", "Reporte semanal con análisis de comportamiento"],
+        ["Position sizing inconsistente", "Resultados impredecibles aunque la estrategia funcione", "Registro de contratos por trade + equity curve"],
+        ["No tener plan escrito", "Decisiones emocionales en momentos clave", "Sección de Trading Plan integrada en el dashboard"]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "¿Cuántos de Estos Errores Cometes Actualmente?"
+    },
+    {
+      "type": "p",
+      "text": "Si cometiste 3 o más en tu última evaluación, el problema no es tu estrategia de trading. Es la falta de datos sobre tu propio comportamiento. Un trading journal no te hace mejor en leer el mercado — te hace mejor en leer tu propio proceso de toma de decisiones. Y esa es exactamente la diferencia entre un trader que falla evaluaciones repetidamente y uno que las pasa."
+    },
+    {
+      "type": "p",
+      "text": "Los traders de Colombia, México, Argentina y toda LATAM que trabajan con FTMO, Apex, Uprofit y TopStep tienen acceso a exactamente las mismas evaluaciones que los traders de USA o Europa. La única diferencia es que operan en español — y hasta ahora no tenían un journal diseñado para ellos. Zentrade es ese journal."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "¿Cuál es el error más común que hace fallar las evaluaciones de fondeo?",
+          "a": "El revenge trading y la violación de la consistency rule son los dos errores que más evaluaciones destruyen. El revenge trading ocurre cuando el trader toma un nuevo trade impulsivamente para recuperar una pérdida reciente, sin respetar su estrategia. La consistency rule se viola cuando un solo día representa más del 30% de la ganancia total del período — algo que muchos traders no monitorean en tiempo real."
+        },
+        {
+          "q": "¿Por qué fallo la evaluación de FTMO si llegué al profit target?",
+          "a": "Llegar al profit target no es suficiente para pasar la evaluación de FTMO. La empresa también evalúa la consistency rule (ningún día puede ser más del 30% de la ganancia total) y puede rechazar evaluaciones donde el comportamiento fue inconsistente, aunque el número final sea correcto. Esto ocurre con frecuencia en traders colombianos y de LATAM que no miden este porcentaje en tiempo real."
+        },
+        {
+          "q": "¿Los traders colombianos pueden pasar evaluaciones de FTMO o Uprofit?",
+          "a": "Sí, completamente. FTMO, Apex Trader Funding, TopStep, Uprofit y Tradoverse aceptan traders de Colombia sin restricciones geográficas. Los pagos se realizan vía PayPal, Wise o transferencia internacional. No existe ninguna barrera de acceso específica para Colombia — la única barrera es pasar la evaluación, que aplica igual para todos."
+        },
+        {
+          "q": "¿Cuántas veces puede intentar un trader colombiano una evaluación de fondeo?",
+          "a": "No hay límite de intentos en ninguna empresa de fondeo conocida. FTMO permite reintentos con descuento en algunas circunstancias. Lo importante es analizar por qué falló la evaluación anterior antes de reintentar — de lo contrario se pagan múltiples evaluaciones cometiendo los mismos errores. Un trading journal es la herramienta que hace útil cada intento fallido."
+        },
+        {
+          "q": "¿Un journal de trading realmente ayuda a pasar evaluaciones de fondeo?",
+          "a": "Sí, con datos concretos: los traders que documentan sus trades y revisan sus métricas semanalmente cometen menos violaciones de reglas en sus evaluaciones. La razón es simple — no puedes corregir lo que no puedes ver. El journal convierte comportamientos invisibles (revenge trading, inconsistencia de horario, estado emocional) en datos medibles que puedes optimizar."
+        },
+        {
+          "q": "¿Cuánto tiempo toma completar un journal de trading por día?",
+          "a": "Con Zentrade, registrar un trade toma menos de 90 segundos: precio de entrada, salida, instrumento, contratos y tag emocional. Al final de la sesión, 2-3 minutos para añadir notas de la jornada. El análisis semanal toma 10-15 minutos. La inversión de tiempo es mínima comparada con lo que cuesta perder una evaluación que ya pagaste."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "href": "/register",
+      "buttonText": "Empieza gratis en Zentrade — Sin tarjeta de crédito"
+    }
+  ],
+  "relatedSlugs": [
+    "que-es-revenge-trading",
+    "consistency-rule-fondeo-explicada",
+    "reglas-riesgo-diario-fondeo",
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "como-pasar-uprofit-evaluacion",
+    "psicologia-trading-futuros"
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "slug": "ninjatrader-journal-trading-futuros",
+  "title": "Cómo Llevar un Journal de Trading si Operas con NinjaTrader (Guía Paso a Paso)",
+  "excerpt": "NinjaTrader es la plataforma preferida de Uprofit y muchos traders colombianos en evaluaciones de fondeo. Esta guía muestra cómo exportar tus datos, qué hacer con ellos y cómo integrarlos con Zentrade.",
+  "seoTitle": "Journal de Trading con NinjaTrader: Guía Paso a Paso | Zentrade",
+  "seoDescription": "Cómo llevar un journal de trading si usas NinjaTrader para evaluaciones de Uprofit, Apex o FTMO. Exportación de datos, integración y análisis para traders colombianos.",
+  "keywords": [
+    "NinjaTrader journal trading",
+    "NinjaTrader Colombia fondeo",
+    "journal NinjaTrader futuros",
+    "NinjaTrader Apex TopStep",
+    "NinjaTrader Uprofit Colombia",
+    "cómo exportar trades NinjaTrader",
+    "NinjaTrader trading journal integración",
+    "NinjaTrader futuros Colombia",
+    "NinjaTrader evaluación fondeo",
+    "journal trading NinjaTrader español"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-05-14",
+  "updatedAt": "2026-05-14",
+  "category": "herramientas",
+  "tags": ["NinjaTrader", "Uprofit", "Apex Trader Funding", "Colombia", "LATAM", "evaluación fondeo", "futuros", "NQ", "MNQ", "journal de trading"],
+  "readingTime": 11,
+  "featured": false,
+  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
+  "thumbnailAlt": "Trader colombiano configurando NinjaTrader para exportar datos de trades y llevar un journal de trading para su evaluación de fondeo",
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>NinjaTrader</strong> es la plataforma de trading de futuros más usada por traders de LATAM en evaluaciones de empresas de fondeo, especialmente en Colombia, México y Argentina. Uprofit la usa como plataforma principal. Apex Trader Funding y FTMO (para futuros) también la ofrecen como opción. Si operas con NinjaTrader y no llevas un journal de trading estructurado, estás dejando información crítica sobre tu comportamiento sin registrar — información que podría ser la diferencia entre pasar y reprobar tu próxima evaluación."
+    },
+    {
+      "type": "p",
+      "text": "Esta guía explica exactamente cómo exportar tus trades de NinjaTrader, qué datos importan y cuáles faltan en el export, y cómo integrar esa información con un journal que te ayude a analizar y mejorar tu desempeño en evaluaciones de fondeo."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Esta guía aplica a NinjaTrader 8 (la versión actual). Si usas NinjaTrader 7, los menús son diferentes pero los archivos de export tienen un formato similar. Los ejemplos son con cuentas de Uprofit y Apex Trader Funding porque son las empresas de fondeo que más usan NinjaTrader en Colombia y LATAM."
+    },
+    {
+      "type": "h2",
+      "text": "Por Qué NinjaTrader No Es un Journal de Trading"
+    },
+    {
+      "type": "p",
+      "text": "NinjaTrader es una plataforma de ejecución, análisis técnico y backtesting — es excelente en lo que hace. Lo que no hace: registrar el estado emocional de cada trade, calcular la consistency rule en tiempo real, detectar patrones de revenge trading, ni generar reportes de comportamiento con análisis de IA. Tiene un historial de trades básico, pero ese historial es solo el registro mecánico de entradas y salidas — sin el contexto que convierte datos brutos en información útil."
+    },
+    {
+      "type": "p",
+      "text": "La combinación que funciona para traders colombianos en evaluaciones de fondeo: <strong>NinjaTrader para la ejecución</strong> + <strong>Zentrade para el análisis de comportamiento</strong>. Cada plataforma hace lo que mejor sabe hacer."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Exportar tus Trades de NinjaTrader 8"
+    },
+    {
+      "type": "h3",
+      "text": "Método 1: Export desde el Trade Performance Report"
+    },
+    {
+      "type": "p",
+      "text": "Este es el método más completo. En NinjaTrader 8: <strong>Control Center → New → Trade Performance</strong>. Selecciona la cuenta de evaluación y el período de fechas que quieres exportar. En la pestaña de la parte superior selecciona 'Trades'. Luego: <strong>botón derecho sobre la tabla → Export → CSV</strong>."
+    },
+    {
+      "type": "p",
+      "text": "El CSV de Trade Performance incluye: fecha de entrada, hora de entrada, instrumento, acción (Buy/Sell), cantidad de contratos, precio de entrada, precio de salida, fecha y hora de salida, comisión, PnL bruto, PnL neto (después de comisiones). Este es el formato más completo para importar a un journal externo."
+    },
+    {
+      "type": "h3",
+      "text": "Método 2: Export desde el Account Performance"
+    },
+    {
+      "type": "p",
+      "text": "En NinjaTrader 8: <strong>Control Center → Account Performance</strong>. Selecciona la cuenta y el período. Este export es menos granular — muestra el PnL diario pero no el detalle de cada trade individual. Es útil para tener una vista rápida del resumen del período pero no suficiente para análisis detallado por trade."
+    },
+    {
+      "type": "h3",
+      "text": "Método 3: Export manual desde el Order Log"
+    },
+    {
+      "type": "p",
+      "text": "En NinjaTrader 8: <strong>Control Center → Log → botón derecho → Export</strong>. El log incluye todas las órdenes ejecutadas con timestamp preciso. Útil para verificar tiempos exactos de ejecución, especialmente si tienes discrepancias entre lo que recuerdas y lo que reporta la plataforma."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Recomendación: exporta el Trade Performance Report cada viernes al final de la sesión. Guarda los CSVs organizados por semana y número de evaluación. Si algo sale mal en la evaluación, tienes el historial completo para analizarlo."
+    },
+    {
+      "type": "h2",
+      "text": "Qué Incluye el Export de NinjaTrader (y Qué Falta)"
+    },
+    {
+      "type": "table",
+      "headers": ["Campo", "¿Incluido en CSV NinjaTrader?", "¿Necesario para el journal?"],
+      "rows": [
+        ["Fecha y hora de entrada", "Sí", "Sí"],
+        ["Precio de entrada", "Sí", "Sí"],
+        ["Fecha y hora de salida", "Sí", "Sí"],
+        ["Precio de salida", "Sí", "Sí"],
+        ["Instrumento (NQ, MNQ, etc.)", "Sí", "Sí"],
+        ["Número de contratos", "Sí", "Sí"],
+        ["PnL bruto y neto", "Sí", "Sí"],
+        ["Comisiones", "Sí", "Sí"],
+        ["Estado emocional al entrar", "No", "Sí — añadir manualmente"],
+        ["Razón de entrada", "No", "Sí — añadir manualmente"],
+        ["¿Trade de estrategia o impulsivo?", "No", "Sí — añadir manualmente"],
+        ["Notas de mercado del día", "No", "Recomendado — añadir manualmente"],
+        ["Foto del gráfico en la entrada", "No", "Opcional — muy útil para revisión"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "La brecha entre lo que NinjaTrader exporta y lo que necesitas para analizar tu comportamiento en evaluaciones de fondeo es exactamente donde el journal agrega valor. Los datos mecánicos del CSV te dicen cuándo entraste y cuánto ganaste o perdiste. Los datos adicionales del journal te dicen <em>por qué</em> tomaste esa decisión — que es la información que importa para mejorar."
+    },
+    {
+      "type": "h2",
+      "text": "Configuración de NinjaTrader para Evaluaciones de Fondeo"
+    },
+    {
+      "type": "h3",
+      "text": "Conectar la cuenta de Uprofit a NinjaTrader"
+    },
+    {
+      "type": "p",
+      "text": "Una vez que Uprofit activa tu evaluación, recibes un email con las credenciales de conexión. En NinjaTrader 8: <strong>Control Center → Connections → Add</strong>. Selecciona el proveedor de la cuenta (Uprofit usa Rithmic como feed de datos y clearing). Ingresa las credenciales de Uprofit, no las de una cuenta personal de Rithmic si tienes una."
+    },
+    {
+      "type": "p",
+      "text": "Verifica en <strong>Control Center → Accounts</strong> que la cuenta conectada muestra el balance correcto de tu evaluación de Uprofit. Si el balance inicial es incorrecto, no empieces a operar hasta resolver — las reglas de max daily loss y trailing drawdown se calculan sobre el balance inicial oficial."
+    },
+    {
+      "type": "h3",
+      "text": "Configurar alertas de riesgo en NinjaTrader"
+    },
+    {
+      "type": "p",
+      "text": "NinjaTrader 8 permite configurar alertas de PnL máximo a través de <strong>Control Center → Account → Max Loss</strong>. Para una evaluación de Uprofit con max daily loss de $500, configura la alerta en $400 — lo que te deja $100 de margen para cerrar posiciones abiertas antes de violar la regla."
+    },
+    {
+      "type": "p",
+      "text": "Importante: NinjaTrader puede configurarse para <strong>cerrar automáticamente todas las posiciones y cancelar todas las órdenes pendientes</strong> cuando se alcanza el límite de pérdida diaria. Esta función está en <strong>Account → Daily Loss Limit</strong>. Para evaluaciones de fondeo, activar esta función es una red de seguridad valiosa — especialmente en períodos de alta volatilidad como la apertura de mercado."
+    },
+    {
+      "type": "h3",
+      "text": "Configuración de Workspace para evaluaciones"
+    },
+    {
+      "type": "p",
+      "text": "La recomendación para traders colombianos en evaluaciones de fondeo es tener un Workspace separado exclusivamente para la cuenta de evaluación. Esto evita el error de operar en la cuenta equivocada (confundir una cuenta de simulación o una cuenta de Uprofit anterior con la evaluación activa). En <strong>NinjaTrader → File → New Workspace</strong>, crea uno llamado 'Evaluación Uprofit [mes]' con la cuenta de evaluación conectada."
+    },
+    {
+      "type": "h2",
+      "text": "Flujo de Trabajo Diario: NinjaTrader + Journal"
+    },
+    {
+      "type": "p",
+      "text": "El flujo recomendado para traders de LATAM que usan NinjaTrader en evaluaciones de fondeo:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Antes de operar (5 min):</strong> Revisar el plan de trading del día en Zentrade. Confirmar instrumentos permitidos, max contratos, horario de operación. Verificar el saldo actual de la evaluación y cuánto del trailing drawdown queda disponible.",
+        "<strong>Durante la sesión:</strong> Ejecutar trades normalmente en NinjaTrader. Al cerrar cada trade, pausar 30 segundos para registrarlo en Zentrade con el tag emocional mientras el estado mental todavía está fresco.",
+        "<strong>Al terminar la sesión:</strong> Exportar el Trade Performance Report de NinjaTrader para el día. Comparar con lo registrado en Zentrade y resolver cualquier discrepancia.",
+        "<strong>Al final de la semana (viernes, 10 min):</strong> Revisar el reporte semanal en Zentrade. Identificar el patrón emocional dominante de la semana. Ajustar el plan para la semana siguiente."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "No esperes al final del día para registrar los trades en el journal. El estado emocional se difumina en horas. El tag emocional más preciso es el que se registra en los primeros 5 minutos después de cerrar el trade, cuando todavía recuerdas lo que sentías antes de entrar."
+    },
+    {
+      "type": "h2",
+      "text": "NinjaTrader Colombia: Retos Específicos y Soluciones"
+    },
+    {
+      "type": "h3",
+      "text": "Problema: Latencia desde Colombia"
+    },
+    {
+      "type": "p",
+      "text": "NinjaTrader conectado a Rithmic (que usa Uprofit) tiene servidores en Chicago. La latencia desde Bogotá, Medellín o Cali hacia esos servidores es de 80-120 ms en condiciones normales — aceptable para trading intradiario, pero no para estrategias de scalping ultra-rápido en NQ. Si tu estrategia requiere entradas en el tick, considera usar una VPN con servidor en Miami o Nueva York para reducir la latencia a 40-60 ms."
+    },
+    {
+      "type": "h3",
+      "text": "Problema: Cortes de luz y de internet"
+    },
+    {
+      "type": "p",
+      "text": "Colombia tiene cortes de energía eléctrica que pueden ocurrir durante sesiones de trading activas. La solución mínima para traders en evaluación de fondeo: UPS (batería de respaldo) para el computador, y plan de datos móvil como respaldo de internet. Si el corte ocurre con posiciones abiertas, la prioridad es cerrar las posiciones desde el app móvil de tu broker o contactar soporte de Uprofit/Apex para cierre manual."
+    },
+    {
+      "type": "h3",
+      "text": "Problema: NinjaTrader no arranca en la apertura"
+    },
+    {
+      "type": "p",
+      "text": "NinjaTrader 8 puede tener problemas de arranque si hay actualizaciones pendientes. La solución: configurar NinjaTrader para que arranque automáticamente al iniciar el computador con al menos 30 minutos antes de la apertura del mercado. También: desactivar actualizaciones automáticas durante el período de evaluación — una actualización en el horario de mercado puede dejarte sin plataforma durante minutos críticos."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "¿NinjaTrader funciona bien desde Colombia para evaluaciones de Uprofit?",
+          "a": "Sí, NinjaTrader funciona correctamente desde Colombia para evaluaciones de Uprofit. La latencia de 80-120 ms desde Bogotá o Medellín hacia los servidores de Rithmic en Chicago es suficiente para trading intradiario. La recomendación es usar conexión ethernet (no WiFi), tener plan de datos móvil como respaldo, y un UPS para el computador en caso de corte de energía."
+        },
+        {
+          "q": "¿Cómo exporto mis trades de NinjaTrader para llevarlos a un journal?",
+          "a": "En NinjaTrader 8: Control Center → New → Trade Performance. Selecciona la cuenta de evaluación y el período de fechas. En la pestaña 'Trades', haz clic derecho sobre la tabla y selecciona Export → CSV. El archivo incluye fecha, hora, instrumento, contratos, precio de entrada/salida, PnL bruto y comisiones. En Zentrade Professional y ZenMode puedes importar este CSV directamente."
+        },
+        {
+          "q": "¿Puedo usar NinjaTrader para la evaluación de Apex Trader Funding?",
+          "a": "Sí. Apex Trader Funding ofrece NinjaTrader como una de sus plataformas disponibles, junto con Tradovate y Rithmic. La diferencia: Tradovate es web-based y no requiere instalación, mientras que NinjaTrader requiere descarga. Si ya conoces NinjaTrader, no hay razón para cambiar — las reglas de la evaluación son las mismas en ambas plataformas."
+        },
+        {
+          "q": "¿NinjaTrader tiene una función de journal incorporada?",
+          "a": "NinjaTrader tiene un historial básico de trades (Trade Performance Report) pero no tiene funciones de journal en el sentido completo: no registra emociones, no calcula consistency rule en tiempo real, no detecta revenge trading y no genera reportes de comportamiento. Para análisis de comportamiento real necesitas un journal externo como Zentrade conectado a los datos de NinjaTrader."
+        },
+        {
+          "q": "¿Cuánto cuesta NinjaTrader para una evaluación de fondeo?",
+          "a": "NinjaTrader es gratuito como plataforma de trading. Sin embargo, necesitas suscribirte a un feed de datos de mercado para operar con datos en tiempo real. Para evaluaciones de Uprofit, los datos de mercado están incluidos en el costo de la evaluación a través del feed de Rithmic. Para Apex Trader Funding, también están incluidos en la evaluación. No pagas extra por NinjaTrader."
+        },
+        {
+          "q": "¿Qué instrumentos de NinjaTrader son más usados por traders colombianos en evaluaciones?",
+          "a": "Los instrumentos más usados por traders colombianos en evaluaciones de Uprofit y Apex con NinjaTrader son NQ (Nasdaq 100 E-mini), MNQ (Micro Nasdaq 100), ES (S&P 500 E-mini) y MES (Micro S&P 500). El MNQ es el instrumento de entrada más común porque permite evaluar con cuentas más pequeñas con menor riesgo de capital. El NQ es el instrumento más popular para cuentas de $50,000 o más."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "href": "/register",
+      "buttonText": "Empieza gratis en Zentrade — Sin tarjeta de crédito"
+    }
+  ],
+  "relatedSlugs": [
+    "como-pasar-uprofit-evaluacion",
+    "uprofit-colombia-empresa-fondeo",
+    "como-operar-tradovate-prop-firm",
+    "como-llevar-journal-trading-futuros",
+    "errores-comunes-evaluaciones-fondeo",
+    "mejores-instrumentos-futuros-principiantes"
+  ]
+}

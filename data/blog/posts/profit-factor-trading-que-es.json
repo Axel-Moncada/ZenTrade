@@ -1,0 +1,199 @@
+{
+  "slug": "profit-factor-trading-que-es",
+  "title": "Qué es el Profit Factor en Trading y Por Qué las Empresas de Fondeo lo Usan Para Evaluarte",
+  "excerpt": "El profit factor es la métrica que separa a los traders rentables de los que tienen suerte. Aprende qué es, cómo calcularlo con ejemplos reales de NQ/MNQ, y qué exige cada empresa de fondeo.",
+  "seoTitle": "Profit Factor en Trading: Qué Es y Cómo Calcularlo | Zentrade",
+  "seoDescription": "Profit factor en trading: definición, fórmula, ejemplos con NQ/MNQ y qué exige FTMO, Apex y TopStep. Guía para traders colombianos en evaluaciones de fondeo.",
+  "keywords": [
+    "profit factor trading",
+    "profit factor evaluación fondeo",
+    "profit factor FTMO",
+    "profit factor Colombia traders",
+    "qué es profit factor trading",
+    "cómo calcular profit factor",
+    "profit factor NQ MNQ",
+    "profit factor futuros",
+    "profit factor mínimo prop firm",
+    "profit factor trading explicado"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-05-08",
+  "updatedAt": "2026-05-08",
+  "category": "metricas",
+  "tags": ["profit factor", "métricas trading", "evaluación fondeo", "FTMO", "Apex", "TopStep", "NQ", "MNQ", "Colombia", "futuros"],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
+  "thumbnailAlt": "Trader calculando profit factor en su dashboard de trading con gráficas de NQ y MNQ en múltiples monitores",
+  "content": [
+    {
+      "type": "p",
+      "text": "El <strong>profit factor</strong> es la métrica más honesta que existe en trading. No te dice si tuviste suerte — te dice si tu estrategia genera más dinero del que pierde, de forma estructural y repetible. Para las empresas de fondeo como FTMO, Apex Trader Funding y TopStep, el profit factor es uno de los indicadores principales para evaluar si un trader opera de forma profesional o si sus resultados son producto del azar. Esta guía explica qué es exactamente, cómo calcularlo con ejemplos reales de NQ y MNQ, y qué número debes alcanzar para pasar una evaluación."
+    },
+    {
+      "type": "h2",
+      "text": "¿Qué es el Profit Factor? Definición Técnica"
+    },
+    {
+      "type": "p",
+      "text": "El <strong>profit factor</strong> es el cociente entre la suma de todas las ganancias brutas y la suma de todas las pérdidas brutas en un período determinado. La fórmula es:"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Profit Factor = Suma de Ganancias Brutas ÷ Suma de Pérdidas Brutas\n\nEjemplo: Si ganaste $2,400 en trades ganadores y perdiste $1,200 en trades perdedores → Profit Factor = 2,400 ÷ 1,200 = 2.0"
+    },
+    {
+      "type": "p",
+      "text": "Un profit factor de <strong>1.0</strong> significa que exactamente lo que ganas lo pierdes: rentabilidad cero. Un profit factor menor a 1.0 significa que pierdes más de lo que ganas — estrategia no rentable. Un profit factor mayor a 1.0 indica rentabilidad positiva. En términos generales: por debajo de 1.2 es débil, entre 1.2 y 1.5 es aceptable, entre 1.5 y 2.0 es bueno, y por encima de 2.0 es excelente."
+    },
+    {
+      "type": "h2",
+      "text": "Ejemplos Reales con NQ y MNQ"
+    },
+    {
+      "type": "p",
+      "text": "Para hacer esto concreto, usamos ejemplos con los instrumentos más populares entre traders colombianos y de LATAM en evaluaciones de fondeo: NQ (Nasdaq 100 E-mini Futures) y MNQ (Micro Nasdaq 100 Futures). Los cálculos aplican igual para ES, MES, YM o cualquier otro instrumento de futuros."
+    },
+    {
+      "type": "table",
+      "headers": ["Escenario", "Trades ganadores", "Ganancias brutas", "Trades perdedores", "Pérdidas brutas", "Profit Factor"],
+      "rows": [
+        ["Trader A — MNQ 30 días", "18 trades", "$1,980", "12 trades", "$1,320", "1.50"],
+        ["Trader B — NQ 30 días", "12 trades", "$4,800", "8 trades", "$1,600", "3.00"],
+        ["Trader C — MNQ 30 días", "22 trades", "$2,200", "18 trades", "$2,000", "1.10"],
+        ["Trader D — NQ 30 días", "8 trades", "$3,200", "12 trades", "$4,800", "0.67"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "<strong>Análisis:</strong> El Trader A tiene un profit factor de 1.50 — aceptable para pasar una evaluación. El Trader B tiene un profit factor de 3.0 — excelente, pero con menos trades (posible cherry picking o mercado favorable). El Trader C tiene 1.10 — está ganando dinero, pero apenas, y cualquier drawdown lo puede llevar a negativo. El Trader D pierde dinero sistémicamente a pesar de ganar más trades (6 perdidos en 20 totales)."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "El win rate alto no implica profit factor alto. Un trader con 70% de win rate puede tener profit factor de 0.8 si sus trades perdedores son 3 veces más grandes que sus trades ganadores. Muchos traders colombianos enfocados solo en win rate cometen este error en evaluaciones de FTMO."
+    },
+    {
+      "type": "h2",
+      "text": "¿Qué Profit Factor Exige Cada Empresa de Fondeo?"
+    },
+    {
+      "type": "p",
+      "text": "Las empresas de fondeo raramente publican un profit factor mínimo explícito en sus reglas. Sin embargo, el profit factor forma parte del análisis cualitativo que hacen al revisar las evaluaciones. En términos prácticos, los rangos aceptados son los siguientes:"
+    },
+    {
+      "type": "table",
+      "headers": ["Empresa de Fondeo", "Profit Factor Mínimo Práctico", "Profit Factor Recomendado", "Observación"],
+      "rows": [
+        ["FTMO", "1.2 (implícito)", "1.5 o superior", "Evalúan consistencia además del número absoluto"],
+        ["Apex Trader Funding", "1.0+ (cualquier positivo)", "1.3 o superior", "Foco principal en no violar reglas de pérdida"],
+        ["TopStep", "1.2 (implícito)", "1.5 o superior", "Consistency score incluye profit factor"],
+        ["Uprofit", "1.0+ (cualquier positivo)", "1.3 o superior", "Evaluación más flexible en análisis cualitativo"],
+        ["Tradoverse", "1.2 (implícito)", "1.4 o superior", "Revisión manual más detallada en cuentas grandes"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "La realidad práctica es esta: si llegas al profit target de la evaluación con un profit factor inferior a 1.2, la empresa de fondeo tiene discrecionalidad para rechazar la cuenta basándose en comportamiento inconsistente. Es raro pero ocurre, especialmente en evaluaciones donde hubo un solo día excepcional que elevó el PnL total."
+    },
+    {
+      "type": "h2",
+      "text": "Profit Factor vs Win Rate: Cuál Es Más Importante"
+    },
+    {
+      "type": "p",
+      "text": "Esta es la pregunta que más confunde a los traders colombianos que preparan su primera evaluación. La respuesta directa: <strong>el profit factor es más importante que el win rate</strong> para determinar si una estrategia es rentable a largo plazo."
+    },
+    {
+      "type": "p",
+      "text": "El win rate te dice qué porcentaje de tus trades cierras en verde. El profit factor te dice si la estrategia completa genera dinero. Un scalper de MNQ puede tener 65% de win rate con trades ganadores de 4 ticks y perdedores de 12 ticks — el resultado matemático es negativo aunque parezca que gana más de lo que pierde. Un trader de NQ con 40% de win rate pero con trades ganadores de 30 puntos y perdedores de 10 puntos tiene un profit factor de 2.0 y es consistentemente rentable."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Mejorar tu Profit Factor en una Evaluación de Fondeo"
+    },
+    {
+      "type": "h3",
+      "text": "1. Revisar la relación riesgo-recompensa por trade"
+    },
+    {
+      "type": "p",
+      "text": "Si tus trades ganadores promedian 8 ticks en MNQ y tus perdedores promedian 12 ticks, el sistema está desequilibrado. Antes de hablar de setup o señales, revisa tu política de stops y targets. Muchos traders colombianos que operan MNQ en evaluaciones de Apex o Uprofit mueven el stop loss después de entrar — lo que destruye la relación riesgo-recompensa planeada."
+    },
+    {
+      "type": "h3",
+      "text": "2. Eliminar los trades fuera de estrategia"
+    },
+    {
+      "type": "p",
+      "text": "Los trades de revenge trading o FOMO suelen ser los que más arrastran el profit factor hacia abajo. Son los trades con peor riesgo-recompensa, tomados en el peor momento emocional. Un journal que diferencia entre trades de estrategia y trades impulsivos te permite calcular el profit factor de tu estrategia real — no el profit factor contaminado por los errores emocionales."
+    },
+    {
+      "type": "h3",
+      "text": "3. Reducir el número de trades en días con baja confianza"
+    },
+    {
+      "type": "p",
+      "text": "El profit factor se calcula sobre el total de trades del período. Un solo día con 6 trades impulsivos puede bajar el profit factor de toda una semana. Los traders con mejor profit factor en evaluaciones no son los que operan más — son los que son selectivos. Un registro del historial de trading por hora y día de la semana muestra cuándo tu profit factor es más alto, y te da el dato para operar más solo en esas ventanas."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "En Zentrade Professional y ZenMode, el dashboard muestra tu profit factor por semana, por instrumento y por horario. Puedes ver exactamente si tu NQ de las 9:30-10:30 AM ET tiene mejor profit factor que el de las 2-3 PM ET — y usar ese dato para ajustar cuándo operas."
+    },
+    {
+      "type": "h2",
+      "text": "Profit Factor en el Dashboard de Zentrade"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade calcula el profit factor automáticamente en todos los planes. En el plan gratuito, el dashboard muestra el profit factor global del período seleccionado. En Professional y ZenMode, puedes desglosarlo por instrumento, por horario y por día de la semana. El reporte semanal generado por IA en ZenMode incluye un análisis de cómo evolucionó tu profit factor en los últimos 7 días y qué comportamientos lo afectaron."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "¿Qué profit factor necesito para pasar la evaluación de FTMO?",
+          "a": "FTMO no publica un profit factor mínimo oficial, pero en la práctica, evaluaciones con profit factor inferior a 1.2 tienen mayor probabilidad de rechazo en el análisis cualitativo. El rango recomendado para pasar sin problemas es 1.5 o superior. Lo más importante es que el profit factor sea consistente — que no dependa de un solo día excepcional."
+        },
+        {
+          "q": "¿Cómo calculo el profit factor manualmente?",
+          "a": "Suma todas tus ganancias brutas (solo los trades que cerraste en verde, sin restar comisiones) y divídelas por la suma de todas tus pérdidas brutas (solo los trades cerrados en rojo, en valor absoluto). Si tus ganancias totales son $2,000 y tus pérdidas totales son $1,333, tu profit factor es 1.5. Zentrade hace este cálculo automáticamente en el dashboard."
+        },
+        {
+          "q": "¿Puede un trader con win rate del 40% tener buen profit factor?",
+          "a": "Sí, absolutamente. Un trader que gana 40 trades de cada 100 pero con trades ganadores promedio de $150 y perdedores promedio de $60 tiene un profit factor de 2.0. El profit factor refleja la relación entre el tamaño de ganancias y pérdidas, no la frecuencia de aciertos. Muchos traders profesionales de NQ tienen win rates del 35-45% con profit factors superiores a 1.8."
+        },
+        {
+          "q": "¿Por qué mi profit factor cambia tanto entre semanas?",
+          "a": "La volatilidad en el profit factor semana a semana es normal en evaluaciones de futuros — especialmente en NQ/MNQ donde un solo trade de alta volatilidad puede representar el 30% del PnL semanal. Lo que deben evitarse son las semanas donde el profit factor cae por debajo de 1.0, que suelen correlacionar con sesiones de revenge trading o trades fuera de estrategia. El journal te ayuda a identificar exactamente cuáles trades causaron la caída."
+        },
+        {
+          "q": "¿El profit factor de los traders colombianos es diferente al de traders de USA?",
+          "a": "No existe diferencia estructural por país. Sin embargo, los traders colombianos y de LATAM que operan NQ/MNQ tienen un reto específico de horario: la apertura del mercado americano es a las 9:30 AM ET, que coincide exactamente con las 9:30 AM hora Colombia. Los primeros 30 minutos de apertura tienen alta volatilidad que puede distorsionar el profit factor si el trader no está preparado. El análisis de profit factor por horario en Zentrade ayuda a identificar si el problema está específicamente en esa ventana."
+        },
+        {
+          "q": "¿Cuál es un profit factor realista para una evaluación de 30 días con MNQ?",
+          "a": "Para una evaluación de 30 días con MNQ, un profit factor entre 1.3 y 1.8 es un rango realista y sostenible para un trader con estrategia definida. Profit factors superiores a 2.5 en períodos de 30 días suelen indicar cherry picking (pocos trades, todos ganadores) o un período de mercado inusualmente favorable — ambos difíciles de repetir en la cuenta fondeada. La empresa de fondeo valora la consistencia por encima del número máximo."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "href": "/register",
+      "buttonText": "Empieza gratis en Zentrade — Sin tarjeta de crédito"
+    }
+  ],
+  "relatedSlugs": [
+    "consistency-rule-fondeo-explicada",
+    "drawdown-trailing-vs-estatico-prop-firms",
+    "errores-comunes-evaluaciones-fondeo",
+    "mejor-journal-trading-futuros-2025",
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "como-pasar-uprofit-evaluacion"
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "slug": "como-operar-tradovate-prop-firm",
+  "title": "Cómo Usar Tradovate para Pasar una Evaluación de Fondeo: Guía Práctica",
+  "excerpt": "Tradovate es la plataforma de trading preferida por traders de Apex y TopStep en LATAM. Aprende a configurarla, exportar datos y conectarla con tu journal para no perder ningún trade durante tu evaluación.",
+  "seoTitle": "Cómo Usar Tradovate en Evaluaciones de Fondeo: Guía Completa | Zentrade",
+  "seoDescription": "Guía práctica de Tradovate para traders colombianos en evaluaciones de Apex y TopStep. Configuración, exportación de datos y cómo integrarlo con tu trading journal.",
+  "keywords": [
+    "Tradovate evaluación fondeo",
+    "Tradovate Colombia",
+    "Tradovate Apex Trader Funding",
+    "Tradovate TopStep",
+    "cómo usar Tradovate prop firm",
+    "Tradovate configuración futuros",
+    "Tradovate exportar trades journal",
+    "Tradovate Colombia traders",
+    "Tradovate NQ MNQ evaluación",
+    "plataforma trading Apex Colombia"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-05-10",
+  "updatedAt": "2026-05-10",
+  "category": "herramientas",
+  "tags": ["Tradovate", "Apex Trader Funding", "TopStep", "Colombia", "plataforma trading", "evaluación fondeo", "futuros", "NQ", "MNQ", "LATAM"],
+  "readingTime": 11,
+  "featured": false,
+  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
+  "thumbnailAlt": "Trader colombiano usando Tradovate en múltiples monitores para operar futuros NQ durante su evaluación de fondeo",
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>Tradovate</strong> es la plataforma de trading de futuros nativa en la nube que Apex Trader Funding y TopStep ofrecen a sus traders de evaluación. A diferencia de NinjaTrader, que requiere descarga e instalación local, Tradovate funciona completamente en el navegador — lo que la hace especialmente práctica para traders colombianos y de LATAM que operan desde distintos dispositivos o ubicaciones. Esta guía explica cómo configurar Tradovate correctamente para una evaluación de fondeo, cómo exportar tus datos de trading y cómo integrar esa información con un journal que te ayude a pasar."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Tradovate es una plataforma de ejecución de trades, no una empresa de fondeo. Apex Trader Funding y TopStep son las empresas que ofrecen evaluaciones — Tradovate es la plataforma que usan para ejecutar los trades. Esta distinción confunde a muchos traders nuevos en Colombia y LATAM."
+    },
+    {
+      "type": "h2",
+      "text": "¿Por Qué Tradovate Es Popular en Evaluaciones de Apex y TopStep?"
+    },
+    {
+      "type": "p",
+      "text": "Tradovate tiene tres ventajas que la hacen ideal para traders en evaluación de fondeo: es <strong>nativa en la nube</strong> (no requiere instalación), tiene <strong>feeds de datos integrados</strong> sin costo adicional en los planes de evaluación de Apex y TopStep, y su interfaz es <strong>más limpia que NinjaTrader</strong> para traders que no necesitan herramientas de backtesting avanzadas."
+    },
+    {
+      "type": "p",
+      "text": "Para traders colombianos específicamente, la ventaja de ser web-based es importante: no hay que preocuparse por configurar conexiones de datos a través de VPN, actualizaciones de plataforma en horario de mercado, o diferencias de hardware. Tradovate funciona desde Chrome, Firefox o Edge sin instalación adicional — y desde cualquier ciudad de Colombia con una conexión de internet estable."
+    },
+    {
+      "type": "h2",
+      "text": "Configuración Inicial de Tradovate para una Evaluación"
+    },
+    {
+      "type": "h3",
+      "text": "Paso 1: Acceder a la cuenta de evaluación"
+    },
+    {
+      "type": "p",
+      "text": "Una vez que Apex Trader Funding o TopStep activan tu evaluación, recibes un email con credenciales de acceso a Tradovate. Ingresa en <strong>trader.tradovate.com</strong> (no en el sitio principal de Tradovate, que es para cuentas de bróker). Las credenciales son específicas para la cuenta de evaluación — no son las mismas que una cuenta personal de Tradovate si tienes una."
+    },
+    {
+      "type": "h3",
+      "text": "Paso 2: Verificar los parámetros de la evaluación"
+    },
+    {
+      "type": "p",
+      "text": "Antes de operar, verifica en el panel de Tradovate que los parámetros de la evaluación están cargados correctamente: el balance inicial, el profit target, el max daily loss y el trailing drawdown. En Apex Trader Funding, el trailing drawdown funciona sobre el equity máximo alcanzado — no sobre el balance inicial. Este es el punto técnico que más traders colombianos confunden al configurar sus alertas de riesgo."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "En Apex Trader Funding con cuenta de $50,000, el trailing drawdown empieza en $47,000 y sube a medida que el equity sube. Si llegas a $52,000 de equity máximo, el trailing drawdown sube a $49,000. Esto significa que una racha positiva puede acercarte al límite de trailing drawdown aunque estés en ganancias — uno de los errores más costosos en evaluaciones de Apex."
+    },
+    {
+      "type": "h3",
+      "text": "Paso 3: Configurar alertas de riesgo"
+    },
+    {
+      "type": "p",
+      "text": "Tradovate permite configurar alertas que se disparan cuando el PnL del día llega a un umbral determinado. Para una evaluación con max daily loss de $500, configura una alerta a $400 — lo que te da $100 de margen para cerrar posiciones abiertas antes de violar la regla. La alerta aparece como notificación en la plataforma y, opcionalmente, como email."
+    },
+    {
+      "type": "h3",
+      "text": "Paso 4: Seleccionar los instrumentos correctos"
+    },
+    {
+      "type": "p",
+      "text": "No todas las cuentas de evaluación de Apex o TopStep permiten todos los instrumentos. Verifica la lista de instrumentos autorizados en los términos de tu evaluación. NQ y MNQ están autorizados en prácticamente todas las cuentas. Algunos traders colombianos intentan operar YM, ES o MES sin verificar primero — si el instrumento no está autorizado, el trade puede no contar o la cuenta puede ser marcada para revisión."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Exportar Trades de Tradovate para tu Journal"
+    },
+    {
+      "type": "p",
+      "text": "Tradovate incluye un historial de trades descargable en formato CSV. Para exportarlo: <strong>Menú → Cuenta → Historial de Trades → Exportar CSV</strong>. El archivo incluye: fecha y hora de entrada, precio de entrada, fecha y hora de salida, precio de salida, instrumento, número de contratos y PnL realizado."
+    },
+    {
+      "type": "p",
+      "text": "Lo que el CSV de Tradovate <strong>no incluye</strong> y necesitas añadir manualmente en tu journal: el estado emocional en el momento de la entrada, si el trade era parte de tu estrategia o fue un impulso, las notas de mercado del día, y el contexto de la sesión (apertura de mercado, datos macroeconómicos, evento de noticias). Estos datos son los que convierten el CSV crudo en información útil para mejorar tu evaluación."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "En Zentrade Professional y ZenMode puedes importar el CSV de Tradovate directamente. El sistema mapea automáticamente los campos del CSV al formato del journal y te pide que añadas los datos emocionales para cada trade importado — el proceso toma menos de 5 minutos para una semana completa de trading."
+    },
+    {
+      "type": "h2",
+      "text": "Tradovate + Journal: El Flujo de Trabajo Recomendado"
+    },
+    {
+      "type": "p",
+      "text": "La combinación más efectiva para traders colombianos en evaluaciones de Apex o TopStep es usar Tradovate exclusivamente para la ejecución de trades y un journal externo para el análisis de comportamiento. Tradovate no fue diseñado como journal — fue diseñado como plataforma de ejecución. No tiene análisis de consistency rule, no detecta revenge trading, no muestra profit factor desglosado por horario ni por estado emocional."
+    },
+    {
+      "type": "table",
+      "headers": ["Función", "Tradovate", "Zentrade Journal"],
+      "rows": [
+        ["Ejecución de trades", "Sí — función principal", "No (no es broker)"],
+        ["Historial básico de trades", "Sí", "Sí"],
+        ["PnL del día", "Sí", "Sí"],
+        ["Análisis emocional", "No", "Sí"],
+        ["Consistency rule en tiempo real", "No", "Sí"],
+        ["Profit factor desglosado", "Básico", "Sí, por instrumento y horario"],
+        ["Detección de revenge trading", "No", "Sí (ZenMode)"],
+        ["Reporte semanal con IA", "No", "Sí (Pro y ZenMode)"],
+        ["Alertas de riesgo personalizadas", "Básicas", "Avanzadas (ZenMode)"]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Errores Técnicos Comunes en Tradovate que Afectan tu Evaluación"
+    },
+    {
+      "type": "h3",
+      "text": "Error 1: No cerrar posiciones al final de la sesión"
+    },
+    {
+      "type": "p",
+      "text": "Tradovate no cierra posiciones automáticamente al final de la sesión regular de trading. Si eres trader de futuros que opera intradiario, debes cerrar manualmente antes de las 5 PM ET. Posiciones abiertas overnight en una cuenta de evaluación pueden generar PnL inesperado durante la sesión asiática o europea que afecte tu max daily loss del día siguiente."
+    },
+    {
+      "type": "h3",
+      "text": "Error 2: Confundir el PnL realizado con el PnL abierto"
+    },
+    {
+      "type": "p",
+      "text": "El panel de Tradovate muestra PnL realizado (trades cerrados) y PnL de posiciones abiertas por separado. Muchos traders colombianos que empiezan con la plataforma asumen que el número grande es el PnL total del día — cuando en realidad el PnL de la posición abierta puede cambiar en segundos. Para efectos del max daily loss de la evaluación, la empresa de fondeo suele considerar el PnL total incluyendo posiciones abiertas."
+    },
+    {
+      "type": "h3",
+      "text": "Error 3: No actualizar las credenciales cuando hay una nueva evaluación"
+    },
+    {
+      "type": "p",
+      "text": "Cuando compras una segunda evaluación después de fallar la primera, Apex o TopStep generan nuevas credenciales de Tradovate. Algunos traders siguen operando con las credenciales anteriores (que ya no tienen valor en evaluación) y se dan cuenta del error días después. Verifica siempre que las credenciales que estás usando corresponden a la evaluación activa."
+    },
+    {
+      "type": "h2",
+      "text": "Tradovate vs NinjaTrader: ¿Cuál Usar para tu Evaluación?"
+    },
+    {
+      "type": "p",
+      "text": "La decisión depende de la empresa de fondeo y de tu experiencia previa. Apex Trader Funding ofrece ambas plataformas. TopStep trabaja principalmente con Tradovate. Uprofit usa NinjaTrader como plataforma principal."
+    },
+    {
+      "type": "table",
+      "headers": ["Criterio", "Tradovate", "NinjaTrader"],
+      "rows": [
+        ["Instalación", "No (web-based)", "Sí (software local)"],
+        ["Datos de mercado", "Incluidos con evaluación Apex/TopStep", "Feed adicional puede tener costo"],
+        ["Compatibilidad Colombia", "Excelente (solo necesita internet)", "Buena, pero requiere configuración local"],
+        ["Curva de aprendizaje", "Baja", "Media-alta"],
+        ["Herramientas avanzadas", "Básicas-intermedias", "Avanzadas (indicadores, backtesting)"],
+        ["Empresas compatibles", "Apex, TopStep principalmente", "Uprofit, FTMO (con feed propio), Apex"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Para un trader colombiano en su primera evaluación de Apex o TopStep, la recomendación es <strong>Tradovate</strong> — la curva de aprendizaje más corta significa menos tiempo de configuración y más tiempo operando con el plan. Para traders con experiencia en NinjaTrader que ya conocen la plataforma, no tiene sentido cambiar solo por cambiar."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "¿Tradovate funciona bien desde Colombia?",
+          "a": "Sí. Tradovate es una plataforma web que funciona desde cualquier navegador con conexión a internet estable. No requiere VPN ni configuración especial desde Colombia. La latencia desde Bogotá, Medellín o Cali hacia los servidores de Tradovate (ubicados en Chicago) es suficientemente baja para trading intradiario de futuros. La recomendación es usar una conexión fija (ethernet) y no WiFi para sesiones de trading activas."
+        },
+        {
+          "q": "¿Puedo usar Tradovate para una evaluación de FTMO?",
+          "a": "No. FTMO tiene su propia plataforma de trading o trabaja con plataformas específicas como MetaTrader 4/5 para forex y CFDs. Para futuros de NQ/MNQ con FTMO, se usa una plataforma compatible con sus feeds de datos — no Tradovate. Tradovate está disponible principalmente para Apex Trader Funding y TopStep."
+        },
+        {
+          "q": "¿Cómo exporto mis trades de Tradovate a un journal?",
+          "a": "En Tradovate, ve a Cuenta → Historial de Trades → Exportar CSV. El archivo CSV incluye entrada, salida, instrumento, contratos y PnL. En Zentrade Professional y ZenMode puedes importar este CSV directamente — el sistema mapea los campos automáticamente y solo necesitas añadir los datos emocionales manualmente."
+        },
+        {
+          "q": "¿El trailing drawdown de Apex se calcula en Tradovate automáticamente?",
+          "a": "Apex Trader Funding rastrea el trailing drawdown en su propio sistema de riesgo — no en Tradovate directamente. Tradovate muestra el balance y PnL del día, pero el cálculo del trailing drawdown lo gestiona Apex por separado. Algunos traders usan herramientas externas o el dashboard de Apex para monitorear su trailing drawdown en tiempo real. Si tienes Zentrade ZenMode, puedes configurar alertas manuales del nivel de drawdown restante."
+        },
+        {
+          "q": "¿Tradovate tiene app móvil?",
+          "a": "Sí, Tradovate tiene app para iOS y Android. Sin embargo, la recomendación para trading activo de evaluación de fondeo es siempre la versión web en un monitor de escritorio. La app móvil es útil para cerrar posiciones en emergencias o revisar PnL, pero no para operar activamente — la gestión de riesgo requiere visibilidad completa del gráfico y los niveles."
+        },
+        {
+          "q": "¿Qué diferencia hay entre Tradovate y Tradoverse?",
+          "a": "Son entidades completamente diferentes. Tradovate es una plataforma tecnológica de brokerage y ejecución de futuros. Tradoverse es una empresa de fondeo (prop firm) que ofrece evaluaciones para traders — y usa su propia plataforma o plataformas de terceros. No tienen relación entre sí a pesar de la similitud en el nombre, que frecuentemente confunde a traders nuevos en Colombia y LATAM."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "href": "/register",
+      "buttonText": "Empieza gratis en Zentrade — Sin tarjeta de crédito"
+    }
+  ],
+  "relatedSlugs": [
+    "como-pasar-apex-trader-funding",
+    "como-pasar-topstep-evaluacion",
+    "ninjatrader-journal-trading-futuros",
+    "errores-comunes-evaluaciones-fondeo",
+    "drawdown-trailing-vs-estatico-prop-firms",
+    "uprofit-colombia-empresa-fondeo"
+  ]
+}
