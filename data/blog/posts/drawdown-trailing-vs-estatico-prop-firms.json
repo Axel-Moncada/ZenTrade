@@ -17,10 +17,18 @@
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "fondeo",
-  "tags": ["drawdown", "prop firms", "Apex", "TopStep", "FTMO", "reglas de riesgo", "futuros"],
+  "tags": [
+    "drawdown",
+    "prop firms",
+    "Apex",
+    "TopStep",
+    "FTMO",
+    "reglas de riesgo",
+    "futuros"
+  ],
   "readingTime": 9,
   "featured": false,
-  "thumbnail": "/blog/trader-analizando-graficas-pantalla.jpg",
+  "thumbnail": "/blog/trader-analizando-estrategia-grafica.jpg",
   "thumbnailAlt": "Trader analizando gráficas de futuros en pantalla con métricas de drawdown",
   "content": [
     {
@@ -92,14 +100,42 @@
     },
     {
       "type": "table",
-      "headers": ["Característica", "Drawdown Estático", "Trailing Drawdown"],
+      "headers": [
+        "Característica",
+        "Drawdown Estático",
+        "Trailing Drawdown"
+      ],
       "rows": [
-        ["Empresas que lo usan", "FTMO, Uprofit, Tradoverse", "Apex Trader Funding, TopStep"],
-        ["Nivel de eliminación", "Fijo desde el inicio", "Se mueve con tu equity máximo"],
-        ["Impacto de una racha ganadora", "Aumenta tu colchón de seguridad", "Sube el nivel de eliminación (más riesgo)"],
-        ["Impacto de una racha perdedora", "Solo reduce tu margen disponible", "Puede eliminar incluso si tienes ganancias netas"],
-        ["Traders beneficiados", "Traders agresivos con días de alta volatilidad", "Traders consistentes con ganancias graduales"],
-        ["Riesgo en días de alta vol.", "Moderado", "Alto — una recuperación rápida puede ser tramposa"]
+        [
+          "Empresas que lo usan",
+          "FTMO, Uprofit, Tradoverse",
+          "Apex Trader Funding, TopStep"
+        ],
+        [
+          "Nivel de eliminación",
+          "Fijo desde el inicio",
+          "Se mueve con tu equity máximo"
+        ],
+        [
+          "Impacto de una racha ganadora",
+          "Aumenta tu colchón de seguridad",
+          "Sube el nivel de eliminación (más riesgo)"
+        ],
+        [
+          "Impacto de una racha perdedora",
+          "Solo reduce tu margen disponible",
+          "Puede eliminar incluso si tienes ganancias netas"
+        ],
+        [
+          "Traders beneficiados",
+          "Traders agresivos con días de alta volatilidad",
+          "Traders consistentes con ganancias graduales"
+        ],
+        [
+          "Riesgo en días de alta vol.",
+          "Moderado",
+          "Alto — una recuperación rápida puede ser tramposa"
+        ]
       ]
     },
     {

@@ -17,10 +17,18 @@
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "fondeo",
-  "tags": ["Uprofit", "evaluación", "estrategia", "Colombia", "guía", "futuros", "prop firm"],
+  "tags": [
+    "Uprofit",
+    "evaluación",
+    "estrategia",
+    "Colombia",
+    "guía",
+    "futuros",
+    "prop firm"
+  ],
   "readingTime": 12,
   "featured": false,
-  "thumbnail": "/blog/trader-revisando-metricas-evaluacion.jpg",
+  "thumbnail": "/blog/trader-aprobado-pulgar-arriba-fondeo.jpg",
   "thumbnailAlt": "Trader revisando métricas de su evaluación de prop firm de futuros en computadora",
   "content": [
     {
@@ -163,15 +171,47 @@
     },
     {
       "type": "table",
-      "headers": ["Parámetro", "Valor", "Justificación"],
+      "headers": [
+        "Parámetro",
+        "Valor",
+        "Justificación"
+      ],
       "rows": [
-        ["Instrumento", "MNQ o MES", "Volatilidad manejable, fees bajos"],
-        ["Contratos por trade", "2-3 MNQ", "Permite P&L de $100-$300 por operación con riesgo controlado"],
-        ["Stop loss personal", "10-15 ticks en MNQ ($20-$30)", "Riesgo por trade: $40-$90 con 2-3 contratos"],
-        ["Pérdida máxima personal por día", "$500 (50% del límite de Uprofit)", "Margen de seguridad sobre el 4% oficial"],
-        ["Objetivo diario", "$200-$300", "3-5 sesiones ganadoras → $600-$1,500/semana"],
-        ["Objetivo semanal", "$600-$1,000", "4 semanas → $2,400-$4,000 → alcanzas el target"],
-        ["Días de operación por semana", "3-4 días", "Calidad sobre cantidad — no operar días de baja convicción"]
+        [
+          "Instrumento",
+          "MNQ o MES",
+          "Volatilidad manejable, fees bajos"
+        ],
+        [
+          "Contratos por trade",
+          "2-3 MNQ",
+          "Permite P&L de $100-$300 por operación con riesgo controlado"
+        ],
+        [
+          "Stop loss personal",
+          "10-15 ticks en MNQ ($20-$30)",
+          "Riesgo por trade: $40-$90 con 2-3 contratos"
+        ],
+        [
+          "Pérdida máxima personal por día",
+          "$500 (50% del límite de Uprofit)",
+          "Margen de seguridad sobre el 4% oficial"
+        ],
+        [
+          "Objetivo diario",
+          "$200-$300",
+          "3-5 sesiones ganadoras → $600-$1,500/semana"
+        ],
+        [
+          "Objetivo semanal",
+          "$600-$1,000",
+          "4 semanas → $2,400-$4,000 → alcanzas el target"
+        ],
+        [
+          "Días de operación por semana",
+          "3-4 días",
+          "Calidad sobre cantidad — no operar días de baja convicción"
+        ]
       ]
     },
     {

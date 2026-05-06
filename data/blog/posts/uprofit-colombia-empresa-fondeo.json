@@ -17,10 +17,18 @@
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "fondeo",
-  "tags": ["Uprofit", "Colombia", "empresa de fondeo", "evaluación", "futuros", "LATAM", "prop firm"],
+  "tags": [
+    "Uprofit",
+    "Colombia",
+    "empresa de fondeo",
+    "evaluación",
+    "futuros",
+    "LATAM",
+    "prop firm"
+  ],
   "readingTime": 9,
   "featured": true,
-  "thumbnail": "/blog/trader-colombiano-pasando-fondeo.jpg",
+  "thumbnail": "/blog/trader-ganancias-prueba-fondeo-futuros.jpg",
   "thumbnailAlt": "Trader colombiano celebrando tras pasar evaluación de empresa de fondeo de futuros",
   "content": [
     {
@@ -58,12 +66,47 @@
     },
     {
       "type": "table",
-      "headers": ["Tamaño de cuenta", "Precio evaluación", "Profit target", "Max daily loss", "Max drawdown", "Reparto ganancias"],
+      "headers": [
+        "Tamaño de cuenta",
+        "Precio evaluación",
+        "Profit target",
+        "Max daily loss",
+        "Max drawdown",
+        "Reparto ganancias"
+      ],
       "rows": [
-        ["$25,000", "$79 USD", "$2,000 (8%)", "$1,000 (4%)", "$2,000 (8%)", "80/20"],
-        ["$50,000", "$139 USD", "$4,000 (8%)", "$2,000 (4%)", "$4,000 (8%)", "80/20"],
-        ["$100,000", "$219 USD", "$8,000 (8%)", "$4,000 (4%)", "$8,000 (8%)", "80/20"],
-        ["$200,000", "$389 USD", "$16,000 (8%)", "$8,000 (4%)", "$16,000 (8%)", "80/20"]
+        [
+          "$25,000",
+          "$79 USD",
+          "$2,000 (8%)",
+          "$1,000 (4%)",
+          "$2,000 (8%)",
+          "80/20"
+        ],
+        [
+          "$50,000",
+          "$139 USD",
+          "$4,000 (8%)",
+          "$2,000 (4%)",
+          "$4,000 (8%)",
+          "80/20"
+        ],
+        [
+          "$100,000",
+          "$219 USD",
+          "$8,000 (8%)",
+          "$4,000 (4%)",
+          "$8,000 (8%)",
+          "80/20"
+        ],
+        [
+          "$200,000",
+          "$389 USD",
+          "$16,000 (8%)",
+          "$8,000 (4%)",
+          "$16,000 (8%)",
+          "80/20"
+        ]
       ]
     },
     {
@@ -154,16 +197,61 @@
     },
     {
       "type": "table",
-      "headers": ["Factor", "Uprofit", "Apex Trader Funding", "FTMO"],
+      "headers": [
+        "Factor",
+        "Uprofit",
+        "Apex Trader Funding",
+        "FTMO"
+      ],
       "rows": [
-        ["Precio evaluación $25K", "$79", "~$147", "No tiene $25K"],
-        ["Tipo de drawdown", "Estático (favorable)", "Trailing (más restrictivo)", "Estático (favorable)"],
-        ["Consistency rule", "No", "No", "Sí (30%) — puede eliminar en verificación"],
-        ["Número de fases", "1 fase", "1 fase", "2 fases (Challenge + Verification)"],
-        ["Límite de tiempo", "Sin límite", "Sin límite", "30 días Challenge / 60 días Verification"],
-        ["Instrumentos", "Futuros CME", "Futuros CME", "Forex, CFDs, índices"],
-        ["Reparto ganancias", "80/20", "90/10 a 100/0 según plan", "80/20 inicial, hasta 90/10"],
-        ["Accesibilidad desde Colombia", "Alta — precio en USD accesible", "Alta", "Media — proceso de dos fases"]
+        [
+          "Precio evaluación $25K",
+          "$79",
+          "~$147",
+          "No tiene $25K"
+        ],
+        [
+          "Tipo de drawdown",
+          "Estático (favorable)",
+          "Trailing (más restrictivo)",
+          "Estático (favorable)"
+        ],
+        [
+          "Consistency rule",
+          "No",
+          "No",
+          "Sí (30%) — puede eliminar en verificación"
+        ],
+        [
+          "Número de fases",
+          "1 fase",
+          "1 fase",
+          "2 fases (Challenge + Verification)"
+        ],
+        [
+          "Límite de tiempo",
+          "Sin límite",
+          "Sin límite",
+          "30 días Challenge / 60 días Verification"
+        ],
+        [
+          "Instrumentos",
+          "Futuros CME",
+          "Futuros CME",
+          "Forex, CFDs, índices"
+        ],
+        [
+          "Reparto ganancias",
+          "80/20",
+          "90/10 a 100/0 según plan",
+          "80/20 inicial, hasta 90/10"
+        ],
+        [
+          "Accesibilidad desde Colombia",
+          "Alta — precio en USD accesible",
+          "Alta",
+          "Media — proceso de dos fases"
+        ]
       ]
     },
     {

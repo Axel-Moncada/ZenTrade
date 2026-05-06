@@ -17,10 +17,17 @@
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "fondeo",
-  "tags": ["riesgo", "gestión de riesgo", "prop firms", "daily loss limit", "evaluación", "disciplina"],
+  "tags": [
+    "riesgo",
+    "gestión de riesgo",
+    "prop firms",
+    "daily loss limit",
+    "evaluación",
+    "disciplina"
+  ],
   "readingTime": 9,
   "featured": false,
-  "thumbnail": "/blog/trader-gestion-riesgo-pantalla.jpg",
+  "thumbnail": "/blog/trader-concentrado-analisis-graficas-futuros.jpg",
   "thumbnailAlt": "Trader monitoreando métricas de gestión de riesgo en pantalla durante sesión de trading",
   "content": [
     {
@@ -50,14 +57,49 @@
     },
     {
       "type": "table",
-      "headers": ["Empresa de fondeo", "Daily Loss Limit", "Base de cálculo", "Nota"],
+      "headers": [
+        "Empresa de fondeo",
+        "Daily Loss Limit",
+        "Base de cálculo",
+        "Nota"
+      ],
       "rows": [
-        ["FTMO", "5% del balance inicial", "Balance + equity de posiciones abiertas", "Incluye unrealized P&L en tiempo real"],
-        ["Apex Trader Funding", "Sin límite diario fijo", "Trailing drawdown total", "No hay daily loss limit — solo el trailing drawdown aplica"],
-        ["TopStep", "Sin límite diario fijo", "Trailing drawdown total", "Similar a Apex — el trailing aplica sobre el equity máximo"],
-        ["Uprofit", "4% del balance inicial", "Balance de inicio del día", "Claro y predecible — solo trades cerrados"],
-        ["Tradoverse", "4% del balance inicial", "Balance de inicio del día", "Aplica solo a trades cerrados"],
-        ["The Funded Trader", "5% del balance", "Balance diario", "Varía según el contrato elegido"]
+        [
+          "FTMO",
+          "5% del balance inicial",
+          "Balance + equity de posiciones abiertas",
+          "Incluye unrealized P&L en tiempo real"
+        ],
+        [
+          "Apex Trader Funding",
+          "Sin límite diario fijo",
+          "Trailing drawdown total",
+          "No hay daily loss limit — solo el trailing drawdown aplica"
+        ],
+        [
+          "TopStep",
+          "Sin límite diario fijo",
+          "Trailing drawdown total",
+          "Similar a Apex — el trailing aplica sobre el equity máximo"
+        ],
+        [
+          "Uprofit",
+          "4% del balance inicial",
+          "Balance de inicio del día",
+          "Claro y predecible — solo trades cerrados"
+        ],
+        [
+          "Tradoverse",
+          "4% del balance inicial",
+          "Balance de inicio del día",
+          "Aplica solo a trades cerrados"
+        ],
+        [
+          "The Funded Trader",
+          "5% del balance",
+          "Balance diario",
+          "Varía según el contrato elegido"
+        ]
       ]
     },
     {
@@ -168,14 +210,49 @@
     },
     {
       "type": "table",
-      "headers": ["Empresa", "Daily Loss Limit", "Tu límite personal sugerido", "Nota para traders colombianos"],
+      "headers": [
+        "Empresa",
+        "Daily Loss Limit",
+        "Tu límite personal sugerido",
+        "Nota para traders colombianos"
+      ],
       "rows": [
-        ["FTMO $100K", "$5,000 (5%)", "$2,500-$3,000", "Recuerda que incluye unrealized P&L"],
-        ["FTMO $50K", "$2,500 (5%)", "$1,250-$1,500", "Mínimo 4 días activos de trading requeridos"],
-        ["Apex $50K", "No hay daily limit", "Define tu propio (ej: $1,500)", "El trailing drawdown es $2,500"],
-        ["Uprofit $100K", "$4,000 (4%)", "$2,000-$2,400", "Solo trades cerrados cuentan"],
-        ["Uprofit $25K", "$1,000 (4%)", "$500-$600", "Popular en Colombia — precio accesible"],
-        ["Tradoverse $100K", "$4,000 (4%)", "$2,000-$2,400", "Balance de cierre del día"]
+        [
+          "FTMO $100K",
+          "$5,000 (5%)",
+          "$2,500-$3,000",
+          "Recuerda que incluye unrealized P&L"
+        ],
+        [
+          "FTMO $50K",
+          "$2,500 (5%)",
+          "$1,250-$1,500",
+          "Mínimo 4 días activos de trading requeridos"
+        ],
+        [
+          "Apex $50K",
+          "No hay daily limit",
+          "Define tu propio (ej: $1,500)",
+          "El trailing drawdown es $2,500"
+        ],
+        [
+          "Uprofit $100K",
+          "$4,000 (4%)",
+          "$2,000-$2,400",
+          "Solo trades cerrados cuentan"
+        ],
+        [
+          "Uprofit $25K",
+          "$1,000 (4%)",
+          "$500-$600",
+          "Popular en Colombia — precio accesible"
+        ],
+        [
+          "Tradoverse $100K",
+          "$4,000 (4%)",
+          "$2,000-$2,400",
+          "Balance de cierre del día"
+        ]
       ]
     },
     {

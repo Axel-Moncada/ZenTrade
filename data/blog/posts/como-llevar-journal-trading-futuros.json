@@ -17,10 +17,17 @@
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "educacion",
-  "tags": ["journal de trading", "futuros", "guía", "principiantes", "métricas", "disciplina"],
+  "tags": [
+    "journal de trading",
+    "futuros",
+    "guía",
+    "principiantes",
+    "métricas",
+    "disciplina"
+  ],
   "readingTime": 11,
   "featured": true,
-  "thumbnail": "/blog/trader-tomando-notas-journal.jpg",
+  "thumbnail": "/blog/trader-escritura-journal-grafica-monitor.jpg",
   "thumbnailAlt": "Trader de futuros tomando notas en su journal de trading con gráficas en la pantalla",
   "content": [
     {
@@ -172,15 +179,47 @@
     },
     {
       "type": "table",
-      "headers": ["Característica", "Excel / Google Sheets", "Zentrade"],
+      "headers": [
+        "Característica",
+        "Excel / Google Sheets",
+        "Zentrade"
+      ],
       "rows": [
-        ["Registro de trades", "Manual, tedioso", "Manual o importación CSV (NinjaTrader, Rithmic, Tradovate)"],
-        ["Cálculo de métricas", "Requiere fórmulas personalizadas", "Automático: profit factor, winrate, drawdown, consistency %"],
-        ["Análisis emocional", "Muy difícil de sistematizar", "Campo de emoción por trade con correlación automática"],
-        ["Calendario de trades", "No disponible sin macros complejas", "Vista mensual con PnL diario y marcadores de revenge trading"],
-        ["Detección de revenge trading", "Imposible automáticamente", "IA que detecta el patrón en tiempo real (ZenMode)"],
-        ["Reporte semanal", "Manual", "Generado automáticamente por IA cada lunes (ZenMode)"],
-        ["Métricas de prop firm", "Requiere cálculo manual", "Consistency %, drawdown disponible, progreso hacia profit target"]
+        [
+          "Registro de trades",
+          "Manual, tedioso",
+          "Manual o importación CSV (NinjaTrader, Rithmic, Tradovate)"
+        ],
+        [
+          "Cálculo de métricas",
+          "Requiere fórmulas personalizadas",
+          "Automático: profit factor, winrate, drawdown, consistency %"
+        ],
+        [
+          "Análisis emocional",
+          "Muy difícil de sistematizar",
+          "Campo de emoción por trade con correlación automática"
+        ],
+        [
+          "Calendario de trades",
+          "No disponible sin macros complejas",
+          "Vista mensual con PnL diario y marcadores de revenge trading"
+        ],
+        [
+          "Detección de revenge trading",
+          "Imposible automáticamente",
+          "IA que detecta el patrón en tiempo real (ZenMode)"
+        ],
+        [
+          "Reporte semanal",
+          "Manual",
+          "Generado automáticamente por IA cada lunes (ZenMode)"
+        ],
+        [
+          "Métricas de prop firm",
+          "Requiere cálculo manual",
+          "Consistency %, drawdown disponible, progreso hacia profit target"
+        ]
       ]
     },
     {

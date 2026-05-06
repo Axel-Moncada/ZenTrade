@@ -17,10 +17,18 @@
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "educacion",
-  "tags": ["futuros", "principiantes", "MNQ", "MES", "instrumentos", "Colombia", "LATAM"],
+  "tags": [
+    "futuros",
+    "principiantes",
+    "MNQ",
+    "MES",
+    "instrumentos",
+    "Colombia",
+    "LATAM"
+  ],
   "readingTime": 10,
   "featured": false,
-  "thumbnail": "/blog/pantallas-graficas-futuros-nasdaq.jpg",
+  "thumbnail": "/blog/graficas-velas-japonesas-futuros.jpg",
   "thumbnailAlt": "Múltiples pantallas mostrando gráficas de futuros del Nasdaq y S&P 500",
   "content": [
     {
@@ -59,14 +67,56 @@
     },
     {
       "type": "table",
-      "headers": ["Contrato", "Índice que sigue", "Valor por tick", "Margen intradía aprox.", "Mejor para"],
+      "headers": [
+        "Contrato",
+        "Índice que sigue",
+        "Valor por tick",
+        "Margen intradía aprox.",
+        "Mejor para"
+      ],
       "rows": [
-        ["MNQ", "Nasdaq 100 (micro)", "$0.50 / tick ($2 / punto)", "~$40-100 USD", "Traders con poco capital, evaluaciones pequeñas"],
-        ["MES", "S&P 500 (micro)", "$1.25 / tick ($5 / punto)", "~$40-80 USD", "Traders conservadores, diversificación"],
-        ["MYM", "Dow Jones (micro)", "$0.50 / tick ($0.50 / punto)", "~$30-60 USD", "Principiantes con capital mínimo"],
-        ["M2K", "Russell 2000 (micro)", "$0.50 / tick ($5 / punto)", "~$40-70 USD", "Traders de small caps"],
-        ["NQ", "Nasdaq 100 (estándar)", "$5.00 / tick ($20 / punto)", "~$500-1500 USD", "Traders con experiencia y capital"],
-        ["ES", "S&P 500 (estándar)", "$12.50 / tick ($50 / punto)", "~$400-1000 USD", "Traders institucionales o fondeo grande"]
+        [
+          "MNQ",
+          "Nasdaq 100 (micro)",
+          "$0.50 / tick ($2 / punto)",
+          "~$40-100 USD",
+          "Traders con poco capital, evaluaciones pequeñas"
+        ],
+        [
+          "MES",
+          "S&P 500 (micro)",
+          "$1.25 / tick ($5 / punto)",
+          "~$40-80 USD",
+          "Traders conservadores, diversificación"
+        ],
+        [
+          "MYM",
+          "Dow Jones (micro)",
+          "$0.50 / tick ($0.50 / punto)",
+          "~$30-60 USD",
+          "Principiantes con capital mínimo"
+        ],
+        [
+          "M2K",
+          "Russell 2000 (micro)",
+          "$0.50 / tick ($5 / punto)",
+          "~$40-70 USD",
+          "Traders de small caps"
+        ],
+        [
+          "NQ",
+          "Nasdaq 100 (estándar)",
+          "$5.00 / tick ($20 / punto)",
+          "~$500-1500 USD",
+          "Traders con experiencia y capital"
+        ],
+        [
+          "ES",
+          "S&P 500 (estándar)",
+          "$12.50 / tick ($50 / punto)",
+          "~$400-1000 USD",
+          "Traders institucionales o fondeo grande"
+        ]
       ]
     },
     {
@@ -160,15 +210,47 @@
     },
     {
       "type": "table",
-      "headers": ["Hora Colombia (UTC-5)", "Hora New York (ET)", "Evento de mercado"],
+      "headers": [
+        "Hora Colombia (UTC-5)",
+        "Hora New York (ET)",
+        "Evento de mercado"
+      ],
       "rows": [
-        ["3:00 AM", "4:00 AM", "Apertura de sesión asiática tardía / pre-market europeo"],
-        ["8:30 AM", "9:30 AM", "Apertura de mercado de acciones USA — mayor liquidez del día"],
-        ["9:00-10:30 AM", "10:00-11:30 AM", "Primera hora: mayor volatilidad y oportunidades"],
-        ["12:30 PM", "1:30 PM", "Publicación de datos económicos frecuentes (Fed, inflación)"],
-        ["2:00 PM", "3:00 PM", "Cierre de New York — segunda ventana de alta liquidez"],
-        ["3:00 PM", "4:00 PM", "Cierre del mercado de acciones USA"],
-        ["5:00 PM", "6:00 PM", "Reset de sesión de futuros — pausa de 1 hora"]
+        [
+          "3:00 AM",
+          "4:00 AM",
+          "Apertura de sesión asiática tardía / pre-market europeo"
+        ],
+        [
+          "8:30 AM",
+          "9:30 AM",
+          "Apertura de mercado de acciones USA — mayor liquidez del día"
+        ],
+        [
+          "9:00-10:30 AM",
+          "10:00-11:30 AM",
+          "Primera hora: mayor volatilidad y oportunidades"
+        ],
+        [
+          "12:30 PM",
+          "1:30 PM",
+          "Publicación de datos económicos frecuentes (Fed, inflación)"
+        ],
+        [
+          "2:00 PM",
+          "3:00 PM",
+          "Cierre de New York — segunda ventana de alta liquidez"
+        ],
+        [
+          "3:00 PM",
+          "4:00 PM",
+          "Cierre del mercado de acciones USA"
+        ],
+        [
+          "5:00 PM",
+          "6:00 PM",
+          "Reset de sesión de futuros — pausa de 1 hora"
+        ]
       ]
     },
     {
