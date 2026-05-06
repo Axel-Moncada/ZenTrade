@@ -37,17 +37,6 @@ export async function GET(_req: Request, { params }: Props) {
   const categoryLabel = CATEGORY_LABELS[post.category] ?? post.category;
   const accentColor = CATEGORY_COLORS[post.category] ?? ZEN_GREEN;
 
-  // Carga Inter Bold desde Google Fonts (cacheado por la CDN de Vercel)
-  let fontData: ArrayBuffer;
-  try {
-    fontData = await fetch(
-      "https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-    ).then((r) => r.arrayBuffer());
-  } catch {
-    // Si falla la carga de fuente, continúa sin fuente personalizada
-    fontData = new ArrayBuffer(0);
-  }
-
   // Trunca el título si es muy largo para que quepa bien
   const titleFontSize = post.title.length > 70 ? 44 : post.title.length > 50 ? 50 : 56;
 
@@ -224,10 +213,6 @@ export async function GET(_req: Request, { params }: Props) {
     {
       width: 1200,
       height: 630,
-      fonts:
-        fontData.byteLength > 0
-          ? [{ name: "Inter", data: fontData, weight: 700, style: "normal" }]
-          : [],
     }
   );
 }
