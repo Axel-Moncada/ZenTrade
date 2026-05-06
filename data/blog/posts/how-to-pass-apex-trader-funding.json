@@ -4,16 +4,30 @@
   "excerpt": "A complete guide to passing the Apex Trader Funding evaluation: rules, profit targets, drawdown limits, and the trading journal strategy that gives you an edge.",
   "seoTitle": "How to Pass Apex Trader Funding Evaluation: Full Guide 2025",
   "seoDescription": "Step-by-step guide to passing the Apex Trader Funding evaluation. Learn the rules, drawdown limits, and the exact trading journal approach to get funded in 2025.",
-  "keywords": ["how to pass Apex Trader Funding", "Apex Trader Funding evaluation rules", "Apex funded trader", "Apex Trading evaluation guide", "Apex drawdown rules", "trading journal Apex Trader Funding"],
+  "keywords": [
+    "how to pass Apex Trader Funding",
+    "Apex Trader Funding evaluation rules",
+    "Apex funded trader",
+    "Apex Trading evaluation guide",
+    "Apex drawdown rules",
+    "trading journal Apex Trader Funding"
+  ],
   "author": "Zentrade Team",
   "publishedAt": "2026-04-06",
   "updatedAt": "2026-04-06",
   "category": "fondeo",
-  "tags": ["Apex Trader Funding", "funded trading", "prop firm evaluation", "futures trading", "trading journal", "drawdown rules"],
+  "tags": [
+    "Apex Trader Funding",
+    "funded trading",
+    "prop firm evaluation",
+    "futures trading",
+    "trading journal",
+    "drawdown rules"
+  ],
   "readingTime": 10,
   "featured": false,
   "thumbnail": "/blog/trader-feliz-setup-trading-futuros.jpg",
-  "thumbnailAlt": "Happy trader celebrating passing Apex Trader Funding evaluation at trading setup",
+  "thumbnailAlt": "Trader analyzing Apex Trader Funding evaluation rules on trading journal dashboard with profit factor metrics",
   "content": [
     {
       "type": "p",
@@ -33,14 +47,56 @@
     },
     {
       "type": "table",
-      "headers": ["Account Size", "Profit Target", "Max Trailing Drawdown", "Daily Loss Limit", "Min Trading Days"],
+      "headers": [
+        "Account Size",
+        "Profit Target",
+        "Max Trailing Drawdown",
+        "Daily Loss Limit",
+        "Min Trading Days"
+      ],
       "rows": [
-        ["$25,000", "$1,500", "$1,500", "No fixed daily limit", "7+ recommended"],
-        ["$50,000", "$3,000", "$2,500", "No fixed daily limit", "7+ recommended"],
-        ["$75,000", "$4,250", "$2,750", "No fixed daily limit", "7+ recommended"],
-        ["$100,000", "$6,000", "$3,000", "No fixed daily limit", "7+ recommended"],
-        ["$150,000", "$9,000", "$5,000", "No fixed daily limit", "7+ recommended"],
-        ["$250,000", "$15,000", "$6,500", "No fixed daily limit", "7+ recommended"]
+        [
+          "$25,000",
+          "$1,500",
+          "$1,500",
+          "No fixed daily limit",
+          "7+ recommended"
+        ],
+        [
+          "$50,000",
+          "$3,000",
+          "$2,500",
+          "No fixed daily limit",
+          "7+ recommended"
+        ],
+        [
+          "$75,000",
+          "$4,250",
+          "$2,750",
+          "No fixed daily limit",
+          "7+ recommended"
+        ],
+        [
+          "$100,000",
+          "$6,000",
+          "$3,000",
+          "No fixed daily limit",
+          "7+ recommended"
+        ],
+        [
+          "$150,000",
+          "$9,000",
+          "$5,000",
+          "No fixed daily limit",
+          "7+ recommended"
+        ],
+        [
+          "$250,000",
+          "$15,000",
+          "$6,500",
+          "No fixed daily limit",
+          "7+ recommended"
+        ]
       ]
     },
     {
@@ -150,14 +206,56 @@
     },
     {
       "type": "table",
-      "headers": ["Instrument", "Contract", "Tick Value", "Risk per tick (1 contract)", "Notes"],
+      "headers": [
+        "Instrument",
+        "Contract",
+        "Tick Value",
+        "Risk per tick (1 contract)",
+        "Notes"
+      ],
       "rows": [
-        ["NQ", "Nasdaq-100 E-mini", "$5/tick", "$5", "High volatility, high reward potential"],
-        ["ES", "S&P 500 E-mini", "$12.50/tick", "$12.50", "Most liquid futures contract"],
-        ["MNQ", "Micro Nasdaq-100", "$0.50/tick", "$0.50", "NQ with 1/10th the risk"],
-        ["MES", "Micro S&P 500", "$1.25/tick", "$1.25", "ES with 1/10th the risk"],
-        ["CL", "Crude Oil", "$10/tick", "$10", "High volatility around energy news"],
-        ["GC", "Gold", "$10/tick", "$10", "Safe haven, trending behavior"]
+        [
+          "NQ",
+          "Nasdaq-100 E-mini",
+          "$5/tick",
+          "$5",
+          "High volatility, high reward potential"
+        ],
+        [
+          "ES",
+          "S&P 500 E-mini",
+          "$12.50/tick",
+          "$12.50",
+          "Most liquid futures contract"
+        ],
+        [
+          "MNQ",
+          "Micro Nasdaq-100",
+          "$0.50/tick",
+          "$0.50",
+          "NQ with 1/10th the risk"
+        ],
+        [
+          "MES",
+          "Micro S&P 500",
+          "$1.25/tick",
+          "$1.25",
+          "ES with 1/10th the risk"
+        ],
+        [
+          "CL",
+          "Crude Oil",
+          "$10/tick",
+          "$10",
+          "High volatility around energy news"
+        ],
+        [
+          "GC",
+          "Gold",
+          "$10/tick",
+          "$10",
+          "Safe haven, trending behavior"
+        ]
       ]
     },
     {
@@ -208,5 +306,8 @@
       "buttonText": "Start free — no credit card"
     }
   ],
-  "relatedSlugs": ["best-trading-journal-prop-firms-2025", "consistency-rule-prop-firm-explained"]
+  "relatedSlugs": [
+    "best-trading-journal-prop-firms-2025",
+    "consistency-rule-prop-firm-explained"
+  ]
 }

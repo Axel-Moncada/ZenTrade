@@ -20,11 +20,22 @@
   "publishedAt": "2026-05-12",
   "updatedAt": "2026-05-12",
   "category": "psicologia",
-  "tags": ["trading psychology", "FOMO", "revenge trading", "overconfidence", "emotions", "NQ", "MNQ", "prop firm evaluation", "futures trading", "funded account"],
+  "tags": [
+    "trading psychology",
+    "FOMO",
+    "revenge trading",
+    "overconfidence",
+    "emotions",
+    "NQ",
+    "MNQ",
+    "prop firm evaluation",
+    "futures trading",
+    "funded account"
+  ],
   "readingTime": 12,
   "featured": false,
-  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
-  "thumbnailAlt": "Futures trader experiencing emotional decision-making at a multi-monitor trading setup during a prop firm evaluation",
+  "thumbnail": "/blog/businesswoman-buying-stocks-online-hispanic-young-woman-working-from-home-her-trading-business-laptop.jpg",
+  "thumbnailAlt": "Hispanic woman trader managing trading psychology and emotions while working on futures prop firm evaluation from home",
   "content": [
     {
       "type": "p",
@@ -134,12 +145,37 @@
     },
     {
       "type": "table",
-      "headers": ["Emotion", "Journal Signal", "Evaluation Impact", "Journal-Based Solution"],
+      "headers": [
+        "Emotion",
+        "Journal Signal",
+        "Evaluation Impact",
+        "Journal-Based Solution"
+      ],
       "rows": [
-        ["FOMO", "Entries 15+ min after move with no pullback", "Low profit factor, many losers", "Tag trades as FOMO + weekly success rate by tag"],
-        ["Revenge trading", "Losing trade → new entry <30 min", "Daily loss limit hit in one session", "Automatic detection (ZenMode) + real-time alert"],
-        ["Overconfidence", "Contract size increase after winning streak", "Large loss erasing the week", "Position sizing chart by day"],
-        ["Fear of loss", "Early exits or stops moved wider", "Low profit factor, tiny winners", "Target hit % vs planned target analysis"]
+        [
+          "FOMO",
+          "Entries 15+ min after move with no pullback",
+          "Low profit factor, many losers",
+          "Tag trades as FOMO + weekly success rate by tag"
+        ],
+        [
+          "Revenge trading",
+          "Losing trade → new entry <30 min",
+          "Daily loss limit hit in one session",
+          "Automatic detection (ZenMode) + real-time alert"
+        ],
+        [
+          "Overconfidence",
+          "Contract size increase after winning streak",
+          "Large loss erasing the week",
+          "Position sizing chart by day"
+        ],
+        [
+          "Fear of loss",
+          "Early exits or stops moved wider",
+          "Low profit factor, tiny winners",
+          "Target hit % vs planned target analysis"
+        ]
       ]
     },
     {

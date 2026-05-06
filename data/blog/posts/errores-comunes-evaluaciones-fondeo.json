@@ -20,11 +20,21 @@
   "publishedAt": "2026-05-07",
   "updatedAt": "2026-05-07",
   "category": "fondeo",
-  "tags": ["evaluación fondeo", "errores trading", "FTMO", "Apex", "Uprofit", "journal de trading", "Colombia", "pruebas de fondeo", "psicología trading"],
+  "tags": [
+    "evaluación fondeo",
+    "errores trading",
+    "FTMO",
+    "Apex",
+    "Uprofit",
+    "journal de trading",
+    "Colombia",
+    "pruebas de fondeo",
+    "psicología trading"
+  ],
   "readingTime": 11,
   "featured": false,
-  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
-  "thumbnailAlt": "Trader frente a múltiples monitores analizando sus errores en la evaluación de fondeo de futuros",
+  "thumbnail": "/blog/stock-market-trader-analyzing-charts.jpg",
+  "thumbnailAlt": "Trader analizando gráficas para identificar errores comunes en evaluaciones de empresas de fondeo",
   "content": [
     {
       "type": "p",
@@ -140,15 +150,47 @@
     },
     {
       "type": "table",
-      "headers": ["Error", "Consecuencia", "Solución con Journal"],
+      "headers": [
+        "Error",
+        "Consecuencia",
+        "Solución con Journal"
+      ],
       "rows": [
-        ["No registrar emociones", "Repites errores sin saberlo", "Tags emocionales por trade + análisis semanal"],
-        ["Ignorar consistency rule", "Evaluación rechazada aunque llegues al target", "Dashboard con % de consistencia en tiempo real"],
-        ["Revenge trading", "Pérdidas en cascada en una sola sesión", "Detección automática + alerta (ZenMode)"],
-        ["Violar max daily loss", "Eliminación inmediata de la evaluación", "PnL del día visible en dashboard"],
-        ["No revisar la semana anterior", "Repites patrones perdedores indefinidamente", "Reporte semanal con análisis de comportamiento"],
-        ["Position sizing inconsistente", "Resultados impredecibles aunque la estrategia funcione", "Registro de contratos por trade + equity curve"],
-        ["No tener plan escrito", "Decisiones emocionales en momentos clave", "Sección de Trading Plan integrada en el dashboard"]
+        [
+          "No registrar emociones",
+          "Repites errores sin saberlo",
+          "Tags emocionales por trade + análisis semanal"
+        ],
+        [
+          "Ignorar consistency rule",
+          "Evaluación rechazada aunque llegues al target",
+          "Dashboard con % de consistencia en tiempo real"
+        ],
+        [
+          "Revenge trading",
+          "Pérdidas en cascada en una sola sesión",
+          "Detección automática + alerta (ZenMode)"
+        ],
+        [
+          "Violar max daily loss",
+          "Eliminación inmediata de la evaluación",
+          "PnL del día visible en dashboard"
+        ],
+        [
+          "No revisar la semana anterior",
+          "Repites patrones perdedores indefinidamente",
+          "Reporte semanal con análisis de comportamiento"
+        ],
+        [
+          "Position sizing inconsistente",
+          "Resultados impredecibles aunque la estrategia funcione",
+          "Registro de contratos por trade + equity curve"
+        ],
+        [
+          "No tener plan escrito",
+          "Decisiones emocionales en momentos clave",
+          "Sección de Trading Plan integrada en el dashboard"
+        ]
       ]
     },
     {

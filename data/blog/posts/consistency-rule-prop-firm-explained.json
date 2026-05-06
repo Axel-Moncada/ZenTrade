@@ -4,16 +4,31 @@
   "excerpt": "The consistency rule is the hidden reason most traders fail prop firm evaluations even after hitting their profit target. Here's exactly how it works.",
   "seoTitle": "Consistency Rule Prop Firm: What It Is and How to Pass It",
   "seoDescription": "The consistency rule explained for FTMO, Apex, and TopStep evaluations. Learn how to calculate it, avoid violations, and track it in real time with a trading journal.",
-  "keywords": ["consistency rule prop firm", "how to pass consistency rule FTMO", "prop firm consistency rule explained", "FTMO consistency rule", "Apex consistency rule", "trading journal consistency tracking"],
+  "keywords": [
+    "consistency rule prop firm",
+    "how to pass consistency rule FTMO",
+    "prop firm consistency rule explained",
+    "FTMO consistency rule",
+    "Apex consistency rule",
+    "trading journal consistency tracking"
+  ],
   "author": "Zentrade Team",
   "publishedAt": "2026-04-04",
   "updatedAt": "2026-04-04",
   "category": "fondeo",
-  "tags": ["consistency rule", "prop firm rules", "FTMO", "Apex Trader Funding", "TopStep", "funded trading", "evaluation"],
+  "tags": [
+    "consistency rule",
+    "prop firm rules",
+    "FTMO",
+    "Apex Trader Funding",
+    "TopStep",
+    "funded trading",
+    "evaluation"
+  ],
   "readingTime": 10,
   "featured": false,
   "thumbnail": "/blog/trader-setup-profesional-escritorio.jpg",
-  "thumbnailAlt": "Professional trader at multi-monitor setup tracking consistency rule metrics for prop firm evaluation",
+  "thumbnailAlt": "Trader at professional desk setup analyzing consistency rule metrics for FTMO, Apex and TopStep prop firm evaluations",
   "content": [
     {
       "type": "p",
@@ -41,13 +56,43 @@
     },
     {
       "type": "table",
-      "headers": ["Prop Firm", "Consistency Rule", "How It's Calculated", "Consequence of Violation"],
+      "headers": [
+        "Prop Firm",
+        "Consistency Rule",
+        "How It's Calculated",
+        "Consequence of Violation"
+      ],
       "rows": [
-        ["FTMO", "~30% of total net profit", "Best single day cannot exceed 30% of cumulative net profit", "Automatic evaluation rejection"],
-        ["Apex Trader Funding", "Varies by plan — check current terms", "Best day vs. total net profit", "Evaluation disqualification"],
-        ["TopStep", "No explicit consistency rule in standard Combine", "Drawdown and behavior-based rules apply", "Depends on specific infraction"],
-        ["Uprofit", "30% of net profit", "Same method as FTMO", "Automatic rejection"],
-        ["Tradoverse", "Check current terms — varies by plan", "Best day vs. total net profit", "Possible rejection"]
+        [
+          "FTMO",
+          "~30% of total net profit",
+          "Best single day cannot exceed 30% of cumulative net profit",
+          "Automatic evaluation rejection"
+        ],
+        [
+          "Apex Trader Funding",
+          "Varies by plan — check current terms",
+          "Best day vs. total net profit",
+          "Evaluation disqualification"
+        ],
+        [
+          "TopStep",
+          "No explicit consistency rule in standard Combine",
+          "Drawdown and behavior-based rules apply",
+          "Depends on specific infraction"
+        ],
+        [
+          "Uprofit",
+          "30% of net profit",
+          "Same method as FTMO",
+          "Automatic rejection"
+        ],
+        [
+          "Tradoverse",
+          "Check current terms — varies by plan",
+          "Best day vs. total net profit",
+          "Possible rejection"
+        ]
       ]
     },
     {
@@ -146,13 +191,37 @@
     },
     {
       "type": "table",
-      "headers": ["Strategy", "Effectiveness", "Difficulty"],
+      "headers": [
+        "Strategy",
+        "Effectiveness",
+        "Difficulty"
+      ],
       "rows": [
-        ["Daily profit stop (fixed calculation)", "High — directly prevents overshoot", "Medium — requires discipline"],
-        ["More trading days, smaller size", "High — naturally distributes gains", "Low — adjust trading plan"],
-        ["Real-time tracker (Zentrade)", "High — constant visibility of percentage", "Low — automatic"],
-        ["Reduce size after big days", "Medium — buffers future big days", "High — counterintuitive"],
-        ["Emotional journal for patterns", "Medium — identifies behavioral precursors", "Medium — requires honesty"]
+        [
+          "Daily profit stop (fixed calculation)",
+          "High — directly prevents overshoot",
+          "Medium — requires discipline"
+        ],
+        [
+          "More trading days, smaller size",
+          "High — naturally distributes gains",
+          "Low — adjust trading plan"
+        ],
+        [
+          "Real-time tracker (Zentrade)",
+          "High — constant visibility of percentage",
+          "Low — automatic"
+        ],
+        [
+          "Reduce size after big days",
+          "Medium — buffers future big days",
+          "High — counterintuitive"
+        ],
+        [
+          "Emotional journal for patterns",
+          "Medium — identifies behavioral precursors",
+          "Medium — requires honesty"
+        ]
       ]
     },
     {
@@ -195,5 +264,8 @@
       "buttonText": "Start free — no credit card"
     }
   ],
-  "relatedSlugs": ["best-trading-journal-prop-firms-2025", "como-pasar-evaluacion-ftmo-journal-trading"]
+  "relatedSlugs": [
+    "best-trading-journal-prop-firms-2025",
+    "como-pasar-evaluacion-ftmo-journal-trading"
+  ]
 }

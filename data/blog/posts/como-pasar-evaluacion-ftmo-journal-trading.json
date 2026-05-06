@@ -15,11 +15,18 @@
   "publishedAt": "2026-03-29",
   "updatedAt": "2026-03-29",
   "category": "fondeo",
-  "tags": ["FTMO", "evaluación", "consistency rule", "journal de trading", "prueba de fondeo", "futuros"],
+  "tags": [
+    "FTMO",
+    "evaluación",
+    "consistency rule",
+    "journal de trading",
+    "prueba de fondeo",
+    "futuros"
+  ],
   "readingTime": 10,
   "featured": true,
   "thumbnail": "/blog/trader-exitoso-celebrando-ganancias.jpg",
-  "thumbnailAlt": "Trader celebrando con los brazos en alto tras pasar la evaluación de prueba de fondeo de futuros",
+  "thumbnailAlt": "Trader pasando evaluación FTMO usando journal de trading con IA para medir consistency score y drawdown",
   "content": [
     {
       "type": "p",
@@ -107,15 +114,47 @@
     },
     {
       "type": "table",
-      "headers": ["Regla de FTMO", "Cómo Zentrade te ayuda", "Plan requerido"],
+      "headers": [
+        "Regla de FTMO",
+        "Cómo Zentrade te ayuda",
+        "Plan requerido"
+      ],
       "rows": [
-        ["Profit Target 10%", "Dashboard muestra progreso diario hacia el objetivo", "Free"],
-        ["Max Daily Loss 5%", "Calendario con PnL diario, alerta si te acercas al límite", "Free"],
-        ["Max Overall Drawdown 10%", "Equity curve con línea de drawdown máximo visible", "Professional"],
-        ["Consistency Rule 30%", "Consistency % en tiempo real en el dashboard", "Free"],
-        ["Análisis de patrones emocionales", "Calendario emocional + tags por trade", "Professional"],
-        ["Detección de revenge trading", "IA que alerta si detecta el patrón", "ZenMode"],
-        ["Reporte semanal de rendimiento", "Análisis IA con contexto emocional y horario", "ZenMode"]
+        [
+          "Profit Target 10%",
+          "Dashboard muestra progreso diario hacia el objetivo",
+          "Free"
+        ],
+        [
+          "Max Daily Loss 5%",
+          "Calendario con PnL diario, alerta si te acercas al límite",
+          "Free"
+        ],
+        [
+          "Max Overall Drawdown 10%",
+          "Equity curve con línea de drawdown máximo visible",
+          "Professional"
+        ],
+        [
+          "Consistency Rule 30%",
+          "Consistency % en tiempo real en el dashboard",
+          "Free"
+        ],
+        [
+          "Análisis de patrones emocionales",
+          "Calendario emocional + tags por trade",
+          "Professional"
+        ],
+        [
+          "Detección de revenge trading",
+          "IA que alerta si detecta el patrón",
+          "ZenMode"
+        ],
+        [
+          "Reporte semanal de rendimiento",
+          "Análisis IA con contexto emocional y horario",
+          "ZenMode"
+        ]
       ]
     },
     {
@@ -179,13 +218,55 @@
     },
     {
       "type": "table",
-      "headers": ["Empresa", "Profit Target Fase 1", "Max Daily Loss", "Max Drawdown", "Consistency Rule", "Trailing Drawdown"],
+      "headers": [
+        "Empresa",
+        "Profit Target Fase 1",
+        "Max Daily Loss",
+        "Max Drawdown",
+        "Consistency Rule",
+        "Trailing Drawdown"
+      ],
       "rows": [
-        ["FTMO", "10%", "5%", "10%", "Sí (30%)", "No"],
-        ["Apex Trader Funding", "6% (variable)", "No fijo (trailing)", "Variable", "No", "Sí"],
-        ["TopStep", "6%", "No fijo (trailing)", "Variable", "No", "Sí"],
-        ["Tradoverse", "8%", "4%", "8%", "No", "No"],
-        ["Uprofit", "8%", "4%", "8%", "No", "No"]
+        [
+          "FTMO",
+          "10%",
+          "5%",
+          "10%",
+          "Sí (30%)",
+          "No"
+        ],
+        [
+          "Apex Trader Funding",
+          "6% (variable)",
+          "No fijo (trailing)",
+          "Variable",
+          "No",
+          "Sí"
+        ],
+        [
+          "TopStep",
+          "6%",
+          "No fijo (trailing)",
+          "Variable",
+          "No",
+          "Sí"
+        ],
+        [
+          "Tradoverse",
+          "8%",
+          "4%",
+          "8%",
+          "No",
+          "No"
+        ],
+        [
+          "Uprofit",
+          "8%",
+          "4%",
+          "8%",
+          "No",
+          "No"
+        ]
       ]
     },
     {

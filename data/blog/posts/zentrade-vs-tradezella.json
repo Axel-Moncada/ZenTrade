@@ -4,16 +4,31 @@
   "excerpt": "Comparamos Zentrade y TradeZella en precio, funciones de IA, soporte en español y utilidad para pasar pruebas de fondeo de futuros en 2025.",
   "seoTitle": "Zentrade vs TradeZella: Mejor Journal para Pruebas de Fondeo",
   "seoDescription": "Zentrade vs TradeZella: comparamos precio, IA, español y funciones clave para traders de futuros que buscan pasar pruebas de fondeo en 2025. Descubre cuál es mejor.",
-  "keywords": ["Zentrade vs TradeZella", "journal de trading para pruebas de fondeo", "mejor journal futuros", "TradeZella alternativa", "journal trading español", "prop firm journal comparativa"],
+  "keywords": [
+    "Zentrade vs TradeZella",
+    "journal de trading para pruebas de fondeo",
+    "mejor journal futuros",
+    "TradeZella alternativa",
+    "journal trading español",
+    "prop firm journal comparativa"
+  ],
   "author": "Equipo Zentrade",
   "publishedAt": "2026-03-31",
   "updatedAt": "2026-03-31",
   "category": "comparativas",
-  "tags": ["comparativa", "TradeZella", "journal de trading", "pruebas de fondeo", "futuros", "FTMO", "Apex"],
+  "tags": [
+    "comparativa",
+    "TradeZella",
+    "journal de trading",
+    "pruebas de fondeo",
+    "futuros",
+    "FTMO",
+    "Apex"
+  ],
   "readingTime": 12,
   "featured": true,
   "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
-  "thumbnailAlt": "Trader con múltiples monitores comparando plataformas de journal de trading para futuros",
+  "thumbnailAlt": "Comparativa Zentrade vs TradeZella — el mejor journal de trading para pruebas de fondeo de futuros en español",
   "content": [
     {
       "type": "p",
@@ -29,17 +44,66 @@
     },
     {
       "type": "table",
-      "headers": ["Criterio", "Zentrade", "TradeZella"],
+      "headers": [
+        "Criterio",
+        "Zentrade",
+        "TradeZella"
+      ],
       "rows": [
-        ["Plan de entrada", "$0 (Free real)", "$29/mo mínimo para análisis", ""],
-        ["Plan con IA completa", "$59/mo (ZenMode)", "$59/mo (Essential+)", ""],
-        ["Idioma", "Español + Inglés", "Solo inglés", ""],
-        ["Enfoque en futuros", "Nativo — NQ, ES, CL, GC, MES, MNQ", "Acciones, opciones, futuros (genérico)", ""],
-        ["Detección de revenge trading", "Sí — IA exclusiva ZenMode", "No", ""],
-        ["Benchmark vs empresas de fondeo", "Sí — consistency rule, trailing drawdown", "Parcial — sin reglas LATAM", ""],
-        ["Reporte semanal con IA", "Sí — análisis emocional incluido", "No", ""],
-        ["Plan gratuito funcional", "Sí — 1 cuenta, registro manual", "Plan demo muy limitado", ""],
-        ["Soporte en español", "Sí", "No", ""]
+        [
+          "Plan de entrada",
+          "$0 (Free real)",
+          "$29/mo mínimo para análisis",
+          ""
+        ],
+        [
+          "Plan con IA completa",
+          "$59/mo (ZenMode)",
+          "$59/mo (Essential+)",
+          ""
+        ],
+        [
+          "Idioma",
+          "Español + Inglés",
+          "Solo inglés",
+          ""
+        ],
+        [
+          "Enfoque en futuros",
+          "Nativo — NQ, ES, CL, GC, MES, MNQ",
+          "Acciones, opciones, futuros (genérico)",
+          ""
+        ],
+        [
+          "Detección de revenge trading",
+          "Sí — IA exclusiva ZenMode",
+          "No",
+          ""
+        ],
+        [
+          "Benchmark vs empresas de fondeo",
+          "Sí — consistency rule, trailing drawdown",
+          "Parcial — sin reglas LATAM",
+          ""
+        ],
+        [
+          "Reporte semanal con IA",
+          "Sí — análisis emocional incluido",
+          "No",
+          ""
+        ],
+        [
+          "Plan gratuito funcional",
+          "Sí — 1 cuenta, registro manual",
+          "Plan demo muy limitado",
+          ""
+        ],
+        [
+          "Soporte en español",
+          "Sí",
+          "No",
+          ""
+        ]
       ]
     },
     {
@@ -73,14 +137,42 @@
     },
     {
       "type": "table",
-      "headers": ["Funcionalidad", "Zentrade (precio mínimo)", "TradeZella (precio mínimo)"],
+      "headers": [
+        "Funcionalidad",
+        "Zentrade (precio mínimo)",
+        "TradeZella (precio mínimo)"
+      ],
       "rows": [
-        ["Registro manual + dashboard básico", "Gratis", "$29/mes"],
-        ["Import CSV automático", "$29/mes (Professional)", "$29/mes"],
-        ["Equity curve + profit factor", "$29/mes (Professional)", "$29/mes"],
-        ["Análisis con IA", "$59/mes (ZenMode)", "$59/mes+"],
-        ["Detección revenge trading con IA", "$59/mes (ZenMode)", "No disponible"],
-        ["Soporte en español", "Incluido en todos", "No disponible"]
+        [
+          "Registro manual + dashboard básico",
+          "Gratis",
+          "$29/mes"
+        ],
+        [
+          "Import CSV automático",
+          "$29/mes (Professional)",
+          "$29/mes"
+        ],
+        [
+          "Equity curve + profit factor",
+          "$29/mes (Professional)",
+          "$29/mes"
+        ],
+        [
+          "Análisis con IA",
+          "$59/mes (ZenMode)",
+          "$59/mes+"
+        ],
+        [
+          "Detección revenge trading con IA",
+          "$59/mes (ZenMode)",
+          "No disponible"
+        ],
+        [
+          "Soporte en español",
+          "Incluido en todos",
+          "No disponible"
+        ]
       ]
     },
     {
@@ -239,5 +331,8 @@
       "buttonText": "Empezar gratis — sin tarjeta"
     }
   ],
-  "relatedSlugs": ["mejor-journal-trading-futuros-2025", "best-trading-journal-prop-firms-2025"]
+  "relatedSlugs": [
+    "mejor-journal-trading-futuros-2025",
+    "best-trading-journal-prop-firms-2025"
+  ]
 }

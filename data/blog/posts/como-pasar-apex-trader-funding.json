@@ -4,16 +4,30 @@
   "excerpt": "Guía completa para pasar la evaluación de Apex Trader Funding: reglas, drawdown trailing, estrategia de trading y el uso del journal que marca la diferencia.",
   "seoTitle": "Cómo Pasar Apex Trader Funding: Guía Completa 2025",
   "seoDescription": "Cómo pasar la evaluación de Apex Trader Funding paso a paso: reglas, drawdown trailing, estrategia y el journal de trading que aumenta tus probabilidades de fondeo.",
-  "keywords": ["cómo pasar Apex Trader Funding", "reglas Apex Trader Funding evaluación", "evaluación Apex futuros", "Apex drawdown trailing", "journal trading Apex", "empresa de fondeo futuros 2025"],
+  "keywords": [
+    "cómo pasar Apex Trader Funding",
+    "reglas Apex Trader Funding evaluación",
+    "evaluación Apex futuros",
+    "Apex drawdown trailing",
+    "journal trading Apex",
+    "empresa de fondeo futuros 2025"
+  ],
   "author": "Equipo Zentrade",
   "publishedAt": "2026-04-07",
   "updatedAt": "2026-04-07",
   "category": "fondeo",
-  "tags": ["Apex Trader Funding", "prueba de fondeo", "futuros", "drawdown trailing", "journal de trading", "empresa de fondeo"],
+  "tags": [
+    "Apex Trader Funding",
+    "prueba de fondeo",
+    "futuros",
+    "drawdown trailing",
+    "journal de trading",
+    "empresa de fondeo"
+  ],
   "readingTime": 10,
   "featured": false,
-  "thumbnail": "/blog/graficas-velas-japonesas-futuros.jpg",
-  "thumbnailAlt": "Gráfica de velas japonesas de futuros para pasar la evaluación de Apex Trader Funding",
+  "thumbnail": "/blog/yes-i-did-it-successful-stock-broker-made-good-business-deal-online-excited-freelance-woman-buying-stocks-celebrating-victory-work.jpg",
+  "thumbnailAlt": "Trader celebrando con laptop haber pasado la evaluación Apex Trader Funding usando journal de trading con IA",
   "content": [
     {
       "type": "p",
@@ -33,14 +47,56 @@
     },
     {
       "type": "table",
-      "headers": ["Tamaño de cuenta", "Objetivo de ganancia", "Drawdown máximo trailing", "Límite pérdida diaria", "Días mínimos recomendados"],
+      "headers": [
+        "Tamaño de cuenta",
+        "Objetivo de ganancia",
+        "Drawdown máximo trailing",
+        "Límite pérdida diaria",
+        "Días mínimos recomendados"
+      ],
       "rows": [
-        ["$25,000", "$1,500", "$1,500", "Sin límite fijo diario", "7+ recomendados"],
-        ["$50,000", "$3,000", "$2,500", "Sin límite fijo diario", "7+ recomendados"],
-        ["$75,000", "$4,250", "$2,750", "Sin límite fijo diario", "7+ recomendados"],
-        ["$100,000", "$6,000", "$3,000", "Sin límite fijo diario", "7+ recomendados"],
-        ["$150,000", "$9,000", "$5,000", "Sin límite fijo diario", "7+ recomendados"],
-        ["$250,000", "$15,000", "$6,500", "Sin límite fijo diario", "7+ recomendados"]
+        [
+          "$25,000",
+          "$1,500",
+          "$1,500",
+          "Sin límite fijo diario",
+          "7+ recomendados"
+        ],
+        [
+          "$50,000",
+          "$3,000",
+          "$2,500",
+          "Sin límite fijo diario",
+          "7+ recomendados"
+        ],
+        [
+          "$75,000",
+          "$4,250",
+          "$2,750",
+          "Sin límite fijo diario",
+          "7+ recomendados"
+        ],
+        [
+          "$100,000",
+          "$6,000",
+          "$3,000",
+          "Sin límite fijo diario",
+          "7+ recomendados"
+        ],
+        [
+          "$150,000",
+          "$9,000",
+          "$5,000",
+          "Sin límite fijo diario",
+          "7+ recomendados"
+        ],
+        [
+          "$250,000",
+          "$15,000",
+          "$6,500",
+          "Sin límite fijo diario",
+          "7+ recomendados"
+        ]
       ]
     },
     {
@@ -150,14 +206,56 @@
     },
     {
       "type": "table",
-      "headers": ["Instrumento", "Contrato", "Valor del tick", "Riesgo por tick (1 contrato)", "Notas"],
+      "headers": [
+        "Instrumento",
+        "Contrato",
+        "Valor del tick",
+        "Riesgo por tick (1 contrato)",
+        "Notas"
+      ],
       "rows": [
-        ["NQ", "Nasdaq-100 E-mini", "$5/tick", "$5", "Alta volatilidad, alto potencial"],
-        ["ES", "S&P 500 E-mini", "$12.50/tick", "$12.50", "El contrato de futuros más líquido"],
-        ["MNQ", "Micro Nasdaq-100", "$0.50/tick", "$0.50", "NQ con 1/10 del riesgo"],
-        ["MES", "Micro S&P 500", "$1.25/tick", "$1.25", "ES con 1/10 del riesgo"],
-        ["CL", "Petróleo Crudo", "$10/tick", "$10", "Alta volatilidad en noticias de energía"],
-        ["GC", "Oro", "$10/tick", "$10", "Comportamiento tendencial, refugio seguro"]
+        [
+          "NQ",
+          "Nasdaq-100 E-mini",
+          "$5/tick",
+          "$5",
+          "Alta volatilidad, alto potencial"
+        ],
+        [
+          "ES",
+          "S&P 500 E-mini",
+          "$12.50/tick",
+          "$12.50",
+          "El contrato de futuros más líquido"
+        ],
+        [
+          "MNQ",
+          "Micro Nasdaq-100",
+          "$0.50/tick",
+          "$0.50",
+          "NQ con 1/10 del riesgo"
+        ],
+        [
+          "MES",
+          "Micro S&P 500",
+          "$1.25/tick",
+          "$1.25",
+          "ES con 1/10 del riesgo"
+        ],
+        [
+          "CL",
+          "Petróleo Crudo",
+          "$10/tick",
+          "$10",
+          "Alta volatilidad en noticias de energía"
+        ],
+        [
+          "GC",
+          "Oro",
+          "$10/tick",
+          "$10",
+          "Comportamiento tendencial, refugio seguro"
+        ]
       ]
     },
     {
@@ -208,5 +306,8 @@
       "buttonText": "Empezar gratis — sin tarjeta"
     }
   ],
-  "relatedSlugs": ["como-pasar-evaluacion-ftmo-journal-trading", "consistency-rule-fondeo-explicada"]
+  "relatedSlugs": [
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "consistency-rule-fondeo-explicada"
+  ]
 }

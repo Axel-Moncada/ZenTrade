@@ -4,16 +4,31 @@
   "excerpt": "El revenge trading es el patrón que destruye más evaluaciones de empresas de fondeo. Aprende qué es, cómo reconocerlo y cómo Zentrade lo detecta con IA.",
   "seoTitle": "¿Qué es el Revenge Trading? Cómo Afecta tus Pruebas de Fondeo",
   "seoDescription": "El revenge trading explicado: qué es, por qué ocurre y cómo destruye las pruebas de fondeo de futuros. Aprende a detectarlo y evitarlo con un trading journal con IA.",
-  "keywords": ["qué es el revenge trading", "revenge trading en pruebas de fondeo", "cómo evitar revenge trading", "revenge trading futuros", "trading emocional prueba de fondeo", "detección revenge trading IA"],
+  "keywords": [
+    "qué es el revenge trading",
+    "revenge trading en pruebas de fondeo",
+    "cómo evitar revenge trading",
+    "revenge trading futuros",
+    "trading emocional prueba de fondeo",
+    "detección revenge trading IA"
+  ],
   "author": "Equipo Zentrade",
   "publishedAt": "2026-04-05",
   "updatedAt": "2026-04-05",
   "category": "psicologia",
-  "tags": ["revenge trading", "psicología del trading", "pruebas de fondeo", "trading emocional", "futuros", "FTMO", "IA trading"],
+  "tags": [
+    "revenge trading",
+    "psicología del trading",
+    "pruebas de fondeo",
+    "trading emocional",
+    "futuros",
+    "FTMO",
+    "IA trading"
+  ],
   "readingTime": 9,
   "featured": false,
-  "thumbnail": "/blog/trader-ganancias-prueba-fondeo-futuros.jpg",
-  "thumbnailAlt": "Trader sosteniendo dinero frente a múltiples pantallas de trading representando las consecuencias del revenge trading",
+  "thumbnail": "/blog/closeup-businessman-hand-holding-phone-analysis-finance-market-graph-stock-market-trading.jpg",
+  "thumbnailAlt": "Primer plano de trader sosteniendo móvil con gráficas de mercado en rojo mostrando señales de revenge trading",
   "content": [
     {
       "type": "p",
@@ -189,5 +204,8 @@
       "buttonText": "Probar Zentrade gratis"
     }
   ],
-  "relatedSlugs": ["como-pasar-evaluacion-ftmo-journal-trading", "que-es-un-trading-journal"]
+  "relatedSlugs": [
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "que-es-un-trading-journal"
+  ]
 }

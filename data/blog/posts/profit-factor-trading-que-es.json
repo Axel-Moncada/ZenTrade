@@ -20,11 +20,22 @@
   "publishedAt": "2026-05-08",
   "updatedAt": "2026-05-08",
   "category": "metricas",
-  "tags": ["profit factor", "métricas trading", "evaluación fondeo", "FTMO", "Apex", "TopStep", "NQ", "MNQ", "Colombia", "futuros"],
+  "tags": [
+    "profit factor",
+    "métricas trading",
+    "evaluación fondeo",
+    "FTMO",
+    "Apex",
+    "TopStep",
+    "NQ",
+    "MNQ",
+    "Colombia",
+    "futuros"
+  ],
   "readingTime": 10,
   "featured": false,
-  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
-  "thumbnailAlt": "Trader calculando profit factor en su dashboard de trading con gráficas de NQ y MNQ en múltiples monitores",
+  "thumbnail": "/blog/grafica-tecnica-velas-medias-moviles.jpg",
+  "thumbnailAlt": "Gráfica técnica con velas japonesas y medias móviles mostrando profit factor en trading de futuros",
   "content": [
     {
       "type": "p",
@@ -57,12 +68,47 @@
     },
     {
       "type": "table",
-      "headers": ["Escenario", "Trades ganadores", "Ganancias brutas", "Trades perdedores", "Pérdidas brutas", "Profit Factor"],
+      "headers": [
+        "Escenario",
+        "Trades ganadores",
+        "Ganancias brutas",
+        "Trades perdedores",
+        "Pérdidas brutas",
+        "Profit Factor"
+      ],
       "rows": [
-        ["Trader A — MNQ 30 días", "18 trades", "$1,980", "12 trades", "$1,320", "1.50"],
-        ["Trader B — NQ 30 días", "12 trades", "$4,800", "8 trades", "$1,600", "3.00"],
-        ["Trader C — MNQ 30 días", "22 trades", "$2,200", "18 trades", "$2,000", "1.10"],
-        ["Trader D — NQ 30 días", "8 trades", "$3,200", "12 trades", "$4,800", "0.67"]
+        [
+          "Trader A — MNQ 30 días",
+          "18 trades",
+          "$1,980",
+          "12 trades",
+          "$1,320",
+          "1.50"
+        ],
+        [
+          "Trader B — NQ 30 días",
+          "12 trades",
+          "$4,800",
+          "8 trades",
+          "$1,600",
+          "3.00"
+        ],
+        [
+          "Trader C — MNQ 30 días",
+          "22 trades",
+          "$2,200",
+          "18 trades",
+          "$2,000",
+          "1.10"
+        ],
+        [
+          "Trader D — NQ 30 días",
+          "8 trades",
+          "$3,200",
+          "12 trades",
+          "$4,800",
+          "0.67"
+        ]
       ]
     },
     {
@@ -84,13 +130,43 @@
     },
     {
       "type": "table",
-      "headers": ["Empresa de Fondeo", "Profit Factor Mínimo Práctico", "Profit Factor Recomendado", "Observación"],
+      "headers": [
+        "Empresa de Fondeo",
+        "Profit Factor Mínimo Práctico",
+        "Profit Factor Recomendado",
+        "Observación"
+      ],
       "rows": [
-        ["FTMO", "1.2 (implícito)", "1.5 o superior", "Evalúan consistencia además del número absoluto"],
-        ["Apex Trader Funding", "1.0+ (cualquier positivo)", "1.3 o superior", "Foco principal en no violar reglas de pérdida"],
-        ["TopStep", "1.2 (implícito)", "1.5 o superior", "Consistency score incluye profit factor"],
-        ["Uprofit", "1.0+ (cualquier positivo)", "1.3 o superior", "Evaluación más flexible en análisis cualitativo"],
-        ["Tradoverse", "1.2 (implícito)", "1.4 o superior", "Revisión manual más detallada en cuentas grandes"]
+        [
+          "FTMO",
+          "1.2 (implícito)",
+          "1.5 o superior",
+          "Evalúan consistencia además del número absoluto"
+        ],
+        [
+          "Apex Trader Funding",
+          "1.0+ (cualquier positivo)",
+          "1.3 o superior",
+          "Foco principal en no violar reglas de pérdida"
+        ],
+        [
+          "TopStep",
+          "1.2 (implícito)",
+          "1.5 o superior",
+          "Consistency score incluye profit factor"
+        ],
+        [
+          "Uprofit",
+          "1.0+ (cualquier positivo)",
+          "1.3 o superior",
+          "Evaluación más flexible en análisis cualitativo"
+        ],
+        [
+          "Tradoverse",
+          "1.2 (implícito)",
+          "1.4 o superior",
+          "Revisión manual más detallada en cuentas grandes"
+        ]
       ]
     },
     {

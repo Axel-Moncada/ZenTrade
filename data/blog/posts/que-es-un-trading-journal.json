@@ -4,16 +4,30 @@
   "excerpt": "Un trading journal es la herramienta más subestimada en pruebas de fondeo. Descubre qué es, qué debe tener y cómo usarlo para pasar tu evaluación.",
   "seoTitle": "¿Qué es un Trading Journal? Guía para Pruebas de Fondeo",
   "seoDescription": "Qué es un trading journal, para qué sirve y cómo usarlo en pruebas de fondeo de futuros. Guía completa con ejemplos de métricas clave para traders fondeados.",
-  "keywords": ["qué es un trading journal", "journal de trading para futuros", "cómo usar un trading journal", "trading journal prueba de fondeo", "journal de trading español", "métricas trading journal"],
+  "keywords": [
+    "qué es un trading journal",
+    "journal de trading para futuros",
+    "cómo usar un trading journal",
+    "trading journal prueba de fondeo",
+    "journal de trading español",
+    "métricas trading journal"
+  ],
   "author": "Equipo Zentrade",
   "publishedAt": "2026-04-02",
   "updatedAt": "2026-04-02",
   "category": "guias",
-  "tags": ["guía", "trading journal", "futuros", "pruebas de fondeo", "métricas", "principiantes"],
+  "tags": [
+    "guía",
+    "trading journal",
+    "futuros",
+    "pruebas de fondeo",
+    "métricas",
+    "principiantes"
+  ],
   "readingTime": 9,
   "featured": false,
-  "thumbnail": "/blog/trader-escritura-journal-grafica-monitor.jpg",
-  "thumbnailAlt": "Trader escribiendo en su journal de trading frente al monitor con gráficas de futuros",
+  "thumbnail": "/blog/trader-senalando-analisis-tecnico.jpg",
+  "thumbnailAlt": "Trader señalando análisis técnico en pantalla mientras explica qué es un trading journal y cómo usarlo en fondeo",
   "content": [
     {
       "type": "p",
@@ -126,16 +140,52 @@
     },
     {
       "type": "table",
-      "headers": ["Criterio", "Excel/Hoja de cálculo", "Zentrade (app web)"],
+      "headers": [
+        "Criterio",
+        "Excel/Hoja de cálculo",
+        "Zentrade (app web)"
+      ],
       "rows": [
-        ["Cálculo PnL futuros", "Manual — propenso a errores", "Automático — multiplicadores preconfigurados"],
-        ["Consistency rule tracker", "Manual — sin alertas", "Tiempo real con alertas visuales"],
-        ["Análisis emocional", "Muy difícil de sistematizar", "Tags + análisis IA integrado"],
-        ["Detección revenge trading", "Imposible automáticamente", "IA en plan ZenMode"],
-        ["Reporte semanal", "No existe", "Generado por IA cada lunes"],
-        ["Curva de equity", "Gráfico manual", "Automático y actualizado"],
-        ["Costo de tiempo", "Alto — setup y mantenimiento", "Bajo — importación CSV o manual rápido"],
-        ["Acceso móvil", "Limitado", "Web responsive"]
+        [
+          "Cálculo PnL futuros",
+          "Manual — propenso a errores",
+          "Automático — multiplicadores preconfigurados"
+        ],
+        [
+          "Consistency rule tracker",
+          "Manual — sin alertas",
+          "Tiempo real con alertas visuales"
+        ],
+        [
+          "Análisis emocional",
+          "Muy difícil de sistematizar",
+          "Tags + análisis IA integrado"
+        ],
+        [
+          "Detección revenge trading",
+          "Imposible automáticamente",
+          "IA en plan ZenMode"
+        ],
+        [
+          "Reporte semanal",
+          "No existe",
+          "Generado por IA cada lunes"
+        ],
+        [
+          "Curva de equity",
+          "Gráfico manual",
+          "Automático y actualizado"
+        ],
+        [
+          "Costo de tiempo",
+          "Alto — setup y mantenimiento",
+          "Bajo — importación CSV o manual rápido"
+        ],
+        [
+          "Acceso móvil",
+          "Limitado",
+          "Web responsive"
+        ]
       ]
     },
     {
@@ -198,5 +248,8 @@
       "buttonText": "Crear cuenta gratis"
     }
   ],
-  "relatedSlugs": ["mejor-journal-trading-futuros-2025", "como-pasar-evaluacion-ftmo-journal-trading"]
+  "relatedSlugs": [
+    "mejor-journal-trading-futuros-2025",
+    "como-pasar-evaluacion-ftmo-journal-trading"
+  ]
 }

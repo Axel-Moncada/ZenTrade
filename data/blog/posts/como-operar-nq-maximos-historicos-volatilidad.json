@@ -19,11 +19,22 @@
   "publishedAt": "2026-05-06",
   "updatedAt": "2026-05-06",
   "category": "estrategias",
-  "tags": ["NQ", "Nasdaq futuros", "máximos históricos", "volatilidad", "gestión de riesgo", "FOMO", "pruebas de fondeo", "ATH", "geopolítica", "futuros"],
+  "tags": [
+    "NQ",
+    "Nasdaq futuros",
+    "máximos históricos",
+    "volatilidad",
+    "gestión de riesgo",
+    "FOMO",
+    "pruebas de fondeo",
+    "ATH",
+    "geopolítica",
+    "futuros"
+  ],
   "readingTime": 10,
   "featured": false,
-  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
-  "thumbnailAlt": "Trader frente a múltiples monitores con gráficas del Nasdaq en máximos históricos durante semana de alta volatilidad geopolítica",
+  "thumbnail": "/blog/carefully-analyzing-market-trends-with-advanced-comprehensive-trading-setup.jpg",
+  "thumbnailAlt": "Trader con setup multi-monitor analizando tendencias del NQ en máximos históricos con alta volatilidad geopolítica",
   "content": [
     {
       "type": "p",
@@ -168,13 +179,43 @@
     },
     {
       "type": "table",
-      "headers": ["Empresa de Fondeo", "Daily Loss Limit oficial", "Límite personal recomendado (semana ATH)", "Ajuste de tamaño sugerido"],
+      "headers": [
+        "Empresa de Fondeo",
+        "Daily Loss Limit oficial",
+        "Límite personal recomendado (semana ATH)",
+        "Ajuste de tamaño sugerido"
+      ],
       "rows": [
-        ["FTMO $100K", "5% = $5,000", "$2,500", "−40% de contratos habituales"],
-        ["Apex $50K", "$1,000", "$500", "−40% de contratos habituales"],
-        ["TopStep $100K", "$1,000", "$500", "−40% de contratos habituales"],
-        ["Uprofit $50K", "$1,000", "$500", "−40% de contratos habituales"],
-        ["Tradovate $150K", "$1,500", "$750", "−40% de contratos habituales"]
+        [
+          "FTMO $100K",
+          "5% = $5,000",
+          "$2,500",
+          "−40% de contratos habituales"
+        ],
+        [
+          "Apex $50K",
+          "$1,000",
+          "$500",
+          "−40% de contratos habituales"
+        ],
+        [
+          "TopStep $100K",
+          "$1,000",
+          "$500",
+          "−40% de contratos habituales"
+        ],
+        [
+          "Uprofit $50K",
+          "$1,000",
+          "$500",
+          "−40% de contratos habituales"
+        ],
+        [
+          "Tradovate $150K",
+          "$1,500",
+          "$750",
+          "−40% de contratos habituales"
+        ]
       ]
     },
     {
@@ -241,5 +282,10 @@
       "buttonText": "Empieza gratis en Zentrade"
     }
   ],
-  "relatedSlugs": ["que-es-revenge-trading", "reglas-riesgo-diario-fondeo", "consistency-rule-fondeo-explicada", "drawdown-trailing-vs-estatico-prop-firms"]
+  "relatedSlugs": [
+    "que-es-revenge-trading",
+    "reglas-riesgo-diario-fondeo",
+    "consistency-rule-fondeo-explicada",
+    "drawdown-trailing-vs-estatico-prop-firms"
+  ]
 }

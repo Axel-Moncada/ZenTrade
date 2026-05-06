@@ -4,16 +4,31 @@
   "excerpt": "A full feature-by-feature comparison of Zentrade and TradeZella for futures traders going through prop firm evaluations in 2025. Price, AI, and more.",
   "seoTitle": "Zentrade vs TradeZella: Best Trading Journal for Prop Firms 2025",
   "seoDescription": "Zentrade vs TradeZella compared side by side: pricing, AI features, prop firm tools, and Spanish support. Find the best trading journal for funded futures traders.",
-  "keywords": ["Zentrade vs TradeZella", "best trading journal for funded traders", "prop firm trading journal", "TradeZella alternative", "futures trading journal comparison", "trading journal for FTMO"],
+  "keywords": [
+    "Zentrade vs TradeZella",
+    "best trading journal for funded traders",
+    "prop firm trading journal",
+    "TradeZella alternative",
+    "futures trading journal comparison",
+    "trading journal for FTMO"
+  ],
   "author": "Zentrade Team",
   "publishedAt": "2026-04-01",
   "updatedAt": "2026-04-01",
   "category": "comparativas",
-  "tags": ["comparison", "TradeZella", "trading journal", "prop firms", "futures trading", "FTMO", "funded trader"],
+  "tags": [
+    "comparison",
+    "TradeZella",
+    "trading journal",
+    "prop firms",
+    "futures trading",
+    "FTMO",
+    "funded trader"
+  ],
   "readingTime": 12,
   "featured": true,
   "thumbnail": "/blog/trader-laptop-movil-analisis-mercados.jpg",
-  "thumbnailAlt": "Trader on laptop and mobile comparing trading journal platforms for prop firm evaluation",
+  "thumbnailAlt": "Zentrade vs TradeZella comparison for futures traders — best trading journal for FTMO, Apex and TopStep prop firms",
   "content": [
     {
       "type": "p",
@@ -29,18 +44,62 @@
     },
     {
       "type": "table",
-      "headers": ["Feature", "Zentrade", "TradeZella"],
+      "headers": [
+        "Feature",
+        "Zentrade",
+        "TradeZella"
+      ],
       "rows": [
-        ["Free plan (real features)", "Yes — 1 account, manual entry, dashboard", "Very limited demo only"],
-        ["Entry-level paid plan", "$9/mo (Starter)", "$29/mo minimum for analysis"],
-        ["Full AI plan", "$59/mo (ZenMode)", "$59/mo+"],
-        ["Language", "Spanish + English", "English only"],
-        ["Futures-native instrument setup", "Yes — NQ, ES, MES, MNQ, CL, GC preconfigured", "Manual setup required"],
-        ["Revenge trading AI detection", "Yes — ZenMode exclusive", "Not available"],
-        ["Consistency rule tracker", "Yes — real-time with visual alerts", "Partial — no prop firm-specific rules"],
-        ["Weekly AI performance report", "Yes — with emotional analysis", "Not available"],
-        ["Prop firm benchmark", "Yes — FTMO, Apex, TopStep rules", "General only"],
-        ["Spanish support", "Yes", "No"]
+        [
+          "Free plan (real features)",
+          "Yes — 1 account, manual entry, dashboard",
+          "Very limited demo only"
+        ],
+        [
+          "Entry-level paid plan",
+          "$9/mo (Starter)",
+          "$29/mo minimum for analysis"
+        ],
+        [
+          "Full AI plan",
+          "$59/mo (ZenMode)",
+          "$59/mo+"
+        ],
+        [
+          "Language",
+          "Spanish + English",
+          "English only"
+        ],
+        [
+          "Futures-native instrument setup",
+          "Yes — NQ, ES, MES, MNQ, CL, GC preconfigured",
+          "Manual setup required"
+        ],
+        [
+          "Revenge trading AI detection",
+          "Yes — ZenMode exclusive",
+          "Not available"
+        ],
+        [
+          "Consistency rule tracker",
+          "Yes — real-time with visual alerts",
+          "Partial — no prop firm-specific rules"
+        ],
+        [
+          "Weekly AI performance report",
+          "Yes — with emotional analysis",
+          "Not available"
+        ],
+        [
+          "Prop firm benchmark",
+          "Yes — FTMO, Apex, TopStep rules",
+          "General only"
+        ],
+        [
+          "Spanish support",
+          "Yes",
+          "No"
+        ]
       ]
     },
     {
@@ -74,14 +133,42 @@
     },
     {
       "type": "table",
-      "headers": ["Capability", "Zentrade (minimum price)", "TradeZella (minimum price)"],
+      "headers": [
+        "Capability",
+        "Zentrade (minimum price)",
+        "TradeZella (minimum price)"
+      ],
       "rows": [
-        ["Manual trade entry + basic dashboard", "Free", "$29/mo"],
-        ["CSV auto-import", "$29/mo (Professional)", "$29/mo"],
-        ["Equity curve + profit factor", "$29/mo (Professional)", "$29/mo"],
-        ["AI-powered analysis", "$59/mo (ZenMode)", "$59/mo+"],
-        ["Revenge trading detection (AI)", "$59/mo (ZenMode)", "Not available at any price"],
-        ["Spanish language interface", "All plans", "Not available"]
+        [
+          "Manual trade entry + basic dashboard",
+          "Free",
+          "$29/mo"
+        ],
+        [
+          "CSV auto-import",
+          "$29/mo (Professional)",
+          "$29/mo"
+        ],
+        [
+          "Equity curve + profit factor",
+          "$29/mo (Professional)",
+          "$29/mo"
+        ],
+        [
+          "AI-powered analysis",
+          "$59/mo (ZenMode)",
+          "$59/mo+"
+        ],
+        [
+          "Revenge trading detection (AI)",
+          "$59/mo (ZenMode)",
+          "Not available at any price"
+        ],
+        [
+          "Spanish language interface",
+          "All plans",
+          "Not available"
+        ]
       ]
     },
     {
@@ -236,5 +323,8 @@
       "buttonText": "Start free — no credit card"
     }
   ],
-  "relatedSlugs": ["best-trading-journal-prop-firms-2025", "mejor-journal-trading-futuros-2025"]
+  "relatedSlugs": [
+    "best-trading-journal-prop-firms-2025",
+    "mejor-journal-trading-futuros-2025"
+  ]
 }

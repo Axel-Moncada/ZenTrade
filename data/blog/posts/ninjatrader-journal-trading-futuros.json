@@ -20,11 +20,22 @@
   "publishedAt": "2026-05-14",
   "updatedAt": "2026-05-14",
   "category": "herramientas",
-  "tags": ["NinjaTrader", "Uprofit", "Apex Trader Funding", "Colombia", "LATAM", "evaluación fondeo", "futuros", "NQ", "MNQ", "journal de trading"],
+  "tags": [
+    "NinjaTrader",
+    "Uprofit",
+    "Apex Trader Funding",
+    "Colombia",
+    "LATAM",
+    "evaluación fondeo",
+    "futuros",
+    "NQ",
+    "MNQ",
+    "journal de trading"
+  ],
   "readingTime": 11,
   "featured": false,
-  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
-  "thumbnailAlt": "Trader colombiano configurando NinjaTrader para exportar datos de trades y llevar un journal de trading para su evaluación de fondeo",
+  "thumbnail": "/blog/trader-profesional-monitores-azul.jpg",
+  "thumbnailAlt": "Trader profesional con setup NinjaTrader en monitores azules llevando journal de trading de futuros para fondeo",
   "content": [
     {
       "type": "p",
@@ -94,21 +105,77 @@
     },
     {
       "type": "table",
-      "headers": ["Campo", "¿Incluido en CSV NinjaTrader?", "¿Necesario para el journal?"],
+      "headers": [
+        "Campo",
+        "¿Incluido en CSV NinjaTrader?",
+        "¿Necesario para el journal?"
+      ],
       "rows": [
-        ["Fecha y hora de entrada", "Sí", "Sí"],
-        ["Precio de entrada", "Sí", "Sí"],
-        ["Fecha y hora de salida", "Sí", "Sí"],
-        ["Precio de salida", "Sí", "Sí"],
-        ["Instrumento (NQ, MNQ, etc.)", "Sí", "Sí"],
-        ["Número de contratos", "Sí", "Sí"],
-        ["PnL bruto y neto", "Sí", "Sí"],
-        ["Comisiones", "Sí", "Sí"],
-        ["Estado emocional al entrar", "No", "Sí — añadir manualmente"],
-        ["Razón de entrada", "No", "Sí — añadir manualmente"],
-        ["¿Trade de estrategia o impulsivo?", "No", "Sí — añadir manualmente"],
-        ["Notas de mercado del día", "No", "Recomendado — añadir manualmente"],
-        ["Foto del gráfico en la entrada", "No", "Opcional — muy útil para revisión"]
+        [
+          "Fecha y hora de entrada",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Precio de entrada",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Fecha y hora de salida",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Precio de salida",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Instrumento (NQ, MNQ, etc.)",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Número de contratos",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "PnL bruto y neto",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Comisiones",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Estado emocional al entrar",
+          "No",
+          "Sí — añadir manualmente"
+        ],
+        [
+          "Razón de entrada",
+          "No",
+          "Sí — añadir manualmente"
+        ],
+        [
+          "¿Trade de estrategia o impulsivo?",
+          "No",
+          "Sí — añadir manualmente"
+        ],
+        [
+          "Notas de mercado del día",
+          "No",
+          "Recomendado — añadir manualmente"
+        ],
+        [
+          "Foto del gráfico en la entrada",
+          "No",
+          "Opcional — muy útil para revisión"
+        ]
       ]
     },
     {

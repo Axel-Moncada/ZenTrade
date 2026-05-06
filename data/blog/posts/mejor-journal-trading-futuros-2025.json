@@ -15,11 +15,18 @@
   "publishedAt": "2026-03-29",
   "updatedAt": "2026-03-29",
   "category": "comparativas",
-  "tags": ["journal de trading", "futuros", "prop firms", "comparativa", "TradeZella", "Edgewonk"],
+  "tags": [
+    "journal de trading",
+    "futuros",
+    "prop firms",
+    "comparativa",
+    "TradeZella",
+    "Edgewonk"
+  ],
   "readingTime": 11,
   "featured": true,
   "thumbnail": "/blog/trader-journal-dual-monitor-analisis.jpg",
-  "thumbnailAlt": "Trader analizando sus gráficas en dos monitores con un journal de trading de futuros",
+  "thumbnailAlt": "Trader comparando los mejores journals de trading para futuros en 2025 para pasar pruebas de fondeo FTMO y Apex",
   "content": [
     {
       "type": "p",
@@ -48,13 +55,61 @@
     },
     {
       "type": "table",
-      "headers": ["Plataforma", "Precio mínimo", "En español", "IA emocional", "Prop firm rules", "App web", "Plan gratuito"],
+      "headers": [
+        "Plataforma",
+        "Precio mínimo",
+        "En español",
+        "IA emocional",
+        "Prop firm rules",
+        "App web",
+        "Plan gratuito"
+      ],
       "rows": [
-        ["Zentrade", "$0 (Free) / $9/mo", "Sí, nativo", "Sí (ZenMode)", "Sí, todos los planes", "Sí", "Sí"],
-        ["TradeZella", "$29/mo", "No", "Limitada", "Parcialmente", "Sí", "No (solo trial)"],
-        ["Tradervue", "$29/mo", "No", "No", "No", "Sí", "Limitado"],
-        ["Edgewonk", "$169/año", "No", "No", "No", "No (desktop)", "No"],
-        ["TraderSync", "$29.95/mo", "No", "No", "Parcialmente", "Sí", "No (solo trial)"]
+        [
+          "Zentrade",
+          "$0 (Free) / $9/mo",
+          "Sí, nativo",
+          "Sí (ZenMode)",
+          "Sí, todos los planes",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "TradeZella",
+          "$29/mo",
+          "No",
+          "Limitada",
+          "Parcialmente",
+          "Sí",
+          "No (solo trial)"
+        ],
+        [
+          "Tradervue",
+          "$29/mo",
+          "No",
+          "No",
+          "No",
+          "Sí",
+          "Limitado"
+        ],
+        [
+          "Edgewonk",
+          "$169/año",
+          "No",
+          "No",
+          "No",
+          "No (desktop)",
+          "No"
+        ],
+        [
+          "TraderSync",
+          "$29.95/mo",
+          "No",
+          "No",
+          "Parcialmente",
+          "Sí",
+          "No (solo trial)"
+        ]
       ]
     },
     {
@@ -112,16 +167,79 @@
     },
     {
       "type": "table",
-      "headers": ["Feature", "Zentrade", "TradeZella", "Tradervue", "Edgewonk", "TraderSync"],
+      "headers": [
+        "Feature",
+        "Zentrade",
+        "TradeZella",
+        "Tradervue",
+        "Edgewonk",
+        "TraderSync"
+      ],
       "rows": [
-        ["Consistency % en tiempo real", "Sí (todos los planes)", "Parcial", "No", "No", "No"],
-        ["Equity curve", "Sí (Pro+)", "Sí", "Sí", "Sí", "Sí"],
-        ["Calendario emocional", "Sí (Pro+)", "No", "No", "Manual", "No"],
-        ["Revenge trading detection IA", "Sí (ZenMode)", "No", "No", "No", "No"],
-        ["Reporte semanal con IA", "Sí (ZenMode)", "No", "No", "No", "No"],
-        ["Import CSV futuros", "Sí (Pro+)", "Sí", "Sí", "Sí", "Sí"],
-        ["Dashboard en español", "Sí, nativo", "No", "No", "No", "No"],
-        ["Plan gratuito funcional", "Sí", "No", "Limitado", "No", "No"]
+        [
+          "Consistency % en tiempo real",
+          "Sí (todos los planes)",
+          "Parcial",
+          "No",
+          "No",
+          "No"
+        ],
+        [
+          "Equity curve",
+          "Sí (Pro+)",
+          "Sí",
+          "Sí",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Calendario emocional",
+          "Sí (Pro+)",
+          "No",
+          "No",
+          "Manual",
+          "No"
+        ],
+        [
+          "Revenge trading detection IA",
+          "Sí (ZenMode)",
+          "No",
+          "No",
+          "No",
+          "No"
+        ],
+        [
+          "Reporte semanal con IA",
+          "Sí (ZenMode)",
+          "No",
+          "No",
+          "No",
+          "No"
+        ],
+        [
+          "Import CSV futuros",
+          "Sí (Pro+)",
+          "Sí",
+          "Sí",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Dashboard en español",
+          "Sí, nativo",
+          "No",
+          "No",
+          "No",
+          "No"
+        ],
+        [
+          "Plan gratuito funcional",
+          "Sí",
+          "No",
+          "Limitado",
+          "No",
+          "No"
+        ]
       ]
     },
     {
@@ -154,13 +272,49 @@
     },
     {
       "type": "table",
-      "headers": ["Plataforma", "Plan básico", "Plan avanzado", "Plan premium", "Facturación anual"],
+      "headers": [
+        "Plataforma",
+        "Plan básico",
+        "Plan avanzado",
+        "Plan premium",
+        "Facturación anual"
+      ],
       "rows": [
-        ["Zentrade", "Free ($0)", "Starter ($9/mo)", "Professional ($29/mo) / ZenMode ($59/mo)", "Hasta 30% descuento"],
-        ["TradeZella", "Trial limitado", "$29/mo (Starter)", "$59/mo (Pro)", "Disponible"],
-        ["Tradervue", "$0 (muy limitado)", "$29/mo (Silver)", "$49/mo (Gold)", "No disponible"],
-        ["Edgewonk", "No", "$169/año", "$169/año", "Solo anual"],
-        ["TraderSync", "Trial", "$29.95/mo (Basic)", "$49.95/mo (Premium)", "Disponible"]
+        [
+          "Zentrade",
+          "Free ($0)",
+          "Starter ($9/mo)",
+          "Professional ($29/mo) / ZenMode ($59/mo)",
+          "Hasta 30% descuento"
+        ],
+        [
+          "TradeZella",
+          "Trial limitado",
+          "$29/mo (Starter)",
+          "$59/mo (Pro)",
+          "Disponible"
+        ],
+        [
+          "Tradervue",
+          "$0 (muy limitado)",
+          "$29/mo (Silver)",
+          "$49/mo (Gold)",
+          "No disponible"
+        ],
+        [
+          "Edgewonk",
+          "No",
+          "$169/año",
+          "$169/año",
+          "Solo anual"
+        ],
+        [
+          "TraderSync",
+          "Trial",
+          "$29.95/mo (Basic)",
+          "$49.95/mo (Premium)",
+          "Disponible"
+        ]
       ]
     },
     {

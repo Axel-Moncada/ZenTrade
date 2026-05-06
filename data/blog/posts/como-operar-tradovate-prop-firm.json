@@ -20,11 +20,22 @@
   "publishedAt": "2026-05-10",
   "updatedAt": "2026-05-10",
   "category": "herramientas",
-  "tags": ["Tradovate", "Apex Trader Funding", "TopStep", "Colombia", "plataforma trading", "evaluación fondeo", "futuros", "NQ", "MNQ", "LATAM"],
+  "tags": [
+    "Tradovate",
+    "Apex Trader Funding",
+    "TopStep",
+    "Colombia",
+    "plataforma trading",
+    "evaluación fondeo",
+    "futuros",
+    "NQ",
+    "MNQ",
+    "LATAM"
+  ],
   "readingTime": 11,
   "featured": false,
-  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
-  "thumbnailAlt": "Trader colombiano usando Tradovate en múltiples monitores para operar futuros NQ durante su evaluación de fondeo",
+  "thumbnail": "/blog/digital-trading-platform-is-displayed-tablet-as-user-analyzes-stock-market-data.jpg",
+  "thumbnailAlt": "Plataforma de trading Tradovate en tablet con análisis de datos de mercado para evaluación de prop firm",
   "content": [
     {
       "type": "p",
@@ -115,17 +126,57 @@
     },
     {
       "type": "table",
-      "headers": ["Función", "Tradovate", "Zentrade Journal"],
+      "headers": [
+        "Función",
+        "Tradovate",
+        "Zentrade Journal"
+      ],
       "rows": [
-        ["Ejecución de trades", "Sí — función principal", "No (no es broker)"],
-        ["Historial básico de trades", "Sí", "Sí"],
-        ["PnL del día", "Sí", "Sí"],
-        ["Análisis emocional", "No", "Sí"],
-        ["Consistency rule en tiempo real", "No", "Sí"],
-        ["Profit factor desglosado", "Básico", "Sí, por instrumento y horario"],
-        ["Detección de revenge trading", "No", "Sí (ZenMode)"],
-        ["Reporte semanal con IA", "No", "Sí (Pro y ZenMode)"],
-        ["Alertas de riesgo personalizadas", "Básicas", "Avanzadas (ZenMode)"]
+        [
+          "Ejecución de trades",
+          "Sí — función principal",
+          "No (no es broker)"
+        ],
+        [
+          "Historial básico de trades",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "PnL del día",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Análisis emocional",
+          "No",
+          "Sí"
+        ],
+        [
+          "Consistency rule en tiempo real",
+          "No",
+          "Sí"
+        ],
+        [
+          "Profit factor desglosado",
+          "Básico",
+          "Sí, por instrumento y horario"
+        ],
+        [
+          "Detección de revenge trading",
+          "No",
+          "Sí (ZenMode)"
+        ],
+        [
+          "Reporte semanal con IA",
+          "No",
+          "Sí (Pro y ZenMode)"
+        ],
+        [
+          "Alertas de riesgo personalizadas",
+          "Básicas",
+          "Avanzadas (ZenMode)"
+        ]
       ]
     },
     {
@@ -166,14 +217,42 @@
     },
     {
       "type": "table",
-      "headers": ["Criterio", "Tradovate", "NinjaTrader"],
+      "headers": [
+        "Criterio",
+        "Tradovate",
+        "NinjaTrader"
+      ],
       "rows": [
-        ["Instalación", "No (web-based)", "Sí (software local)"],
-        ["Datos de mercado", "Incluidos con evaluación Apex/TopStep", "Feed adicional puede tener costo"],
-        ["Compatibilidad Colombia", "Excelente (solo necesita internet)", "Buena, pero requiere configuración local"],
-        ["Curva de aprendizaje", "Baja", "Media-alta"],
-        ["Herramientas avanzadas", "Básicas-intermedias", "Avanzadas (indicadores, backtesting)"],
-        ["Empresas compatibles", "Apex, TopStep principalmente", "Uprofit, FTMO (con feed propio), Apex"]
+        [
+          "Instalación",
+          "No (web-based)",
+          "Sí (software local)"
+        ],
+        [
+          "Datos de mercado",
+          "Incluidos con evaluación Apex/TopStep",
+          "Feed adicional puede tener costo"
+        ],
+        [
+          "Compatibilidad Colombia",
+          "Excelente (solo necesita internet)",
+          "Buena, pero requiere configuración local"
+        ],
+        [
+          "Curva de aprendizaje",
+          "Baja",
+          "Media-alta"
+        ],
+        [
+          "Herramientas avanzadas",
+          "Básicas-intermedias",
+          "Avanzadas (indicadores, backtesting)"
+        ],
+        [
+          "Empresas compatibles",
+          "Apex, TopStep principalmente",
+          "Uprofit, FTMO (con feed propio), Apex"
+        ]
       ]
     },
     {

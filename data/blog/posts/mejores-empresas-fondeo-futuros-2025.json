@@ -4,16 +4,32 @@
   "excerpt": "Comparativa detallada de FTMO, Apex Trader Funding, TopStep, Uprofit y Tradoverse para traders de futuros en 2025: reglas, costos, pagos y facilidad de paso.",
   "seoTitle": "Mejores Empresas de Fondeo Futuros 2025: Comparativa Completa",
   "seoDescription": "Las mejores empresas de fondeo para futuros en 2025 comparadas: FTMO, Apex, TopStep, Uprofit y Tradoverse. Reglas, costos, drawdown y qué journal usar para pasar.",
-  "keywords": ["mejores empresas de fondeo futuros", "mejor prop firm para futuros 2025", "FTMO vs Apex vs TopStep", "empresa de fondeo futuros LATAM", "comparativa empresas fondeo 2025", "prueba de fondeo futuros"],
+  "keywords": [
+    "mejores empresas de fondeo futuros",
+    "mejor prop firm para futuros 2025",
+    "FTMO vs Apex vs TopStep",
+    "empresa de fondeo futuros LATAM",
+    "comparativa empresas fondeo 2025",
+    "prueba de fondeo futuros"
+  ],
   "author": "Equipo Zentrade",
   "publishedAt": "2026-04-08",
   "updatedAt": "2026-04-08",
   "category": "comparativas",
-  "tags": ["empresas de fondeo", "FTMO", "Apex Trader Funding", "TopStep", "Uprofit", "Tradoverse", "comparativa", "futuros 2025"],
+  "tags": [
+    "empresas de fondeo",
+    "FTMO",
+    "Apex Trader Funding",
+    "TopStep",
+    "Uprofit",
+    "Tradoverse",
+    "comparativa",
+    "futuros 2025"
+  ],
   "readingTime": 13,
   "featured": true,
   "thumbnail": "/blog/velas-japonesas-futuros-precio-accion.jpg",
-  "thumbnailAlt": "Gráfica de velas japonesas de futuros representando las mejores empresas de fondeo disponibles en 2025",
+  "thumbnailAlt": "Trader analizando comparativa de las mejores empresas de fondeo para futuros en 2025 en pantalla de tablet",
   "content": [
     {
       "type": "p",
@@ -29,13 +45,55 @@
     },
     {
       "type": "table",
-      "headers": ["Empresa", "Costo evaluación (referencia)", "Fases", "Drawdown tipo", "Pago al trader", "Mejor para"],
+      "headers": [
+        "Empresa",
+        "Costo evaluación (referencia)",
+        "Fases",
+        "Drawdown tipo",
+        "Pago al trader",
+        "Mejor para"
+      ],
       "rows": [
-        ["FTMO", "$155–$1,080 aprox.", "2 fases + verificación", "Fijo desde balance inicial", "80–90%", "Traders con estrategia probada que buscan credibilidad máxima"],
-        ["Apex Trader Funding", "$137–$657 aprox.", "1 fase", "Trailing desde equity máximo", "90%", "Traders que buscan paso rápido y mayor % de pago"],
-        ["TopStep", "$165–$375/mo aprox.", "1 fase (Combine)", "Trailing + daily loss", "90%", "Traders de NQ/ES que quieren una firma establecida"],
-        ["Uprofit", "$97–$497 aprox.", "1 fase", "Trailing desde equity máximo", "70–80%", "Traders LATAM que buscan precio de entrada bajo"],
-        ["Tradoverse", "$99–$399 aprox.", "1 fase", "Fijo desde balance", "80%", "Traders de futuros que buscan reglas simples y precio competitivo"]
+        [
+          "FTMO",
+          "$155–$1,080 aprox.",
+          "2 fases + verificación",
+          "Fijo desde balance inicial",
+          "80–90%",
+          "Traders con estrategia probada que buscan credibilidad máxima"
+        ],
+        [
+          "Apex Trader Funding",
+          "$137–$657 aprox.",
+          "1 fase",
+          "Trailing desde equity máximo",
+          "90%",
+          "Traders que buscan paso rápido y mayor % de pago"
+        ],
+        [
+          "TopStep",
+          "$165–$375/mo aprox.",
+          "1 fase (Combine)",
+          "Trailing + daily loss",
+          "90%",
+          "Traders de NQ/ES que quieren una firma establecida"
+        ],
+        [
+          "Uprofit",
+          "$97–$497 aprox.",
+          "1 fase",
+          "Trailing desde equity máximo",
+          "70–80%",
+          "Traders LATAM que buscan precio de entrada bajo"
+        ],
+        [
+          "Tradoverse",
+          "$99–$399 aprox.",
+          "1 fase",
+          "Fijo desde balance",
+          "80%",
+          "Traders de futuros que buscan reglas simples y precio competitivo"
+        ]
       ]
     },
     {
@@ -161,15 +219,71 @@
     },
     {
       "type": "table",
-      "headers": ["Criterio", "FTMO", "Apex Trader Funding", "TopStep", "Uprofit", "Tradoverse"],
+      "headers": [
+        "Criterio",
+        "FTMO",
+        "Apex Trader Funding",
+        "TopStep",
+        "Uprofit",
+        "Tradoverse"
+      ],
       "rows": [
-        ["Fases de evaluación", "2 fases", "1 fase", "1 fase (Combine)", "1 fase", "1 fase"],
-        ["Tipo de drawdown", "Fijo desde balance", "Trailing desde equity máx.", "Trailing + daily loss", "Trailing desde equity máx.", "Fijo desde balance"],
-        ["Regla de consistencia", "~30% del profit neto", "Varía por plan", "Sin regla explícita", "~30% del profit neto", "Revisar términos"],
-        ["% pago al trader", "80–90%", "90%", "90%", "70–80%", "80%"],
-        ["Reconocimiento global", "Muy alto", "Alto y creciente", "Alto", "Medio", "Bajo-medio"],
-        ["Soporte en español", "Parcial", "Limitado", "Limitado", "Sí", "Limitado"],
-        ["Precio de evaluación (referencia)", "Más alto", "Medio-alto (con promos: bajo)", "Suscripción mensual", "Bajo-medio", "Bajo-medio"]
+        [
+          "Fases de evaluación",
+          "2 fases",
+          "1 fase",
+          "1 fase (Combine)",
+          "1 fase",
+          "1 fase"
+        ],
+        [
+          "Tipo de drawdown",
+          "Fijo desde balance",
+          "Trailing desde equity máx.",
+          "Trailing + daily loss",
+          "Trailing desde equity máx.",
+          "Fijo desde balance"
+        ],
+        [
+          "Regla de consistencia",
+          "~30% del profit neto",
+          "Varía por plan",
+          "Sin regla explícita",
+          "~30% del profit neto",
+          "Revisar términos"
+        ],
+        [
+          "% pago al trader",
+          "80–90%",
+          "90%",
+          "90%",
+          "70–80%",
+          "80%"
+        ],
+        [
+          "Reconocimiento global",
+          "Muy alto",
+          "Alto y creciente",
+          "Alto",
+          "Medio",
+          "Bajo-medio"
+        ],
+        [
+          "Soporte en español",
+          "Parcial",
+          "Limitado",
+          "Limitado",
+          "Sí",
+          "Limitado"
+        ],
+        [
+          "Precio de evaluación (referencia)",
+          "Más alto",
+          "Medio-alto (con promos: bajo)",
+          "Suscripción mensual",
+          "Bajo-medio",
+          "Bajo-medio"
+        ]
       ]
     },
     {
@@ -254,5 +368,9 @@
       "buttonText": "Empezar gratis — sin tarjeta"
     }
   ],
-  "relatedSlugs": ["como-pasar-evaluacion-ftmo-journal-trading", "consistency-rule-fondeo-explicada", "mejor-journal-trading-futuros-2025"]
+  "relatedSlugs": [
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "consistency-rule-fondeo-explicada",
+    "mejor-journal-trading-futuros-2025"
+  ]
 }

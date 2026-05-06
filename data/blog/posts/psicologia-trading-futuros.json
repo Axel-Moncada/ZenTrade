@@ -20,11 +20,22 @@
   "publishedAt": "2026-05-11",
   "updatedAt": "2026-05-11",
   "category": "psicologia",
-  "tags": ["psicología trading", "FOMO", "revenge trading", "overconfidence", "emociones", "Colombia", "NQ", "MNQ", "evaluación fondeo", "futuros"],
+  "tags": [
+    "psicología trading",
+    "FOMO",
+    "revenge trading",
+    "overconfidence",
+    "emociones",
+    "Colombia",
+    "NQ",
+    "MNQ",
+    "evaluación fondeo",
+    "futuros"
+  ],
   "readingTime": 12,
   "featured": false,
-  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
-  "thumbnailAlt": "Trader colombiano frente a múltiples monitores de trading experimentando el impacto emocional durante una evaluación de fondeo",
+  "thumbnail": "/blog/stock-trading-chart-laptop-phone-hands-woman-crypto-data-analysis-bitcoin-screen-fintech-growth-ecommerce-girl-technology-financial-statistics-profit-investment.jpg",
+  "thumbnailAlt": "Trader revisando gráficas en laptop y móvil controlando emociones en trading de futuros para pasar prueba de fondeo",
   "content": [
     {
       "type": "p",
@@ -150,12 +161,37 @@
     },
     {
       "type": "table",
-      "headers": ["Emoción", "Señal en el journal", "Impacto en evaluación", "Solución con journal"],
+      "headers": [
+        "Emoción",
+        "Señal en el journal",
+        "Impacto en evaluación",
+        "Solución con journal"
+      ],
       "rows": [
-        ["FOMO", "Entradas 15+ min después del movimiento sin pullback", "Profit factor bajo, muchos perdedores", "Tag 'FOMO' + análisis semanal de tasa de éxito por tag"],
-        ["Revenge trading", "Trade perdedor → nueva entrada <30 min", "Max daily loss en una sesión", "Detección automática (ZenMode) + alerta"],
-        ["Overconfidence", "Aumento de contratos después de racha ganadora", "Pérdida grande que borra la semana", "Gráfico de position sizing por día"],
-        ["Miedo al loss", "Exits antes del target o stops movidos", "Profit factor bajo, winners muy pequeños", "Análisis de target hit % vs planned target"]
+        [
+          "FOMO",
+          "Entradas 15+ min después del movimiento sin pullback",
+          "Profit factor bajo, muchos perdedores",
+          "Tag 'FOMO' + análisis semanal de tasa de éxito por tag"
+        ],
+        [
+          "Revenge trading",
+          "Trade perdedor → nueva entrada <30 min",
+          "Max daily loss en una sesión",
+          "Detección automática (ZenMode) + alerta"
+        ],
+        [
+          "Overconfidence",
+          "Aumento de contratos después de racha ganadora",
+          "Pérdida grande que borra la semana",
+          "Gráfico de position sizing por día"
+        ],
+        [
+          "Miedo al loss",
+          "Exits antes del target o stops movidos",
+          "Profit factor bajo, winners muy pequeños",
+          "Análisis de target hit % vs planned target"
+        ]
       ]
     },
     {

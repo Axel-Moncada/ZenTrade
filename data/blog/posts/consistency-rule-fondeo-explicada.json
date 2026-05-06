@@ -4,16 +4,31 @@
   "excerpt": "La regla de consistencia es la razón oculta por la que muchos traders fallan su evaluación. Aprende qué es, cómo calcularla y cómo no violarla.",
   "seoTitle": "Consistency Rule Prueba de Fondeo: Guía Completa con Ejemplos",
   "seoDescription": "Qué es la consistency rule en pruebas de fondeo, cómo calcularla para FTMO, Apex y TopStep, y cómo evitar violarla. Guía con ejemplos reales y calculadora.",
-  "keywords": ["consistency rule prueba de fondeo", "regla de consistencia FTMO", "consistency rule futuros", "cómo calcular consistency rule", "regla de consistencia Apex", "prueba de fondeo reglas"],
+  "keywords": [
+    "consistency rule prueba de fondeo",
+    "regla de consistencia FTMO",
+    "consistency rule futuros",
+    "cómo calcular consistency rule",
+    "regla de consistencia Apex",
+    "prueba de fondeo reglas"
+  ],
   "author": "Equipo Zentrade",
   "publishedAt": "2026-04-03",
   "updatedAt": "2026-04-03",
   "category": "fondeo",
-  "tags": ["consistency rule", "reglas de fondeo", "FTMO", "Apex Trader Funding", "TopStep", "prueba de fondeo", "futuros"],
+  "tags": [
+    "consistency rule",
+    "reglas de fondeo",
+    "FTMO",
+    "Apex Trader Funding",
+    "TopStep",
+    "prueba de fondeo",
+    "futuros"
+  ],
   "readingTime": 10,
   "featured": false,
-  "thumbnail": "/blog/trader-analizando-estrategia-grafica.jpg",
-  "thumbnailAlt": "Trader analizando estrategia en monitores para cumplir la consistency rule de la prueba de fondeo",
+  "thumbnail": "/blog/traders-analizando-grafica-monitor.jpg",
+  "thumbnailAlt": "Traders analizando en monitor la consistency rule de empresas de fondeo FTMO, Apex y TopStep para futuros",
   "content": [
     {
       "type": "p",
@@ -41,13 +56,43 @@
     },
     {
       "type": "table",
-      "headers": ["Empresa de fondeo", "Regla de consistencia", "Cómo se calcula", "Consecuencia si se viola"],
+      "headers": [
+        "Empresa de fondeo",
+        "Regla de consistencia",
+        "Cómo se calcula",
+        "Consecuencia si se viola"
+      ],
       "rows": [
-        ["FTMO", "~30% del profit neto total", "El mejor día no puede superar el 30% de la ganancia neta de toda la evaluación", "Rechazo de la evaluación"],
-        ["Apex Trader Funding", "Varía por plan — revisar términos actuales", "Mejor día vs. ganancia neta total", "Evaluación no califica"],
-        ["TopStep", "No tiene consistency rule explícita en el Combine estándar", "Basado en reglas de drawdown y comportamiento", "Depende de la infracción"],
-        ["Uprofit", "30% del profit neto", "Mismo método que FTMO", "Rechazo automático"],
-        ["Tradoverse", "Revisar términos actuales — varía por plan", "Mejor día vs. profit neto total", "Posible rechazo"]
+        [
+          "FTMO",
+          "~30% del profit neto total",
+          "El mejor día no puede superar el 30% de la ganancia neta de toda la evaluación",
+          "Rechazo de la evaluación"
+        ],
+        [
+          "Apex Trader Funding",
+          "Varía por plan — revisar términos actuales",
+          "Mejor día vs. ganancia neta total",
+          "Evaluación no califica"
+        ],
+        [
+          "TopStep",
+          "No tiene consistency rule explícita en el Combine estándar",
+          "Basado en reglas de drawdown y comportamiento",
+          "Depende de la infracción"
+        ],
+        [
+          "Uprofit",
+          "30% del profit neto",
+          "Mismo método que FTMO",
+          "Rechazo automático"
+        ],
+        [
+          "Tradoverse",
+          "Revisar términos actuales — varía por plan",
+          "Mejor día vs. profit neto total",
+          "Posible rechazo"
+        ]
       ]
     },
     {
@@ -138,13 +183,37 @@
     },
     {
       "type": "table",
-      "headers": ["Estrategia", "Impacto en consistency rule", "Dificultad"],
+      "headers": [
+        "Estrategia",
+        "Impacto en consistency rule",
+        "Dificultad"
+      ],
       "rows": [
-        ["Profit stop diario fijo", "Alto — previene días desbordados directamente", "Medio — requiere disciplina"],
-        ["Más días de trading, menor tamaño", "Alto — distribuye la ganancia naturalmente", "Bajo — ajuste de plan de trading"],
-        ["Tracker en tiempo real (Zentrade)", "Alto — visibilidad constante del porcentaje", "Bajo — automático"],
-        ["Revisión emocional del journal", "Medio — identifica patrones que preceden sobreoperación", "Medio — requiere honestidad"],
-        ["Reducir tamaño de posición después de buen día", "Medio — limita el upside de los mejores días", "Alto — contra-intuitivo"]
+        [
+          "Profit stop diario fijo",
+          "Alto — previene días desbordados directamente",
+          "Medio — requiere disciplina"
+        ],
+        [
+          "Más días de trading, menor tamaño",
+          "Alto — distribuye la ganancia naturalmente",
+          "Bajo — ajuste de plan de trading"
+        ],
+        [
+          "Tracker en tiempo real (Zentrade)",
+          "Alto — visibilidad constante del porcentaje",
+          "Bajo — automático"
+        ],
+        [
+          "Revisión emocional del journal",
+          "Medio — identifica patrones que preceden sobreoperación",
+          "Medio — requiere honestidad"
+        ],
+        [
+          "Reducir tamaño de posición después de buen día",
+          "Medio — limita el upside de los mejores días",
+          "Alto — contra-intuitivo"
+        ]
       ]
     },
     {
@@ -183,5 +252,8 @@
       "buttonText": "Empezar gratis — sin tarjeta"
     }
   ],
-  "relatedSlugs": ["como-pasar-evaluacion-ftmo-journal-trading", "mejor-journal-trading-futuros-2025"]
+  "relatedSlugs": [
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "mejor-journal-trading-futuros-2025"
+  ]
 }

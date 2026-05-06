@@ -20,11 +20,21 @@
   "publishedAt": "2026-05-13",
   "updatedAt": "2026-05-13",
   "category": "psicologia",
-  "tags": ["emotional tracking", "trading journal", "trading psychology", "prop firm evaluation", "FTMO", "Apex", "funded account", "futures trading", "emotions data"],
+  "tags": [
+    "emotional tracking",
+    "trading journal",
+    "trading psychology",
+    "prop firm evaluation",
+    "FTMO",
+    "Apex",
+    "funded account",
+    "futures trading",
+    "emotions data"
+  ],
   "readingTime": 11,
   "featured": false,
-  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
-  "thumbnailAlt": "Futures trader reviewing emotional performance data on a trading journal dashboard with emotion tags and performance charts",
+  "thumbnail": "/blog/investor-looking-stock-exchange-graphs-computer-monitor.jpg",
+  "thumbnailAlt": "Trader tracking emotions and analyzing stock exchange graphs on monitor to improve prop firm evaluation results",
   "content": [
     {
       "type": "p",
@@ -125,12 +135,32 @@
     },
     {
       "type": "table",
-      "headers": ["Emotional Pattern Found", "Typical Insight", "Action Taken"],
+      "headers": [
+        "Emotional Pattern Found",
+        "Typical Insight",
+        "Action Taken"
+      ],
       "rows": [
-        ["80% of 'frustrated' trades are losers", "Frustrated state reliably produces bad decisions", "Stop trading for minimum 15 min after any frustration tag"],
-        ["'Impatient' trades cluster in 12-2 PM ET window", "Slow afternoon session drives low-quality entries", "Hard stop: no new trades after 12 PM ET"],
-        ["'Confident' trades have better RR but after streaks of 3+, lose", "Overconfidence emerges after 3 wins", "Hard rule: no contract size increase until next week resets"],
-        ["'Focused' trades have 2x profit factor of all other tags combined", "Only the baseline state produces real edge", "Use this as permission system: only trade when focused"]
+        [
+          "80% of 'frustrated' trades are losers",
+          "Frustrated state reliably produces bad decisions",
+          "Stop trading for minimum 15 min after any frustration tag"
+        ],
+        [
+          "'Impatient' trades cluster in 12-2 PM ET window",
+          "Slow afternoon session drives low-quality entries",
+          "Hard stop: no new trades after 12 PM ET"
+        ],
+        [
+          "'Confident' trades have better RR but after streaks of 3+, lose",
+          "Overconfidence emerges after 3 wins",
+          "Hard rule: no contract size increase until next week resets"
+        ],
+        [
+          "'Focused' trades have 2x profit factor of all other tags combined",
+          "Only the baseline state produces real edge",
+          "Use this as permission system: only trade when focused"
+        ]
       ]
     },
     {

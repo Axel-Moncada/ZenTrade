@@ -4,16 +4,32 @@
   "excerpt": "Compare the best prop firms for futures traders in 2025. FTMO, Apex, TopStep, Tradoverse, and Uprofit — rules, costs, payouts, and which one fits your style.",
   "seoTitle": "Best Prop Firms for Futures Traders 2025 — Full Comparison",
   "seoDescription": "Compare the best prop firms for futures traders in 2025: FTMO, Apex, TopStep, Tradoverse, Uprofit. Rules, fees, payouts, and which program fits your trading style.",
-  "keywords": ["best prop firms for futures traders", "best funded futures trading program 2025", "FTMO futures", "Apex Trader Funding review", "TopStep futures evaluation", "prop firm comparison 2025", "funded futures trader"],
+  "keywords": [
+    "best prop firms for futures traders",
+    "best funded futures trading program 2025",
+    "FTMO futures",
+    "Apex Trader Funding review",
+    "TopStep futures evaluation",
+    "prop firm comparison 2025",
+    "funded futures trader"
+  ],
   "author": "Zentrade Team",
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "comparativas",
-  "tags": ["prop firms", "futures trading", "FTMO", "Apex Trader Funding", "TopStep", "funded account", "evaluation"],
+  "tags": [
+    "prop firms",
+    "futures trading",
+    "FTMO",
+    "Apex Trader Funding",
+    "TopStep",
+    "funded account",
+    "evaluation"
+  ],
   "readingTime": 11,
   "featured": true,
   "thumbnail": "/blog/trader-laptop-tablet-analisis-graficas.jpg",
-  "thumbnailAlt": "Futures trader using laptop and tablet to compare the best prop firms for funded trading in 2025",
+  "thumbnailAlt": "Trader reviewing the best prop firms for futures trading in 2025 on laptop and mobile with dual monitor setup",
   "content": [
     {
       "type": "p",
@@ -54,13 +70,61 @@
     },
     {
       "type": "table",
-      "headers": ["Firm", "Eval Fee (50K)", "Profit Target", "Max Daily Loss", "Max Drawdown", "Payout Split", "Consistency Rule"],
+      "headers": [
+        "Firm",
+        "Eval Fee (50K)",
+        "Profit Target",
+        "Max Daily Loss",
+        "Max Drawdown",
+        "Payout Split",
+        "Consistency Rule"
+      ],
       "rows": [
-        ["FTMO", "~$345", "10%", "5%", "10% trailing", "80/20", "Yes — 30% cap"],
-        ["Apex Trader Funding", "~$167/mo", "6%", "3%", "trailing EOD", "90/10", "No (most plans)"],
-        ["TopStep", "~$165/mo", "6%", "4%", "6% trailing", "90/10", "Yes — 30% cap"],
-        ["Tradoverse", "~$149 one-time", "8%", "4%", "8% static", "80/20", "Yes — 40% cap"],
-        ["Uprofit", "~$119/mo", "8%", "5%", "8% trailing", "80/20", "No"]
+        [
+          "FTMO",
+          "~$345",
+          "10%",
+          "5%",
+          "10% trailing",
+          "80/20",
+          "Yes — 30% cap"
+        ],
+        [
+          "Apex Trader Funding",
+          "~$167/mo",
+          "6%",
+          "3%",
+          "trailing EOD",
+          "90/10",
+          "No (most plans)"
+        ],
+        [
+          "TopStep",
+          "~$165/mo",
+          "6%",
+          "4%",
+          "6% trailing",
+          "90/10",
+          "Yes — 30% cap"
+        ],
+        [
+          "Tradoverse",
+          "~$149 one-time",
+          "8%",
+          "4%",
+          "8% static",
+          "80/20",
+          "Yes — 40% cap"
+        ],
+        [
+          "Uprofit",
+          "~$119/mo",
+          "8%",
+          "5%",
+          "8% trailing",
+          "80/20",
+          "No"
+        ]
       ]
     },
     {
@@ -201,15 +265,71 @@
     },
     {
       "type": "table",
-      "headers": ["Rule", "FTMO", "Apex", "TopStep", "Tradoverse", "Uprofit"],
+      "headers": [
+        "Rule",
+        "FTMO",
+        "Apex",
+        "TopStep",
+        "Tradoverse",
+        "Uprofit"
+      ],
       "rows": [
-        ["Consistency Rule", "Yes (30%)", "No", "Yes (30%)", "Yes (40%)", "No"],
-        ["Trailing Drawdown", "Yes", "Yes", "Yes", "No (static)", "Yes"],
-        ["News Trading Allowed", "Yes (with caveats)", "Yes", "No at open", "Yes", "Yes"],
-        ["Overnight Holding", "Yes", "Yes", "Yes", "Yes", "Yes"],
-        ["Evaluation Phases", "2-phase", "1-phase", "1-phase", "1-phase", "1-phase"],
-        ["Payout Frequency", "Monthly", "Weekly (bi-weekly)", "Monthly", "Monthly", "Bi-weekly"],
-        ["Min Trading Days", "10 days", "None", "None", "None", "None"]
+        [
+          "Consistency Rule",
+          "Yes (30%)",
+          "No",
+          "Yes (30%)",
+          "Yes (40%)",
+          "No"
+        ],
+        [
+          "Trailing Drawdown",
+          "Yes",
+          "Yes",
+          "Yes",
+          "No (static)",
+          "Yes"
+        ],
+        [
+          "News Trading Allowed",
+          "Yes (with caveats)",
+          "Yes",
+          "No at open",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Overnight Holding",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes",
+          "Yes"
+        ],
+        [
+          "Evaluation Phases",
+          "2-phase",
+          "1-phase",
+          "1-phase",
+          "1-phase",
+          "1-phase"
+        ],
+        [
+          "Payout Frequency",
+          "Monthly",
+          "Weekly (bi-weekly)",
+          "Monthly",
+          "Monthly",
+          "Bi-weekly"
+        ],
+        [
+          "Min Trading Days",
+          "10 days",
+          "None",
+          "None",
+          "None",
+          "None"
+        ]
       ]
     },
     {
@@ -249,13 +369,31 @@
     },
     {
       "type": "table",
-      "headers": ["Your Profile", "Best Fit"],
+      "headers": [
+        "Your Profile",
+        "Best Fit"
+      ],
       "rows": [
-        ["You want maximum brand recognition and are disciplined with consistency", "FTMO"],
-        ["You scalp or trade frequently and hate the consistency rule", "Apex Trader Funding or Uprofit"],
-        ["You want structured development and a long-term funded relationship", "TopStep"],
-        ["You want a low upfront cost with a one-time fee and one-phase evaluation", "Tradoverse"],
-        ["You are in LATAM and want a Spanish-friendly firm with a simple structure", "Apex or Uprofit"]
+        [
+          "You want maximum brand recognition and are disciplined with consistency",
+          "FTMO"
+        ],
+        [
+          "You scalp or trade frequently and hate the consistency rule",
+          "Apex Trader Funding or Uprofit"
+        ],
+        [
+          "You want structured development and a long-term funded relationship",
+          "TopStep"
+        ],
+        [
+          "You want a low upfront cost with a one-time fee and one-phase evaluation",
+          "Tradoverse"
+        ],
+        [
+          "You are in LATAM and want a Spanish-friendly firm with a simple structure",
+          "Apex or Uprofit"
+        ]
       ]
     },
     {
@@ -306,5 +444,9 @@
       "buttonText": "Try Zentrade Free"
     }
   ],
-  "relatedSlugs": ["best-trading-journal-prop-firms-2025", "consistency-rule-prop-firm-explained", "how-to-pass-apex-trader-funding"]
+  "relatedSlugs": [
+    "best-trading-journal-prop-firms-2025",
+    "consistency-rule-prop-firm-explained",
+    "how-to-pass-apex-trader-funding"
+  ]
 }
