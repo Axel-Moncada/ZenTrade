@@ -1,12 +1,7 @@
 import { ImageResponse } from "next/og";
-import { getAllSlugs, getPostBySlug, CATEGORY_LABELS } from "@/lib/blog";
+import { getPostBySlug, CATEGORY_LABELS } from "@/lib/blog";
 
-export const dynamic = "force-static";
-export const revalidate = false; // Cache indefinido — solo cambia si el post cambia
-
-export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
-}
+export const dynamic = "force-dynamic";
 
 const ZEN_GREEN = "#00c17c";
 const ZEN_BG = "#070d07";
