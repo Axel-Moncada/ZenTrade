@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI, type Tool } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY ?? "");
 
@@ -35,42 +35,49 @@ export interface MarketPreviewData {
 }
 
 // ─── Paso 1: búsqueda con Google Grounding ────────────────────────────────────
-// Gemini busca en Google en tiempo real y devuelve contexto factual
 
 async function fetchRealWorldContext(
   weekStart: string,
   weekEnd: string
 ): Promise<string> {
-  const modelWithSearch = genAI.getGenerativeModel({
-    model: "gemini-2.5-flash",
-    // @ts-expect-error — googleSearch grounding, soportado en runtime
-    tools: [{ googleSearch: {} }],
+  // gemini-1.5-flash tiene cuota free más alta + soporta Google Search Grounding
+  // Si sigue dando 429, activa billing en Google AI Studio (mínimo $1 crédito)
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+  const groundingTool: Tool = { googleSearch: {} };
+
+  const prompt = `Busca y dame un resumen detallado y actualizado de los eventos más importantes para los mercados financieros globales durante la semana del ${weekStart} al ${weekEnd}. Necesito información REAL y ACTUAL sobre:
+
+1. CALENDARIO ECONÓMICO USA: CPI, PPI, PCE, NFP, PIB, ventas minoristas, ISM, confianza del consumidor. Fechas exactas y estimados del consenso.
+
+2. RESERVA FEDERAL: decisiones de tasas, minutas del FOMC, discursos de Powell. Bancos centrales globales: BCE, Banco de Japón, Banco de Inglaterra — cualquier decisión o comunicado de esa semana.
+
+3. EARNINGS: reportes corporativos del S&P 500 y Nasdaq esa semana. Especialmente empresas grandes de tecnología, energía, finanzas.
+
+4. GEOPOLÍTICA ACTUAL — ESTO ES OBLIGATORIO:
+   - Estado actual de la guerra Israel-Gaza: escaladas, negociaciones, ataques, impacto en petróleo
+   - Guerra Rusia-Ucrania: avances, negociaciones, sanciones nuevas
+   - Tensiones USA-China: aranceles, tecnología, Taiwan
+   - Conflictos en Medio Oriente y su impacto en el petróleo
+   - Cualquier tensión geopolítica activa que mueva mercados
+
+5. POLÍTICA Y ARANCELES: decisiones de Trump en la semana, nuevos aranceles anunciados, sanciones, impacto comercial global. Política de otros países con impacto en mercados.
+
+6. PETRÓLEO Y COMMODITIES: reuniones OPEP+, inventarios EIA del miércoles, precio del petróleo y factores que lo afectan esa semana. Oro, gas natural.
+
+7. CONTEXTO GENERAL DE MERCADO: qué pasó la semana anterior que sigue afectando mercados, niveles clave del S&P 500 y Nasdaq, sentimiento inversor.
+
+Da respuestas CONCRETAS con fechas reales, cifras y contexto directo. Esta información se usará para preparar traders de futuros (NQ, ES, CL, GC) para la semana.`;
+
+  const result = await model.generateContent({
+    contents: [{ role: "user", parts: [{ text: prompt }] }],
+    tools: [groundingTool],
   });
 
-  const searchPrompt = `Busca y resume los eventos más importantes para los mercados financieros globales durante la semana del ${weekStart} al ${weekEnd}. Incluye:
-
-1. CALENDARIO ECONÓMICO: publicaciones de CPI, PPI, PCE, NFP, PIB, ventas minoristas, ISM, confianza del consumidor y otros indicadores macro de USA. Fechas exactas y estimados del consenso si los hay.
-
-2. RESERVA FEDERAL Y BANCOS CENTRALES: decisiones de tasas del FOMC, discursos de Powell o miembros del Fed, decisiones del BCE (Banco Central Europeo), Banco de Japón, Banco de Inglaterra u otros bancos centrales relevantes.
-
-3. EARNINGS: reportes de resultados de empresas del S&P 500 y Nasdaq de esa semana. Especialmente empresas de tecnología, energía y finanzas.
-
-4. GEOPOLÍTICA Y GUERRAS: estado actual del conflicto Israel-Gaza, guerra Rusia-Ucrania, tensiones USA-China, situación en Medio Oriente, cualquier escalada o acuerdo relevante que impacte mercados.
-
-5. POLÍTICA Y ARANCELES: decisiones de la administración Trump, aranceles comerciales, sanciones, elecciones o cambios de gobierno en cualquier país con impacto en mercados.
-
-6. COMMODITIES: eventos que afecten petróleo (reuniones OPEP+, inventarios EIA), oro, gas natural.
-
-7. CONTEXTO DE MERCADO: qué pasó la semana anterior que tiene pendiente resolución (tendencias, niveles clave, sentimiento general).
-
-Da respuestas concretas con fechas, cifras y contexto. Esta información se usará para preparar a traders de futuros (NQ, ES, CL, GC) para la semana.`;
-
-  const result = await modelWithSearch.generateContent(searchPrompt);
   return result.response.text();
 }
 
 // ─── Paso 2: estructurar en JSON ──────────────────────────────────────────────
-// Toma el contexto real y lo convierte al formato del email
 
 async function structureAsJson(
   context: string,
@@ -78,49 +85,49 @@ async function structureAsJson(
   weekEnd: string,
   instruments: string[]
 ): Promise<MarketPreviewData> {
-  const structureModel = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const instrumentList = instruments.length > 0 ? instruments.join(", ") : "ES, NQ, CL, GC";
 
-  const prompt = `Eres un analista senior de mercados financieros. Basándote EXCLUSIVAMENTE en el contexto de noticias reales que te doy abajo, genera el radar de mercado para la semana del ${weekStart} al ${weekEnd}.
+  const prompt = `Eres un analista senior de mercados financieros y geopolítica global. Basándote EXCLUSIVAMENTE en el contexto real de noticias que te doy abajo, genera el radar de mercado para la semana del ${weekStart} al ${weekEnd}.
 
 INSTRUMENTOS DEL TRADER: ${instrumentList}
 
-CONTEXTO REAL DE NOTICIAS (fuentes verificadas en tiempo real):
+CONTEXTO REAL (fuentes verificadas en tiempo real mediante Google Search):
 ---
 ${context}
 ---
 
-INSTRUCCIONES:
-- Selecciona entre 5 y 8 eventos de mayor impacto del contexto anterior. NO inventes eventos.
-- Prioriza los que afecten directamente los instrumentos del trader.
-- Incluye SIEMPRE eventos geopolíticos relevantes (guerras, tensiones, aranceles) si los hay.
-- Para eventos sin fecha exacta confirmada, usa "Semana del ${weekStart}" como fecha.
-- El campo "intro" usa HTML solo con <b></b>. Menciona el evento más importante de la semana.
-- Usa el contexto geopolítico para preparar al trader mentalmente, no solo técnicamente.
+REGLAS ESTRICTAS:
+1. Selecciona entre 6 y 9 eventos. NO inventes nada que no esté en el contexto.
+2. OBLIGATORIO incluir al menos 1-2 eventos geopolíticos (guerras, conflictos, aranceles) si existen en el contexto. La guerra de Israel, los aranceles de Trump, tensiones con China — TODO eso afecta el petróleo (CL), el oro (GC) y los índices (NQ, ES).
+3. Para el petróleo (CL): si hay tensiones en Medio Oriente, es relevante SIEMPRE.
+4. Para el oro (GC): eventos de riesgo geopolítico son alcistas para el oro.
+5. Para NQ/ES: aranceles y guerras comerciales son relevantes.
+6. El impacto no siempre es "alta volatilidad" — sé específico: una escalada en Gaza es "alcista" para CL y GC, "bajista" para ES/NQ por risk-off.
+7. El intro debe mencionar el contexto geopolítico global si es relevante para traders de futuros, no solo los datos económicos.
 
-TIPOS DISPONIBLES: FED | BANCO_CENTRAL | EARNINGS | MACRO | INFLACIÓN | EMPLEO | GEOPOLÍTICA | GUERRA | POLÍTICA | COMMODITIES | OTRO
-
-INSTRUMENTOS AFECTADOS disponibles: ES, NQ, MNQ, MES, CL, GC, MGC, ZN, ZB, RTY
+TIPOS: FED | BANCO_CENTRAL | EARNINGS | MACRO | INFLACIÓN | EMPLEO | GEOPOLÍTICA | GUERRA | POLÍTICA | COMMODITIES | OTRO
+INSTRUMENTOS: ES, NQ, MNQ, MES, CL, GC, MGC, ZN, ZB, RTY
 
 RESPONDE SOLO CON JSON VÁLIDO, sin bloques markdown:
 
 {
-  "intro": "2-3 frases en HTML con <b>negrillas</b> preparando al trader para la semana, contexto macro Y geopolítico",
+  "intro": "2-3 frases en HTML con <b>negrillas</b>. Menciona tanto el contexto económico como el geopolítico si es relevante. Prepara al trader para lo que puede mover los mercados esa semana.",
   "newsItems": [
     {
       "type": "TIPO",
-      "title": "Título conciso (máx 55 caracteres)",
-      "date": "Ej: Martes 8 de abril · 8:30 AM ET",
-      "description": "2-3 frases: qué es, qué se espera, por qué importa al trader de futuros",
+      "title": "Título conciso y factual (máx 55 caracteres)",
+      "date": "Ej: Martes 8 de abril · 8:30 AM ET — o 'Semana del 7 de abril' si no hay fecha exacta",
+      "description": "2-3 frases: qué es, qué se espera o qué está pasando, por qué importa directamente al trader de futuros y cómo puede afectar su sesión",
       "potentialImpact": "alcista|bajista|neutral|alta volatilidad",
-      "affectedInstruments": ["NQ", "ES"]
+      "affectedInstruments": ["CL", "GC"]
     }
   ],
-  "closingNote": "Una frase motivacional y directa para el trader"
+  "closingNote": "Una frase directa y motivacional para el trader"
 }`;
 
-  const result = await structureModel.generateContent(prompt);
+  const result = await model.generateContent(prompt);
   const raw = result.response.text().trim();
   const clean = raw
     .replace(/^```(?:json)?\n?/, "")
@@ -137,11 +144,7 @@ export async function generateMarketPreview(
   weekEnd: string,
   instruments: string[]
 ): Promise<MarketPreviewData> {
-  // Paso 1: obtener contexto real del mundo vía Google Search
   const realContext = await fetchRealWorldContext(weekStart, weekEnd);
-
-  // Paso 2: estructurar en el formato del email
   const preview = await structureAsJson(realContext, weekStart, weekEnd, instruments);
-
   return preview;
 }

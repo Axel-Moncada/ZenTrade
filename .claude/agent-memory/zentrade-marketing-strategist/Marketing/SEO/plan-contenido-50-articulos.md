@@ -81,21 +81,38 @@
 
 ## Orden de producción recomendado (próximos 15 artículos)
 
-1. zentrade-vs-tradezella (ES)
-2. zentrade-vs-tradezella-comparison (EN)
-3. que-es-un-trading-journal (ES)
-4. consistency-rule-fondeo-explicada (ES)
-5. consistency-rule-fondeo-explained (EN)
-6. que-es-revenge-trading (ES)
-7. how-to-pass-apex-trader-funding (EN)
-8. como-pasar-apex-trader-funding (ES)
-9. mejores-empresas-fondeo-futuros-2025 (ES)
-10. best-fondeo-futures-traders-2025 (EN)
-11. que-es-un-prop-firm-trading (ES)
-12. what-is-a-trading-journal (EN)
-13. how-to-pass-ftmo-evaluation-trading-journal (EN)
-14. como-pasar-topstep-evaluacion (ES)
-15. how-to-pass-topstep-evaluation (EN)
+1. zentrade-vs-tradezella (ES) — GENERADO
+2. zentrade-vs-tradezella-comparison (EN) — GENERADO
+3. que-es-un-trading-journal (ES) — GENERADO
+4. consistency-rule-fondeo-explicada (ES) — GENERADO
+5. consistency-rule-fondeo-explained (EN) — GENERADO (slug: consistency-rule-prop-firm-explained)
+6. que-es-revenge-trading (ES) — GENERADO
+7. how-to-pass-apex-trader-funding (EN) — GENERADO
+8. como-pasar-apex-trader-funding (ES) — GENERADO
+9. mejores-empresas-fondeo-futuros-2025 (ES) — GENERADO
+10. best-fondeo-futures-traders-2025 (EN) — GENERADO (slug: best-prop-firms-futures-traders-2025)
+11. que-es-un-prop-firm-trading (ES) — GENERADO (slug: que-es-una-empresa-de-fondeo)
+12. what-is-a-trading-journal (EN) — GENERADO
+13. how-to-pass-ftmo-evaluation-trading-journal (EN) — GENERADO (slug: how-to-pass-ftmo-evaluation)
+14. como-pasar-topstep-evaluacion (ES) — GENERADO
+15. how-to-pass-topstep-evaluation (EN) — GENERADO
+
+---
+
+## Plan Mayo 2026 — 8 artículos nuevos
+
+Orden de producción: 3 → 1 → 2 → 4 → 5 → 6 → 8 → 7
+
+| # | Slug | Título | Idioma | Categoría | Prioridad |
+|---|------|--------|--------|-----------|-----------|
+| 1 | errores-comunes-evaluaciones-fondeo | Los 7 Errores Más Comunes en Evaluaciones de Fondeo (y Cómo Evitarlos con un Journal) | ES | fondeo | Alta |
+| 2 | profit-factor-trading-que-es | Qué es el Profit Factor en Trading y Por Qué las Empresas de Fondeo lo Usan Para Evaluarte | ES | guias | Alta |
+| 3 | profit-factor-trading-explained | Profit Factor in Trading: What It Is, How to Calculate It, and Why Prop Firms Care | EN | guias | Alta |
+| 4 | how-to-pass-tradovate-evaluation | How to Pass a Prop Firm Evaluation Trading on Tradovate | EN | fondeo | Alta |
+| 5 | psicologia-trading-futuros | Psicología del Trading de Futuros: Cómo las Emociones te Hacen Fallar Evaluaciones | ES | psicologia | Media-Alta |
+| 6 | trading-psychology-futures-traders | Trading Psychology for Futures Traders: How Emotions Cost You Funded Accounts | EN | psicologia | Media-Alta |
+| 7 | how-to-track-emotions-trading | How to Track Emotions in Trading (And Why It Predicts Your Evaluation Results) | EN | psicologia | Media |
+| 8 | ninjatrader-journal-trading-futuros | Cómo Llevar un Journal de Trading si Operas con NinjaTrader (Guía Práctica) | ES | guias | Media |
 
 ## Notas
 - Para generar artículos: usar el prompt maestro en esta misma carpeta

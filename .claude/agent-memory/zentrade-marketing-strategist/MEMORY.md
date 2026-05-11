@@ -134,6 +134,31 @@ Ver tabla completa en `hashtags.md`
 - Copy de LinkedIn: desglose técnico completo (pasarelas fallidas + arquitectura IA) convierte mejor que narrativa perfecta
 - Social proof que convierte más: screenshot anónimo de dashboard con datos reales de usuario, no copy genérico
 
+## Videos — estrategia undercover founder (decisión 2026-03-31)
+
+- Archivo activo: `Marketing/contenido/Videos/hooks-virales-trader-usuario.md` (estrategia: undercover-founder)
+- Archivo de referencia histórica: `Marketing/contenido/Videos/hooks-virales-founder-led.md` (no usar, no borrar)
+- Axel habla como trader que USA Zentrade, no como su creador. Credibilidad orgánica > transparencia de founder en TikTok/Reels.
+- Framing clave: "encontré", "empecé a usar", "alguien me recomendó" — nunca "lo que construí" ni "lo que hice"
+- Canales donde SÍ aplica voz de founder: X build in public, podcasts, entrevistas
+- Canales donde aplica undercover: TikTok, Instagram Reels, YouTube Shorts
+- 15 hooks + 5 guiones completos reescritos con voz de usuario
+- CTA canónico: "el link está en mi bio, es gratis empezar" — nunca "compra ahora"
+- Guia de manejo de comentarios incluida en el archivo: cómo responder si preguntan "¿trabajas con ellos?" o "¿eres el dueño?"
+- Cuándo revelar que es el fundador: cuando alguien ya lo descubrió, en entrevistas/podcasts, en build in public, cuando hay 100-500 usuarios activos
+- Orden de producción: Guion 4 → Guion 1 → Guion 2 → Guion 5 (demo, publicar con historial previo) → Guion 3
+- Subtítulos obligatorios en todos los videos (60-70% de TikTok se consume sin audio)
+
+## Videos pautados — guiones voz en off (mayo 2026)
+
+- Archivo: `D:/Development/2 - Zentrade/.claude/marketing/contenido/Videos/guion-voz-en-off-meta-ads-mayo-2026.md`
+- Gancho A validado (retargeting): "Reprobaste la evaluación. Y ni siquiera sabes exactamente por qué."
+- Gancho B (audiencia fría): "El 85% de los traders falla la evaluación. La mayoría sabe operar. El problema es otro."
+- Frase de mayor carga emocional: "Antes de que lo haga la evaluación/empresa de fondeo." — decir despacio, siempre.
+- Variante Consistency Rule: primera persona confesional, segmentada para intereses FTMO/TopStep
+- Regla de producción: screen recording real del dashboard — nunca stock footage ni mockup
+- Video pautado NO aplica estrategia undercover-founder — voz en off profesional, sin locutor en cámara
+
 ## Estrategia SEO y blog (diseñada 2026-03-29)
 
 - Plan de 50 artículos: 30 ES + 20 EN. Ver `Marketing/SEO/plan-contenido-50-articulos.md`
@@ -146,7 +171,34 @@ Ver tabla completa en `hashtags.md`
 - LLM SEO (GEO): respuesta directa en primeros 2-3 párrafos, entidades nombradas, datos cuantificados, FAQ con preguntas de LLM
 - Dato ancla para artículos de awareness: "más del 85% de los traders que intenta pasar una evaluación falla"
 - Regla de terminología SEO: en cuerpo del artículo usar "empresa de fondeo"; en keywords usar tanto "prop firm" como "empresa de fondeo"; en hashtags solo inglés por volumen
-- Próximos artículos prioritarios: zentrade-vs-tradezella (ES+EN), consistency-rule-prop-firms (ES+EN), que-es-revenge-trading (ES)
+- 6 artículos adicionales generados (2026-03-30) — batch 2:
+  - `best-prop-firms-futures-traders-2025.json` (EN, comparativa, featured) — comparación FTMO/Apex/TopStep/Tradoverse/Uprofit con 3 tablas
+  - `que-es-una-empresa-de-fondeo.json` (ES, guias) — artículo informacional para tráfico TOFU
+  - `what-is-a-trading-journal.json` (EN, guias) — informacional para búsqueda "what is a trading journal"
+  - `how-to-pass-ftmo-evaluation.json` (EN, fondeo) — guía FTMO con reglas + tabla de drawdown trailing
+  - `como-pasar-topstep-evaluacion.json` (ES, fondeo) — guía TopStep con ejemplos numéricos de consistencia
+  - `how-to-pass-topstep-evaluation.json` (EN, fondeo) — versión EN del artículo TopStep con tabla comparativa
+- Total artículos en producción: 34 (batch 4 mayo 2026 = 8 nuevos, ver detalle en `Marketing/SEO/plan-contenido-50-articulos.md`)
+- Artículo trending añadido (2026-05-06): `como-operar-nq-maximos-historicos-volatilidad.json` — capitaliza NQ ATH + tensión geopolítica
+- Patrón de artículo trending: contexto de mercado actual → errores emocionales en evaluación → journal como solución → CTA gratis
+- Batch 4 (mayo 2026, 8 posts): errores-comunes-evaluaciones-fondeo, profit-factor-trading-que-es, profit-factor-trading-explained, como-operar-tradovate-prop-firm, psicologia-trading-futuros, trading-psychology-futures-traders, how-to-track-emotions-trading, ninjatrader-journal-trading-futuros
+- Estrategia SEO Colombia + anti-TradeZella: `Marketing/SEO/estrategia-colombia-anti-tradezella.md` — keywords long-tail Colombia, táctica de PAA, slugs para junio
+- Decisión PAA anti-TradeZella: no atacar calidad técnica del competidor — dejar que precio ($9 vs $29) e idioma (español nativo) hablen solos
+- Keywords Colombia prioritarias: "empresa de fondeo Colombia", "FTMO Colombia", "alternativa TradeZella Colombia", "journal trading Colombia"
+- Próximos artículos prioritarios (junio): alternativa-tradezella-espanol-colombia, empresas-fondeo-colombia-como-empezar, uprofit-colombia-guia-completa-traders
+
+---
+
+## Video tutorial landing page (mayo 2026)
+
+- Archivo: `Marketing/contenido/Videos/guion-video-tutorial-home-landing.md`
+- Formato: storyboard dos columnas (visual | voz). Duración objetivo 95-100 seg. Máximo 110.
+- Voz: producto Zentrade (no undercover). Tono: trader exitoso mostrando herramienta — no locutor de ad.
+- Orden de features: Dashboard KPIs → Registro trades (campo emocional) → Calendario → Revenge Detection → Reporte IA → Radar Mercado + Analytics → CTA
+- Frase de apertura: "El problema no es lo que sabes del mercado. Es lo que no puedes ver de ti mismo."
+- Frase de cierre (CTA): "No puedes corregir lo que no puedes ver." — misma que el positioning principal.
+- Feature que NO recortar si hay que editar: gancho apertura (0-8s), revenge detection (52-63s), CTA (88-100s)
+- Feature recortable si acortan: Radar de mercado (75-80s) — es el menos universal
 
 ---
 
