@@ -44,7 +44,7 @@ async function fetchRealWorldContext(
   // Si sigue dando 429, activa billing en Google AI Studio (mínimo $1 crédito)
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-  const groundingTool: Tool = { googleSearch: {} };
+  const groundingTool = { googleSearch: {} } as unknown as Tool;
 
   const prompt = `Busca y dame un resumen detallado y actualizado de los eventos más importantes para los mercados financieros globales durante la semana del ${weekStart} al ${weekEnd}. Necesito información REAL y ACTUAL sobre:
 
