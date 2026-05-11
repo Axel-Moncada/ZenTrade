@@ -102,6 +102,7 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
     const labels: Record<string, string> = {
       take_profit: 'TP',
       stop_loss: 'SL',
+      trailing: 'Trailing',
       break_even: 'BE',
       manual: 'Manual',
       timeout: 'Timeout',
@@ -113,6 +114,7 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
     const colors: Record<string, string> = {
       take_profit: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/50',
       stop_loss: 'bg-rose-500/20 text-rose-400 border-rose-500/50',
+      trailing: 'bg-violet-500/20 text-violet-400 border-violet-500/50',
       break_even: 'bg-slate-500/20 text-slate-400 border-slate-500/50',
       manual: 'bg-blue-500/20 text-blue-400 border-blue-500/50',
       timeout: 'bg-orange-500/20 text-orange-400 border-orange-500/50',

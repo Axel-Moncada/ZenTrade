@@ -1,6 +1,6 @@
 // Tipos para operaciones de trading
 
-export type ExitReason = 'take_profit' | 'stop_loss' | 'break_even' | 'manual' | 'timeout';
+export type ExitReason = 'take_profit' | 'stop_loss' | 'trailing' | 'break_even' | 'manual' | 'timeout';
 
 export type Emotion = 
   | 'disciplinado'

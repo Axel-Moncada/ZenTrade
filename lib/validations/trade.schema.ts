@@ -10,7 +10,7 @@ export const createTradeSchema = z.object({
     errorMap: () => ({ message: 'Lado debe ser "long" o "short"' })
   }),
   result: z.number({ required_error: 'El resultado es requerido' }),
-  exit_reason: z.enum(['take_profit', 'stop_loss', 'break_even', 'manual', 'timeout'], {
+  exit_reason: z.enum(['take_profit', 'stop_loss', 'trailing', 'break_even', 'manual', 'timeout'], {
     errorMap: () => ({ message: 'Razón de salida inválida' })
   }).optional(),
   followed_plan: z.boolean().default(true),
@@ -31,7 +31,7 @@ export const updateTradeSchema = z.object({
     errorMap: () => ({ message: 'Lado debe ser "long" o "short"' })
   }).optional(),
   result: z.number().optional(),
-  exit_reason: z.enum(['take_profit', 'stop_loss', 'break_even', 'manual', 'timeout'], {
+  exit_reason: z.enum(['take_profit', 'stop_loss', 'trailing', 'break_even', 'manual', 'timeout'], {
     errorMap: () => ({ message: 'Razón de salida inválida' })
   }).optional().nullable(),
   followed_plan: z.boolean().optional(),

@@ -257,7 +257,7 @@ export interface Database {
           contracts: number;
           side: 'long' | 'short';
           result: number;
-          exit_reason: 'take_profit' | 'stop_loss' | 'break_even' | 'manual' | 'timeout' | null;
+          exit_reason: 'take_profit' | 'stop_loss' | 'trailing' | 'break_even' | 'manual' | 'timeout' | null;
           followed_plan: boolean;
           emotions: string[] | null;
           notes: string | null;
@@ -277,7 +277,7 @@ export interface Database {
           contracts: number;
           side: 'long' | 'short';
           result: number;
-          exit_reason?: 'take_profit' | 'stop_loss' | 'break_even' | 'manual' | 'timeout' | null;
+          exit_reason?: 'take_profit' | 'stop_loss' | 'trailing' | 'break_even' | 'manual' | 'timeout' | null;
           followed_plan?: boolean;
           emotions?: string[] | null;
           notes?: string | null;
@@ -297,7 +297,7 @@ export interface Database {
           contracts?: number;
           side?: 'long' | 'short';
           result?: number;
-          exit_reason?: 'take_profit' | 'stop_loss' | 'break_even' | 'manual' | 'timeout' | null;
+          exit_reason?: 'take_profit' | 'stop_loss' | 'trailing' | 'break_even' | 'manual' | 'timeout' | null;
           followed_plan?: boolean;
           emotions?: string[] | null;
           notes?: string | null;

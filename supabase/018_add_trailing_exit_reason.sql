@@ -1,0 +1,3 @@
+-- exit_reason es varchar, no un enum de Postgres.
+-- No se requiere migración para agregar 'trailing'.
+-- El valor se guarda directamente como texto desde la app.

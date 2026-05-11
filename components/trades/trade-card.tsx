@@ -31,6 +31,7 @@ interface TradeCardProps {
 const exitReasonIcons = {
   take_profit: <Target className="h-3 w-3" />,
   stop_loss: <AlertCircle className="h-3 w-3" />,
+  trailing: <TrendingUp className="h-3 w-3" />,
   break_even: <Minus className="h-3 w-3" />,
   manual: <Clock className="h-3 w-3" />,
   timeout: <Clock className="h-3 w-3" />,
@@ -39,6 +40,7 @@ const exitReasonIcons = {
 const exitReasonLabels = {
   take_profit: 'Take Profit',
   stop_loss: 'Stop Loss',
+  trailing: 'Trailing',
   break_even: 'Break Even',
   manual: 'Manual',
   timeout: 'Timeout',
@@ -47,6 +49,7 @@ const exitReasonLabels = {
 const exitReasonColors = {
   take_profit: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40',
   stop_loss: 'bg-zen-danger/20 text-zen-danger border-zen-danger/40',
+  trailing: 'bg-violet-500/20 text-violet-400 border-violet-500/50',
   break_even: 'bg-zen-forest/20 text-zen-forest border-zen-forest/40',
   manual: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40',
   timeout: 'bg-zen-pistachio/20 text-zen-pistachio border-zen-pistachio/40',

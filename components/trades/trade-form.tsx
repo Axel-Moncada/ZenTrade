@@ -493,6 +493,7 @@ export function TradeForm({
             <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash">
               <SelectItem value="take_profit" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">🎯 Take Profit</SelectItem>
               <SelectItem value="stop_loss" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">🛑 Stop Loss</SelectItem>
+              <SelectItem value="trailing" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">📈 Trailing Stop</SelectItem>
               <SelectItem value="break_even" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">⚖️ Break Even</SelectItem>
               <SelectItem value="manual" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">✋ Salida Manual</SelectItem>
               <SelectItem value="timeout" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">⏰ Timeout</SelectItem>
