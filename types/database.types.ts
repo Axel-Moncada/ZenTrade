@@ -66,6 +66,7 @@ export interface Database {
           full_name: string | null;
           timezone: string;
           currency: string;
+          has_completed_tour: boolean;
           created_at: string;
           updated_at: string;
         };
@@ -75,6 +76,7 @@ export interface Database {
           full_name?: string | null;
           timezone?: string;
           currency?: string;
+          has_completed_tour?: boolean;
           created_at?: string;
           updated_at?: string;
         };
@@ -84,6 +86,7 @@ export interface Database {
           full_name?: string | null;
           timezone?: string;
           currency?: string;
+          has_completed_tour?: boolean;
           created_at?: string;
           updated_at?: string;
         };

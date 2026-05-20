@@ -7,11 +7,17 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Redirect non-www → www (canonical authority: www.zen-trader.com, coincide con Vercel)
+      // Redirect non-www → www (canonical authority: www.zen-trader.com)
       {
         source: "/:path*",
         has: [{ type: "host", value: "zen-trader.com" }],
         destination: "https://www.zen-trader.com/:path*",
+        permanent: true,
+      },
+      // Old slug → canonical slug (evita contenido duplicado en Google)
+      {
+        source: "/blog/zentrade-vs-tradezella",
+        destination: "/blog/zentrade-vs-tradezella-comparison",
         permanent: true,
       },
     ];

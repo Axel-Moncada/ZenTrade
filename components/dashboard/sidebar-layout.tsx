@@ -28,15 +28,17 @@ import { LandingControls } from "@/components/landing/landing-controls";
 import { useI18n } from "@/lib/i18n/context";
 import LogoWhite from "@/data/assets/Logo-white.png";
 import IsoWhite from "@/data/assets/Iso-white.png";
+import { OnboardingTour } from "@/components/onboarding/onboarding-tour";
 
 interface SidebarLayoutProps {
   userEmail: string;
   userName?: string;
   isAdmin?: boolean;
+  hasCompletedTour?: boolean;
   children: React.ReactNode;
 }
 
-export function SidebarLayout({ userEmail, userName, isAdmin, children }: SidebarLayoutProps) {
+export function SidebarLayout({ userEmail, userName, isAdmin, hasCompletedTour = true, children }: SidebarLayoutProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -61,13 +63,13 @@ export function SidebarLayout({ userEmail, userName, isAdmin, children }: Sideba
   }, []);
 
   const navItems = [
-    { href: "/dashboard", label: t.nav.dashboard, icon: LayoutDashboard },
-    { href: "/dashboard/accounts", label: t.nav.accounts, icon: Wallet },
-    { href: "/dashboard/withdrawals", label: t.nav.withdrawals, icon: ArrowDownToLine },
-    { href: "/dashboard/calendar", label: t.nav.calendar, icon: Calendar },
-    { href: "/dashboard/trades", label: t.nav.trades, icon: ListOrdered },
-    { href: "/dashboard/trading-plan", label: t.nav.tradingPlan, icon: Target },
-    { href: "/dashboard/backtesting", label: t.nav.backtesting, icon: FlipHorizontal2 },
+    { href: "/dashboard", label: t.nav.dashboard, icon: LayoutDashboard, tourId: "nav-dashboard" },
+    { href: "/dashboard/accounts", label: t.nav.accounts, icon: Wallet, tourId: "nav-accounts" },
+    { href: "/dashboard/withdrawals", label: t.nav.withdrawals, icon: ArrowDownToLine, tourId: undefined },
+    { href: "/dashboard/calendar", label: t.nav.calendar, icon: Calendar, tourId: "nav-calendar" },
+    { href: "/dashboard/trades", label: t.nav.trades, icon: ListOrdered, tourId: "nav-trades" },
+    { href: "/dashboard/trading-plan", label: t.nav.tradingPlan, icon: Target, tourId: "nav-trading-plan" },
+    { href: "/dashboard/backtesting", label: t.nav.backtesting, icon: FlipHorizontal2, tourId: undefined },
   ];
 
   return (
@@ -112,8 +114,8 @@ export function SidebarLayout({ userEmail, userName, isAdmin, children }: Sideba
 
         {/* Navigation */}
         <nav className="space-y-1 flex-1">
-          {navItems.map(({ href, label, icon: Icon }) => (
-            <Link key={href} href={href}>
+          {navItems.map(({ href, label, icon: Icon, tourId }) => (
+            <Link key={href} href={href} className="block" {...(tourId ? { "data-tour": tourId } : {})}>
               <Button
                 variant="ghost"
                 className={`w-full text-zen-anti-flash/70 hover:text-zen-anti-flash hover:bg-zen-caribbean-green/10 transition-colors group my-1 ${
@@ -249,6 +251,8 @@ export function SidebarLayout({ userEmail, userName, isAdmin, children }: Sideba
       >
         {children}
       </main>
+
+      <OnboardingTour hasCompletedTour={hasCompletedTour} />
     </div>
   );
 }

@@ -659,6 +659,42 @@ const translations = {
         ],
       },
     },
+
+    // ── Tour de onboarding ───────────────────────────────────
+    tour: {
+      welcome: {
+        title: '¡Bienvenido a Zentrade! 👋',
+        description: 'Hagamos un recorrido rápido de 30 segundos para que empieces a rastrear tus trades como un profesional.',
+      },
+      accounts: {
+        title: 'Cuentas de Trading',
+        description: 'Empieza aquí — crea tus cuentas de evaluación o live. Cada una rastrea su propio P&L, reglas de drawdown y progreso.',
+      },
+      trades: {
+        title: 'Registrar Trades',
+        description: 'Registra cada trade manualmente o impórtalos vía CSV desde tu broker. Mantén un historial completo.',
+      },
+      calendar: {
+        title: 'Calendario de Trading',
+        description: 'Ve tu P&L día a día de un vistazo. Haz clic en cualquier día para agregar notas, emociones y resúmenes.',
+      },
+      dashboard: {
+        title: 'Dashboard Analítico',
+        description: 'Rastrea win rate, profit factor, equity curve y todas las métricas clave para mejorar tu ventaja.',
+      },
+      tradingPlan: {
+        title: 'Plan de Trading',
+        description: 'Define tus reglas y mantente enfocado en ellas. La consistencia lo es todo en el trading.',
+      },
+      final: {
+        title: '¡Todo listo! 🚀',
+        description: 'Crea tu primera cuenta de trading para empezar a registrar trades y construir tu journal de rendimiento.',
+      },
+      next: 'Siguiente →',
+      prev: '← Anterior',
+      done: '¡Empezar! 🚀',
+      of: 'de',
+    },
   },
 
   en: {
@@ -1318,6 +1354,42 @@ const translations = {
           },
         ],
       },
+    },
+
+    // ── Onboarding Tour ──────────────────────────────────────
+    tour: {
+      welcome: {
+        title: 'Welcome to Zentrade! 👋',
+        description: "Let's take a quick 30-second tour so you can start tracking your trades like a pro.",
+      },
+      accounts: {
+        title: 'Trading Accounts',
+        description: 'Start here — create your evaluation or live accounts. Each one tracks its own P&L, drawdown rules, and progress.',
+      },
+      trades: {
+        title: 'Log Trades',
+        description: 'Record every trade manually or import them via CSV from your broker. Keep a complete history of your performance.',
+      },
+      calendar: {
+        title: 'Trading Calendar',
+        description: 'See your P&L day by day at a glance. Click any day to add journal notes, emotions, and daily summaries.',
+      },
+      dashboard: {
+        title: 'Analytics Dashboard',
+        description: 'Track win rate, profit factor, equity curve, and all the key metrics to improve your edge.',
+      },
+      tradingPlan: {
+        title: 'Trading Plan',
+        description: 'Define your rules and keep them in front of you. Stick to the plan — consistency is everything.',
+      },
+      final: {
+        title: "You're all set! 🚀",
+        description: 'Create your first trading account to start logging trades and building your performance journal.',
+      },
+      next: 'Next →',
+      prev: '← Previous',
+      done: "Let's go! 🚀",
+      of: 'of',
     },
   },
 } as const;

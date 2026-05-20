@@ -26,7 +26,7 @@ export default async function DashboardLayout({
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("full_name")
+    .select("full_name, has_completed_tour")
     .eq("id", user.id)
     .single();
 
@@ -35,6 +35,7 @@ export default async function DashboardLayout({
       userEmail={user.email || ""}
       userName={profile?.full_name || ""}
       isAdmin={!!user.email && isAdminEmail(user.email)}
+      hasCompletedTour={profile?.has_completed_tour ?? false}
     >
       {children}
     </SidebarLayout>
