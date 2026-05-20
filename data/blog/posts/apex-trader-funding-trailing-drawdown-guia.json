@@ -26,8 +26,8 @@
   ],
   "readingTime": 10,
   "featured": false,
-  "thumbnail": "/blog/trader-concentrado-analisis-graficas-futuros.jpg",
-  "thumbnailAlt": "Trader de futuros monitoreando el trailing drawdown de Apex Trader Funding con un journal de trading abierto en pantalla",
+  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
+  "thumbnailAlt": "Trader monitoreando el trailing drawdown de Apex Trader Funding en setup multi-monitor con contratos de futuros NQ y ES",
   "content": [
     {
       "type": "p",
