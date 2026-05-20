@@ -1,0 +1,258 @@
+{
+  "slug": "ftmo-swing-account-vs-regular-cuando-elegir",
+  "title": "FTMO Swing Account vs Regular: Diferencias y Cuándo Elegir Cada Uno",
+  "excerpt": "FTMO ofrece dos modalidades de evaluación: Regular y Swing. Las reglas de riesgo cambian significativamente entre ambas. Esta guía explica las diferencias exactas y para qué perfil de trader es mejor cada opción.",
+  "seoTitle": "FTMO Swing Account vs Regular 2025: Diferencias y Cuál Elegir",
+  "seoDescription": "Diferencias entre FTMO Swing Account y Regular: horarios de trading, reglas de riesgo, profit target y para qué traders es mejor cada modalidad. Guía completa 2025.",
+  "keywords": [
+    "FTMO swing account",
+    "FTMO swing vs regular",
+    "ftmo swing trading account",
+    "FTMO cuenta swing diferencias",
+    "ftmo swing rules",
+    "FTMO modalidades evaluación"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-05-20",
+  "updatedAt": "2026-05-20",
+  "category": "fondeo",
+  "tags": [
+    "FTMO",
+    "Swing Account",
+    "evaluación FTMO",
+    "prop firm",
+    "swing trading",
+    "futuros"
+  ],
+  "readingTime": 8,
+  "featured": false,
+  "thumbnail": "/blog/trader-analizando-estrategia-grafica.jpg",
+  "thumbnailAlt": "Trader comparando las opciones de FTMO Swing Account y Regular Account en su pantalla con gráficas de varios timeframes",
+  "content": [
+    {
+      "type": "p",
+      "text": "Muchos traders que se registran en FTMO no saben que existen dos modalidades de evaluación con reglas de riesgo significativamente diferentes: la cuenta <strong>Regular</strong> (la más conocida) y la cuenta <strong>Swing</strong>. Elegir la incorrecta puede hacerte fallar por razones completamente evitables. Esta guía explica las diferencias exactas y qué perfil de trader encaja con cada modalidad."
+    },
+    {
+      "type": "h2",
+      "text": "Las diferencias clave de un vistazo"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Característica",
+        "FTMO Regular",
+        "FTMO Swing"
+      ],
+      "rows": [
+        [
+          "Horario de trading permitido",
+          "Solo durante mercado activo (no overnight sin restricción)",
+          "24/5 — puede mantener posiciones de forma extendida"
+        ],
+        [
+          "Trading sobre el fin de semana",
+          "No permitido — posiciones deben cerrarse el viernes",
+          "Permitido — puede mantener posiciones abiertas el fin de semana"
+        ],
+        [
+          "Max Daily Loss",
+          "5% del balance/equity del día",
+          "No tiene daily loss limit fijo"
+        ],
+        [
+          "Max Overall Drawdown",
+          "10% del capital inicial",
+          "20% del capital inicial (el doble)"
+        ],
+        [
+          "Profit Target Challenge",
+          "10%",
+          "10% (igual)"
+        ],
+        [
+          "Profit Target Verification",
+          "5%",
+          "5% (igual)"
+        ],
+        [
+          "Consistency Rule",
+          "Sí — mejor día < 30%",
+          "Sí — mejor día < 30% (igual)"
+        ],
+        [
+          "Días mínimos de trading",
+          "4 días",
+          "4 días (igual)"
+        ],
+        [
+          "Costo de evaluación",
+          "Precio base",
+          "Precio base + cargo adicional"
+        ]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "FTMO Regular: para traders intraday y de sesión"
+    },
+    {
+      "type": "p",
+      "text": "La cuenta Regular de FTMO está diseñada para traders que abren y cierran posiciones dentro del mismo día de trading o dentro de la sesión activa de cada instrumento. Las reglas son las más conocidas y documentadas: 5% de daily loss, 10% de overall drawdown, y sin posiciones abiertas durante el fin de semana."
+    },
+    {
+      "type": "p",
+      "text": "La restricción del weekend es la más importante para la cuenta Regular. Si el viernes al cierre del mercado tienes posiciones abiertas en Forex o índices, debes cerrarlas. Un gap de apertura del lunes en una posición sin cobertura puede generar una pérdida instantánea que viole el daily loss antes de que puedas reaccionar."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Si operas noticias económicas de alto impacto del viernes (NFP, CPI) y a veces dejas posiciones abiertas para el lunes, la cuenta Regular no es para ti. Un gap de apertura del lunes puede invalidar la cuenta en los primeros segundos."
+    },
+    {
+      "type": "h2",
+      "text": "FTMO Swing: para traders de posiciones y swing"
+    },
+    {
+      "type": "p",
+      "text": "La cuenta Swing de FTMO tiene dos diferencias que cambian fundamentalmente la gestión de riesgo:"
+    },
+    {
+      "type": "h3",
+      "text": "1. Sin daily loss limit"
+    },
+    {
+      "type": "p",
+      "text": "La cuenta Swing no tiene la restricción del 5% daily loss. Esto significa que puedes tener un día catastrófico de -8% sin que la cuenta se invalide automáticamente, siempre que no superes el overall drawdown del 20%. Para swing traders que entran y salen de posiciones en días o semanas, evitar la presión del daily limit intradiario reduce significativamente el estrés de gestión."
+    },
+    {
+      "type": "h3",
+      "text": "2. Overall drawdown del 20% en vez del 10%"
+    },
+    {
+      "type": "p",
+      "text": "El drawdown máximo total es del 20% del capital inicial — el doble que la cuenta Regular. Para una cuenta de $100,000, tienes $20,000 de buffer total frente a los $10,000 de la Regular. Esto es especialmente valioso para swing traders que pueden pasar por períodos de drawdown extendido entre setups de alto probability."
+    },
+    {
+      "type": "h2",
+      "text": "¿Qué tipo de trader debería elegir cada modalidad?"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Perfil de trader",
+        "Modalidad recomendada",
+        "Razón principal"
+      ],
+      "rows": [
+        [
+          "Day trader de NQ/ES/Forex dentro del día",
+          "Regular",
+          "No necesita holdear overnight — las restricciones no le afectan"
+        ],
+        [
+          "Swing trader que mantiene días a semanas",
+          "Swing",
+          "El weekend holding y el mayor drawdown son esenciales"
+        ],
+        [
+          "Trader de datos macro (NFP, CPI)",
+          "Regular o Swing según si holdea",
+          "Si holdea post-dato, Swing. Si cierra el mismo día, Regular"
+        ],
+        [
+          "Trader de scalping < 1 hora",
+          "Regular",
+          "No necesita ninguna flexibilidad extra de Swing; el costo adicional no vale"
+        ],
+        [
+          "Trader de opciones o spreads",
+          "Swing",
+          "Posiciones estructuradas que requieren más tiempo para desarrollarse"
+        ],
+        [
+          "Trader que usa automación / EAs nocturnos",
+          "Swing",
+          "EAs que trabajan en horas de baja liquidez necesitan el acceso extendido"
+        ]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "La consistency rule en la cuenta Swing: más difícil en la práctica"
+    },
+    {
+      "type": "p",
+      "text": "Aunque la consistency rule es idéntica en ambas modalidades (mejor día < 30% del total), en la práctica es más fácil violarla en la Swing. La razón: los swing traders suelen tener días con movimientos grandes concentrados cuando el setup finalmente se ejecuta, y días largos de espera donde no hay actividad. Esta distribución bimodal — muchos días pequeños y pocos días grandes — hace que el ratio de consistencia se dispare fácilmente cuando llega un día excepcional."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Si eres swing trader en la cuenta FTMO Swing, fija un profit máximo diario personal aún más conservador que en la Regular. Con el mayor drawdown disponible, la tentación es tomar más riesgo — pero la consistency rule aplica igual."
+    },
+    {
+      "type": "h2",
+      "text": "El costo adicional de la cuenta Swing: ¿vale la pena?"
+    },
+    {
+      "type": "p",
+      "text": "FTMO cobra un precio mayor por la cuenta Swing que por la Regular del mismo tamaño, justificado por el mayor drawdown permitido y la flexibilidad de horario. La pregunta relevante no es si el costo es mayor (lo es), sino si tu estrategia realmente requiere esas flexibilidades."
+    },
+    {
+      "type": "p",
+      "text": "Si eres intraday y cierras todo antes del cierre de mercado, pagar por la Swing es dinero desperdiciado. Si genuinamente holds sobre el fin de semana o dependes de no tener daily loss limit para tu estrategia de gestión de riesgo, la Swing puede ser la diferencia entre pasar o no pasar la evaluación."
+    },
+    {
+      "type": "h2",
+      "text": "Monitoring durante la cuenta Swing con Zentrade"
+    },
+    {
+      "type": "p",
+      "text": "La configuración de una cuenta Swing en Zentrade permite ajustar el overall drawdown al 20% en vez del 10% estándar de la Regular. Esto afecta directamente cómo se visualiza el margen disponible en la equity curve y en el indicador de drawdown del dashboard."
+    },
+    {
+      "type": "p",
+      "text": "Dado que la cuenta Swing no tiene daily loss limit, el monitoreo más crítico es el <strong>consistency ratio</strong> y el <strong>overall drawdown acumulado</strong>. Zentrade muestra ambos en tiempo real con cada trade registrado."
+    },
+    {
+      "type": "cta",
+      "text": "Configura tu cuenta FTMO Regular o Swing en Zentrade con los parámetros exactos de cada modalidad y monitorea las reglas que aplican a tu evaluación específica.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Puedo cambiar de Regular a Swing en medio de una evaluación?",
+          "a": "No. La modalidad (Regular o Swing) se elige al comprar el Challenge y no puede cambiarse durante la evaluación. Si necesitas cambiar de modalidad, debes completar o reiniciar la evaluación."
+        },
+        {
+          "q": "¿La cuenta Swing permite trading de criptomonedas 24/7?",
+          "a": "FTMO permite trading de criptomonedas en algunas versiones del contrato. Consulta los términos específicos del contrato que firmas al iniciar, ya que las restricciones de instrumentos pueden variar según el plan y la modalidad."
+        },
+        {
+          "q": "¿La consistency rule aplica igual en la cuenta Swing?",
+          "a": "Sí. La consistency rule es idéntica: el mejor día no puede representar más del 30% de la ganancia neta total al finalizar la evaluación. En la práctica, los swing traders enfrentan mayor presión de consistency porque sus días buenos tienden a ser más concentrados y de mayor magnitud que los de traders intraday."
+        },
+        {
+          "q": "¿Puedo operar futuros de CME en la cuenta Swing de FTMO?",
+          "a": "No directamente. FTMO opera a través de brokers compatibles como Darwinex u otros, que ofrecen Forex, índices (CFDs), materias primas y criptomonedas — no contratos de futuros de CME (NQ, MNQ, ES, GC). Si necesitas contratos de futuros directos, considera Apex Trader Funding o TopStep, que sí ofrecen acceso a CME."
+        },
+        {
+          "q": "¿Cuándo tiene más sentido la cuenta Regular vs la Swing para un trader LATAM?",
+          "a": "Para la mayoría de traders LATAM que operan en las sesiones de New York o London y cierran posiciones el mismo día, la Regular es suficiente y más económica. La Swing es recomendable si tu estrategia involucra retener posiciones durante eventos macro del fin de semana (decisiones de bancos centrales, geopolítica) o si operas en timeframes altos (diario, semanal) con targets que tardan días en alcanzarse."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "pasos-evaluacion-ftmo",
+    "reglas-riesgo-ftmo-futuros-drawdown-consistency",
+    "regla-consistencia-ftmo-explicada",
+    "como-pasar-evaluacion-ftmo-journal-trading"
+  ]
+}

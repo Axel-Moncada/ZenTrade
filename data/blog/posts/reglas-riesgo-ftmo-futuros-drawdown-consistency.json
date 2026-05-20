@@ -1,0 +1,343 @@
+{
+  "slug": "reglas-riesgo-ftmo-futuros-drawdown-consistency",
+  "title": "Reglas de FTMO para Futuros: Drawdown, Consistency y Profit Target Explicados",
+  "excerpt": "Guía definitiva de las reglas de riesgo de FTMO: cómo funciona el max drawdown, la consistency rule y el profit target en detalle. Incluye tabla comparativa con Apex y TopStep para traders de futuros.",
+  "seoTitle": "Reglas FTMO 2025: Drawdown, Consistency y Profit Target Explicados",
+  "seoDescription": "Todo sobre las reglas de FTMO: max daily loss, max drawdown, consistency rule y profit target. Comparativa con Apex y TopStep para traders de futuros de CME.",
+  "keywords": [
+    "reglas FTMO futuros",
+    "ftmo futures prop trading challenge evaluation rules",
+    "ftmo challenge profit target max daily loss",
+    "reglas de riesgo FTMO",
+    "ftmo evaluation rules consistency",
+    "FTMO drawdown rules"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-05-20",
+  "updatedAt": "2026-05-20",
+  "category": "fondeo",
+  "tags": [
+    "FTMO",
+    "reglas de riesgo",
+    "drawdown",
+    "consistency rule",
+    "profit target",
+    "prop firm",
+    "futuros"
+  ],
+  "readingTime": 11,
+  "featured": true,
+  "thumbnail": "/blog/trader-analizando-estrategia-grafica.jpg",
+  "thumbnailAlt": "Trader revisando las reglas de riesgo de FTMO en su pantalla con gráficas de futuros y su journal de trading abierto",
+  "content": [
+    {
+      "type": "p",
+      "text": "Las reglas de riesgo de FTMO son cuatro y están diseñadas para medir algo concreto: si eres un trader disciplinado o alguien que tomó riesgos excesivos y tuvo suerte. Cada regla penaliza un tipo diferente de comportamiento de riesgo. Esta guía explica <strong>cada regla de FTMO con precisión técnica</strong> — cómo se calcula, cuándo se activa, qué errores cometen los traders con cada una y cómo un journal de trading como Zentrade ayuda a monitorearlas."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Nota importante: FTMO no ofrece contratos de futuros de CME (NQ, ES, GC, CL) directamente. Opera con Forex, índices y materias primas vía CFDs. Para traders de futuros de CME, Apex Trader Funding y TopStep son las alternativas más usadas — con reglas diferentes a FTMO. Esta guía compara ambos al final."
+    },
+    {
+      "type": "h2",
+      "text": "Las 4 reglas de riesgo de FTMO: resumen"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Regla",
+        "Límite",
+        "Cuándo se evalúa",
+        "Consecuencia de violación"
+      ],
+      "rows": [
+        [
+          "Max Daily Loss",
+          "5% del balance/equity del día",
+          "Cierre de cada día",
+          "Invalidación inmediata"
+        ],
+        [
+          "Max Overall Drawdown",
+          "10% del capital inicial",
+          "En tiempo real",
+          "Invalidación inmediata"
+        ],
+        [
+          "Profit Target",
+          "10% (Challenge) / 5% (Verification)",
+          "Al finalizar el período",
+          "No aplica — es un objetivo"
+        ],
+        [
+          "Consistency Rule",
+          "Mejor día < 30% de ganancia total",
+          "Al finalizar el período",
+          "Rechazo en evaluación final"
+        ]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Regla 1: Max Daily Loss — el más inmediato"
+    },
+    {
+      "type": "p",
+      "text": "El Max Daily Loss de FTMO es del <strong>5% del balance o equity al inicio del día</strong>, lo que sea mayor. Esta es la regla que más traders violan por no entender exactamente cómo se calcula."
+    },
+    {
+      "type": "h3",
+      "text": "Cómo se calcula exactamente"
+    },
+    {
+      "type": "p",
+      "text": "FTMO usa el balance o equity al inicio de cada día como base de cálculo. Si comienzas el día con $102,000 en tu cuenta, tu límite de pérdida ese día es $5,100 (5% de $102,000). Si tu equity cae a $96,900 en cualquier momento del día — incluso en una posición abierta — la cuenta queda invalidada. No necesitas cerrar las posiciones para que cuente: el equity en tiempo real se evalúa continuamente."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Error frecuente: los traders calculan el daily loss sobre el capital inicial de la evaluación ($100,000) en vez de sobre el balance del día actual. Si has ganado $3,000 y comienzas el día con $103,000, tu límite real ese día es $5,150 — no $5,000."
+    },
+    {
+      "type": "h3",
+      "text": "Estrategia para respetar el Daily Loss"
+    },
+    {
+      "type": "p",
+      "text": "La estrategia más efectiva es fijar un <strong>límite de pérdida personal menor al límite de FTMO</strong>. Si FTMO permite 5%, opera con un tope personal de 3-3.5%. Esto te da margen para dias malos sin acercarte al límite real. Zentrade registra el PnL de cada día en el calendario y te permite ver en tiempo real cuánto espacio tienes antes de llegar al límite."
+    },
+    {
+      "type": "h2",
+      "text": "Regla 2: Max Overall Drawdown — el límite absoluto"
+    },
+    {
+      "type": "p",
+      "text": "El Max Overall Drawdown de FTMO es del <strong>10% sobre el capital inicial</strong>. A diferencia del trailing drawdown de Apex o TopStep, el drawdown de FTMO es estático: el límite absoluto siempre es $10,000 desde los $100,000 iniciales, independientemente de cuánto hayas ganado."
+    },
+    {
+      "type": "h3",
+      "text": "Drawdown estático vs. trailing drawdown: la diferencia crítica"
+    },
+    {
+      "type": "p",
+      "text": "Esta es la diferencia más importante entre FTMO y las empresas de fondeo de futuros de CME:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Característica",
+        "FTMO (estático)",
+        "Apex / TopStep (trailing)"
+      ],
+      "rows": [
+        [
+          "Punto de referencia del drawdown",
+          "Capital inicial fijo ($100,000)",
+          "Equity máximo alcanzado"
+        ],
+        [
+          "¿Sube el límite con las ganancias?",
+          "No",
+          "Sí — el piso sube con cada nuevo máximo"
+        ],
+        [
+          "Ejemplo: ganancia de $5,000 en cuenta de $100K",
+          "Límite sigue en $90,000 de equity",
+          "Límite sube a $95,000 de equity"
+        ],
+        [
+          "Ventaja para el trader",
+          "Puedes perder ganancias sin arriesgar la cuenta",
+          "Más margen de error en días malos si no has tocado nuevos máximos"
+        ],
+        [
+          "Desventaja para el trader",
+          "El piso no sube aunque hayas ganado",
+          "Cada nuevo máximo de equity comprime el margen disponible"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Para traders de futuros de CME (NQ, MNQ, ES, GC), el trailing drawdown de Apex y TopStep es generalmente más relevante. Pero para traders de Forex e índices que consideran FTMO, entender que el drawdown es estático es fundamental: <strong>puedes generar $8,000 de ganancias y seguir teniendo $10,000 de margen de drawdown disponible</strong> — el mismo que al inicio."
+    },
+    {
+      "type": "h2",
+      "text": "Regla 3: Profit Target — el objetivo"
+    },
+    {
+      "type": "p",
+      "text": "El profit target no es una restricción sino un objetivo: en el Challenge debes alcanzar el <strong>10%</strong> y en la Verification el <strong>5%</strong>. La trampa no está en el objetivo en sí sino en cómo los traders intentan alcanzarlo cuando están cerca del límite de tiempo."
+    },
+    {
+      "type": "h3",
+      "text": "El error del profit target: apresurarse al final"
+    },
+    {
+      "type": "p",
+      "text": "Con 5 días restantes y un 3% faltante para el objetivo, muchos traders duplican el tamaño de posición. Este es el escenario más común de violación del Daily Loss: el mercado se mueve en contra, la posición sobredimensionada genera una pérdida grande, y en un intento de recuperación el trader viola el límite diario. El journal te permite calcular el ritmo diario necesario de forma realista antes de llegar a ese punto."
+    },
+    {
+      "type": "h2",
+      "text": "Regla 4: Consistency Rule — la más subestimada"
+    },
+    {
+      "type": "p",
+      "text": "Ya cubierta en detalle en nuestra guía específica, la consistency rule establece que ningún día puede representar más del 30% de la ganancia neta total. Para un resumen:"
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Consistency % = Ganancia mejor día ÷ Ganancia neta total × 100. Para aprobar: < 30%. Se evalúa al cierre de cada fase — no en tiempo real durante la evaluación."
+    },
+    {
+      "type": "h2",
+      "text": "Comparativa completa: FTMO vs Apex vs TopStep para traders de futuros"
+    },
+    {
+      "type": "p",
+      "text": "Si estás evaluando qué empresa de fondeo elegir, aquí está la comparación completa de reglas:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Regla",
+        "FTMO",
+        "Apex Trader Funding",
+        "TopStep"
+      ],
+      "rows": [
+        [
+          "Profit Target Fase 1",
+          "10%",
+          "6% (varía según cuenta)",
+          "6%"
+        ],
+        [
+          "Max Daily Loss",
+          "5% (estático diario)",
+          "No existe como regla fija",
+          "No existe como regla fija"
+        ],
+        [
+          "Max Overall Drawdown",
+          "10% estático",
+          "Variable (trailing)",
+          "Variable (trailing)"
+        ],
+        [
+          "Consistency Rule",
+          "Sí — mejor día < 30%",
+          "No",
+          "No"
+        ],
+        [
+          "Trailing Drawdown",
+          "No",
+          "Sí",
+          "Sí"
+        ],
+        [
+          "Instrumentos de futuros CME",
+          "No directamente",
+          "Sí (NQ, ES, GC, CL, etc.)",
+          "Sí (NQ, ES, etc.)"
+        ],
+        [
+          "Número de fases",
+          "2 (Challenge + Verification)",
+          "1 (una sola fase)",
+          "1 (una sola fase)"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Para traders de futuros de CME como NQ o GC: Apex y TopStep son las opciones naturales ya que ofrecen contratos de futuros directos. Para traders de Forex e índices que prefieren el modelo sin trailing drawdown y con reglas más claras, FTMO es una opción sólida. <strong>Zentrade soporta la configuración de cuentas para todas estas empresas</strong> — puedes crear una cuenta de evaluación con los parámetros específicos de cada firma."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo monitorear las 4 reglas de FTMO con Zentrade"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade está diseñado específicamente para ayudar a traders en evaluaciones de prop firms. Así se mapea cada regla de FTMO a los features de la plataforma:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Regla FTMO",
+        "Feature de Zentrade",
+        "Plan mínimo"
+      ],
+      "rows": [
+        [
+          "Max Daily Loss",
+          "Calendario de PnL diario con indicador visual del límite",
+          "Free"
+        ],
+        [
+          "Max Overall Drawdown",
+          "Equity curve con línea roja del drawdown máximo",
+          "Professional"
+        ],
+        [
+          "Profit Target",
+          "Indicador de progreso hacia el objetivo en el dashboard",
+          "Free"
+        ],
+        [
+          "Consistency Rule",
+          "Consistency % en tiempo real en el dashboard",
+          "Free"
+        ],
+        [
+          "Detección de patrones de riesgo",
+          "Alertas de revenge trading y días consecutivos perdedores",
+          "ZenMode"
+        ]
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Configura tu cuenta de evaluación FTMO en Zentrade con todos los parámetros de riesgo y monitorea las 4 reglas en tiempo real.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Las reglas de FTMO son las mismas para todos los tamaños de cuenta?",
+          "a": "Sí. Los porcentajes son iguales para todas las cuentas ($10K, $25K, $50K, $100K): 5% max daily loss, 10% max drawdown, 10% profit target en Challenge, 5% en Verification, y la misma consistency rule del 30%. Lo que cambia es el monto absoluto — en una cuenta de $100K el daily loss es $5,000, en una de $25K es $1,250."
+        },
+        {
+          "q": "¿El drawdown de FTMO se calcula sobre el balance o el equity?",
+          "a": "El Max Overall Drawdown se calcula sobre el capital inicial de la evaluación — es un límite fijo que no cambia. El Max Daily Loss se calcula sobre el balance o equity al inicio de cada día. Si empezaste el día con $103,000, el límite del día es $5,150 (no $5,000)."
+        },
+        {
+          "q": "¿FTMO permite trading de futuros de NQ o ES?",
+          "a": "No directamente. FTMO opera con Forex, índices como CFDs (DAX, Nasdaq, S&P), materias primas y criptos a través de brokers como Darwinex u otros compatibles. Para futuros de CME (NQ, MNQ, ES, GC, CL) las opciones son Apex Trader Funding o TopStep, que tienen acceso directo a contratos de futuros."
+        },
+        {
+          "q": "¿Qué pasa si violo el Max Overall Drawdown por $1?",
+          "a": "La cuenta queda invalidada inmediatamente. No hay margen de tolerancia. Si tu equity llega a $89,999 en una cuenta de $100,000, la cuenta se cierra. Por esta razón es crítico monitorear el drawdown disponible en tiempo real y no acercarte al límite aunque sea $200-$300 por encima."
+        },
+        {
+          "q": "¿Puedo tener posiciones abiertas durante el fin de semana?",
+          "a": "FTMO permite mantener posiciones abiertas durante el fin de semana dependiendo del instrumento. Sin embargo, no se recomienda para traders en evaluación ya que los gaps de apertura del lunes pueden generar pérdidas instantáneas que violen el Daily Loss antes de que puedas reaccionar."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "regla-consistencia-ftmo-explicada",
+    "pasos-evaluacion-ftmo",
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "drawdown-trailing-vs-estatico-prop-firms"
+  ]
+}

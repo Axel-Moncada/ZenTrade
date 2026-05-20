@@ -1,0 +1,363 @@
+{
+  "slug": "apex-trader-funding-trailing-drawdown-guia",
+  "title": "Apex Trader Funding Trailing Drawdown: Cómo Funciona y Cómo No Violarlo",
+  "excerpt": "El trailing drawdown de Apex Trader Funding es la regla que más traders viola sin entenderla. Guía completa con ejemplos reales: cómo se mueve el piso, cuándo se congela y qué estrategia usar para proteger tu cuenta.",
+  "seoTitle": "Apex Trader Funding Trailing Drawdown: Guía Completa 2025",
+  "seoDescription": "Cómo funciona el trailing drawdown de Apex Trader Funding: ejemplos paso a paso, cuándo se mueve el piso, cómo se congela y estrategia para proteger tu cuenta de evaluación.",
+  "keywords": [
+    "apex trader funding trailing drawdown",
+    "como funciona el drawdown de apex",
+    "apex trader funding drawdown rules",
+    "trailing drawdown apex futuros",
+    "apex drawdown explicado",
+    "reglas apex trader funding"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-05-20",
+  "updatedAt": "2026-05-20",
+  "category": "fondeo",
+  "tags": [
+    "Apex Trader Funding",
+    "trailing drawdown",
+    "drawdown",
+    "reglas de fondeo",
+    "prop firm",
+    "futuros"
+  ],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/trader-concentrado-analisis-graficas-futuros.jpg",
+  "thumbnailAlt": "Trader de futuros monitoreando el trailing drawdown de Apex Trader Funding con un journal de trading abierto en pantalla",
+  "content": [
+    {
+      "type": "p",
+      "text": "El trailing drawdown de Apex Trader Funding es, sin duda, la regla que más traders viola — no por ignorancia, sino por no entender exactamente cómo se mueve el piso en tiempo real. No es complicado una vez que lo ves con ejemplos. Esta guía explica <strong>exactamente cómo funciona el trailing drawdown de Apex</strong>, cómo cambia con cada trade, cuándo se congela, y qué estrategia usar para nunca acercarte peligrosamente al límite."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "El trailing drawdown de Apex se aplica a contratos de futuros de CME: NQ, MNQ, ES, MES, GC, MGC, CL, entre otros. A diferencia de FTMO (que tiene drawdown estático), el piso de Apex sube con cada nuevo máximo de equity alcanzado."
+    },
+    {
+      "type": "h2",
+      "text": "¿Qué es el trailing drawdown de Apex?"
+    },
+    {
+      "type": "p",
+      "text": "El trailing drawdown es un límite de pérdida máxima que <strong>se mueve hacia arriba</strong> cada vez que tu equity alcanza un nuevo máximo, pero <strong>nunca baja</strong>. Piénsalo como un piso que sube cuando subes, pero que no baja si pierdes."
+    },
+    {
+      "type": "p",
+      "text": "El tamaño del drawdown depende del plan de cuenta que contrataste. En la cuenta de $50,000 de Apex, el trailing drawdown es de $2,500. Esto significa que en ningún momento tu equity puede estar más de $2,500 por debajo de tu máximo histórico de equity en esa cuenta."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo se mueve el trailing drawdown: ejemplo paso a paso"
+    },
+    {
+      "type": "p",
+      "text": "Ejemplo con una cuenta de $50,000 con trailing drawdown de $2,500:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Momento",
+        "Equity actual",
+        "Equity máximo histórico",
+        "Piso del drawdown",
+        "Margen disponible"
+      ],
+      "rows": [
+        [
+          "Inicio",
+          "$50,000",
+          "$50,000",
+          "$47,500",
+          "$2,500"
+        ],
+        [
+          "Ganas $1,000",
+          "$51,000",
+          "$51,000",
+          "$48,500",
+          "$2,500"
+        ],
+        [
+          "Ganas $2,000 más",
+          "$53,000",
+          "$53,000",
+          "$50,500",
+          "$2,500"
+        ],
+        [
+          "Pierdes $1,500",
+          "$51,500",
+          "$53,000",
+          "$50,500",
+          "$1,000"
+        ],
+        [
+          "Pierdes $500 más",
+          "$51,000",
+          "$53,000",
+          "$50,500",
+          "$500"
+        ],
+        [
+          "Pierdes $500 más → VIOLACIÓN",
+          "$50,500",
+          "$53,000",
+          "$50,500",
+          "$0 → Cuenta cerrada"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "El punto crítico de este ejemplo: <strong>el piso subió de $47,500 a $50,500 cuando ganaste $3,000</strong>. Ahora, para perder la cuenta, solo necesitas retroceder $2,500 desde tu máximo — pero ese máximo ya está en $53,000, no en $50,000."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Trampa frecuente: muchos traders calculan el margen disponible desde el capital inicial ($50,000) en vez del máximo histórico. Si tu máximo fue $53,000 y tu equity actual es $51,500, NO tienes $1,500 de margen — solo tienes $1,000 (53,000 - 51,500 = 1,500, pero el piso ya está en 50,500 = solo $1,000 de buffer real)."
+    },
+    {
+      "type": "h2",
+      "text": "¿Cuándo se congela el trailing drawdown?"
+    },
+    {
+      "type": "p",
+      "text": "Esta es la parte que muchos artículos no explican: el trailing drawdown de Apex se <strong>congela al alcanzar el capital inicial</strong>. Una vez que tu equity máximo histórico supera el capital inicial por el monto del trailing drawdown, el piso deja de subir y se fija en el capital inicial."
+    },
+    {
+      "type": "p",
+      "text": "Ejemplo: cuenta de $50,000 con trailing drawdown de $2,500. Si tu equity máximo alcanza $52,500 ($50,000 + $2,500), el piso se fija en $50,000 y ya no sube más aunque sigas ganando. A partir de ese punto, tienes el beneficio de nunca poder perder el capital original de la cuenta — incluso si tu equity llega a $70,000, el piso permanece en $50,000."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Objetivo de seguridad en Apex: alcanzar el punto de congelamiento lo antes posible. En una cuenta de $50,000, necesitas ganar $2,500 (5%) para que el piso se congele en $50,000. Una vez ahí, operas con un margen que crece con cada ganancia sin riesgo de perder el capital base."
+    },
+    {
+      "type": "h2",
+      "text": "Trailing drawdown de Apex vs. drawdown estático de FTMO"
+    },
+    {
+      "type": "p",
+      "text": "Entender esta diferencia es fundamental para elegir qué empresa de fondeo se adapta mejor a tu estilo de trading:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Característica",
+        "Apex (trailing)",
+        "FTMO (estático)"
+      ],
+      "rows": [
+        [
+          "Punto de referencia del límite",
+          "Equity máximo histórico",
+          "Capital inicial fijo"
+        ],
+        [
+          "¿Sube el piso con las ganancias?",
+          "Sí — hasta el punto de congelamiento",
+          "No — siempre desde el capital inicial"
+        ],
+        [
+          "¿Se puede perder el capital inicial?",
+          "Sí, antes del punto de congelamiento",
+          "No aplica — el límite es % del inicial"
+        ],
+        [
+          "¿Puedes tener días malos sin riesgo?",
+          "Solo después del punto de congelamiento",
+          "Siempre que el drawdown total sea < 10%"
+        ],
+        [
+          "Instrumentos",
+          "Futuros CME (NQ, ES, GC, CL, etc.)",
+          "Forex, índices CFD, no futuros CME"
+        ],
+        [
+          "Riesgo en días malos con ganancias acumuladas",
+          "Alto — el piso ya subió con las ganancias",
+          "Bajo — el piso no cambia aunque ganes"
+        ]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Tamaños de cuentas y trailing drawdown en Apex"
+    },
+    {
+      "type": "p",
+      "text": "Los montos exactos del trailing drawdown varían según el plan contratado. Aquí los valores aproximados de las cuentas más populares de Apex (verifica siempre los valores actuales en el sitio oficial de Apex ya que pueden cambiar):"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Tamaño de cuenta",
+        "Trailing drawdown aproximado",
+        "Punto de congelamiento",
+        "Profit target"
+      ],
+      "rows": [
+        [
+          "$25,000",
+          "$1,500",
+          "$26,500 de equity máximo",
+          "Variable según plan"
+        ],
+        [
+          "$50,000",
+          "$2,500",
+          "$52,500 de equity máximo",
+          "Variable según plan"
+        ],
+        [
+          "$100,000",
+          "$3,000",
+          "$103,000 de equity máximo",
+          "Variable según plan"
+        ],
+        [
+          "$150,000",
+          "$5,000",
+          "$155,000 de equity máximo",
+          "Variable según plan"
+        ],
+        [
+          "$300,000",
+          "$7,500",
+          "$307,500 de equity máximo",
+          "Variable según plan"
+        ]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Estrategia para gestionar el trailing drawdown en Apex"
+    },
+    {
+      "type": "p",
+      "text": "Con el trailing drawdown funcionando en tiempo real, la gestión de riesgo tiene una dimensión adicional: no solo importa cuánto pierdes en un día, sino cómo se relaciona esa pérdida con tu máximo histórico de equity."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Prioriza alcanzar el punto de congelamiento primero</strong>: Antes de intentar maximizar ganancias, alcanza el nivel donde el piso se congela. Trading conservador hasta ese punto, luego puedes abrir el gas.",
+        "<strong>No operes con posiciones grandes inmediatamente después de un nuevo máximo</strong>: Acabas de subir el piso. Si operas grande y el mercado va en contra, el buffer disponible es mínimo.",
+        "<strong>Calcula el margen real siempre desde el máximo, no desde el inicial</strong>: Este es el error más común. El margen disponible es siempre equity_actual - piso_actual, no equity_actual - capital_inicial.",
+        "<strong>Después de días malos, reduce el tamaño antes de volver a operar</strong>: Si perdiste $1,200 en un día y tu trailing drawdown es $2,500, te quedan $1,300. Operar con el mismo tamaño te pone en riesgo de perder la cuenta en un solo trade.",
+        "<strong>Monitorea el margen disponible en tiempo real con un journal</strong>: Zentrade calcula automáticamente el trailing drawdown disponible y te muestra la equity curve con el piso móvil marcado visualmente."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Errores frecuentes con el trailing drawdown de Apex"
+    },
+    {
+      "type": "h3",
+      "text": "Error 1: Operar futuros NQ con tamaño estándar cuando el margen está comprimido"
+    },
+    {
+      "type": "p",
+      "text": "Un contrato NQ tiene un valor por punto de aproximadamente $20. En un día de alta volatilidad, el NQ puede mover 100+ puntos. Eso es $2,000 de ganancia o pérdida en un solo contrato. Si tu trailing drawdown disponible es $1,500, un trade perdedor en NQ estándar puede eliminar la cuenta en minutos. Usa MNQ (micro NQ, $2/punto) hasta que tengas suficiente buffer."
+    },
+    {
+      "type": "h3",
+      "text": "Error 2: No actualizar el cálculo del drawdown después de cada trade ganador"
+    },
+    {
+      "type": "p",
+      "text": "Después de un trade ganador que establece un nuevo máximo de equity, el piso ya subió. Muchos traders se emocionan con la ganancia y no recalculan el margen disponible actualizado. Entran al siguiente trade con la falsa sensación de que tienen el mismo buffer que al inicio del día."
+    },
+    {
+      "type": "h3",
+      "text": "Error 3: Confundir el trailing drawdown con el daily loss limit"
+    },
+    {
+      "type": "p",
+      "text": "Apex no tiene un daily loss limit fijo como FTMO (que impone el 5% diario). Sin embargo, esto no significa que puedas perder cualquier cantidad en un día. El trailing drawdown opera en tiempo real — cada punto que pierde tu equity durante una posición abierta puede acercarte al piso, aunque al final del día recuperes parte de esas pérdidas."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Zentrade monitorea el trailing drawdown de Apex"
+    },
+    {
+      "type": "p",
+      "text": "Cuando configuras una cuenta de Apex en Zentrade, puedes establecer el monto del trailing drawdown específico de tu plan. A partir de ahí:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Feature de Zentrade",
+        "Cómo ayuda con el trailing drawdown",
+        "Plan"
+      ],
+      "rows": [
+        [
+          "Equity curve con piso móvil",
+          "Gráfico que muestra el piso del trailing drawdown moviéndose con cada nuevo máximo",
+          "Professional"
+        ],
+        [
+          "Indicador de drawdown disponible",
+          "Muestra en tiempo real cuánto margen tienes desde tu máximo hasta el piso actual",
+          "Free"
+        ],
+        [
+          "Calendario de PnL diario",
+          "Visualización de días ganadores/perdedores con impacto sobre el piso acumulado",
+          "Free"
+        ],
+        [
+          "Alertas de riesgo",
+          "Notificación cuando el drawdown disponible cae por debajo del umbral que configures",
+          "ZenMode"
+        ]
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Configura tu cuenta de Apex Trader Funding en Zentrade y monitorea tu trailing drawdown disponible después de cada trade — sin hacer los cálculos manualmente.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿El trailing drawdown de Apex se aplica a posiciones abiertas o solo al cierre?",
+          "a": "El trailing drawdown de Apex se calcula sobre el equity en tiempo real, lo que incluye las ganancias y pérdidas no realizadas de posiciones abiertas. Si tienes una posición abierta con una pérdida flotante que empuja tu equity por debajo del piso, la cuenta puede cerrarse aunque no hayas cerrado el trade. Es crítico monitorear el equity, no solo el balance."
+        },
+        {
+          "q": "¿Apex tiene daily loss limit además del trailing drawdown?",
+          "a": "Apex no tiene un daily loss limit fijo porcentual como FTMO. Sin embargo, el trailing drawdown opera como un control de pérdida máxima acumulada. Algunos planes de Apex pueden tener controles adicionales — revisa siempre los términos específicos del plan que contrataste, ya que Apex ha actualizado sus reglas varias veces."
+        },
+        {
+          "q": "¿Qué pasa si el trailing drawdown de Apex llega exactamente al nivel de la cuenta?",
+          "a": "Una vez que el equity máximo histórico supera el capital inicial por el monto del trailing drawdown, el piso se 'congela' en el capital inicial y ya no sube más. A partir de ese punto, el piso es fijo en $50,000 (para una cuenta de $50,000), independientemente de cuánto más suba tu equity."
+        },
+        {
+          "q": "¿Apex Trader Funding tiene consistency rule como FTMO?",
+          "a": "No. Apex Trader Funding no tiene consistency rule. Puedes tener un día excepcional donde ganes el 80% de tu profit target en una sola sesión y eso no afecta la evaluación, siempre que el trailing drawdown no sea violado. Esta es una diferencia importante entre Apex y FTMO para traders que pueden tener días de alta volatilidad."
+        },
+        {
+          "q": "¿Cuántos contratos de NQ puedo operar con una cuenta Apex de $50,000?",
+          "a": "El número de contratos permitido depende del tamaño de la cuenta y los requisitos de margen del broker (Rithmic o Tradovate). Para una cuenta de $50,000, típicamente puedes operar 1-3 contratos NQ estándar dependiendo de la volatilidad y los márgenes vigentes. Apex puede tener restricciones adicionales por plan. Consultar con Apex directamente o verificar en la plataforma antes de escalar posiciones."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "drawdown-trailing-vs-estatico-prop-firms",
+    "reglas-riesgo-ftmo-futuros-drawdown-consistency",
+    "mejores-empresas-fondeo-futuros-2025",
+    "como-pasar-apex-trader-funding"
+  ]
+}

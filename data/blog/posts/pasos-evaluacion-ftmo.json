@@ -1,0 +1,314 @@
+{
+  "slug": "pasos-evaluacion-ftmo",
+  "title": "Pasos del Proceso de Evaluación FTMO: Guía Completa 2025",
+  "excerpt": "Todo lo que necesitas saber sobre el proceso de evaluación de FTMO: las dos fases, los requisitos de cada una, las reglas exactas y la diferencia entre el Challenge y la Verification explicados paso a paso.",
+  "seoTitle": "Pasos del Proceso de Evaluación FTMO 2025 — Guía Completa",
+  "seoDescription": "Guía paso a paso del proceso de evaluación de FTMO: Challenge vs Verification, reglas de profit target, drawdown y consistency rule. Cuánto tiempo tienes y qué pasa si fallas.",
+  "keywords": [
+    "pasos evaluación FTMO",
+    "ftmo evaluation process steps",
+    "proceso de evaluación FTMO",
+    "steps of the ftmo evaluation process",
+    "cómo funciona FTMO",
+    "FTMO challenge vs verification"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-05-20",
+  "updatedAt": "2026-05-20",
+  "category": "fondeo",
+  "tags": [
+    "FTMO",
+    "evaluación",
+    "proceso FTMO",
+    "prop firm",
+    "journal de trading",
+    "futuros"
+  ],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/trader-aprobado-pulgar-arriba-fondeo.jpg",
+  "thumbnailAlt": "Trader celebrando haber aprobado el proceso de evaluación FTMO con su journal de trading abierto en pantalla",
+  "content": [
+    {
+      "type": "p",
+      "text": "El proceso de evaluación de FTMO tiene una estructura definida que muchos traders no entienden completamente antes de empezar. No es solo 'ganar un X% en 30 días' — tiene dos fases con reglas específicas, requisitos de trading mínimos, y un conjunto de restricciones que aplican en simultáneo. Esta guía explica <strong>cada paso del proceso de evaluación de FTMO</strong> de forma clara y concreta, incluyendo lo que la mayoría de artículos no menciona."
+    },
+    {
+      "type": "h2",
+      "text": "Visión general: el proceso de evaluación FTMO tiene 3 etapas"
+    },
+    {
+      "type": "p",
+      "text": "Antes de entrar al detalle de cada fase, es importante entender la estructura completa del proceso:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>FTMO Challenge (Fase 1)</strong> — Demostras que puedes alcanzar el 10% de profit target respetando las reglas de riesgo en máximo 30 días.",
+        "<strong>FTMO Verification (Fase 2)</strong> — Confirmas que tu desempeño de la Fase 1 no fue suerte. Profit target reducido al 5%, mismas reglas de riesgo, máximo 60 días.",
+        "<strong>FTMO Trader (Cuenta Fondeada)</strong> — Recibes la cuenta real con capital real. Recibes el 80-90% de las ganancias generadas a partir de aquí."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "El costo de la evaluación (la tarifa del Challenge) se devuelve en el primer pago de reparto de ganancias como FTMO Trader. Si fallas la evaluación, puedes reintentar con descuento del 10% en intentos posteriores."
+    },
+    {
+      "type": "h2",
+      "text": "Paso 1: El FTMO Challenge — reglas y requisitos"
+    },
+    {
+      "type": "p",
+      "text": "El Challenge es la primera fase del proceso de evaluación. Operas en una cuenta demo con capital real de referencia (típicamente $10K, $25K, $50K o $100K) y debes cumplir los siguientes objetivos:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Parámetro",
+        "Requisito",
+        "Notas"
+      ],
+      "rows": [
+        [
+          "Profit Target",
+          "10% del capital inicial",
+          "$10,000 en una cuenta de $100K"
+        ],
+        [
+          "Max Daily Loss",
+          "5% del balance/equity del día",
+          "Se calcula sobre el capital al inicio del día"
+        ],
+        [
+          "Max Overall Drawdown",
+          "10% del capital inicial",
+          "Límite absoluto desde el capital de inicio"
+        ],
+        [
+          "Consistency Rule",
+          "Mejor día < 30% de ganancia total",
+          "Se calcula al finalizar el período"
+        ],
+        [
+          "Días mínimos de trading",
+          "4 días de trading activo",
+          "Días con al menos 1 trade cerrado"
+        ],
+        [
+          "Plazo máximo",
+          "30 días calendario",
+          "Puedes terminar antes si cumples el objetivo"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Una aclaración importante sobre el <strong>Max Daily Loss</strong>: FTMO calcula la pérdida diaria máxima sobre el balance o equity al inicio de cada día (según la versión del contrato). Esto significa que si tu cuenta tiene $103,000 al inicio del día, tu límite de pérdida ese día es $5,150 (5% de $103,000) — no $5,000 fijo. El límite se actualiza cada día."
+    },
+    {
+      "type": "h3",
+      "text": "¿Qué pasa si violas una regla en el Challenge?"
+    },
+    {
+      "type": "p",
+      "text": "Si superas el Max Daily Loss o el Max Overall Drawdown, la cuenta queda invalidada inmediatamente. No hay forma de recuperarla. Debes reiniciar el proceso desde cero (con descuento del 10% en intentos subsiguientes). Si llegas a los 30 días sin haber alcanzado el profit target pero sin haber violado ninguna regla, la cuenta expira — también debes reiniciar."
+    },
+    {
+      "type": "h2",
+      "text": "Paso 2: La FTMO Verification — por qué es más difícil de lo que parece"
+    },
+    {
+      "type": "p",
+      "text": "La Verification tiene el objetivo oficial de confirmar que los resultados del Challenge fueron consistentes y no un golpe de suerte. Las reglas son casi idénticas al Challenge, con dos diferencias importantes:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Parámetro",
+        "Challenge (Fase 1)",
+        "Verification (Fase 2)"
+      ],
+      "rows": [
+        [
+          "Profit Target",
+          "10%",
+          "5%"
+        ],
+        [
+          "Max Daily Loss",
+          "5%",
+          "5% (igual)"
+        ],
+        [
+          "Max Overall Drawdown",
+          "10%",
+          "10% (igual)"
+        ],
+        [
+          "Consistency Rule",
+          "Mejor día < 30%",
+          "Mejor día < 30% (igual)"
+        ],
+        [
+          "Días mínimos",
+          "4 días",
+          "4 días (igual)"
+        ],
+        [
+          "Plazo máximo",
+          "30 días",
+          "60 días"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "El profit target más bajo (5%) parece más fácil, pero la Verification tiene una trampa sutil: con un objetivo más pequeño, la consistency rule se vuelve más restrictiva en términos relativos. Si tu mejor día vale $1,500 y tu profit target es solo $5,000, ese día ya representa el 30% del objetivo total — estás en el límite antes de haber terminado."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "La tasa de rechazo en Verification es significativamente mayor que en el Challenge, principalmente por la consistency rule. Muchos traders que pasan el Challenge con holgura son rechazados en Verification porque en una fase más corta con objetivo más bajo, el ratio se vuelve más sensible a cualquier día excepcional."
+    },
+    {
+      "type": "h2",
+      "text": "Paso 3: Convertirse en FTMO Trader — qué cambia"
+    },
+    {
+      "type": "p",
+      "text": "Una vez aprobadas las dos fases, FTMO te envía un contrato de trader. A partir de aquí:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Operas con capital real de FTMO (no demo)",
+        "Recibes entre el <strong>80% y el 90% de las ganancias</strong> generadas (el split exacto depende del plan)",
+        "Las mismas reglas de drawdown aplican — puedes perder la cuenta fondeada si las violas",
+        "Puedes escalar la cuenta a tamaños mayores si demuestras consistencia continua",
+        "La consistency rule sigue aplicando durante la cuenta fondeada en algunos planes"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Timeline realista: ¿cuánto tiempo tarda el proceso completo?"
+    },
+    {
+      "type": "p",
+      "text": "Muchos traders subestiman el tiempo total del proceso. Aquí un timeline realista:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Etapa",
+        "Tiempo mínimo",
+        "Tiempo típico",
+        "Tiempo máximo"
+      ],
+      "rows": [
+        [
+          "FTMO Challenge",
+          "4 días (mínimo de trading)",
+          "15-20 días",
+          "30 días"
+        ],
+        [
+          "Revisión por FTMO",
+          "1 día",
+          "1-2 días",
+          "3 días"
+        ],
+        [
+          "FTMO Verification",
+          "4 días (mínimo de trading)",
+          "20-30 días",
+          "60 días"
+        ],
+        [
+          "Revisión final + contrato",
+          "2 días",
+          "3-5 días",
+          "7 días"
+        ],
+        [
+          "Total proceso completo",
+          "~11 días",
+          "~45-60 días",
+          "~100 días"
+        ]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo un journal de trading mejora tus probabilidades en cada paso"
+    },
+    {
+      "type": "p",
+      "text": "Las evaluaciones de prop firms no miden solo rentabilidad — miden <strong>consistencia y gestión de riesgo</strong>. Un journal de trading bien llevado durante el proceso tiene un impacto directo en cada fase:"
+    },
+    {
+      "type": "h3",
+      "text": "Durante el Challenge"
+    },
+    {
+      "type": "p",
+      "text": "El dashboard de Zentrade muestra en tiempo real tu progreso hacia el profit target, el drawdown disponible y el consistency %. Puedes ver cuánto te falta para el objetivo y calcular el ritmo diario necesario para alcanzarlo sin apresurarte. Esto elimina la tentación de aumentar el tamaño de posición en los últimos días para 'cerrar el gap' — una de las causas más frecuentes de violación del daily loss."
+    },
+    {
+      "type": "h3",
+      "text": "Durante la Verification"
+    },
+    {
+      "type": "p",
+      "text": "Con el objetivo más pequeño (5%) y el plazo más largo (60 días), el riesgo principal es la consistency rule. El monitoreo diario del ratio en Zentrade te permite detectar si un día excepcional ha disparado el porcentaje y actuar antes de que sea demasiado tarde."
+    },
+    {
+      "type": "h3",
+      "text": "Como FTMO Trader fondeado"
+    },
+    {
+      "type": "p",
+      "text": "Una vez fondeado, el journal sigue siendo tu principal herramienta de control de riesgo. Las mismas reglas aplican — y ahora las consecuencias de violarlas son perder capital real de FTMO, no solo la tarifa de evaluación."
+    },
+    {
+      "type": "cta",
+      "text": "Configura tu próxima evaluación de FTMO en Zentrade con los parámetros exactos del Challenge o la Verification. El plan gratuito incluye el dashboard completo con consistency %, drawdown y progreso hacia el profit target.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Puedo operar cualquier instrumento en el FTMO Challenge?",
+          "a": "FTMO permite operar Forex, índices (DAX, SP500, Nasdaq, etc.), materias primas (oro, plata, petróleo) y criptomonedas. Sin embargo, FTMO no ofrece acceso directo a contratos de futuros de CME como NQ o ES. Si eres trader de futuros de CME, considera Apex Trader Funding o TopStep como alternativas."
+        },
+        {
+          "q": "¿Qué pasa si no opero durante varios días en el Challenge?",
+          "a": "Puedes dejar pasar días sin operar siempre que termines el período con mínimo 4 días de trading activo (días con al menos un trade cerrado) y dentro del plazo de 30 días. No estás obligado a operar todos los días. De hecho, evitar operar en días de baja visibilidad es parte de una buena gestión de riesgo."
+        },
+        {
+          "q": "¿El costo de la evaluación se devuelve?",
+          "a": "Sí. FTMO devuelve la tarifa de evaluación como parte del primer pago de reparto de ganancias una vez que eres FTMO Trader activo. Si fallas la evaluación, la tarifa no se devuelve, pero puedes reintentar con un descuento del 10%."
+        },
+        {
+          "q": "¿Puedo pasar el FTMO Challenge en menos de 30 días?",
+          "a": "Sí. Puedes completar el Challenge en el tiempo que quieras siempre que sea al menos 4 días de trading activo. No hay ventaja en terminar rápido vs. tomarte el tiempo — lo que importa es respetar las reglas. Terminar en 5 días con una ganancia concentrada en 2 días es mucho más arriesgado que distribuirla en 18-20 sesiones."
+        },
+        {
+          "q": "¿FTMO tiene evaluaciones para cuentas pequeñas?",
+          "a": "El tamaño mínimo de cuenta en FTMO es $10,000. También ofrecen $25K, $50K y $100K. Las reglas de riesgo (5% daily loss, 10% max drawdown, 10% profit target) son iguales para todos los tamaños. La tarifa de la evaluación escala con el tamaño de la cuenta."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "regla-consistencia-ftmo-explicada",
+    "drawdown-trailing-vs-estatico-prop-firms",
+    "errores-comunes-evaluaciones-fondeo"
+  ]
+}

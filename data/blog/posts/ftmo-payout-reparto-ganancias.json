@@ -1,0 +1,267 @@
+{
+  "slug": "ftmo-payout-reparto-ganancias",
+  "title": "FTMO Payout: Cómo Funciona el Reparto de Ganancias y Cuándo Paga",
+  "excerpt": "Guía completa sobre el sistema de pagos de FTMO: cómo funciona el profit split 80/90, cuándo solicitar el payout, qué documentos necesitas y por qué te pueden retener o rechazar un pago.",
+  "seoTitle": "FTMO Payout 2025: Cómo Funciona el Reparto de Ganancias",
+  "seoDescription": "Todo sobre el payout de FTMO: profit split 80% o 90%, cuándo y cómo solicitar el pago, documentos necesarios, métodos disponibles y qué pasa con las ganancias acumuladas.",
+  "keywords": [
+    "FTMO payout",
+    "ftmo profit split",
+    "cómo paga FTMO",
+    "ftmo reparto ganancias",
+    "ftmo cuando paga",
+    "FTMO pago traders"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-05-20",
+  "updatedAt": "2026-05-20",
+  "category": "fondeo",
+  "tags": [
+    "FTMO",
+    "payout",
+    "profit split",
+    "prop firm",
+    "pagos",
+    "cuenta fondeada"
+  ],
+  "readingTime": 8,
+  "featured": false,
+  "thumbnail": "/blog/trader-revisando-graficas-analisis.jpg",
+  "thumbnailAlt": "Trader revisando el dashboard de FTMO para solicitar su primer payout con el profit split al 80 o 90 por ciento",
+  "content": [
+    {
+      "type": "p",
+      "text": "Pasar el Challenge y la Verification de FTMO es solo la mitad del camino. La otra mitad — la que realmente importa para tu economía — es entender exactamente cómo funciona el <strong>sistema de payout de FTMO</strong>: cuándo puedes solicitar el pago, cuánto recibirás, qué documentos necesitas y qué puede hacer que te rechacen o retrasen el pago. Esta guía cubre todo lo que necesitas saber."
+    },
+    {
+      "type": "h2",
+      "text": "El profit split de FTMO: 80% estándar, 90% posible"
+    },
+    {
+      "type": "p",
+      "text": "Como FTMO Trader activo, el reparto de ganancias estándar es <strong>80% para el trader / 20% para FTMO</strong>. Esto significa que si generates $5,000 de ganancias en tu cuenta fondeada, recibes $4,000 y FTMO retiene $1,000."
+    },
+    {
+      "type": "p",
+      "text": "Sin embargo, FTMO ofrece la posibilidad de subir al <strong>90/10</strong> a través de su programa de scaling. Cuando alcanzas ciertos hitos de consistencia y volumen de ganancias a lo largo de varios meses, FTMO puede aumentar el split a 90%. Este es uno de los incentivos del programa de escalado — no es automático, sino que se gana con historial de resultados."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "La tarifa de evaluación que pagaste al inicio (el costo del Challenge) se devuelve como parte del primer payout. Si tu primer pago es de $4,000, en ese pago ya va incluida la devolución de la tarifa. No es un pago separado."
+    },
+    {
+      "type": "h2",
+      "text": "¿Cuándo puedes solicitar el primer payout?"
+    },
+    {
+      "type": "p",
+      "text": "El primer payout de FTMO tiene un período de espera de <strong>30 días desde que iniciaste como FTMO Trader activo</strong>. A partir del segundo payout, el ciclo cambia a cada 14 días."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Payout",
+        "Período de espera",
+        "Notas"
+      ],
+      "rows": [
+        [
+          "Primer payout",
+          "30 días desde activación",
+          "Incluye la devolución de la tarifa de evaluación"
+        ],
+        [
+          "Segundo payout en adelante",
+          "14 días desde el anterior",
+          "Ciclo bimensual mientras mantengas la cuenta activa"
+        ],
+        [
+          "Payout extraordinario",
+          "Disponible bajo solicitud",
+          "FTMO puede aprobar pagos fuera del ciclo en casos especiales"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "No existe un monto mínimo de ganancia para solicitar el payout — puedes pedirlo con cualquier ganancia acumulada dentro del ciclo. Sin embargo, la mayoría de traders espera acumular un monto razonable antes de solicitarlo para que valga el esfuerzo administrativo."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo solicitar el payout: paso a paso"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Inicia sesión en tu dashboard de FTMO (my.ftmo.com)",
+        "Ve a la sección <strong>Payout</strong> o <strong>My Profit Split</strong> dentro de tu cuenta fondeada activa",
+        "Selecciona el período de ganancias para el que solicitas el pago",
+        "Elige el método de pago disponible en tu país (wire transfer, Skrill, Wise, etc.)",
+        "Sube la documentación de verificación si es la primera vez",
+        "Confirma la solicitud — FTMO la procesa en 1-5 días hábiles"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Métodos de pago disponibles"
+    },
+    {
+      "type": "p",
+      "text": "FTMO ofrece varios métodos de retiro. La disponibilidad puede variar según el país de residencia del trader:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Método",
+        "Disponibilidad",
+        "Tiempo estimado",
+        "Comisión típica"
+      ],
+      "rows": [
+        [
+          "Wire Transfer (SWIFT)",
+          "Global",
+          "3-5 días hábiles",
+          "Varía según banco (~$15-30)"
+        ],
+        [
+          "Wise (TransferWise)",
+          "Mayoría de países",
+          "1-2 días",
+          "Baja (~0.5-1%)"
+        ],
+        [
+          "Skrill",
+          "Disponible en muchos países",
+          "1-2 días",
+          "Variable"
+        ],
+        [
+          "Cryptocurrencies (BTC, USDC)",
+          "Global",
+          "1-24 horas",
+          "Fee de red"
+        ],
+        [
+          "Payoneer",
+          "Disponible en algunos países",
+          "2-3 días",
+          "Variable"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Para traders en Colombia, México, Perú y otros países de LATAM, Wise y las criptomonedas (especialmente USDC) suelen ser las opciones más prácticas por los bajos costos de conversión y la velocidad del proceso."
+    },
+    {
+      "type": "h2",
+      "text": "Por qué pueden rechazar o retener tu payout"
+    },
+    {
+      "type": "p",
+      "text": "FTMO puede rechazar o poner en espera un payout por varias razones. Estas son las más comunes:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Documentación incompleta o no verificada</strong>: FTMO requiere verificación KYC (Know Your Customer) antes de procesar el primer pago. Necesitarás documento de identidad vigente y comprobante de domicilio.",
+        "<strong>Violación de reglas durante el período</strong>: Si en el período de ganancias que reclamas hubo violaciones de reglas (daily loss, overall drawdown), las ganancias de ese período pueden ser anuladas.",
+        "<strong>Cuenta suspendida por actividad sospechosa</strong>: Uso de EA prohibidas, arbitraje de datos, o patrones de trading que FTMO considera manipulación pueden causar suspensión.",
+        "<strong>No haber alcanzado los días mínimos de trading</strong>: En algunos planes FTMO requiere que hayas operado un número mínimo de días en el período.",
+        "<strong>Datos bancarios incorrectos</strong>: Errores en el número de cuenta IBAN o código SWIFT retrasan el proceso."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "El payout y el drawdown: qué pasa con las ganancias no retiradas"
+    },
+    {
+      "type": "p",
+      "text": "Una pregunta frecuente: ¿si no retiro las ganancias, sigo teniendo el mismo margen de drawdown? La respuesta depende del tipo de drawdown:"
+    },
+    {
+      "type": "p",
+      "text": "El <strong>Max Overall Drawdown de FTMO es estático</strong> — siempre se calcula desde el capital inicial de la cuenta, no desde el balance actual. Esto significa que si acumulas $8,000 de ganancias sin retirar y tu balance está en $108,000, tu límite de drawdown sigue siendo $90,000 (10% del capital inicial de $100,000). No importa cuánto hayas acumulado en la cuenta: el piso no baja."
+    },
+    {
+      "type": "p",
+      "text": "Esta es una diferencia crítica frente a Apex Trader Funding y TopStep, donde el trailing drawdown sube con cada nuevo máximo de equity — incluyendo las ganancias no retiradas."
+    },
+    {
+      "type": "h2",
+      "text": "Programa de scaling de FTMO: cómo aumentar tu capital y tu profit split"
+    },
+    {
+      "type": "p",
+      "text": "FTMO ofrece un programa de escalado para FTMO Traders activos con buen historial. Los criterios generales para escalar incluyen:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Al menos <strong>4 meses de trading activo</strong> como FTMO Trader",
+        "Generar un <strong>mínimo del 10% de ganancias</strong> en el período evaluado",
+        "No haber violado ninguna regla de riesgo durante ese período",
+        "Haber solicitado al menos un payout en el período"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Al escalar, el capital de la cuenta aumenta en un 25% (por ejemplo, de $100,000 a $125,000) y el profit split puede subir hasta el 90%. El scaling se aplica automáticamente a la cuenta existente — no necesitas pasar una nueva evaluación."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo afecta el journal a tu elegibilidad para el payout"
+    },
+    {
+      "type": "p",
+      "text": "Muchos traders no relacionan el journal con el payout hasta que tienen problemas. La conexión es directa: FTMO puede revisar el historial completo de tu cuenta antes de aprobar un payout, y un historial con patrones de revenge trading, violaciones cerca de los límites, o inconsistencias en el tamaño de posición puede generar revisiones adicionales."
+    },
+    {
+      "type": "p",
+      "text": "Un journal de trading bien llevado en Zentrade te permite documentar la lógica detrás de cada trade durante la cuenta fondeada. En caso de disputa o revisión por parte de FTMO, tienes un registro claro de que tu trading fue sistemático — no especulativo."
+    },
+    {
+      "type": "cta",
+      "text": "Lleva el registro de tu cuenta FTMO fondeada en Zentrade. Monitorea tus ganancias acumuladas, el drawdown disponible y la consistency rule durante toda la vida de tu cuenta.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿FTMO paga en dólares o en euros?",
+          "a": "FTMO paga en la moneda base de tu cuenta, que es generalmente USD o EUR según el instrumento que operas. Para traders LATAM que operan Forex e índices en USD, el payout típicamente se realiza en dólares americanos."
+        },
+        {
+          "q": "¿El payout de FTMO tiene impuestos?",
+          "a": "FTMO paga el monto bruto sin retención. La responsabilidad de declarar y pagar impuestos sobre esas ganancias recae en el trader según las leyes de su país de residencia. FTMO no realiza retenciones fiscales. Consulta a un contador en tu país para entender tus obligaciones tributarias."
+        },
+        {
+          "q": "¿Qué pasa si pierdo la cuenta fondeada antes de retirar las ganancias?",
+          "a": "Si violas las reglas de riesgo y pierdes la cuenta fondeada antes de haber solicitado un payout, las ganancias acumuladas que no retiraste se pierden. FTMO no paga ganancias de cuentas cerradas por violación de reglas. Esto hace que gestionar activamente el drawdown sea especialmente importante cuando tienes ganancias sin retirar."
+        },
+        {
+          "q": "¿Puedo tener varias cuentas FTMO activas simultáneamente?",
+          "a": "Sí. FTMO permite tener múltiples cuentas activas con un capital total combinado de hasta $400,000. Cada cuenta se gestiona y paga de forma independiente. Algunos traders dividen el riesgo entre varias cuentas de menor tamaño en lugar de una cuenta grande."
+        },
+        {
+          "q": "¿Cuánto tiempo tarda FTMO en procesar el payout?",
+          "a": "FTMO procesa las solicitudes de payout dentro de los primeros 5 días hábiles después de la solicitud. El tiempo adicional depende del método de pago elegido: Wise suele ser el más rápido (1-2 días), mientras que wire transfer bancario puede tomar 3-5 días adicionales según el banco receptor."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "reglas-riesgo-ftmo-futuros-drawdown-consistency",
+    "pasos-evaluacion-ftmo",
+    "regla-consistencia-ftmo-explicada",
+    "como-pasar-evaluacion-ftmo-journal-trading"
+  ]
+}

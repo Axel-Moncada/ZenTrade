@@ -1,0 +1,283 @@
+{
+  "slug": "regla-consistencia-ftmo-explicada",
+  "title": "Regla de Consistencia FTMO: Qué Es, Cómo Funciona y Cómo No Violarla",
+  "excerpt": "La regla de consistencia de FTMO es la causa número uno de rechazo en la fase de Verificación. Esta guía explica exactamente cómo se calcula, cuándo se viola y qué estrategia usar para mantenerla bajo control.",
+  "seoTitle": "Regla de Consistencia FTMO Explicada: Cómo Funciona en 2025",
+  "seoDescription": "Aprende qué es la regla de consistencia de FTMO, cómo se calcula el 30%, cuándo la viola la mayoría de traders y cómo usar un journal de trading para controlarla.",
+  "keywords": [
+    "regla de consistencia FTMO",
+    "consistency rule FTMO",
+    "FTMO tiene regla de consistencia",
+    "cómo funciona la consistency rule FTMO",
+    "FTMO consistency rule futuros",
+    "violar consistency rule FTMO"
+  ],
+  "author": "Equipo Zentrade",
+  "publishedAt": "2026-05-20",
+  "updatedAt": "2026-05-20",
+  "category": "fondeo",
+  "tags": [
+    "FTMO",
+    "consistency rule",
+    "reglas de fondeo",
+    "evaluación FTMO",
+    "journal de trading",
+    "prop firm"
+  ],
+  "readingTime": 9,
+  "featured": false,
+  "thumbnail": "/blog/trader-concentrado-analisis-graficas-futuros.jpg",
+  "thumbnailAlt": "Trader analizando gráficas de futuros revisando la regla de consistencia de FTMO en su journal de trading",
+  "content": [
+    {
+      "type": "p",
+      "text": "Miles de traders pasan el FTMO Challenge con ganancias reales y después reciben el mensaje que más temen: <em>cuenta rechazada en Verificación por consistency rule</em>. El profit target cumplido, el drawdown respetado, los días mínimos operados — todo bien. Pero un solo día excepcional arruinó el ratio. Esta guía explica exactamente qué es la <strong>regla de consistencia de FTMO</strong>, cómo se calcula, cuándo se activa y qué estrategia concreta usar para nunca violarla."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "La consistency rule no se comprueba durante la evaluación — se comprueba al final. Puedes operar semanas sin saberlo y descubrir en el último día que un trade excepcional del día 3 ya invalidó todo tu esfuerzo."
+    },
+    {
+      "type": "h2",
+      "text": "¿Qué es la regla de consistencia de FTMO?"
+    },
+    {
+      "type": "p",
+      "text": "La consistency rule de FTMO establece que <strong>ningún día puede representar más del 30% de tu ganancia neta total</strong> al finalizar la evaluación. No es una regla sobre rentabilidad diaria absoluta — es una regla sobre la proporción que cada día representa dentro del total acumulado."
+    },
+    {
+      "type": "p",
+      "text": "Esto significa que no puedes tener un día donde ganes mucho más que el resto de la evaluación. FTMO quiere ver que tu rentabilidad es distribuida, no que depende de una sola sesión excepcional. La lógica detrás es que un trader con un solo día extraordinario y el resto mediocres no demuestra consistencia real — podría haber sido suerte."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo se calcula la consistency rule: la fórmula exacta"
+    },
+    {
+      "type": "p",
+      "text": "La fórmula es simple pero tiene implicaciones que no son obvias a primera vista:"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Consistency % = (Ganancia del mejor día) ÷ (Ganancia neta total del período) × 100\n\nPara aprobar: este porcentaje debe ser menor al 30% al finalizar la evaluación."
+    },
+    {
+      "type": "p",
+      "text": "Dos ejemplos para entender cómo funciona en la práctica:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Escenario",
+        "Ganancia total",
+        "Mejor día",
+        "Consistency %",
+        "Resultado"
+      ],
+      "rows": [
+        [
+          "Trader A — uniforme",
+          "$5,000",
+          "$1,200",
+          "24%",
+          "✅ Aprobado"
+        ],
+        [
+          "Trader B — día excepcional",
+          "$5,000",
+          "$2,500",
+          "50%",
+          "❌ Rechazado"
+        ],
+        [
+          "Trader C — borde del límite",
+          "$4,000",
+          "$1,180",
+          "29.5%",
+          "✅ Aprobado por poco"
+        ],
+        [
+          "Trader D — ganancia pequeña total",
+          "$2,000",
+          "$700",
+          "35%",
+          "❌ Rechazado"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "El caso del Trader D es especialmente traicionero: si tienes pocos días de trading o una ganancia total pequeña, un día moderadamente bueno puede disparar el porcentaje por encima del 30% aunque en términos absolutos no parezca tan grande."
+    },
+    {
+      "type": "h2",
+      "text": "¿FTMO tiene consistency rule para futuros?"
+    },
+    {
+      "type": "p",
+      "text": "Sí. La consistency rule aplica a <strong>todas las modalidades de FTMO</strong>, incluyendo Forex, índices, materias primas y los pares que pueden operarse en futuros a través de los brokers compatibles. Sin embargo, es importante aclarar que FTMO no ofrece acceso directo a contratos de futuros de CME (NQ, ES, GC, CL). Para traders que operan futuros específicamente en CME, las alternativas más comunes son Apex Trader Funding o TopStep — que no tienen consistency rule pero sí tienen trailing drawdown."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Si operas futuros de CME (NQ, MNQ, ES, GC), considera que Apex y TopStep no tienen consistency rule. Si operas índices o Forex a través de brokers como Darwinex que son compatibles con FTMO, la consistency rule sí aplica."
+    },
+    {
+      "type": "h2",
+      "text": "Los 4 escenarios donde los traders violan la consistency rule sin darse cuenta"
+    },
+    {
+      "type": "h3",
+      "text": "Escenario 1: El día del dato económico"
+    },
+    {
+      "type": "p",
+      "text": "NFP, CPI, decisión de tasas de la Fed — los días de datos macroeconómicos de alto impacto generan movimientos de 2-4 veces el rango diario normal. Un trader que opera bien ese día puede generar en pocas horas lo que normalmente tarda una semana. Si ese día extraordinario llega antes de que hayas acumulado suficiente ganancia total, el ratio se dispara instantáneamente."
+    },
+    {
+      "type": "h3",
+      "text": "Escenario 2: El comeback después de una racha mala"
+    },
+    {
+      "type": "p",
+      "text": "Tres días consecutivos de pérdidas, y el cuarto día el trader está en modo revenge y/o el mercado se alinea perfectamente. Recupera todo lo perdido en una sesión. El problema: esa recuperación extraordinaria ahora pesa desproporcionadamente en el ratio de consistencia porque el total acumulado es bajo (las pérdidas previas redujeron la base)."
+    },
+    {
+      "type": "h3",
+      "text": "Escenario 3: El último día empujando el profit target"
+    },
+    {
+      "type": "p",
+      "text": "El trader está al 8% de ganancia con el objetivo al 10% y le quedan 3 días. Decide aumentar el tamaño de posición para cerrar la brecha. Si lo logra en un solo día, ese día puede representar el 50% o más del total acumulado. Pasaste el profit target pero fallaste la consistency."
+    },
+    {
+      "type": "h3",
+      "text": "Escenario 4: Evaluación con pocos días operados"
+    },
+    {
+      "type": "p",
+      "text": "Si operas solo 8-10 días en un mes de evaluación de 30 días, la base de días es pequeña. Cualquier día excepcional pesa más en el ratio. FTMO requiere mínimo 4 días de trading, pero operar solo 4-6 días concentra demasiado el peso en cada sesión individual."
+    },
+    {
+      "type": "h2",
+      "text": "Estrategia para controlar la consistency rule durante la evaluación"
+    },
+    {
+      "type": "p",
+      "text": "La solución no es evitar tener días buenos — es gestionar el ratio activamente durante toda la evaluación, no solo al final."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Opera mínimo 15-18 días</strong>: Distribuir el trading en más días reduce el impacto proporcional de cualquier día individual.",
+        "<strong>Fija un profit máximo diario personal</strong>: Establece un tope en el 20-25% de tu ganancia total acumulada. Si llevas $3,000 y tu día está en $700 (23%), considera cerrar el día aunque el mercado siga favorable.",
+        "<strong>Monitorea el consistency % en tiempo real</strong>: No esperes al final de la evaluación para revisar el ratio. Revisarlo diariamente te permite ajustar el ritmo antes de que sea tarde.",
+        "<strong>Después de un día excepcional, distribuye activamente</strong>: Si tuviste un día de $2,000 en una cuenta con $3,500 de ganancia total (57%), en los días siguientes opera con objetivo de acumular otros $4,500+ para que el ratio baje por debajo del 30%.",
+        "<strong>Evita los días de datos macro si ya tienes un ratio alto</strong>: Si tu consistency % está cerca del límite, los días de alta volatilidad representan más riesgo de dispararlo que oportunidad de ganancia."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Zentrade te ayuda a controlar la consistency rule"
+    },
+    {
+      "type": "p",
+      "text": "El dashboard de Zentrade muestra el <strong>consistency % en tiempo real</strong> en la sección de métricas de cada cuenta de evaluación. Puedes ver en cualquier momento qué porcentaje de tu ganancia total corresponde al mejor día — sin necesidad de calcularlo manualmente."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Feature de Zentrade",
+        "Cómo ayuda con la consistency rule",
+        "Plan"
+      ],
+      "rows": [
+        [
+          "Consistency % en dashboard",
+          "Muestra el ratio en tiempo real, actualizado con cada trade registrado",
+          "Free"
+        ],
+        [
+          "Calendario diario de PnL",
+          "Visualización clara de qué días fueron los mejores y su peso relativo",
+          "Free"
+        ],
+        [
+          "Equity curve con anotaciones",
+          "Gráfico de equidad con líneas de drawdown y puntos de mejor día marcados",
+          "Professional"
+        ],
+        [
+          "Alertas de reglas de riesgo",
+          "Notificación si el consistency % se acerca al 28-29%",
+          "ZenMode"
+        ],
+        [
+          "Reporte semanal IA",
+          "Análisis de la semana con enfoque en distribución de ganancias",
+          "ZenMode"
+        ]
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Monitorea tu consistency % en tiempo real durante tu próxima evaluación. El plan gratuito de Zentrade incluye el cálculo automático de la regla de consistencia.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "h2",
+      "text": "¿Qué pasa si violas la consistency rule?"
+    },
+    {
+      "type": "p",
+      "text": "FTMO revisa el cumplimiento de la consistency rule al evaluar los resultados finales de cada fase. Si al cerrar la evaluación el ratio supera el 30%, la cuenta es rechazada independientemente del resto de métricas. No existe un mecanismo de apelación formal para la consistency rule — es una violación objetiva de los términos de la evaluación."
+    },
+    {
+      "type": "p",
+      "text": "La única forma de 'corregir' una consistency rule en riesgo antes del cierre de la evaluación es <strong>continuar operando para acumular más ganancia total</strong> y reducir el peso proporcional del día excepcional. Esto requiere operar con consistencia en los días restantes — exactamente lo que el ratio mide."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿La consistency rule aplica a las pérdidas también?",
+          "a": "No. La consistency rule de FTMO aplica únicamente a las ganancias. El cálculo usa la ganancia neta total y la ganancia del mejor día. Los días con pérdidas no se incluyen en el ratio de consistencia — solo reducen el total acumulado, lo que puede afectar indirectamente el ratio si el total baja."
+        },
+        {
+          "q": "¿Cómo se calcula si tengo días con pérdidas?",
+          "a": "Solo se considera la ganancia neta total (suma de todos los días, incluyendo pérdidas) y la ganancia del mejor día positivo. Ejemplo: si tienes 5 días con ganancias de $1,000, $800, $1,500, $600 y $700, y 3 días con pérdidas de -$200, -$300 y -$400, la ganancia neta total es $3,700 y el mejor día es $1,500. Consistency % = $1,500 / $3,700 = 40.5% — violación."
+        },
+        {
+          "q": "¿La consistency rule aplica en la fase de Verificación también?",
+          "a": "Sí. La consistency rule aplica en ambas fases del proceso FTMO: el Challenge (fase 1) y la Verification (fase 2). En la Verification el profit target es menor (5%) pero las reglas de riesgo, incluyendo la consistency rule, son idénticas. Muchos traders que pasan el Challenge sin problemas fallan en Verification precisamente porque en una fase más corta con objetivo más bajo, el ratio se vuelve más sensible."
+        },
+        {
+          "q": "¿Apex Trader Funding también tiene consistency rule?",
+          "a": "No. Apex Trader Funding no tiene consistency rule. Tampoco TopStep ni la mayoría de empresas de fondeo de futuros de CME. La consistency rule es una característica específica de FTMO. En cambio, Apex y TopStep tienen trailing drawdown, que es otro tipo de restricción que FTMO no tiene."
+        },
+        {
+          "q": "¿Cuántos días debo operar para que la consistency rule sea más fácil de controlar?",
+          "a": "Operar entre 15 y 20 días activos durante el período de evaluación reduce significativamente la presión de la consistency rule. Con más días de trading, la distribución natural de las ganancias hace más difícil que un solo día supere el 30% del total, siempre y cuando no haya un día extremadamente desproporcionado."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "¿Estás en medio de una evaluación FTMO? Registra tus trades en Zentrade y monitorea tu consistency % antes de que sea demasiado tarde para corregirlo.",
+      "href": "/register",
+      "buttonText": "Probar Zentrade gratis"
+    }
+  ],
+  "relatedSlugs": [
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "pasos-evaluacion-ftmo",
+    "drawdown-trailing-vs-estatico-prop-firms",
+    "mejor-journal-trading-futuros-2025"
+  ]
+}
