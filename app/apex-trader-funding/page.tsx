@@ -287,7 +287,7 @@ export default async function ApexPage() {
           </h2>
           <p className="text-zen-text-muted mb-8 max-w-xl mx-auto">
             Set up your Apex account in Zentrade with your plan size and limits.
-            Every trade you log is automatically measured against Apex's trailing drawdown.
+            Every trade you log is automatically measured against Apex&apos;s trailing drawdown.
           </p>
           <Link href="/register">
             <Button variant="zenGreen" size="lg" className="group">

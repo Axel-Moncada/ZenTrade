@@ -199,7 +199,7 @@ export default async function FtmoPage() {
           </h2>
           <p className="text-zen-text-muted mb-8">
             Set up your FTMO account in Zentrade, enter your capital and limits,
-            and every trade you log is automatically evaluated against FTMO's rules.
+            and every trade you log is automatically evaluated against FTMO&apos;s rules.
           </p>
           <ul className="space-y-3">
             {ZENTRADE_FEATURES.map((f) => (
