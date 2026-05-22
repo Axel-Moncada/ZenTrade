@@ -28,11 +28,11 @@
 | 7 | consistency-rule-fondeo-explicada | consistency rule prop firm | Informacional | Alto | Baja | 1 | fondeo | PENDIENTE |
 | 8 | que-es-un-prop-firm-trading | qué es un prop firm | Informacional | Alto | Media | 2 | guias | PENDIENTE |
 | 9 | como-pasar-topstep-evaluacion | cómo pasar TopStep | Informacional | Medio | Baja | 2 | fondeo | PENDIENTE |
-| 10 | que-es-drawdown-trading | qué es el drawdown en trading | Informacional | Alto | Media | 2 | guias | PENDIENTE |
+| 10 | que-es-drawdown-trading | qué es el drawdown en trading | Informacional | Alto | Media | 2 | guias | GENERADO |
 | 11 | mejores-empresas-fondeo-futuros-2025 | mejores empresas de fondeo futuros | Comparativa | Alto | Media | 2 | comparativas | PENDIENTE |
 | 12 | como-mejorar-win-rate-futuros | cómo mejorar win rate en futuros | Informacional | Medio | Baja | 2 | estrategias | PENDIENTE |
 | 13 | psicologia-trading-futuros | psicología del trading de futuros | Informacional | Alto | Alta | 2 | psicologia | PENDIENTE |
-| 14 | zentrade-vs-edgewonk | Zentrade vs Edgewonk | Comparativa | Medio | Baja | 2 | comparativas | PENDIENTE |
+| 14 | zentrade-vs-edgewonk | Zentrade vs Edgewonk | Comparativa | Medio | Baja | 2 | comparativas | GENERADO |
 | 15 | como-pasar-uprofit-evaluacion | cómo pasar Uprofit | Informacional | Medio | Baja | 2 | fondeo | PENDIENTE |
 | 16 | profit-factor-trading-que-es | qué es profit factor trading | Informacional | Medio | Baja | 2 | guias | PENDIENTE |
 | 17 | journal-trading-para-nq-futuros | journal trading NQ futuros | Informacional | Medio | Baja | 3 | guias | PENDIENTE |
@@ -41,7 +41,7 @@
 | 20 | errores-comunes-evaluaciones-fondeo | errores evaluación prop firm | Informacional | Medio | Baja | 3 | fondeo | PENDIENTE |
 | 21 | tracking-emociones-trading-journal | tracking emociones trading | Informacional | Bajo | Baja | 3 | psicologia | PENDIENTE |
 | 22 | zentrade-vs-tradervue | Zentrade vs Tradervue | Comparativa | Medio | Baja | 3 | comparativas | PENDIENTE |
-| 23 | max-daily-loss-como-respetar | max daily loss prop firm | Informacional | Medio | Baja | 3 | fondeo | PENDIENTE |
+| 23 | max-daily-loss-como-respetar | max daily loss prop firm | Informacional | Medio | Baja | 3 | fondeo | GENERADO |
 | 24 | diferencia-evaluation-live-cuenta-fondeo | cuenta evaluation vs live prop firm | Informacional | Medio | Baja | 3 | fondeo | PENDIENTE |
 | 25 | como-usar-journal-trading-diario | cómo usar un journal de trading | Informacional | Medio | Baja | 3 | guias | PENDIENTE |
 | 26 | trailing-drawdown-explicado | trailing drawdown futuros | Informacional | Medio | Baja | 3 | fondeo | PENDIENTE |
@@ -65,15 +65,15 @@
 | 37 | what-is-revenge-trading | what is revenge trading | Informacional | Alto | Media | 2 | psicologia | PENDIENTE |
 | 38 | best-futures-trading-journal-nq-es | best futures trading journal | Informacional | Medio | Baja | 2 | guias | PENDIENTE |
 | 39 | how-to-pass-topstep-evaluation | how to pass TopStep | Informacional | Alto | Media | 2 | fondeo | PENDIENTE |
-| 40 | what-is-drawdown-trading | what is drawdown in trading | Informacional | Alto | Alta | 2 | guias | PENDIENTE |
+| 40 | what-is-drawdown-trading | what is drawdown in trading | Informacional | Alto | Alta | 2 | guias | GENERADO |
 | 41 | trading-journal-benefits-funded-traders | trading journal benefits | Informacional | Medio | Baja | 2 | guias | PENDIENTE |
 | 42 | best-fondeo-futures-traders-2025 | best prop firms for futures traders | Comparativa | Alto | Alta | 2 | comparativas | PENDIENTE |
 | 43 | trailing-drawdown-explained-apex-topstep | trailing drawdown explained | Informacional | Medio | Baja | 3 | fondeo | PENDIENTE |
 | 44 | profit-factor-trading-explained | profit factor trading | Informacional | Medio | Media | 3 | guias | PENDIENTE |
 | 45 | trading-psychology-futures-traders | trading psychology futures | Informacional | Alto | Alta | 3 | psicologia | PENDIENTE |
-| 46 | zentrade-vs-edgewonk-comparison | Zentrade vs Edgewonk | Comparativa | Medio | Baja | 3 | comparativas | PENDIENTE |
+| 46 | zentrade-vs-edgewonk-comparison | Zentrade vs Edgewonk | Comparativa | Medio | Baja | 3 | comparativas | GENERADO |
 | 47 | how-to-analyze-trading-data | how to analyze trading data | Informacional | Medio | Baja | 3 | estrategias | PENDIENTE |
-| 48 | max-daily-loss-fondeo-how-to-manage | max daily loss prop firm | Informacional | Medio | Baja | 4 | fondeo | PENDIENTE |
+| 48 | max-daily-loss-fondeo-how-to-manage | max daily loss prop firm | Informacional | Medio | Baja | 4 | fondeo | GENERADO |
 | 49 | trading-journal-template-futures | trading journal template futures | Transaccional | Alto | Media | 4 | guias | PENDIENTE |
 | 50 | how-to-track-emotions-trading | how to track emotions trading | Informacional | Medio | Baja | 4 | psicologia | PENDIENTE |
 
