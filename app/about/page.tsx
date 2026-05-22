@@ -97,7 +97,7 @@ export default async function AboutPage() {
             </p>
             <p className="text-zen-anti-flash/70 leading-relaxed">
               Las herramientas disponibles — TradeZella, Edgewonk, Tradervue — estaban en inglés, no entendían las reglas
-              específicas de las prop firms, y no tenían concepto de "cuenta de evaluación vs. cuenta live". Para un trader
+              específicas de las prop firms, y no tenían concepto de &ldquo;cuenta de evaluación vs. cuenta live&rdquo;. Para un trader
               de Colombia, México o Argentina, esto significaba operar a ciegas respecto a las métricas que realmente importaban.
             </p>
             <p className="text-zen-anti-flash/70 leading-relaxed">
