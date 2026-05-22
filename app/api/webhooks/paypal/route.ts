@@ -1,8 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
 import { supabaseAdmin } from '@/lib/supabase/admin';
 import { verifyWebhookSignature } from '@/lib/paypal/client';
 import type { PayPalWebhookEvent } from '@/lib/paypal/client';
 import type { PlanKey, BillingInterval } from '@/lib/lemonsqueezy/client';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+async function notifyAdmin(userId: string, plan: PlanKey, interval: BillingInterval, subscriptionId: string) {
+  await resend.emails.send({
+    from: process.env.RESEND_FROM_EMAIL!,
+    to:   'axelemoncada@gmail.com',
+    subject: `💰 Nueva suscripción — ${plan} ${interval}`,
+    html: `
+      <h2>Nueva suscripción activada en ZenTrade</h2>
+      <p><b>Plan:</b> ${plan} (${interval})</p>
+      <p><b>Usuario:</b> ${userId}</p>
+      <p><b>Subscription ID:</b> ${subscriptionId}</p>
+      <p><b>Hora:</b> ${new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' })}</p>
+    `,
+  });
+}
 
 export async function POST(req: NextRequest) {
   const rawBody = await req.text();
@@ -104,6 +122,7 @@ async function handleActivated(resource: Record<string, unknown>) {
   }
 
   console.log(`[paypal-webhook] ✓ activated ${userId} → ${plan} (${interval}) hasta ${periodEnd.toISOString()}`);
+  void notifyAdmin(userId, plan, interval, subscriptionId);
 }
 
 async function handlePaymentCompleted(resource: Record<string, unknown>) {
