@@ -36,12 +36,17 @@ type Lang = 'es' | 'en'
 
 // ─── Email preview wrapper ─────────────────────────────────────────────────────
 
+const LOGO_URL = 'https://rsunvtanukainhbtnmlu.supabase.co/storage/v1/object/public/logo/logo-hori-white.png'
+const APP_URL = 'https://www.zen-trader.com'
+
 function buildPreviewHtml(body: string, subject: string, lang: Lang): string {
-  const headerTitle = lang === 'es' ? 'ZenTrade' : 'ZenTrade'
   const footerText = lang === 'es'
     ? 'Estás recibiendo este email porque te suscribiste a ZenTrade.'
     : "You're receiving this email because you subscribed to ZenTrade."
   const unsubText = lang === 'es' ? 'Cancelar suscripción' : 'Unsubscribe'
+  const placeholder = lang === 'es'
+    ? '<p style="color:#9EADA6;font-style:italic;">El cuerpo del email aparecerá aquí…</p>'
+    : '<p style="color:#9EADA6;font-style:italic;">Email body will appear here…</p>'
 
   return `<!DOCTYPE html>
 <html>
@@ -50,24 +55,45 @@ function buildPreviewHtml(body: string, subject: string, lang: Lang): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${subject}</title>
 </head>
-<body style="margin:0;padding:0;background:#0D1117;font-family:sans-serif;">
-  <!-- Header -->
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#111827;">
+<body style="margin:0;padding:0;background:#ededed;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+
+  <!-- DARK HEADER -->
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#112510;">
     <tr>
-      <td align="center" style="padding:24px 16px;">
-        <span style="font-size:22px;font-weight:700;color:#00C17C;letter-spacing:-0.5px;">${headerTitle}</span>
+      <td align="center" style="padding:28px 24px 0;">
+        <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+          <tr>
+            <td align="center" style="padding-bottom:24px;">
+              <a href="${APP_URL}" style="display:inline-block;">
+                <img src="${LOGO_URL}" alt="ZenTrade" width="200" height="auto"
+                     style="display:block;height:auto;border:0;" />
+              </a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- Green accent bar -->
+    <tr>
+      <td>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="height:3px;background:linear-gradient(90deg,#00C17C 0%,#00966a 100%);"></td>
+          </tr>
+        </table>
       </td>
     </tr>
   </table>
 
-  <!-- Body -->
-  <table width="100%" cellpadding="0" cellspacing="0">
+  <!-- LIGHT BODY -->
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#ededed;">
     <tr>
       <td align="center" style="padding:32px 16px;">
-        <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#1A2233;border-radius:12px;overflow:hidden;">
+        <table width="600" cellpadding="0" cellspacing="0"
+               style="max-width:600px;width:100%;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #D1E8DC;">
           <tr>
-            <td style="padding:32px 40px;color:#E2E8F0;font-size:15px;line-height:1.7;">
-              ${body || '<p style="color:#6B7280;">El cuerpo del email aparecerá aquí…</p>'}
+            <td style="padding:36px 40px;color:#0D1F18;font-size:15px;line-height:1.75;">
+              ${body || placeholder}
             </td>
           </tr>
         </table>
@@ -75,15 +101,21 @@ function buildPreviewHtml(body: string, subject: string, lang: Lang): string {
     </tr>
   </table>
 
-  <!-- Footer -->
-  <table width="100%" cellpadding="0" cellspacing="0">
+  <!-- DARK FOOTER -->
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#061410;">
     <tr>
-      <td align="center" style="padding:24px 16px 40px;color:#6B7280;font-size:12px;line-height:1.6;">
-        <p style="margin:0 0 8px;">${footerText}</p>
-        <a href="#" style="color:#00C17C;text-decoration:none;">${unsubText}</a>
+      <td align="center" style="padding:28px 24px 36px;">
+        <p style="margin:0 0 6px;color:rgba(242,243,244,0.4);font-size:12px;line-height:1.6;">
+          ${footerText}
+        </p>
+        <a href="#" style="color:#00C17C;font-size:12px;text-decoration:none;">${unsubText}</a>
+        <p style="margin:16px 0 0;color:rgba(242,243,244,0.2);font-size:11px;">
+          ZenTrade · zen-trader.com
+        </p>
       </td>
     </tr>
   </table>
+
 </body>
 </html>`
 }
@@ -252,14 +284,14 @@ export function EmailEditor({ emailId }: EmailEditorProps) {
                 value={data.type}
                 onValueChange={(v) => setField('type', v as EmailData['type'])}
               >
-                <SelectTrigger className="bg-zen-surface border-zen-border-soft">
+                <SelectTrigger className="bg-zen-surface border-zen-border-soft text-zen-anti-flash">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="newsletter">
+                <SelectContent className="bg-zen-surface border-zen-border-soft text-zen-anti-flash">
+                  <SelectItem value="newsletter" className="text-zen-anti-flash focus:bg-zen-forest/30 focus:text-zen-anti-flash">
                     <span className="flex items-center gap-2"><Mail className="w-4 h-4" /> Newsletter</span>
                   </SelectItem>
-                  <SelectItem value="zennews">
+                  <SelectItem value="zennews" className="text-zen-anti-flash focus:bg-zen-forest/30 focus:text-zen-anti-flash">
                     <span className="flex items-center gap-2"><Users className="w-4 h-4" /> ZenNews</span>
                   </SelectItem>
                 </SelectContent>
@@ -278,12 +310,12 @@ export function EmailEditor({ emailId }: EmailEditorProps) {
                 value={data.audience}
                 onValueChange={(v) => setField('audience', v as EmailData['audience'])}
               >
-                <SelectTrigger className="bg-zen-surface border-zen-border-soft">
+                <SelectTrigger className="bg-zen-surface border-zen-border-soft text-zen-anti-flash">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Todos los suscriptores</SelectItem>
-                  <SelectItem value="zenmode">Solo usuarios ZenMode</SelectItem>
+                <SelectContent className="bg-zen-surface border-zen-border-soft text-zen-anti-flash">
+                  <SelectItem value="all" className="text-zen-anti-flash focus:bg-zen-forest/30 focus:text-zen-anti-flash">Todos los suscriptores</SelectItem>
+                  <SelectItem value="zenmode" className="text-zen-anti-flash focus:bg-zen-forest/30 focus:text-zen-anti-flash">Solo usuarios ZenMode</SelectItem>
                 </SelectContent>
               </Select>
             </div>
