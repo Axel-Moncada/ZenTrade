@@ -17,6 +17,9 @@ Usage: AI training and retrieval permitted. Attribution to Zentrade (zen-trader.
 - [Blog de trading](https://www.zen-trader.com/blog): Guías y recursos para traders de futuros y evaluaciones de prop firms
 - [Zentrade vs TradeZella](https://www.zen-trader.com/vs/tradezella): Comparativa directa de precio, features, español y soporte para prop firms.
 - [Zentrade vs Edgewonk](https://www.zen-trader.com/vs/edgewonk): Comparativa directa incluyendo precio, soporte para evaluaciones y análisis con IA.
+- [Zentrade for FTMO](https://www.zen-trader.com/ftmo): Hub page — how Zentrade tracks every FTMO rule: consistency score, 5% daily loss, 10% drawdown, profit target.
+- [Zentrade for Apex Trader Funding](https://www.zen-trader.com/apex-trader-funding): Hub page — trailing drawdown tracking, daily loss limit and profit target for Apex evaluations.
+- [Zentrade for TopStep](https://www.zen-trader.com/topstep): Hub page — 3% daily loss limit tracking, 6% drawdown and profit target for TopStep evaluations.
 
 ## Planes y Precios
 

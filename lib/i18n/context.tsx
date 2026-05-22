@@ -18,16 +18,17 @@ interface I18nContextValue {
 const I18nContext = createContext<I18nContextValue | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("es");
+  const [locale, setLocaleState] = useState<Locale>("en");
 
   useEffect(() => {
     const saved = localStorage.getItem("zentrade-locale") as Locale | null;
     if (saved === "en" || saved === "es") {
       setLocaleState(saved);
-    } else if (navigator.language.toLowerCase().startsWith("en")) {
-      // Primera visita sin preferencia guardada: auto-detectar idioma del browser
-      setLocaleState("en");
+    } else if (navigator.language.toLowerCase().startsWith("es")) {
+      // Primera visita sin preferencia guardada: auto-detectar español para LATAM
+      setLocaleState("es");
     }
+    // Default: English (mercado principal USA/global)
   }, []);
 
   const setLocale = (next: Locale) => {

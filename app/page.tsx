@@ -16,31 +16,31 @@ import NewsletterPopup from "@/components/landing/newsletter-popup";
 const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
-  title: "Zentrade — Journal de Trading con IA para Prop Firms | Gratis",
+  title: "Zentrade — AI Trading Journal for Prop Firm Traders | Free",
   description:
-    "El journal de trading con IA para pasar pruebas de fondeo de futuros. Mide tu consistency score, drawdown y detecta revenge trading en tiempo real. FTMO, Apex, TopStep.",
+    "The AI trading journal built for futures traders passing prop firm evaluations. Track consistency score, drawdown and detect revenge trading in real time. FTMO, Apex, TopStep.",
   keywords: [
-    "journal de trading",
-    "trading journal futuros",
-    "pruebas de fondeo futuros",
-    "prueba de fondeo",
-    "empresa de fondeo",
-    "mejor journal trading",
+    "trading journal",
+    "futures trading journal",
+    "prop firm trading journal",
+    "best trading journal",
     "FTMO journal",
-    "Apex Trader Funding",
-    "TopStep",
+    "Apex Trader Funding journal",
+    "TopStep journal",
     "Zentrade",
-    "trading journal LATAM",
-    "como pasar prueba de fondeo",
-    "journal trading con IA",
+    "trading journal for prop firms",
+    "how to pass prop firm evaluation",
+    "AI trading journal",
+    "prop firm tracker",
+    "consistency score tracker",
   ],
   alternates: {
     canonical: SITE_URL,
   },
   openGraph: {
-    title: "Journal de Trading para Pruebas de Fondeo de Futuros | Zentrade",
+    title: "AI Trading Journal for Prop Firm Evaluations | Zentrade",
     description:
-      "Journal de trading con IA para pasar pruebas de fondeo de futuros. Métricas de FTMO, Apex y TopStep, revenge trading detection y reporte semanal inteligente.",
+      "AI-powered trading journal for futures traders. FTMO, Apex and TopStep metrics, revenge trading detection and weekly AI report — free plan included.",
     url: SITE_URL,
     type: "website",
   },
