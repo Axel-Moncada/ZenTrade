@@ -66,6 +66,7 @@ function TradeCard({ trade, signedUrls, onClick, hideResult }: TradeCardProps) {
       {/* Imagen o placeholder */}
       <div className="relative h-36 overflow-hidden bt-card-image-bg">
         {signedUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={signedUrl}
             alt={`Trade ${symbol}`}
@@ -236,6 +237,7 @@ function ReviewModal({
           {/* Imagen principal */}
           <div className="flex-1 relative flex items-center justify-center overflow-hidden bt-modal-image-area" style={{ minHeight: 0 }}>
             {currentImage ? (
+              // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={currentImage}
                 alt={`Captura ${imageIndex + 1}`}
@@ -443,7 +445,8 @@ export function BacktestingGallery({ trades, accounts }: BacktestingGalleryProps
       }
     }
 
-    generate()
+    void generate()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filtered.length, trades])
 
   const filterBtnClass = (active: boolean) =>

@@ -232,6 +232,7 @@ export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
                     className="w-16 h-16 rounded-lg overflow-hidden border border-zen-forest/40 hover:border-zen-caribbean-green/60 bg-zen-surface/60 group transition-all"
                     title={`Ver captura ${i + 1}`}
                   >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={url}
                       alt={`Captura ${i + 1}`}
