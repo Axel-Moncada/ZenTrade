@@ -48,6 +48,7 @@ export function DailyPhotoUpload({
       .then(({ data }) => {
         setSignedUrl(data?.signedUrl ?? null);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path]);
 
   const savePath = async (newPath: string | null) => {
@@ -146,6 +147,7 @@ export function DailyPhotoUpload({
           onClick={() => setLightboxOpen(true)}
           className="w-full h-40 rounded-lg overflow-hidden border border-zen-forest/40 hover:border-zen-caribbean-green/60 transition-colors group relative"
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={signedUrl}
             alt={label}
@@ -214,6 +216,7 @@ export function DailyPhotoUpload({
           >
             <X className="h-5 w-5" />
           </button>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={signedUrl}
             alt={label}

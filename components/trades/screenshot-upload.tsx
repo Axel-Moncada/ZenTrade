@@ -45,7 +45,8 @@ export function ScreenshotUpload({ value, onChange, disabled, userId }: Screensh
       }
     };
 
-    generateUrls();
+    void generateUrls();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   const handleFileSelect = async (file: File) => {
@@ -130,6 +131,7 @@ export function ScreenshotUpload({ value, onChange, disabled, userId }: Screensh
             onClick={() => openImage(path)}
           >
             {signedUrls[path] ? (
+              // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={signedUrls[path]}
                 alt={`Captura ${idx + 1}`}

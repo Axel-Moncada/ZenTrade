@@ -53,6 +53,7 @@ export default function BenefitsSection() {
             </div>
             <p className="text-zen-anti-flash text-lg mb-4">{l.benefitsReview1}</p>
             <div className="flex items-center space-x-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://i.pravatar.cc/80?img=12"
                 alt={l.benefitsReview1Author}
@@ -71,6 +72,7 @@ export default function BenefitsSection() {
             </div>
             <p className="text-zen-anti-flash text-lg mb-4">{l.benefitsReview2}</p>
             <div className="flex items-center space-x-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://i.pravatar.cc/80?img=47"
                 alt={l.benefitsReview2Author}

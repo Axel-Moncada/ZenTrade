@@ -72,6 +72,7 @@ export function ScreenshotLightbox({
           )}
 
           {/* Image */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={urls[currentIndex]}
             alt={`Captura ${currentIndex + 1} de ${total}`}

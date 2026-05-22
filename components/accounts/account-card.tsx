@@ -68,6 +68,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
       }
     };
     fetchConsistency();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [account.id, account.account_type]);
   const handleDelete = async () => {
     try {
