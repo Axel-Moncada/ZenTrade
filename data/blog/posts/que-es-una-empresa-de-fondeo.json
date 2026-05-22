@@ -13,7 +13,7 @@
     "prop firm en español",
     "trader fondeado"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-10",
   "updatedAt": "2026-04-10",
   "category": "guias",
@@ -273,6 +273,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/mejores-empresas-fondeo-futuros-2025\">Mejores empresas de fondeo para futuros 2025</a>",
+        "<a href=\"/blog/como-pasar-evaluacion-ftmo-journal-trading\">Cómo pasar la evaluación de FTMO con un journal de trading</a>",
+        "<a href=\"/blog/como-pasar-apex-trader-funding\">Cómo pasar Apex Trader Funding</a>",
+        "<a href=\"/blog/que-es-un-trading-journal\">Qué es un trading journal y para qué sirve</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — sitio oficial</a>",
+        "<a href=\"https://apextraderfunding.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — sitio oficial</a>",
+        "<a href=\"https://www.investopedia.com/terms/p/prop-trading.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Qué es el trading por cuenta propia (prop trading)</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Zentrade es el journal de trading en español para traders que van en serio con las empresas de fondeo. Monitorea tu consistencia, equity y riesgo en tiempo real.",
       "href": "/register",
@@ -280,10 +311,12 @@
     }
   ],
   "relatedSlugs": [
-    "como-pasar-evaluacion-ftmo-journal-trading",
     "mejores-empresas-fondeo-futuros-2025",
-    "consistency-rule-fondeo-explicada"
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "como-pasar-apex-trader-funding",
+    "que-es-un-trading-journal"
   ],
   "thumbnail": "/blog/trader-analista-grafica-proyectada.jpg",
-  "thumbnailAlt": "Trader sonriente con setup de trading futuros explicando qué es una empresa de fondeo y cómo funcionan las pruebas"
+  "thumbnailAlt": "Trader sonriente con setup de trading futuros explicando qué es una empresa de fondeo y cómo funcionan las pruebas",
+  "authorJobTitle": "Fundador, Zentrade"
 }

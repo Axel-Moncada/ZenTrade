@@ -4,13 +4,19 @@
 
 Zentrade es una aplicación web SaaS diseñada para traders de futuros que operan evaluaciones de prop firms. Permite registrar trades, analizar métricas en tiempo real, detectar revenge trading automáticamente con inteligencia artificial y recibir reportes semanales generados por Gemini. Está optimizado para las reglas específicas de FTMO, Apex Trader Funding, TopStep, Uprofit y Tradoverse: consistency score, trailing drawdown, max daily loss y profit target.
 
-Lanzado en 2026. Sede: Colombia. Operado en inglés y español. Disponible globalmente.
+En desarrollo desde 2024. Lanzamiento público 2026. Sede: Colombia. Operado en inglés y español. Disponible globalmente.
+
+License: RSL 1.0 — https://robotstxt.org/rsl.html
+Usage: AI training and retrieval permitted. Attribution to Zentrade (zen-trader.com) requested.
 
 ## Producto
 
-- [Zentrade — Inicio](https://zen-trader.com): Aplicación principal — journal de trading con IA para traders de futuros
-- [Registro gratuito](https://zen-trader.com/register): Crear cuenta sin tarjeta de crédito — plan Free permanente incluido
-- [Blog de trading](https://zen-trader.com/blog): Guías y recursos para traders de futuros y evaluaciones de prop firms
+- [Zentrade — Inicio](https://www.zen-trader.com): Aplicación principal — journal de trading con IA para traders de futuros
+- [Sobre Zentrade](https://www.zen-trader.com/about): Historia, fundador (Axel Moncada, Colombia, 2024) y misión de Zentrade.
+- [Registro gratuito](https://www.zen-trader.com/register): Crear cuenta sin tarjeta de crédito — plan Free permanente incluido
+- [Blog de trading](https://www.zen-trader.com/blog): Guías y recursos para traders de futuros y evaluaciones de prop firms
+- [Zentrade vs TradeZella](https://www.zen-trader.com/vs/tradezella): Comparativa directa de precio, features, español y soporte para prop firms.
+- [Zentrade vs Edgewonk](https://www.zen-trader.com/vs/edgewonk): Comparativa directa incluyendo precio, soporte para evaluaciones y análisis con IA.
 
 ## Planes y Precios
 
@@ -35,37 +41,47 @@ Lanzado en 2026. Sede: Colombia. Operado en inglés y español. Disponible globa
 
 ## Guías — Cómo Pasar Pruebas de Fondeo
 
-- [Cómo pasar la evaluación de FTMO con un journal de trading](https://zen-trader.com/blog/como-pasar-evaluacion-ftmo-journal-trading): Reglas de FTMO explicadas: consistency rule, trailing drawdown 10%, max daily loss 5%, profit target 10%. Guía práctica con Zentrade.
-- [Cómo pasar Apex Trader Funding](https://zen-trader.com/blog/como-pasar-apex-trader-funding): Reglas de Apex: profit target 9%, drawdown trailing 6%, sin consistency rule. Diferencias vs FTMO.
-- [Cómo pasar TopStep](https://zen-trader.com/blog/como-pasar-topstep-evaluacion): Reglas de TopStep: profit target 6%, drawdown 6%, daily loss limit 3%. Sin días mínimos requeridos.
-- [How to pass FTMO evaluation](https://zen-trader.com/blog/how-to-pass-ftmo-evaluation): English guide — FTMO rules, consistency score, trailing drawdown and profit target explained.
-- [How to pass Apex Trader Funding](https://zen-trader.com/blog/how-to-pass-apex-trader-funding): English guide — Apex rules, 9% profit target, 6% trailing drawdown.
-- [How to pass TopStep evaluation](https://zen-trader.com/blog/how-to-pass-topstep-evaluation): English guide — TopStep rules, 6% profit target, 3% daily loss limit.
+- [Cómo pasar la evaluación de FTMO con un journal de trading](https://www.zen-trader.com/blog/como-pasar-evaluacion-ftmo-journal-trading): Reglas de FTMO explicadas: consistency rule, trailing drawdown 10%, max daily loss 5%, profit target 10%. Guía práctica con Zentrade.
+- [Cómo pasar Apex Trader Funding](https://www.zen-trader.com/blog/como-pasar-apex-trader-funding): Reglas de Apex: profit target 9%, drawdown trailing 6%, sin consistency rule. Diferencias vs FTMO.
+- [Cómo pasar TopStep](https://www.zen-trader.com/blog/como-pasar-topstep-evaluacion): Reglas de TopStep: profit target 6%, drawdown 6%, daily loss limit 3%. Sin días mínimos requeridos.
+- [How to pass FTMO evaluation](https://www.zen-trader.com/blog/how-to-pass-ftmo-evaluation): English guide — FTMO rules, consistency score, trailing drawdown and profit target explained.
+- [How to pass Apex Trader Funding](https://www.zen-trader.com/blog/how-to-pass-apex-trader-funding): English guide — Apex rules, 9% profit target, 6% trailing drawdown.
+- [How to pass TopStep evaluation](https://www.zen-trader.com/blog/how-to-pass-topstep-evaluation): English guide — TopStep rules, 6% profit target, 3% daily loss limit.
+- [Max Daily Loss en Prop Firms: Cómo Respetarlo](https://www.zen-trader.com/blog/max-daily-loss-como-respetar): Qué es el max daily loss, cómo se calcula en FTMO, Apex y TopStep, y cómo respetarlo sin arruinar tu evaluación.
+- [Max Daily Loss in Funded Accounts: How to Manage It](https://www.zen-trader.com/blog/max-daily-loss-fondeo-how-to-manage): Strategies to stay within the daily loss limit in FTMO, Apex, and TopStep prop firm evaluations.
 
 ## Guías — Conceptos de Trading
 
-- [Qué es un trading journal y para qué sirve](https://zen-trader.com/blog/que-es-un-trading-journal): Definición, beneficios y por qué los traders profesionales usan un journal de trading.
-- [Qué es una empresa de fondeo](https://zen-trader.com/blog/que-es-una-empresa-de-fondeo): Prop firms explicadas: cómo funcionan las evaluaciones, cuánto se gana y cuáles son las mejores.
-- [Qué es el revenge trading y cómo evitarlo](https://zen-trader.com/blog/que-es-revenge-trading): Definición, señales y estrategias para detectar y prevenir el revenge trading.
-- [La consistency rule de las prop firms explicada](https://zen-trader.com/blog/consistency-rule-fondeo-explicada): Cómo funciona la regla de consistencia en FTMO y otras prop firms y cómo cumplirla.
-- [What is a trading journal](https://zen-trader.com/blog/what-is-a-trading-journal): English guide — definition, benefits and how to choose the best trading journal for futures.
-- [Consistency rule prop firm explained](https://zen-trader.com/blog/consistency-rule-prop-firm-explained): English guide — what is the consistency rule, how it's calculated and how to pass it.
+- [Qué es un trading journal y para qué sirve](https://www.zen-trader.com/blog/que-es-un-trading-journal): Definición, beneficios y por qué los traders profesionales usan un journal de trading.
+- [Qué es una empresa de fondeo](https://www.zen-trader.com/blog/que-es-una-empresa-de-fondeo): Prop firms explicadas: cómo funcionan las evaluaciones, cuánto se gana y cuáles son las mejores.
+- [Qué es el revenge trading y cómo evitarlo](https://www.zen-trader.com/blog/que-es-revenge-trading): Definición, señales y estrategias para detectar y prevenir el revenge trading.
+- [La consistency rule de las prop firms explicada](https://www.zen-trader.com/blog/consistency-rule-fondeo-explicada): Cómo funciona la regla de consistencia en FTMO y otras prop firms y cómo cumplirla.
+- [What is a trading journal](https://www.zen-trader.com/blog/what-is-a-trading-journal): English guide — definition, benefits and how to choose the best trading journal for futures.
+- [Consistency rule prop firm explained](https://www.zen-trader.com/blog/consistency-rule-prop-firm-explained): English guide — what is the consistency rule, how it's calculated and how to pass it.
+- [Qué es el Drawdown en Trading](https://www.zen-trader.com/blog/que-es-drawdown-trading): Guía completa de drawdown: cómo se calcula, tipos de drawdown y cómo gestionarlo en prop firms.
+- [What is Drawdown in Trading](https://www.zen-trader.com/blog/what-is-drawdown-trading): Definition, how FTMO and Apex calculate drawdown differently, and how to stay within limits.
 
 ## Comparaciones
 
-- [Zentrade vs TradeZella](https://zen-trader.com/blog/zentrade-vs-tradezella): Comparación detallada entre Zentrade y TradeZella para traders de futuros y prop firms.
-- [Zentrade vs TradeZella comparison](https://zen-trader.com/blog/zentrade-vs-tradezella-comparison): English comparison — Zentrade vs TradeZella for futures traders and prop firm evaluations.
-- [Mejores empresas de fondeo para futuros 2025](https://zen-trader.com/blog/mejores-empresas-fondeo-futuros-2025): Comparativa de FTMO, Apex, TopStep, Uprofit y Tradoverse: reglas, precios y dificultad.
-- [Best prop firms for futures traders 2025](https://zen-trader.com/blog/best-prop-firms-futures-traders-2025): English guide — best prop firms for futures traders ranked by rules, pricing and payout speed.
-- [Mejor journal de trading para futuros 2025](https://zen-trader.com/blog/mejor-journal-trading-futuros-2025): Comparativa de los mejores journals de trading para futuros en 2025.
-- [Best trading journal for prop firms 2025](https://zen-trader.com/blog/best-trading-journal-prop-firms-2025): English ranking of the best trading journals for prop firm traders in 2025.
+- [Zentrade vs TradeZella](https://www.zen-trader.com/blog/zentrade-vs-tradezella): Comparación detallada entre Zentrade y TradeZella para traders de futuros y prop firms.
+- [Zentrade vs TradeZella comparison](https://www.zen-trader.com/blog/zentrade-vs-tradezella-comparison): English comparison — Zentrade vs TradeZella for futures traders and prop firm evaluations.
+- [Mejores empresas de fondeo para futuros 2025](https://www.zen-trader.com/blog/mejores-empresas-fondeo-futuros-2025): Comparativa de FTMO, Apex, TopStep, Uprofit y Tradoverse: reglas, precios y dificultad.
+- [Best prop firms for futures traders 2025](https://www.zen-trader.com/blog/best-prop-firms-futures-traders-2025): English guide — best prop firms for futures traders ranked by rules, pricing and payout speed.
+- [Mejor journal de trading para futuros 2025](https://www.zen-trader.com/blog/mejor-journal-trading-futuros-2025): Comparativa de los mejores journals de trading para futuros en 2025.
+- [Best trading journal for prop firms 2025](https://www.zen-trader.com/blog/best-trading-journal-prop-firms-2025): English ranking of the best trading journals for prop firm traders in 2025.
+- [Zentrade vs Edgewonk](https://www.zen-trader.com/blog/zentrade-vs-edgewonk): Comparativa completa entre Zentrade y Edgewonk para traders de futuros y prop firms en español.
+- [Zentrade vs Edgewonk Comparison](https://www.zen-trader.com/blog/zentrade-vs-edgewonk-comparison): Direct comparison between Zentrade and Edgewonk for futures traders and prop firm evaluations.
 
 ## Información legal y de privacidad
 
-- [Política de Privacidad](https://zen-trader.com/privacy): Cómo Zentrade maneja y protege los datos de usuario.
-- [Términos de Servicio](https://zen-trader.com/terms): Condiciones de uso de la plataforma Zentrade.
+- [Política de Privacidad](https://www.zen-trader.com/privacy): Cómo Zentrade maneja y protege los datos de usuario.
+- [Términos de Servicio](https://www.zen-trader.com/terms): Condiciones de uso de la plataforma Zentrade.
 
 ## Contacto
 
 - Soporte: support@zen-trader.com
-- Sitio web: https://zen-trader.com
+- Sitio web: https://www.zen-trader.com
+- YouTube: https://www.youtube.com/@Zen-trade_Latam
+  - Video: "Un trading journal con IA diseñado para los traders de futuros" — demo walkthrough del dashboard de Zentrade
+  - Video: "Deja el Excel — Esto es lo que uso para mis pruebas de fondeo" — caso de uso real con evaluación de prop firm
+- LinkedIn: https://www.linkedin.com/company/zen-trader

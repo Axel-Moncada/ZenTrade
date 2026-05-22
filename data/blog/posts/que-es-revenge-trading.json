@@ -12,7 +12,7 @@
     "trading emocional prueba de fondeo",
     "detección revenge trading IA"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-05",
   "updatedAt": "2026-04-05",
   "category": "psicologia",
@@ -198,6 +198,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/psicologia-trading-futuros\">Psicología del trading para traders de futuros</a>",
+        "<a href=\"/blog/errores-comunes-evaluaciones-fondeo\">Errores comunes en evaluaciones de fondeo</a>",
+        "<a href=\"/blog/como-llevar-journal-trading-futuros\">Cómo llevar un journal de trading para futuros</a>",
+        "<a href=\"/blog/how-to-track-emotions-trading\">How to track emotions in trading</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.investopedia.com/terms/r/revenge-trading.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Revenge Trading: definición y cómo evitarlo</a>",
+        "<a href=\"https://www.investopedia.com/terms/t/trading-psychology.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Psicología del trading</a>",
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — reglas de riesgo que el revenge trading viola</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Activa la detección de revenge trading con IA en Zentrade ZenMode y convierte tus peores días en datos que mejoran tu trading.",
       "href": "/register",
@@ -205,7 +236,10 @@
     }
   ],
   "relatedSlugs": [
-    "como-pasar-evaluacion-ftmo-journal-trading",
-    "que-es-un-trading-journal"
-  ]
+    "psicologia-trading-futuros",
+    "errores-comunes-evaluaciones-fondeo",
+    "como-llevar-journal-trading-futuros",
+    "how-to-track-emotions-trading"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

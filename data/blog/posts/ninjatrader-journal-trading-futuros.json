@@ -16,7 +16,7 @@
     "NinjaTrader evaluación fondeo",
     "journal trading NinjaTrader español"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-14",
   "updatedAt": "2026-05-14",
   "category": "herramientas",
@@ -301,17 +301,45 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/como-llevar-journal-trading-futuros\">Cómo llevar un journal de trading para futuros</a>",
+        "<a href=\"/blog/mejor-journal-trading-futuros-2025\">Mejor journal de trading para futuros 2025</a>",
+        "<a href=\"/blog/mejores-instrumentos-futuros-principiantes\">Mejores instrumentos de futuros para principiantes</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ninjatrader.com/\" target=\"_blank\" rel=\"noopener noreferrer\">NinjaTrader — plataforma oficial de trading de futuros</a>",
+        "<a href=\"https://www.cmegroup.com/trading/equity-index/us-index/e-mini-sandp500.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Futuros disponibles en NinjaTrader</a>",
+        "<a href=\"https://www.investopedia.com/terms/t/trading-journal.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Beneficios de un trading journal con datos reales</a>"
+      ]
+    },
+    {
       "type": "cta",
       "href": "/register",
       "buttonText": "Empieza gratis en Zentrade — Sin tarjeta de crédito"
     }
   ],
   "relatedSlugs": [
-    "como-pasar-uprofit-evaluacion",
-    "uprofit-colombia-empresa-fondeo",
-    "como-operar-tradovate-prop-firm",
     "como-llevar-journal-trading-futuros",
-    "errores-comunes-evaluaciones-fondeo",
+    "mejor-journal-trading-futuros-2025",
     "mejores-instrumentos-futuros-principiantes"
-  ]
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

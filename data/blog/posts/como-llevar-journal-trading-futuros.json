@@ -13,7 +13,7 @@
     "journal de trading LATAM",
     "diario de trading Colombia"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "educacion",
@@ -245,6 +245,37 @@
       "text": "Zentrade está construido específicamente para este caso de uso. Puedes configurar una cuenta de evaluación con los parámetros exactos de FTMO, Apex Trader Funding, TopStep, Uprofit o Tradoverse, y el dashboard calcula automáticamente todos estos indicadores de compliance."
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/que-es-un-trading-journal\">Qué es un trading journal y para qué sirve</a>",
+        "<a href=\"/blog/mejor-journal-trading-futuros-2025\">Mejor journal de trading para futuros 2025</a>",
+        "<a href=\"/blog/ninjatrader-journal-trading-futuros\">NinjaTrader y journal de trading para futuros</a>",
+        "<a href=\"/blog/psicologia-trading-futuros\">Psicología del trading para traders de futuros</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.investopedia.com/terms/t/trading-journal.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Cómo llevar un trading journal efectivo</a>",
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — métricas que tu journal debe registrar</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Recursos educativos para traders de futuros</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Empieza tu journal de trading de futuros hoy. El plan gratuito de Zentrade incluye registro ilimitado de trades, dashboard de métricas y calendario mensual.",
       "href": "/register",
@@ -285,8 +316,9 @@
   ],
   "relatedSlugs": [
     "que-es-un-trading-journal",
-    "que-es-revenge-trading",
-    "mejores-instrumentos-futuros-principiantes",
-    "como-pasar-evaluacion-ftmo-journal-trading"
-  ]
+    "mejor-journal-trading-futuros-2025",
+    "ninjatrader-journal-trading-futuros",
+    "psicologia-trading-futuros"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

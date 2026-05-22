@@ -12,7 +12,7 @@
     "journal trading Apex",
     "empresa de fondeo futuros 2025"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-07",
   "updatedAt": "2026-04-07",
   "category": "fondeo",
@@ -300,6 +300,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/apex-trader-funding-trailing-drawdown-guia\">Guía del trailing drawdown de Apex Trader Funding</a>",
+        "<a href=\"/blog/drawdown-trailing-vs-estatico-prop-firms\">Trailing drawdown vs drawdown estático en prop firms</a>",
+        "<a href=\"/blog/como-pasar-evaluacion-ftmo-journal-trading\">Cómo pasar la evaluación de FTMO con un journal de trading</a>",
+        "<a href=\"/blog/mejores-empresas-fondeo-futuros-2025\">Mejores empresas de fondeo para futuros 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas oficiales de Apex Trader Funding</a>",
+        "<a href=\"https://apextraderfunding.com/faq\" target=\"_blank\" rel=\"noopener noreferrer\">FAQ oficial de Apex Trader Funding</a>",
+        "<a href=\"https://www.investopedia.com/terms/d/drawdown.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Qué es el Drawdown en trading</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Empieza a registrar tu evaluación de Apex Trader Funding en Zentrade y ten el control total de las métricas que importan.",
       "href": "/register",
@@ -307,7 +338,10 @@
     }
   ],
   "relatedSlugs": [
+    "apex-trader-funding-trailing-drawdown-guia",
+    "drawdown-trailing-vs-estatico-prop-firms",
     "como-pasar-evaluacion-ftmo-journal-trading",
-    "consistency-rule-fondeo-explicada"
-  ]
+    "mejores-empresas-fondeo-futuros-2025"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

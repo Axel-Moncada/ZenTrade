@@ -1,0 +1,363 @@
+{
+  "slug": "max-daily-loss-como-respetar",
+  "title": "Max Daily Loss en Prop Firms: Qué Es y Cómo Respetarlo Sin Arruinar tu Evaluación",
+  "excerpt": "El Max Daily Loss es la regla que más traders viola en evaluaciones de prop firms. Aprende cómo se calcula exactamente en FTMO, Apex y TopStep, los errores más comunes y cómo un journal de trading te ayuda a monitorearlo en tiempo real.",
+  "seoTitle": "Max Daily Loss Prop Firms: Qué Es, Cómo Calcularlo y Respetarlo (2025)",
+  "seoDescription": "Guía completa sobre el Max Daily Loss en FTMO, Apex Trader Funding y TopStep. Cómo se calcula, cuándo se activa y estrategias para no violarlo durante tu evaluación de fondeo.",
+  "keywords": [
+    "max daily loss prop firm",
+    "max daily loss FTMO",
+    "límite de pérdida diaria fondeo",
+    "daily loss limit evaluación",
+    "cómo respetar el max daily loss",
+    "reglas de riesgo prop firm",
+    "max daily loss Apex TopStep"
+  ],
+  "author": "Axel Moncada",
+  "publishedAt": "2026-05-20",
+  "updatedAt": "2026-05-20",
+  "category": "fondeo",
+  "tags": [
+    "max daily loss",
+    "FTMO",
+    "Apex Trader Funding",
+    "TopStep",
+    "prop firm",
+    "reglas de riesgo",
+    "evaluación de fondeo",
+    "gestión de riesgo"
+  ],
+  "readingTime": 11,
+  "featured": false,
+  "thumbnail": "/blog/trader-concentrado-analisis-graficas-futuros.jpg",
+  "thumbnailAlt": "Trader monitoreando el max daily loss durante su evaluación de prop firm con múltiples pantallas de gráficas de futuros",
+  "content": [
+    {
+      "type": "p",
+      "text": "El Max Daily Loss es la regla que más evaluaciones de prop firms termina. No porque los traders sean malos — sino porque la mayoría no entiende exactamente cómo se calcula ni cuándo se activa. Este artículo explica la mecánica precisa del Daily Loss en <strong>FTMO, Apex Trader Funding y TopStep</strong>, los errores más frecuentes y cómo usar un journal de trading para monitorearlo antes de que sea tarde."
+    },
+    {
+      "type": "h2",
+      "text": "Qué es el Max Daily Loss y por qué existe"
+    },
+    {
+      "type": "p",
+      "text": "El Max Daily Loss (también llamado Daily Drawdown Limit o límite de pérdida diaria) es la cantidad máxima que puedes perder en un solo día de trading antes de que la prop firm invalide tu cuenta de evaluación. No es una advertencia — es una línea roja que, si la cruzas, termina la evaluación de inmediato sin importar tu rendimiento acumulado hasta ese momento."
+    },
+    {
+      "type": "p",
+      "text": "Las prop firms aplican esta regla por una razón concreta: quieren traders disciplinados que saben parar cuando el mercado no está a su favor. Un trader que pierde 8% en un día es alguien que no controla su riesgo — y eso es exactamente lo que las firmas de fondeo no quieren en sus cuentas en vivo."
+    },
+    {
+      "type": "h2",
+      "text": "Cómo se calcula el Max Daily Loss en cada prop firm"
+    },
+    {
+      "type": "p",
+      "text": "El cálculo varía significativamente entre firmas. Esta es la tabla comparativa que necesitas conocer antes de elegir con quién hacer tu evaluación:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Prop Firm",
+        "Daily Loss Limit",
+        "Base de cálculo",
+        "¿Se evalúa en tiempo real?"
+      ],
+      "rows": [
+        [
+          "FTMO",
+          "5%",
+          "Balance/Equity al inicio del día (el mayor)",
+          "Sí — equity en tiempo real"
+        ],
+        [
+          "Apex Trader Funding",
+          "No tiene Daily Loss fijo",
+          "Solo trailing drawdown total",
+          "N/A"
+        ],
+        [
+          "TopStep",
+          "No tiene Daily Loss fijo",
+          "Solo trailing drawdown total",
+          "N/A"
+        ],
+        [
+          "Tradovate",
+          "Varía por cuenta",
+          "Depende del plan",
+          "Sí"
+        ],
+        [
+          "Uprofit",
+          "4-5%",
+          "Balance inicial de la cuenta",
+          "Sí"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Punto clave: Apex Trader Funding y TopStep NO tienen Max Daily Loss como regla separada. Su límite de riesgo está en el trailing drawdown total. Si vienes de FTMO, esto es una diferencia crítica que cambia completamente tu estrategia de gestión de riesgo."
+    },
+    {
+      "type": "h2",
+      "text": "El Max Daily Loss de FTMO explicado al detalle"
+    },
+    {
+      "type": "p",
+      "text": "FTMO es la firma donde más traders violan el Daily Loss por una razón específica: <strong>la base de cálculo cambia cada día</strong>. La regla exacta es: el Daily Loss se calcula sobre el balance o equity al inicio del día, usando el que sea mayor entre los dos."
+    },
+    {
+      "type": "h3",
+      "text": "Ejemplo práctico con número"
+    },
+    {
+      "type": "p",
+      "text": "Supón que empiezas la evaluación con $100,000. El martes terminas el día con $104,500. El miércoles empiezas ese día con:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Balance: $104,500 (resultado al cierre del martes)",
+        "Límite del día: 5% de $104,500 = $5,225",
+        "Equity mínima antes de invalidación: $104,500 − $5,225 = $99,275"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Si ese miércoles abres una posición en NQ que va en tu contra y tu equity llega a $99,274 — la cuenta queda invalidada. No importa que llevaras $4,500 de ganancia acumulada. No importa que el trade fuera parte de tu sistema."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Error #1 — el más común: calcular el límite sobre los $100,000 iniciales en vez de sobre el balance actual del día. Si ganaste $4,500 y piensas que tu límite diario son $5,000 fijos, estás equivocado. Tu límite real ese día son $5,225 — lo cual suena bien, pero el cálculo en tu cabeza era incorrecto desde el inicio."
+    },
+    {
+      "type": "h3",
+      "text": "El equity intraday también cuenta"
+    },
+    {
+      "type": "p",
+      "text": "FTMO evalúa el equity en tiempo real — no solo al cierre del día. Si tienes una posición abierta que está flotando en pérdida de $5,300 aunque no hayas cerrado nada, la cuenta se invalida igual. Muchos traders asumen que solo importa el PnL realizado al final del día. Esto es incorrecto."
+    },
+    {
+      "type": "h2",
+      "text": "El trailing drawdown de Apex y TopStep: diferente pero igual de peligroso"
+    },
+    {
+      "type": "p",
+      "text": "Apex y TopStep no tienen Max Daily Loss como FTMO, pero tienen algo potencialmente más restrictivo en ciertos escenarios: el <strong>trailing drawdown</strong>. La mecánica es completamente diferente:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Característica",
+        "FTMO (Daily Loss fijo)",
+        "Apex/TopStep (Trailing Drawdown)"
+      ],
+      "rows": [
+        [
+          "Límite de riesgo diario",
+          "5% del balance del día",
+          "No fijo — depende de tu equity máximo histórico"
+        ],
+        [
+          "Base de cálculo",
+          "Balance/equity inicio de día",
+          "Equity máximo alcanzado en toda la evaluación"
+        ],
+        [
+          "¿Sube el piso con ganancias?",
+          "No — el 5% sube pero el % es fijo",
+          "Sí — cada nuevo máximo de equity sube el piso"
+        ],
+        [
+          "Cuándo se activa la invalidación",
+          "Al cruzar el 5% cualquier día",
+          "Al cruzar el trailing drawdown total en cualquier momento"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "En Apex, si empiezas con $100,000 y una cuenta Apex de 50K con $3,000 de trailing drawdown: si en algún momento tu equity llega a $103,000 (nuevo máximo), el piso sube a $100,000. Luego, si el mercado cae y tu equity llega a $99,999 — la cuenta se cierra. Ganaste $3,000 y te quedaste sin cuenta porque el piso se movió contigo."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Error #2 con Apex/TopStep: asumir que porque no hay 'Daily Loss' puedes tener un día malo de 5-7% sin consecuencias. El trailing drawdown puede activarse en cualquier momento y un día muy malo puede comerse todo tu buffer de seguridad."
+    },
+    {
+      "type": "h2",
+      "text": "Los 4 errores más comunes que llevan a violar el Daily Loss"
+    },
+    {
+      "type": "h3",
+      "text": "Error 1: Revenge trading después de una racha perdedora"
+    },
+    {
+      "type": "p",
+      "text": "Pierdes 3 trades seguidos en la mañana. Estás en -$2,800 sobre un límite de $5,000. En vez de parar, decides abrir una posición más grande para 'recuperar' en un solo trade. El mercado se mueve 10 puntos en tu contra. Final del día: -$5,100. Evaluación terminada."
+    },
+    {
+      "type": "h3",
+      "text": "Error 2: No calcular el riesgo por trade en función del límite diario"
+    },
+    {
+      "type": "p",
+      "text": "El tamaño de posición en cada trade debe estar calibrado para que incluso si todos los trades del día van en tu contra, no superes el Daily Loss. Si tu límite es $5,000 y operas con un stop de $800 por trade, con 7 trades perdedores consecutivos cruzas el límite. ¿Cuántos trades por día acostumbras hacer?"
+    },
+    {
+      "type": "h3",
+      "text": "Error 3: Ignorar el equity flotante en posiciones abiertas"
+    },
+    {
+      "type": "p",
+      "text": "Tienes -$4,200 de PnL realizado y una posición abierta que flota en -$900. Tu equity actual es -$5,100 de pérdida aunque 'solo hayas cerrado' $4,200. En FTMO, eso invalida la cuenta aunque decidas esperar el rebote."
+    },
+    {
+      "type": "h3",
+      "text": "Error 4: No tener un límite personal menor al de la firma"
+    },
+    {
+      "type": "p",
+      "text": "La mayoría de traders exitosos en evaluaciones opera con un <strong>límite personal del 2.5-3.5%</strong> cuando el límite oficial es 5%. Esto no es timidez — es inteligencia de riesgo. Si tienes un mal día técnico (plataforma lenta, noticias inesperadas, error de ejecución), el colchón entre tu límite personal y el oficial te salva la evaluación."
+    },
+    {
+      "type": "h2",
+      "text": "Estrategia concreta para respetar el Daily Loss en tu evaluación"
+    },
+    {
+      "type": "p",
+      "text": "Estos son los pasos que aplican los traders que pasan evaluaciones consistentemente:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>Define tu límite personal antes de abrir el primer trade del día</strong> — Antes de hacer login en la plataforma, calcula cuánto es el 3% de tu balance actual. Eso es tu tope personal para hoy.",
+        "<strong>Calcula el máximo de trades perdedores que puedes tener</strong> — Si tu stop es de $300 y tu límite personal es $1,800: puedes tener máximo 6 trades perdedores. Al 6to, cierras la plataforma.",
+        "<strong>Establece una regla de pausa obligatoria</strong> — Si pierdes 2 trades consecutivos, tomas 30 minutos de pausa antes de entrar de nuevo. Esto rompe el ciclo de revenge trading.",
+        "<strong>Usa un journal para rastrear el PnL en tiempo real</strong> — No esperes al cierre del día para saber cómo vas. Un journal te muestra cuánto espacio te queda en cada momento.",
+        "<strong>Después de 3 días perdedores seguidos, reduce el tamaño de posición 50%</strong> — Las rachas malas existen. Sobrevivirlas es lo que separa a los traders fondeados de los que repiten evaluación."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo Zentrade te ayuda a monitorear el Daily Loss"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade está diseñado específicamente para traders en evaluaciones de prop firms. En la sección de cuentas puedes configurar el Max Daily Loss de tu firma y el dashboard lo monitorea automáticamente:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Feature de Zentrade",
+        "Cómo ayuda con el Daily Loss",
+        "Plan"
+      ],
+      "rows": [
+        [
+          "Calendario de PnL diario",
+          "Muestra cuánto ganaste o perdiste cada día con código de color",
+          "Free"
+        ],
+        [
+          "Dashboard de cuenta",
+          "Indicador del daily loss actual vs. límite configurado",
+          "Free"
+        ],
+        [
+          "Alertas de riesgo",
+          "Notificación cuando te acercas al 80% del límite diario",
+          "ZenMode"
+        ],
+        [
+          "Revenge trading detection",
+          "Detecta patrones de trades agresivos después de pérdidas",
+          "ZenMode"
+        ],
+        [
+          "Equity curve",
+          "Visualiza el drawdown histórico y los días de mayor riesgo",
+          "Professional"
+        ]
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/que-es-drawdown-trading\">Qué es el drawdown en trading</a>",
+        "<a href=\"/blog/reglas-riesgo-diario-fondeo\">Reglas de riesgo diario en empresas de fondeo</a>",
+        "<a href=\"/blog/regla-consistencia-ftmo-explicada\">La consistency rule de FTMO explicada</a>",
+        "<a href=\"/blog/errores-comunes-evaluaciones-fondeo\">Errores comunes en evaluaciones de fondeo</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas oficiales FTMO — max daily loss 5%</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — límite de pérdida diaria</a>",
+        "<a href=\"https://www.investopedia.com/terms/r/risk-management.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Gestión de riesgo en trading</a>"
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Configura tu evaluación en Zentrade con los parámetros exactos de tu prop firm y monitorea el Daily Loss en tiempo real desde el día 1.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿El Max Daily Loss de FTMO incluye las comisiones?",
+          "a": "Sí. El PnL neto (después de comisiones) es lo que FTMO evalúa. Si tu trade bruto fue de -$4,800 pero las comisiones suman $250, tu PnL neto del día es -$5,050 — lo que puede cruzar el límite del 5%."
+        },
+        {
+          "q": "¿Qué pasa si el mercado mueve mi stop loss automáticamente y cruzo el Daily Loss?",
+          "a": "La evaluación se invalida de todas formas. FTMO y la mayoría de firmas no hacen excepciones por slippage o movimientos bruscos del mercado. Por eso los traders experimentados siempre operan con un margen de seguridad personal bajo el límite oficial."
+        },
+        {
+          "q": "¿Puedo operar al día siguiente después de violar el Daily Loss?",
+          "a": "No. Una vez violado el Max Daily Loss, la cuenta de evaluación queda desactivada. Deberás comprar una nueva evaluación y empezar desde cero."
+        },
+        {
+          "q": "¿El Daily Loss aplica también en los días que no opero?",
+          "a": "No. El Daily Loss solo aplica en días donde hay actividad de trading. Si no abres ningún trade ese día, el límite no se activa ni se consume."
+        },
+        {
+          "q": "¿Apex Trader Funding realmente no tiene Daily Loss?",
+          "a": "Correcto. Apex no tiene una regla de Daily Loss explícita. Sin embargo, su trailing drawdown cumple una función similar: si tienes un día muy malo y el equity baja por debajo del trailing drawdown, la cuenta se cierra. La diferencia es que en Apex el 'límite' varía según tu equity máximo histórico, no según el balance del día."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "que-es-drawdown-trading",
+    "reglas-riesgo-diario-fondeo",
+    "regla-consistencia-ftmo-explicada",
+    "errores-comunes-evaluaciones-fondeo"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
+}

@@ -53,6 +53,9 @@ export const HREFLANG_PAIRS: Record<string, string> = {
   "que-es-un-trading-journal":               "what-is-a-trading-journal",
   "mejor-journal-trading-futuros-2025":      "best-trading-journal-prop-firms-2025",
   "mejores-empresas-fondeo-futuros-2025":    "best-prop-firms-futures-traders-2025",
+  "que-es-drawdown-trading":                "what-is-drawdown-trading",
+  "max-daily-loss-como-respetar":           "max-daily-loss-fondeo-how-to-manage",
+  "zentrade-vs-edgewonk":                   "zentrade-vs-edgewonk-comparison",
 };
 
 /** Índice inverso EN → ES generado automáticamente desde HREFLANG_PAIRS */
@@ -79,6 +82,10 @@ export interface BlogPost {
   seoDescription: string;
   keywords: string[];
   author: string;
+  /** LinkedIn del autor — activa Person schema en JSON-LD cuando está presente */
+  authorLinkedIn?: string;
+  /** Cargo del autor para el schema de persona */
+  authorJobTitle?: string;
   /** Idioma explícito del post. Si se omite, se infiere desde el campo `author`. */
   lang?: "es" | "en";
   /**

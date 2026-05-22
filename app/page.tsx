@@ -8,6 +8,7 @@ import PricingSection from "@/components/landing/sections/pricing-section";
 import BenefitsSection from "@/components/landing/sections/benefits-section";
 import FaqSection from "@/components/landing/sections/faq-section";
 import FinalCTASection from "@/components/landing/sections/final-cta-section";
+import PreviewSection from "@/components/landing/sections/preview-section";
 import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
 import NewsletterPopup from "@/components/landing/newsletter-popup";
@@ -142,7 +143,10 @@ const organizationSchema = {
     contactType: "customer support",
     availableLanguage: ["Spanish", "English"],
   },
-  sameAs: [],
+  sameAs: [
+    "https://www.linkedin.com/company/zen-trader",
+    "https://www.youtube.com/@Zen-trade_Latam",
+  ],
 };
 
 // SiteNavigationElement — ayuda a Google a generar sitelinks
@@ -181,6 +185,34 @@ const siteNavigationSchema = {
     },
   ],
 };
+
+// Reemplazar HX9NFOZTj3U y uf-zP071AcE con IDs reales de YouTube cuando estén disponibles
+const videoSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "Un trading journal con IA diseñado para los traders de futuros",
+    description:
+      "Demo del dashboard de Zentrade: cómo registrar trades, monitorear consistency score, trailing drawdown y max daily loss para evaluaciones de FTMO, Apex y TopStep.",
+    thumbnailUrl: `https://img.youtube.com/vi/HX9NFOZTj3U/maxresdefault.jpg`,
+    uploadDate: "2026-05-07",
+    publisher: { "@type": "Organization", name: "Zentrade", url: SITE_URL },
+    embedUrl: "https://www.youtube.com/embed/HX9NFOZTj3U",
+    url: "https://www.youtube.com/watch?v=HX9NFOZTj3U",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "Deja el Excel — Esto es lo que uso para mis pruebas de fondeo",
+    description:
+      "Caso de uso real: cómo un trader reemplazó su hoja de Excel por Zentrade para pasar evaluaciones de prop firms y hacer seguimiento de sus reglas de fondeo.",
+    thumbnailUrl: `https://img.youtube.com/vi/uf-zP071AcE/maxresdefault.jpg`,
+    uploadDate: "2026-05-07",
+    publisher: { "@type": "Organization", name: "Zentrade", url: SITE_URL },
+    embedUrl: "https://www.youtube.com/embed/uf-zP071AcE",
+    url: "https://www.youtube.com/watch?v=uf-zP071AcE",
+  },
+];
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -293,6 +325,7 @@ export default async function Home() {
             websiteSchema,
             faqSchema,
             siteNavigationSchema,
+            ...videoSchema,
           ]),
         }}
       />
@@ -308,7 +341,7 @@ export default async function Home() {
         <section id="pricing">
           <PricingSection />
         </section>
-        {/* <PreviewSection /> */}{/* TODO: descomentar cuando el video esté listo */}
+        <PreviewSection />
         <BenefitsSection />
         <section id="faq">
           <FaqSection />

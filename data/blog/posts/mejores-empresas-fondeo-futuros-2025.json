@@ -12,7 +12,7 @@
     "comparativa empresas fondeo 2025",
     "prueba de fondeo futuros"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-08",
   "updatedAt": "2026-04-08",
   "category": "comparativas",
@@ -362,6 +362,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/como-pasar-evaluacion-ftmo-journal-trading\">Cómo pasar la evaluación de FTMO con un journal de trading</a>",
+        "<a href=\"/blog/como-pasar-apex-trader-funding\">Cómo pasar Apex Trader Funding</a>",
+        "<a href=\"/blog/como-pasar-topstep-evaluacion\">Cómo pasar la evaluación de TopStep</a>",
+        "<a href=\"/blog/mejor-journal-trading-futuros-2025\">Mejor journal de trading para futuros 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas y precios oficiales de FTMO</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas y precios oficiales de Apex Trader Funding</a>",
+        "<a href=\"https://www.topstep.com/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas y precios oficiales de TopStep</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Usa Zentrade para tu próxima prueba de fondeo y opera con la claridad de datos que necesitas para pasar.",
       "href": "/register",
@@ -370,7 +401,9 @@
   ],
   "relatedSlugs": [
     "como-pasar-evaluacion-ftmo-journal-trading",
-    "consistency-rule-fondeo-explicada",
+    "como-pasar-apex-trader-funding",
+    "como-pasar-topstep-evaluacion",
     "mejor-journal-trading-futuros-2025"
-  ]
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

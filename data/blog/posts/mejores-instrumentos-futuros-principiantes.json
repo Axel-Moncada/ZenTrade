@@ -13,7 +13,7 @@
     "trading de futuros desde Colombia",
     "como empezar en futuros LATAM"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "educacion",
@@ -272,6 +272,36 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/como-operar-nq-maximos-historicos-volatilidad\">Cómo operar el NQ en máximos históricos y alta volatilidad</a>",
+        "<a href=\"/blog/mejores-empresas-fondeo-futuros-2025\">Mejores empresas de fondeo para futuros 2025</a>",
+        "<a href=\"/blog/que-es-una-empresa-de-fondeo\">Qué es una empresa de fondeo y cómo funcionan</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.cmegroup.com/trading/equity-index/us-index/e-mini-sandp500.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — E-mini S&P 500 (ES): especificaciones oficiales</a>",
+        "<a href=\"https://www.cmegroup.com/trading/equity-index/us-index/e-mini-nasdaq-100.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — E-mini Nasdaq-100 (NQ): especificaciones oficiales</a>",
+        "<a href=\"https://www.investopedia.com/terms/f/futures.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Qué son los futuros financieros</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Registra tus trades en cualquiera de estos instrumentos en Zentrade. Importa desde NinjaTrader, Tradovate o Rithmic, o agrega trades manualmente. El plan gratuito soporta todos los instrumentos de futuros de CME.",
       "href": "/register",
@@ -311,9 +341,9 @@
     }
   ],
   "relatedSlugs": [
-    "como-llevar-journal-trading-futuros",
+    "como-operar-nq-maximos-historicos-volatilidad",
     "mejores-empresas-fondeo-futuros-2025",
-    "drawdown-trailing-vs-estatico-prop-firms",
-    "reglas-riesgo-diario-fondeo"
-  ]
+    "que-es-una-empresa-de-fondeo"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

@@ -13,7 +13,7 @@
     "FTMO prop firm review",
     "FTMO max daily loss"
   ],
-  "author": "Zentrade Team",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-12",
   "updatedAt": "2026-04-12",
   "category": "fondeo",
@@ -266,6 +266,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/consistency-rule-prop-firm-explained\">Consistency rule prop firm explained</a>",
+        "<a href=\"/blog/max-daily-loss-fondeo-how-to-manage\">Max daily loss in funded accounts: how to manage it</a>",
+        "<a href=\"/blog/how-to-pass-apex-trader-funding\">How to pass Apex Trader Funding</a>",
+        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO Official Evaluation Rules</a>",
+        "<a href=\"https://ftmo.com/en/faq/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO Official FAQ — evaluation questions</a>",
+        "<a href=\"https://www.investopedia.com/terms/d/drawdown.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — What is Drawdown in trading</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Zentrade gives you the dashboard to pass your FTMO evaluation — real-time consistency tracking, drawdown monitoring, and AI-powered behavioral alerts. Try it free.",
       "href": "/register",
@@ -273,10 +304,13 @@
     }
   ],
   "relatedSlugs": [
-    "best-trading-journal-prop-firms-2025",
     "consistency-rule-prop-firm-explained",
-    "how-to-pass-apex-trader-funding"
+    "max-daily-loss-fondeo-how-to-manage",
+    "how-to-pass-apex-trader-funding",
+    "best-prop-firms-futures-traders-2025"
   ],
   "thumbnail": "/blog/trader-laptop-dual-monitor-oficina.jpg",
-  "thumbnailAlt": "Trader at dual monitor office setup tracking FTMO evaluation metrics — consistency score, drawdown and profit factor"
+  "thumbnailAlt": "Trader at dual monitor office setup tracking FTMO evaluation metrics — consistency score, drawdown and profit factor",
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
 }

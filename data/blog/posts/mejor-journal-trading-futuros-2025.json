@@ -11,7 +11,7 @@
     "trading journal para prop firms",
     "zentrade vs tradezella"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-03-29",
   "updatedAt": "2026-03-29",
   "category": "comparativas",
@@ -371,6 +371,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/que-es-un-trading-journal\">Qué es un trading journal y para qué sirve</a>",
+        "<a href=\"/blog/zentrade-vs-tradezella\">Zentrade vs TradeZella: comparativa completa</a>",
+        "<a href=\"/blog/zentrade-vs-edgewonk\">Zentrade vs Edgewonk: comparativa completa</a>",
+        "<a href=\"/blog/como-llevar-journal-trading-futuros\">Cómo llevar un journal de trading para futuros</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — métricas que todo buen journal debe incluir</a>",
+        "<a href=\"https://www.investopedia.com/terms/t/trading-journal.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Cómo llevar un trading journal efectivo</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Recursos para traders de futuros</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Registra tus trades en Zentrade desde hoy y ten un análisis completo de tu consistencia antes del próximo mercado. El plan gratuito incluye el dashboard de métricas.",
       "href": "/register",
@@ -378,9 +409,10 @@
     }
   ],
   "relatedSlugs": [
+    "que-es-un-trading-journal",
     "zentrade-vs-tradezella",
-    "consistency-rule-prop-firms-explicada",
-    "como-pasar-evaluacion-ftmo-journal-trading",
-    "que-es-revenge-trading"
-  ]
+    "zentrade-vs-edgewonk",
+    "como-llevar-journal-trading-futuros"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

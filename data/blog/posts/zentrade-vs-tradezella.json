@@ -12,7 +12,7 @@
     "journal trading español",
     "prop firm journal comparativa"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-03-31",
   "updatedAt": "2026-03-31",
   "category": "comparativas",
@@ -325,6 +325,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/mejor-journal-trading-futuros-2025\">Mejor journal de trading para futuros 2025</a>",
+        "<a href=\"/blog/zentrade-vs-edgewonk\">Zentrade vs Edgewonk: comparativa completa</a>",
+        "<a href=\"/blog/que-es-un-trading-journal\">Qué es un trading journal y para qué sirve</a>",
+        "<a href=\"/blog/mejores-empresas-fondeo-futuros-2025\">Mejores empresas de fondeo para futuros 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — métricas clave para evaluaciones</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — reglas de trailing drawdown</a>",
+        "<a href=\"https://www.investopedia.com/terms/t/trading-journal.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Qué hace útil a un trading journal</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Empieza hoy con Zentrade y ten el control total de tus métricas para tu próxima prueba de fondeo.",
       "href": "/register",
@@ -333,6 +364,9 @@
   ],
   "relatedSlugs": [
     "mejor-journal-trading-futuros-2025",
-    "best-trading-journal-prop-firms-2025"
-  ]
+    "zentrade-vs-edgewonk",
+    "que-es-un-trading-journal",
+    "mejores-empresas-fondeo-futuros-2025"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

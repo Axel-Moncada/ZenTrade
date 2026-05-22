@@ -11,7 +11,7 @@
     "trading journal FTMO Apex TopStep",
     "Zentrade vs TradeZella"
   ],
-  "author": "Zentrade Team",
+  "author": "Axel Moncada",
   "publishedAt": "2026-03-29",
   "updatedAt": "2026-03-29",
   "category": "comparativas",
@@ -391,6 +391,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/what-is-a-trading-journal\">What is a trading journal</a>",
+        "<a href=\"/blog/zentrade-vs-tradezella-comparison\">Zentrade vs TradeZella: direct comparison</a>",
+        "<a href=\"/blog/zentrade-vs-edgewonk-comparison\">Zentrade vs Edgewonk: direct comparison</a>",
+        "<a href=\"/blog/how-to-track-emotions-trading\">How to track emotions in trading</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — metrics every trading journal should track</a>",
+        "<a href=\"https://www.investopedia.com/terms/t/trading-journal.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — How to keep an effective trading journal</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Educational resources for futures traders</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Start tracking your prop firm evaluation with Zentrade. Free plan includes real-time consistency %, daily P&L calendar, and equity curve — no credit card required.",
       "href": "/register",
@@ -398,9 +429,11 @@
     }
   ],
   "relatedSlugs": [
-    "how-to-pass-ftmo-evaluation-trading-journal",
+    "what-is-a-trading-journal",
     "zentrade-vs-tradezella-comparison",
-    "consistency-rule-prop-firms-explained",
-    "what-is-revenge-trading"
-  ]
+    "zentrade-vs-edgewonk-comparison",
+    "how-to-track-emotions-trading"
+  ],
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
 }

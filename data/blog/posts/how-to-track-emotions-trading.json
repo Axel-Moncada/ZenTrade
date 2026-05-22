@@ -16,7 +16,7 @@
     "trading psychology data tracking",
     "emotion tagging trading journal"
   ],
-  "author": "Zentrade Team",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-13",
   "updatedAt": "2026-05-13",
   "category": "psicologia",
@@ -253,6 +253,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/trading-psychology-futures-traders\">Trading psychology for futures traders</a>",
+        "<a href=\"/blog/what-is-a-trading-journal\">What is a trading journal</a>",
+        "<a href=\"/blog/best-trading-journal-prop-firms-2025\">Best trading journal for prop firms 2025</a>",
+        "<a href=\"/blog/profit-factor-trading-explained\">Profit factor in trading explained</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.investopedia.com/terms/t/trading-psychology.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Trading Psychology and emotional discipline</a>",
+        "<a href=\"https://www.investopedia.com/terms/r/revenge-trading.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Revenge Trading: how emotions sabotage traders</a>",
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — how emotional consistency impacts evaluation success</a>"
+      ]
+    },
+    {
       "type": "cta",
       "href": "/register",
       "buttonText": "Start Free on Zentrade — No Credit Card Required"
@@ -260,10 +291,10 @@
   ],
   "relatedSlugs": [
     "trading-psychology-futures-traders",
-    "que-es-revenge-trading",
-    "best-trading-journal-prop-firms-2025",
     "what-is-a-trading-journal",
-    "how-to-pass-ftmo-evaluation",
-    "consistency-rule-prop-firm-explained"
-  ]
+    "best-trading-journal-prop-firms-2025",
+    "profit-factor-trading-explained"
+  ],
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
 }

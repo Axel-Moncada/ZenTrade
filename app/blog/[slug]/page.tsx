@@ -102,11 +102,19 @@ function buildJsonLd(post: ReturnType<typeof getPostBySlug>) {
       width: 1200,
       height: 630,
     },
-    author: {
-      "@type": "Organization",
-      name: post.author,
-      url: SITE_URL,
-    },
+    author: post.authorJobTitle
+      ? {
+          "@type": "Person",
+          name: post.author,
+          jobTitle: post.authorJobTitle,
+          ...(post.authorLinkedIn && { url: post.authorLinkedIn }),
+          worksFor: { "@type": "Organization", name: "Zentrade", url: SITE_URL },
+        }
+      : {
+          "@type": "Organization",
+          name: post.author,
+          url: SITE_URL,
+        },
     publisher: {
       "@type": "Organization",
       name: "Zentrade",

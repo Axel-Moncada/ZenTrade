@@ -70,12 +70,32 @@ export default function PostHero({ post }: PostHeroProps) {
         <div className="flex items-center gap-5 pt-2 border-t border-zen-border-soft flex-wrap">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-full bg-zen-caribbean-green/10 border border-zen-caribbean-green/30 flex items-center justify-center shrink-0">
-              <span className="text-zen-caribbean-green text-xs font-bold">Z</span>
+              <span className="text-zen-caribbean-green text-xs font-bold">
+                {post.author.charAt(0).toUpperCase()}
+              </span>
             </div>
-            <span className="flex items-center gap-1 text-xs font-medium text-zen-anti-flash">
-              <User className="w-3 h-3 text-zen-anti-flash/40" />
-              {post.author}
-            </span>
+            {post.authorLinkedIn ? (
+              <a
+                href={post.authorLinkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-xs font-medium text-zen-anti-flash hover:text-zen-caribbean-green transition-colors duration-200"
+              >
+                <User className="w-3 h-3 text-zen-anti-flash/40" />
+                {post.author}
+                {post.authorJobTitle && (
+                  <span className="text-zen-anti-flash/50 font-normal">· {post.authorJobTitle}</span>
+                )}
+              </a>
+            ) : (
+              <span className="flex items-center gap-1 text-xs font-medium text-zen-anti-flash">
+                <User className="w-3 h-3 text-zen-anti-flash/40" />
+                {post.author}
+                {post.authorJobTitle && (
+                  <span className="text-zen-anti-flash/50 font-normal">· {post.authorJobTitle}</span>
+                )}
+              </span>
+            )}
           </div>
           <span className="flex items-center gap-1.5 text-xs text-zen-anti-flash/60">
             <Calendar className="w-3.5 h-3.5" />

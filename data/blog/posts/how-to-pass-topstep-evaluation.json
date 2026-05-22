@@ -13,7 +13,7 @@
     "TopStep funded account",
     "pass TopStep challenge"
   ],
-  "author": "Zentrade Team",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-14",
   "updatedAt": "2026-04-14",
   "category": "fondeo",
@@ -352,6 +352,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/max-daily-loss-fondeo-how-to-manage\">Max daily loss in funded accounts: how to manage it</a>",
+        "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading</a>",
+        "<a href=\"/blog/how-to-pass-apex-trader-funding\">How to pass Apex Trader Funding</a>",
+        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.topstep.com/how-it-works/\" target=\"_blank\" rel=\"noopener noreferrer\">TopStep — How It Works (official)</a>",
+        "<a href=\"https://www.topstep.com/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">TopStep Official Trading Rules</a>",
+        "<a href=\"https://www.investopedia.com/terms/p/prop-trading.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — What is Proprietary Trading</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Zentrade is the trading journal built for futures traders passing prop firm evaluations. Configure your TopStep rules, track every KPI in real time, and stop failing on rules you already know.",
       "href": "/register",
@@ -359,11 +390,13 @@
     }
   ],
   "relatedSlugs": [
-    "best-trading-journal-prop-firms-2025",
-    "how-to-pass-ftmo-evaluation",
-    "consistency-rule-prop-firm-explained",
-    "how-to-pass-apex-trader-funding"
+    "max-daily-loss-fondeo-how-to-manage",
+    "what-is-drawdown-trading",
+    "how-to-pass-apex-trader-funding",
+    "best-prop-firms-futures-traders-2025"
   ],
   "thumbnail": "/blog/trader-sonriente-setup-trading.jpg",
-  "thumbnailAlt": "Professional trader at multi-monitor setup analyzing TopStep evaluation metrics to avoid trailing drawdown violations"
+  "thumbnailAlt": "Professional trader at multi-monitor setup analyzing TopStep evaluation metrics to avoid trailing drawdown violations",
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
 }

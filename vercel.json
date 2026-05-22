@@ -12,11 +12,7 @@
       "path": "/api/cron/check-subscriptions",
       "schedule": "30 0 * * *"
     },
-    {
-      "path": "/api/cron/charge-subscriptions",
-      "schedule": "0 10 * * *"
-    },
-    {
+{
       "path": "/api/cron/indexnow",
       "schedule": "0 8 * * *"
     }

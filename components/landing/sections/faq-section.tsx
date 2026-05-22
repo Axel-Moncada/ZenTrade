@@ -60,13 +60,16 @@ export default function FaqSection() {
                   />
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-5 border-t border-zen-caribbean-green/10">
-                    <p className="text-zen-text-muted text-sm leading-relaxed pt-4">
-                      {item.a}
-                    </p>
-                  </div>
-                )}
+                {/* Siempre en el DOM — crawlers de IA ven el contenido aunque JS no ejecute */}
+                <div
+                  className={`px-6 border-t border-zen-caribbean-green/10 overflow-hidden transition-all duration-200 ${
+                    isOpen ? "max-h-96 pb-5 pt-4" : "max-h-0"
+                  }`}
+                >
+                  <p className="text-zen-text-muted text-sm leading-relaxed">
+                    {item.a}
+                  </p>
+                </div>
               </div>
             );
           })}

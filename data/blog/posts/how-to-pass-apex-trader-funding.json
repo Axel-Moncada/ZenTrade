@@ -12,7 +12,7 @@
     "Apex drawdown rules",
     "trading journal Apex Trader Funding"
   ],
-  "author": "Zentrade Team",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-06",
   "updatedAt": "2026-04-06",
   "category": "fondeo",
@@ -300,6 +300,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/apex-trader-funding-trailing-drawdown-guia\">Guía del trailing drawdown de Apex Trader Funding</a>",
+        "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading</a>",
+        "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation</a>",
+        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding Official Rules</a>",
+        "<a href=\"https://apextraderfunding.com/faq\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding FAQ</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Introduction to Futures</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Start tracking your Apex Trader Funding evaluation with Zentrade — built for the specific rules and metrics that matter in funded futures trading.",
       "href": "/register",
@@ -307,7 +338,11 @@
     }
   ],
   "relatedSlugs": [
-    "best-trading-journal-prop-firms-2025",
-    "consistency-rule-prop-firm-explained"
-  ]
+    "apex-trader-funding-trailing-drawdown-guia",
+    "what-is-drawdown-trading",
+    "how-to-pass-ftmo-evaluation",
+    "best-prop-firms-futures-traders-2025"
+  ],
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
 }

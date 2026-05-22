@@ -12,7 +12,7 @@
     "ftmo swing rules",
     "FTMO modalidades evaluación"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-20",
   "updatedAt": "2026-05-20",
   "category": "fondeo",
@@ -215,6 +215,36 @@
       "text": "Dado que la cuenta Swing no tiene daily loss limit, el monitoreo más crítico es el <strong>consistency ratio</strong> y el <strong>overall drawdown acumulado</strong>. Zentrade muestra ambos en tiempo real con cada trade registrado."
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/como-pasar-evaluacion-ftmo-journal-trading\">Cómo pasar la evaluación de FTMO con un journal de trading</a>",
+        "<a href=\"/blog/pasos-evaluacion-ftmo\">Los pasos de la evaluación de FTMO explicados</a>",
+        "<a href=\"/blog/drawdown-trailing-vs-estatico-prop-firms\">Trailing drawdown vs drawdown estático en prop firms</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas oficiales de FTMO — cuenta Swing vs Regular</a>",
+        "<a href=\"https://ftmo.com/en/faq/\" target=\"_blank\" rel=\"noopener noreferrer\">FAQ de FTMO — diferencias entre tipos de cuenta</a>",
+        "<a href=\"https://www.investopedia.com/terms/s/swingtrading.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Qué es el swing trading</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Configura tu cuenta FTMO Regular o Swing en Zentrade con los parámetros exactos de cada modalidad y monitorea las reglas que aplican a tu evaluación específica.",
       "href": "/register",
@@ -250,9 +280,9 @@
     }
   ],
   "relatedSlugs": [
+    "como-pasar-evaluacion-ftmo-journal-trading",
     "pasos-evaluacion-ftmo",
-    "reglas-riesgo-ftmo-futuros-drawdown-consistency",
-    "regla-consistencia-ftmo-explicada",
-    "como-pasar-evaluacion-ftmo-journal-trading"
-  ]
+    "drawdown-trailing-vs-estatico-prop-firms"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

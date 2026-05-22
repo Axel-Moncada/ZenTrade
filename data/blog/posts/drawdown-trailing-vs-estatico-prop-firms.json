@@ -13,7 +13,7 @@
     "drawdown TopStep futuros",
     "como funciona el drawdown en fondeo"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "fondeo",
@@ -246,6 +246,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/apex-trader-funding-trailing-drawdown-guia\">Guía del trailing drawdown de Apex Trader Funding</a>",
+        "<a href=\"/blog/que-es-drawdown-trading\">Qué es el drawdown en trading</a>",
+        "<a href=\"/blog/max-daily-loss-como-respetar\">Max daily loss en prop firms: cómo respetarlo</a>",
+        "<a href=\"/blog/como-pasar-apex-trader-funding\">Cómo pasar Apex Trader Funding</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — trailing drawdown oficial</a>",
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — drawdown estático (basado en capital inicial)</a>",
+        "<a href=\"https://www.investopedia.com/terms/d/drawdown.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Tipos de drawdown en trading</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Configura tu cuenta de evaluación en Zentrade con el tipo de drawdown correcto (trailing o estático) para tu empresa de fondeo. El dashboard calcula automáticamente tu nivel de eliminación y cuánto margen te queda.",
       "href": "/register",
@@ -253,9 +284,10 @@
     }
   ],
   "relatedSlugs": [
-    "como-pasar-evaluacion-ftmo-journal-trading",
-    "como-pasar-apex-trader-funding",
-    "reglas-riesgo-diario-fondeo",
-    "mejores-empresas-fondeo-futuros-2025"
-  ]
+    "apex-trader-funding-trailing-drawdown-guia",
+    "que-es-drawdown-trading",
+    "max-daily-loss-como-respetar",
+    "como-pasar-apex-trader-funding"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

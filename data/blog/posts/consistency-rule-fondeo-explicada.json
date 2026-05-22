@@ -12,7 +12,7 @@
     "regla de consistencia Apex",
     "prueba de fondeo reglas"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-03",
   "updatedAt": "2026-04-03",
   "category": "fondeo",
@@ -246,6 +246,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/regla-consistencia-ftmo-explicada\">La consistency rule de FTMO explicada</a>",
+        "<a href=\"/blog/como-pasar-evaluacion-ftmo-journal-trading\">Cómo pasar la evaluación de FTMO con un journal de trading</a>",
+        "<a href=\"/blog/errores-comunes-evaluaciones-fondeo\">Errores comunes en evaluaciones de fondeo</a>",
+        "<a href=\"/blog/consistency-rule-prop-firm-explained\">Consistency rule prop firm explained</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas oficiales de FTMO — sección de consistency</a>",
+        "<a href=\"https://www.investopedia.com/terms/c/consistency.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Consistencia en trading</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — reglas de evaluación (sin consistency rule)</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Monitorea tu consistency rule en tiempo real con Zentrade y nunca más pierdas una evaluación por esta regla.",
       "href": "/register",
@@ -253,7 +284,10 @@
     }
   ],
   "relatedSlugs": [
+    "regla-consistencia-ftmo-explicada",
     "como-pasar-evaluacion-ftmo-journal-trading",
-    "mejor-journal-trading-futuros-2025"
-  ]
+    "errores-comunes-evaluaciones-fondeo",
+    "consistency-rule-prop-firm-explained"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

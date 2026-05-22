@@ -13,7 +13,7 @@
     "Uprofit evaluación precio",
     "mejor empresa de fondeo Colombia"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "fondeo",
@@ -273,6 +273,36 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/como-pasar-uprofit-evaluacion\">Cómo pasar la evaluación de Uprofit</a>",
+        "<a href=\"/blog/mejores-empresas-fondeo-futuros-2025\">Mejores empresas de fondeo para futuros 2025</a>",
+        "<a href=\"/blog/que-es-una-empresa-de-fondeo\">Qué es una empresa de fondeo y cómo funcionan</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://uprofit.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas oficiales de Uprofit</a>",
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — alternativa global con sede en Europa</a>",
+        "<a href=\"https://www.investopedia.com/terms/p/prop-trading.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Prop trading: cómo funciona para traders de LATAM</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Lleva el tracking de tu evaluación de Uprofit con Zentrade. El plan gratuito incluye una cuenta de evaluación, el dashboard de métricas y el calendario de trades.",
       "href": "/register",
@@ -314,7 +344,7 @@
   "relatedSlugs": [
     "como-pasar-uprofit-evaluacion",
     "mejores-empresas-fondeo-futuros-2025",
-    "reglas-riesgo-diario-fondeo",
-    "drawdown-trailing-vs-estatico-prop-firms"
-  ]
+    "que-es-una-empresa-de-fondeo"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

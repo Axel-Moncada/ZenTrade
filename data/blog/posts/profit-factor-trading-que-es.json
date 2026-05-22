@@ -16,7 +16,7 @@
     "profit factor mínimo prop firm",
     "profit factor trading explicado"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-08",
   "updatedAt": "2026-05-08",
   "category": "metricas",
@@ -259,17 +259,47 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/que-es-drawdown-trading\">Qué es el drawdown en trading</a>",
+        "<a href=\"/blog/consistency-rule-fondeo-explicada\">La consistency rule de las prop firms explicada</a>",
+        "<a href=\"/blog/mejor-journal-trading-futuros-2025\">Mejor journal de trading para futuros 2025</a>",
+        "<a href=\"/blog/profit-factor-trading-explained\">Profit factor in trading explained</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.investopedia.com/terms/p/profitfactor.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Qué es el Profit Factor</a>",
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — métricas de evaluación que incluyen profit factor</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Métricas para traders de futuros</a>"
+      ]
+    },
+    {
       "type": "cta",
       "href": "/register",
       "buttonText": "Empieza gratis en Zentrade — Sin tarjeta de crédito"
     }
   ],
   "relatedSlugs": [
+    "que-es-drawdown-trading",
     "consistency-rule-fondeo-explicada",
-    "drawdown-trailing-vs-estatico-prop-firms",
-    "errores-comunes-evaluaciones-fondeo",
     "mejor-journal-trading-futuros-2025",
-    "como-pasar-evaluacion-ftmo-journal-trading",
-    "como-pasar-uprofit-evaluacion"
-  ]
+    "profit-factor-trading-explained"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

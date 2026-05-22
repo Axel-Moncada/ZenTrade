@@ -13,7 +13,7 @@
     "journal para pasar Uprofit",
     "como pasar fondeo futuros Colombia"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "fondeo",
@@ -257,6 +257,37 @@
       "text": "Si tienes el plan ZenMode de Zentrade, el sistema detectará automáticamente los patrones de revenge trading en tu cuenta — especialmente relevante para las últimas etapas de la evaluación cuando la presión de cerrar el objetivo puede distorsionar la toma de decisiones."
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/uprofit-colombia-empresa-fondeo\">Uprofit: la empresa de fondeo para traders de Colombia</a>",
+        "<a href=\"/blog/mejores-empresas-fondeo-futuros-2025\">Mejores empresas de fondeo para futuros 2025</a>",
+        "<a href=\"/blog/como-pasar-evaluacion-ftmo-journal-trading\">Cómo pasar la evaluación de FTMO con un journal de trading</a>",
+        "<a href=\"/blog/errores-comunes-evaluaciones-fondeo\">Errores comunes en evaluaciones de fondeo</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://uprofit.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas oficiales de Uprofit</a>",
+        "<a href=\"https://uprofit.com/faq\" target=\"_blank\" rel=\"noopener noreferrer\">FAQ oficial de Uprofit</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Conceptos básicos de futuros</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Empieza a llevar el tracking de tu evaluación de Uprofit en Zentrade. El plan gratuito incluye una cuenta de evaluación, dashboard de métricas y calendario de trades.",
       "href": "/register",
@@ -297,8 +328,9 @@
   ],
   "relatedSlugs": [
     "uprofit-colombia-empresa-fondeo",
-    "como-llevar-journal-trading-futuros",
-    "reglas-riesgo-diario-fondeo",
-    "que-es-revenge-trading"
-  ]
+    "mejores-empresas-fondeo-futuros-2025",
+    "como-pasar-evaluacion-ftmo-journal-trading",
+    "errores-comunes-evaluaciones-fondeo"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

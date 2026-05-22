@@ -16,7 +16,7 @@
     "Tradovate NQ MNQ evaluación",
     "plataforma trading Apex Colombia"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-10",
   "updatedAt": "2026-05-10",
   "category": "herramientas",
@@ -292,6 +292,36 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/como-pasar-apex-trader-funding\">Cómo pasar Apex Trader Funding</a>",
+        "<a href=\"/blog/mejor-journal-trading-futuros-2025\">Mejor journal de trading para futuros 2025</a>",
+        "<a href=\"/blog/como-llevar-journal-trading-futuros\">Cómo llevar un journal de trading para futuros</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://tradovate.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Tradovate — plataforma oficial de trading de futuros</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — compatible con Tradovate</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Recursos para traders de futuros en plataformas modernas</a>"
+      ]
+    },
+    {
       "type": "cta",
       "href": "/register",
       "buttonText": "Empieza gratis en Zentrade — Sin tarjeta de crédito"
@@ -299,10 +329,8 @@
   ],
   "relatedSlugs": [
     "como-pasar-apex-trader-funding",
-    "como-pasar-topstep-evaluacion",
-    "ninjatrader-journal-trading-futuros",
-    "errores-comunes-evaluaciones-fondeo",
-    "drawdown-trailing-vs-estatico-prop-firms",
-    "uprofit-colombia-empresa-fondeo"
-  ]
+    "mejor-journal-trading-futuros-2025",
+    "como-llevar-journal-trading-futuros"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

@@ -12,7 +12,7 @@
     "ftmo cuando paga",
     "FTMO pago traders"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-20",
   "updatedAt": "2026-05-20",
   "category": "fondeo",
@@ -224,6 +224,36 @@
       "text": "Un journal de trading bien llevado en Zentrade te permite documentar la lógica detrás de cada trade durante la cuenta fondeada. En caso de disputa o revisión por parte de FTMO, tienes un registro claro de que tu trading fue sistemático — no especulativo."
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/como-pasar-evaluacion-ftmo-journal-trading\">Cómo pasar la evaluación de FTMO con un journal de trading</a>",
+        "<a href=\"/blog/pasos-evaluacion-ftmo\">Los pasos de la evaluación de FTMO explicados</a>",
+        "<a href=\"/blog/mejores-empresas-fondeo-futuros-2025\">Mejores empresas de fondeo para futuros 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas y condiciones de pago oficiales de FTMO</a>",
+        "<a href=\"https://ftmo.com/en/faq/\" target=\"_blank\" rel=\"noopener noreferrer\">FAQ de FTMO — preguntas sobre pagos y distribución</a>",
+        "<a href=\"https://www.investopedia.com/terms/p/profit-sharing.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Profit sharing en trading</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Lleva el registro de tu cuenta FTMO fondeada en Zentrade. Monitorea tus ganancias acumuladas, el drawdown disponible y la consistency rule durante toda la vida de tu cuenta.",
       "href": "/register",
@@ -259,9 +289,9 @@
     }
   ],
   "relatedSlugs": [
-    "reglas-riesgo-ftmo-futuros-drawdown-consistency",
+    "como-pasar-evaluacion-ftmo-journal-trading",
     "pasos-evaluacion-ftmo",
-    "regla-consistencia-ftmo-explicada",
-    "como-pasar-evaluacion-ftmo-journal-trading"
-  ]
+    "mejores-empresas-fondeo-futuros-2025"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

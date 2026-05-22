@@ -13,7 +13,7 @@
     "journal trading TopStep",
     "TopStep drawdown trailing"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-13",
   "updatedAt": "2026-04-13",
   "category": "fondeo",
@@ -308,6 +308,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/drawdown-trailing-vs-estatico-prop-firms\">Trailing drawdown vs drawdown estático en prop firms</a>",
+        "<a href=\"/blog/max-daily-loss-como-respetar\">Max daily loss en prop firms: cómo respetarlo</a>",
+        "<a href=\"/blog/como-pasar-evaluacion-ftmo-journal-trading\">Cómo pasar la evaluación de FTMO con un journal de trading</a>",
+        "<a href=\"/blog/mejores-empresas-fondeo-futuros-2025\">Mejores empresas de fondeo para futuros 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.topstep.com/how-it-works/\" target=\"_blank\" rel=\"noopener noreferrer\">Cómo funciona la evaluación de TopStep (oficial)</a>",
+        "<a href=\"https://www.topstep.com/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas oficiales de TopStep Trading</a>",
+        "<a href=\"https://www.investopedia.com/terms/p/profitfactor.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Profit Factor explicado</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Zentrade es el journal de trading en español para pasar pruebas de fondeo. Configura las reglas de TopStep en tu cuenta y monitorea cada KPI en tiempo real.",
       "href": "/register",
@@ -315,11 +346,12 @@
     }
   ],
   "relatedSlugs": [
+    "drawdown-trailing-vs-estatico-prop-firms",
+    "max-daily-loss-como-respetar",
     "como-pasar-evaluacion-ftmo-journal-trading",
-    "como-pasar-apex-trader-funding",
-    "consistency-rule-fondeo-explicada",
     "mejores-empresas-fondeo-futuros-2025"
   ],
   "thumbnail": "/blog/trader-mujer-notas-graficas-multimonitor.jpg",
-  "thumbnailAlt": "Trader con laptop analizando métricas de TopStep para pasar la evaluación con estrategia de gestión de riesgo"
+  "thumbnailAlt": "Trader con laptop analizando métricas de TopStep para pasar la evaluación con estrategia de gestión de riesgo",
+  "authorJobTitle": "Fundador, Zentrade"
 }

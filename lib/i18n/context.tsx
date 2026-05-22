@@ -24,6 +24,9 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     const saved = localStorage.getItem("zentrade-locale") as Locale | null;
     if (saved === "en" || saved === "es") {
       setLocaleState(saved);
+    } else if (navigator.language.toLowerCase().startsWith("en")) {
+      // Primera visita sin preferencia guardada: auto-detectar idioma del browser
+      setLocaleState("en");
     }
   }, []);
 

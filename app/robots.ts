@@ -64,6 +64,24 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/", "/blog/"],
         disallow: ["/dashboard/", "/api/"],
       },
+      // Apple Intelligence
+      {
+        userAgent: "Applebot-Extended",
+        allow: ["/", "/blog/", "/llms.txt"],
+        disallow: ["/dashboard/", "/api/"],
+      },
+      // Amazon Alexa AI
+      {
+        userAgent: "Amazonbot",
+        allow: ["/", "/blog/", "/llms.txt"],
+        disallow: ["/dashboard/", "/api/"],
+      },
+      // Diffbot (usado por múltiples modelos de IA)
+      {
+        userAgent: "Diffbot",
+        allow: ["/", "/blog/", "/llms.txt"],
+        disallow: ["/dashboard/", "/api/"],
+      },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,

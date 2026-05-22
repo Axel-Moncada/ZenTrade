@@ -1,0 +1,312 @@
+{
+  "slug": "zentrade-vs-edgewonk",
+  "title": "Zentrade vs Edgewonk: ¿Cuál es el Mejor Journal de Trading para Futuros en 2025?",
+  "excerpt": "Comparativa completa entre Zentrade y Edgewonk para traders de futuros y prop firms. Diferencias de precio, features, soporte para cuentas de evaluación y por qué Zentrade es la alternativa moderna para traders en español.",
+  "seoTitle": "Zentrade vs Edgewonk 2025: Comparativa Completa para Traders de Futuros",
+  "seoDescription": "Comparativa detallada de Zentrade vs Edgewonk: precios, features, soporte para evaluaciones de prop firms, idioma y facilidad de uso. ¿Cuál es mejor para traders de futuros LATAM?",
+  "keywords": [
+    "Zentrade vs Edgewonk",
+    "alternativa a Edgewonk en español",
+    "mejor journal trading futuros 2025",
+    "Edgewonk alternativa LATAM",
+    "journal trading prop firm español",
+    "Zentrade Edgewonk diferencias",
+    "trading journal para evaluaciones fondeo"
+  ],
+  "author": "Axel Moncada",
+  "publishedAt": "2026-05-20",
+  "updatedAt": "2026-05-20",
+  "category": "comparativas",
+  "tags": [
+    "Edgewonk",
+    "journal de trading",
+    "comparativa",
+    "prop firm",
+    "futuros",
+    "LATAM",
+    "alternativas"
+  ],
+  "readingTime": 9,
+  "featured": false,
+  "thumbnail": "/blog/software-pc-screen-used-analyzing-cryptocurrency-investment-purchases.jpg",
+  "thumbnailAlt": "Comparativa entre Zentrade y Edgewonk como journals de trading para evaluaciones de prop firms de futuros",
+  "content": [
+    {
+      "type": "p",
+      "text": "Edgewonk fue durante años el estándar de los journals de trading para traders serios. Pero en 2025, los traders de futuros de CME que hacen evaluaciones de prop firms necesitan algo diferente: soporte nativo para cuentas de evaluación, integraciones con FTMO y Apex, interfaz en español, y un precio que no requiera desembolsar $169 de una sola vez. Esta comparativa analiza ambas herramientas con honestidad."
+    },
+    {
+      "type": "h2",
+      "text": "Resumen rápido: ¿cuál elegir?"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Criterio",
+        "Zentrade",
+        "Edgewonk"
+      ],
+      "rows": [
+        [
+          "Precio",
+          "$0–$59/mes (suscripción)",
+          "$169/año (pago único) o $39/mes"
+        ],
+        [
+          "Idioma",
+          "Español nativo + inglés",
+          "Inglés principalmente"
+        ],
+        [
+          "Soporte para prop firms",
+          "Nativo — evaluation/live accounts",
+          "Manual — no tiene cuentas de evaluación"
+        ],
+        [
+          "Plataforma",
+          "Web app (sin instalación)",
+          "Software desktop (Windows/Mac)"
+        ],
+        [
+          "Importación CSV",
+          "Automática (plan Professional+)",
+          "Manual o importación con formatos limitados"
+        ],
+        [
+          "Análisis con IA",
+          "Sí — Gemini AI (plan ZenMode)",
+          "No"
+        ],
+        [
+          "Mercados soportados",
+          "Futuros de CME (NQ, ES, GC, CL, MNQ)",
+          "Múltiples mercados (acciones, Forex, futuros)"
+        ],
+        [
+          "Plan gratuito",
+          "Sí — hasta 1 cuenta",
+          "No — solo prueba limitada"
+        ],
+        [
+          "Reporte semanal automático",
+          "Sí — email + análisis IA",
+          "No"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Conclusión directa: Si eres trader de futuros en evaluación de prop firm y operas en español, Zentrade está diseñado específicamente para ti. Si eres un trader avanzado de múltiples mercados que ya dominó Edgewonk y quiere el análisis estadístico más profundo del mercado, Edgewonk sigue siendo una opción sólida — aunque más cara y sin soporte nativo para evaluaciones."
+    },
+    {
+      "type": "h2",
+      "text": "Precio: pago único vs. suscripción"
+    },
+    {
+      "type": "h3",
+      "text": "Edgewonk"
+    },
+    {
+      "type": "p",
+      "text": "Edgewonk cuesta <strong>$169/año</strong> en su modelo principal (pago único anual). También ofrecen una opción mensual de ~$39/mes. Para un trader que está en evaluación y no sabe si seguirá pagando herramientas durante 6 meses, el compromiso de $169 puede ser una barrera. No hay plan gratuito — solo una prueba con funcionalidades muy limitadas."
+    },
+    {
+      "type": "h3",
+      "text": "Zentrade"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade tiene un <strong>plan Free genuinamente funcional</strong>: 1 cuenta, registro manual, dashboard básico, calendario de trades y export CSV. Los planes de pago empiezan en $9/mes (Starter, 2 cuentas) hasta $59/mes (ZenMode, con análisis IA y alertas de riesgo). Para un trader en evaluación activa, el plan Professional a $29/mes cubre todo lo necesario incluyendo importación automática."
+    },
+    {
+      "type": "h2",
+      "text": "Soporte para prop firms y evaluaciones"
+    },
+    {
+      "type": "p",
+      "text": "Esta es la diferencia más importante y la que más impacto tiene en el día a día de un trader en evaluación."
+    },
+    {
+      "type": "h3",
+      "text": "Edgewonk: no fue diseñado para evaluaciones"
+    },
+    {
+      "type": "p",
+      "text": "Edgewonk es una herramienta de análisis estadístico de trading general. No tiene concepto de 'cuenta de evaluación' vs. 'cuenta live'. No puedes configurar parámetros de Max Daily Loss, trailing drawdown o Profit Target que se monitoreen en el dashboard. Los traders en evaluación usan Edgewonk manualmente, sin integración nativa con las reglas de su prop firm."
+    },
+    {
+      "type": "h3",
+      "text": "Zentrade: construido para evaluaciones"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade tiene el concepto de cuenta de tipo <strong>Evaluation o Live</strong> desde el diseño. Puedes configurar el Max Daily Loss, Max Drawdown y Profit Target de tu evaluación, y el dashboard los monitorea en tiempo real. La Consistency Rule de FTMO se calcula automáticamente. El calendario muestra qué días violaste una regla y por qué."
+    },
+    {
+      "type": "h2",
+      "text": "Análisis estadístico: ¿dónde gana Edgewonk?"
+    },
+    {
+      "type": "p",
+      "text": "Edgewonk tiene 10+ años de desarrollo y ofrece un análisis estadístico extremadamente profundo: simulaciones de Monte Carlo, análisis de sesgo de confirmación, optimización de R múltiples, análisis de performance por hora del día y decenas de métricas avanzadas. Para un trader que quiere explorar estadística profunda de su sistema, Edgewonk sigue siendo la referencia."
+    },
+    {
+      "type": "p",
+      "text": "Zentrade prioriza las métricas que más importan en evaluaciones de fondeo: PnL diario, consistency %, profit factor, win rate por instrumento y sesión, y alertas de riesgo. Si tu objetivo principal es <strong>pasar evaluaciones de prop firms y mantener cuentas fondeadas</strong> — Zentrade cubre todo lo necesario y lo presenta de forma más clara."
+    },
+    {
+      "type": "h2",
+      "text": "Idioma y experiencia de usuario"
+    },
+    {
+      "type": "p",
+      "text": "Edgewonk está principalmente en inglés. Hay traducciones parciales en algunos idiomas pero la experiencia core y la documentación son en inglés. Para traders de Colombia, México, Chile y LATAM que prefieren trabajar en español, esto puede ser una fricción diaria."
+    },
+    {
+      "type": "p",
+      "text": "Zentrade es <strong>español nativo</strong>. Toda la interfaz, los mensajes de error, los labels del dashboard, las notificaciones — todo está en español desde el diseño, no como traducción. Para traders LATAM esto reduce la curva de aprendizaje significativamente."
+    },
+    {
+      "type": "h2",
+      "text": "Importación de trades: ¿qué tan fácil es?"
+    },
+    {
+      "type": "h3",
+      "text": "Edgewonk"
+    },
+    {
+      "type": "p",
+      "text": "Edgewonk soporta importación desde plataformas populares como NinjaTrader, Interactive Brokers, TD Ameritrade y otros. Sin embargo, el proceso de mapeo puede ser técnico y la lista de plataformas soportadas tiene limitaciones. Para traders que usan plataformas menos comunes o CSVs personalizados, la importación puede requerir ajustes manuales."
+    },
+    {
+      "type": "h3",
+      "text": "Zentrade"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade soporta importación CSV con mapeo automático de columnas (plan Professional+). También tiene plantillas de importación para los formatos más comunes de Tradovate y NinjaTrader. El ingreso manual siempre está disponible en todos los planes."
+    },
+    {
+      "type": "h2",
+      "text": "Análisis con IA: ventaja exclusiva de Zentrade"
+    },
+    {
+      "type": "p",
+      "text": "El plan ZenMode de Zentrade incluye dos features de IA que Edgewonk no tiene:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>Reporte semanal con Gemini AI</strong>: cada lunes recibes un análisis de tu semana de trading que incluye patrones de emociones, horas de mejor performance y recomendaciones específicas para tu siguiente semana",
+        "<strong>Revenge Trading Detection</strong>: el sistema detecta automáticamente cuando entraste a un trade agresivo después de una racha perdedora — el patrón más común que destruye evaluaciones",
+        "<strong>Alertas de riesgo en tiempo real</strong>: cuando te acercas al 80% de tu Daily Loss o tu Consistency % se acerca al límite, recibes una alerta antes de que sea tarde"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "¿Para quién es cada uno?"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Perfil de trader",
+        "Recomendación"
+      ],
+      "rows": [
+        [
+          "Trader de futuros en evaluación de FTMO, Apex o TopStep",
+          "Zentrade — diseñado exactamente para este caso"
+        ],
+        [
+          "Trader LATAM que prefiere trabajar en español",
+          "Zentrade — interfaz nativa en español"
+        ],
+        [
+          "Trader que quiere comenzar sin costo",
+          "Zentrade — plan Free genuino"
+        ],
+        [
+          "Trader avanzado que quiere estadística profunda de múltiples mercados",
+          "Edgewonk puede ser más completo"
+        ],
+        [
+          "Trader de acciones o Forex con muchos años de historial",
+          "Edgewonk si ya tiene el hábito; Zentrade si empieza ahora"
+        ],
+        [
+          "Trader que quiere análisis con IA de sus patrones",
+          "Zentrade — Edgewonk no tiene IA"
+        ]
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/mejor-journal-trading-futuros-2025\">Mejor journal de trading para futuros 2025</a>",
+        "<a href=\"/blog/zentrade-vs-tradezella\">Zentrade vs TradeZella: comparativa completa</a>",
+        "<a href=\"/blog/que-es-un-trading-journal\">Qué es un trading journal y para qué sirve</a>",
+        "<a href=\"/blog/mejores-empresas-fondeo-futuros-2025\">Mejores empresas de fondeo para futuros 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — métricas de evaluación que Zentrade trackea</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — reglas de trailing drawdown</a>",
+        "<a href=\"https://www.investopedia.com/terms/t/trading-journal.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Qué hace útil a un trading journal</a>"
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Prueba Zentrade gratis — crea tu primera cuenta de evaluación, registra tus trades y ve el dashboard en acción sin tarjeta de crédito.",
+      "href": "/register",
+      "buttonText": "Empezar gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Puedo migrar mis trades de Edgewonk a Zentrade?",
+          "a": "Sí. Si exportas tus trades de Edgewonk como CSV, puedes importarlos a Zentrade usando la función de importación (plan Professional). El mapeo de columnas es flexible y permite adaptar el formato de Edgewonk al esquema de Zentrade."
+        },
+        {
+          "q": "¿Edgewonk tiene alguna versión gratuita?",
+          "a": "Edgewonk ofrece una prueba limitada, pero no tiene un plan gratuito permanente. Una vez termina el período de prueba, debes comprar la licencia para seguir usando la herramienta."
+        },
+        {
+          "q": "¿Zentrade funciona para traders de acciones o Forex, no solo futuros?",
+          "a": "Zentrade está optimizado principalmente para futuros de CME (NQ, MNQ, ES, GC, CL y similares). El sistema de cálculo de PnL usa tick size y tick value de contratos de futuros. Para traders de acciones o Forex puro, algunas métricas específicas de futuros pueden no aplicar directamente."
+        },
+        {
+          "q": "¿Edgewonk tiene soporte para la regla de consistencia de FTMO?",
+          "a": "No de forma nativa. Puedes calcular manualmente la consistency rule con los datos de Edgewonk, pero no hay un indicador automático que monitoree el porcentaje de tu mejor día vs. la ganancia total en tiempo real. Zentrade calcula esto automáticamente."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "mejor-journal-trading-futuros-2025",
+    "zentrade-vs-tradezella",
+    "que-es-un-trading-journal",
+    "mejores-empresas-fondeo-futuros-2025"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
+}

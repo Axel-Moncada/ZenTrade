@@ -15,7 +15,7 @@
     "trading futures alta volatilidad evaluacion fondeo",
     "Nasdaq maximos historicos estrategia"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-06",
   "updatedAt": "2026-05-06",
   "category": "estrategias",
@@ -276,6 +276,36 @@
       "text": "Las semanas de máximos históricos con volatilidad geopolítica son un filtro natural. La mayoría de los traders que falla no lo hace porque su estrategia sea mala — lo hace porque la presión emocional del contexto los lleva a tomar decisiones que nunca tomarían en condiciones normales. Un trading journal consistente, con registro emocional y detección de patrones, es la única herramienta que te muestra esos patrones en tus propios datos antes de que se repitan."
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/mejores-instrumentos-futuros-principiantes\">Mejores instrumentos de futuros para principiantes</a>",
+        "<a href=\"/blog/apex-trader-funding-trailing-drawdown-guia\">Guía del trailing drawdown de Apex Trader Funding</a>",
+        "<a href=\"/blog/psicologia-trading-futuros\">Psicología del trading para traders de futuros</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.cmegroup.com/trading/equity-index/us-index/e-mini-nasdaq-100.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Especificaciones del contrato E-mini Nasdaq-100</a>",
+        "<a href=\"https://www.investopedia.com/terms/v/volatility.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Volatilidad en mercados de futuros</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — reglas durante alta volatilidad</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Zentrade detecta revenge trading, registra tus emociones por trade y genera reportes semanales con IA para que no cometas los mismos errores dos semanas seguidas. Empieza gratis — sin tarjeta.",
       "href": "/register",
@@ -283,9 +313,9 @@
     }
   ],
   "relatedSlugs": [
-    "que-es-revenge-trading",
-    "reglas-riesgo-diario-fondeo",
-    "consistency-rule-fondeo-explicada",
-    "drawdown-trailing-vs-estatico-prop-firms"
-  ]
+    "mejores-instrumentos-futuros-principiantes",
+    "apex-trader-funding-trailing-drawdown-guia",
+    "psicologia-trading-futuros"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

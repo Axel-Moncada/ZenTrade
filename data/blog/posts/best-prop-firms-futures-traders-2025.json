@@ -13,7 +13,7 @@
     "prop firm comparison 2025",
     "funded futures trader"
   ],
-  "author": "Zentrade Team",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "comparativas",
@@ -438,6 +438,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation</a>",
+        "<a href=\"/blog/how-to-pass-apex-trader-funding\">How to pass Apex Trader Funding</a>",
+        "<a href=\"/blog/how-to-pass-topstep-evaluation\">How to pass the TopStep evaluation</a>",
+        "<a href=\"/blog/best-trading-journal-prop-firms-2025\">Best trading journal for prop firms 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO Official Rules & Pricing</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding Official Rules & Pricing</a>",
+        "<a href=\"https://www.topstep.com/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">TopStep Official Rules & Pricing</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Zentrade is the trading journal built for futures traders in prop firm evaluations. Track FTMO, Apex, TopStep, and more — all in one dashboard with real-time KPIs.",
       "href": "/register",
@@ -445,8 +476,11 @@
     }
   ],
   "relatedSlugs": [
-    "best-trading-journal-prop-firms-2025",
-    "consistency-rule-prop-firm-explained",
-    "how-to-pass-apex-trader-funding"
-  ]
+    "how-to-pass-ftmo-evaluation",
+    "how-to-pass-apex-trader-funding",
+    "how-to-pass-topstep-evaluation",
+    "best-trading-journal-prop-firms-2025"
+  ],
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
 }

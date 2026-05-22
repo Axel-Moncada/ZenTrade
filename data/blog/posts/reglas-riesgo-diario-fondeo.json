@@ -13,7 +13,7 @@
     "como no perder cuenta de fondeo",
     "risk management prop firm Colombia"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-09",
   "updatedAt": "2026-04-09",
   "category": "fondeo",
@@ -256,6 +256,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/max-daily-loss-como-respetar\">Max daily loss en prop firms: cómo respetarlo</a>",
+        "<a href=\"/blog/reglas-riesgo-ftmo-futuros-drawdown-consistency\">Reglas de riesgo de FTMO: drawdown y consistency</a>",
+        "<a href=\"/blog/regla-consistencia-ftmo-explicada\">La consistency rule de FTMO explicada</a>",
+        "<a href=\"/blog/errores-comunes-evaluaciones-fondeo\">Errores comunes en evaluaciones de fondeo</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas de riesgo diario de FTMO</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas de riesgo diario de Apex Trader Funding</a>",
+        "<a href=\"https://www.investopedia.com/terms/r/risk-management.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Gestión de riesgo profesional</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Configura el Daily Loss Limit de tu empresa de fondeo en Zentrade y monitorea tu riesgo diario en tiempo real. El plan gratuito incluye el dashboard de métricas y el calendario de P&L por día.",
       "href": "/register",
@@ -295,9 +326,10 @@
     }
   ],
   "relatedSlugs": [
-    "drawdown-trailing-vs-estatico-prop-firms",
-    "que-es-revenge-trading",
-    "como-pasar-evaluacion-ftmo-journal-trading",
-    "uprofit-colombia-empresa-fondeo"
-  ]
+    "max-daily-loss-como-respetar",
+    "reglas-riesgo-ftmo-futuros-drawdown-consistency",
+    "regla-consistencia-ftmo-explicada",
+    "errores-comunes-evaluaciones-fondeo"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

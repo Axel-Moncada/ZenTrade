@@ -1,0 +1,319 @@
+{
+  "slug": "que-es-drawdown-trading",
+  "title": "Qué es el Drawdown en Trading y Por Qué las Prop Firms lo Usan Para Evaluarte",
+  "excerpt": "El drawdown es la métrica de riesgo más importante en trading de futuros y evaluaciones de prop firms. Aprende qué es, cómo se calcula, la diferencia entre drawdown estático y trailing, y cómo gestionarlo para pasar tu evaluación de fondeo.",
+  "seoTitle": "Qué es el Drawdown en Trading: Guía Completa para Traders de Futuros (2025)",
+  "seoDescription": "Guía completa sobre el drawdown en trading: qué es, tipos (estático vs trailing), cómo se calcula en FTMO, Apex y TopStep, y cómo monitorarlo para pasar evaluaciones de prop firms.",
+  "keywords": [
+    "qué es el drawdown en trading",
+    "drawdown trading definición",
+    "drawdown prop firm",
+    "trailing drawdown futuros",
+    "drawdown estático vs trailing",
+    "max drawdown evaluación fondeo",
+    "drawdown FTMO Apex TopStep"
+  ],
+  "author": "Axel Moncada",
+  "publishedAt": "2026-05-20",
+  "updatedAt": "2026-05-20",
+  "category": "guias",
+  "tags": [
+    "drawdown",
+    "gestión de riesgo",
+    "prop firm",
+    "FTMO",
+    "Apex",
+    "TopStep",
+    "futuros",
+    "evaluación de fondeo"
+  ],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/trader-analista-grafica-proyectada.jpg",
+  "thumbnailAlt": "Trader analizando la curva de equity y el drawdown máximo de su cuenta de futuros en una evaluación de prop firm",
+  "content": [
+    {
+      "type": "p",
+      "text": "El drawdown es la métrica que las prop firms usan para medir si eres un trader disciplinado o alguien que toma riesgos descontrolados. Si quieres pasar una evaluación de FTMO, Apex o TopStep, entender exactamente qué es el drawdown — y cómo cada firma lo calcula — es tan importante como tu estrategia de entrada. Este artículo lo explica desde cero con ejemplos numéricos concretos."
+    },
+    {
+      "type": "h2",
+      "text": "Qué es el drawdown en trading"
+    },
+    {
+      "type": "p",
+      "text": "El drawdown mide la <strong>caída de tu capital desde un punto máximo hasta un punto mínimo</strong> en un período determinado. Es, en términos simples, cuánto has perdido desde tu mejor momento. Si tu cuenta llega a $110,000 y luego baja a $103,000, tu drawdown es $7,000 o 6.36%."
+    },
+    {
+      "type": "p",
+      "text": "El drawdown no mide pérdidas absolutas — mide pérdidas <em>relativas a un máximo previo</em>. Esto es crucial: puedes tener una cuenta que hoy vale más que cuando empezaste y aún así tener un drawdown activo si bajaste desde un punto máximo intermedio."
+    },
+    {
+      "type": "h2",
+      "text": "Los 3 tipos de drawdown que necesitas conocer"
+    },
+    {
+      "type": "h3",
+      "text": "1. Max Drawdown (drawdown máximo histórico)"
+    },
+    {
+      "type": "p",
+      "text": "Es la mayor caída que ha tenido tu cuenta desde cualquier máximo hasta cualquier mínimo posterior, en toda la historia de la cuenta. Si en 6 meses tu cuenta llegó a $115,000 y luego bajó a $96,000 antes de recuperarse, tu max drawdown histórico es $19,000 (16.5%). Este número le dice a una prop firm qué tan profundas son tus rachas perdedoras."
+    },
+    {
+      "type": "h3",
+      "text": "2. Drawdown estático (o fijo)"
+    },
+    {
+      "type": "p",
+      "text": "El drawdown estático establece un límite fijo desde el capital inicial que no cambia sin importar cuánto hayas ganado. FTMO usa drawdown estático: si empiezas con $100,000 y el límite es 10%, el piso de tu cuenta es siempre $90,000 — incluso si llegas a $130,000 de ganancia. El límite absoluto nunca cambia durante la evaluación."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Ventaja del drawdown estático: puedes generar $20,000 de ganancias y tu drawdown disponible sigue siendo el mismo $10,000 del inicio. El riesgo no aumenta con el éxito."
+    },
+    {
+      "type": "h3",
+      "text": "3. Trailing Drawdown (drawdown dinámico)"
+    },
+    {
+      "type": "p",
+      "text": "El trailing drawdown sigue a tu equity máximo histórico como una sombra. Cada vez que tu cuenta llega a un nuevo máximo, el piso de drawdown sube con él. Apex Trader Funding y TopStep usan trailing drawdown. Esta es la mecánica más importante para traders de futuros de CME."
+    },
+    {
+      "type": "p",
+      "text": "Ejemplo con una cuenta Apex de $50,000 con $2,500 de trailing drawdown:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Momento",
+        "Equity actual",
+        "Equity máximo histórico",
+        "Piso de drawdown",
+        "Buffer disponible"
+      ],
+      "rows": [
+        [
+          "Día 1 (inicio)",
+          "$50,000",
+          "$50,000",
+          "$47,500",
+          "$2,500"
+        ],
+        [
+          "Día 5 (buena semana)",
+          "$53,200",
+          "$53,200",
+          "$50,700",
+          "$2,500"
+        ],
+        [
+          "Día 6 (pérdida parcial)",
+          "$51,800",
+          "$53,200",
+          "$50,700",
+          "$1,100"
+        ],
+        [
+          "Día 7 (pérdida mayor)",
+          "$50,699",
+          "$53,200",
+          "$50,700",
+          "CUENTA CERRADA ⚠️"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Punto crítico: en el ejemplo anterior, el trader ganó $3,200 desde el inicio pero la cuenta se cerró porque el equity bajó apenas $1 por debajo del piso. Las ganancias pasadas NO protegen la cuenta en un sistema de trailing drawdown."
+    },
+    {
+      "type": "h2",
+      "text": "Drawdown estático vs. trailing drawdown: comparativa completa"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Característica",
+        "Drawdown Estático (FTMO)",
+        "Trailing Drawdown (Apex, TopStep)"
+      ],
+      "rows": [
+        [
+          "Punto de referencia",
+          "Capital inicial fijo",
+          "Equity máximo alcanzado"
+        ],
+        [
+          "¿Cambia con las ganancias?",
+          "No — el piso es siempre el mismo",
+          "Sí — el piso sube con cada nuevo máximo"
+        ],
+        [
+          "¿Cambia con las pérdidas?",
+          "No — tampoco baja",
+          "No — el trailing solo sube, nunca baja"
+        ],
+        [
+          "Ventaja para el trader",
+          "Las ganancias no comprimen el margen",
+          "Puedes calcular el riesgo desde cualquier punto"
+        ],
+        [
+          "Desventaja para el trader",
+          "El piso no sube aunque hayas ganado mucho",
+          "Ganancias fuertes elevan el piso y comprimen el buffer"
+        ],
+        [
+          "Mejor para traders que...",
+          "Construyen equity gradualmente sin drawdowns profundos",
+          "Operan con consistency alta y pocos días malos"
+        ]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo mide el drawdown cada prop firm importante"
+    },
+    {
+      "type": "h3",
+      "text": "FTMO: drawdown estático del 10%"
+    },
+    {
+      "type": "p",
+      "text": "El Max Overall Drawdown de FTMO es 10% del capital inicial. En una cuenta de $100,000, el equity nunca puede bajar de $90,000 — sin importar cuánto hayas ganado antes. Adicionalmente tienen el Max Daily Loss (5%) que opera sobre el balance/equity del día. El drawdown de FTMO es el más predecible porque el piso nunca se mueve."
+    },
+    {
+      "type": "h3",
+      "text": "Apex Trader Funding: trailing drawdown"
+    },
+    {
+      "type": "p",
+      "text": "Apex usa trailing drawdown end-of-day para la mayoría de sus cuentas. El piso se ajusta al cierre del día según el equity máximo alcanzado durante esa sesión. Esto significa que si llegas a un nuevo máximo de equity a las 2pm y luego bajas antes del cierre, el trailing ya se movió — el piso subió aunque termines el día por debajo."
+    },
+    {
+      "type": "h3",
+      "text": "TopStep: trailing drawdown intraday"
+    },
+    {
+      "type": "p",
+      "text": "TopStep también usa trailing drawdown pero algunos de sus productos lo calculan en tiempo real (intraday), lo que lo hace más restrictivo que Apex en ese aspecto. Cada nuevo máximo de equity durante el día sube el piso inmediatamente."
+    },
+    {
+      "type": "h2",
+      "text": "Por qué las prop firms se obsesionan con el drawdown"
+    },
+    {
+      "type": "p",
+      "text": "Las prop firms no son fondos de inversión benévolos. Son negocios que buscan traders estadísticamente capaces de generar retornos consistentes. El drawdown es el indicador más honesto de la gestión de riesgo de un trader porque:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Un drawdown alto revela que el trader no corta pérdidas — espera que el mercado le dé la razón",
+        "Un drawdown profundo seguido de una recuperación puede ser señal de suerte, no de habilidad",
+        "Un drawdown controlado indica que el trader tiene reglas claras de salida y las cumple",
+        "Las prop firms asumen el capital en riesgo — el drawdown determina cuánto capital pueden perder si el trader tiene una racha mala"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Cómo gestionar el drawdown para pasar tu evaluación"
+    },
+    {
+      "type": "h3",
+      "text": "Regla 1: Nunca operar cerca del piso de drawdown"
+    },
+    {
+      "type": "p",
+      "text": "Los traders que pasan evaluaciones consistentemente nunca se acercan al límite de drawdown. Si el límite es $10,000, operan con un <strong>límite personal de $6,000-7,000</strong>. El 30-40% restante es el buffer que los protege de días atípicos, slippage y errores de ejecución."
+    },
+    {
+      "type": "h3",
+      "text": "Regla 2: En trailing drawdown, proteger los máximos"
+    },
+    {
+      "type": "p",
+      "text": "Con Apex o TopStep, cada nuevo máximo de equity es un momento de mayor vulnerabilidad — el piso sube pero tu equity puede caer. Si acabas de llegar a un nuevo máximo, considera reducir el tamaño de posición temporalmente hasta consolidar ese nivel."
+    },
+    {
+      "type": "h3",
+      "text": "Regla 3: Registrar el drawdown diario en tu journal"
+    },
+    {
+      "type": "p",
+      "text": "El drawdown de hoy es la diferencia entre tu equity máximo histórico y tu equity actual. Si no llevas un registro, no puedes saber en tiempo real qué tan cerca estás del límite. Un journal de trading como Zentrade calcula automáticamente la equity curve y el drawdown disponible en cada cuenta."
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/drawdown-trailing-vs-estatico-prop-firms\">Trailing drawdown vs drawdown estático en prop firms</a>",
+        "<a href=\"/blog/max-daily-loss-como-respetar\">Max daily loss en prop firms: cómo respetarlo</a>",
+        "<a href=\"/blog/apex-trader-funding-trailing-drawdown-guia\">Guía del trailing drawdown de Apex Trader Funding</a>",
+        "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.investopedia.com/terms/d/drawdown.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Qué es el Drawdown</a>",
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — reglas de drawdown en evaluaciones</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Introducción a los futuros</a>"
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Registra tu evaluación en Zentrade, configura los límites de drawdown de tu prop firm y monitorea tu equity curve en tiempo real.",
+      "href": "/register",
+      "buttonText": "Crear cuenta gratis"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "¿Cuál es la diferencia entre drawdown y pérdida?",
+          "a": "Una pérdida es una operación que cierra en negativo. El drawdown mide la caída acumulada desde un máximo de equity, incluyendo todas las pérdidas seguidas que no fueron compensadas por ganancias. Puedes tener muchas pérdidas pequeñas que compensen con ganancias y tener un drawdown bajo; o puedes tener pocas pérdidas pero grandes y tener un drawdown alto."
+        },
+        {
+          "q": "¿El drawdown se calcula sobre el balance o sobre el equity?",
+          "a": "Depende de la prop firm. FTMO calcula el Max Overall Drawdown sobre el capital inicial fijo (balance al empezar). Apex y TopStep calculan su trailing drawdown sobre el equity en tiempo real, incluyendo posiciones abiertas. Revisa siempre las reglas específicas de tu firma."
+        },
+        {
+          "q": "¿Puedo recuperar un drawdown durante la evaluación?",
+          "a": "Sí, mientras no cruces el límite de la firma. Si estás en -$5,000 sobre un límite de $10,000, tienes $5,000 de margen para recuperarte. El problema es que intentar recuperar un drawdown grande a menudo lleva a tomar riesgos mayores, que es exactamente lo que causa la mayoría de invalidaciones."
+        },
+        {
+          "q": "¿El drawdown de una cuenta de fondeo vivo funciona igual que en la evaluación?",
+          "a": "Generalmente sí, con los mismos parámetros de riesgo. En algunos casos las cuentas fondeadas vivas tienen reglas de drawdown más estrictas o diferentes que las de la evaluación. Siempre verifica las condiciones específicas de tu cuenta viva con la firma."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "drawdown-trailing-vs-estatico-prop-firms",
+    "max-daily-loss-como-respetar",
+    "apex-trader-funding-trailing-drawdown-guia",
+    "what-is-drawdown-trading"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
+}

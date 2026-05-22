@@ -12,7 +12,7 @@
     "Apex consistency rule",
     "trading journal consistency tracking"
   ],
-  "author": "Zentrade Team",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-04",
   "updatedAt": "2026-04-04",
   "category": "fondeo",
@@ -258,6 +258,36 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation</a>",
+        "<a href=\"/blog/consistency-rule-fondeo-explicada\">La consistency rule de las prop firms explicada</a>",
+        "<a href=\"/blog/max-daily-loss-fondeo-how-to-manage\">Max daily loss in funded accounts: how to manage it</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO Official Rules — consistency section</a>",
+        "<a href=\"https://www.investopedia.com/terms/r/riskreward.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Risk/Reward Ratio explained</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding Rules (no consistency rule)</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Track your consistency rule in real time with Zentrade and protect every evaluation from the most common hidden violation.",
       "href": "/register",
@@ -265,7 +295,10 @@
     }
   ],
   "relatedSlugs": [
-    "best-trading-journal-prop-firms-2025",
-    "como-pasar-evaluacion-ftmo-journal-trading"
-  ]
+    "how-to-pass-ftmo-evaluation",
+    "consistency-rule-fondeo-explicada",
+    "max-daily-loss-fondeo-how-to-manage"
+  ],
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
 }

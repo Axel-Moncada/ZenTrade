@@ -12,7 +12,7 @@
     "FTMO consistency rule futuros",
     "violar consistency rule FTMO"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-20",
   "updatedAt": "2026-05-20",
   "category": "fondeo",
@@ -268,6 +268,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/como-pasar-evaluacion-ftmo-journal-trading\">Cómo pasar la evaluación de FTMO con un journal de trading</a>",
+        "<a href=\"/blog/consistency-rule-fondeo-explicada\">La consistency rule de las prop firms explicada</a>",
+        "<a href=\"/blog/max-daily-loss-como-respetar\">Max daily loss en prop firms: cómo respetarlo</a>",
+        "<a href=\"/blog/reglas-riesgo-ftmo-futuros-drawdown-consistency\">Reglas de riesgo de FTMO: drawdown y consistency</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas oficiales de FTMO — consistency rule</a>",
+        "<a href=\"https://ftmo.com/en/faq/\" target=\"_blank\" rel=\"noopener noreferrer\">FAQ de FTMO — preguntas sobre verificación y consistencia</a>",
+        "<a href=\"https://www.investopedia.com/terms/r/risk-reward-ratio.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Ratio riesgo/recompensa</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "¿Estás en medio de una evaluación FTMO? Registra tus trades en Zentrade y monitorea tu consistency % antes de que sea demasiado tarde para corregirlo.",
       "href": "/register",
@@ -276,8 +307,9 @@
   ],
   "relatedSlugs": [
     "como-pasar-evaluacion-ftmo-journal-trading",
-    "pasos-evaluacion-ftmo",
-    "drawdown-trailing-vs-estatico-prop-firms",
-    "mejor-journal-trading-futuros-2025"
-  ]
+    "consistency-rule-fondeo-explicada",
+    "max-daily-loss-como-respetar",
+    "reglas-riesgo-ftmo-futuros-drawdown-consistency"
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

@@ -111,9 +111,9 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (insertError) {
-      console.error('Error creating trade:', insertError);
+      console.error('Error creating trade:', JSON.stringify(insertError));
       return NextResponse.json(
-        { error: 'Error al crear trade' },
+        { error: 'Error al crear trade', detail: insertError.message },
         { status: 500 }
       );
     }

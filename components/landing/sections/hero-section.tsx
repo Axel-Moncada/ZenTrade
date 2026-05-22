@@ -49,6 +49,11 @@ export default function HeroSection() {
             </span>
           </h1>
 
+          {/* Product descriptor — keyword-rich, above the fold para tráfico frío */}
+          <p className="text-base md:text-lg text-zen-caribbean-green font-semibold tracking-wide -mt-2">
+            {l.heroDescriptor}
+          </p>
+
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-zen-text-muted max-w-3xl mx-auto leading-relaxed">
             {l.heroSubPrefix}
@@ -84,7 +89,7 @@ export default function HeroSection() {
             <div>
               <div className="flex items-center justify-center space-x-2">
                 <TrendingUp className="h-5 w-5 text-zen-caribbean-green" />
-                <p className="text-3xl font-bold text-zen-anti-flash">92%</p>
+                <p className="text-3xl font-bold text-zen-anti-flash">{l.heroStat1Value}</p>
               </div>
               <p className="text-sm text-zen-text-muted mt-1">{l.heroStat1Label}</p>
             </div>
@@ -92,7 +97,7 @@ export default function HeroSection() {
             <div>
               <div className="flex items-center justify-center space-x-2">
                 <Sparkles className="h-5 w-5 text-zen-caribbean-green" />
-                <p className="text-3xl font-bold text-zen-anti-flash">3x</p>
+                <p className="text-3xl font-bold text-zen-anti-flash">{l.heroStat2Value}</p>
               </div>
               <p className="text-sm text-zen-text-muted mt-1">{l.heroStat2Label}</p>
             </div>

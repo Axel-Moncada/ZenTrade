@@ -90,10 +90,10 @@ export async function PATCH(
       .single();
 
     if (updateError || !trade) {
-      console.error('Error updating trade:', updateError);
+      console.error('Error updating trade:', JSON.stringify(updateError));
       return NextResponse.json(
-        { error: 'Trade no encontrado o error al actualizar' },
-        { status: 404 }
+        { error: 'Error al actualizar trade', detail: updateError?.message ?? null },
+        { status: 500 }
       );
     }
 

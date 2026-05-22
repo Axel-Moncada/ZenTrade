@@ -12,7 +12,7 @@
     "cómo funciona FTMO",
     "FTMO challenge vs verification"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-20",
   "updatedAt": "2026-05-20",
   "category": "fondeo",
@@ -271,6 +271,37 @@
       "text": "Una vez fondeado, el journal sigue siendo tu principal herramienta de control de riesgo. Las mismas reglas aplican — y ahora las consecuencias de violarlas son perder capital real de FTMO, no solo la tarifa de evaluación."
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/como-pasar-evaluacion-ftmo-journal-trading\">Cómo pasar la evaluación de FTMO con un journal de trading</a>",
+        "<a href=\"/blog/regla-consistencia-ftmo-explicada\">La consistency rule de FTMO explicada</a>",
+        "<a href=\"/blog/ftmo-payout-reparto-ganancias\">FTMO payout: cómo funciona el reparto de ganancias</a>",
+        "<a href=\"/blog/errores-comunes-evaluaciones-fondeo\">Errores comunes en evaluaciones de fondeo</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Proceso oficial de evaluación de FTMO</a>",
+        "<a href=\"https://ftmo.com/en/faq/\" target=\"_blank\" rel=\"noopener noreferrer\">FAQ de FTMO — dudas frecuentes sobre el proceso</a>",
+        "<a href=\"https://www.investopedia.com/terms/p/prop-trading.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Prop trading: cómo funciona</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Configura tu próxima evaluación de FTMO en Zentrade con los parámetros exactos del Challenge o la Verification. El plan gratuito incluye el dashboard completo con consistency %, drawdown y progreso hacia el profit target.",
       "href": "/register",
@@ -308,7 +339,8 @@
   "relatedSlugs": [
     "como-pasar-evaluacion-ftmo-journal-trading",
     "regla-consistencia-ftmo-explicada",
-    "drawdown-trailing-vs-estatico-prop-firms",
+    "ftmo-payout-reparto-ganancias",
     "errores-comunes-evaluaciones-fondeo"
-  ]
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

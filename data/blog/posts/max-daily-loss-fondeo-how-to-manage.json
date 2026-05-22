@@ -1,0 +1,342 @@
+{
+  "slug": "max-daily-loss-fondeo-how-to-manage",
+  "title": "Max Daily Loss in Prop Firms: How to Calculate, Track, and Never Violate It",
+  "excerpt": "The Max Daily Loss rule ends more prop firm evaluations than any other. Learn how FTMO, Apex, and TopStep calculate it differently, the most common mistakes traders make, and how to monitor it in real time.",
+  "seoTitle": "Max Daily Loss Prop Firms: How It Works and How to Stay Under It (2025)",
+  "seoDescription": "Complete guide to Max Daily Loss rules in FTMO, Apex Trader Funding, and TopStep. How it's calculated, when it triggers, and strategies to protect your funded account evaluation.",
+  "keywords": [
+    "max daily loss prop firm",
+    "daily loss limit FTMO",
+    "prop firm daily loss rule",
+    "how to manage daily loss prop firm",
+    "FTMO max daily loss calculation",
+    "Apex TopStep daily loss",
+    "prop firm evaluation rules daily loss"
+  ],
+  "author": "Axel Moncada",
+  "publishedAt": "2026-05-20",
+  "updatedAt": "2026-05-20",
+  "category": "fondeo",
+  "tags": [
+    "max daily loss",
+    "FTMO",
+    "Apex Trader Funding",
+    "TopStep",
+    "prop firm",
+    "risk management",
+    "evaluation rules"
+  ],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
+  "thumbnailAlt": "Professional trader monitoring daily loss limits across multiple screens during a prop firm evaluation",
+  "content": [
+    {
+      "type": "p",
+      "text": "The Max Daily Loss rule is the single most common reason traders fail prop firm evaluations. Not because they're bad traders — but because they don't understand exactly how each firm calculates it, or they underestimate how fast it can be reached on a volatile day. This guide covers the precise mechanics of Daily Loss rules at <strong>FTMO, Apex Trader Funding, and TopStep</strong>, plus actionable strategies to protect your evaluation."
+    },
+    {
+      "type": "h2",
+      "text": "What is the Max Daily Loss in Prop Firms?"
+    },
+    {
+      "type": "p",
+      "text": "The Max Daily Loss (also called Daily Drawdown Limit) is the maximum amount you can lose in a single trading day before the prop firm automatically closes your evaluation account. Unlike a warning or a soft limit, crossing the Max Daily Loss is an immediate disqualification — your cumulative performance up to that point doesn't matter."
+    },
+    {
+      "type": "p",
+      "text": "Prop firms enforce this rule because they're looking for disciplined traders who know when to stop. A trader who loses 8% in a single day is demonstrating exactly the kind of risk behavior prop firms are designed to filter out."
+    },
+    {
+      "type": "h2",
+      "text": "How Each Major Prop Firm Calculates the Daily Loss"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Prop Firm",
+        "Daily Loss Limit",
+        "Calculation Base",
+        "Real-Time Monitoring?"
+      ],
+      "rows": [
+        [
+          "FTMO",
+          "5%",
+          "Balance or Equity at start of day (whichever is higher)",
+          "Yes — live equity"
+        ],
+        [
+          "Apex Trader Funding",
+          "No fixed Daily Loss",
+          "Only trailing drawdown applies",
+          "N/A"
+        ],
+        [
+          "TopStep",
+          "No fixed Daily Loss",
+          "Only trailing drawdown applies",
+          "N/A"
+        ],
+        [
+          "Uprofit",
+          "4-5%",
+          "Initial account balance",
+          "Yes"
+        ],
+        [
+          "Tradovate Funded",
+          "Varies by plan",
+          "Depends on account tier",
+          "Yes"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Important: Apex Trader Funding and TopStep do NOT have a Max Daily Loss rule as a separate limit. Their risk control works through a trailing drawdown that follows your equity high-water mark. This is a fundamentally different mechanism — not just a renamed daily loss."
+    },
+    {
+      "type": "h2",
+      "text": "FTMO Max Daily Loss: The Exact Calculation"
+    },
+    {
+      "type": "p",
+      "text": "FTMO's Daily Loss rule trips up experienced traders because the calculation base changes every day. The rule: <strong>the daily loss is 5% of the starting balance or starting equity for that day — whichever is higher</strong>."
+    },
+    {
+      "type": "h3",
+      "text": "Step-by-step example"
+    },
+    {
+      "type": "p",
+      "text": "You start your FTMO Challenge with $100,000. After a strong Tuesday, you end the day at $105,200 balance. Wednesday morning:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Starting balance for the day: $105,200",
+        "Max Daily Loss: 5% × $105,200 = $5,260",
+        "Minimum equity before disqualification: $105,200 − $5,260 = $99,940"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "If your equity touches $99,939 at any point during Wednesday — including on an open, floating position — the account is instantly disqualified. You don't need to close trades for it to count."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Most common mistake: calculating the daily loss as a fixed $5,000 (5% of the original $100K). Once you're up $5,200, your actual daily limit is $5,260 — but more importantly, you're now also one bad day away from going below your starting capital, which many traders don't realize."
+    },
+    {
+      "type": "h2",
+      "text": "Apex and TopStep: No Daily Loss But Trailing Drawdown"
+    },
+    {
+      "type": "p",
+      "text": "Apex and TopStep don't have a traditional daily loss limit. Instead, they use a <strong>trailing drawdown</strong> that follows your equity high-water mark. Here's how it works:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Feature",
+        "FTMO (Fixed Daily Loss)",
+        "Apex / TopStep (Trailing Drawdown)"
+      ],
+      "rows": [
+        [
+          "How the floor is set",
+          "5% below start-of-day balance",
+          "Fixed distance below your all-time equity high"
+        ],
+        [
+          "Does the floor move?",
+          "Resets each day based on new balance",
+          "Rises with every new equity high"
+        ],
+        [
+          "Risk of a big losing day",
+          "Clearly defined — know the exact $ limit",
+          "Depends on recent equity high — can be tighter than expected"
+        ],
+        [
+          "Best practice to manage it",
+          "Calculate your personal stop before trading",
+          "Never let equity hit a new high you can't defend"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Example with Apex: You have a $50K account with a $2,500 trailing drawdown. Your equity high-water mark is $51,800. Your floor is now $49,300 ($51,800 − $2,500). If you have a bad day and your equity drops to $49,299 — evaluation over, even though you started the day at $51,800 and your 'daily loss' was only $2,501."
+    },
+    {
+      "type": "h2",
+      "text": "The 4 Most Common Daily Loss Violations"
+    },
+    {
+      "type": "h3",
+      "text": "1. Revenge trading after a losing streak"
+    },
+    {
+      "type": "p",
+      "text": "You lose 3 trades in a row for -$2,800. With $2,200 left in your daily limit, you enter a position twice your normal size to 'recover.' The market moves against you 12 points. Evaluation over."
+    },
+    {
+      "type": "h3",
+      "text": "2. Not sizing positions relative to the daily limit"
+    },
+    {
+      "type": "p",
+      "text": "If your stop loss per trade is $800 and your daily limit is $5,000, you can have exactly 6 consecutive losing trades before disqualification. Most traders never do this math before they start trading."
+    },
+    {
+      "type": "h3",
+      "text": "3. Ignoring floating P&L on open positions"
+    },
+    {
+      "type": "p",
+      "text": "FTMO monitors your live equity, not just your realized P&L. If you're down $4,100 in realized losses but have an open position floating at -$1,000, your current equity loss is $5,100 — above the limit. The account closes even if you planned to wait for the trade to recover."
+    },
+    {
+      "type": "h3",
+      "text": "4. Using the firm's limit as your personal limit"
+    },
+    {
+      "type": "p",
+      "text": "Successful funded traders consistently set their personal daily stop at 2.5-3% when the firm's limit is 5%. This buffer absorbs technical issues, news spikes, and execution errors. Operating at 100% of the allowed limit leaves zero margin for anything unexpected."
+    },
+    {
+      "type": "h2",
+      "text": "A Practical Daily Loss Protocol for Evaluations"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>Before the session:</strong> Calculate your exact daily limit for today based on current balance. Write it down. This is the number that matters, not the $5K default you have memorized.",
+        "<strong>Set your personal stop at 60-70% of the firm limit:</strong> If FTMO allows $5,200 today, your personal hard stop is $3,200. When you hit it, close everything and close the platform.",
+        "<strong>Calculate max trades per day:</strong> Divide your personal daily stop by your average stop loss per trade. That's the maximum number of losing trades you can have today.",
+        "<strong>After 2 consecutive losses, pause for 30 minutes:</strong> This single rule eliminates most revenge trading violations. The market will still be there after your break.",
+        "<strong>Track your daily P&L in real time:</strong> Don't wait until you're almost at the limit to check where you are. Use a journal that shows your current daily P&L continuously."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "How Zentrade Helps You Stay Under the Daily Loss"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade is built specifically for traders in prop firm evaluations. You can configure your daily loss limit when creating your account, and the platform tracks it automatically:"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Zentrade Feature",
+        "How It Helps",
+        "Plan"
+      ],
+      "rows": [
+        [
+          "Daily P&L Calendar",
+          "Color-coded daily results — instantly see your best and worst days",
+          "Free"
+        ],
+        [
+          "Account Dashboard",
+          "Live daily loss indicator vs. your configured limit",
+          "Free"
+        ],
+        [
+          "Risk Alerts",
+          "Notification when you approach 80% of your daily limit",
+          "ZenMode"
+        ],
+        [
+          "Revenge Trading Detection",
+          "Flags aggressive position patterns after losing trades",
+          "ZenMode"
+        ],
+        [
+          "Equity Curve",
+          "Visual drawdown history showing your risk patterns over time",
+          "Professional"
+        ]
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading</a>",
+        "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation</a>",
+        "<a href=\"/blog/how-to-pass-apex-trader-funding\">How to pass Apex Trader Funding</a>",
+        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO Official Rules — 5% max daily loss</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — daily loss limits</a>",
+        "<a href=\"https://www.investopedia.com/terms/r/risk-management.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Risk Management in Trading</a>"
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Set up your prop firm evaluation in Zentrade with your exact daily loss parameters and track every trade in real time.",
+      "href": "/register",
+      "buttonText": "Start free — no credit card"
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "Does the FTMO Max Daily Loss include commissions?",
+          "a": "Yes. FTMO calculates net P&L, so commissions count against your daily limit. If your gross loss is $4,750 but commissions add $300, your net P&L is -$5,050 — which may cross the 5% limit."
+        },
+        {
+          "q": "What happens if slippage pushes me past the daily loss limit?",
+          "a": "The evaluation is disqualified regardless of the reason. Slippage, news spikes, and technical glitches are not accepted as exceptions. This is why professional traders operate with a personal limit significantly below the firm's official limit."
+        },
+        {
+          "q": "Can I trade the next day after violating the daily loss?",
+          "a": "No. The evaluation account is deactivated immediately upon crossing the Max Daily Loss. You would need to purchase a new evaluation to try again."
+        },
+        {
+          "q": "Does the daily loss apply on days I don't trade?",
+          "a": "No. The daily loss limit is only active on days where you have open trades. A day without any trading activity doesn't affect the limit."
+        },
+        {
+          "q": "Apex says it has no daily loss — is that really true?",
+          "a": "Yes, Apex has no explicit daily loss rule. However, its trailing drawdown can effectively function as a daily loss if you're at or near your equity high-water mark. The trailing floor rises with every new equity high, meaning a bad day can still end your evaluation if you've been performing well recently."
+        }
+      ]
+    }
+  ],
+  "relatedSlugs": [
+    "what-is-drawdown-trading",
+    "how-to-pass-ftmo-evaluation",
+    "how-to-pass-apex-trader-funding",
+    "best-prop-firms-futures-traders-2025"
+  ],
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
+}

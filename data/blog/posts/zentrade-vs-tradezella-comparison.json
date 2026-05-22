@@ -12,7 +12,7 @@
     "futures trading journal comparison",
     "trading journal for FTMO"
   ],
-  "author": "Zentrade Team",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-01",
   "updatedAt": "2026-04-01",
   "category": "comparativas",
@@ -317,6 +317,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/best-trading-journal-prop-firms-2025\">Best trading journal for prop firms 2025</a>",
+        "<a href=\"/blog/zentrade-vs-edgewonk-comparison\">Zentrade vs Edgewonk: direct comparison</a>",
+        "<a href=\"/blog/what-is-a-trading-journal\">What is a trading journal</a>",
+        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — key metrics for evaluations</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — trailing drawdown rules</a>",
+        "<a href=\"https://www.investopedia.com/terms/t/trading-journal.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — What makes a trading journal valuable</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Join traders who use Zentrade to pass their prop firm evaluations with full data clarity.",
       "href": "/register",
@@ -325,6 +356,10 @@
   ],
   "relatedSlugs": [
     "best-trading-journal-prop-firms-2025",
-    "mejor-journal-trading-futuros-2025"
-  ]
+    "zentrade-vs-edgewonk-comparison",
+    "what-is-a-trading-journal",
+    "best-prop-firms-futures-traders-2025"
+  ],
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
 }

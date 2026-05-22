@@ -16,7 +16,7 @@
     "por qué fallo la evaluación de fondeo",
     "mistakes prop firm evaluation"
   ],
-  "author": "Equipo Zentrade",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-07",
   "updatedAt": "2026-05-07",
   "category": "fondeo",
@@ -238,6 +238,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "También te puede interesar"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/que-es-revenge-trading\">Qué es el revenge trading y cómo evitarlo</a>",
+        "<a href=\"/blog/reglas-riesgo-diario-fondeo\">Reglas de riesgo diario en empresas de fondeo</a>",
+        "<a href=\"/blog/consistency-rule-fondeo-explicada\">La consistency rule de las prop firms explicada</a>",
+        "<a href=\"/blog/psicologia-trading-futuros\">Psicología del trading para traders de futuros</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Fuentes y recursos oficiales"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas de FTMO — los errores más frecuentes que generan</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Reglas de Apex — diferencias clave con FTMO</a>",
+        "<a href=\"https://www.investopedia.com/terms/r/risk-management.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Gestión de riesgo en evaluaciones</a>"
+      ]
+    },
+    {
       "type": "cta",
       "href": "/register",
       "buttonText": "Empieza gratis en Zentrade — Sin tarjeta de crédito"
@@ -245,10 +276,9 @@
   ],
   "relatedSlugs": [
     "que-es-revenge-trading",
-    "consistency-rule-fondeo-explicada",
     "reglas-riesgo-diario-fondeo",
-    "como-pasar-evaluacion-ftmo-journal-trading",
-    "como-pasar-uprofit-evaluacion",
+    "consistency-rule-fondeo-explicada",
     "psicologia-trading-futuros"
-  ]
+  ],
+  "authorJobTitle": "Fundador, Zentrade"
 }

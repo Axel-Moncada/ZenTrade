@@ -13,7 +13,7 @@
     "trading journal review",
     "funded trader tools"
   ],
-  "author": "Zentrade Team",
+  "author": "Axel Moncada",
   "publishedAt": "2026-04-11",
   "updatedAt": "2026-04-11",
   "category": "guias",
@@ -368,6 +368,37 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/best-trading-journal-prop-firms-2025\">Best trading journal for prop firms 2025</a>",
+        "<a href=\"/blog/how-to-track-emotions-trading\">How to track emotions in trading</a>",
+        "<a href=\"/blog/zentrade-vs-tradezella-comparison\">Zentrade vs TradeZella: direct comparison</a>",
+        "<a href=\"/blog/que-es-un-trading-journal\">Qué es un trading journal y para qué sirve</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.investopedia.com/terms/t/trading-journal.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — What is a Trading Journal</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Educational resources for futures traders</a>",
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — rules a good journal should track</a>"
+      ]
+    },
+    {
       "type": "cta",
       "text": "Start journaling your trades today with Zentrade — the trading journal designed for futures traders in prop firm evaluations. Free plan available, no credit card needed.",
       "href": "/register",
@@ -376,9 +407,12 @@
   ],
   "relatedSlugs": [
     "best-trading-journal-prop-firms-2025",
-    "best-prop-firms-futures-traders-2025",
-    "consistency-rule-prop-firm-explained"
+    "how-to-track-emotions-trading",
+    "zentrade-vs-tradezella-comparison",
+    "que-es-un-trading-journal"
   ],
   "thumbnail": "/blog/setup-trading-escritorio-journal.jpg",
-  "thumbnailAlt": "Trader using a trading journal on laptop and mobile to track futures trades for prop firm evaluation performance"
+  "thumbnailAlt": "Trader using a trading journal on laptop and mobile to track futures trades for prop firm evaluation performance",
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
 }

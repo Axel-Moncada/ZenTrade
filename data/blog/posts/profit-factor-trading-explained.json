@@ -16,7 +16,7 @@
     "profit factor vs win rate trading",
     "profit factor futures trader"
   ],
-  "author": "Zentrade Team",
+  "author": "Axel Moncada",
   "publishedAt": "2026-05-09",
   "updatedAt": "2026-05-09",
   "category": "metricas",
@@ -258,17 +258,48 @@
       ]
     },
     {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading</a>",
+        "<a href=\"/blog/consistency-rule-prop-firm-explained\">Consistency rule prop firm explained</a>",
+        "<a href=\"/blog/best-trading-journal-prop-firms-2025\">Best trading journal for prop firms 2025</a>",
+        "<a href=\"/blog/profit-factor-trading-que-es\">Qué es el profit factor en trading</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.investopedia.com/terms/p/profitfactor.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — Profit Factor explained</a>",
+        "<a href=\"https://ftmo.com/en/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — evaluation metrics including profit factor</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Metrics for futures traders</a>"
+      ]
+    },
+    {
       "type": "cta",
       "href": "/register",
       "buttonText": "Start Free on Zentrade — No Credit Card Required"
     }
   ],
   "relatedSlugs": [
+    "what-is-drawdown-trading",
     "consistency-rule-prop-firm-explained",
-    "drawdown-trailing-vs-estatico-prop-firms",
     "best-trading-journal-prop-firms-2025",
-    "how-to-pass-ftmo-evaluation",
-    "how-to-pass-apex-trader-funding",
-    "how-to-track-emotions-trading"
-  ]
+    "profit-factor-trading-que-es"
+  ],
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
 }
