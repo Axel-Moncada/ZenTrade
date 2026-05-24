@@ -14,34 +14,35 @@ function wrapEmail(bodyHtml: string, subject: string): string {
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>${subject}</title>
 </head>
-<body style="margin:0;padding:0;background:#0a0a0a;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#0a0a0a;padding:32px 0;">
+<body style="margin:0;padding:0;background:#e8e8e8;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#e8e8e8;padding:32px 16px;">
     <tr><td align="center">
-      <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+      <table width="600" cellpadding="0" cellspacing="0"
+             style="max-width:600px;width:100%;border-radius:12px;overflow:hidden;border:1px solid #D4D4D4;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
 
         <!-- HEADER -->
         <tr>
-          <td style="background:#061410;border-radius:12px 12px 0 0;padding:28px 40px;border-bottom:1px solid #0F5132;">
+          <td style="background:#112510;padding:24px 40px;border-bottom:3px solid #00C17C;">
             <a href="${APP_URL}" style="text-decoration:none;">
-              <img src="${LOGO_URL}" alt="ZenTrade" height="28" style="display:block;"/>
+              <img src="${LOGO_URL}" alt="ZenTrade" height="30" style="display:block;"/>
             </a>
           </td>
         </tr>
 
         <!-- BODY -->
         <tr>
-          <td style="background:#ffffff;padding:40px;color:#1a1a1a;font-size:15px;line-height:1.7;">
+          <td style="background:#ffffff;padding:40px;color:#1a1a1a;font-size:15px;line-height:1.75;">
             ${bodyHtml}
           </td>
         </tr>
 
         <!-- FOOTER -->
         <tr>
-          <td style="background:#061410;border-radius:0 0 12px 12px;padding:24px 40px;border-top:1px solid #0F5132;text-align:center;">
-            <p style="margin:0 0 8px;color:rgba(242,243,244,0.45);font-size:12px;">
+          <td style="background:#112510;padding:22px 40px;border-top:1px solid #1d3a28;text-align:center;">
+            <p style="margin:0 0 6px;color:rgba(242,243,244,0.45);font-size:12px;">
               © ${new Date().getFullYear()} ZenTrade · <a href="${APP_URL}" style="color:#00C17C;text-decoration:none;">zen-trader.com</a>
             </p>
-            <p style="margin:0;color:rgba(242,243,244,0.3);font-size:11px;">
+            <p style="margin:0;color:rgba(242,243,244,0.28);font-size:11px;">
               Recibes este email porque te suscribiste a ZenTrade.
             </p>
           </td>

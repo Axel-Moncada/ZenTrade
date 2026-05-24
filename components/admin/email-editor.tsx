@@ -13,6 +13,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
+import { RichEmailEditor } from '@/components/admin/rich-email-editor'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -55,93 +56,44 @@ function buildPreviewHtml(body: string, subject: string, lang: Lang): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${subject}</title>
 </head>
-<body style="margin:0;padding:0;background:#ededed;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+<body style="margin:0;padding:0;background:#e8e8e8;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#e8e8e8;padding:32px 16px;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0"
+             style="max-width:600px;width:100%;border-radius:12px;overflow:hidden;border:1px solid #D4D4D4;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
 
-  <!-- DARK HEADER -->
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#112510;">
-    <tr>
-      <td align="center" style="padding:28px 24px 0;">
-        <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
-          <tr>
-            <td align="center" style="padding-bottom:24px;">
-              <a href="${APP_URL}" style="display:inline-block;">
-                <img src="${LOGO_URL}" alt="ZenTrade" width="200" height="auto"
-                     style="display:block;height:auto;border:0;" />
-              </a>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <!-- Green accent bar -->
-    <tr>
-      <td>
-        <table width="100%" cellpadding="0" cellspacing="0">
-          <tr>
-            <td style="height:3px;background:linear-gradient(90deg,#00C17C 0%,#00966a 100%);"></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
+        <!-- HEADER -->
+        <tr>
+          <td style="background:#112510;padding:24px 40px;border-bottom:3px solid #00C17C;">
+            <a href="${APP_URL}" style="text-decoration:none;">
+              <img src="${LOGO_URL}" alt="ZenTrade" height="30"
+                   style="display:block;height:30px;border:0;" />
+            </a>
+          </td>
+        </tr>
+
+        <!-- BODY -->
+        <tr>
+          <td style="background:#ffffff;padding:40px;color:#1a1a1a;font-size:15px;line-height:1.75;">
+            ${body || placeholder}
+          </td>
+        </tr>
+
+        <!-- FOOTER -->
+        <tr>
+          <td style="background:#112510;padding:22px 40px;border-top:1px solid #1d3a28;text-align:center;">
+            <p style="margin:0 0 6px;color:rgba(242,243,244,0.45);font-size:12px;">
+              ${footerText}
+            </p>
+            <a href="#" style="color:#00C17C;font-size:12px;text-decoration:none;">${unsubText}</a>
+          </td>
+        </tr>
+
+      </table>
+    </td></tr>
   </table>
-
-  <!-- LIGHT BODY -->
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#ededed;">
-    <tr>
-      <td align="center" style="padding:32px 16px;">
-        <table width="600" cellpadding="0" cellspacing="0"
-               style="max-width:600px;width:100%;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #D1E8DC;">
-          <tr>
-            <td style="padding:36px 40px;color:#0D1F18;font-size:15px;line-height:1.75;">
-              ${body || placeholder}
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
-
-  <!-- DARK FOOTER -->
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#061410;">
-    <tr>
-      <td align="center" style="padding:28px 24px 36px;">
-        <p style="margin:0 0 6px;color:rgba(242,243,244,0.4);font-size:12px;line-height:1.6;">
-          ${footerText}
-        </p>
-        <a href="#" style="color:#00C17C;font-size:12px;text-decoration:none;">${unsubText}</a>
-        <p style="margin:16px 0 0;color:rgba(242,243,244,0.2);font-size:11px;">
-          ZenTrade · zen-trader.com
-        </p>
-      </td>
-    </tr>
-  </table>
-
 </body>
 </html>`
-}
-
-// ─── HTML Toolbar ──────────────────────────────────────────────────────────────
-
-const TOOLBAR_ACTIONS = [
-  { label: 'H2', insert: '<h2 style="color:#E2E8F0;font-size:20px;font-weight:700;margin:24px 0 12px;">$SELECTION</h2>' },
-  { label: 'H3', insert: '<h3 style="color:#E2E8F0;font-size:16px;font-weight:600;margin:20px 0 8px;">$SELECTION</h3>' },
-  { label: '<b>', insert: '<b>$SELECTION</b>' },
-  { label: '<i>', insert: '<em>$SELECTION</em>' },
-  { label: 'Link', insert: '<a href="URL" style="color:#00C17C;text-decoration:none;">$SELECTION</a>' },
-  { label: 'P', insert: '<p style="margin:0 0 16px;">$SELECTION</p>' },
-  { label: 'HR', insert: '\n<hr style="border:none;border-top:1px solid #2D3748;margin:24px 0;" />\n' },
-  { label: 'Btn', insert: '<p style="text-align:center;margin:24px 0;"><a href="URL" style="display:inline-block;padding:12px 28px;background:#00C17C;color:#000;font-weight:700;border-radius:8px;text-decoration:none;">$SELECTION</a></p>' },
-] as const
-
-function insertAtCursor(
-  textarea: HTMLTextAreaElement,
-  template: string,
-): string {
-  const start = textarea.selectionStart
-  const end = textarea.selectionEnd
-  const selected = textarea.value.slice(start, end) || 'texto'
-  const snippet = template.replace('$SELECTION', selected)
-  return textarea.value.slice(0, start) + snippet + textarea.value.slice(end)
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -185,16 +137,6 @@ export function EmailEditor({ emailId }: EmailEditorProps) {
   const setField = useCallback(<K extends keyof EmailData>(key: K, value: EmailData[K]) => {
     setData(prev => ({ ...prev, [key]: value }))
   }, [])
-
-  function applyToolbarAction(template: string) {
-    const id = lang === 'es' ? 'body-es' : 'body-en'
-    const ta = document.getElementById(id) as HTMLTextAreaElement | null
-    if (!ta) return
-    const newValue = insertAtCursor(ta, template)
-    if (lang === 'es') setField('body_html_es', newValue)
-    else setField('body_html_en', newValue)
-    setTimeout(() => ta.focus(), 0)
-  }
 
   async function save(sendNow = false) {
     const payload = {
@@ -355,7 +297,7 @@ export function EmailEditor({ emailId }: EmailEditorProps) {
                   disabled={isSent}
                   value={scheduledInput}
                   onChange={e => setScheduledInput(e.target.value)}
-                  className="bg-zen-surface border-zen-border-soft text-sm"
+                  className="bg-zen-surface border-zen-border-soft text-zen-anti-flash text-sm [color-scheme:dark]"
                 />
               )}
             </div>
@@ -435,9 +377,9 @@ export function EmailEditor({ emailId }: EmailEditorProps) {
             </div>
           ) : (
             /* ── Editor mode ── */
-            <div className="rounded-xl border border-zen-forest/20 bg-zen-surface/40 overflow-hidden">
+            <div className="space-y-3">
               {/* Subject */}
-              <div className="p-4 border-b border-zen-forest/20">
+              <div className="p-4 rounded-xl border border-zen-forest/20 bg-zen-surface/40">
                 <Label className="text-xs text-zinc-500 mb-1.5 block">
                   Asunto ({lang === 'es' ? 'Español' : 'English'})
                 </Label>
@@ -453,47 +395,19 @@ export function EmailEditor({ emailId }: EmailEditorProps) {
                 />
               </div>
 
-              {/* Toolbar */}
-              {!isSent && (
-                <div className="flex flex-wrap gap-1 px-4 py-2 border-b border-zen-forest/20 bg-zen-surface/60">
-                  {TOOLBAR_ACTIONS.map(action => (
-                    <button
-                      key={action.label}
-                      onClick={() => applyToolbarAction(action.insert)}
-                      className="px-2 py-1 rounded text-xs font-mono bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors"
-                    >
-                      {action.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              {/* Body textarea */}
-              <textarea
-                id={lang === 'es' ? 'body-es' : 'body-en'}
-                disabled={isSent}
+              {/* Rich body editor */}
+              <RichEmailEditor
                 value={currentBody}
-                onChange={e => setField(
+                onChange={html => setField(
                   lang === 'es' ? 'body_html_es' : 'body_html_en',
-                  e.target.value,
+                  html,
                 )}
+                disabled={isSent}
                 placeholder={lang === 'es'
-                  ? '<p>Escribe el cuerpo del email en HTML...</p>\n<p>Puedes usar <b>negrita</b>, <a href="#">links</a>, etc.</p>'
-                  : '<p>Write the email body in HTML...</p>\n<p>You can use <b>bold</b>, <a href="#">links</a>, etc.</p>'
-                }
-                className={cn(
-                  'w-full font-mono text-sm leading-relaxed resize-none bg-transparent',
-                  'text-zinc-300 placeholder:text-zinc-600 p-4 outline-none',
-                  'min-h-[400px]',
-                )}
-                style={{ height: '400px' }}
-                spellCheck={false}
+                  ? 'Escribe el cuerpo del email aquí…'
+                  : 'Write the email body here…'}
+                lang={lang}
               />
-
-              {/* Character count */}
-              <div className="px-4 py-2 border-t border-zen-forest/20 text-xs text-zinc-600 text-right">
-                {currentBody.length} caracteres
-              </div>
             </div>
           )}
 

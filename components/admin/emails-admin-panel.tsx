@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Plus, Send, Clock, FileText, Trash2, Mail, Users } from 'lucide-react'
+import { Plus, Send, Clock, FileText, Trash2, Mail, Users, RefreshCw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
@@ -36,6 +36,7 @@ export function EmailsAdminPanel() {
   const [loading, setLoading] = useState(true)
   const [deleting, setDeleting] = useState<string | null>(null)
   const [sending, setSending] = useState<string | null>(null)
+  const [runningScheduled, setRunningScheduled] = useState(false)
 
   async function fetchEmails() {
     const res = await fetch('/api/admin/emails')
@@ -51,6 +52,20 @@ export function EmailsAdminPanel() {
     await fetch(`/api/admin/emails/${id}`, { method: 'DELETE' })
     setEmails(prev => prev.filter(e => e.id !== id))
     setDeleting(null)
+  }
+
+  async function handleRunScheduled() {
+    setRunningScheduled(true)
+    const res = await fetch('/api/admin/send-scheduled', { method: 'POST' })
+    if (res.ok) {
+      const { sent, emails } = await res.json() as { sent: number; emails: number }
+      if (emails === 0) alert('No hay emails programados pendientes para este momento.')
+      else alert(`Enviados ${emails} email(s) a ${sent} destinatarios.`)
+      void fetchEmails()
+    } else {
+      alert('Error al ejecutar programados')
+    }
+    setRunningScheduled(false)
   }
 
   async function handleSendNow(id: string) {
@@ -87,7 +102,17 @@ export function EmailsAdminPanel() {
 
   return (
     <div className="space-y-4">
-      <div className="flex justify-end">
+      <div className="flex items-center justify-between">
+        <Button
+          variant="outline"
+          size="sm"
+          className="border-blue-700 hover:border-blue-500 text-blue-400 gap-2 text-xs"
+          onClick={() => void handleRunScheduled()}
+          disabled={runningScheduled}
+        >
+          <RefreshCw className={`w-3.5 h-3.5 ${runningScheduled ? 'animate-spin' : ''}`} />
+          {runningScheduled ? 'Enviando…' : 'Ejecutar programados ahora'}
+        </Button>
         <Link href="/dashboard/admin/emails/new">
           <Button className="bg-amber-500 hover:bg-amber-400 text-black font-semibold gap-2">
             <Plus className="w-4 h-4" />
