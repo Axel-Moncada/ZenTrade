@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useCallback, useEffect, useState } from 'react'
-import { Bold, Italic, Link2, Unlink, Image as ImageIcon, Minus } from 'lucide-react'
+import { Bold, Italic, Link2, Unlink, Image as ImageIcon, Minus, Code } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface RichEmailEditorProps {
@@ -17,6 +17,7 @@ export function RichEmailEditor({ value, onChange, disabled, placeholder, lang }
   const fileInputRef = useRef<HTMLInputElement>(null)
   const lastExternal = useRef(value)
   const [uploading, setUploading] = useState(false)
+  const [htmlMode, setHtmlMode] = useState(false)
 
   // Sync external value → DOM only when the prop changes (e.g. lang tab switch)
   useEffect(() => {
@@ -225,27 +226,53 @@ export function RichEmailEditor({ value, onChange, disabled, placeholder, lang }
                 e.target.value = ''
               }}
             />
+
+            {/* HTML mode toggle — pushed to the right */}
+            <div className="ml-auto">
+              <Sep />
+            </div>
+            <TBtn
+              onMouseDown={() => setHtmlMode(m => !m)}
+              title={htmlMode ? 'Cambiar a editor visual' : 'Editar HTML directamente'}
+              className={htmlMode ? 'bg-zinc-700 text-amber-300' : ''}
+            >
+              <Code className="w-3.5 h-3.5" />
+            </TBtn>
           </div>
         )}
 
-        {/* ── Editable area (white, like the email body) ── */}
-        <div
-          ref={editorRef}
-          contentEditable={!disabled}
-          suppressContentEditableWarning
-          onInput={emitChange}
-          onPaste={handlePaste}
-          data-placeholder={placeholder}
-          className={cn(
-            'min-h-[420px] p-6 text-[#0D1F18] text-sm leading-relaxed bg-white',
-            disabled && 'opacity-60 cursor-not-allowed bg-zinc-50',
-          )}
-        />
+        {/* ── HTML mode: raw textarea ── */}
+        {htmlMode && !disabled ? (
+          <textarea
+            value={value}
+            onChange={e => { lastExternal.current = e.target.value; onChange(e.target.value) }}
+            spellCheck={false}
+            className="w-full min-h-[420px] p-5 font-mono text-xs leading-relaxed bg-[#0d1a14] text-emerald-300 outline-none resize-none"
+            placeholder="<p>HTML directo aquí…</p>"
+          />
+        ) : (
+          /* ── Visual mode: contenteditable ── */
+          <div
+            ref={editorRef}
+            contentEditable={!disabled}
+            suppressContentEditableWarning
+            onInput={emitChange}
+            onPaste={handlePaste}
+            data-placeholder={placeholder}
+            className={cn(
+              'min-h-[420px] p-6 text-[#0D1F18] text-sm leading-relaxed bg-white',
+              disabled && 'opacity-60 cursor-not-allowed bg-zinc-50',
+            )}
+          />
+        )}
 
         {/* Footer */}
         <div className="px-4 py-2 border-t border-zen-forest/20 bg-[#0d1a14] text-xs text-zinc-600 flex justify-between">
           <span className="text-zinc-600">
-            {lang === 'es' ? 'Ctrl+V para pegar imágenes' : 'Ctrl+V to paste images'}
+            {htmlMode
+              ? (lang === 'es' ? 'Modo HTML — edición directa' : 'HTML mode — direct edit')
+              : (lang === 'es' ? 'Ctrl+V para pegar imágenes' : 'Ctrl+V to paste images')
+            }
           </span>
           <span>{charCount} {lang === 'es' ? 'caracteres' : 'chars'}</span>
         </div>
