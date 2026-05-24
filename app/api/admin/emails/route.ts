@@ -14,9 +14,9 @@ async function requireAdmin() {
 
 const CreateSchema = z.object({
   type:         z.enum(['newsletter', 'zennews']),
-  subject_es:   z.string().min(1),
+  subject_es:   z.string().default(''),
   subject_en:   z.string().default(''),
-  body_html_es: z.string().min(1),
+  body_html_es: z.string().default(''),
   body_html_en: z.string().default(''),
   audience:     z.enum(['all', 'zenmode']).default('all'),
   scheduled_at: z.string().datetime().nullable().optional(),

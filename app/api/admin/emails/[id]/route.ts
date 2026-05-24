@@ -13,7 +13,7 @@ async function requireAdmin() {
 }
 
 const UpdateSchema = z.object({
-  subject_es:   z.string().min(1).optional(),
+  subject_es:   z.string().optional(),
   subject_en:   z.string().optional(),
   body_html_es: z.string().optional(),
   body_html_en: z.string().optional(),
