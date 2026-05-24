@@ -10,7 +10,7 @@ import { getAllPosts } from "@/lib/blog";
 const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
-  title: "Best Trading Journal for Apex Trader Funding | Zentrade",
+  title: "Best Trading Journal for Apex Trader Funding",
   description:
     "Zentrade tracks the Apex Trader Funding trailing drawdown, daily loss limit and profit target in real time. The trading journal built for Apex futures evaluations.",
   keywords: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     languages: { en: `${SITE_URL}/apex-trader-funding`, es: `${SITE_URL}/es/apex-trader-funding` },
   },
   openGraph: {
-    title: "Best Trading Journal for Apex Trader Funding | Zentrade",
+    title: "Best Trading Journal for Apex Trader Funding",
     description:
       "Track your Apex trailing drawdown and daily loss limit in real time. Built for futures traders.",
     url: `${SITE_URL}/apex-trader-funding`,
@@ -109,6 +109,7 @@ const APEX_SLUGS = [
   "how-to-pass-apex-trader-funding",
   "como-pasar-apex-trader-funding",
   "apex-trader-funding-trailing-drawdown-guia",
+  "trailing-drawdown-ftmo-vs-apex-vs-topstep",
   "drawdown-trailing-vs-estatico-prop-firms",
   "what-is-drawdown-trading",
   "que-es-drawdown-trading",

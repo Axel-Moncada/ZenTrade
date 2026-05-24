@@ -206,8 +206,11 @@ export function formatDate(dateStr: string): string {
 export const CATEGORY_LABELS: Record<string, string> = {
   guias: "Guías",
   comparativas: "Comparativas",
+  estrategia: "Estrategia",
   estrategias: "Estrategias",
   fondeo: "Pruebas de Fondeo",
   psicologia: "Psicología",
+  psicologia_trading: "Psicología",
   educacion: "Educación",
+  journal: "Journal",
 };

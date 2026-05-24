@@ -10,7 +10,7 @@ import { getAllPosts } from "@/lib/blog";
 const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
-  title: "Best Trading Journal for FTMO Evaluations | Zentrade",
+  title: "Best Trading Journal for FTMO Evaluations",
   description:
     "Zentrade tracks every FTMO rule in real time: consistency score, 5% max daily loss, 10% trailing drawdown and profit target. Pass your FTMO evaluation with data, not luck.",
   keywords: [
@@ -114,6 +114,9 @@ const FTMO_SLUGS = [
   "max-daily-loss-como-respetar",
   "what-is-drawdown-trading",
   "que-es-drawdown-trading",
+  "trailing-drawdown-ftmo-vs-apex-vs-topstep",
+  "how-to-avoid-revenge-trading-prop-firms",
+  "best-futures-trading-journal-2025",
   "pasos-evaluacion-ftmo",
   "ftmo-payout-reparto-ganancias",
   "ftmo-swing-account-vs-regular-cuando-elegir",

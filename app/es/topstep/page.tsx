@@ -10,7 +10,7 @@ import { getAllPosts } from "@/lib/blog";
 const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
-  title: "Mejor Journal de Trading para TopStep | Zentrade",
+  title: "Mejor Journal de Trading para TopStep",
   description:
     "Zentrade trackea el límite de pérdida diaria del 3% de TopStep, el drawdown máximo del 6% y el profit target en tiempo real. El journal para evaluaciones de TopStep.",
   keywords: [

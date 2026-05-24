@@ -10,7 +10,7 @@ import { getAllPosts } from "@/lib/blog";
 const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
-  title: "Best Trading Journal for TopStep Evaluations | Zentrade",
+  title: "Best Trading Journal for TopStep Evaluations",
   description:
     "Zentrade tracks the TopStep 3% daily loss limit, 6% max drawdown and profit target in real time. The trading journal built for TopStep futures traders.",
   keywords: [
@@ -110,6 +110,7 @@ const TOPSTEP_SLUGS = [
   "como-pasar-topstep-evaluacion",
   "max-daily-loss-fondeo-how-to-manage",
   "max-daily-loss-como-respetar",
+  "trailing-drawdown-ftmo-vs-apex-vs-topstep",
   "what-is-drawdown-trading",
   "que-es-drawdown-trading",
   "best-prop-firms-futures-traders-2025",

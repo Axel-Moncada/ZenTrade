@@ -1,0 +1,276 @@
+{
+  "slug": "trailing-drawdown-ftmo-vs-apex-vs-topstep",
+  "title": "Trailing Drawdown Explained: FTMO vs Apex vs TopStep Compared",
+  "excerpt": "Trailing drawdown vs static drawdown — which prop firms use each, how the math works with real examples, and what it means for your trading strategy in 2025.",
+  "seoTitle": "Trailing Drawdown Explained: FTMO vs Apex vs TopStep Comparison",
+  "seoDescription": "Trailing vs static drawdown in prop firm evaluations: how FTMO, Apex Trader Funding, and TopStep each calculate drawdown, with real examples and what it means for your strategy.",
+  "keywords": [
+    "trailing drawdown explained",
+    "trailing vs static drawdown",
+    "FTMO vs Apex drawdown",
+    "Apex trailing drawdown explained",
+    "TopStep drawdown rules",
+    "prop firm drawdown comparison 2025",
+    "how does trailing drawdown work"
+  ],
+  "author": "Axel Moncada",
+  "authorJobTitle": "Founder, Zentrade",
+  "publishedAt": "2026-05-23",
+  "updatedAt": "2026-05-23",
+  "category": "fondeo",
+  "tags": [
+    "drawdown",
+    "trailing drawdown",
+    "FTMO",
+    "Apex Trader Funding",
+    "TopStep",
+    "prop firms",
+    "risk management"
+  ],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/stock-market-trader-analyzing-charts.jpg",
+  "thumbnailAlt": "Trader analyzing trailing drawdown rules and comparison charts between FTMO, Apex Trader Funding and TopStep prop firms",
+  "lang": "en",
+  "relatedSlugs": [
+    "what-is-drawdown-trading",
+    "drawdown-trailing-vs-estatico-prop-firms",
+    "how-to-pass-apex-trader-funding",
+    "how-to-pass-ftmo-evaluation"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "Drawdown rules end more prop firm evaluations than any other single factor — not because traders do not understand them, but because they understand them in theory and misapply them in practice. The difference between trailing drawdown and static drawdown is not just semantic: it determines how much risk you can actually take on any given trade, and it changes as your account grows."
+    },
+    {
+      "type": "p",
+      "text": "This guide explains both drawdown types with real numbers, shows exactly how FTMO, Apex Trader Funding, and TopStep each apply these rules, and explains what it means for your position sizing and risk management in each evaluation."
+    },
+    {
+      "type": "h2",
+      "text": "Static Drawdown vs Trailing Drawdown: The Core Difference"
+    },
+    {
+      "type": "h3",
+      "text": "Static (Fixed) Drawdown"
+    },
+    {
+      "type": "p",
+      "text": "In a static drawdown evaluation, your floor is set once — at the beginning of the evaluation — and it never moves. If you start with a $100,000 account and have a 10% static max drawdown, your floor is permanently at $90,000. It does not matter how much you earn during the evaluation: that floor stays at $90,000. Your account can grow to $120,000 and your floor is still $90,000 — giving you $30,000 of actual distance from the floor."
+    },
+    {
+      "type": "h3",
+      "text": "Trailing Drawdown"
+    },
+    {
+      "type": "p",
+      "text": "In a trailing drawdown evaluation, your floor moves upward as your equity grows. If you start with $100,000 and have a $5,000 trailing drawdown, your floor begins at $95,000. If your equity grows to $103,000, your floor rises to $98,000 — always $5,000 below your highest equity point. Once your floor reaches your starting balance ($100,000), it typically locks there — it will not go above your starting balance in most implementations."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "The critical insight about trailing drawdown: during the early phase of an evaluation when your equity is growing, every dollar you earn also raises your floor by a dollar. Your absolute risk buffer stays constant — it does not grow with your account the way it does in a static drawdown evaluation."
+    },
+    {
+      "type": "h2",
+      "text": "How FTMO Calculates Drawdown"
+    },
+    {
+      "type": "p",
+      "text": "FTMO uses <strong>static drawdown</strong> for the max overall drawdown rule. The floor is set at the beginning of the evaluation and does not change regardless of your equity progress."
+    },
+    {
+      "type": "table",
+      "headers": ["Account Size", "Max Daily Loss (5%)", "Max Drawdown (10%)", "Starting Floor"],
+      "rows": [
+        ["$10,000", "$500/day", "$1,000 total", "$9,000"],
+        ["$25,000", "$1,250/day", "$2,500 total", "$22,500"],
+        ["$50,000", "$2,500/day", "$5,000 total", "$45,000"],
+        ["$100,000", "$5,000/day", "$10,000 total", "$90,000"],
+        ["$200,000", "$10,000/day", "$20,000 total", "$180,000"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Because FTMO's drawdown is static, a trader who reaches $115,000 on a $100,000 account has $25,000 of distance from the $90,000 floor — substantially more than the original $10,000. This is one reason FTMO's two-phase structure is more forgiving of early drawdown than Apex's trailing model."
+    },
+    {
+      "type": "p",
+      "text": "FTMO also enforces a <strong>5% max daily loss</strong> (calculated from start-of-day balance) and a <strong>consistency rule</strong> (no single day can represent more than 30% of total net profit). The daily loss rule is the more immediate risk for most traders."
+    },
+    {
+      "type": "h2",
+      "text": "How Apex Trader Funding Calculates Drawdown"
+    },
+    {
+      "type": "p",
+      "text": "Apex uses <strong>trailing drawdown</strong> — specifically, a trailing drawdown measured from the <em>end-of-day equity peak</em>, not the intraday peak. This distinction is important: if your account reaches an intraday high of $53,000 but closes the day at $51,000, Apex's trailing floor follows the end-of-day value, not the intraday high."
+    },
+    {
+      "type": "table",
+      "headers": ["Account Size", "Profit Target (9%)", "Trailing Drawdown", "Starting Floor"],
+      "rows": [
+        ["$25,000", "$2,250", "$1,500", "$23,500"],
+        ["$50,000", "$4,500", "$2,500", "$47,500"],
+        ["$100,000", "$9,000", "$3,000", "$97,000"],
+        ["$150,000", "$13,500", "$4,500", "$145,500"],
+        ["$300,000", "$27,000", "$4,500", "$295,500"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "The floor rises with your equity until it reaches the starting account balance, at which point it locks. Example on the $50,000 account:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Day 1: Equity = $50,000 → Floor = $47,500",
+        "Day 3: Equity = $51,500 → Floor rises to $49,000",
+        "Day 5: Equity = $52,500 → Floor rises to $50,000 (= starting balance)",
+        "Day 5+: Floor locks at $50,000 regardless of further gains",
+        "Day 10: Equity = $55,000 → Floor still $50,000 → Buffer is now $5,000"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "On Apex accounts, once your floor has locked at your starting balance ($50,000 in the example above), your buffer actually grows as your equity grows. This is the 'safe zone' — the period after the floor has locked where losing trades no longer risk your starting capital."
+    },
+    {
+      "type": "h2",
+      "text": "How TopStep Calculates Drawdown"
+    },
+    {
+      "type": "p",
+      "text": "TopStep also uses <strong>trailing drawdown</strong>, but with one critical difference from Apex: TopStep's trailing floor tracks the <em>intraday equity peak</em>, not the end-of-day value. This is the most restrictive implementation among the three major firms."
+    },
+    {
+      "type": "table",
+      "headers": ["Account Size", "Profit Target (6%)", "Trailing Drawdown", "Starting Floor"],
+      "rows": [
+        ["$50,000", "$3,000", "$2,000", "$48,000"],
+        ["$100,000", "$6,000", "$3,000", "$97,000"],
+        ["$150,000", "$9,000", "$4,500", "$145,500"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "The intraday tracking means that if your account reaches $51,500 during a session but you give back $1,000 before the close, your floor is still tracking $51,500 — it has risen to $49,500. If you then have a bad session the next day, you have less buffer than you think you do."
+    },
+    {
+      "type": "h2",
+      "text": "Side-by-Side Comparison: FTMO vs Apex vs TopStep"
+    },
+    {
+      "type": "table",
+      "headers": ["Rule", "FTMO", "Apex Trader Funding", "TopStep"],
+      "rows": [
+        ["Drawdown type", "Static", "Trailing (EOD)", "Trailing (Intraday)"],
+        ["Floor baseline", "10% below initial capital — permanent", "6% below initial capital — rises with equity", "3-4% below initial capital — rises with equity intraday"],
+        ["Consistency rule", "Yes (30% cap per day)", "No", "Yes (30% cap per day)"],
+        ["Daily loss limit", "5% of starting balance", "Fixed by account size", "3% of starting balance — strictest"],
+        ["Min trading days", "4 days (both phases)", "None", "None"],
+        ["Evaluation phases", "2 (Challenge + Verification)", "1", "1"],
+        ["Profit target", "10% Phase 1, 5% Phase 2", "9%", "6%"],
+        ["Profit split", "Up to 90%", "Up to 90%", "Up to 100% after $10K"]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "What This Means for Your Trading Strategy"
+    },
+    {
+      "type": "h3",
+      "text": "Trading FTMO: Protect Against Daily Loss, Manage Consistency"
+    },
+    {
+      "type": "p",
+      "text": "With FTMO's static drawdown, the max overall drawdown is less of an immediate daily concern than in trailing models — especially once you have built some equity. The two rules to watch in real time are the 5% daily loss (a hard stop that ends your evaluation immediately) and the consistency score (which can invalidate your payout even after reaching the profit target)."
+    },
+    {
+      "type": "h3",
+      "text": "Trading Apex: Respect the Trailing Floor, Especially Early"
+    },
+    {
+      "type": "p",
+      "text": "The most dangerous period in an Apex evaluation is the first few days. Your floor is trailing your equity with no cushion building until the floor has risen to your starting balance. During this window, a bad session can consume your entire buffer. Conservative position sizing in sessions 1-5 is essential — get the floor to lock before you increase your risk."
+    },
+    {
+      "type": "h3",
+      "text": "Trading TopStep: The 3% Daily Limit is the Primary Constraint"
+    },
+    {
+      "type": "p",
+      "text": "TopStep's intraday trailing is more complex to track but the daily loss limit is the more immediate risk for most traders. The 3% daily limit — $1,500 on a $50,000 account — is extremely tight for full ES or NQ contracts. Most TopStep traders who pass consistently use micro contracts (MES, MNQ) to give themselves enough granularity in position sizing to stay well within this limit."
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade tracks trailing and static drawdown floors in real time for FTMO, Apex, and TopStep accounts — updated after every trade, displayed on your dashboard.",
+      "href": "/register",
+      "buttonText": "Start Free — No Credit Card"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "Is trailing drawdown better or worse than static drawdown?",
+          "a": "Neither is objectively better — they reward different trading styles. Static drawdown (FTMO) rewards building a large profit cushion early; once you are up significantly, the floor becomes a distant concern. Trailing drawdown (Apex, TopStep) keeps constant pressure on risk management throughout the evaluation — you cannot afford to be reckless even after several good days."
+        },
+        {
+          "q": "What happens when the trailing floor reaches my starting balance?",
+          "a": "On Apex, the floor locks permanently at your starting balance. Once locked, you can only lose up to the trailing drawdown amount — you cannot lose more than you started with (in terms of the evaluation ending). On TopStep, the floor also locks at starting balance. This is the 'safe zone' that traders aim to reach as quickly as possible."
+        },
+        {
+          "q": "Can I lose the entire trailing drawdown amount in one trade?",
+          "a": "Yes. If you enter a single large position with no stop-loss and the market moves violently against you, it is possible to lose your entire remaining buffer in one trade. This is why hard stops on every position are non-negotiable in prop firm evaluations, regardless of drawdown type."
+        },
+        {
+          "q": "Does FTMO use trailing drawdown anywhere in their rules?",
+          "a": "FTMO describes their drawdown as 'relative drawdown' — the max drawdown from the initial account balance. It does not trail. However, some traders confuse FTMO's daily loss limit (5% from start-of-day balance, which changes daily) with a trailing mechanism. The overall max drawdown itself is static."
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading — explained with examples</a>",
+        "<a href=\"/blog/drawdown-trailing-vs-estatico-prop-firms\">Trailing vs static drawdown in prop firms</a>",
+        "<a href=\"/blog/how-to-pass-apex-trader-funding\">How to pass Apex Trader Funding evaluation</a>",
+        "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation — complete guide</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://ftmo.com/en/trading-rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO Official Trading Rules — Drawdown Guidelines</a>",
+        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding — Official Evaluation Rules</a>",
+        "<a href=\"https://www.topstep.com/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">TopStep — Official Trading Rules</a>"
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade is the trading journal that shows your drawdown floor in real time — whether it is trailing or static. Set up your prop firm rules once, track every metric automatically.",
+      "href": "/register",
+      "buttonText": "Try Zentrade Free"
+    }
+  ]
+}

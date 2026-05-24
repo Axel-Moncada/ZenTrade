@@ -1,0 +1,287 @@
+{
+  "slug": "futures-trading-journal-template",
+  "title": "Futures Trading Journal Template: What to Track Every Single Day",
+  "excerpt": "A complete futures trading journal template with every field that actually matters for prop firm traders — from trade entries to emotional state, drawdown tracking, and daily review.",
+  "seoTitle": "Futures Trading Journal Template — What to Track Every Day",
+  "seoDescription": "Complete futures trading journal template for prop firm traders: every field to log per trade, daily review checklist, and the metrics that actually predict whether you will pass your evaluation.",
+  "keywords": [
+    "futures trading journal template",
+    "what to track in trading journal",
+    "trading journal template prop firm",
+    "daily trading journal template",
+    "trading log template futures",
+    "prop firm journal template 2025"
+  ],
+  "author": "Axel Moncada",
+  "authorJobTitle": "Founder, Zentrade",
+  "publishedAt": "2026-05-23",
+  "updatedAt": "2026-05-23",
+  "category": "journal",
+  "tags": [
+    "trading journal",
+    "template",
+    "futures trading",
+    "prop firms",
+    "day trading",
+    "risk management"
+  ],
+  "readingTime": 9,
+  "featured": false,
+  "thumbnail": "/blog/trader-escritura-journal-grafica-monitor.jpg",
+  "thumbnailAlt": "Trader writing entries in a futures trading journal template next to a monitor showing trading charts and market data",
+  "lang": "en",
+  "relatedSlugs": [
+    "what-is-a-trading-journal",
+    "best-futures-trading-journal-2025",
+    "how-to-track-emotions-trading",
+    "how-to-avoid-revenge-trading-prop-firms"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "A trading journal template is only useful if you actually fill it in — and you only fill it in if it captures information that you use. Most template guides list 30 fields per trade and create a system so complex that traders abandon it after a week. This guide takes the opposite approach: here are the minimum fields that give you the maximum insight, structured for futures traders who are in or preparing for prop firm evaluations."
+    },
+    {
+      "type": "p",
+      "text": "This template works whether you use paper, spreadsheet, or a purpose-built tool like Zentrade. The fields are what matter."
+    },
+    {
+      "type": "h2",
+      "text": "The Two Layers of a Good Futures Journal"
+    },
+    {
+      "type": "p",
+      "text": "A futures trading journal has two distinct layers: the <strong>trade log</strong> (what you do on each trade) and the <strong>session review</strong> (what you learn from each day). Both are necessary. Most traders who fail evaluations track trades but skip the session review — which means they generate data but never extract insight from it."
+    },
+    {
+      "type": "h2",
+      "text": "Layer 1: The Trade Log Template"
+    },
+    {
+      "type": "p",
+      "text": "These are the fields to capture for every single trade, as close to entry/exit time as possible:"
+    },
+    {
+      "type": "h3",
+      "text": "Required Fields — No Exceptions"
+    },
+    {
+      "type": "table",
+      "headers": ["Field", "What to Log", "Why It Matters"],
+      "rows": [
+        ["Instrument", "ES, NQ, CL, GC, MNQ, etc.", "Different tick values — PnL requires this"],
+        ["Entry time", "HH:MM (include timezone)", "Correlate with session analysis, news events"],
+        ["Entry price", "Exact price", "PnL calculation baseline"],
+        ["Exit time", "HH:MM", "Trade duration, session window"],
+        ["Exit price", "Exact price", "PnL calculation"],
+        ["Contracts", "Number of contracts", "Position sizing tracking"],
+        ["Side", "Long / Short", "Directional bias analysis"],
+        ["PnL ($)", "Dollar result net of commissions", "Actual account impact"],
+        ["Exit reason", "Stop hit / Target hit / Manual / Time stop", "Pattern analysis — how often you break plan"],
+        ["Emotional state", "Calm / Anxious / Confident / Impulsive / Bored", "Correlation with outcome — most valuable long-term data"]
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "Optional Fields — Add Once You Are Consistent"
+    },
+    {
+      "type": "table",
+      "headers": ["Field", "What to Log"],
+      "rows": [
+        ["Setup type", "Trend continuation / Range reversal / Breakout / Scalp"],
+        ["Risk:Reward planned", "1:1.5 / 1:2 / 1:3 (what you planned before entry)"],
+        ["Plan compliance", "Yes / No (did you follow your stated plan?)"],
+        ["Market context", "Trending / Ranging / News-driven / Low volume"],
+        ["Session", "Pre-market / Regular open / Mid-session / Power hour"],
+        ["Notes", "One sentence — what happened, not a story"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Start with the required fields only. Add optional fields one at a time, only when you find yourself wanting that information. A journal filled with 10 required fields is infinitely more useful than an empty template with 30 fields."
+    },
+    {
+      "type": "h2",
+      "text": "Layer 2: The Daily Session Review Template"
+    },
+    {
+      "type": "p",
+      "text": "Complete this at the end of every trading day — it takes 10-15 minutes and generates the insights that the trade log cannot give you alone."
+    },
+    {
+      "type": "h3",
+      "text": "Compliance Dashboard (for prop firm traders)"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Daily P&L:</strong> _____ (net after commissions)",
+        "<strong>Daily P&L vs. limit:</strong> _____ / _____ (e.g., -$800 / -$2,500 limit)",
+        "<strong>Drawdown floor position:</strong> _____ (current floor amount)",
+        "<strong>Drawdown consumed:</strong> _____ % of maximum",
+        "<strong>Consistency %:</strong> _____ (best single day ÷ total net profit)",
+        "<strong>Progress to profit target:</strong> _____ / _____ (e.g., $1,200 / $5,000)"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "These six numbers should be visible at a glance. If you cannot answer them in 30 seconds, you are not managing your evaluation — you are gambling it."
+    },
+    {
+      "type": "h3",
+      "text": "Trade Quality Review"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Number of trades: _____",
+        "Winning trades: _____ | Losing trades: _____",
+        "Best trade ($): _____ | Worst trade ($): _____",
+        "Trades that followed my plan: _____ / _____",
+        "Any revenge trades? Yes / No — if yes, describe in one sentence",
+        "Did I stop trading at my personal daily limit? Yes / N/A"
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "One-Sentence Retrospective"
+    },
+    {
+      "type": "p",
+      "text": "Complete this sentence every day: <em>'The most important thing I will do differently tomorrow is _____.''</em>"
+    },
+    {
+      "type": "p",
+      "text": "This single sentence is more valuable than a paragraph of analysis. It forces specificity, it creates a commitment, and over time it reveals the patterns in your mistakes — the same answer will appear repeatedly until you actually change the behavior."
+    },
+    {
+      "type": "h2",
+      "text": "Layer 3: The Weekly Review Template"
+    },
+    {
+      "type": "p",
+      "text": "Spend 30 minutes on this at the end of every trading week — Sunday evening works well for most traders."
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Week summary:</strong> total PnL, number of days traded, win rate for the week",
+        "<strong>Best day:</strong> what worked, what setup, what session",
+        "<strong>Worst day:</strong> what failed, what emotional state, what could be changed",
+        "<strong>Consistency check:</strong> did any single day exceed 25% of weekly net profit? (Warning level before 30%)",
+        "<strong>Drawdown review:</strong> how close did you get to the daily limit or overall floor?",
+        "<strong>Pattern identification:</strong> is there a setup, session, or market condition where you consistently underperform?",
+        "<strong>One behavioral goal for next week:</strong> specific and measurable (not 'trade better' — 'stop trading after 3 losing trades in one session')"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "What NOT to Track"
+    },
+    {
+      "type": "p",
+      "text": "Equally important as what to track is what to leave out. These fields create noise without generating insight:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Running tick-by-tick commentary</strong> — narrating the trade in real time while you are in it takes attention away from execution",
+        "<strong>Photos of every chart</strong> — one screenshot of the setup at entry is enough; five screenshots per trade clutters the journal without adding value",
+        "<strong>Win rate as a headline metric</strong> — a 40% win rate can be very profitable with the right R:R. Win rate alone tells you almost nothing",
+        "<strong>Macro market analysis in trade logs</strong> — save macro analysis for session review, not individual trade entries",
+        "<strong>P&L in points/ticks instead of dollars</strong> — always convert to dollars. A trade that 'gained 15 ticks' on NQ means something very different on 1 contract vs 5 contracts"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "The best indicator that your journal is working: you dread filling in the 'Plan compliance' field on your worst trades. That discomfort is exactly what you are trying to create — it makes you think twice before breaking your plan the next time."
+    },
+    {
+      "type": "h2",
+      "text": "Spreadsheet vs. Purpose-Built Journal: Which Template Works Better"
+    },
+    {
+      "type": "p",
+      "text": "A spreadsheet template can capture all the required fields above. The limitation is that it does not calculate futures PnL correctly by default (you have to build the tick math formulas), it does not update your prop firm compliance metrics automatically, and it cannot surface behavioral patterns across hundreds of trades."
+    },
+    {
+      "type": "p",
+      "text": "A purpose-built futures journal like Zentrade handles the calculation layer automatically — instrument-specific PnL, prop firm rule compliance tracking, consistency score, drawdown floor position — and lets you focus on logging the qualitative fields (emotional state, plan compliance, setup type) that the software cannot calculate for you."
+    },
+    {
+      "type": "p",
+      "text": "The practical recommendation: if you are just starting out, use a spreadsheet with the template above to understand what you are tracking and why. Once you have 2-3 weeks of data and feel the pain points (manual PnL calculation, manual compliance tracking), switch to a purpose-built tool."
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade is the trading journal built for futures prop firm traders. Import from NinjaTrader, Rithmic, or Tradovate, and your compliance dashboard updates automatically after every trade.",
+      "href": "/register",
+      "buttonText": "Start Free — No Credit Card"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "How long should a trading journal entry take to complete?",
+          "a": "The trade log for each trade should take under 2 minutes if done immediately after closing the position. The daily session review should take 10-15 minutes. If your journal is taking longer than this, you have too many fields — cut it back to the essentials until the habit is established."
+        },
+        {
+          "q": "Should I journal when I do not trade?",
+          "a": "Yes, briefly. Note that you chose not to trade, why (no setup present, news event day, recovery from bad day), and what you observed in the market. This data is valuable — it shows you that discipline sometimes means sitting on your hands, and it tracks the days where not trading was actually the best decision."
+        },
+        {
+          "q": "What is the single most valuable field in a trading journal?",
+          "a": "Emotional state at entry. This single field, tracked consistently over 100+ trades, will reveal correlations between your emotional state and your trade outcomes that are impossible to see any other way. Most traders discover that their worst trades come from 'Confident' or 'Impulsive' states, not 'Anxious' — which is counterintuitive and useful."
+        },
+        {
+          "q": "How far back should I go to create historical journal entries?",
+          "a": "Do not try to backfill historical trades from memory or reconstruction — the data will be too inaccurate to be useful. Start fresh with today's trades. Historical data from your broker statements can give you PnL history, but behavioral data requires real-time logging."
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/what-is-a-trading-journal\">What is a trading journal — and why do you need one?</a>",
+        "<a href=\"/blog/best-futures-trading-journal-2025\">Best futures trading journal 2025 — what to look for</a>",
+        "<a href=\"/blog/how-to-track-emotions-trading\">How to track emotions in trading</a>",
+        "<a href=\"/blog/how-to-avoid-revenge-trading-prop-firms\">How to avoid revenge trading in prop firm evaluations</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.investopedia.com/articles/active-trading/081315/how-keep-trading-journal.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — How to Keep a Trading Journal</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Introduction to Futures Trading</a>",
+        "<a href=\"https://ftmo.com/en/trading-rules/\" target=\"_blank\" rel=\"noopener noreferrer\">FTMO — Official Trading Rules (prop firm compliance reference)</a>"
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade gives you the journal template and the automation. Log trades, track emotions, and monitor your prop firm compliance — all in one place, free to start.",
+      "href": "/register",
+      "buttonText": "Try Zentrade Free"
+    }
+  ]
+}

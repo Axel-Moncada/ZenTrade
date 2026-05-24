@@ -10,7 +10,7 @@ import { getAllPosts } from "@/lib/blog";
 const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
-  title: "Mejor Journal de Trading para Evaluaciones de FTMO | Zentrade",
+  title: "Mejor Journal de Trading para Evaluaciones de FTMO",
   description:
     "Zentrade trackea en tiempo real cada regla de FTMO: consistency score, max daily loss 5%, trailing drawdown 10% y profit target. Pasa tu evaluación de FTMO con datos, no con suerte.",
   keywords: [

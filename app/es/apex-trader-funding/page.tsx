@@ -10,7 +10,7 @@ import { getAllPosts } from "@/lib/blog";
 const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
-  title: "Mejor Journal de Trading para Apex Trader Funding | Zentrade",
+  title: "Mejor Journal de Trading para Apex Trader Funding",
   description:
     "Zentrade trackea el trailing drawdown de Apex Trader Funding, el límite de pérdida diaria y el profit target en tiempo real. El journal para evaluaciones de Apex.",
   keywords: [

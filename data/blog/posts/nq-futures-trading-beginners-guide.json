@@ -1,0 +1,296 @@
+{
+  "slug": "nq-futures-trading-beginners-guide",
+  "title": "NQ Futures Trading: Beginner's Guide to Trading Nasdaq Futures",
+  "excerpt": "Everything you need to know before trading NQ futures: contract specs, tick value, session times, risk management, and how to use it in prop firm evaluations.",
+  "seoTitle": "NQ Futures Trading Guide for Beginners — Nasdaq Futures Explained",
+  "seoDescription": "Complete NQ futures trading guide: E-mini Nasdaq contract specs, tick value calculation, best session hours, risk management rules, and how to trade NQ in prop firm evaluations.",
+  "keywords": [
+    "NQ futures trading",
+    "how to trade NQ futures",
+    "Nasdaq futures beginners",
+    "NQ futures contract specs",
+    "NQ futures prop firm",
+    "E-mini Nasdaq 100 futures",
+    "NQ futures risk management"
+  ],
+  "author": "Axel Moncada",
+  "authorJobTitle": "Founder, Zentrade",
+  "publishedAt": "2026-05-23",
+  "updatedAt": "2026-05-23",
+  "category": "estrategia",
+  "tags": [
+    "NQ futures",
+    "Nasdaq futures",
+    "futures trading",
+    "beginners guide",
+    "prop firms",
+    "risk management"
+  ],
+  "readingTime": 10,
+  "featured": false,
+  "thumbnail": "/blog/carefully-analyzing-market-trends-with-advanced-comprehensive-trading-setup.jpg",
+  "thumbnailAlt": "Trader analyzing NQ Nasdaq 100 futures charts on an advanced multi-monitor trading setup with technical indicators",
+  "lang": "en",
+  "relatedSlugs": [
+    "best-prop-firms-futures-traders-2025",
+    "what-is-drawdown-trading",
+    "how-to-pass-ftmo-evaluation",
+    "best-futures-trading-journal-2025"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "The NQ futures contract — E-mini Nasdaq-100 — is one of the most popular instruments among prop firm traders. It offers high liquidity, clear technical structure, and volatility that creates frequent intraday opportunities. But that same volatility makes NQ one of the fastest ways to violate a daily loss limit if you trade it without understanding the contract specifications and the risk math that comes with them."
+    },
+    {
+      "type": "p",
+      "text": "This guide covers everything a beginner needs before placing their first NQ futures trade: contract specs, tick value, session structure, appropriate risk sizing for different account sizes, and how to manage NQ trades within the specific rules of FTMO, Apex, and TopStep evaluations."
+    },
+    {
+      "type": "h2",
+      "text": "NQ Futures Contract Specifications"
+    },
+    {
+      "type": "table",
+      "headers": ["Specification", "E-mini NQ (NQ)", "Micro NQ (MNQ)"],
+      "rows": [
+        ["Exchange", "CME Globex", "CME Globex"],
+        ["Underlying", "Nasdaq-100 Index", "Nasdaq-100 Index"],
+        ["Contract Size", "$20 × Nasdaq-100 Index", "$2 × Nasdaq-100 Index"],
+        ["Tick Size", "0.25 index points", "0.25 index points"],
+        ["Tick Value", "$5.00 per tick", "$0.50 per tick"],
+        ["Point Value", "$20.00 per full point", "$2.00 per full point"],
+        ["Trading Hours", "Sunday 6pm – Friday 5pm ET (with daily break)", "Same"],
+        ["Margin (approx)", "$15,000–$17,000 initial", "$1,500–$1,700 initial"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "The Micro NQ (MNQ) contract is exactly 1/10th the size of the full NQ. A 100-point NQ move is worth $2,000 on the full contract and $200 on the micro. For prop firm evaluations, MNQ is the standard instrument for accounts under $50,000."
+    },
+    {
+      "type": "h2",
+      "text": "How NQ Tick Math Works in Practice"
+    },
+    {
+      "type": "p",
+      "text": "Understanding tick math is the single most important thing before you trade NQ. Many new futures traders come from stock trading where PnL = (exit price – entry price) × shares. That formula does not work for futures."
+    },
+    {
+      "type": "p",
+      "text": "Here is the correct NQ calculation:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>NQ point move</strong> = (Exit price – Entry price) in index points",
+        "<strong>Dollar PnL (1 contract)</strong> = point move × $20",
+        "<strong>Or using ticks:</strong> ticks moved × $5 per tick × number of contracts"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Examples on 1 NQ contract:"
+    },
+    {
+      "type": "table",
+      "headers": ["Move", "Points", "Ticks", "Dollar Value"],
+      "rows": [
+        ["Small scalp", "5 pts", "20 ticks", "$100"],
+        ["Medium day trade", "20 pts", "80 ticks", "$400"],
+        ["Large trend day", "100 pts", "400 ticks", "$2,000"],
+        ["Volatile news move", "300 pts", "1,200 ticks", "$6,000"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "That last row — a 300-point move — happens regularly on Fed days, CPI releases, and earnings from major Nasdaq components like NVIDIA, Apple, or Meta. If you are short 2 contracts and the market moves 300 points against you, that is a $12,000 loss in one move. This is why prop firm daily loss limits exist, and why NQ requires strict risk management."
+    },
+    {
+      "type": "h2",
+      "text": "NQ Trading Sessions and Volatility Windows"
+    },
+    {
+      "type": "p",
+      "text": "NQ trades nearly 24 hours a day from Sunday evening to Friday afternoon, but volatility and liquidity are not evenly distributed. Knowing when each session begins and what to expect from it is essential for beginners."
+    },
+    {
+      "type": "h3",
+      "text": "Overnight Session (6pm – 9:30am ET)"
+    },
+    {
+      "type": "p",
+      "text": "Lower volume, wider bid-ask spreads, more susceptibility to gaps from international news. The Asian session (11pm – 4am ET) and early European session (3am – 9:30am ET) can move NQ significantly on macro data from those regions. Most beginner prop firm traders should avoid overnight trading until they have a clear edge and understand the risk of gap moves."
+    },
+    {
+      "type": "h3",
+      "text": "Regular Session Open (9:30am – 11:00am ET)"
+    },
+    {
+      "type": "p",
+      "text": "The first 90 minutes of the regular session are typically the highest-volume, highest-volatility window of the day. NQ often establishes the day's high or low during this period. For experienced traders, this is where the clearest setups form. For beginners, it is also where accounts blow up fastest."
+    },
+    {
+      "type": "h3",
+      "text": "Mid-Session Consolidation (11:00am – 2:00pm ET)"
+    },
+    {
+      "type": "p",
+      "text": "This window is often characterized by choppier, lower-volatility price action. Trend setups from the morning session may stall or reverse. Many day traders step back during this window, especially if they have already hit their daily target."
+    },
+    {
+      "type": "h3",
+      "text": "Power Hour (3:00pm – 4:00pm ET)"
+    },
+    {
+      "type": "p",
+      "text": "The final hour of the regular session sees volume increase again as institutional portfolio rebalancing and index tracking happen near the close. Trend continuation or reversal setups can form during this window."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "News events like NFP (first Friday each month), FOMC rate decisions (8 per year), and CPI releases can make NQ move 100–400 points in minutes. Most prop firm rules prohibit holding open positions during these events. Check the economic calendar every morning and note all high-impact events."
+    },
+    {
+      "type": "h2",
+      "text": "NQ Risk Management: How Many Contracts to Trade"
+    },
+    {
+      "type": "p",
+      "text": "Position sizing for NQ in prop firm evaluations is a function of two things: your daily loss limit and your maximum stop size per trade. Here is the formula:"
+    },
+    {
+      "type": "p",
+      "text": "<strong>Max contracts = Daily loss limit ÷ (Stop size in points × $20 per point)</strong>"
+    },
+    {
+      "type": "p",
+      "text": "Example for a $50,000 FTMO evaluation with a $2,500 daily loss limit (5%):"
+    },
+    {
+      "type": "table",
+      "headers": ["Stop Size (points)", "Max Contracts (NQ)", "MNQ Equivalent"],
+      "rows": [
+        ["10 pts", "12 contracts", "120 MNQ"],
+        ["20 pts", "6 contracts", "60 MNQ"],
+        ["30 pts", "4 contracts", "40 MNQ"],
+        ["50 pts", "2 contracts", "25 MNQ"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "This math assumes you only take one trade per day and that one trade hits the full stop. In practice, you might have 3-5 trades in a session, which means your per-trade risk must be a fraction of the daily limit — most professional traders risk 20-33% of their daily limit per trade. Use these numbers as a maximum ceiling, not a target."
+    },
+    {
+      "type": "h2",
+      "text": "NQ in Prop Firm Evaluations: What Changes"
+    },
+    {
+      "type": "h3",
+      "text": "FTMO + NQ"
+    },
+    {
+      "type": "p",
+      "text": "FTMO's NQ evaluation involves tracking the 5% max daily loss (absolute, from start-of-day balance), the 10% max overall drawdown (static from initial capital), and the consistency rule (no single day > 30% of net profit). The consistency rule is especially dangerous with NQ because its high volatility means one exceptional day can easily represent 40-50% of a trader's net profit if they size up after an early morning trend day."
+    },
+    {
+      "type": "h3",
+      "text": "Apex Trader Funding + NQ"
+    },
+    {
+      "type": "p",
+      "text": "Apex uses a trailing drawdown on NQ accounts, which means your drawdown floor rises as your equity increases. This is particularly important to track on high-volatility instruments like NQ — a 200-point rally followed by a reversal can hit a new trailing floor that did not exist an hour ago."
+    },
+    {
+      "type": "h3",
+      "text": "TopStep + NQ"
+    },
+    {
+      "type": "p",
+      "text": "TopStep's 3% daily loss limit is the strictest in the industry and is especially unforgiving when trading NQ. On a $50,000 TopStep account, your daily limit is $1,500. Two NQ contracts with a 40-point stop is already $1,600 — you are over the limit on a single trade. This is why most TopStep traders on the standard size accounts default to MNQ rather than full NQ contracts."
+    },
+    {
+      "type": "h2",
+      "text": "Common Mistakes NQ Beginners Make"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Trading full NQ contracts in small accounts</strong> — on a $25,000 evaluation account, one NQ contract with a 30-point stop is already at the daily loss limit",
+        "<strong>Holding through news events</strong> — NQ can gap 50-100 points in seconds on Fed decisions or major tech earnings",
+        "<strong>Ignoring the overnight gap</strong> — NQ often opens the regular session at a different price than the previous close, with no fills in between",
+        "<strong>Scaling up position size after a big day</strong> — this is the most common pattern that ends evaluations in the second week",
+        "<strong>Treating MNQ and NQ as the same</strong> — they share a chart but the dollar risk is 10× different"
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Trading NQ in a prop firm evaluation? Zentrade tracks your daily loss limit, trailing drawdown, and consistency rule against your real NQ PnL — updated after every trade.",
+      "href": "/register",
+      "buttonText": "Start Free — No Credit Card"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions About NQ Futures"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "Is NQ better than ES for prop firm evaluations?",
+          "a": "It depends on your trading style. NQ has higher volatility and larger point moves, which means faster potential gains — and faster potential losses. ES is more institutional and tends to have cleaner technical setups at lower volatility. Most beginners are better served starting with MNQ or ES micro contracts before sizing up to full NQ."
+        },
+        {
+          "q": "What is the minimum account size to trade NQ futures?",
+          "a": "For full NQ, most brokers require $12,000–$17,000 in margin. For prop firm evaluations, the $25,000 plan is generally the smallest that makes practical sense for full NQ — but most traders at that size use MNQ (Micro NQ) to manage risk appropriately."
+        },
+        {
+          "q": "How much can you make trading NQ futures?",
+          "a": "This varies enormously. An NQ trade with a 20-point target on 2 contracts generates $800. A 50-point move on 5 contracts generates $5,000. Consistent daily targets in funded accounts typically range from $300–$1,500 depending on account size, strategy, and risk tolerance. Consistency matters more than daily targets."
+        },
+        {
+          "q": "What is the difference between NQ and MNQ?",
+          "a": "MNQ is the Micro E-mini Nasdaq-100 — exactly 1/10th the size of the full NQ contract. A point on the full NQ is worth $20; on MNQ it is $2. They track the same underlying Nasdaq-100 index, share the same chart, and have similar liquidity. MNQ is ideal for prop firm traders managing precise daily loss limit compliance."
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>",
+        "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading — explained with examples</a>",
+        "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation — complete guide</a>",
+        "<a href=\"/blog/best-futures-trading-journal-2025\">Best futures trading journal 2025 — what to look for</a>"
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "Sources & Official Resources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.cmegroup.com/trading/equity-index/us-index/e-mini-nasdaq-100.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — E-mini Nasdaq-100 Contract Specifications</a>",
+        "<a href=\"https://www.cmegroup.com/trading/equity-index/us-index/micro-e-mini-nasdaq-100.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Micro E-mini Nasdaq-100 (MNQ) Specifications</a>",
+        "<a href=\"https://www.investopedia.com/terms/e/emini.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — What Are E-mini Futures?</a>"
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Zentrade is the trading journal built for NQ and ES futures traders in prop firm evaluations. Track your real PnL, daily limits, and behavioral patterns — all in one dashboard.",
+      "href": "/register",
+      "buttonText": "Try Zentrade Free"
+    }
+  ]
+}
