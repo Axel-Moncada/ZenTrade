@@ -18,6 +18,7 @@ import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { CheckoutSuccessModal } from '@/components/billing/checkout-success-modal';
 import type { PlanConfig, ActiveSubscription } from '@/app/dashboard/billing/page';
+import { TrustBadgesCompact } from '@/components/shared/trust-badges';
 
 interface Props {
   plans: PlanConfig[];
@@ -396,7 +397,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                 </div>
                 {interval === 'year' && (
                   <p className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                    Facturado ${plan.price_annual} USD al año · cobrado en COP
+                    Facturado ${plan.price_annual} USD al año
                   </p>
                 )}
               </div>
@@ -452,6 +453,14 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
             </div>
           );
         })}
+      </div>
+
+      {/* Trust strip */}
+      <div
+        className="mt-6 rounded-xl px-6 py-4"
+        style={{ background: 'rgba(0,46,33,0.3)', border: '1px solid rgba(0,193,124,0.1)' }}
+      >
+        <TrustBadgesCompact />
       </div>
       </div>{/* /plans */}
     </div>

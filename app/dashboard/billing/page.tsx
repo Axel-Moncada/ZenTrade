@@ -25,7 +25,6 @@ export type ActiveSubscription = {
 
 // ── Plan config ───────────────────────────────────────────────────────────────
 
-// Precios en USD — el cobro se hace en COP vía Wompi (~4,200 COP/USD)
 const PLAN_CONFIGS: PlanConfig[] = [
   {
     slug: 'starter',
@@ -34,11 +33,12 @@ const PLAN_CONFIGS: PlanConfig[] = [
     price_annual:  84,
     badge: 'Ideal para Empezar',
     features: [
-      '2 Cuentas de Trading',
-      'Registro manual de trades (ilimitado)',
-      'Dashboard básico: Win Rate, PnL, Drawdown',
-      'Calendario de trades',
-      'Export CSV',
+      '2 cuentas de trading',
+      'Registro manual de trades ilimitado',
+      'Dashboard: Win Rate, PnL, Drawdown en tiempo real',
+      'Calendario mensual de trades',
+      'Export CSV de todos tus trades',
+      'Seguimiento de reglas por cuenta (drawdown, límite diario)',
       'Soporte por email',
     ],
   },
@@ -52,12 +52,12 @@ const PLAN_CONFIGS: PlanConfig[] = [
     features: [
       'Cuentas ilimitadas',
       'Import CSV automático (Rithmic, NinjaTrader, Tradoverse)',
-      'Dashboard analítico completo (todos los KPIs)',
-      'Trading Plan exportable en PDF',
-      'Calendario con notas emocionales y tags',
-      'Filtros avanzados por instrumento, sesión y setup',
-      'Equity curve + análisis de distribución',
-      'Export CSV/PDF/Excel ilimitado',
+      'Dashboard analítico completo — profit factor, R:R, consistency score',
+      'Equity curve con overlay de drawdown límite',
+      'Calendario emocional con tags y notas por día',
+      'Filtros avanzados por instrumento, sesión, setup y emoción',
+      'Trading Plan estructurado por cuenta',
+      'Export CSV, PDF y Excel ilimitado',
       'Soporte prioritario',
     ],
   },
@@ -66,17 +66,16 @@ const PLAN_CONFIGS: PlanConfig[] = [
     name: 'ZenMode',
     price_monthly: 59,
     price_annual:  499,
-    disabled: true,
-    badge: 'Próximamente',
+    badge: 'Para Traders Serios',
     features: [
-      'Todo en Professional +',
-      'Detección de revenge trading en tiempo real (IA)',
-      'Alertas de reglas de riesgo (daily loss, position size)',
-      'Reporte semanal automático por email',
-      'Análisis de horario óptimo de trading (IA)',
-      'Benchmark vs. requisitos de prop firms',
-      'Coaching 1-a-1 mensual (30 min)',
-      'Soporte dedicado 24/7',
+      'Todo lo de Professional incluido',
+      'ZenCoach — tu coach de trading IA (chat diario con contexto completo)',
+      'Registro de trades por screenshot vía ZenCoach',
+      'Detección de revenge trading en tiempo real',
+      'Reporte semanal de trading generado con IA',
+      'Radar de mercado semanal con eventos de alto impacto (IA)',
+      'Alertas de reglas de riesgo: daily loss y drawdown',
+      'Soporte dedicado',
     ],
   },
 ];

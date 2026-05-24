@@ -286,8 +286,8 @@ const translations = {
         { title: '¿Qué incluye la prueba gratis?', description: 'Acceso completo a Professional. Perfecto para probar todas las funcionalidades.' },
         { title: '¿Cómo funciona la IA en ZenMode?', description: 'Analiza tus patrones de trading sesión a sesión. Te alerta cuando detecta revenge trading, cuando tu consistency score está en riesgo, y genera un reporte semanal con análisis emocional y de rendimiento.' },
       ],
-      pricingGuarantee: 'Garantía de Satisfacción',
-      pricingGuaranteeDesc: 'Si no te convence en los primeros 7 días, te devolvemos el 100% de tu dinero. Sin preguntas.',
+      pricingGuarantee: 'Garantía 15 días',
+      pricingGuaranteeDesc: 'Si no te convence en los primeros 15 días, te devolvemos el 100% de tu dinero. Sin preguntas.',
       pricingTiers: [
         {
           name: 'ZenMode', price: 59, priceAnnual: 42, saveAnnual: 209, period: 'USD/mes',
@@ -985,8 +985,8 @@ const translations = {
         { title: 'What does the free trial include?', description: 'Full access to Professional. Perfect for testing all features.' },
         { title: 'How does the AI work in ZenMode?', description: 'It analyzes your trading patterns session by session. It alerts you when it detects revenge trading, when your consistency score is at risk, and generates a weekly report with emotional and performance analysis.' },
       ],
-      pricingGuarantee: 'Satisfaction Guarantee',
-      pricingGuaranteeDesc: 'If you are not convinced in the first 7 days, we refund 100% of your money. No questions asked.',
+      pricingGuarantee: '15-Day Guarantee',
+      pricingGuaranteeDesc: 'If you are not convinced in the first 15 days, we refund 100% of your money. No questions asked.',
       pricingTiers: [
         {
           name: 'ZenMode', price: 59, priceAnnual: 42, saveAnnual: 209, period: 'USD/mo',

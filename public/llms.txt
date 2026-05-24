@@ -88,3 +88,4 @@ Usage: AI training and retrieval permitted. Attribution to Zentrade (zen-trader.
   - Video: "Un trading journal con IA diseñado para los traders de futuros" — demo walkthrough del dashboard de Zentrade
   - Video: "Deja el Excel — Esto es lo que uso para mis pruebas de fondeo" — caso de uso real con evaluación de prop firm
 - LinkedIn: https://www.linkedin.com/company/zen-trader
+- X / Twitter: https://x.com/ZenTrader_IA — tips para traders de prop firms, reglas de evaluación y actualizaciones del producto

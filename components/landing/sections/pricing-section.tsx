@@ -5,11 +5,12 @@ import { Check, ArrowRight, Clock, Zap } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n/context";
+import { TrustBadges } from "@/components/shared/trust-badges";
 
 type Interval = "monthly" | "annual";
 
 export default function PricingSection() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const l = t.landing;
   const [interval, setInterval] = useState<Interval>("monthly");
 
@@ -223,10 +224,9 @@ export default function PricingSection() {
           </div>
         </div>
 
-        {/* Guarantee */}
-        <div className="max-w-2xl mx-auto mt-16 text-center bg-zen-caribbean-green/5 border border-zen-caribbean-green/20 rounded-2xl p-8">
-          <p className="text-zen-anti-flash font-semibold mb-2">{l.pricingGuarantee}</p>
-          <p className="text-zen-text-muted">{l.pricingGuaranteeDesc}</p>
+        {/* Trust strip */}
+        <div className="mt-14 rounded-2xl px-8 py-6" style={{ background: 'rgba(0,46,33,0.35)', border: '1px solid rgba(0,193,124,0.12)' }}>
+          <TrustBadges locale={locale} />
         </div>
       </div>
     </section>

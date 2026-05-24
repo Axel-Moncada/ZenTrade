@@ -29,6 +29,7 @@ import { useI18n } from "@/lib/i18n/context";
 import LogoWhite from "@/data/assets/Logo-white.png";
 import IsoWhite from "@/data/assets/Iso-white.png";
 import { OnboardingTour } from "@/components/onboarding/onboarding-tour";
+import { ZenCoachWidget } from "@/components/zencoach/zencoach-widget";
 
 interface SidebarLayoutProps {
   userEmail: string;
@@ -253,6 +254,7 @@ export function SidebarLayout({ userEmail, userName, isAdmin, hasCompletedTour =
       </main>
 
       <OnboardingTour hasCompletedTour={hasCompletedTour} />
+      <ZenCoachWidget />
     </div>
   );
 }

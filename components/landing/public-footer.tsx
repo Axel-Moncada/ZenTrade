@@ -118,6 +118,18 @@ export default function PublicFooter() {
             &copy; {currentYear} ZenTrade. {l.footerCopyright}
           </p>
           <div className="flex items-center space-x-6">
+            <a
+              href="https://x.com/ZenTrader_IA"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Zentrade en X (Twitter)"
+              className="text-zen-text-muted hover:text-zen-caribbean-green transition-colors"
+            >
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <div className="w-px h-4 bg-zen-border-soft" />
             <Link href="/login" className="text-zen-text-muted hover:text-zen-caribbean-green transition-colors text-sm">
               {l.signIn}
             </Link>

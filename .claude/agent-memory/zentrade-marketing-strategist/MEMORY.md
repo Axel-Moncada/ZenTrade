@@ -189,6 +189,27 @@ Ver tabla completa en `hashtags.md`
 
 ---
 
+## Posts Twitter/X — Mayo 2026 (batch 14 posts)
+
+- 14 posts listos: 7 EN + 7 ES, 4 tipos (dato/error/tip/pregunta)
+- Hook de mayor potencial detectado: afirmacion contraintuitiva ("You passed. FTMO still rejected you.")
+- Tema trailing drawdown: alta oportunidad de engagement — poca gente lo entiende bien
+- Consistency rule desde angulo positivo ("ganaste demasiado un dia") supera angulo negativo en sorpresa
+- Posts de pregunta sin CTA de registro — interaccion organica vale mas en etapa post-lanzamiento
+- Ver todos los posts en `Marketing/Twitter-X/posts-mayo-2026.md`
+
+## Posts IG + Guiones Video — Semana mayo 23 2026 (batch 10 piezas)
+
+- 5 posts IG + 5 guiones de video (undercover founder, screen recording) — archivos:
+  - `Marketing/contenido/Posts/ig-posts-semana-mayo-2026.md`
+  - `Marketing/contenido/Videos/guiones-video-semana-mayo-2026.md`
+- Temas cubiertos: profit factor vs. win rate, consistency rule, revenge trading, analisis por horario, rutina pre-mercado
+- Hook de video de mayor potencial: dato matemáticamente absurdo en el primer segundo ("80% win rate — cuenta en negativo")
+- Orden de produccion videos: Video 4 → Video 1 → Video 2 → Video 3 → Video 5
+- Pausa de 1 segundo despues de leer la nota del journal (Video 5) es el momento de mayor tension — no llenarlo
+- Datos ficticios que deben sonar reales para credibilidad: profit factor 0.71 lunes / 1.4 post-ajuste; 73% perdidas en 25min post-loss; consistency 47% rechazado por FTMO
+- Subtitulos obligatorios en todos los videos; los numeros clave van como texto superpuesto adicional
+
 ## Video tutorial landing page (mayo 2026)
 
 - Archivo: `Marketing/contenido/Videos/guion-video-tutorial-home-landing.md`
