@@ -76,7 +76,7 @@ function formatCurrency(value: number): string {
 function formatDate(dateStr: string): string {
   const [year, month, day] = dateStr.split("-").map(Number);
   const date = new Date(year, month - 1, day);
-  return date.toLocaleDateString("es-ES", { weekday: "short", day: "numeric", month: "short" });
+  return date.toLocaleDateString("en-US", { weekday: "short", day: "numeric", month: "short" });
 }
 
 function formatWeekRange(start: string, end: string): string {
@@ -118,10 +118,10 @@ export function WeeklyReportEmail({
     : null;
 
   return (
-    <Html lang="es">
+    <Html lang="en">
       <Head />
       <Preview>
-        {`Tu semana en ${accountName}: ${totalTrades} trades · ${winRate.toFixed(0)}% win rate · ${formatCurrency(totalPnl)}`}
+        {`Your week on ${accountName}: ${totalTrades} trades · ${winRate.toFixed(0)}% win rate · ${formatCurrency(totalPnl)}`}
       </Preview>
 
       <Body style={{ backgroundColor: LIGHT.bg, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif", margin: 0, padding: 0 }}>
@@ -139,7 +139,7 @@ export function WeeklyReportEmail({
                 style={{ display: "block", margin: "0 auto 10px", height: "auto" }}
               />
               <Text style={{ color: DARK.green , fontSize: "11px", margin: 0, letterSpacing: "1.5px", textTransform: "uppercase" }}>
-                Reporte semanal · {formatWeekRange(weekStart, weekEnd)}
+                Weekly Report · {formatWeekRange(weekStart, weekEnd)}
               </Text>
             </Section>
 
@@ -158,7 +158,7 @@ export function WeeklyReportEmail({
               </Text>
 
               <Text style={{ color: DARK.white, fontSize: "16px", margin: "0 0 4px 0", fontWeight: "400" }}>
-                {isPositiveWeek ? `Hola ${firstName}, esta fue una buena semana.` : `Hola ${firstName}, esta semana fue desafiante.`}
+                {isPositiveWeek ? `Hi ${firstName}, this was a great week.` : `Hi ${firstName}, this week was a challenge.`}
               </Text>
 
               <Heading
@@ -175,7 +175,7 @@ export function WeeklyReportEmail({
               </Heading>
 
               <Text style={{ color: DARK.muted, fontSize: "13px", margin: "0 0 28px 0", fontWeight: "300" }}>
-                {totalTrades} {totalTrades === 1 ? "trade registrado" : "trades registrados"} esta semana
+                {totalTrades} {totalTrades === 1 ? "trade logged" : "trades logged"} this week
               </Text>
 
               <Button
@@ -191,7 +191,7 @@ export function WeeklyReportEmail({
                   display: "inline-block",
                 }}
               >
-                Ver mi Dashboard →
+                View My Dashboard →
               </Button>
             </Section>
 
@@ -235,7 +235,7 @@ export function WeeklyReportEmail({
                     {planAdherenceRate.toFixed(0)}%
                   </Text>
                   <Text style={{ color: LIGHT.muted, fontSize: "11px", fontWeight: "600", letterSpacing: "1px", textTransform: "uppercase", margin: 0 }}>
-                    Cumplimiento del Plan
+                    Plan Adherence
                   </Text>
                 </Column>
               </Row>
@@ -257,7 +257,7 @@ export function WeeklyReportEmail({
                         }}
                       >
                         <Text style={{ color: LIGHT.green, fontSize: "16px", fontWeight: "700", letterSpacing: "1.5px", textTransform: "uppercase", margin: "0 0 6px 0" }}>
-                          Mejor día
+                          Best Day
                         </Text>
                         <Text style={{ color: LIGHT.green, fontSize: "22px", fontWeight: "800", margin: "0 0 2px 0", letterSpacing: "-0.5px" }}>
                           {formatCurrency(bestDay.pnl)}
@@ -280,7 +280,7 @@ export function WeeklyReportEmail({
                         }}
                       >
                         <Text style={{ color: LIGHT.red, fontSize: "16px", fontWeight: "700", letterSpacing: "1.5px", textTransform: "uppercase", margin: "0 0 6px 0" }}>
-                          Peor día
+                          Worst Day
                         </Text>
                         <Text style={{ color: LIGHT.red, fontSize: "22px", fontWeight: "800", margin: "0 0 2px 0", letterSpacing: "-0.5px" }}>
                           {formatCurrency(worstDay.pnl)}
@@ -307,7 +307,7 @@ export function WeeklyReportEmail({
                 }}
               >
                 <Text style={{ color: LIGHT.text, fontSize: "13px", fontWeight: "700", margin: "0 0 14px 0", letterSpacing: "0.5px", textTransform: "uppercase" }}>
-                  Trades de la semana
+                  Trades of the Week
                 </Text>
                 {topWin && (
                   <Row style={{ marginBottom: "10px" }}>
@@ -316,7 +316,7 @@ export function WeeklyReportEmail({
                     </Column>
                     <Column>
                       <Text style={{ color: LIGHT.muted, fontSize: "13px", margin: 0, lineHeight: "1.4" }}>
-                        Mejor trade:{" "}
+                        Best trade:{" "}
                         <span style={{ color: LIGHT.green, fontWeight: "700", fontSize: "14px" }}>
                           {formatCurrency(topWin.result)}
                         </span>
@@ -335,7 +335,7 @@ export function WeeklyReportEmail({
                     </Column>
                     <Column>
                       <Text style={{ color: LIGHT.muted, fontSize: "13px", margin: 0, lineHeight: "1.4" }}>
-                        Peor trade:{" "}
+                        Worst trade:{" "}
                         <span style={{ color: LIGHT.red, fontWeight: "700", fontSize: "14px" }}>
                           {formatCurrency(topLoss.result)}
                         </span>
@@ -368,7 +368,7 @@ export function WeeklyReportEmail({
                   </Column>
                   <Column>
                     <Text style={{ color: LIGHT.green, fontSize: "14px", fontWeight: "700", textTransform: "capitalize", margin: 0 }}>
-                      Análisis de tu semana (IA)
+                      Your Week Analysis (AI)
                     </Text>
                   </Column>
                 </Row>
@@ -393,7 +393,7 @@ export function WeeklyReportEmail({
                 <Row style={{ marginBottom: "10px" }}>
                   <Column>
                     <Text style={{ color: LIGHT.text, fontSize: "13px", fontWeight: "600", margin: 0 }}>
-                      Progreso hacia objetivo
+                      Progress Toward Target
                     </Text>
                   </Column>
                   <Column style={{ textAlign: "right" }}>
@@ -414,7 +414,7 @@ export function WeeklyReportEmail({
                   />
                 </Section>
                 <Text style={{ color: LIGHT.muted, fontSize: "12px", margin: "8px 0 0 0" }}>
-                  Balance: ${currentBalance.toFixed(2)} · Objetivo: +${profitTarget.toFixed(0)}
+                  Balance: ${currentBalance.toFixed(2)} · Target: +${profitTarget.toFixed(0)}
                 </Text>
               </Section>
             )}
@@ -427,7 +427,7 @@ export function WeeklyReportEmail({
           <Container style={{ maxWidth: "860px", margin: "0 auto" }}>
             <Hr style={{ borderColor: DARK.white, margin: "0 0 20px 0" }} />
             <Text style={{ color: DARK.white, fontSize: "16px", fontWeight: "500", textAlign: "center", margin: "0 0 6px 0" }}>
-              Recibes este reporte cada lunes porque eres usuario de ZenTrade.
+              You receive this report every Monday as a ZenTrade user.
             </Text>
             
             <Text style={{ color: DARK.white, fontSize: "14px", textAlign: "center", margin: 0 }}>

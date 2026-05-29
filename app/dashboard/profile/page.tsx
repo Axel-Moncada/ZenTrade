@@ -146,7 +146,7 @@ export default function ProfilePage() {
       desc: t.profile.planMaxDesc,
       features: [...t.profile.planMaxFeatures],
       cta: t.profile.planMaxCtaLabel,
-      comingSoon: true,
+      comingSoon: false,
     },
   ];
 

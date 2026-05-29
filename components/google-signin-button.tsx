@@ -33,7 +33,7 @@ export function GoogleSignInButton() {
     <Button
       type="button"
       variant="outline"
-      className="w-80 mx-auto flex place-content-center align-middle bg-zen-dark-green/50 border-zen-dark-green/70 text-zen-anti-flash hover:bg-zen-dark-green/70 disabled:bg-zen-dark-green/30 disabled:border-zen-dark-green/50 disabled:text-zen-anti-flash/70"
+      className="w-full flex place-content-center align-middle bg-zen-dark-green/50 border-zen-dark-green/70 text-zen-anti-flash hover:bg-zen-dark-green/70 disabled:bg-zen-dark-green/30 disabled:border-zen-dark-green/50 disabled:text-zen-anti-flash/70"
       onClick={handleGoogleSignIn}
       disabled={loading}
       

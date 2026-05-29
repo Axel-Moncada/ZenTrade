@@ -189,6 +189,16 @@ Ver tabla completa en `hashtags.md`
 
 ---
 
+## Google Ads — Diagnóstico mayo 2026
+
+- Archivo: `Marketing/PaidMedia/google-ads-diagnostico-mayo-2026.md`
+- Rechazo Campaign #1: copy "Pass FTMO" = garantía implícita → fix: cambiar a "Track FTMO" + disclaimer en landing
+- CPC $0.028 USD y 98% móvil = targeting geográfico erróneo (probablemente incluye LATAM)
+- Presupuesto mínimo viable USA: $300–$500 USD/mes. Menos = datos inútiles para aprender
+- Smart Bidding con <$50 USD: usar micro-conversión (click CTA) o CPC manual en cambio
+- CTR 5.61% = copy relevante, no es el problema. El problema es estructural (política + targeting)
+- Por debajo de $200 USD/mes: SEO + canales orgánicos tienen mejor ROI en early stage
+
 ## Posts Twitter/X — Mayo 2026 (batch 14 posts)
 
 - 14 posts listos: 7 EN + 7 ES, 4 tipos (dato/error/tip/pregunta)

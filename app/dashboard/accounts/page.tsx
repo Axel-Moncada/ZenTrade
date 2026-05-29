@@ -113,10 +113,10 @@ export default function AccountsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-zen-anti-flash">{t.accounts.title}</h1>
-          <p className="text-zen-anti-flash/60 mt-2">{t.accounts.subtitle}</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-zen-anti-flash">{t.accounts.title}</h1>
+          <p className="text-zen-anti-flash/60 mt-1">{t.accounts.subtitle}</p>
           {accountLimit !== null && activeAccounts.length > 0 && (
             <p className="text-xs text-zen-anti-flash/40 mt-1">
               {activeAccounts.length} / {accountLimit} cuentas · {isAtLimit ? "Límite alcanzado" : `${accountLimit - activeAccounts.length} disponible${accountLimit - activeAccounts.length === 1 ? "" : "s"}`}
@@ -129,8 +129,8 @@ export default function AccountsPage() {
           disabled={isAtLimit}
           className={
             isAtLimit
-              ? "bg-zen-caribbean-green/15 text-zen-caribbean-green/50 border border-zen-caribbean-green/20 cursor-not-allowed"
-              : "bg-zen-caribbean-green/80 hover:bg-zen-caribbean-green text-zen-rich-black"
+              ? "bg-zen-caribbean-green/15 text-zen-caribbean-green/50 border border-zen-caribbean-green/20 cursor-not-allowed self-start sm:self-auto"
+              : "bg-zen-caribbean-green/80 hover:bg-zen-caribbean-green text-zen-rich-black self-start sm:self-auto"
           }
         >
           {isAtLimit ? <Lock className="h-4 w-4 mr-2" /> : <Plus className="h-4 w-4 mr-2" />}
@@ -166,7 +166,7 @@ export default function AccountsPage() {
         <div className="space-y-10">
           {/* Cuentas activas */}
           {activeAccounts.length > 0 && (
-            <div className="grid gap-16 md:grid-cols-3 lg:grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 md:grid-cols-3 lg:grid-cols-3">
               {activeAccounts.map((account) => (
                 <AccountCard key={account.id} account={account} onDelete={handleDeleteAccount} />
               ))}
@@ -183,7 +183,7 @@ export default function AccountsPage() {
                 </p>
                 <div className="h-px flex-1 bg-red-900/30" />
               </div>
-              <div className="grid gap-16 md:grid-cols-3 lg:grid-cols-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 md:grid-cols-3 lg:grid-cols-3">
                 {failedAccounts.map((account) => (
                   <AccountCard key={account.id} account={account} onDelete={handleDeleteAccount} />
                 ))}

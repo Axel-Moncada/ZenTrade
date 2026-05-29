@@ -187,10 +187,10 @@ export default function DashboardPage() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center justify-between"
+          className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
         >
           <div>
-            <h1 className="text-3xl font-bold text-zen-anti-flash">
+            <h1 className="text-2xl sm:text-3xl font-bold text-zen-anti-flash">
               {t.dashboard.title}
             </h1>
             <p className="text-sm text-zen-anti-flash/60">
@@ -198,15 +198,27 @@ export default function DashboardPage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4 bg-card rounded-lg border border-border px-4 py-3 text-zen-caribbean-green">
+          {/* Desktop: selectors con texto completo */}
+          <div className="hidden sm:flex items-center gap-4 bg-card rounded-lg border border-border px-4 py-3 text-zen-caribbean-green min-w-0">
             <AccountSelector
               accounts={accounts}
               value={selectedAccount || ''}
               onValueChange={setSelectedAccount}
               showLabel={false}
-              
             />
             <DateRangeSelector value={dateRange} onChange={setDateRange} />
+          </div>
+
+          {/* Mobile: solo iconos cuadrados */}
+          <div className="flex sm:hidden items-center gap-2 bg-card rounded-lg border border-border p-1.5 text-zen-caribbean-green">
+            <AccountSelector
+              accounts={accounts}
+              value={selectedAccount || ''}
+              onValueChange={setSelectedAccount}
+              showLabel={false}
+              compact
+            />
+            <DateRangeSelector value={dateRange} onChange={setDateRange} compact />
           </div>
         </motion.div>
 
@@ -276,7 +288,7 @@ export default function DashboardPage() {
             </motion.div>
 
             {/* Métricas Primarias: Grid 2x2 */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <PrimaryStatCard
                 title={t.dashboard.winRate}
                 value={`${(stats.winRate ?? 0).toFixed(1)}%`}
@@ -316,7 +328,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Métricas Secundarias: Grid 3 columnas */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4">
               <CompactStatCard
                 title="Max Gain"
                 value={`$${(stats.maxGain ?? 0).toFixed(0)}`}

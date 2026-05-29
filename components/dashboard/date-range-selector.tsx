@@ -11,9 +11,11 @@ import { Calendar } from 'lucide-react';
 interface DateRangeSelectorProps {
   value: DateRange;
   onChange: (range: DateRange) => void;
+  /** Si true, muestra solo el icono como trigger (para mobile compact bar) */
+  compact?: boolean;
 }
 
-export function DateRangeSelector({ value, onChange }: DateRangeSelectorProps) {
+export function DateRangeSelector({ value, onChange, compact = false }: DateRangeSelectorProps) {
   const [preset, setPreset] = useState<DateRangePreset>('30d');
   const [showCustom, setShowCustom] = useState(false);
   const [customStart, setCustomStart] = useState('');
@@ -21,7 +23,7 @@ export function DateRangeSelector({ value, onChange }: DateRangeSelectorProps) {
 
   const handlePresetChange = (newPreset: DateRangePreset) => {
     setPreset(newPreset);
-    
+
     if (newPreset === 'custom') {
       setShowCustom(true);
       return;
@@ -42,20 +44,37 @@ export function DateRangeSelector({ value, onChange }: DateRangeSelectorProps) {
     }
   };
 
+  if (compact) {
+    return (
+      <Select value={preset} onValueChange={(v) => handlePresetChange(v as DateRangePreset)}>
+        <SelectTrigger className="w-9 h-9 p-0 justify-center rounded-lg border-zen-caribbean-green/40 bg-transparent [&>svg:last-child]:hidden">
+          <Calendar className="h-4 w-4 text-zen-caribbean-green" />
+        </SelectTrigger>
+        <SelectContent className="text-zen-caribbean-green bg-zen-dark-green border-zen-dark-green">
+          <SelectItem value="7d" className="hover:bg-zen-rich-black">Últimos 7 días</SelectItem>
+          <SelectItem value="30d" className="hover:bg-zen-rich-black">Últimos 30 días</SelectItem>
+          <SelectItem value="90d" className="hover:bg-zen-rich-black">Últimos 90 días</SelectItem>
+          <SelectItem value="thisMonth" className="hover:bg-zen-rich-black">Este mes</SelectItem>
+          <SelectItem value="custom" className="hover:bg-zen-rich-black">Personalizado</SelectItem>
+        </SelectContent>
+      </Select>
+    );
+  }
+
   return (
     <div className="flex items-center gap-3">
       <Calendar className="h-5 w-5 hover:bg-zen-rich-black" />
-      
+
       <Select value={preset} onValueChange={(v) => handlePresetChange(v as DateRangePreset)}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Seleccionar periodo" />
         </SelectTrigger>
-        <SelectContent className="text-zen-caribbean-green bg-zen-dark-green border-zen-dark-green ">
-          <SelectItem value="7d" className='hover:bg-zen-rich-black' >Últimos 7 días</SelectItem>
-          <SelectItem value="30d" className='hover:bg-zen-rich-black'>Últimos 30 días</SelectItem>
-          <SelectItem value="90d" className='hover:bg-zen-rich-black'>Últimos 90 días</SelectItem>
-          <SelectItem value="thisMonth" className='hover:bg-zen-rich-black'>Este mes</SelectItem>
-          <SelectItem value="custom" className='hover:bg-zen-rich-black'>Personalizado</SelectItem>
+        <SelectContent className="text-zen-caribbean-green bg-zen-dark-green border-zen-dark-green">
+          <SelectItem value="7d" className="hover:bg-zen-rich-black">Últimos 7 días</SelectItem>
+          <SelectItem value="30d" className="hover:bg-zen-rich-black">Últimos 30 días</SelectItem>
+          <SelectItem value="90d" className="hover:bg-zen-rich-black">Últimos 90 días</SelectItem>
+          <SelectItem value="thisMonth" className="hover:bg-zen-rich-black">Este mes</SelectItem>
+          <SelectItem value="custom" className="hover:bg-zen-rich-black">Personalizado</SelectItem>
         </SelectContent>
       </Select>
 
@@ -81,7 +100,7 @@ export function DateRangeSelector({ value, onChange }: DateRangeSelectorProps) {
               className="w-[150px]"
             />
           </div>
-          <Button 
+          <Button
             onClick={handleCustomApply}
             disabled={!customStart || !customEnd}
             className="mt-5"

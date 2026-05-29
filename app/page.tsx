@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import HeroSection from "@/components/landing/sections/hero-section";
 import ProblemSection from "@/components/landing/sections/problem-section";
 import SolutionSection from "@/components/landing/sections/solution-section";
+import AiFeaturesSection from "@/components/landing/sections/ai-features-section";
 import FeaturesSection from "@/components/landing/sections/features-section";
 import PricingSection from "@/components/landing/sections/pricing-section";
 import BenefitsSection from "@/components/landing/sections/benefits-section";
@@ -337,14 +338,15 @@ export default async function Home() {
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
+        <AiFeaturesSection />
         <section id="features">
           <FeaturesSection />
         </section>
+        <BenefitsSection />
         <section id="pricing">
           <PricingSection />
         </section>
         <PreviewSection />
-        <BenefitsSection />
         <section id="faq">
           <FaqSection />
         </section>

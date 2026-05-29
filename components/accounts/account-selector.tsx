@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { Wallet } from "lucide-react";
 import type { Account } from "@/types/accounts";
 import { ACCOUNT_TYPE_LABELS } from "@/types/accounts";
 
@@ -19,8 +20,9 @@ interface AccountSelectorProps {
   label?: string;
   showLabel?: boolean;
   allowAll?: boolean;
-  /** Si true (default), oculta cuentas con status "failed" del selector */
   hideFailed?: boolean;
+  /** Si true, muestra solo el icono como trigger (para mobile compact bar) */
+  compact?: boolean;
 }
 
 export function AccountSelector({
@@ -32,16 +34,28 @@ export function AccountSelector({
   showLabel = true,
   allowAll = false,
   hideFailed = true,
+  compact = false,
 }: AccountSelectorProps) {
   const visibleAccounts = hideFailed
     ? accounts.filter((a) => a.status !== "failed")
     : accounts;
+
   return (
-    <div className="space-y-2">
-      {showLabel && <Label>{label}</Label>}
+    <div className={compact ? "" : "space-y-2 min-w-0 flex-1"}>
+      {showLabel && !compact && <Label>{label}</Label>}
       <Select value={value} onValueChange={onValueChange}>
-        <SelectTrigger>
-          <SelectValue placeholder={placeholder} />
+        <SelectTrigger
+          className={
+            compact
+              ? "w-9 h-9 p-0 justify-center rounded-lg border-zen-caribbean-green/40 bg-transparent [&>svg:last-child]:hidden"
+              : "w-full min-w-0"
+          }
+        >
+          {compact ? (
+            <Wallet className="h-4 w-4 text-zen-caribbean-green" />
+          ) : (
+            <SelectValue placeholder={placeholder} />
+          )}
         </SelectTrigger>
         <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
           {allowAll && <SelectItem value="all">Todas las cuentas</SelectItem>}
@@ -51,14 +65,11 @@ export function AccountSelector({
             </div>
           ) : (
             visibleAccounts.map((account) => (
-              <SelectItem key={account.id} value={account.id} className='hover:bg-zen-rich-black'>
-                <div className="flex items-center gap-2 text-zen-caribbean-green ">
-                  <span className="font-medium">{account.name}</span>
-                  <span className="text-xs text-zen-caribbean-green/70">
-                    ({ACCOUNT_TYPE_LABELS[account.account_type]})
-                  </span>
-                  <span className="text-xs text-zen-caribbean-green/70">
-                    - ${account.current_balance.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+              <SelectItem key={account.id} value={account.id} className="hover:bg-zen-rich-black">
+                <div className="flex items-center gap-1.5 min-w-0 overflow-hidden text-zen-caribbean-green">
+                  <span className="font-medium truncate">{account.name}</span>
+                  <span className="text-xs text-zen-caribbean-green/60 shrink-0 whitespace-nowrap">
+                    · {ACCOUNT_TYPE_LABELS[account.account_type]}
                   </span>
                 </div>
               </SelectItem>

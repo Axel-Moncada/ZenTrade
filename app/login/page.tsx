@@ -96,33 +96,26 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center  ">
-      {/* Background Pattern */}
-      <div
-        className="absolute inset-0 opacity-5 main-bg-login"
-        
-      />
-
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 main-bg-login " />
+    <div className="relative min-h-screen min-h-svh flex flex-col items-center justify-center">
+      {/* Background — fixed para cubrir toda la pantalla incluyendo scroll */}
+      <div className="fixed inset-0 main-bg-login" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-lg mx-auto px-6">
+      <div className="relative z-10 w-full max-w-lg mx-auto px-4 sm:px-6 py-8">
         {/* Back to Home Link */}
         <Link
           href="/"
-          className="inline-flex items-center space-x-2 text-zen-anti-flash hover:text-zen-caribbean-green transition-colors mb-8"
+          className="inline-flex items-center space-x-2 text-zen-anti-flash hover:text-zen-caribbean-green transition-colors mb-6 sm:mb-8"
         >
           <ArrowLeft className="h-4 w-4" />
           <span>Volver al inicio</span>
         </Link>
 
         {/* Auth Card */}
-        <div className="bg-zen-surface-elevated rounded-3xl border border-zen-caribbean-green/30  shadow-zen-caribbean-green shadow-[0px_0_100px_rgba(0,0,0,0.5)] p-8 ">
-          {/* Logo & Title */}
-          <div className="text-center mb-8">
-            <Image src={logoZen} alt="ZenTrade Logo" className="mx-auto mb-4 w-80" />
-           
+        <div className="bg-zen-surface-elevated rounded-3xl border border-zen-caribbean-green/30 shadow-zen-caribbean-green shadow-[0px_0_100px_rgba(0,0,0,0.5)] p-5 sm:p-8">
+          {/* Logo */}
+          <div className="text-center mb-6 sm:mb-8">
+            <Image src={logoZen} alt="ZenTrade Logo" className="mx-auto mb-4 w-52 sm:w-80" />
           </div>
 
           {/* Mode Tabs */}
@@ -135,7 +128,7 @@ export default function LoginPage() {
                 setSuccess("");
                 setConfirmPassword("");
               }}
-              className={`flex-1 py-2.5 px-4 rounded-lg font-medium transition-all ${
+              className={`flex-1 py-2 px-2 sm:px-4 rounded-lg text-sm sm:text-base font-medium whitespace-nowrap transition-all ${
                 mode === "login"
                   ? "bg-zen-caribbean-green text-zen-rich-black shadow-lg"
                   : "text-zen-text-muted hover:text-zen-anti-flash"
@@ -150,7 +143,7 @@ export default function LoginPage() {
                 setError("");
                 setSuccess("");
               }}
-              className={`flex-1 py-2.5 px-4 rounded-lg font-medium transition-all ${
+              className={`flex-1 py-2 px-2 sm:px-4 rounded-lg text-sm sm:text-base font-medium whitespace-nowrap transition-all ${
                 mode === "register"
                   ? "bg-zen-caribbean-green text-zen-rich-black shadow-lg"
                   : "text-zen-text-muted hover:text-zen-anti-flash"
@@ -176,12 +169,12 @@ export default function LoginPage() {
           )}
 
           {/* Google Sign In */}
-          <div className="mb-6">
+          <div className="mb-4 sm:mb-6">
             <GoogleSignInButton />
           </div>
 
           {/* Divider */}
-          <div className="relative mb-6">
+          <div className="relative mb-4 sm:mb-6">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t border-zen-border-soft" />
             </div>
@@ -194,7 +187,7 @@ export default function LoginPage() {
 
           {/* Login Form */}
           {mode === "login" && (
-            <form onSubmit={handleLoginSubmit} className="space-y-5">
+            <form onSubmit={handleLoginSubmit} className="space-y-4 sm:space-y-5">
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-zen-anti-flash">
                   Email
@@ -247,7 +240,7 @@ export default function LoginPage() {
 
           {/* Register Form */}
           {mode === "register" && (
-            <form onSubmit={handleRegisterSubmit} className="space-y-5">
+            <form onSubmit={handleRegisterSubmit} className="space-y-4 sm:space-y-5">
               <div className="space-y-2">
                 <Label htmlFor="register-email" className="text-zen-anti-flash">
                   Email
@@ -321,10 +314,10 @@ export default function LoginPage() {
         </div>
 
         {/* Footer Note */}
-        <p className="text-center text-zen-text-muted text-sm mt-8">
+        <p className="text-center text-zen-text-muted text-sm mt-6 sm:mt-8">
           {mode === "login"
             ? "Tu trading journal profesional"
-            : "Sin tarjeta de crédito • Setup en 2 minutos"}
+            : "Sin tarjeta de crédito · Setup en 2 minutos"}
         </p>
       </div>
     </div>

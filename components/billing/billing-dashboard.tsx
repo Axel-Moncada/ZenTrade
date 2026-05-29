@@ -264,7 +264,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
       <div>
 
         {/* ── Interval toggle + heading ── */}
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h2 className="text-lg font-semibold text-zen-anti-flash">
           {activeSub ? 'Planes disponibles' : 'Elige tu plan'}
         </h2>

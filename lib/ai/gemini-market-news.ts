@@ -89,42 +89,42 @@ async function structureAsJson(
 
   const instrumentList = instruments.length > 0 ? instruments.join(", ") : "ES, NQ, CL, GC";
 
-  const prompt = `Eres un analista senior de mercados financieros y geopolítica global. Basándote EXCLUSIVAMENTE en el contexto real de noticias que te doy abajo, genera el radar de mercado para la semana del ${weekStart} al ${weekEnd}.
+  const prompt = `You are a senior financial markets and global geopolitics analyst. Based EXCLUSIVELY on the real news context provided below, generate the market radar for the week of ${weekStart} to ${weekEnd}.
 
-INSTRUMENTOS DEL TRADER: ${instrumentList}
+TRADER'S INSTRUMENTS: ${instrumentList}
 
-CONTEXTO REAL (fuentes verificadas en tiempo real mediante Google Search):
+REAL CONTEXT (verified in real time via Google Search):
 ---
 ${context}
 ---
 
-REGLAS ESTRICTAS:
-1. Selecciona entre 6 y 9 eventos. NO inventes nada que no esté en el contexto.
-2. OBLIGATORIO incluir al menos 1-2 eventos geopolíticos (guerras, conflictos, aranceles) si existen en el contexto. La guerra de Israel, los aranceles de Trump, tensiones con China — TODO eso afecta el petróleo (CL), el oro (GC) y los índices (NQ, ES).
-3. Para el petróleo (CL): si hay tensiones en Medio Oriente, es relevante SIEMPRE.
-4. Para el oro (GC): eventos de riesgo geopolítico son alcistas para el oro.
-5. Para NQ/ES: aranceles y guerras comerciales son relevantes.
-6. El impacto no siempre es "alta volatilidad" — sé específico: una escalada en Gaza es "alcista" para CL y GC, "bajista" para ES/NQ por risk-off.
-7. El intro debe mencionar el contexto geopolítico global si es relevante para traders de futuros, no solo los datos económicos.
+STRICT RULES:
+1. Select between 6 and 9 events. Do NOT invent anything not present in the context.
+2. MUST include at least 1-2 geopolitical events (wars, conflicts, tariffs) if they appear in the context. The Israel war, Trump tariffs, China tensions — ALL of that affects oil (CL), gold (GC), and indexes (NQ, ES).
+3. For oil (CL): Middle East tensions are ALWAYS relevant.
+4. For gold (GC): geopolitical risk events are bullish for gold.
+5. For NQ/ES: tariffs and trade wars are relevant.
+6. Impact is not always "alta volatilidad" — be specific: an escalation in Gaza is "alcista" for CL and GC, "bajista" for ES/NQ due to risk-off.
+7. The intro should mention global geopolitical context if relevant for futures traders, not just economic data.
 
-TIPOS: FED | BANCO_CENTRAL | EARNINGS | MACRO | INFLACIÓN | EMPLEO | GEOPOLÍTICA | GUERRA | POLÍTICA | COMMODITIES | OTRO
-INSTRUMENTOS: ES, NQ, MNQ, MES, CL, GC, MGC, ZN, ZB, RTY
+TYPES: FED | BANCO_CENTRAL | EARNINGS | MACRO | INFLACIÓN | EMPLEO | GEOPOLÍTICA | GUERRA | POLÍTICA | COMMODITIES | OTRO
+INSTRUMENTS: ES, NQ, MNQ, MES, CL, GC, MGC, ZN, ZB, RTY
 
-RESPONDE SOLO CON JSON VÁLIDO, sin bloques markdown:
+RESPOND ONLY WITH VALID JSON, no markdown blocks. ALL TEXT FIELDS (intro, title, description, closingNote, date) MUST BE IN ENGLISH:
 
 {
-  "intro": "2-3 frases en HTML con <b>negrillas</b>. Menciona tanto el contexto económico como el geopolítico si es relevante. Prepara al trader para lo que puede mover los mercados esa semana.",
+  "intro": "2-3 sentences in HTML with <b>bold</b> for key data. Mention both economic and geopolitical context if relevant. Prepare the trader for what could move markets that week.",
   "newsItems": [
     {
-      "type": "TIPO",
-      "title": "Título conciso y factual (máx 55 caracteres)",
-      "date": "Ej: Martes 8 de abril · 8:30 AM ET — o 'Semana del 7 de abril' si no hay fecha exacta",
-      "description": "2-3 frases: qué es, qué se espera o qué está pasando, por qué importa directamente al trader de futuros y cómo puede afectar su sesión",
+      "type": "TYPE",
+      "title": "Concise factual title (max 55 characters)",
+      "date": "e.g.: Tuesday, April 8 · 8:30 AM ET — or 'Week of April 7' if no exact date",
+      "description": "2-3 sentences: what it is, what's expected or happening, why it matters directly to the futures trader and how it could affect their session",
       "potentialImpact": "alcista|bajista|neutral|alta volatilidad",
       "affectedInstruments": ["CL", "GC"]
     }
   ],
-  "closingNote": "Una frase directa y motivacional para el trader"
+  "closingNote": "One direct and motivational sentence for the trader"
 }`;
 
   const result = await model.generateContent(prompt);

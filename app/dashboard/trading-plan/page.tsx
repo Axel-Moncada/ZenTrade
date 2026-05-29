@@ -75,13 +75,13 @@ export default function TradingPlanPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-1">
-          <h1 className="text-3xl font-bold text-zen-anti-flash">{t.tradingPlan.title}</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-zen-anti-flash">{t.tradingPlan.title}</h1>
           <p className="text-zen-anti-flash/60">{t.tradingPlan.subtitle}</p>
         </div>
         {!showForm && (
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {activePlan && (
               (plan.isPro || plan.isZenMode) ? (
                 <ExportPlanPDF

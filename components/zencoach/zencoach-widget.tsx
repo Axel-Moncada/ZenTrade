@@ -358,7 +358,7 @@ export function ZenCoachWidget() {
       {!isOpen && (
         <button
           onClick={openWidget}
-          className="fixed bottom-6 right-6 z-50 group flex flex-col items-center"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 group flex flex-col items-center"
           title="ZenCoach AI"
         >
           <div className="w-14 h-14 rounded-full bg-zen-caribbean-green shadow-lg shadow-zen-caribbean-green/30 flex items-center justify-center hover:scale-105 transition-transform">
@@ -372,11 +372,21 @@ export function ZenCoachWidget() {
         </button>
       )}
 
-      {/* Panel */}
+      {/* Mobile overlay */}
       {isOpen && (
         <div
-          className="fixed bottom-6 right-6 z-50 w-[480px] flex flex-col rounded-2xl border border-zen-forest/30 bg-[#0d1810] shadow-2xl shadow-black/50 overflow-hidden"
-          style={{ maxHeight: 'min(720px, calc(100vh - 48px))' }}
+          className="sm:hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      {/* Panel — bottom sheet on mobile, floating card on desktop */}
+      {isOpen && (
+        <div
+          className="fixed z-50 flex flex-col overflow-hidden border border-zen-forest/30 bg-[#0d1810] shadow-2xl shadow-black/50
+            inset-x-0 bottom-0 rounded-t-2xl
+            sm:inset-x-auto sm:left-auto sm:bottom-6 sm:right-6 sm:w-[480px] sm:rounded-2xl"
+          style={{ maxHeight: 'min(85vh, 720px)' }}
         >
 
           {/* Header */}

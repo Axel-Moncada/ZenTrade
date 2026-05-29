@@ -22,37 +22,37 @@ export interface WeeklyTradeData {
   tradingPlan: TradingPlan | null;
 }
 
-const DAY_NAMES = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+const DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function buildTradingPlanSection(plan: TradingPlan | null): string {
-  if (!plan) return "  (sin trading plan configurado)";
+  if (!plan) return "  (no trading plan configured)";
 
   const lines: string[] = [];
 
   if (plan.daily_loss_limit != null)
-    lines.push(`  - Límite de pérdida diaria: $${plan.daily_loss_limit}`);
+    lines.push(`  - Daily loss limit: $${plan.daily_loss_limit}`);
   if (plan.weekly_loss_limit != null)
-    lines.push(`  - Límite de pérdida semanal: $${plan.weekly_loss_limit}`);
+    lines.push(`  - Weekly loss limit: $${plan.weekly_loss_limit}`);
   if (plan.weekly_profit_target != null)
-    lines.push(`  - Objetivo de ganancia semanal: $${plan.weekly_profit_target}`);
+    lines.push(`  - Weekly profit target: $${plan.weekly_profit_target}`);
   if (plan.max_daily_trades != null)
-    lines.push(`  - Máximo de trades por día: ${plan.max_daily_trades}`);
+    lines.push(`  - Max trades per day: ${plan.max_daily_trades}`);
   if (plan.max_risk_per_trade != null)
-    lines.push(`  - Riesgo máximo por trade: ${plan.max_risk_per_trade}%`);
+    lines.push(`  - Max risk per trade: ${plan.max_risk_per_trade}%`);
   if (plan.min_risk_reward_ratio != null)
-    lines.push(`  - R:R mínimo requerido: ${plan.min_risk_reward_ratio}`);
+    lines.push(`  - Min required R:R: ${plan.min_risk_reward_ratio}`);
   if (plan.trading_start_time && plan.trading_end_time)
-    lines.push(`  - Horario permitido: ${plan.trading_start_time} – ${plan.trading_end_time}`);
+    lines.push(`  - Allowed hours: ${plan.trading_start_time} – ${plan.trading_end_time}`);
   if (plan.trading_days?.length)
-    lines.push(`  - Días permitidos: ${plan.trading_days.map(d => DAY_NAMES[d]).join(", ")}`);
+    lines.push(`  - Allowed days: ${plan.trading_days.map(d => DAY_NAMES[d]).join(", ")}`);
   if (plan.allowed_instruments?.length)
-    lines.push(`  - Instrumentos permitidos: ${plan.allowed_instruments.join(", ")}`);
+    lines.push(`  - Allowed instruments: ${plan.allowed_instruments.join(", ")}`);
   if (plan.entry_rules)
-    lines.push(`  - Reglas de entrada: ${plan.entry_rules.slice(0, 200)}`);
+    lines.push(`  - Entry rules: ${plan.entry_rules.slice(0, 200)}`);
   if (plan.exit_rules)
-    lines.push(`  - Reglas de salida: ${plan.exit_rules.slice(0, 200)}`);
+    lines.push(`  - Exit rules: ${plan.exit_rules.slice(0, 200)}`);
 
-  return lines.length > 0 ? lines.join("\n") : "  (trading plan sin reglas configuradas)";
+  return lines.length > 0 ? lines.join("\n") : "  (trading plan has no rules configured)";
 }
 
 /**
@@ -79,36 +79,36 @@ export async function generateWeeklyAnalysis(data: WeeklyTradeData): Promise<str
   // Trading plan
   const planSection = buildTradingPlanSection(data.tradingPlan);
 
-  const prompt = `Eres un coach de trading profesional analizando la semana de un trader. Escribe un análisis concreto y accionable en español, en 4-5 frases.
+  const prompt = `You are a professional trading coach analyzing a trader's week. Write a concrete and actionable analysis in English, in 4-5 sentences.
 
-INSTRUCCIONES DE FORMATO:
-- Usa etiquetas HTML <b>texto</b> para resaltar datos numéricos clave, emociones y conclusiones importantes.
-- Solo usa <b> y </b>, ninguna otra etiqueta HTML.
-- No uses asteriscos (**), markdown, ni listas.
-- Responde solo con el párrafo de análisis, sin título ni prefijos.
+FORMAT INSTRUCTIONS:
+- Use HTML tags <b>text</b> to highlight key numbers, emotions, and important conclusions.
+- Only use <b> and </b>, no other HTML tags.
+- Do not use asterisks (**), markdown, or lists.
+- Reply only with the analysis paragraph, no title or prefix.
 
-INSTRUCCIONES DE CONTENIDO:
-- Compara la ejecución real vs el trading plan (si existe). Menciona explícitamente si se respetaron o violaron las reglas.
-- Identifica el patrón emocional más relevante y su correlación con los resultados.
-- Menciona las horas de mejor y peor rendimiento con los números exactos.
-- Termina con una recomendación específica y accionable para la próxima semana.
+CONTENT INSTRUCTIONS:
+- Compare actual execution vs the trading plan (if one exists). Explicitly mention whether rules were followed or broken.
+- Identify the most relevant emotional pattern and its correlation with results.
+- Mention the best and worst performing hours with exact numbers.
+- End with a specific, actionable recommendation for next week.
 
-DATOS DE LA SEMANA:
-PnL total: $${data.totalPnl.toFixed(2)}
+WEEK DATA:
+Total PnL: $${data.totalPnl.toFixed(2)}
 Win rate: ${data.winRate.toFixed(1)}%
 Total trades: ${data.totalTrades}
 Profit factor: ${data.profitFactor === Infinity ? "∞" : data.profitFactor.toFixed(2)}
-Adherencia al plan: ${data.planAdherenceRate.toFixed(0)}%
-${data.bestDay ? `Mejor día: ${data.bestDay.date} ($${data.bestDay.pnl.toFixed(2)})` : ""}
-${data.worstDay ? `Peor día: ${data.worstDay.date} ($${data.worstDay.pnl.toFixed(2)})` : ""}
+Plan adherence: ${data.planAdherenceRate.toFixed(0)}%
+${data.bestDay ? `Best day: ${data.bestDay.date} ($${data.bestDay.pnl.toFixed(2)})` : ""}
+${data.worstDay ? `Worst day: ${data.worstDay.date} ($${data.worstDay.pnl.toFixed(2)})` : ""}
 
-EMOCIONES REGISTRADAS:
+LOGGED EMOTIONS:
 ${emotionLines}
 
-RENDIMIENTO POR HORA:
+PERFORMANCE BY HOUR:
 ${hourLines}
 
-TRADING PLAN DE LA CUENTA:
+ACCOUNT TRADING PLAN:
 ${planSection}`;
 
   const result = await geminiFlash.generateContent(prompt);

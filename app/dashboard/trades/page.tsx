@@ -211,14 +211,14 @@ export default function TradesPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-zen-anti-flash">{t.trades.title}</h1>
-          <p className="text-zen-anti-flash/60 mt-2">
+          <h1 className="text-2xl sm:text-3xl font-bold text-zen-anti-flash">{t.trades.title}</h1>
+          <p className="text-zen-anti-flash/60 mt-1">
             {t.trades.subtitle}
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           {/* Importar — bloqueado para Starter/Free */}
           {!plan.loading && (plan.isPro || plan.isZenMode) ? (
             <Link href="/dashboard/trades/import">
@@ -260,19 +260,31 @@ export default function TradesPage() {
         />
       )}
 
-      {/* Account Selector */}
-      <div className="flex items-center bg-card rounded-lg border border-border px-4 py-3 gap-4">
-        <AccountSelector
-          accounts={accounts}
-          value={selectedAccount}
-          onValueChange={setSelectedAccount}
-          showLabel={false}
+      {/* Account Selector + Filters */}
+      <div className="flex items-center bg-card rounded-lg border border-border px-3 sm:px-4 py-2 sm:py-3 gap-3 sm:gap-4 min-w-0">
+        {/* Desktop: selector con texto; Mobile: solo icono */}
+        <div className="hidden sm:block min-w-0 flex-1">
+          <AccountSelector
+            accounts={accounts}
+            value={selectedAccount}
+            onValueChange={setSelectedAccount}
+            showLabel={false}
+          />
+        </div>
+        <div className="flex sm:hidden">
+          <AccountSelector
+            accounts={accounts}
+            value={selectedAccount}
+            onValueChange={setSelectedAccount}
+            showLabel={false}
+            compact
+          />
+        </div>
+        <TradesFilters
+          instruments={instruments}
+          onFiltersChange={setFilters}
+          activeFiltersCount={activeFiltersCount}
         />
-        <TradesFilters 
-        instruments={instruments}
-        onFiltersChange={setFilters}
-        activeFiltersCount={activeFiltersCount}
-      />
       </div>
 
       {/* Filters */}

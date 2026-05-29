@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ShieldCheck, Lock } from 'lucide-react';
 
 const PROP_FIRMS = [
@@ -13,15 +14,16 @@ const PROP_FIRMS = [
 function PayPalBadge() {
   return (
     <div
-      className="flex items-center gap-0.5 px-2.5 py-1 rounded-md"
+      className="flex items-center px-2 py-1 rounded-md"
       style={{ background: '#003087', border: '1px solid rgba(0,156,222,0.4)' }}
     >
-      <span style={{ color: '#ffffff', fontWeight: 800, fontSize: '13px', fontFamily: 'Arial,sans-serif', letterSpacing: '-0.3px' }}>
-        Pay
-      </span>
-      <span style={{ color: '#009CDE', fontWeight: 800, fontSize: '13px', fontFamily: 'Arial,sans-serif', letterSpacing: '-0.3px' }}>
-        Pal
-      </span>
+      <Image
+        src="/assets/paypallogo.png"
+        alt="PayPal"
+        width={64}
+        height={18}
+        className="object-contain"
+      />
     </div>
   );
 }

@@ -43,13 +43,13 @@ export function WelcomeUpgradeEmail({
   features,
   dashboardUrl,
 }: WelcomeUpgradeEmailProps) {
-  const intervalLabel = billingInterval === "annual" ? "anual" : "mensual";
+  const intervalLabel = billingInterval === "annual" ? "annual" : "monthly";
   const firstName = userName?.split(" ")[0] || "trader";
 
   return (
-    <Html lang="es">
+    <Html lang="en">
       <Head />
-      <Preview>¡Bienvenido al plan {planName}! Tu cuenta está activa en ZenTrade.</Preview>
+      <Preview>Welcome to the {planName} plan! Your account is active on ZenTrade.</Preview>
 
       <Body style={{ backgroundColor: COLORS.bg, fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif", margin: 0 }}>
         <Container style={{ maxWidth: "560px", margin: "0 auto", padding: "32px 16px" }}>
@@ -87,7 +87,7 @@ export function WelcomeUpgradeEmail({
                 margin: "0 0 8px 0",
               }}
             >
-              ¡Pago exitoso!
+              Payment successful!
             </Text>
 
             <Heading
@@ -99,11 +99,11 @@ export function WelcomeUpgradeEmail({
                 lineHeight: "1.2",
               }}
             >
-              Bienvenido al plan {planName}, {firstName}
+              Welcome to {planName}, {firstName}
             </Heading>
 
             <Text style={{ color: COLORS.muted, fontSize: "15px", margin: "0 0 28px 0", lineHeight: "1.5" }}>
-              Tu suscripción {intervalLabel} está activa. Ya tienes acceso completo a todas las funciones de tu plan.
+              Your {intervalLabel} subscription is active. You now have full access to all features in your plan.
             </Text>
 
             <Button
@@ -119,7 +119,7 @@ export function WelcomeUpgradeEmail({
                 display: "inline-block",
               }}
             >
-              Ir al Dashboard →
+              Go to Dashboard →
             </Button>
           </Section>
 
@@ -141,7 +141,7 @@ export function WelcomeUpgradeEmail({
                 margin: "0 0 16px 0",
               }}
             >
-              Lo que desbloqueaste con {planName}
+              What you unlocked with {planName}
             </Text>
 
             {features.map((feature, i) => (
@@ -176,7 +176,7 @@ export function WelcomeUpgradeEmail({
                 margin: "0 0 16px 0",
               }}
             >
-              ¿Por dónde empezar?
+              Where to start?
             </Text>
 
             {nextSteps.map((step, i) => (
@@ -232,10 +232,10 @@ export function WelcomeUpgradeEmail({
           <Hr style={{ borderColor: COLORS.border, margin: "0 0 24px 0" }} />
 
           <Text style={{ color: COLORS.muted, fontSize: "12px", textAlign: "center", lineHeight: "1.6", margin: 0 }}>
-            Recibiste este email porque te suscribiste a ZenTrade.{"\n"}
-            Puedes gestionar tu suscripción en{" "}
+            You received this email because you subscribed to ZenTrade.{"\n"}
+            You can manage your subscription in{" "}
             <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/dashboard/billing`} style={{ color: COLORS.green }}>
-              tu panel de facturación
+              your billing panel
             </Link>
             .
           </Text>

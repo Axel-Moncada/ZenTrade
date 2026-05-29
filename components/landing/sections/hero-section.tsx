@@ -84,6 +84,19 @@ export default function HeroSection() {
             </a>
           </div>
 
+          {/* Microcopy under CTA */}
+          {l.heroCtaMicrocopy && (
+            <p className="text-xs text-zen-text-muted -mt-2">{l.heroCtaMicrocopy}</p>
+          )}
+
+          {/* Mini testimonial — social proof above the fold */}
+          {l.heroMiniTestimonial && (
+            <div className="mt-2 max-w-lg mx-auto bg-zen-surface-elevated border border-zen-caribbean-green/20 rounded-xl px-6 py-4">
+              <p className="text-sm text-zen-anti-flash/80 italic leading-relaxed">{l.heroMiniTestimonial}</p>
+              <p className="text-xs text-zen-caribbean-green font-medium mt-2">{l.heroMiniTestimonialAuthor}</p>
+            </div>
+          )}
+
           {/* Mini Stats */}
           <div className="flex items-center justify-center gap-12 pt-8 text-center">
             <div>

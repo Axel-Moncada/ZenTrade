@@ -53,30 +53,30 @@ const LIGHT = {
 // ─── Badge de tipo de evento ──────────────────────────────────────────────────
 const TYPE_BADGE: Record<NewsItemType, { bg: string; label: string }> = {
   FED:          { bg: "#7C3AED", label: "FED / FOMC" },
-  BANCO_CENTRAL:{ bg: "#6D28D9", label: "BANCO CENTRAL" },
+  BANCO_CENTRAL:{ bg: "#6D28D9", label: "CENTRAL BANK" },
   EARNINGS:     { bg: "#1D4ED8", label: "EARNINGS" },
   MACRO:        { bg: "#0369A1", label: "MACRO" },
-  INFLACIÓN:    { bg: "#B45309", label: "INFLACIÓN" },
-  EMPLEO:       { bg: "#047857", label: "EMPLEO" },
-  GEOPOLÍTICA:  { bg: "#B91C1C", label: "GEOPOLÍTICA" },
-  GUERRA:       { bg: "#7F1D1D", label: "GUERRA" },
-  POLÍTICA:     { bg: "#92400E", label: "POLÍTICA" },
+  INFLACIÓN:    { bg: "#B45309", label: "INFLATION" },
+  EMPLEO:       { bg: "#047857", label: "EMPLOYMENT" },
+  GEOPOLÍTICA:  { bg: "#B91C1C", label: "GEOPOLITICS" },
+  GUERRA:       { bg: "#7F1D1D", label: "WAR" },
+  POLÍTICA:     { bg: "#92400E", label: "POLITICS" },
   COMMODITIES:  { bg: "#065F46", label: "COMMODITIES" },
-  OTRO:         { bg: "#4B5563", label: "EVENTO" },
+  OTRO:         { bg: "#4B5563", label: "EVENT" },
 };
 
 // ─── Estilo de impacto ────────────────────────────────────────────────────────
 const IMPACT_STYLE: Record<ImpactType, { color: string; bg: string; label: string; accent: string }> = {
-  "alcista":          { color: "#007A4D", bg: "#E8F5EE", label: "▲ Alcista",         accent: "#007A4D" },
-  "bajista":          { color: "#C0392B", bg: "#FDECEA", label: "▼ Bajista",         accent: "#C0392B" },
-  "alta volatilidad": { color: "#B45309", bg: "#FEF3C7", label: "⚡ Alta Volatilidad", accent: "#D97706" },
-  "neutral":          { color: "#637069", bg: "#F3F4F6", label: "● Neutral",          accent: "#9EADA6" },
+  "alcista":          { color: "#007A4D", bg: "#E8F5EE", label: "▲ Bullish",          accent: "#007A4D" },
+  "bajista":          { color: "#C0392B", bg: "#FDECEA", label: "▼ Bearish",          accent: "#C0392B" },
+  "alta volatilidad": { color: "#B45309", bg: "#FEF3C7", label: "⚡ High Volatility",  accent: "#D97706" },
+  "neutral":          { color: "#637069", bg: "#F3F4F6", label: "● Neutral",           accent: "#9EADA6" },
 };
 
 function formatDate(dateStr: string): string {
   const [year, month, day] = dateStr.split("-").map(Number);
   const date = new Date(year, month - 1, day);
-  return date.toLocaleDateString("es-ES", { weekday: "short", day: "numeric", month: "short" });
+  return date.toLocaleDateString("en-US", { weekday: "short", day: "numeric", month: "short" });
 }
 
 function formatWeekRange(start: string, end: string): string {
@@ -100,10 +100,10 @@ export function MarketPreviewEmail({
   const volatileCount = newsItems.filter((n) => n.potentialImpact === "alta volatilidad").length;
 
   return (
-    <Html lang="es">
+    <Html lang="en">
       <Head />
       <Preview>
-        {`Radar de mercado: ${newsItems.length} eventos clave esta semana · ${weekRange}`}
+        {`Market Radar: ${newsItems.length} key events this week · ${weekRange}`}
       </Preview>
 
       <Body
@@ -136,7 +136,7 @@ export function MarketPreviewEmail({
                   textTransform: "uppercase",
                 }}
               >
-                Radar de Mercado · {weekRange}
+                Market Radar · {weekRange}
               </Text>
             </Section>
 
@@ -160,7 +160,7 @@ export function MarketPreviewEmail({
                   margin: "0 0 10px 0",
                 }}
               >
-                Inteligencia de Mercado
+                Market Intelligence
               </Text>
 
               <Text
@@ -171,7 +171,7 @@ export function MarketPreviewEmail({
                   fontWeight: "400",
                 }}
               >
-                Hola {firstName}, prepárate para la semana.
+                Hi {firstName}, get ready for the week.
               </Text>
 
               <Heading
@@ -196,7 +196,7 @@ export function MarketPreviewEmail({
                   letterSpacing: "-0.3px",
                 }}
               >
-                eventos de alto impacto
+                high-impact events
               </Text>
 
               <Text
@@ -223,7 +223,7 @@ export function MarketPreviewEmail({
                   display: "inline-block",
                 }}
               >
-                Ver mi Dashboard →
+                View My Dashboard →
               </Button>
             </Section>
 
@@ -268,7 +268,7 @@ export function MarketPreviewEmail({
                       margin: 0,
                     }}
                   >
-                    Alcistas
+                    Bullish
                   </Text>
                 </Column>
 
@@ -301,7 +301,7 @@ export function MarketPreviewEmail({
                       margin: 0,
                     }}
                   >
-                    Bajistas
+                    Bearish
                   </Text>
                 </Column>
 
@@ -327,7 +327,7 @@ export function MarketPreviewEmail({
                       margin: 0,
                     }}
                   >
-                    Alta Vol.
+                    High Vol.
                   </Text>
                 </Column>
               </Row>
@@ -359,7 +359,7 @@ export function MarketPreviewEmail({
                         margin: 0,
                       }}
                     >
-                      Vista de mercado semanal (IA)
+                      Weekly Market View (AI)
                     </Text>
                   </Column>
                 </Row>
@@ -388,7 +388,7 @@ export function MarketPreviewEmail({
                 margin: "0 0 12px 0",
               }}
             >
-              Eventos de la semana
+              Events of the Week
             </Text>
 
             {/* Cards de noticias */}
@@ -538,7 +538,7 @@ export function MarketPreviewEmail({
                 margin: "0 0 6px 0",
               }}
             >
-              Recibes este radar de mercado cada domingo porque tienes plan ZenMode.
+              You receive this market radar every Sunday as part of your ZenMode plan.
             </Text>
             <Text
               style={{

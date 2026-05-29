@@ -1063,11 +1063,22 @@ html.light-mode main .bt-select {
 
 .main-bg-login{
   background-image: url(../data/assets/bg-login.jpg);
-  background-size: left 50% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-blend-mode: multiply;
-  background-color:#585858 ;
+  background-color: #1a2e1a;
+}
+
+/* Autofill override — evita el amarillo del browser en inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 40px #002E21 inset !important;
+  -webkit-text-fill-color: #F2F3F4 !important;
+  caret-color: #F2F3F4;
+  transition: background-color 9999s ease-in-out 0s;
 }
 
 /* ─── Driver.js Tour Theme ─────────────────────────────────── */

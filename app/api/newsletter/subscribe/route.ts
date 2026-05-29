@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: email,
-      subject: "¡Bienvenido a ZenTrade!",
+      subject: "Welcome to ZenTrade!",
       html: `
 <!DOCTYPE html>
 <html>
@@ -60,28 +60,28 @@ export async function POST(request: Request) {
         <tr>
           <td style="padding:40px;">
             <h1 style="margin:0 0 16px;color:#f2f3f4;font-size:24px;font-weight:700;line-height:1.3;">
-              ${name ? `¡Hola ${name}! Ya eres parte de ZenTrade.` : "¡Ya eres parte de ZenTrade!"}
+              ${name ? `Hi ${name}! You're now part of ZenTrade.` : "You're now part of ZenTrade!"}
             </h1>
             <p style="margin:0 0 24px;color:#a0b4a0;font-size:15px;line-height:1.6;font-weight:300;">
-              Recibirás tips de trading, novedades del producto y acceso anticipado a las nuevas funciones antes que nadie.
+              You'll receive trading tips, product updates, and early access to new features before anyone else.
             </p>
             <table cellpadding="0" cellspacing="0" style="margin:0 0 32px;">
               <tr>
                 <td style="padding:8px 0;">
                   <span style="color:#00c17c;font-size:14px;font-weight:700;">✓</span>
-                  <span style="color:#a0b4a0;font-size:14px;margin-left:8px;">Tips semanales de trading y gestión de riesgo</span>
+                  <span style="color:#a0b4a0;font-size:14px;margin-left:8px;">Weekly trading tips and risk management insights</span>
                 </td>
               </tr>
               <tr>
                 <td style="padding:8px 0;">
                   <span style="color:#00c17c;font-size:14px;font-weight:700;">✓</span>
-                  <span style="color:#a0b4a0;font-size:14px;margin-left:8px;">Novedades y nuevas funciones antes del lanzamiento</span>
+                  <span style="color:#a0b4a0;font-size:14px;margin-left:8px;">Updates and new features before launch</span>
                 </td>
               </tr>
               <tr>
                 <td style="padding:8px 0;">
                   <span style="color:#00c17c;font-size:14px;font-weight:700;">✓</span>
-                  <span style="color:#a0b4a0;font-size:14px;margin-left:8px;">Descuentos exclusivos para suscriptores</span>
+                  <span style="color:#a0b4a0;font-size:14px;margin-left:8px;">Exclusive discounts for subscribers</span>
                 </td>
               </tr>
             </table>
@@ -89,7 +89,7 @@ export async function POST(request: Request) {
               <tr>
                 <td style="background:#00c17c;border-radius:8px;">
                   <a href="https://zen-trader.com" style="display:block;padding:14px 28px;color:#0a0f0a;font-size:15px;font-weight:700;text-decoration:none;">
-                    Ver ZenTrade →
+                    Visit ZenTrade →
                   </a>
                 </td>
               </tr>

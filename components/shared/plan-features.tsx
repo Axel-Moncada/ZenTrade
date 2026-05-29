@@ -105,12 +105,7 @@ export function PlanFeatures({ highlightPlan }: PlanFeaturesProps) {
         {/* ZenMode */}
         <div className="px-4 py-3 text-center" style={colStyle(zenActive)}>
           <p className={`font-semibold text-sm ${headingColor(zenActive)}`}>ZenMode</p>
-          <p className={`text-xs mt-0.5 ${subColor(zenActive)}`}>
-            $59 USD/mes
-            <span className="ml-1 px-1 rounded text-zen-caribbean-green/60" style={{ fontSize: "10px", background: "rgba(0,193,124,0.08)" }}>
-              pronto
-            </span>
-          </p>
+          <p className={`text-xs mt-0.5 ${subColor(zenActive)}`}>$59 USD/mes</p>
         </div>
       </div>
 
@@ -135,7 +130,7 @@ export function PlanFeatures({ highlightPlan }: PlanFeaturesProps) {
           </div>
 
           <div className="px-4 py-2.5 text-center" style={cellStyle(zenActive)}>
-            <FeatureCell value={row.zenmode} comingSoon={row.zenmode === true && !row.pro} />
+            <FeatureCell value={row.zenmode} />
           </div>
         </div>
       ))}
