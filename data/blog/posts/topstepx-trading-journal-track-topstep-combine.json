@@ -1,0 +1,194 @@
+{
+  "slug": "topstepx-trading-journal-track-topstep-combine",
+  "title": "TopstepX Trading Journal: How to Track Your Topstep Combine",
+  "excerpt": "What to log during your Topstep Trading Combine: max loss limit, best-day consistency target, and the daily habits that keep you inside the rules, with a worked example.",
+  "seoTitle": "TopstepX Trading Journal: How to Track Your Topstep Combine (2026)",
+  "seoDescription": "Track your Topstep Combine with a trading journal: max loss limit, 55% consistency target, best-day math and a daily checklist. Includes a worked example.",
+  "keywords": [
+    "TopstepX trading journal",
+    "topstep combine journal",
+    "ProjectX journal",
+    "topstep consistency target",
+    "topstep max loss limit",
+    "how to track topstep combine"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-11-22",
+  "updatedAt": "2026-11-19",
+  "category": "fondeo",
+  "tags": [
+    "Topstep",
+    "TopstepX",
+    "ProjectX",
+    "Trading Combine",
+    "trading journal",
+    "consistency"
+  ],
+  "readingTime": 9,
+  "featured": false,
+  "relatedSlugs": [
+    "how-to-pass-topstep-evaluation",
+    "trailing-drawdown-ftmo-vs-apex-vs-topstep",
+    "consistency-rule-prop-firm-explained",
+    "what-is-drawdown-trading"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>To track a Topstep Combine, log four numbers after every session: your distance to the Maximum Loss Limit, your best single day as a share of your profit target, your trade count and your rule violations.</strong> The Combine has few rules, but breaking the Maximum Loss Limit or the consistency target is how most attempts end."
+    },
+    {
+      "type": "p",
+      "text": "TopstepX, built on the ProjectX platform, is where many Combine traders place orders. This guide covers what to journal, the numbers to watch (based on Topstep's help center at the time of writing) and how to review each week. Rules and account parameters change, so confirm them at help.topstep.com before you buy a Combine."
+    },
+    {
+      "type": "h2",
+      "text": "Topstep Combine Rules That Your Journal Should Track"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Account",
+        "Profit Target",
+        "Max Loss Limit",
+        "Best-day guideline (55% target)"
+      ],
+      "rows": [
+        [
+          "$50K",
+          "$3,000",
+          "$2,000",
+          "Under $1,650"
+        ],
+        [
+          "$100K",
+          "$6,000",
+          "$3,000",
+          "Under $3,300"
+        ],
+        [
+          "$150K",
+          "$9,000",
+          "$4,500",
+          "Under $4,950"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Sources disagree on the consistency target. Topstep's help article on consistency lists 55% of the profit target for the Trading Combine, while some third-party sites cite 50%. Use Topstep's own help center as the authority and check it on the day you start. Source: Topstep help center, Consistency at Topstep."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Maximum Loss Limit (MLL):</strong> a trailing limit. The one hard rule is not to fall below it.",
+        "<strong>Daily loss limit:</strong> Topstep states that TopstepX accounts created or reset after August 25, 2024 have no daily loss limit, while it still applies on other platforms such as NinjaTrader, Quantower, Tradovate and TradingView. Verify the setting on your own account.",
+        "<strong>Consistency target:</strong> your single best day of profit must stay at or below 55% of your profit target for the Combine (per Topstep's help article).",
+        "<strong>Express Funded Account:</strong> if you choose the Consistency Payout path, Topstep's article lists a 40% consistency objective (best day divided by total net profit)."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Worked Example: Best-Day Math on a $50K Combine"
+    },
+    {
+      "type": "p",
+      "text": "The profit target is $3,000, so the best-day ceiling is 55% of that: $1,650. Say you make $1,100, $400 and $500 across three days. Your best day is $1,100, well under $1,650, and you are at $2,000 of $3,000."
+    },
+    {
+      "type": "p",
+      "text": "Now imagine day four is a $1,900 run on a hot NQ morning. Your best day is now $1,900, above the ceiling, and to keep that day within 55% of the target you would need total profit of roughly $3,455 ($1,900 ÷ 0.55), above the $3,000 target. A great day became a problem. A journal shows this before you take the extra trade; guessing does not."
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Set a personal best-day cap at roughly 40% of the profit target. Once you hit it, stop trading for the day. This protects the consistency target and also protects you from giving profit back."
+    },
+    {
+      "type": "h2",
+      "text": "What to Log Every Trading Day in the Combine"
+    },
+    {
+      "type": "h3",
+      "text": "Before the session"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Current distance to the MLL in dollars.",
+        "Max contracts you will trade today.",
+        "Your stop-for-the-day conditions (loss amount or number of losing trades)."
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "After the session"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Net P&L and number of trades.",
+        "Best day so far as a percentage of the profit target.",
+        "Emotional state at your largest loss.",
+        "Did you follow your plan: yes or no, and why."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Weekly Review: Three Questions"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Which hour of the day produced most of my losses?",
+        "Did any single day account for more than half of my progress?",
+        "How many trades did I take after a loss within 30 minutes?"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Zentrade's Professional plan includes profit factor, consistency score, equity curve and a calendar with emotional notes, so these answers are one view instead of a spreadsheet exercise. ZenMode adds AI revenge trading detection and an automated weekly report. For the drawdown side of the Combine, read <a href=\"/blog/trailing-drawdown-ftmo-vs-apex-vs-topstep\">Trailing Drawdown: FTMO vs Apex vs TopStep</a> and our <a href=\"/blog/how-to-pass-topstep-evaluation\">Topstep evaluation guide</a>."
+    },
+    {
+      "type": "h2",
+      "text": "Importing TopstepX Trades: What Works Today"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade does not yet import directly from TopstepX or ProjectX. A direct integration is in development and listed as coming soon, with no release date. Today you can log trades manually or, on Professional and ZenMode, import a CSV and map its columns."
+    },
+    {
+      "type": "cta",
+      "text": "Set up a Topstep account in Zentrade and track your best-day percentage and drawdown distance every session.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "Does Zentrade integrate with TopstepX?",
+          "a": "Not yet. Direct TopstepX and ProjectX import is in development and marked coming soon, with no date. You can log trades manually or import CSV files on Professional and ZenMode."
+        },
+        {
+          "q": "What is the Topstep consistency target for the Combine?",
+          "a": "Topstep's help center lists 55% of your profit target as the ceiling for your single best day in the Trading Combine. Some third-party sites cite 50%, so check Topstep's current help article before starting."
+        },
+        {
+          "q": "Is the Topstep Maximum Loss Limit trailing?",
+          "a": "Topstep describes the Combine's MLL as the one rule you must not break and it trails your account as profits build. Some Topstep products use a static limit, so confirm the type for your specific account."
+        },
+        {
+          "q": "How many days do I need to pass the Combine?",
+          "a": "Third-party sources cite a minimum of two trading days, provided your best day stays within the consistency target. Confirm the current minimum on Topstep's site."
+        },
+        {
+          "q": "Can I pass the Combine without a journal?",
+          "a": "Yes, some traders do. But the failure points, drawdown proximity and best-day concentration, are exactly what a journal measures, so it removes guesswork from the two rules that most often end attempts."
+        }
+      ]
+    }
+  ]
+}

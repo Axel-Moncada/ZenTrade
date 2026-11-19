@@ -1,0 +1,179 @@
+{
+  "slug": "daily-loss-limit-routine-protect-funded-account",
+  "title": "How to Build a Daily Loss Limit Routine That Saves Your Funded Account",
+  "excerpt": "A practical pre-session, in-session and post-session routine for respecting your daily loss limit, with a self-imposed limit formula, a worked example and a stop-trading checklist.",
+  "seoTitle": "Daily Loss Limit Routine for Funded Traders: Protect Your Account (2026)",
+  "seoDescription": "Build a daily loss limit routine for prop firm and funded accounts: set a personal limit below the firm's, define stop rules, and review in a journal. Includes a formula and example.",
+  "keywords": [
+    "daily loss limit routine",
+    "prop firm daily loss limit",
+    "how to protect funded account",
+    "max daily loss prop firm",
+    "stop trading rules futures",
+    "funded account risk management"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-12-06",
+  "updatedAt": "2026-11-19",
+  "category": "estrategia",
+  "tags": [
+    "daily loss limit",
+    "risk management",
+    "funded account",
+    "routine",
+    "discipline"
+  ],
+  "readingTime": 9,
+  "featured": false,
+  "relatedSlugs": [
+    "max-daily-loss-fondeo-how-to-manage",
+    "what-is-drawdown-trading",
+    "how-to-avoid-revenge-trading-prop-firms",
+    "trailing-drawdown-ftmo-vs-apex-vs-topstep"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>A daily loss limit routine works by setting your own stop-for-the-day below the firm's limit, deciding it before the open, and making the stop automatic.</strong> A common structure is a personal limit at roughly half to two thirds of the firm's daily or drawdown buffer, plus a trade-count cap and a mandatory cooling-off period after losses."
+    },
+    {
+      "type": "p",
+      "text": "Not every firm has a fixed daily loss limit. Topstep, for example, states that TopstepX accounts created or reset after August 25, 2024 have no daily loss limit, while it still applies on some other platforms. FTMO and other firms do define daily loss rules. Whatever your firm's rule is, a personal daily limit is still the most practical way to avoid breaching a trailing drawdown or a max loss. Check your firm's current rules before building your numbers."
+    },
+    {
+      "type": "h2",
+      "text": "Step 1: Set Your Personal Daily Limit"
+    },
+    {
+      "type": "p",
+      "text": "Start from your real buffer, meaning the dollars between your current equity and the point where the account is closed. Then take a fraction of it."
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Account example",
+        "Buffer to loss limit",
+        "Personal daily limit (50%)",
+        "Max loss per trade (25% of daily)"
+      ],
+      "rows": [
+        [
+          "$50K, $2,000 trailing buffer",
+          "$2,000",
+          "$1,000",
+          "$250"
+        ],
+        [
+          "$50K, $1,200 remaining after a bad week",
+          "$1,200",
+          "$600",
+          "$150"
+        ],
+        [
+          "$100K, $3,000 trailing buffer",
+          "$3,000",
+          "$1,500",
+          "$375"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Recalculate when your buffer changes. After a drawdown, your daily limit should shrink; it should not stay at the number you set when the account was fresh."
+    },
+    {
+      "type": "h2",
+      "text": "Step 2: Pre-Session Routine (5 Minutes)"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Write today's buffer in dollars and your personal daily limit.",
+        "Write the maximum loss per trade and the maximum number of trades.",
+        "List the only setups you will take today. If it is not on the list, it is not a trade.",
+        "Note your emotional state in one word. If it is angry, tired or desperate, trade half size or skip the day.",
+        "Check the calendar for high-impact events and decide whether you trade through them."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Step 3: In-Session Rules"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Two consecutive losses:</strong> step away for a fixed time, such as 30 minutes.",
+        "<strong>Hit the personal limit:</strong> close the platform. Do not take \"one more.\"",
+        "<strong>Never widen a stop:</strong> a stop is a decision you made calmly; moving it is a decision you make emotionally.",
+        "<strong>No size increases after a loss.</strong> Size goes up only after a clean review, never to recover.",
+        "<strong>Green day cap:</strong> consider a profit cap too, because giving back a good day and failing consistency rules are both common."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Step 4: Post-Session Review (10 Minutes)"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Log every trade with its setup, size and result.",
+        "Mark each trade as planned or impulsive.",
+        "Record whether you respected the daily limit. If not, write what triggered the break.",
+        "Update your buffer and tomorrow's personal limit."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Worked Example"
+    },
+    {
+      "type": "p",
+      "text": "A trader on a $50K account has a $2,000 buffer and sets a $1,000 personal limit with $250 max risk per trade. Trade one loses $250. Trade two loses $250. Rule triggered: 30 minutes away. Instead of the usual revenge entry, they log the trades and stop at -$500, half of their limit. The day costs $500 instead of a potential $2,000 account closure."
+    },
+    {
+      "type": "p",
+      "text": "This is a process example, not a prediction. The point is that a bad day stays small because the decision was made before emotion arrived."
+    },
+    {
+      "type": "h2",
+      "text": "Making the Routine Stick With a Journal"
+    },
+    {
+      "type": "p",
+      "text": "Rules written in your head get bent. Rules with a record get kept. In Zentrade, the calendar with emotional notes (Professional and above) lets you see which days broke your rules and how you felt. On ZenMode, AI revenge trading detection flags a losing trade followed by a quick re-entry, and risk rule alerts help you watch your limits. Read the full guide on <a href=\"/blog/max-daily-loss-fondeo-how-to-manage\">managing max daily loss</a> and how <a href=\"/blog/trailing-drawdown-ftmo-vs-apex-vs-topstep\">trailing drawdown differs across firms</a>."
+    },
+    {
+      "type": "cta",
+      "text": "Build your daily routine into a journal and see how often you actually respect your limits.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "How should I set my own daily loss limit?",
+          "a": "Start from the dollars between your current equity and your firm's closing level, then use a fraction such as 50% as your personal stop-for-the-day. Recalculate whenever the buffer changes."
+        },
+        {
+          "q": "Do all prop firms have a daily loss limit?",
+          "a": "No. For example, Topstep states TopstepX accounts created or reset after August 25, 2024 have no daily loss limit, but other firms and platforms do. Always check your firm's current rules, and still use a personal limit."
+        },
+        {
+          "q": "What should I do right after hitting my limit?",
+          "a": "Stop trading, close the platform, and log the session. Review what happened before the next session rather than trying to recover immediately."
+        },
+        {
+          "q": "How many losses in a row should make me stop?",
+          "a": "There is no universal number. Many traders use two or three consecutive losses as a cooling-off trigger. Choose yours in advance and test it in your journal data."
+        },
+        {
+          "q": "Does Zentrade enforce my daily loss limit?",
+          "a": "Zentrade is a journal, not a trading platform, so it cannot stop your orders. ZenMode includes risk rule alerts and AI revenge trading detection to help you notice breaches, and every plan helps you review them."
+        }
+      ]
+    }
+  ]
+}

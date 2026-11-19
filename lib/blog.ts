@@ -45,7 +45,7 @@ export interface BlogContentBlock {
 
 /** Pares de posts ES ↔ EN para hreflang. Clave = slug ES, valor = slug EN */
 export const HREFLANG_PAIRS: Record<string, string> = {
-  "zentrade-vs-tradezella":                  "zentrade-vs-tradezella-comparison",
+  "zentrade-vs-tradezella-es":               "zentrade-vs-tradezella-comparison",
   "como-pasar-apex-trader-funding":          "how-to-pass-apex-trader-funding",
   "como-pasar-topstep-evaluacion":           "how-to-pass-topstep-evaluation",
   "como-pasar-evaluacion-ftmo-journal-trading": "how-to-pass-ftmo-evaluation",
@@ -114,9 +114,9 @@ const POSTS_DIR = path.join(process.cwd(), "data", "blog", "posts");
 const IS_DEV = process.env.NODE_ENV === "development";
 
 function ensurePostsDir() {
-  if (!fs.existsSync(POSTS_DIR)) {
-    fs.mkdirSync(POSTS_DIR, { recursive: true });
-  }
+  if (fs.existsSync(POSTS_DIR)) return;
+  // En Vercel el filesystem es de solo lectura: crear la carpeta lanzaría EROFS (500).
+  if (IS_DEV) fs.mkdirSync(POSTS_DIR, { recursive: true });
 }
 
 /**
@@ -142,6 +142,7 @@ export function isScheduled(post: BlogPost): boolean {
 /** Devuelve todos los posts visibles (publicados o todos en dev), ordenados por fecha desc */
 export function getAllPosts(): BlogPost[] {
   ensurePostsDir();
+  if (!fs.existsSync(POSTS_DIR)) return [];
   const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".json"));
 
   return files

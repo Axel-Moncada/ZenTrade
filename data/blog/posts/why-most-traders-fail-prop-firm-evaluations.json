@@ -1,0 +1,206 @@
+{
+  "slug": "why-most-traders-fail-prop-firm-evaluations",
+  "title": "Why Most Traders Fail Prop Firm Evaluations: What the Data Says",
+  "excerpt": "Pass rates reported by prop firms range from single digits to the high teens. Here is what the published data shows, why denominators matter, and the behavioral failure points you can control.",
+  "seoTitle": "Why Most Traders Fail Prop Firm Evaluations: Pass Rate Data (2026)",
+  "seoDescription": "What do pass rate statistics say about prop firm evaluations? A sourced look at Topstep, Earn2Trade and industry data, and the controllable reasons traders fail.",
+  "keywords": [
+    "why traders fail prop firm evaluations",
+    "prop firm pass rate",
+    "prop firm challenge pass rate statistics",
+    "why do prop traders fail",
+    "topstep combine pass rate",
+    "prop firm failure reasons"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-12-03",
+  "updatedAt": "2026-11-19",
+  "category": "psicologia",
+  "tags": [
+    "pass rate",
+    "prop firm statistics",
+    "trading psychology",
+    "evaluation",
+    "discipline"
+  ],
+  "readingTime": 10,
+  "featured": false,
+  "relatedSlugs": [
+    "how-to-avoid-revenge-trading-prop-firms",
+    "max-daily-loss-fondeo-how-to-manage",
+    "trading-psychology-futures-traders",
+    "how-to-track-emotions-trading"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>Published pass rates for prop firm evaluations are low: firm-reported figures range from under 10% to the high teens, and the one large third-party estimate we found puts it near 14%.</strong> Most numbers are self-reported by firms or aggregated by secondary sources, so treat them as directional, not audited facts."
+    },
+    {
+      "type": "p",
+      "text": "You will see claims like \"90% of traders fail\" repeated everywhere. We went looking for sources. Below is what is actually published, who published it, and what it can and cannot tell you. Then we cover the failure points a journal can help you control. Nothing here is a promise that any process leads to passing."
+    },
+    {
+      "type": "h2",
+      "text": "What the Published Numbers Say"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Statistic",
+        "Source",
+        "Type",
+        "Caveat"
+      ],
+      "rows": [
+        [
+          "16.8% of Trading Combines completed (2025)",
+          "Topstep",
+          "Firm-published",
+          "Per-attempt rate, not per-trader"
+        ],
+        [
+          "51.8% of traders reached funded status at least once",
+          "Topstep",
+          "Firm-published",
+          "Per-trader rate; not comparable to the 16.8% figure"
+        ],
+        [
+          "8.89% of candidates passed (2025)",
+          "Earn2Trade",
+          "Firm-published",
+          "Definition of candidate may differ"
+        ],
+        [
+          "About 14% reach funded status, about 7% reach a payout",
+          "FPFX Tech (100,000+ traders, 10 firms)",
+          "Third-party aggregate",
+          "Original dataset not verified by us"
+        ],
+        [
+          "78.7% of failed evaluations breached the daily loss limit",
+          "OneFunded",
+          "Firm-published",
+          "Single firm; forex-heavy context possible"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Compiled from the Fortunly article \"Prop Firm Challenge Pass Rate Statistics for 2026\", which cites each firm's own disclosures and third-party analyses. We could not find a primary FTMO pass-rate disclosure, so we do not quote one."
+    },
+    {
+      "type": "h2",
+      "text": "Why Denominators Change the Story"
+    },
+    {
+      "type": "p",
+      "text": "Topstep's own numbers illustrate the issue. If 16.8% of Combines succeed but 51.8% of traders eventually reach funded status, the same firm produces both a pessimistic and an optimistic headline. Traders reset, retry and succeed on later attempts. Pass rate per attempt measures how hard each purchase is; pass rate per trader measures how many persist."
+    },
+    {
+      "type": "p",
+      "text": "The practical lesson: failing one attempt is the normal outcome, not proof you cannot do this. What separates traders who eventually get funded is usually whether each failed attempt teaches them something specific."
+    },
+    {
+      "type": "h2",
+      "text": "The Controllable Reasons Evaluations End"
+    },
+    {
+      "type": "h3",
+      "text": "1. Breaching a loss limit"
+    },
+    {
+      "type": "p",
+      "text": "Whatever the exact share, firms with published breakdowns point to loss-limit breaches as a leading cause. Max loss, trailing drawdown and daily loss limits end attempts quickly, often after one oversized or emotionally driven session. See <a href=\"/blog/max-daily-loss-fondeo-how-to-manage\">how to manage the max daily loss</a>."
+    },
+    {
+      "type": "h3",
+      "text": "2. Revenge trading after a loss"
+    },
+    {
+      "type": "p",
+      "text": "A loss followed by a larger, faster trade is the classic sequence behind a blown account. It is a behavior you can measure: time between a loss and the next entry, and the number of consecutive losses. Read <a href=\"/blog/how-to-avoid-revenge-trading-prop-firms\">how to avoid revenge trading</a>."
+    },
+    {
+      "type": "h3",
+      "text": "3. Ignoring the consistency or best-day rules"
+    },
+    {
+      "type": "p",
+      "text": "Traders can hit the profit target through one outsized day and then run into a consistency target. Firms like Topstep (55% of the profit target on the Combine, per its help center) and Apex (50% on Performance Accounts) write these rules down, but many traders learn them after the fact."
+    },
+    {
+      "type": "h3",
+      "text": "4. Sizing for the target, not for the drawdown"
+    },
+    {
+      "type": "p",
+      "text": "A trailing drawdown on a $50K account of $2,000 leaves little room for a position size that was fine on a personal account. Position size should come from your max loss, not from how fast you want to finish."
+    },
+    {
+      "type": "h3",
+      "text": "5. No review loop"
+    },
+    {
+      "type": "p",
+      "text": "Without a record of why trades were taken, the same errors repeat across attempts. This is the part a journal addresses: it turns \"I got unlucky\" into \"I take my worst trades in the first 15 minutes and after two losses.\""
+    },
+    {
+      "type": "h2",
+      "text": "A Failure-Proofing Checklist You Can Start This Week"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Write down your hard stop-for-the-day, in dollars, before the session opens.",
+        "Set a max number of trades and a max loss per trade as a percentage of your drawdown buffer.",
+        "After any loss, wait a fixed cooling-off period before the next entry.",
+        "Tag every trade as planned or impulsive and review the ratio weekly.",
+        "Track your best-day concentration so you know where the consistency rule stands.",
+        "After each failed attempt, write one specific change, not a general resolution."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "No process guarantees funding. Futures trading involves substantial risk of loss, and past or reported pass rates do not predict your results."
+    },
+    {
+      "type": "p",
+      "text": "Zentrade is designed around this review loop: calendar journaling with emotional notes, profit factor and consistency score on Professional, and on ZenMode, AI revenge trading detection, risk rule alerts and a weekly report with emotional analysis."
+    },
+    {
+      "type": "cta",
+      "text": "Turn your next evaluation attempt into data. Log every session and find your real failure point.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "What percentage of traders pass prop firm evaluations?",
+          "a": "Published figures vary: Topstep reported 16.8% of Combines completed in 2025, Earn2Trade reported 8.89% of candidates, and one large third-party aggregate estimates around 14% reach funded status. Most are self-reported, so treat them as directional."
+        },
+        {
+          "q": "Is it true that 90% of traders fail?",
+          "a": "It is a common claim but we found no audited source for that exact number. Firm-reported pass rates are mostly in the 9 to 17% range, which implies roughly 83 to 91% do not pass a given attempt."
+        },
+        {
+          "q": "Why do Topstep's 16.8% and 51.8% figures differ?",
+          "a": "The first is a per-Combine (per-attempt) rate and the second is a per-trader rate of reaching funded status at least once. Traders who retry raise the per-trader figure."
+        },
+        {
+          "q": "What is the most common reason people fail?",
+          "a": "Firms with published breakdowns point to loss-limit breaches, such as daily loss or drawdown limits, as a leading cause. Behavior like revenge trading and oversizing is usually behind them."
+        },
+        {
+          "q": "Can a trading journal improve my odds?",
+          "a": "It cannot guarantee a pass, but it makes your patterns visible so you can fix specific recurring mistakes. That is the strongest realistic benefit."
+        }
+      ]
+    }
+  ]
+}

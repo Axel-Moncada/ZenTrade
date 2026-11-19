@@ -17,6 +17,36 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/", "/blog/", "/llms.txt"],
         disallow: ["/dashboard/", "/api/"],
       },
+      // ChatGPT search (OpenAI) — indexa para resultados de búsqueda
+      {
+        userAgent: "OAI-SearchBot",
+        allow: ["/", "/blog/", "/llms.txt", "/llms-full.txt"],
+        disallow: ["/dashboard/", "/api/"],
+      },
+      // ChatGPT navegando en vivo a pedido del usuario
+      {
+        userAgent: "ChatGPT-User",
+        allow: ["/", "/blog/", "/llms.txt", "/llms-full.txt"],
+        disallow: ["/dashboard/", "/api/"],
+      },
+      // Claude search (Anthropic)
+      {
+        userAgent: "Claude-SearchBot",
+        allow: ["/", "/blog/", "/llms.txt", "/llms-full.txt"],
+        disallow: ["/dashboard/", "/api/"],
+      },
+      // Claude navegando en vivo a pedido del usuario
+      {
+        userAgent: "Claude-User",
+        allow: ["/", "/blog/", "/llms.txt", "/llms-full.txt"],
+        disallow: ["/dashboard/", "/api/"],
+      },
+      // Perplexity navegando en vivo a pedido del usuario
+      {
+        userAgent: "Perplexity-User",
+        allow: ["/", "/blog/", "/llms.txt", "/llms-full.txt"],
+        disallow: ["/dashboard/", "/api/"],
+      },
       // Claude / Anthropic
       {
         userAgent: "anthropic-ai",

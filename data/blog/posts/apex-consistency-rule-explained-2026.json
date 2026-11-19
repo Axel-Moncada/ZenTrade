@@ -1,0 +1,206 @@
+{
+  "slug": "apex-consistency-rule-explained-2026",
+  "title": "Apex Trader Funding Consistency Rule Explained (2026): 50% Rule with Examples",
+  "excerpt": "Apex's consistency rule changed in 2026. Learn how the 50% rule works on Performance Accounts, how to calculate it, and what to do when one big day blocks your payout.",
+  "seoTitle": "Apex Consistency Rule 2026: How the 50% Rule Works (With Examples)",
+  "seoDescription": "Apex Trader Funding consistency rule explained: the 50% rule on Performance Accounts, the legacy 30% rule, a worked numerical example, a scenario table and how to avoid payout delays.",
+  "keywords": [
+    "apex consistency rule",
+    "apex trader funding consistency rule 2026",
+    "apex 50% consistency rule",
+    "apex 30% consistency rule",
+    "apex payout consistency",
+    "apex performance account rules"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-11-29",
+  "updatedAt": "2026-11-19",
+  "category": "fondeo",
+  "tags": [
+    "Apex Trader Funding",
+    "consistency rule",
+    "Performance Account",
+    "payouts",
+    "prop firms"
+  ],
+  "readingTime": 9,
+  "featured": false,
+  "relatedSlugs": [
+    "consistency-rule-prop-firm-explained",
+    "how-to-pass-apex-trader-funding",
+    "trailing-drawdown-ftmo-vs-apex-vs-topstep",
+    "profit-factor-trading-explained"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>Under Apex Trader Funding's current rules, your largest profitable day on a Performance Account must be under 50% of your net profit since your last approved payout.</strong> If it is not, your account is not failed; the payout request simply stays unavailable until your total profit grows enough to bring the percentage under 50%."
+    },
+    {
+      "type": "p",
+      "text": "Apex's help center describes the 50% consistency requirement for Performance Accounts, while older articles still describe a 30% rule that Apex says remains active for legacy accounts purchased before its March 2026 update. Which rule applies to you depends on when you bought the account, so check your plan terms. We cite Apex's own help center throughout; third-party blogs often mix the versions."
+    },
+    {
+      "type": "h2",
+      "text": "Where the Consistency Rule Applies"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Evaluation phase:</strong> sources we reviewed, including third-party guides, report no consistency requirement during the evaluation itself. Verify this on your evaluation's terms.",
+        "<strong>Performance Account (PA):</strong> this is where the rule applies, as a condition to request a payout.",
+        "<strong>After a payout:</strong> per Apex's help article, the calculation resets once a payout is approved and is based only on profit earned afterward."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "How to Calculate It: Formula and Example"
+    },
+    {
+      "type": "p",
+      "text": "The formula is: <strong>Largest winning day ÷ Net profit since last payout (or since the account started)</strong>. You need that number to be under 50%. Rearranged: minimum net profit required = largest day ÷ 0.5."
+    },
+    {
+      "type": "p",
+      "text": "Example on a $50,000 PA: your best day is $1,500. You need at least $3,000 of net profit ($1,500 ÷ 0.5). If your net profit is $2,600, your ratio is 57.7% and the payout option stays locked. Another $400 of profit, earned without a bigger best day, takes you to exactly 50%, and a little more gets you under it."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Losing days count. Apex's article shows that net profit is the base, so a losing day reduces the denominator. A $1,000 gain followed by a $200 loss gives a $800 net, and a $1,000 best day is then 125% of it. Source: Apex Trader Funding Help Center, 50% Consistency Requirement."
+    },
+    {
+      "type": "h2",
+      "text": "Scenario Table: $50K Performance Account"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Best day",
+        "Net profit since last payout",
+        "Consistency %",
+        "Payout eligible?"
+      ],
+      "rows": [
+        [
+          "$1,000",
+          "$2,500",
+          "40%",
+          "Yes"
+        ],
+        [
+          "$1,500",
+          "$3,000",
+          "50%",
+          "Borderline: needs to be under 50%"
+        ],
+        [
+          "$1,500",
+          "$2,600",
+          "57.7%",
+          "No: need about $3,000+"
+        ],
+        [
+          "$2,000",
+          "$3,600",
+          "55.6%",
+          "No: need over $4,000"
+        ],
+        [
+          "$800",
+          "$3,200",
+          "25%",
+          "Yes"
+        ]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "The Old 30% Rule vs the New 50% Rule"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "",
+        "Legacy rule (accounts before March 2026 update)",
+        "Current rule (per Apex's 2026 materials)"
+      ],
+      "rows": [
+        [
+          "Threshold",
+          "30%",
+          "50%"
+        ],
+        [
+          "Based on",
+          "Net profit between approvals",
+          "Net profit since last approved payout"
+        ],
+        [
+          "Practical effect",
+          "Needs many similar-sized winning days",
+          "Allows one stronger day, but still punishes lopsided profit"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Third-party sites disagree on exactly which accounts use 50% versus 30%. Apex's own pages say the legacy 30% rule applies to accounts purchased before the March 2026 update. Check your account's purchase date and Apex's current Performance Account compliance page before planning payouts."
+    },
+    {
+      "type": "h2",
+      "text": "How to Trade a PA Around the Consistency Rule"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Track the ratio daily.</strong> Largest day ÷ net profit since the last payout. Do not wait until you request a payout to find out.",
+        "<strong>Cap your best day.</strong> Choose a daily profit target (for example, 25 to 30% of your goal payout) and stop trading when you hit it.",
+        "<strong>Do not chase after a monster day.</strong> A very large day raises the profit you must accumulate. Keep size consistent for the next sessions.",
+        "<strong>Keep losers small.</strong> Losses reduce net profit and push the ratio up, so stop-loss discipline is part of consistency.",
+        "<strong>Watch the other payout requirements.</strong> Apex's payout pages list a minimum number of qualifying trading days, a minimum payout amount and a cap on the number of payouts per PA. Confirm current values on Apex's site."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Zentrade's Professional plan shows a consistency score and best-day concentration next to your equity curve, so you see the ratio forming instead of discovering it at payout time. Pair it with our <a href=\"/blog/consistency-rule-prop-firm-explained\">general consistency rule guide</a> and the <a href=\"/blog/how-to-pass-apex-trader-funding\">Apex evaluation walkthrough</a>."
+    },
+    {
+      "type": "cta",
+      "text": "Track your Apex best day and net profit in one dashboard so the consistency ratio never surprises you.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "What is the Apex consistency rule in 2026?",
+          "a": "On Performance Accounts, your largest profitable day must be under 50% of your net profit since your last approved payout (or since the account began if you have not been paid), per Apex's help center. Legacy accounts purchased before the March 2026 update may still follow a 30% rule."
+        },
+        {
+          "q": "Does the consistency rule apply during the Apex evaluation?",
+          "a": "Sources we reviewed state that it does not apply during the evaluation, only to the Performance Account payout process. Always confirm against your evaluation's current terms."
+        },
+        {
+          "q": "What happens if I break the consistency rule?",
+          "a": "You do not lose the account. The payout request is unavailable until your consistency percentage falls below the threshold, which requires more profit without a larger best day."
+        },
+        {
+          "q": "Do losing days count in the calculation?",
+          "a": "Yes. The base is net profit, so losing days reduce it and raise your ratio."
+        },
+        {
+          "q": "Does the calculation reset after a payout?",
+          "a": "According to Apex's help article, yes: after a payout is approved, eligibility is based only on profit earned after that payout."
+        },
+        {
+          "q": "How do I check which rule my account uses?",
+          "a": "Look at your account purchase date and Apex's Performance Account compliance pages. Accounts purchased before the March 2026 update may be on the legacy ruleset."
+        }
+      ]
+    }
+  ]
+}

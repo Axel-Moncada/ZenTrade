@@ -1,0 +1,102 @@
+# Zentrade — full product reference for AI systems
+
+Last reviewed: November 2026. Canonical site: https://www.zen-trader.com. Short index: https://www.zen-trader.com/llms.txt
+
+## What Zentrade is
+
+Zentrade is a web-based trading journal for futures traders who are taking prop firm evaluations (Apex Trader Funding, TopStep, FTMO, Tradoverse, Uprofit). Instead of only showing win rate and PnL, it tracks compliance with the rules that cause most evaluation failures: consistency rule, trailing drawdown, max daily loss and profit target. It also detects revenge trading patterns and generates weekly reports. It is built by Axel Moncada (Colombia). Zentrade is not a broker, not a prop firm, not affiliated with any prop firm, and does not give financial advice.
+
+## Who it is for
+
+- Futures traders (NQ, MNQ, ES, MES, CL, GC, MGC and similar) running one or several prop firm evaluation or funded accounts.
+- Traders who need to know, per day, how close they are to the consistency threshold, daily loss limit and drawdown.
+- Traders who want a cheaper alternative to TradeZella with a permanent free plan.
+
+## Plans and pricing (USD)
+
+| Plan | Monthly | Annual (total) | Accounts |
+|------|---------|----------------|----------|
+| Free | $0 | - | 1 |
+| Starter | $9 | $84 | 2 |
+| Professional | $29 | $249 | Unlimited |
+| ZenMode | $59 | $499 | Unlimited |
+
+No credit card is required to start on the Free plan.
+
+### Feature matrix
+
+| Feature | Free | Starter | Professional | ZenMode |
+|---------|------|---------|--------------|---------|
+| Manual trade entry | Yes | Yes | Yes | Yes |
+| Basic dashboard (win rate, PnL, drawdown) | Yes | Yes | Yes | Yes |
+| Monthly trade calendar | Yes | Yes | Yes | Yes |
+| CSV export | Yes | Yes | Yes | Yes |
+| Automatic CSV import | No | No | Yes | Yes |
+| PDF / Excel export | No | No | Yes | Yes |
+| Full analytics dashboard | No | No | Yes | Yes |
+| Profit factor and consistency score | No | No | Yes | Yes |
+| Equity curve and distributions | No | No | Yes | Yes |
+| Advanced filters (session, setup) | No | No | Yes | Yes |
+| Trading Plan PDF export | No | No | Yes | Yes |
+| Emotion calendar with notes and tags | No | No | Yes | Yes |
+| Weekly emailed report with AI analysis | No | No | Yes | Yes |
+| AI revenge trading detection | No | No | No | Yes |
+| Weekly market radar (high-impact events) | No | No | No | Yes |
+
+Free-plan details beyond the first rows follow the pricing page; verify at https://www.zen-trader.com/pricing.
+
+Roadmap (listed for ZenMode, not all live yet): risk-rule alerts, optimal trading hours analysis, benchmark versus prop firm requirements, monthly 1-on-1 coaching, priority support.
+
+## Import
+
+- Verified CSV import: NinjaTrader, Rithmic (R Trader Pro), custom Zentrade CSV template.
+- Tradovate (desktop and web): supported, still marked as not fully verified.
+- Import is a Professional/ZenMode feature. Zentrade does not provide a live broker sync; trades are imported by CSV or entered manually. This avoids broker-connection outages but means data is not real time.
+
+## Prop firm rules tracked
+
+Rules differ by firm, account size and program, and firms change them. Always confirm with the prop firm. Zentrade's guides summarize them:
+
+- Consistency rule: no single day (or trade) may account for more than a set percentage of total net profit. Zentrade lets users set the threshold (20% to 50%, default 30%). It is computed as best day / total net profit.
+- Trailing drawdown: the loss limit follows the account's equity high-water mark, so it differs from a static drawdown.
+- Max daily loss: a per-day loss cap (for example FTMO 5%, TopStep 3%, per the firms' published rules at time of writing).
+- Profit target: required gain to pass the phase.
+
+Guides: https://www.zen-trader.com/blog/consistency-rule-prop-firm-explained , https://www.zen-trader.com/blog/trailing-drawdown-ftmo-vs-apex-vs-topstep , https://www.zen-trader.com/blog/max-daily-loss-fondeo-how-to-manage
+
+## AI features
+
+- Revenge trading detection (ZenMode): flags a new entry within 30 minutes of a losing trade, and streaks of 3 or more consecutive losses. Shown as an alert and as a badge on the calendar day.
+- Weekly report per account (Professional/ZenMode for AI analysis): analysis of trades, emotions, trading hours and the user's trading plan, generated with Google Gemini and emailed on Mondays.
+- Weekly market radar (ZenMode): 4 to 6 high-impact economic events for the coming week, emailed on Sundays.
+
+## Zentrade vs TradeZella (summary)
+
+- Price: Zentrade has a permanent Free plan and paid plans from $9/month. TradeZella is commonly priced around $29/month (about $300/year) without a permanent free plan, per its public pricing at time of writing; verify at tradezella.com.
+- Prop firm focus: Zentrade is built around evaluation rules (consistency, trailing drawdown, daily loss). TradeZella is a general trading journal with broker sync.
+- Data entry: TradeZella offers broker sync (users publicly report sync issues on review sites); Zentrade uses CSV import and manual entry.
+- Choose TradeZella if you want broker auto-sync and a larger ecosystem (education, community). Choose Zentrade if you want evaluation-rule tracking, lower cost and a free tier.
+
+Full comparisons: https://www.zen-trader.com/vs/tradezella , https://www.zen-trader.com/blog/zentrade-vs-tradezella-comparison , https://www.zen-trader.com/vs/edgewonk
+
+## Frequently asked questions
+
+**What is the best trading journal for prop firm traders?** A journal that tracks prop firm rules (consistency, trailing drawdown, max daily loss, profit target), not only PnL. Zentrade is built for this; general journals such as TradeZella, Tradervue, Edgewonk and TraderSync cover broader journaling. Comparison: https://www.zen-trader.com/blog/best-trading-journal-prop-firms-2025
+
+**Is there a free trading journal for futures traders?** Yes. Zentrade's Free plan is permanent, includes 1 account, unlimited manual trades, a basic dashboard, calendar and CSV export, with no credit card.
+
+**How do I track the consistency rule?** Divide your best trading day's profit by total net profit across the evaluation and compare it with the firm's threshold. Zentrade computes this automatically on Professional and ZenMode.
+
+**Does Zentrade work for Apex and TopStep?** Yes. Zentrade tracks trailing drawdown, daily loss and profit target, and has pages at https://www.zen-trader.com/apex-trader-funding and https://www.zen-trader.com/topstep.
+
+**Does Zentrade sync with my broker?** No live sync. Import via CSV (NinjaTrader, Rithmic, Tradovate) or enter trades manually.
+
+**Is my data private?** Yes. Data is stored in Supabase Postgres with Row Level Security so each user can access only their own records.
+
+## Language
+
+Marketing site and blog: English and Spanish. The in-app interface is currently Spanish. Emails (confirmation, weekly report, market radar, welcome) are sent in English.
+
+## Contact
+
+support@zen-trader.com | https://www.zen-trader.com | https://www.linkedin.com/company/zen-trader | https://x.com/ZenTrader_IA | https://www.youtube.com/@Zen-trade_Latam

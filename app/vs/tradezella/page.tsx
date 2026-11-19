@@ -113,7 +113,7 @@ export default async function VsTradezellaPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <CTAButton size="lg" />
-              <Link href="/blog/zentrade-vs-tradezella"
+              <Link href="/blog/zentrade-vs-tradezella-es"
                 className="text-sm text-zen-anti-flash/60 hover:text-zen-caribbean-green transition-colors flex items-center gap-1">
                 Leer análisis completo <ArrowRight className="w-3.5 h-3.5" />
               </Link>
@@ -280,7 +280,7 @@ export default async function VsTradezellaPage() {
               ))}
             </div>
             <div className="mt-8 text-center">
-              <Link href="/blog/zentrade-vs-tradezella"
+              <Link href="/blog/zentrade-vs-tradezella-es"
                 className="inline-flex items-center gap-2 text-sm text-zen-caribbean-green hover:text-zen-caribbean-green/80 transition-colors font-medium">
                 Leer el análisis completo <ArrowRight className="w-4 h-4" />
               </Link>

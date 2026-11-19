@@ -1,0 +1,204 @@
+{
+  "slug": "best-trading-journal-for-tradovate-users",
+  "title": "Best Trading Journal for Tradovate Users (and How to Import Your Trades)",
+  "excerpt": "Trade on Tradovate? Here is what a journal must do for prop firm traders, how to export your Tradovate trades to CSV, and how to get them into Zentrade without retyping everything.",
+  "seoTitle": "Best Trading Journal for Tradovate Users (2026): Import Trades via CSV",
+  "seoDescription": "Looking for a Tradovate trading journal? Learn what to look for, how to export Tradovate trades as CSV, and how to track prop firm rules like drawdown and consistency.",
+  "keywords": [
+    "tradovate trading journal",
+    "best trading journal for tradovate",
+    "tradovate journal import csv",
+    "tradovate trade export",
+    "futures trading journal prop firm",
+    "journal for Apex Tradovate"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-11-19",
+  "updatedAt": "2026-11-19",
+  "category": "herramientas",
+  "tags": [
+    "Tradovate",
+    "trading journal",
+    "CSV import",
+    "futures trading",
+    "prop firms"
+  ],
+  "readingTime": 8,
+  "featured": false,
+  "relatedSlugs": [
+    "como-operar-tradovate-prop-firm",
+    "best-trading-journal-prop-firms-2025",
+    "futures-trading-journal-template",
+    "how-to-pass-apex-trader-funding"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>The best trading journal for Tradovate users is one that ingests your Tradovate trade history, tracks your prop firm rules (drawdown, consistency, daily loss) and records why you took each trade.</strong> Tradovate itself shows fills and P&L, but it does not tell you whether your behavior is repeating a losing pattern. A journal does."
+    },
+    {
+      "type": "p",
+      "text": "Tradovate is the execution platform behind many futures prop firm accounts, including Apex Trader Funding evaluations. That makes it the place where most evaluation trades happen, and a poor place to review them. This guide explains what to demand from a journal, how to export your Tradovate data, and where Zentrade fits today. We will be direct about one limit: Zentrade does not yet connect to Tradovate automatically."
+    },
+    {
+      "type": "h2",
+      "text": "What a Tradovate Journal Must Do for Prop Firm Traders"
+    },
+    {
+      "type": "p",
+      "text": "A spreadsheet can store trades. An evaluation-grade journal has to answer harder questions: how close am I to my drawdown floor, is one day carrying my profit, and what am I doing after a loss?"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Rule tracking:</strong> trailing drawdown, daily loss and consistency metrics visible next to your P&L, not buried in a notes tab.",
+        "<strong>Trade-level context:</strong> setup, session, emotional state, and whether you followed your plan.",
+        "<strong>Pattern detection:</strong> performance by hour, instrument (NQ, ES, MNQ, GC) and setup, so you stop trading your worst window.",
+        "<strong>Multiple accounts:</strong> if you run several evaluations or a funded account plus a live account, each needs its own equity curve.",
+        "<strong>Low friction:</strong> if logging takes 20 minutes, you will skip it after a bad day, which is exactly when you need it."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Journal Options for Tradovate Traders Compared"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Approach",
+        "Cost",
+        "Effort",
+        "Prop firm rule tracking",
+        "Best for"
+      ],
+      "rows": [
+        [
+          "Spreadsheet (Google Sheets)",
+          "Free",
+          "High: manual entry",
+          "Only if you build formulas",
+          "Traders who enjoy building their own system"
+        ],
+        [
+          "Tradovate built-in reports",
+          "Included",
+          "Low",
+          "No behavioral or rule context",
+          "Checking raw P&L and fills"
+        ],
+        [
+          "TradeZella",
+          "From $35/mo (verify current pricing)",
+          "Low with broker sync",
+          "Generic analytics",
+          "Traders who want broker auto-sync and a large feature set"
+        ],
+        [
+          "Zentrade",
+          "Free plan; paid from $9/mo",
+          "Manual entry on Starter; CSV import on Professional",
+          "Consistency score, drawdown and profit factor; weekly AI report on ZenMode",
+          "Prop firm evaluation traders who want discipline-focused tracking at a lower price"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Pricing for third-party tools changes often. Confirm current plans on each vendor's site before deciding. Zentrade pricing: Free, Starter $9/mo, Professional $29/mo, ZenMode $59/mo (annual billing is cheaper)."
+    },
+    {
+      "type": "h2",
+      "text": "How to Export Your Trades from Tradovate"
+    },
+    {
+      "type": "p",
+      "text": "Tradovate lets you export trade data to CSV from its reporting tools. Menu names can change between app versions, so treat these steps as a guide and check Tradovate's own help center if a label differs."
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Log in to Tradovate and open the account you want to review. If you trade through a prop firm, make sure you are on the evaluation or funded account, not a demo.",
+        "Open the reports or account history section and choose a performance or fills report for your date range.",
+        "Export the result as a CSV file. Keep the original file untouched as a backup.",
+        "Open the CSV and confirm it contains date and time, symbol, side, quantity, entry price, exit price and P&L. If a column is missing, export a different report type.",
+        "Import the file into your journal and review the column mapping before confirming."
+      ]
+    },
+    {
+      "type": "h3",
+      "text": "Common Import Problems"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Time zones:</strong> exports may be in a different time zone than you trade. Check one trade against your platform before trusting hour-of-day analysis.",
+        "<strong>Partial fills:</strong> one order can appear as several rows. Make sure the journal groups fills into a single trade.",
+        "<strong>Commissions and fees:</strong> confirm whether P&L is gross or net, because your prop firm measures net."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Importing Tradovate Trades into Zentrade Today"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade supports CSV import with column mapping on the Professional and ZenMode plans, and manual trade entry on every plan. You can export your Tradovate history as CSV and map the columns during import. A direct Tradovate connection that pulls trades automatically is in development and marked coming soon; we are not announcing a date."
+    },
+    {
+      "type": "p",
+      "text": "Once your trades are in, you can review profit factor, equity curve and consistency score per account, tag emotions on the calendar, and (on ZenMode) get a weekly AI report. For the rule side of Apex evaluations traded on Tradovate, read our <a href=\"/blog/how-to-pass-apex-trader-funding\">Apex evaluation guide</a> and the <a href=\"/blog/como-operar-tradovate-prop-firm\">Tradovate prop firm guide (Spanish)</a>."
+    },
+    {
+      "type": "cta",
+      "text": "Create a free Zentrade account, log your first Tradovate session and see your real numbers instead of guessing.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "h2",
+      "text": "A 10-Minute Post-Session Routine for Tradovate Traders"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Export or enter the day's trades.",
+        "Tag each trade: planned setup or impulse.",
+        "Write one sentence on how you felt before the biggest loss.",
+        "Check distance to your drawdown floor and your best-day share of total profit.",
+        "Decide one rule for tomorrow, such as no trades after two consecutive losses."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "A journal does not make a strategy profitable and cannot guarantee you pass an evaluation. It makes your process visible so you can fix what is actually breaking it."
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "Does Zentrade connect directly to Tradovate?",
+          "a": "Not yet. A direct Tradovate integration is in development and listed as coming soon, with no release date. Today you can export your Tradovate trades to CSV and import them on the Professional or ZenMode plan, or log trades manually on any plan."
+        },
+        {
+          "q": "Which Zentrade plan includes CSV import?",
+          "a": "CSV import is included in Professional ($29/mo) and ZenMode ($59/mo). Starter ($9/mo) and Free use manual entry and CSV export."
+        },
+        {
+          "q": "Can I journal multiple Apex or Tradovate accounts?",
+          "a": "Yes. Starter supports 2 accounts and Professional and ZenMode support unlimited accounts, each with its own metrics."
+        },
+        {
+          "q": "Is the journal useful if I only trade evaluations?",
+          "a": "Yes. Evaluations are where consistency and drawdown mistakes cost you the most, so tracking them per account is where a journal pays for itself."
+        },
+        {
+          "q": "What should my Tradovate CSV include?",
+          "a": "At minimum: date and time, symbol, side, quantity, entry and exit price, and P&L. Check whether P&L includes commissions, since prop firms measure net results."
+        }
+      ]
+    }
+  ]
+}

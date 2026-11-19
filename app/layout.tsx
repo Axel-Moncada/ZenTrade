@@ -16,22 +16,22 @@ const SITE_URL = "https://www.zen-trader.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Zentrade — Journal de Trading para Futuros",
+    default: "Zentrade — Trading Journal for Prop Firm Futures Traders",
     template: "%s | Zentrade",
   },
   description:
-    "Journal de trading para futuros con IA. Pasa pruebas de fondeo de FTMO, Apex y TopStep con métricas precisas, revenge trading detection y reportes inteligentes.",
+    "The AI trading journal built to help futures traders pass prop firm evaluations (Apex, TopStep, FTMO). Track drawdown, consistency rules and revenge trading in one place.",
   keywords: [
-    "journal de trading",
-    "trading journal futuros",
-    "pruebas de fondeo futuros",
-    "prueba de fondeo",
-    "empresa de fondeo",
-    "FTMO",
+    "trading journal",
+    "futures trading journal",
+    "prop firm trading journal",
     "Apex Trader Funding",
     "TopStep",
+    "FTMO",
+    "TradeZella alternative",
+    "consistency rule",
+    "trailing drawdown",
     "Zentrade",
-    "trading journal LATAM",
   ],
   authors: [{ name: "Zentrade", url: SITE_URL }],
   creator: "Zentrade",
@@ -48,27 +48,27 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "es_ES",
-    alternateLocale: "en_US",
+    locale: "en_US",
+    alternateLocale: "es_ES",
     url: SITE_URL,
     siteName: "Zentrade",
-    title: "Zentrade — Journal de Trading para Futuros",
+    title: "Zentrade — Trading Journal for Prop Firm Futures Traders",
     description:
-      "Journal de trading para futuros con IA. Pasa evaluaciones de FTMO, Apex y TopStep con métricas precisas y reportes inteligentes.",
+      "Pass your Apex, TopStep or FTMO evaluation with a journal that tracks drawdown, consistency rules and revenge trading.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Zentrade — Journal de Trading para Futuros con IA",
+        alt: "Zentrade — Trading Journal for Prop Firm Futures Traders",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zentrade — Journal de Trading para Futuros",
+    title: "Zentrade — Trading Journal for Prop Firm Futures Traders",
     description:
-      "Pasa evaluaciones de FTMO, Apex y TopStep con métricas precisas, revenge trading detection y reportes IA semanales.",
+      "Pass your Apex, TopStep or FTMO evaluation with a journal that tracks drawdown, consistency rules and revenge trading.",
     images: ["/og-image.png"],
     creator: "@zentrade",
   },
@@ -77,7 +77,6 @@ export const metadata: Metadata = {
     shortcut: icon.src,
     apple: icon.src,
   },
-  manifest: "/manifest.json",
   category: "finance",
 };
 
@@ -87,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       {/* Inline script runs before hydration to apply saved theme without flash */}
       <head>
         <script

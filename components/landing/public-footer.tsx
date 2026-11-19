@@ -7,7 +7,8 @@ import { useI18n } from "@/lib/i18n/context";
 import Logo from "@/data/assets/Logo hori-white.png";
 
 export default function PublicFooter() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+  const isEs = locale === "es";
   const l = t.landing;
   const currentYear = new Date().getFullYear();
   const [footerEmail, setFooterEmail] = useState("");
@@ -39,6 +40,22 @@ export default function PublicFooter() {
       ],
     },
     {
+      title: "Prop Firms",
+      links: [
+        { label: "Apex Trader Funding", href: isEs ? "/es/apex-trader-funding" : "/apex-trader-funding" },
+        { label: "TopStep", href: isEs ? "/es/topstep" : "/topstep" },
+        { label: "FTMO", href: isEs ? "/es/ftmo" : "/ftmo" },
+      ],
+    },
+    {
+      title: isEs ? "Comparar" : "Compare",
+      links: [
+        { label: "Zentrade vs TradeZella", href: "/vs/tradezella" },
+        { label: "Zentrade vs Edgewonk", href: "/vs/edgewonk" },
+        { label: isEs ? "Comparativa TradeZella" : "TradeZella comparison", href: isEs ? "/blog/zentrade-vs-tradezella-es" : "/blog/zentrade-vs-tradezella-comparison" },
+      ],
+    },
+    {
       title: l.footerLegal,
       links: [
         { label: l.footerLinkTerms, href: "/terms" },
@@ -53,9 +70,9 @@ export default function PublicFooter() {
   return (
     <footer className="bg-zen-surface border-t border-zen-border-soft">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12">
           {/* Logo & Tagline */}
-          <div className="space-y-4">
+          <div className="col-span-2 md:col-span-1 space-y-4">
             <div>
               <Image src={Logo} alt="ZenTrade Logo" className="h-8 w-auto" />
             </div>

@@ -96,7 +96,7 @@ const softwareAppSchema = {
     "Journal de trades para futuros (NQ, ES, CL, GC, MES, MNQ y más)",
     "Dashboard analítico con métricas de prueba de fondeo",
     "Detección automática de revenge trading con IA",
-    "Import CSV desde NinjaTrader, Rithmic, Tradovate, Sierra Chart",
+    "Import CSV desde NinjaTrader, Rithmic y Tradovate",
     "Reporte semanal con análisis de IA (Gemini)",
     "Radar de mercado semanal (eventos de alto impacto)",
     "Consistency score para FTMO, Apex Trader Funding y TopStep",
@@ -105,12 +105,6 @@ const softwareAppSchema = {
     "Soporte multi-cuenta (cuenta de evaluación + cuenta live)",
     "Tracking de drawdown máximo diario y trailing drawdown",
   ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    ratingCount: "87",
-    bestRating: "5",
-  },
 };
 
 const organizationSchema = {
@@ -222,13 +216,8 @@ const websiteSchema = {
   "@type": "WebSite",
   name: "Zentrade",
   url: SITE_URL,
-  description: "Journal de trading para futuros con IA",
-  inLanguage: "es",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${SITE_URL}/blog?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
+  description: "AI trading journal for futures traders passing prop firm evaluations",
+  inLanguage: ["en", "es"],
 };
 
 const faqSchema = {

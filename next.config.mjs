@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Los posts del blog se leen con fs en runtime (ISR / posts programados): incluirlos en el bundle
+  outputFileTracingIncludes: {
+    "/blog": ["./data/blog/posts/**/*"],
+    "/blog/[slug]": ["./data/blog/posts/**/*"],
+    "/blog/og/[slug]": ["./data/blog/posts/**/*"],
+    "/sitemap.xml": ["./data/blog/posts/**/*"],
+  },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "rsunvtanukainhbtnmlu.supabase.co" },
