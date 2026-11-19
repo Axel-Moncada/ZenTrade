@@ -20,6 +20,7 @@ import {
   Link2,
   Menu,
   X,
+  Radio,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -98,6 +99,7 @@ export function SidebarLayout({
     { href: "/dashboard/calendar", label: t.nav.calendar, icon: Calendar, tourId: "nav-calendar" },
     { href: "/dashboard/trades", label: t.nav.trades, icon: ListOrdered, tourId: "nav-trades" },
     { href: "/dashboard/trading-plan", label: t.nav.tradingPlan, icon: Target, tourId: "nav-trading-plan" },
+    { href: "/dashboard/live-session", label: t.nav.liveSession, icon: Radio, tourId: undefined },
     { href: "/dashboard/backtesting", label: t.nav.backtesting, icon: FlipHorizontal2, tourId: undefined },
   ];
 
