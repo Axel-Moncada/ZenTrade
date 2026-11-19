@@ -26,7 +26,7 @@ const TEXT = {
     sending: "Enviando…",
     thanksGood: "¡Gracias! Lo revisaremos antes de publicarlo.",
     thanksBad: "Gracias. Lo vamos a leer con atención.",
-    trustpilot: "¿Nos ayudas también con una reseña en Trustpilot?",
+    trustpilot: "¿Nos dejas también tu opinión en Trustpilot?",
     trustpilotCta: "Escribir en Trustpilot",
     error: "No se pudo enviar. Intenta de nuevo.",
   },
@@ -43,7 +43,7 @@ const TEXT = {
     sending: "Sending…",
     thanksGood: "Thank you! We'll review it before publishing.",
     thanksBad: "Thank you. We'll read it carefully.",
-    trustpilot: "Would you also leave us a review on Trustpilot?",
+    trustpilot: "Would you also share your opinion on Trustpilot?",
     trustpilotCta: "Write on Trustpilot",
     error: "Could not send. Please try again.",
   },
@@ -96,7 +96,8 @@ export function ReviewForm({ initialReview, suggestedName, source, onDone }: Rev
     return (
       <div className="space-y-3 text-center">
         <p className="text-sm font-medium text-zen-caribbean-green">{positive ? t.thanksGood : t.thanksBad}</p>
-        {positive && TRUSTPILOT_URL && (
+        {/* Trustpilot prohíbe invitar solo a usuarios satisfechos (review gating): se muestra a todos */}
+        {TRUSTPILOT_URL && (
           <div className="space-y-2">
             <p className="text-xs text-zen-anti-flash/70">{t.trustpilot}</p>
             <a
