@@ -31,7 +31,7 @@ export async function POST(_req: NextRequest, { params }: { params: Promise<{ id
     subjectEn:  email.subject_en,
     bodyHtmlEs: email.body_html_es,
     bodyHtmlEn: email.body_html_en,
-    audience:   email.audience as 'all' | 'zenmode',
+    audience:   email.audience as 'all' | 'zenmode' | 'paying',
   });
 
   await supabaseAdmin

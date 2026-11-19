@@ -1,454 +1,93 @@
-# ZenTrade — Roadmap hacia el lanzamiento
+# Zentrade — Roadmap
 
-Última actualización: 2026-03-22
-
----
-
-## Estado general
-
-| Fase | Estado | Descripción |
-|------|--------|-------------|
-| Fase 0 | ✅ Completa | Setup, Auth, Layout privado |
-| Fase 1 | ✅ Completa | Accounts CRUD |
-| Fase 2 | ✅ Completa | Calendar + Daily entries |
-| Fase 3 | ✅ Completa | Trades + cálculos + métricas básicas |
-| Fase 4 | ✅ Completa | Dashboard + charts |
-| Fase 5 | ✅ Completa | Reportes + export/import + Trading Plan |
-| Fase 6 | ✅ Completa | Hardening: pricing, gating, UX de conversión, free-only mode |
-| Fase 7 | 🔄 En progreso | ZenMode features (IA) — 3 de 6 completadas |
-| Fase 8 | ✅ Completa | QA, testing, pre-launch — auditoría de seguridad ejecutada |
-| Fase 9 | 🔄 En progreso | Launch — **DEPLOYED en zen-trader.com** |
+Última actualización: **2026-11-19**
+Historial anterior (fases 0–9, marzo 2026): [`docs/archive/ROADMAP-2026-03.md`](docs/archive/ROADMAP-2026-03.md)
+Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 
 ---
 
-## Fase 6 — Hardening de pricing y conversión ✅ COMPLETA
+## Estado actual del producto
 
-### ✅ Completado
-- [x] Feature matrix unificada en todos los archivos
-- [x] Límites de cuentas correctos: Free=1, Starter=2, Pro=ilimitadas
-- [x] Orden visual de planes corregido (ZenMode → Pro → Starter)
-- [x] Toggle mensual/anual en landing con badges de ahorro
-- [x] Upgrade prompts contextuales en 6 puntos del app
-- [x] Guard en accounts/new antes del formulario
-- [x] PLAN_LIMIT_REACHED handling en account-form
-- [x] CSV import gated para Starter/Free
-- [x] PDF export gated para Starter/Free
-- [x] Select de `consistency_percent` editable por cuenta (20%–50%) en account-form
-- [x] Regla de consistencia corregida — usa ganancia NETA (no suma de wins) como denominador
-- [x] `withdrawal-account-card.tsx` — dark mode + light mode corregidos
-- [x] `withdrawals/page.tsx` — rediseño completo dark/light mode con clases zen
-- [x] Email de activación de cuenta — `supabase/templates/confirmation.html`
-  - Tipografía Helvetica Neue con contraste de pesos (300 light / 700 bold)
-  - Logo real desde Supabase Storage
-  - Animaciones CSS (fadeUp + pulse en CTA)
-  - Copy persuasivo con Goal-Gradient, Loss Aversion, Social Proof
-  - Compatible Outlook (VML), Gmail, Apple Mail, iOS, Android
-- [x] `skills/zentrade-email-design.md` — style guide completo para futuros emails
-- [x] Integración Resend configurada vía SMTP custom en Supabase
-- [x] Logo copiado a `public/assets/` para servir con URL absoluta
-
-### ✅ Completado adicional (2026-03-21)
-- [x] **Modo free-only** — blur overlay en pricing/billing + "Muy pronto" mientras se aprueba pasarela
-- [x] **Upgrade prompts** — CTAs cambiados a "Muy pronto" (disabled) en las 3 variantes
-- [x] **Sidebar** — badge "Pronto" en Facturación
-- [x] **Limpieza de pasarelas muertas** — eliminados LemonSqueezy SDK, PayPal, MercadoPago, FastSpring
-- [x] **Radar de Mercado (Market Preview)** — email semanal ZenMode con eventos de alto impacto (Gemini 2.5 Flash)
-- [x] **Agent Teams** — ZenCoach, Support Agent, Marketing Agent via n8n + Telegram
-- [x] **Wompi integrado** — checkout + webhook + cancelación + cron de expiración. Precios en COP ($38k/$120k/$250k mensual). Blur quitado de billing y landing.
-
-### ✅ Completado sesión (2026-03-22) — Auditoría final + Sistema de afiliados + Deploy a producción
-
-- [x] **Auditoría de seguridad completa** (`zentrade-security-tester`) — ver `SECURITY-AUDIT-2026-03-22.md`
-  - CRÍTICO: Import CSV ahora verifica plan server-side (usuarios Free no pueden importar vía API)
-  - CRÍTICO: Webhook Wompi usa `upsert` idempotente — previene doble comisión por retries
-  - IMPORTANTE: `billing/cancel` cambiado a `supabaseAdmin` (RLS solo permite SELECT al user client)
-  - IMPORTANTE: `increment_affiliate_uses` con `SECURITY DEFINER` en migración 017
-  - Eliminados tipos `any` en `app/api/trades/import/route.ts`
-- [x] **Sistema de afiliados completo** — `app/api/admin/affiliates/`, `app/api/affiliate/validate/`, `app/dashboard/admin/affiliates/`, `supabase/016_affiliate_system.sql`
-- [x] **Migración 017** — `UNIQUE (transaction_id)` en `affiliate_conversions` + `SECURITY DEFINER` en `increment_affiliate_uses`
-- [x] **Script de prueba webhook** — `scripts/test-webhook-wompi.mjs` (simula pago con código de afiliado)
-- [x] **Deploy a producción** — push a `main` → Vercel → zen-trader.com
-- [x] **Pasarelas obsoletas eliminadas** — FastSpring, LemonSqueezy, MercadoPago, PayPal completamente removidos del repo
-
-### ✅ Completado sesión (2026-03-21) — Seguridad + Pagos + UX
-- [x] **Security audit completo** — 8+ vulnerabilidades críticas/medias resueltas:
-  - CRIT-01: CRON_SECRET ahora requerido (era opcional → crons expuestos)
-  - CRIT-02: WOMPI_EVENTS_KEY faltante rechaza el webhook (antes aceptaba todo)
-  - CRIT-03: usePlan hook ya no expone wompi_payment_source_id al browser
-  - CRIT-04: webhook valida monto cobrado vs precio esperado (anti-fraude)
-  - MED-01: DELETE /api/accounts/[id] ahora filtra trades/summaries por user_id
-  - MED-02: Security headers en next.config.mjs (X-Frame-Options, CSP, etc.)
-  - MED-03: image remotePatterns narrowed a subdominio Supabase específico
-- [x] **Wompi suscripciones recurrentes** — payment_source_id tokenization + cron charge-subscriptions (10:00 UTC daily)
-- [x] **Cron check-subscriptions** — expira suscripciones vencidas (00:30 UTC daily)
-- [x] **pending_checkouts table** — mapeo linkId Wompi → usuario+plan (SQL: 015_pending_checkouts.sql)
-- [x] **Agent de seguridad** — `.claude/agents/zentrade-security-tester.md` custom agent
-- [x] **Página 404 creativa** — `app/not-found.tsx` con estética trading terminal, chart bajista animado, ticker, glitch effect en número 404
+- **En producción** en https://www.zen-trader.com (Vercel + Supabase).
+- **Cobro**: PayPal Subscriptions (`lib/paypal/`, modo según `PAYPAL_MODE`). Hay clientes de pago reales: uno lleva ~4 meses pagando y subió a Pro el 2026-11-18.
+- **Mercado objetivo**: traders de futuros en **EE.UU.** que buscan pasar evaluaciones de prop firms (Apex, TopStep, FTMO, Tradoverse, Uprofit). LATAM es secundario (rutas `/es/*`, posts en español).
+- **Idiomas**: UI bilingüe ES/EN (`lib/i18n/translations.ts`, default `en`). Emails en inglés.
+- **Planes**: Free · Starter $9 · Professional $29 · ZenMode $59 (anual: $84 / $249 / $499).
+- **Competidor de referencia**: TradeZella ($35/$59/$99 desde julio 2026). Sus quejas más comunes: sincronización con el broker rota, IA de auto-tagging poco fiable, no se puede probar gratis y renovaciones inesperadas.
+- **Posicionamiento**: *"The trading journal built to help you pass your prop firm evaluation"*. Especialista en prop firms y a 1/3 del precio de TradeZella.
 
 ---
 
-## Fase 7 — ZenMode features (IA)
+## Estrategia de crecimiento (plan de 90 días, desde 2026-11-19)
 
-Prioridad de desarrollo basada en impacto percibido por el usuario:
+**Métrica norte**: % de usuarios Free que registran o importan su primer trade en las primeras 48 h.
 
-### ✅ 7.1 Revenge Trading Detection (COMPLETADO 2026-03-04)
-- Detecta trade perdedor → siguiente trade en < 30 min (mismo día)
-- Detecta 3+ pérdidas consecutivas en el mismo día
-- `lib/utils/revenge-trading.ts` — lógica pura de detección
-- `app/api/trades/revenge-check/route.ts` — endpoint con agrupación por día
-- `components/dashboard/revenge-trading-alert.tsx` — banner naranja dismissible
-- Badge naranja pulsante en calendario (días con revenge trading)
-- Gating: solo visible para ZenMode
+### Mes 1 — Base y diferenciación
+- [x] Copiloto de Disciplina en vivo (ZenMode) — 2026-11-19
+- [x] Quick wins técnicos de SEO y GEO — 2026-11-19
+- [x] 6 posts en inglés programados (19 nov – 6 dic) — 2026-11-19
+- [x] Sistema de reseñas reales (en la app + admin + landing) — 2026-11-19
+- [ ] Importación desde **TopstepX / ProjectX** (Tradovate ya existe pero está marcada como "no verificada": hay que probarla con archivos reales)
+- [ ] Prueba de Pro de 7 días + secuencia de 5 emails de onboarding para usuarios Free
+- [ ] Herramienta gratis para atraer tráfico de Google: calculadora de la regla de consistencia y del trailing drawdown (Apex/TopStep)
+- [ ] Email 3 días antes de cada renovación (genera confianza; es una de las quejas sobre TradeZella)
 
-### 7.2 Alertas de reglas de riesgo (PRIORIDAD 2)
-- Comparar trades del día vs límites del Trading Plan
-  - Daily loss limit superado
-  - Max trades por día superado
-  - Position size fuera del rango
-- Implementación: cross-reference entre `trades` y `trading_plans`
-- UI: banner de alerta en dashboard diario
+### Mes 2 — Distribución
+- [ ] Reclutar 10–20 micro-influencers de futuros/prop firms con 40% recurrente (el sistema de afiliados ya existe)
+- [ ] Precio para comunidades y mentores (Discord)
+- [ ] 3 publicaciones por semana en X, TikTok y Reddit (calendario en `docs/marketing/`)
 
-### ✅ 7.3 Reporte semanal por email con IA (COMPLETADO 2026-03-04)
-
-**Diseño:**
-- Un reporte **por cuenta** (no uno por usuario con todas las cuentas mezcladas)
-  - Ej: usuario con 3 cuentas recibe 3 emails separados, uno por cada cuenta
-  - Subject: `"Tu semana en [nombre de la cuenta] — ZenTrade"`
-- Frecuencia: semanal (lunes) + mensual (día 1 del mes)
-- Incluye **capturas de trades** adjuntas inline — el usuario puede ver cada trade visualmente
-- Análisis narrativo generado por IA (ver modelo abajo)
-
-**Stack:**
-- **Vercel Cron** — disparador semanal/mensual
-- **Resend** — envío del email (ya configurado)
-- **Template HTML** — estilo ZenTrade (Helvetica Neue, dark theme)
-- **IA para el análisis** — ver selección de modelo abajo
-
-**Modelo de IA — criterio: gratuito o casi gratuito:**
-
-| Modelo | Costo | Free tier | Veredicto |
-|--------|-------|-----------|-----------|
-| **Gemini 2.0 Flash** (Google) | $0.075/M tokens | ✅ 1M tokens/día gratis | ⭐ Mejor opción |
-| **Gemini 1.5 Flash** | $0.075/M tokens | ✅ Generoso free tier | ⭐ Alternativa |
-| GPT-4o-mini (OpenAI) | $0.15/M input | ❌ No free tier | Barato pero no gratis |
-| Groq + Llama 3.3 70B | $0.59/M tokens | ✅ Free tier generoso | Buena alternativa |
-| Claude Haiku 4.5 | $0.80/M tokens | ❌ No free tier | Más caro |
-
-**→ Usar Gemini 2.0 Flash via Google AI Studio API**
-- Con ~1,500 tokens por reporte (datos de trades + análisis generado)
-- Free tier aguanta ~650 reportes/día antes de cobrar
-- Para el MVP con pocos usuarios: completamente gratis
-
-**Contenido del reporte por cuenta:**
-```
-SEMANAL (cada lunes, semana anterior):
-- PnL total de la semana | % vs semana anterior
-- Win rate + cantidad de trades
-- Mejor día / peor día
-- Trade más rentable (con captura si existe)
-- Trade con mayor pérdida (con captura si existe)
-- IA: párrafo de análisis narrativo (2-3 frases)
-  Ej: "Tu mejor rendimiento fue el miércoles. Los 3 trades
-       perdedores ocurrieron entre 2-3pm — considera evitar ese horario."
-- Progreso hacia objetivo de la cuenta (drawdown, profit target)
-
-MENSUAL (día 1, mes anterior):
-- Todo lo del reporte semanal pero agregado por mes
-- Comparativa vs mes anterior
-- Top 3 mejores trades con capturas
-- Equity curve del mes (imagen generada server-side)
-- IA: análisis más profundo — patrones, horarios, instrumentos
-```
-
-**Implementación:**
-- `app/api/cron/weekly-report/route.ts` — endpoint del cron
-- `lib/reports/generate-report.ts` — lógica de generación
-- `lib/ai/gemini.ts` — cliente Gemini para el análisis narrativo
-- `supabase/templates/weekly-report.html` — template email
-- Vercel cron: `0 10 * * 1` (lunes 10am UTC)
-
-**Plan gating:**
-- Starter: recibe reporte semanal básico (sin IA narrativa, sin capturas)
-- Professional: reporte semanal completo con IA + capturas
-- ZenMode: semanal + mensual + análisis IA más profundo
-
-### ✅ 7.4 Radar de Mercado — Market Preview (COMPLETADO 2026-03-20)
-- Email semanal exclusivo ZenMode, domingos 19:00 UTC via Vercel Cron
-- Gemini 2.5 Flash genera 4-6 eventos de alto impacto para la semana siguiente
-- Una sola llamada a Gemini con todos los instrumentos de usuarios ZenMode combinados
-- Badges por tipo (FED/EARNINGS/MACRO/INFLACIÓN/EMPLEO/GEOPOLÍTICA), left accent por impacto
-- `lib/ai/gemini-market-news.ts` + `lib/resend/emails/market-preview-email.tsx` + `app/api/cron/market-preview/route.ts`
-
-### 7.5 Análisis de horario óptimo (PRIORIDAD 4)
-- Calcular win rate y PnL promedio por hora del día
-- Calcular win rate por día de la semana
-- UI: heatmap o gráfica de barras en dashboard ZenMode
-- Implementación: query SQL agrupando por hora de entry_time
-
-### 7.6 Benchmark vs prop firm requirements (PRIORIDAD 5)
-- Comparar métricas del usuario vs requisitos típicos de prop firms
-  - FTMO: max DD 10%, profit target 10%, min 10 días, consistency rule
-  - Apex: max DD 6%, profit target 9%
-  - TopStep: max DD 6%, profit target 6%
-- UI: tarjetas de evaluación con semáforo verde/amarillo/rojo
-- Implementación: tabla `prop_firm_rules` + cálculo en dashboard
-
-### 7.7 AI Journaling prompts (PRIORIDAD 6)
-- Prompt contextual después de sesión con pérdidas
-- Preguntas guiadas: "¿Seguiste el plan? ¿Cuál fue tu estado emocional?"
-- Integración con calendario de notas existente
-- Podría usar Claude API para generar preguntas personalizadas
+### Mes 3 — Lanzar el Copiloto
+- [ ] Copiloto V2: compartir pantalla (`getDisplayMedia`) + Gemini Vision para leer el P&L y las posiciones
+- [ ] Copiloto V3: API de Tradovate/ProjectX para posiciones en tiempo real
+- [ ] Product Hunt + videos demo
 
 ---
 
-## Fase 8 — QA y testing pre-launch 🔴 PRIORIDAD ACTUAL
+## Pendientes técnicos (priorizados)
 
-> Usar `.claude/testing/TESTING_GUIDE.md` y `.claude/testing/MANUAL_TESTS.md` como guías.
+### SEO (ver `docs/seo/2026-11-technical-audit.md` y `docs/seo/2026-11-geo-audit.md`)
+- [ ] **`<html lang>` por idioma**: el root layout fija `lang="en"`, así que las rutas `/es/*` y los posts en español también salen como inglés. Solución correcta: route groups `app/(en)` y `app/(es)`, cada uno con su `<html lang>`.
+- [ ] Páginas `/vs/*` en español con títulos de 2025: pasarlas a inglés, mover la versión ES a `/es/vs/*` y actualizar el año.
+- [ ] Comparativas con TradeZella y Edgewonk duplicadas (posts `*-comparison` frente a `/vs/*`): elegir una URL canónica.
+- [ ] Verificar después del deploy que `/blog/og/[slug]` ya no da 500.
+- [ ] Testimonios de ejemplo en el landing (nombres inventados y fotos de pravatar). Se reemplazan solos cuando haya 2 o más reseñas reales aprobadas.
 
-### Tests manuales críticos — flujo core
-- [ ] **Registro completo**: email → confirmación → login → dashboard
-- [ ] **Primera cuenta**: crear cuenta evaluation → ver límite Free (1 cuenta)
-- [ ] **Primer trade manual**: crear → verificar en historial + calendario + dashboard KPIs
-- [ ] **Editar trade**: cambiar resultado → verificar que balance y KPIs se recalculan
-- [ ] **Eliminar trade**: verificar que balance se revierte
-- [ ] **Daily entry**: agregar nota del día + emoción → ver en calendario
-- [ ] **Trading Plan**: crear plan → exportar PDF (solo Pro — ver "Muy pronto" para Free)
-- [ ] **CSV import**: subir archivo NinjaTrader/Tradovate → verificar mapeo (solo Pro)
-- [ ] **CSV export**: descargar trades filtrados por fecha
-- [ ] **Withdrawals**: registrar retiro → verificar balance de cuenta
+### Producto
+- [ ] Copiloto: en Safari y Firefox no hay ventana flotante (Document PiP es solo Chrome/Edge). Hoy el botón se desactiva con un aviso y el panel sigue funcionando dentro de la página. Alternativa futura: PWA o app móvil.
+- [ ] Copiloto: el drawdown usa la fórmula simple de `account-card` y todavía no calcula el trailing real.
+- [ ] La API de trades solo acepta horas en bloques de 30 min (`trade.schema.ts`); en el Copiloto la pausa se calcula con `created_at`.
 
-### Tests del modo free-only (crítico antes de lanzar)
-- [ ] **Blur pricing landing**: sección de precios muestra overlay "Muy pronto" correctamente
-- [ ] **Blur billing dashboard**: planes de pago bloqueados al entrar a /dashboard/billing
-- [ ] **Upgrade prompts**: botones de upgrade muestran "Muy pronto" deshabilitado en los 6 puntos
-- [ ] **Sidebar badge**: "Pronto" aparece junto a Facturación
-- [ ] **Límite de cuentas Free**: intentar crear 2ª cuenta → ver prompt correcto
-
-### Tests de email
-- [ ] **Email activación**: registrarse con email nuevo → verificar que llega y tiene el diseño correcto
-- [ ] **Reporte semanal**: llamar endpoint `/api/cron/weekly-report` con `?week_start=` → verificar email
-- [ ] **Radar de Mercado**: llamar endpoint `/api/cron/market-preview` → verificar email ZenMode
-- [ ] **Newsletter**: suscribirse desde popup y footer → verificar email de confirmación
-
-### Tests de seguridad
-- [ ] RLS: verificar que usuario A no puede ver datos de usuario B
-- [ ] API routes: verificar que todas retornan 401 sin auth
-- [ ] Plan gating: endpoints de features Pro/ZenMode deniegan correctamente a usuarios Free
-
-### Performance
-- [ ] Core Web Vitals landing page (LCP < 2.5s) — Vercel Analytics
-- [ ] Dashboard con 200+ trades no se congela
-- [ ] Import CSV de 500 trades funciona sin timeout
+### Deuda técnica
+- [ ] Restos de pasarelas anteriores: los paquetes `mercadopago` y `@lemonsqueezy/lemonsqueezy.js`, la carpeta vacía `app/api/webhooks/wompi` y menciones a Wompi en las métricas del admin y en las traducciones. (`lib/lemonsqueezy/get-user-plan.ts` **sí está en uso**; renombrarlo, no borrarlo.)
+- [ ] Faltan en el repo las migraciones 001–005 (esquema base: accounts, trades, etc.). Exportar con `supabase db dump --schema public`.
+- [ ] `.claude/skills/email-design` y `marketing-psychology` son symlinks con ruta absoluta (`/d/Development/...`) que git en Windows no puede leer. Convertirlos en carpetas reales o quitarlos del repo.
+- [ ] Discrepancia: `plan-features.tsx` dice que el reporte semanal con IA es solo de ZenMode, pero el código también se lo da a Pro.
 
 ---
 
-## Fase 9 — Launch checklist
+## Fase 7 — Features de ZenMode
 
-### Pre-launch
-- [ ] Dominio + SSL configurado
-- [ ] Variables de entorno de producción completas
-- [ ] Supabase en plan pago (no free tier) para producción
-- [ ] Pasarela de pagos configurada en modo live (Paddle u otro cuando aprueben)
-- [ ] Analytics configurado (Vercel Analytics o PostHog)
-- [ ] Error monitoring (Sentry)
-- [ ] Backup automatizado de DB
-
-### Contenido
-- [ ] Privacy Policy
-- [ ] Terms of Service
-- [ ] Landing en español (primary) + inglés (secondary)
-- [ ] FAQ completo
-
-### Marketing launch
-- [ ] Landing page final revisada
-- [ ] Post de lanzamiento en Twitter/X
-- [ ] Post en r/Forex, r/FuturesTrading, r/PropFirms
-- [ ] Video demo (Loom) del producto
-- [ ] Producto en ProductHunt
+| # | Feature | Estado |
+|---|---------|--------|
+| 7.1 | Detección de revenge trading | ✅ 2026-03-04 |
+| 7.2 | Alertas de reglas de riesgo | ✅ **Cubierto en la app por el Copiloto de Disciplina** (2026-11-19). Faltan alertas por email o push fuera de la app. |
+| 7.3 | Reporte semanal con IA | ✅ 2026-03-04 |
+| 7.4 | Radar de mercado (Market Preview) | ✅ 2026-03-20 |
+| 7.5 | Análisis de horario óptimo | ⏳ Pendiente |
+| 7.6 | Benchmark frente a los requisitos de la prop firm | ⏳ Pendiente |
+| 7.7 | Prompts de journaling con IA | ⏳ Pendiente (podría unirse con las notas de voz) |
 
 ---
 
-## Decisiones técnicas tomadas
-
-| Decisión | Razón |
-|---------|-------|
-| Lanzar con solo plan gratuito (2026-03-19) | Pasarelas de pago rechazadas por cuenta colombiana. Blur en pricing/billing hasta aprobación de Paddle. Permite salir al mercado y validar retención |
-| ZenMode como "coming soon" en landing | No vender lo que no existe. Mantener como ancla de precio |
-| Toggle anual visible pero no preseleccionado | Mostrar el ahorro como incentivo, no forzar |
-| Orden ZenMode→Pro→Starter | Anchoring effect: ver el precio más alto primero |
-| Upgrade prompts en 6 puntos | Cada fricción es un recordatorio de valor, no una frustración |
-| Free plan = 1 cuenta | Lo suficiente para probar, no suficiente para operar en serio |
-| Starter = 2 cuentas | 1 eval + 1 live. La 3ra = upgrade inevitable |
+## Ideas en evaluación
+- **App móvil / PWA + journaling por nota de voz**: el trader dicta *"perdí 200 en NQ, entré por FOMO"* y la IA lo convierte en un trade con emociones. Ver la recomendación en `CHANGELOG.md` (2026-11-19).
+- Ver también `IDEAS.md` (local, no se sube al repo).
 
 ---
 
-## Estado actual (2026-03-22) — LANZADO ✅
-
-**Zentrade está live en zen-trader.com.** El producto está en producción con Wompi activo.
-
-Esta semana: **sin features nuevas**. Solo lanzamiento + piezas publicitarias + escuchar feedback.
-
----
-
-## Próxima prioridad técnica — Import CSV multi-broker
-
-**Contexto**: El import fue probado con NinjaTrader y Rithmic. Brokers no verificados:
-
-| Broker | Estado | Formato CSV típico |
-|--------|--------|-------------------|
-| NinjaTrader | ✅ Probado | — |
-| Rithmic | ✅ Probado | — |
-| Tradovate | ❓ Sin probar | Fecha en `MM/DD/YYYY HH:mm`, columnas distintas |
-| Apex Trader Funding (portal) | ❓ Sin probar | Export propio, puede variar |
-| TopStep | ❓ Sin probar | Export desde dashboard propio |
-| Interactive Brokers (Flex Query) | ❓ Sin probar | XML o CSV con headers en inglés |
-| TradeStation | ❓ Sin probar | CSV con decimales en punto, fechas ISO |
-| Tradingview | ❓ Sin probar | — |
-
-**Lo que hay que hacer:**
-1. Conseguir archivos CSV de muestra de cada broker (búsqueda en GitHub/Reddit o usuarios beta)
-2. Probar el flow de import con cada uno en la UI
-3. Detectar qué columnas fallan en el mapeo automático
-4. Ajustar el parser o ampliar los formatos de fecha soportados si es necesario
-
-**Impacto**: El import CSV es el hook de activación más poderoso — un usuario que importa sus trades del mes pasado ya está engaged. Vale la pena asegurar que funciona con los 3 brokers más usados por prop traders: Tradovate, NinjaTrader, Rithmic.
-
----
-
-## Post-lanzamiento (semanas siguientes)
-
-### 🟡 Cuando llega feedback de usuarios
-- Escuchar qué features usan más y cuáles ignoran
-- Identificar fricciones en el onboarding (primer trade, primer cuenta)
-- Decidir qué construir a continuación basado en datos reales
-
-### 🟢 Fase 7 — features ZenMode pendientes
-- 7.2 Alertas de reglas de riesgo (cross-reference trading plan)
-- 7.5 Análisis de horario óptimo (heatmap de win rate por hora)
-- 7.6 Benchmark vs prop firms (FTMO, Apex, TopStep)
-
-### ⏳ Backlog de features
-Ver sección "Ideas — Backlog" al final de este archivo.
-
-
-
-## Issues pendientes ##
-1. ~~Implementar select en la consistencia~~ ✅ Resuelto (2026-03-03)
-2. ~~Ajustar el mail de activacion de cuenta~~ ✅ Resuelto (2026-03-03)
-3. ~~Páginas legales (Privacy, Terms, Refunds, Disclaimer)~~ ✅ Resuelto (2026-03-04)
-4. ~~Newsletter popup + formulario footer~~ ✅ Resuelto (2026-03-04)
-5. ~~Reporte semanal con IA (Gemini 2.5 Flash)~~ ✅ Resuelto (2026-03-04)
-6. ~~Revenge Trading Detection~~ ✅ Resuelto (2026-03-04)
-7. Backtesting
-8. ~~DNS Resend — DKIM/SPF/DMARC pendientes~~ ✅ Resuelto — zen-trader.com verificado en Resend. Emails llegan a inbox.
-9. ~~Deploy a producción~~ ✅ Resuelto (2026-03-22) — zen-trader.com live
-10. ~~Wompi en aprobación~~ ✅ Resuelto (2026-03-22) — Wompi activo, blur quitado de billing/pricing
-11. **Import CSV multi-broker** — probado solo NinjaTrader y Rithmic. Pendiente: Tradovate, TopStep, IBKR
-12. i18n por URL — `/en` todo en inglés (post-lanzamiento)
-
-
----
-
-## Cuándo lanzar el MVP
-
-**El producto ya es un MVP funcional. Se puede lanzar en 5 días.**
-
-El loop core de valor está completo:
-> Registro → Crear cuenta → Registrar trades → Ver dashboard → Exportar Trading Plan → Importar CSV → Billing
-
-### Solo 2 blockers reales antes de lanzar
-
-**Blocker 1 — Pasarela de pagos** ⏳ EN ESPERA (Wompi)
-- LemonSqueezy: rechazó la cuenta (Colombia)
-- MercadoPago: requería aprobación especial (error SUB17)
-- FastSpring: rechazado
-- PayPal: sandbox funcionó, Live descartado por ahora
-- Paddle: solicitud enviada — sin respuesta
-- **Wompi (actual)**: pasarela colombiana, proceso de aprobación en curso — permite cobrar en Colombia mientras se resuelve una pasarela global. [wompi.com](https://wompi.com)
-- **Decisión 2026-03-19**: lanzar con solo plan gratuito mientras se aprueba Wompi
-  - Blur + "Muy pronto" en pricing/billing — **NO TOCAR hasta aprobación**
-  - Para reactivar pagos cuando aprueben: quitar bloques marcados `/* quitar cuando pagos estén activos */`
-    en `billing-dashboard.tsx` y `pricing-section.tsx`, y restaurar botones en `upgrade-prompt.tsx`
-- Código de pasarelas muertas eliminado del repo
-- **Largo plazo**: Stripe Atlas (LLC Delaware ~$500) → mejor cobertura USA + menores fees
-- **No bloquea el lanzamiento — ya se puede salir al mercado con plan gratuito**
-
-**Blocker 2 — Privacy Policy + Terms of Service** ✅ RESUELTO (2026-03-04)
-Páginas implementadas en el proyecto:
-- `/privacy` — Política de Privacidad (GDPR)
-- `/terms` — Términos de Servicio
-- `/refunds` — Política de Reembolsos
-- `/disclaimer` — Aviso Legal
-
-### Lo que NO es blocker para el MVP
-
-| Feature | Por qué no bloquea |
-|---------|-------------------|
-| ZenMode features | Está como "Próximamente" — correcto |
-| Reporte semanal email | Nadie lo espera en día 1 |
-| Revenge trading detection | Feature premium desconocida aún |
-| Tests automatizados | Pruebas manuales + lanzar, tests después |
-| Error monitoring (Sentry) | Vercel logs cubren temporalmente |
-| Benchmark vs prop firms | Nice to have, no MVP |
-
-### Plan de 5 días para lanzar
-
-```
-Día 1    → Configurar Vercel production con env vars reales
-           Deploy a producción
-           Prueba manual del flujo nuevo usuario completo (registro → trade → dashboard)
-
-Día 2    → Lanzamiento blando con plan gratuito
-           Compartir con 5-10 traders conocidos
-           Recopilar feedback directo
-
-Cuando aprueben Wompi:
-           Integrar Wompi en checkout + webhook
-           Quitar blur overlays de billing y pricing
-           Probar checkout end-to-end Colombia
-```
-
-### Las preguntas que solo los usuarios reales responden
-
-Ninguna de estas hipótesis se valida con más código:
-
-1. ¿El Import CSV es lo más usado, o prefieren registro manual?
-2. ¿El Dashboard retiene usuarios, o entran, ven números y no vuelven?
-3. ¿El límite de 2 cuentas en Starter convierte a Professional, o la gente abandona?
-4. ¿El Trading Plan PDF lo usa alguien, o es feature de vitrina?
-
-**Con 10 usuarios activos en 2 semanas se sabe exactamente qué construir.**
-Eso vale más que cualquier feature desarrollada a ciegas.
-
-> El MVP no es el producto perfecto. Es el producto más pequeño que genera aprendizaje real.
-
----
-
-## Ideas — Backlog (de IDEAS.md)
-
-> Ideas para después del lanzamiento, ordenadas por impacto estimado.
-
-### 💡 Tablero de Motivación (Alto impacto)
-- Espacio para que el trader suba sus metas, imágenes de sus sueños y cuentas pasadas
-- Pop-ups contextuales según el estado del trader:
-  - 4 días perdiendo → mostrar todas las evaluaciones que ha pasado
-  - Racha de pérdidas → "Recuerda por qué empezaste" con sus imágenes y metas
-  - Gran ganancia → celebración con logros históricos
-- Etiquetas por etapa: evaluación, fondeado, en racha, en pérdida
-- **Por qué es valioso**: diferenciador emocional — ningún journal tiene esto. Conecta con la psicología del trader
-
-### 🔴 Sistema de Afiliados + Códigos de Descuento (PRIORIDAD ALTA — próximo a implementar)
-- Códigos de descuento generables desde admin panel
-- Códigos de afiliado para influencers traders: cada código trackea registros y conversiones
-- Pago de comisión por conversión (% del plan mensual o pago único)
-- Dashboard de afiliado: clicks, registros, conversiones, comisiones generadas
-- **Por qué es valioso**: canal de adquisición escalable — un influencer con 50k seguidores puede traer 200+ usuarios
-- **Prerequisito**: pasarela de pagos activa (Wompi ✅)
-- **Stack técnico propuesto**:
-  - Tabla `affiliate_codes` — código, influencer, % descuento, % comisión, activo/inactivo
-  - Tabla `affiliate_conversions` — código usado, usuario que registró, plan comprado, comisión generada
-  - `app/api/affiliate/validate/route.ts` — valida código al checkout
-  - `app/api/checkout/route.ts` — aplica descuento si hay código válido
-  - `app/dashboard/admin/affiliates/` — panel admin para crear/ver códigos y conversiones
-  - Webhook Wompi registra conversión cuando pago es APPROVED con código afiliado
-
+## Preguntas abiertas (para el fundador)
+1. ¿PayPal está en `PAYPAL_MODE=live` en Vercel? Los clientes de pago indican que sí; falta confirmarlo.
+2. ¿Dónde están las migraciones 001–005?
+3. ¿Limpiamos ya los restos de LemonSqueezy, MercadoPago y Wompi?
+4. URL de reseñas de Trustpilot para `NEXT_PUBLIC_TRUSTPILOT_REVIEW_URL` (hay que crear el perfil de empresa).

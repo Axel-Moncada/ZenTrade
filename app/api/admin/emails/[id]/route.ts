@@ -17,7 +17,7 @@ const UpdateSchema = z.object({
   subject_en:   z.string().optional(),
   body_html_es: z.string().optional(),
   body_html_en: z.string().optional(),
-  audience:     z.enum(['all', 'zenmode']).optional(),
+  audience:     z.enum(['all', 'zenmode', 'paying']).optional(),
   scheduled_at: z.string().datetime().nullable().optional(),
   status:       z.enum(['draft', 'scheduled']).optional(),
 });

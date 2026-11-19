@@ -1,11 +1,27 @@
-﻿"use client";
+"use client";
 
 import { Brain, TrendingUp, Zap, Award, Star } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
+import { MIN_PUBLIC_TESTIMONIALS, type PublicTestimonial } from "@/lib/reviews/reviews";
 
 const ICONS = [Brain, TrendingUp, Zap, Award];
 
-export default function BenefitsSection() {
+interface BenefitsSectionProps {
+  /** Testimonios reales aprobados (lib/reviews). Si hay suficientes, reemplazan a los de ejemplo. */
+  realTestimonials?: PublicTestimonial[];
+}
+
+function initials(name: string): string {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p[0]?.toUpperCase() ?? "")
+    .join("");
+}
+
+export default function BenefitsSection({ realTestimonials = [] }: BenefitsSectionProps) {
+  const useReal = realTestimonials.length >= MIN_PUBLIC_TESTIMONIALS;
   const { t } = useI18n();
   const l = t.landing;
 
@@ -46,45 +62,79 @@ export default function BenefitsSection() {
         </div>
 
         {/* Testimonials Row */}
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-zen-surface-elevated rounded-2xl p-8 border border-zen-caribbean-green/30">
-            <div className="flex items-center space-x-1 mb-4">
-              {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-zen-caribbean-green text-zen-caribbean-green" />)}
-            </div>
-            <p className="text-zen-anti-flash text-lg mb-4">{l.benefitsReview1}</p>
-            <div className="flex items-center space-x-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://i.pravatar.cc/80?img=12"
-                alt={l.benefitsReview1Author}
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <p className="text-zen-anti-flash font-semibold">{l.benefitsReview1Author}</p>
-                <p className="text-zen-text-muted text-sm">{l.benefitsReview1Role}</p>
+        {useReal ? (
+          <div className="grid md:grid-cols-2 gap-8">
+            {realTestimonials.slice(0, 4).map((review) => (
+              <div
+                key={review.id}
+                className="bg-zen-surface-elevated rounded-2xl p-8 border border-zen-caribbean-green/30"
+              >
+                <div className="flex items-center space-x-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-5 h-5 ${
+                        i < review.rating
+                          ? "fill-zen-caribbean-green text-zen-caribbean-green"
+                          : "text-zen-caribbean-green/30"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <p className="text-zen-anti-flash text-lg mb-4">“{review.testimonial}”</p>
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-zen-caribbean-green/20 text-zen-caribbean-green font-bold flex items-center justify-center">
+                    {initials(review.displayName)}
+                  </div>
+                  <div>
+                    <p className="text-zen-anti-flash font-semibold">{review.displayName}</p>
+                    {review.roleLabel && <p className="text-zen-text-muted text-sm">{review.roleLabel}</p>}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-zen-surface-elevated rounded-2xl p-8 border border-zen-caribbean-green/30">
+              <div className="flex items-center space-x-1 mb-4">
+                {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-zen-caribbean-green text-zen-caribbean-green" />)}
+              </div>
+              <p className="text-zen-anti-flash text-lg mb-4">{l.benefitsReview1}</p>
+              <div className="flex items-center space-x-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://i.pravatar.cc/80?img=12"
+                  alt={l.benefitsReview1Author}
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                <div>
+                  <p className="text-zen-anti-flash font-semibold">{l.benefitsReview1Author}</p>
+                  <p className="text-zen-text-muted text-sm">{l.benefitsReview1Role}</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="bg-zen-surface-elevated rounded-2xl p-8 border border-zen-caribbean-green/30">
-            <div className="flex items-center space-x-1 mb-4">
-              {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-zen-caribbean-green text-zen-caribbean-green" />)}
-            </div>
-            <p className="text-zen-anti-flash text-lg mb-4">{l.benefitsReview2}</p>
-            <div className="flex items-center space-x-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://i.pravatar.cc/80?img=47"
-                alt={l.benefitsReview2Author}
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              <div>
-                <p className="text-zen-anti-flash font-semibold">{l.benefitsReview2Author}</p>
-                <p className="text-zen-text-muted text-sm">{l.benefitsReview2Role}</p>
+            <div className="bg-zen-surface-elevated rounded-2xl p-8 border border-zen-caribbean-green/30">
+              <div className="flex items-center space-x-1 mb-4">
+                {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-zen-caribbean-green text-zen-caribbean-green" />)}
+              </div>
+              <p className="text-zen-anti-flash text-lg mb-4">{l.benefitsReview2}</p>
+              <div className="flex items-center space-x-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://i.pravatar.cc/80?img=47"
+                  alt={l.benefitsReview2Author}
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                <div>
+                  <p className="text-zen-anti-flash font-semibold">{l.benefitsReview2Author}</p>
+                  <p className="text-zen-text-muted text-sm">{l.benefitsReview2Role}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

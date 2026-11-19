@@ -24,7 +24,7 @@ interface EmailData {
   subject_en: string
   body_html_es: string
   body_html_en: string
-  audience: 'all' | 'zenmode'
+  audience: 'all' | 'zenmode' | 'paying'
   scheduled_at: string | null
   status: 'draft' | 'scheduled' | 'sent'
 }
@@ -258,6 +258,7 @@ export function EmailEditor({ emailId }: EmailEditorProps) {
                 <SelectContent className="bg-zen-surface border-zen-border-soft text-zen-anti-flash">
                   <SelectItem value="all" className="text-zen-anti-flash focus:bg-zen-forest/30 focus:text-zen-anti-flash">Todos los suscriptores</SelectItem>
                   <SelectItem value="zenmode" className="text-zen-anti-flash focus:bg-zen-forest/30 focus:text-zen-anti-flash">Solo usuarios ZenMode</SelectItem>
+                  <SelectItem value="paying" className="text-zen-anti-flash focus:bg-zen-forest/30 focus:text-zen-anti-flash">Clientes de pago (Starter, Pro, ZenMode)</SelectItem>
                 </SelectContent>
               </Select>
             </div>

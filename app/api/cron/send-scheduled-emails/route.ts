@@ -28,7 +28,7 @@ export async function GET(req: NextRequest) {
       subjectEn:  email.subject_en,
       bodyHtmlEs: email.body_html_es,
       bodyHtmlEn: email.body_html_en,
-      audience:   email.audience as 'all' | 'zenmode',
+      audience:   email.audience as 'all' | 'zenmode' | 'paying',
     });
 
     await supabaseAdmin

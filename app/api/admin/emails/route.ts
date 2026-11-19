@@ -18,7 +18,7 @@ const CreateSchema = z.object({
   subject_en:   z.string().default(''),
   body_html_es: z.string().default(''),
   body_html_en: z.string().default(''),
-  audience:     z.enum(['all', 'zenmode']).default('all'),
+  audience:     z.enum(['all', 'zenmode', 'paying']).default('all'),
   scheduled_at: z.string().datetime().nullable().optional(),
 });
 

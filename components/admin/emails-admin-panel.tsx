@@ -12,7 +12,7 @@ interface ScheduledEmail {
   type: 'newsletter' | 'zennews'
   subject_es: string
   subject_en: string
-  audience: 'all' | 'zenmode'
+  audience: 'all' | 'zenmode' | 'paying'
   status: 'draft' | 'scheduled' | 'sent'
   scheduled_at: string | null
   sent_at: string | null
@@ -156,7 +156,7 @@ export function EmailsAdminPanel() {
                       {TYPE_CONFIG[email.type].label}
                     </Badge>
                     <Badge variant="outline" className="text-xs border-zinc-600 text-zinc-400">
-                      {email.audience === 'all' ? 'Todos' : 'ZenMode'}
+                      {email.audience === 'all' ? 'Todos' : email.audience === 'paying' ? 'De pago' : 'ZenMode'}
                     </Badge>
                   </div>
                   <div className="flex items-center gap-4 mt-1 text-xs text-zen-text-muted">

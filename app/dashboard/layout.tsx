@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { SidebarLayout } from "@/components/dashboard/sidebar-layout";
+import { ReviewPrompt } from "@/components/reviews/review-prompt";
 
 function isAdminEmail(email: string): boolean {
   const adminEmails = (process.env.ADMIN_EMAILS ?? '')
@@ -38,6 +39,7 @@ export default async function DashboardLayout({
       hasCompletedTour={profile?.has_completed_tour ?? false}
     >
       {children}
+      <ReviewPrompt />
     </SidebarLayout>
   );
 }

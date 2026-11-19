@@ -67,7 +67,7 @@ interface Recipient {
   locale: 'es' | 'en';
 }
 
-async function getRecipients(audience: 'all' | 'zenmode'): Promise<Recipient[]> {
+async function getRecipients(audience: 'all' | 'zenmode' | 'paying'): Promise<Recipient[]> {
   const recipients: Recipient[] = [];
   const seen = new Set<string>();
 
@@ -103,12 +103,15 @@ async function getRecipients(audience: 'all' | 'zenmode'): Promise<Recipient[]> 
       });
     }
   } else {
-    // Solo usuarios ZenMode activos
-    const { data: subs } = await supabaseAdmin
+    // ZenMode: solo plan zenmode activo · Paying: cualquier suscripción de pago activa
+    let subsQuery = supabaseAdmin
       .from('subscriptions')
       .select('user_id')
-      .eq('plan_key', 'zenmode')
       .eq('status', 'active');
+    subsQuery = audience === 'zenmode'
+      ? subsQuery.eq('plan_key', 'zenmode')
+      : subsQuery.in('plan_key', ['starter', 'pro', 'zenmode']);
+    const { data: subs } = await subsQuery;
 
     if (!subs?.length) return [];
 
@@ -141,7 +144,7 @@ export async function sendBroadcast(params: {
   subjectEn:    string;
   bodyHtmlEs:   string;
   bodyHtmlEn:   string;
-  audience:     'all' | 'zenmode';
+  audience:     'all' | 'zenmode' | 'paying';
 }): Promise<BroadcastResult> {
   const { emailId, subjectEs, subjectEn, bodyHtmlEs, bodyHtmlEn, audience } = params;
 

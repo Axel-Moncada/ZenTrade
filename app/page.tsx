@@ -13,6 +13,8 @@ import PreviewSection from "@/components/landing/sections/preview-section";
 import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
 import NewsletterPopup from "@/components/landing/newsletter-popup";
+import { getPublicReviews } from "@/lib/reviews/get-public-reviews";
+import { MIN_REVIEWS_FOR_RATING_SCHEMA } from "@/lib/reviews/reviews";
 
 const SITE_URL = "https://www.zen-trader.com";
 
@@ -305,6 +307,21 @@ export default async function Home() {
     data: { user },
   } = await supabase.auth.getUser();
 
+  const reviewStats = await getPublicReviews();
+  // AggregateRating SOLO con reseñas reales aprobadas (nunca valores fijos)
+  const softwareSchema =
+    reviewStats.ratingCount >= MIN_REVIEWS_FOR_RATING_SCHEMA
+      ? {
+          ...softwareAppSchema,
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: reviewStats.ratingValue.toFixed(1),
+            ratingCount: String(reviewStats.ratingCount),
+            bestRating: "5",
+          },
+        }
+      : softwareAppSchema;
+
   return (
     <div className="landing-page min-h-screen bg-gradient-to-br from-zen-rich-black via-zen-dark-green to-zen-rich-black">
       {/* JSON-LD structured data — leído por Google, Bing y LLMs */}
@@ -312,7 +329,7 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify([
-            softwareAppSchema,
+            softwareSchema,
             organizationSchema,
             websiteSchema,
             faqSchema,
@@ -331,7 +348,7 @@ export default async function Home() {
         <section id="features">
           <FeaturesSection />
         </section>
-        <BenefitsSection />
+        <BenefitsSection realTestimonials={reviewStats.testimonials} />
         <section id="pricing">
           <PricingSection />
         </section>
