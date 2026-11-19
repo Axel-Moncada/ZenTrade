@@ -64,7 +64,8 @@ export function ReviewsAdminPanel() {
         <h1 className="text-2xl font-bold text-zen-anti-flash">Reseñas</h1>
         <p className="mt-1 text-sm text-zen-anti-flash/60">
           Los testimonios aprobados y públicos reemplazan a los del landing desde {MIN_PUBLIC_TESTIMONIALS}. El rating
-          de estrellas en Google se activa con {MIN_REVIEWS_FOR_RATING_SCHEMA} reseñas aprobadas.
+          de estrellas en Google usa TODAS las reseñas (no se puede inflar rechazando) y se activa con{" "}
+          {MIN_REVIEWS_FOR_RATING_SCHEMA}.
         </p>
       </div>
 
@@ -72,7 +73,7 @@ export function ReviewsAdminPanel() {
         {[
           ["Total", String(stats.total)],
           ["Promedio", stats.avg ? `${stats.avg.toFixed(1)} ★` : "—"],
-          ["Aprobadas", `${stats.approved} / ${MIN_REVIEWS_FOR_RATING_SCHEMA}`],
+          ["Total para rating Google", `${stats.total} / ${MIN_REVIEWS_FOR_RATING_SCHEMA}`],
           ["Públicas en landing", `${stats.publicCount} / ${MIN_PUBLIC_TESTIMONIALS}`],
         ].map(([label, value]) => (
           <div key={label} className="rounded-xl border border-zen-forest/40 bg-zen-surface p-4">

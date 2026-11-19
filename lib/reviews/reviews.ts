@@ -5,7 +5,7 @@ export const REVIEW_MIN_DAYS = 7;
 export const REVIEW_PROMPT_COOLDOWN_DAYS = 30;
 /** Mínimo de reseñas aprobadas para reemplazar los testimonios del landing */
 export const MIN_PUBLIC_TESTIMONIALS = 2;
-/** Mínimo de reseñas para publicar AggregateRating en el schema */
+/** Mínimo de reseñas recibidas para publicar AggregateRating en el schema */
 export const MIN_REVIEWS_FOR_RATING_SCHEMA = 5;
 
 export type ReviewStatus = "pending" | "approved" | "rejected";
@@ -35,7 +35,7 @@ export interface PublicTestimonial {
 
 export interface PublicReviewStats {
   testimonials: PublicTestimonial[];
-  /** Promedio y conteo de TODAS las reseñas aprobadas (públicas o no) */
+  /** Promedio y conteo de TODAS las reseñas recibidas (cualquier estado) */
   ratingValue: number;
   ratingCount: number;
 }

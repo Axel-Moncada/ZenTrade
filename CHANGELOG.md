@@ -39,7 +39,8 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
   - 1–3 ⭐ → feedback privado.
 - Página `/dashboard/review` (para enlazar desde los emails).
 - Admin `/dashboard/admin/reviews`: aprobar, rechazar y ver feedback.
-- Landing: con 2 o más testimonios aprobados y públicos se reemplazan los de ejemplo. Con 5 o más reseñas aprobadas, el `AggregateRating` vuelve al schema, **calculado con datos reales**.
+- Landing: con 2 o más testimonios aprobados y públicos se reemplazan los de ejemplo. Con 5 o más reseñas recibidas, el `AggregateRating` vuelve al schema, calculado con **todas** las reseñas (rechazar no infla el promedio; regla de la FTC).
+- Trustpilot se ofrece a todos los que envían su opinión, sin importar las estrellas (Trustpilot prohíbe el *review gating*).
 - Emails del admin: nueva audiencia "Clientes de pago" (Starter, Pro y ZenMode activos).
 
 ### Recomendación pendiente — app móvil
