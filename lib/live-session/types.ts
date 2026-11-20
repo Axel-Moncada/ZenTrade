@@ -33,6 +33,8 @@ export interface LiveAccount {
   currentBalance: number;
   maxDrawdown: number;
   drawdownType: "trailing" | "static";
+  /** Mayor balance alcanzado tras cerrar trades (para drawdown trailing) */
+  peakBalance: number;
   profitTarget: number | null;
   consistencyPercent: number;
 }

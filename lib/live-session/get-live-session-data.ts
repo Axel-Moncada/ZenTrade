@@ -1,3 +1,4 @@
+import { computePeakBalance } from "@/lib/utils/drawdown";
 import type { createClient } from "@/lib/supabase/server";
 import { getZonedDate } from "./discipline-rules";
 import type { LiveInstrument, LiveSessionData, LiveTrade } from "./types";
@@ -103,6 +104,7 @@ export async function getLiveSessionData(
       currentBalance: Number(account.current_balance) || 0,
       maxDrawdown: Number(account.max_drawdown) || 0,
       drawdownType: account.drawdown_type,
+      peakBalance: computePeakBalance(Number(account.starting_balance) || 0, rows),
       profitTarget: account.profit_target !== null ? Number(account.profit_target) : null,
       consistencyPercent: Number(account.consistency_percent) || 0,
     },

@@ -1,3 +1,4 @@
+import { computeDrawdownStatus } from "@/lib/utils/drawdown";
 import type {
   AlertLevel,
   DisciplineAlert,
@@ -151,8 +152,13 @@ export function evaluateDiscipline(
   const last = sorted.length > 0 ? sorted[sorted.length - 1] : null;
 
   // ── 1. Drawdown de la cuenta ────────────────────────────────────────
-  const remainingDrawdown =
-    account.currentBalance - (account.startingBalance - account.maxDrawdown);
+  const { remaining: remainingDrawdown } = computeDrawdownStatus({
+    startingBalance: account.startingBalance,
+    currentBalance: account.currentBalance,
+    maxDrawdown: account.maxDrawdown,
+    drawdownType: account.drawdownType,
+    peakBalance: account.peakBalance,
+  });
   if (account.maxDrawdown > 0) {
     if (remainingDrawdown <= 0) {
       push("drawdown", "danger", t.ddBlown);

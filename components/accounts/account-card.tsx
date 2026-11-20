@@ -24,6 +24,8 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Pencil, Trash2, CheckCircle2, AlertTriangle, TrendingUp } from "lucide-react";
 import type { Account } from "@/types/accounts";
+import { parseISODate } from "@/lib/utils/date-helpers";
+import { computeDrawdownStatus } from "@/lib/utils/drawdown";
 import {
   ACCOUNT_TYPE_LABELS,
   ACCOUNT_TYPE_COLORS,
@@ -40,7 +42,8 @@ interface ConsistencyInfo {
 }
 
 interface AccountCardProps {
-  account: Account;
+  /** peak_balance lo calcula GET /api/accounts para el drawdown trailing */
+  account: Account & { peak_balance?: number };
   onDelete?: () => void;
 }
 
@@ -96,12 +99,13 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
   const balanceChangePercent =
     (balanceChange / account.starting_balance) * 100;
 
-  const remainingDrawdown =
-    account.current_balance - (account.starting_balance - account.max_drawdown);
-  const drawdownUsedPercent =
-    ((account.starting_balance - account.current_balance) /
-      account.max_drawdown) *
-    100;
+  const { remaining: remainingDrawdown, usedPercent: drawdownUsedPercent } = computeDrawdownStatus({
+    startingBalance: Number(account.starting_balance) || 0,
+    currentBalance: Number(account.current_balance) || 0,
+    maxDrawdown: Number(account.max_drawdown) || 0,
+    drawdownType: account.drawdown_type,
+    peakBalance: account.peak_balance ?? Number(account.starting_balance) ?? 0,
+  });
 
   // Progreso hacia el objetivo (basado en initial_balance para evaluaciones)
   const profitProgress = account.profit_target
@@ -227,7 +231,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
 
         {/* Información adicional */}
         <div className="pt-10 text-xs text-zen-anti-flash">
-          <div>Fecha de inicio: {new Date(account.start_date).toLocaleDateString("es-ES")}</div>
+          <div>Fecha de inicio: {parseISODate(account.start_date).toLocaleDateString("es-ES")}</div>
         </div>
 
         {/* Regla de Consistencia (solo cuentas live) */}

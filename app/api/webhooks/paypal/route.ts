@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import { supabaseAdmin } from '@/lib/supabase/admin';
 import { verifyWebhookSignature } from '@/lib/paypal/client';
 import type { PayPalWebhookEvent } from '@/lib/paypal/client';
+import { activatePayPalSubscription } from '@/lib/paypal/activate-subscription';
 import type { PlanKey, BillingInterval } from '@/lib/lemonsqueezy/client';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -64,65 +65,22 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({ ok: true });
 }
 
-// custom_id formato: "{userId}|{plan}|{interval}"
-function parseCustomId(customId: string): { userId: string; plan: PlanKey; interval: BillingInterval } | null {
-  const parts = customId.split('|');
-  if (parts.length !== 3) return null;
-  const [userId, plan, interval] = parts;
-  if (!['starter', 'pro', 'zenmode'].includes(plan!)) return null;
-  if (!['monthly', 'annual'].includes(interval!))      return null;
-  return { userId: userId!, plan: plan as PlanKey, interval: interval as BillingInterval };
-}
-
 async function handleActivated(resource: Record<string, unknown>) {
+  const subscriber  = resource.subscriber as { email_address?: string; payer_id?: string } | undefined;
+  const billingInfo = resource.billing_info as { next_billing_time?: string } | undefined;
   const subscriptionId = resource.id as string;
-  const customId       = resource.custom_id as string;
-  const subscriber     = resource.subscriber as { email_address: string; payer_id?: string };
-  const billingInfo    = resource.billing_info as { next_billing_time?: string } | undefined;
 
-  const parsed = parseCustomId(customId);
-  if (!parsed) {
-    console.error('[paypal-webhook] custom_id inválido:', customId);
-    return;
+  const result = await activatePayPalSubscription({
+    subscriptionId,
+    customId:        resource.custom_id as string | undefined,
+    payerId:         subscriber?.payer_id ?? null,
+    payerEmail:      subscriber?.email_address ?? null,
+    nextBillingTime: billingInfo?.next_billing_time ?? null,
+  });
+
+  if (result.ok && !result.alreadyActive) {
+    void notifyAdmin(result.userId, result.plan, result.interval, subscriptionId);
   }
-
-  const { userId, plan, interval } = parsed;
-  const now = new Date();
-
-  const periodEnd = billingInfo?.next_billing_time
-    ? new Date(billingInfo.next_billing_time)
-    : new Date(now.getTime() + (interval === 'monthly' ? 30 : 365) * 24 * 60 * 60 * 1000);
-
-  const updateData = {
-    plan_key:                  plan,
-    billing_interval:          interval,
-    status:                    'active' as const,
-    processor_subscription_id: subscriptionId,
-    processor_customer_id:     subscriber.payer_id ?? subscriber.email_address,
-    variant_id:                `paypal-${plan}-${interval}`,
-    current_period_end:        periodEnd.toISOString(),
-    customer_portal_url:       null as string | null,
-    updated_at:                now.toISOString(),
-  };
-
-  const { data: existing } = await supabaseAdmin
-    .from('subscriptions')
-    .select('id')
-    .eq('user_id', userId)
-    .order('created_at', { ascending: false })
-    .limit(1)
-    .maybeSingle();
-
-  if (existing) {
-    const { error } = await supabaseAdmin.from('subscriptions').update(updateData).eq('id', existing.id);
-    if (error) console.error('[paypal-webhook] error actualizando:', error);
-  } else {
-    const { error } = await supabaseAdmin.from('subscriptions').insert({ user_id: userId, ...updateData });
-    if (error) console.error('[paypal-webhook] error insertando:', error);
-  }
-
-  console.log(`[paypal-webhook] ✓ activated ${userId} → ${plan} (${interval}) hasta ${periodEnd.toISOString()}`);
-  void notifyAdmin(userId, plan, interval, subscriptionId);
 }
 
 async function handlePaymentCompleted(resource: Record<string, unknown>) {

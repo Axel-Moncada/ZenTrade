@@ -6,6 +6,43 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-20 — QA end-to-end y correcciones de fase 1 (antes de pautar)
+
+### Contexto
+- QA completo plan por plan (Free → Starter → Pro → ZenMode) con una cuenta de prueba (`yigami5522@anonmart.com`), en el navegador y verificando en Supabase.
+- Detonante: Walter (primer cliente) pagó el upgrade a Pro y su plan no cambió. Su fila en `subscriptions` era manual desde septiembre: **ningún pago de PayPal se ha registrado solo**.
+
+### Correcciones (rama `fix/qa-fase-1`)
+- **Pagos PayPal** — `lib/paypal/activate-subscription.ts` (nuevo, compartido por webhook y confirmación), `app/api/paypal/confirm/route.ts` (nuevo), `components/billing/billing-dashboard.tsx`, `app/dashboard/billing/page.tsx`:
+  - Al volver de PayPal (`?subscription_id=I-...`) la app consulta PayPal y activa el plan. Ya no depende solo del webhook. Idempotente.
+  - Al cambiar de plan se cancela en PayPal la suscripción anterior (antes quedaban dos cobros activos).
+  - `cancel_url` usaba `cancelled` y la página leía `canceled`.
+  - Cron `check-subscriptions` + `lib/paypal/reconcile.ts`: antes de expirar una suscripción de PayPal se consulta PayPal; si sigue ACTIVE (renovación cobrada, webhook perdido) se extiende.
+- **ZenCoach** — `app/api/ai/chat/[id]/route.ts`, `app/api/ai/chat/trial/route.ts`, `lib/ai/zencoach-context.ts`, `lib/ai/zencoach-trial.ts` (nuevo), `components/zencoach/zencoach-widget.tsx`:
+  - Errores de Gemini capturados (503 con código) en vez de 500 sin manejar.
+  - Historial saneado para Gemini (empieza en `user`, roles alternados): un mensaje fallido dejaba el chat roto para siempre.
+  - ZenCoach recibe la fecha y hora actual en la zona horaria del trader ("no tengo acceso a la fecha").
+  - `[id]` verifica ZenMode en el servidor.
+  - La prueba gratis se controla en el servidor (tabla `zencoach_trials`: 5 min + 15 mensajes). Antes era solo `localStorage` y el endpoint no tenía límite.
+  - Mensajes claros por caso: prueba terminada, requiere ZenMode, sesión expirada, IA no disponible.
+- **Importador CSV** — `lib/utils/csv-date.ts` (nuevo) + `components/trades/import-csv.tsx`: NinjaTrader en inglés (MM/DD) entraba como DD/MM (11/05 → 11 de mayo; 11/13 → mes 13). Ahora el orden se detecta por archivo y las fechas imposibles se descartan con aviso.
+- **Signos negativos** — `lib/utils/format-money.ts` (nuevo) en dashboard, hero card y backtesting: P&L −220 salía "$220.00".
+- **Fechas un día antes** — `parseISODate` para fechas `YYYY-MM-DD` en tabla de trades, curva de capital, W/L por día y tarjeta de cuenta (`new Date('2026-11-20')` es UTC → 19 nov en Bogotá).
+- **Drawdown trailing** — `lib/utils/drawdown.ts` (nuevo), `app/api/accounts/route.ts` (`peak_balance`), `components/accounts/account-card.tsx`, `lib/live-session/*`: trailing se calculaba como estático. Ahora el piso sigue el pico de balance y se congela en el balance inicial.
+- Tests nuevos: `tests/csv-date.test.ts`, `tests/format-money.test.ts`, `tests/drawdown.test.ts`.
+
+### Migración
+- `supabase/024_qa_fixes.sql`: tabla `zencoach_trials` (RLS sin políticas), `revoke execute` de `handle_new_user`, `search_path` fijo en 8 funciones. **Ejecutar antes o junto con el deploy.**
+
+### Pendientes / decisiones
+- Verificar `PAYPAL_WEBHOOK_ID` y la URL del webhook en el dashboard de PayPal (live): todo indica que nunca ha funcionado.
+- Revisar si Walter tiene dos suscripciones activas en PayPal ($9 de septiembre + $29) y cancelar la vieja.
+- Apex congela el trailing en balance inicial + $100: parametrizar por prop firm (verificar fuente).
+- Regla de consistencia: hoy se mide por trade; Apex/Topstep la miden por día.
+- Fase 2: gating del dashboard (Free/Starter ven todo), promesas de precios vs producto, instrumentos basura globales, importador bilingüe.
+
+---
+
 ## 2026-11-19 — Copiloto de Disciplina, SEO/GEO, contenido y reseñas reales
 
 ### Contexto y estrategia

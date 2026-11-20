@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase/admin';
+import { reconcileExpiringSubscriptions } from '@/lib/paypal/reconcile';
 
 /**
  * GET /api/cron/check-subscriptions
  * Llamado por Vercel Cron diariamente a las 00:30 UTC.
- * Detecta suscripciones vencidas y las marca como 'expired'.
- * El usuario baja al plan Free automáticamente (getUserPlan devuelve free si no hay suscripción activa).
+ * 1. Suscripciones de PayPal vencidas: se consulta PayPal antes de expirarlas.
+ *    Si siguen ACTIVE (la renovación cobró pero el webhook no llegó), se extienden.
+ * 2. El resto de vencidas se marca 'expired' (el usuario baja a Free).
  */
 export async function GET(request: Request) {
   const authHeader = request.headers.get('authorization');
@@ -14,8 +16,9 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const now = new Date().toISOString();
+  const reconciled = await reconcileExpiringSubscriptions();
 
+  const now = new Date().toISOString();
   const { data, error } = await supabaseAdmin
     .from('subscriptions')
     .update({ status: 'expired', updated_at: now })
@@ -29,7 +32,7 @@ export async function GET(request: Request) {
   }
 
   const count = data?.length ?? 0;
-  console.log(`[check-subscriptions] ${count} suscripción(es) expirada(s)`);
+  console.log(`[check-subscriptions] ${reconciled.extended} extendida(s) desde PayPal, ${count} expirada(s)`);
 
-  return NextResponse.json({ expired: count });
+  return NextResponse.json({ extended: reconciled.extended, expired: count });
 }

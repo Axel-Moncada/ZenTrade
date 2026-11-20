@@ -3,6 +3,7 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { WinsLossesPoint } from '@/types/dashboard';
 import { BarChart3 } from 'lucide-react';
+import { parseISODate } from '@/lib/utils/date-helpers';
 import { Tooltip as UITooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface WinsLossesChartProps {
@@ -25,7 +26,7 @@ export function WinsLossesChart({ data }: WinsLossesChartProps) {
   }
 
   const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
+    const date = parseISODate(dateStr.slice(0, 10));
     return `${date.getDate()}/${date.getMonth() + 1}`;
   };
 

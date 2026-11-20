@@ -16,6 +16,7 @@ import { ExitReasonsChart } from '@/components/dashboard/exit-reasons-chart';
 import { PlanAdherenceChart } from '@/components/dashboard/plan-adherence-chart';
 import { InstrumentStatsTable } from '@/components/dashboard/instrument-stats-table';
 import { AccountsProgress } from '@/components/dashboard/accounts-progress';
+import { formatSignedMoney, formatLoss } from '@/lib/utils/format-money';
 import {
   Target,
   BarChart3,
@@ -264,10 +265,7 @@ export default function DashboardPage() {
                     )}
                     style={{ fontFamily: 'JetBrains Mono, monospace' }}
                   >
-                    {(stats.totalPnl ?? 0) >= 0 ? '+' : ''}${Math.abs(stats.totalPnl ?? 0).toLocaleString('en-US', {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2
-                    })}
+                    {formatSignedMoney(stats.totalPnl ?? 0)}
                   </div>
                 </div>
 
@@ -310,7 +308,7 @@ export default function DashboardPage() {
 
               <PrimaryStatCard
                 title="Avg/Trade"
-                value={`${(stats.averagePerTrade ?? 0) >= 0 ? '+' : ''}$${(stats.averagePerTrade ?? 0).toFixed(0)}`}
+                value={formatSignedMoney(stats.averagePerTrade ?? 0, { decimals: 0 })}
                 subtitle={`${stats.totalTrades ?? 0} ${t.dashboard.ops}`}
                 icon={TrendingUp}
                 trend={(stats.averagePerTrade ?? 0) >= 0 ? 'positive' : 'negative'}
@@ -339,7 +337,7 @@ export default function DashboardPage() {
 
               <CompactStatCard
                 title="Max Loss"
-                value={`$${Math.abs(stats.maxLoss ?? 0).toFixed(0)}`}
+                value={formatLoss(stats.maxLoss ?? 0)}
                 icon={CloudRain}
                 trend="negative"
                 delay={0.55}
@@ -386,7 +384,7 @@ export default function DashboardPage() {
                 {stats.worstDay && (
                   <CompactStatCard
                     title={t.dashboard.worstDay}
-                    value={`$${Math.abs(stats.worstDay.pnl).toFixed(0)}`}
+                    value={formatLoss(stats.worstDay.pnl)}
                     subtitle={stats.worstDay.date}
                     icon={TrendingDown}
                     trend="negative"

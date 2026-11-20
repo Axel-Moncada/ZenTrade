@@ -48,7 +48,11 @@ const COPY = {
     placeholder: 'Write a message… (Ctrl+V to paste screenshots)',
     uploading: 'Uploading…',
     tradeRegistered: 'Trade registered',
-    connecting: 'Connection error. Try again.',
+    connecting: 'Connection error. Check your internet and try again.',
+    aiUnavailable: "ZenCoach isn't available right now. Please try again in a minute.",
+    trialOver: 'Your free ZenCoach trial is over. Upgrade to ZenMode to keep coaching with your real trades.',
+    planRequired: 'ZenCoach with your account data is part of ZenMode.',
+    sessionExpired: 'Your session expired. Reload the page and sign in again.',
     trialWelcome: "Hi! I'm **ZenCoach**, your AI trading coach. I'm here to help you trade better — whether it's psychology, prop firm rules, or reviewing your performance. I can also register trades by screenshot in the full version.\n\nTell me: which prop firm are you working with, and what's your biggest challenge right now?",
     trialEndedTitle: "Your 5-minute trial just ended 🎯",
     trialEndedBody: "Did you find it useful? In the full ZenMode plan you get **unlimited daily coaching sessions**, trade registration by screenshot, AI-powered weekly reports, revenge trading detection in real time, and your complete trading history analyzed by ZenCoach every day.",
@@ -70,7 +74,11 @@ const COPY = {
     placeholder: 'Escribe un mensaje… (Ctrl+V para pegar screenshots)',
     uploading: 'Subiendo…',
     tradeRegistered: 'Trade registrado',
-    connecting: 'Error al conectar. Intenta de nuevo.',
+    connecting: 'Error de conexión. Revisa tu internet e intenta de nuevo.',
+    aiUnavailable: 'ZenCoach no está disponible en este momento. Intenta de nuevo en un minuto.',
+    trialOver: 'Se terminó tu prueba gratis de ZenCoach. Pásate a ZenMode para seguir con coaching sobre tus trades reales.',
+    planRequired: 'ZenCoach con los datos de tu cuenta es parte de ZenMode.',
+    sessionExpired: 'Tu sesión expiró. Recarga la página e inicia sesión de nuevo.',
     trialWelcome: "¡Hola! Soy **ZenCoach**, tu coach de trading IA. Estoy aquí para ayudarte a tradear mejor — ya sea con psicología, reglas de prop firms o revisando tu desempeño. En la versión completa también puedo registrar trades con una captura de pantalla.\n\nCuéntame: ¿con qué prop firm estás trabajando y cuál es tu mayor reto ahora mismo?",
     trialEndedTitle: "Tu prueba de 5 minutos ha terminado 🎯",
     trialEndedBody: "¿Te fue útil? Con el plan ZenMode completo tienes **sesiones de coaching ilimitadas**, registro de trades por screenshot, reportes semanales con IA, detección de revenge trading en tiempo real, y tu historial de trading analizado por ZenCoach todos los días.",
@@ -81,6 +89,29 @@ const COPY = {
     trialTimeLeft: 'Prueba',
   },
 };
+
+type ChatErrorKey = 'aiUnavailable' | 'trialOver' | 'planRequired' | 'sessionExpired';
+
+class ChatRequestError extends Error {
+  constructor(public readonly key: ChatErrorKey) {
+    super(key);
+  }
+}
+
+/** Lee la respuesta del chat y convierte los errores HTTP en mensajes claros. */
+async function readChatResponse<T extends { reply: string }>(res: Response): Promise<T> {
+  if (res.ok) return await res.json() as T;
+  let code: string | undefined;
+  try {
+    code = (await res.json() as { code?: string }).code;
+  } catch {
+    code = undefined;
+  }
+  if (res.status === 401) throw new ChatRequestError('sessionExpired');
+  if (code === 'TRIAL_ENDED') throw new ChatRequestError('trialOver');
+  if (res.status === 403) throw new ChatRequestError('planRequired');
+  throw new ChatRequestError('aiUnavailable');
+}
 
 function formatTime(seconds: number): string {
   const m = Math.floor(seconds / 60).toString().padStart(2, '0');
@@ -251,7 +282,7 @@ export function ZenCoachWidget() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: text, history: trialHistory, locale }),
         });
-        const data = await res.json() as { reply: string };
+        const data = await readChatResponse<{ reply: string }>(res);
         setTrialHistory(prev => [
           ...prev,
           { role: 'user', content: text },
@@ -265,10 +296,10 @@ export function ZenCoachWidget() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: text, image_url: imgUrl }),
         });
-        const data = await res.json() as {
+        const data = await readChatResponse<{
           reply: string;
           trade_registered?: { id: string; result: number; date: string } | null;
-        };
+        }>(res);
         setMessages(prev =>
           prev.map(m =>
             m.id === thinkingId
@@ -277,10 +308,14 @@ export function ZenCoachWidget() {
           )
         );
       }
-    } catch {
+    } catch (err) {
+      const content = err instanceof ChatRequestError ? c[err.key] : c.connecting;
       setMessages(prev => prev.map(m =>
-        m.id === thinkingId ? { ...m, content: c.connecting } : m
+        m.id === thinkingId ? { ...m, content } : m
       ));
+      if (err instanceof ChatRequestError && err.key === 'trialOver') {
+        setView('trial_ended');
+      }
     } finally {
       setIsSending(false);
     }

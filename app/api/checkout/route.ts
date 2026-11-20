@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
       userEmail: user.email!,
       userName:  user.user_metadata?.full_name as string | undefined,
       returnUrl: `${origin}/dashboard/billing?success=true`,
-      cancelUrl: `${origin}/dashboard/billing?cancelled=true`,
+      cancelUrl: `${origin}/dashboard/billing?canceled=true`,
     });
 
     return NextResponse.json({ url: approvalUrl });

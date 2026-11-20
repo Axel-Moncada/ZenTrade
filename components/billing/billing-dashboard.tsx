@@ -1,6 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
+import { useI18n } from '@/lib/i18n/context';
 import { Check, ExternalLink, AlertTriangle, CheckCircle2, Clock, XCircle, Tag, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -25,6 +27,8 @@ interface Props {
   subscription: ActiveSubscription;
   successParam?: string;
   canceledParam?: string;
+  /** PayPal agrega ?subscription_id=I-... al return_url después de aprobar */
+  paypalSubscriptionId?: string;
 }
 
 const PLAN_NAME_MAP: Record<string, string> = {
@@ -40,7 +44,10 @@ const STATUS_MAP: Record<string, { label: string; className: string }> = {
   cancelled:{ label: 'Cancelada',     className: 'text-stone-400' },
 };
 
-export default function BillingDashboard({ plans, subscription, successParam, canceledParam }: Props) {
+export default function BillingDashboard({ plans, subscription, successParam, canceledParam, paypalSubscriptionId }: Props) {
+  const router = useRouter();
+  const { locale } = useI18n();
+  const isEs = locale === 'es';
   const [interval, setInterval] = useState<'month' | 'year'>('month');
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(successParam === 'true');
@@ -51,12 +58,47 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
   const [appliedCode, setAppliedCode] = useState<{ code: string; discount_percent: number } | null>(null);
   const [validatingCode, setValidatingCode] = useState(false);
 
-  // Limpiar el param de la URL sin recargar
+  const [confirmingPayment, setConfirmingPayment] = useState(false);
+  const confirmStarted = useRef(false);
+
+  // Al volver de PayPal: confirmar la suscripción en el servidor (no depende solo del webhook)
+  useEffect(() => {
+    if (successParam !== 'true' || !paypalSubscriptionId || confirmStarted.current) return;
+    confirmStarted.current = true;
+    setConfirmingPayment(true);
+    fetch('/api/paypal/confirm', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ subscription_id: paypalSubscriptionId }),
+    })
+      .then(async res => {
+        if (res.ok) {
+          router.refresh();
+          return;
+        }
+        const data = await res.json().catch(() => ({})) as { reason?: string };
+        if (data.reason === 'NOT_ACTIVE') {
+          // PayPal aún está procesando: el webhook la activará en unos minutos
+          toast.info(isEs ? 'Tu pago se está procesando. Tu plan se activará en unos minutos.' : 'Your payment is processing. Your plan will be active in a few minutes.');
+        } else {
+          toast.error(isEs ? 'No pudimos confirmar tu pago automáticamente. Escríbenos y lo activamos de inmediato.' : "We couldn't confirm your payment automatically. Contact us and we'll activate it right away.");
+        }
+      })
+      .catch(() => {
+        toast.error(isEs ? 'No pudimos confirmar tu pago automáticamente. Escríbenos y lo activamos de inmediato.' : "We couldn't confirm your payment automatically. Contact us and we'll activate it right away.");
+      })
+      .finally(() => setConfirmingPayment(false));
+  }, [successParam, paypalSubscriptionId, router, isEs]);
+
+  // Limpiar los params de la URL sin recargar
   useEffect(() => {
     if (successParam === 'true' || canceledParam === 'true') {
       const url = new URL(window.location.href);
       url.searchParams.delete('success');
       url.searchParams.delete('canceled');
+      url.searchParams.delete('subscription_id');
+      url.searchParams.delete('ba_token');
+      url.searchParams.delete('token');
       window.history.replaceState({}, '', url.toString());
     }
   }, [successParam, canceledParam]);
@@ -189,6 +231,13 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
           subscription={subscription}
           onClose={() => setShowSuccess(false)}
         />
+      )}
+
+      {/* ── Confirmando pago de PayPal ── */}
+      {confirmingPayment && (
+        <div className="rounded-xl border border-zen-caribbean-green/30 bg-zen-surface/40 px-5 py-3 text-sm text-zen-anti-flash/80">
+          {isEs ? 'Confirmando tu pago con PayPal…' : 'Confirming your PayPal payment…'}
+        </div>
       )}
 
       {/* ── Canceled notice ── */}

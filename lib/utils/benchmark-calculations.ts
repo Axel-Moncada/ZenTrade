@@ -37,7 +37,7 @@ function calcMaxDrawdown(
   if (trades.length === 0) return 0
 
   const sorted = [...trades].sort(
-    (a, b) => new Date(a.trade_date).getTime() - new Date(b.trade_date).getTime()
+    (a, b) => a.trade_date.localeCompare(b.trade_date)
   )
 
   let balance = initialBalance
