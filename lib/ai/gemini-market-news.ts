@@ -40,9 +40,9 @@ async function fetchRealWorldContext(
   weekStart: string,
   weekEnd: string
 ): Promise<string> {
-  // gemini-1.5-flash tiene cuota free más alta + soporta Google Search Grounding
+  // gemini-1.5-flash fue retirado por Google: se usa gemini-2.5-flash (soporta Google Search Grounding)
   // Si sigue dando 429, activa billing en Google AI Studio (mínimo $1 crédito)
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const groundingTool = { googleSearch: {} } as unknown as Tool;
 

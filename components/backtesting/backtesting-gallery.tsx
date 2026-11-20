@@ -1,5 +1,7 @@
 'use client'
 
+import { formatSignedMoney } from '@/lib/utils/format-money'
+
 import { useState, useEffect, useCallback } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Trade } from '@/types/trade'
@@ -34,8 +36,7 @@ type ResultFilter = 'all' | 'winners' | 'losers'
 
 function formatPnl(value: number | null): string {
   if (value === null) return '—'
-  const sign = value >= 0 ? '+' : ''
-  return `${sign}$${Math.abs(value).toLocaleString('es-CO', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+  return formatSignedMoney(value)
 }
 
 function formatDate(dateStr: string): string {

@@ -16,6 +16,7 @@ import { createClient } from '@/lib/supabase/client'
 import { useState } from 'react'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import { parseISODate } from '@/lib/utils/date-helpers'
 import { cn } from '@/lib/utils'
 import { Checkbox } from '@/components/ui/checkbox'
 
@@ -68,8 +69,8 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
 
     switch (sortField) {
       case 'trade_date':
-        aValue = new Date(a.trade_date).getTime()
-        bValue = new Date(b.trade_date).getTime()
+        aValue = parseISODate(a.trade_date).getTime()
+        bValue = parseISODate(b.trade_date).getTime()
         break
       case 'result':
         aValue = a.result || 0
@@ -211,7 +212,7 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                   </TableCell>
                 )}
                 <TableCell className="font-medium text-zen-anti-flash" onClick={() => onTradeClick?.(trade)}>
-                  {format(new Date(trade.trade_date), 'dd/MM/yyyy', { locale: es })}
+                  {format(parseISODate(trade.trade_date), 'dd/MM/yyyy', { locale: es })}
                 </TableCell>
                 {isPro && (
                   <TableCell className="text-zen-anti-flash text-sm" onClick={() => onTradeClick?.(trade)}>

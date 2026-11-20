@@ -83,7 +83,7 @@ const PLAN_CONFIGS: PlanConfig[] = [
 // ── Page ─────────────────────────────────────────────────────────────────────
 
 interface PageProps {
-  searchParams: Promise<{ success?: string; canceled?: string }>;
+  searchParams: Promise<{ success?: string; canceled?: string; subscription_id?: string }>;
 }
 
 export default async function BillingPage({ searchParams }: PageProps) {
@@ -116,6 +116,7 @@ export default async function BillingPage({ searchParams }: PageProps) {
         subscription={subscription as ActiveSubscription}
         successParam={params.success}
         canceledParam={params.canceled}
+        paypalSubscriptionId={params.subscription_id}
       />
     </div>
   );

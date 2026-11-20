@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
+import { getUserPlan } from '@/lib/lemonsqueezy/get-user-plan';
+import { withGeminiRetry } from '@/lib/ai/gemini-retry';
 import { GoogleGenerativeAI, SchemaType, type Content, type Part, type FunctionDeclaration, type FunctionDeclarationSchema } from '@google/generative-ai';
-import { buildZenCoachContext, buildSystemPrompt } from '@/lib/ai/zencoach-context';
+import { buildZenCoachContext, buildSystemPrompt, buildGeminiHistory } from '@/lib/ai/zencoach-context';
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY ?? '');
 
@@ -65,6 +67,12 @@ export async function POST(
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
+  // ZenCoach completo es exclusivo de ZenMode (la prueba gratis usa /api/ai/chat/trial)
+  const userPlan = await getUserPlan(supabase, user.id);
+  if (!userPlan.isZenMode) {
+    return NextResponse.json({ error: 'ZenMode required', code: 'PLAN_REQUIRED' }, { status: 403 });
+  }
+
   const { id } = await params;
 
   const body = await req.json() as unknown;
@@ -95,28 +103,31 @@ export async function POST(
       .limit(50),
   ]);
 
-  if (!ctx) return NextResponse.json({ error: 'Context error' }, { status: 500 });
+  if (!ctx) {
+    console.error('[zencoach] no se pudo construir el contexto', { conversationId: id, accountId: conv.account_id });
+    return NextResponse.json({ error: 'Context error', code: 'CONTEXT_ERROR' }, { status: 500 });
+  }
 
   const systemPrompt = buildSystemPrompt(ctx);
   const history = messagesRes.data ?? [];
 
-  // Build Gemini chat history
-  const geminiHistory: Content[] = history.map(m => ({
-    role: m.role === 'user' ? 'user' : 'model',
-    parts: [{ text: m.content }],
-  }));
+  // Gemini exige que el historial empiece por 'user' y alterne roles. Si un intento
+  // anterior falló, quedan mensajes de usuario seguidos y Gemini rechaza la llamada.
+  const geminiHistory: Content[] = buildGeminiHistory(history);
 
-  const model = genAI.getGenerativeModel({
-    model: 'gemini-2.5-flash',
-    systemInstruction: systemPrompt,
-    tools: [{ functionDeclarations: [REGISTER_TRADE_DECLARATION] }],
-  });
-
-  const chat = model.startChat({ history: geminiHistory });
+  const startChat = (modelName: string) => genAI
+    .getGenerativeModel({
+      model: modelName,
+      systemInstruction: systemPrompt,
+      tools: [{ functionDeclarations: [REGISTER_TRADE_DECLARATION] }],
+    })
+    .startChat({ history: geminiHistory });
 
   // Build user message parts
   const userParts: Part[] = [];
-  if (image_url) {
+  // Solo se descargan imágenes del Storage propio (evita SSRF con URLs arbitrarias)
+  const storageOrigin = process.env.NEXT_PUBLIC_SUPABASE_URL ?? '';
+  if (image_url && storageOrigin && image_url.startsWith(`${storageOrigin}/storage/`)) {
     try {
       const imgRes = await fetch(image_url);
       const buffer = await imgRes.arrayBuffer();
@@ -137,9 +148,15 @@ export async function POST(
     image_url: image_url ?? null,
   });
 
-  // First Gemini call
-  const result1 = await chat.sendMessage(userParts);
-  const response1 = result1.response;
+  try {
+  // First Gemini call (con reintentos y modelo de respaldo si Gemini está saturado)
+  const { result: first } = await withGeminiRetry(async (modelName) => {
+    const c = startChat(modelName);
+    const r = await c.sendMessage(userParts);
+    return { chat: c, response: r.response };
+  });
+  const chat = first.chat;
+  const response1 = first.response;
 
   // Check for function call
   const parts = response1.candidates?.[0]?.content?.parts ?? [];
@@ -163,7 +180,7 @@ export async function POST(
     if (!instrument) {
       fnResponse = { success: false, error: `Instrumento "${args.instrument_symbol}" no encontrado` };
     } else {
-      const today = new Date().toISOString().slice(0, 10);
+      const today = ctx.today;
       const tradePayload = {
         user_id: user.id,
         account_id: conv.account_id,
@@ -206,16 +223,24 @@ export async function POST(
       }
     }
 
-    // Send function response back to Gemini
-    const result2 = await chat.sendMessage([
-      {
-        functionResponse: {
-          name: 'register_trade',
-          response: fnResponse,
+    // Send function response back to Gemini. Si Gemini falla aquí, el trade ya quedó
+    // guardado: se responde con un texto fijo en vez de perder la confirmación.
+    try {
+      const result2 = await chat.sendMessage([
+        {
+          functionResponse: {
+            name: 'register_trade',
+            response: fnResponse,
+          },
         },
-      },
-    ]);
-    replyText = result2.response.text();
+      ]);
+      replyText = result2.response.text();
+    } catch (err) {
+      console.error('[zencoach] Gemini falló tras register_trade', err);
+      replyText = registeredTrade
+        ? `Listo, registré el trade (${String(registeredTrade.result)} USD, ${String(registeredTrade.date)}).`
+        : `No pude registrar el trade: ${String(fnResponse.error ?? 'error desconocido')}.`;
+    }
   } else {
     replyText = response1.text();
   }
@@ -232,4 +257,8 @@ export async function POST(
     reply: replyText,
     trade_registered: registeredTrade,
   });
+  } catch (err) {
+    console.error('[zencoach] error en Gemini', { conversationId: id, err });
+    return NextResponse.json({ error: 'AI unavailable', code: 'AI_UNAVAILABLE' }, { status: 503 });
+  }
 }

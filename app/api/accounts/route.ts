@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAccountSchema } from "@/lib/validations/account.schema";
 import { getUserPlan, ACCOUNT_LIMITS } from "@/lib/lemonsqueezy/get-user-plan";
 import type { Database } from "@/types/database.types";
+import { computePeakBalance, type BalanceStep } from "@/lib/utils/drawdown";
 
 type AccountInsert = Database["public"]["Tables"]["accounts"]["Insert"];
 
@@ -50,7 +51,27 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({ accounts }, { status: 200 });
+    // Pico de balance por cuenta (para el drawdown trailing)
+    const accountIds = (accounts ?? []).map((a) => a.id);
+    const tradesByAccount = new Map<string, BalanceStep[]>();
+    if (accountIds.length > 0) {
+      const { data: tradeRows } = await supabase
+        .from("trades")
+        .select("account_id, trade_date, created_at, result")
+        .eq("user_id", user.id)
+        .in("account_id", accountIds);
+      for (const t of tradeRows ?? []) {
+        const list = tradesByAccount.get(t.account_id) ?? [];
+        list.push({ trade_date: t.trade_date, created_at: t.created_at, result: t.result });
+        tradesByAccount.set(t.account_id, list);
+      }
+    }
+    const accountsWithPeak = (accounts ?? []).map((a) => ({
+      ...a,
+      peak_balance: computePeakBalance(Number(a.starting_balance) || 0, tradesByAccount.get(a.id) ?? []),
+    }));
+
+    return NextResponse.json({ accounts: accountsWithPeak }, { status: 200 });
   } catch (error) {
     console.error("Unexpected error in GET /api/accounts:", error);
     return NextResponse.json(

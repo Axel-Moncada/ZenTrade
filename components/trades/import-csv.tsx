@@ -17,6 +17,9 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 
+import { detectDateOrder, normalizeCsvDate } from '@/lib/utils/csv-date'
+import { useI18n } from '@/lib/i18n/context'
+
 interface ImportCSVProps {
   accountId: string
   initialBalance: number
@@ -118,50 +121,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
   const [success, setSuccess] = useState<string | null>(null)
   const [parsedData, setParsedData] = useState<ParsedTrade[]>([])
   const [selectedPlatform, setSelectedPlatform] = useState<PlatformType>('custom')
-
-  // Función para normalizar fechas a formato YYYY-MM-DD
-  const normalizeDate = (dateStr: string): string => {
-    if (!dateStr) return ''
-    
-    // Eliminar cualquier parte de hora que venga con la fecha
-    // Detectar si tiene hora (HH:MM:SS o HH:MM:SS AM/PM)
-    let dateOnly = dateStr
-    if (dateStr.includes(' ')) {
-      // Tomar solo la parte de la fecha (antes del primer espacio)
-      dateOnly = dateStr.split(' ')[0]
-    }
-    
-    // Ya está en YYYY-MM-DD
-    if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(dateOnly)) {
-      const [year, month, day] = dateOnly.split('-')
-      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-    }
-
-    // Formato DD/MM/YYYY o D/M/YYYY (común en NinjaTrader y Europa)
-    if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateOnly)) {
-      const [day, month, year] = dateOnly.split('/')
-      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-    }
-
-    // Formato MM/DD/YYYY (común en plataformas US)
-    if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateOnly) && dateStr.includes('AM') || dateStr.includes('PM')) {
-      const [month, day, year] = dateOnly.split('/')
-      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-    }
-
-    // Formato DD-MM-YYYY o D-M-YYYY
-    if (/^\d{1,2}-\d{1,2}-\d{4}$/.test(dateOnly)) {
-      const [day, month, year] = dateOnly.split('-')
-      return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-    }
-
-    // ISO datetime format
-    if (dateStr.includes('T')) {
-      return dateStr.split('T')[0]
-    }
-
-    return dateOnly
-  }
+  const { locale } = useI18n()
 
   // Función para normalizar el lado (long/short)
   const normalizeSide = (sideStr: string): string => {
@@ -417,6 +377,10 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
           return
         }
 
+        // Orden día/mes detectado para todo el archivo (US MM/DD vs local DD/MM)
+        const dateOrder = detectDateOrder(trades.map((row: Record<string, string>) => String(row[dateField!] ?? '')))
+        let invalidDateRows = 0
+
         // Mapear y limpiar datos
         const mappedTrades: ParsedTrade[] = trades
           .map((row: any) => {
@@ -463,8 +427,14 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
               return null
             }
             
+            const tradeDate = normalizeCsvDate(String(row[dateField!] ?? ''), dateOrder)
+            if (!tradeDate) {
+              invalidDateRows++
+              return null
+            }
+
             return {
-              trade_date: normalizeDate(row[dateField!]),
+              trade_date: tradeDate,
               instrument_symbol: row[instrumentField!],
               side: normalizeSide(row[sideField!]),
               contracts,
@@ -482,7 +452,11 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
         }
 
         const skippedCount = trades.length - mappedTrades.length
-        if (skippedCount > 0) {
+        if (invalidDateRows > 0) {
+          setError(locale === 'es'
+            ? `Se omitieron ${invalidDateRows} trade(s) con una fecha inválida. Revisa la columna de fecha del CSV.`
+            : `Skipped ${invalidDateRows} trade(s) with an invalid date. Check the date column in your CSV.`)
+        } else if (skippedCount > 0) {
           setError(`Se omitieron ${skippedCount} trade(s) con valores vacíos en Resultado o Contratos.`)
         }
 
@@ -492,7 +466,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
         setError(`Error al leer el archivo: ${error.message}`)
       },
     })
-  }, [selectedPlatform])
+  }, [selectedPlatform, locale])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,

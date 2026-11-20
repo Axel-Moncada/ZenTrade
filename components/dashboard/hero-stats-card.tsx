@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { formatSignedMoney } from '@/lib/utils/format-money';
 
 interface HeroStatsCardProps {
   value: number;
@@ -60,10 +61,7 @@ export function HeroStatsCard({ value, label, change, changeLabel }: HeroStatsCa
             )}
             style={{ fontFamily: 'JetBrains Mono, monospace' }}
           >
-            {isPositive ? '+' : ''}${Math.abs(value).toLocaleString('en-US', {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2
-            })}
+            {formatSignedMoney(value)}
           </motion.div>
         </div>
 

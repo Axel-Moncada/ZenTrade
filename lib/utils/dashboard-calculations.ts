@@ -23,7 +23,7 @@ export function calculateDashboardStats(trades: TradeWithInstrument[]): Dashboar
 
   // Ordenar trades por fecha
   const sortedTrades = [...trades].sort((a, b) => 
-    new Date(a.trade_date).getTime() - new Date(b.trade_date).getTime()
+    a.trade_date.localeCompare(b.trade_date)
   );
 
   // Agrupar por día
@@ -133,7 +133,7 @@ function groupTradesByDay(trades: TradeWithInstrument[]): DailySummary[] {
     pnl: dayTrades.reduce((sum, t) => sum + t.result, 0),
     wins: dayTrades.filter(t => t.result > 0).length,
     losses: dayTrades.filter(t => t.result < 0).length
-  })).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  })).sort((a, b) => a.date.localeCompare(b.date));
 }
 
 function calculateEquityCurve(dailySummaries: DailySummary[]): EquityCurvePoint[] {

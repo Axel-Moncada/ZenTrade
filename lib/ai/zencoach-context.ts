@@ -3,6 +3,10 @@ import type { createClient } from '@/lib/supabase/server';
 type ServerClient = Awaited<ReturnType<typeof createClient>>;
 
 export interface ZenCoachContext {
+  /** Fecha de hoy (YYYY-MM-DD) en la zona horaria del usuario */
+  today: string;
+  /** Fecha y hora legibles en la zona horaria del usuario, para el prompt */
+  nowLabel: string;
   accountName: string;
   accountType: string;
   propFirm: string | null;
@@ -71,9 +75,6 @@ export async function buildZenCoachContext(
   userId: string,
   accountId: string,
 ): Promise<ZenCoachContext | null> {
-  const today = new Date().toISOString().slice(0, 10);
-  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-
   const { data: account } = await supabase
     .from('accounts')
     .select('name, account_type, broker, initial_balance, current_balance, max_drawdown, consistency_percent, drawdown_type, status')
@@ -88,6 +89,15 @@ export async function buildZenCoachContext(
     .select('currency, timezone')
     .eq('id', userId)
     .single();
+
+  const timezone = profile?.timezone ?? 'America/Bogota';
+  const now = new Date();
+  const today = dateInTimezone(now, timezone);
+  const thirtyDaysAgo = dateInTimezone(new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000), timezone);
+  const nowLabel = new Intl.DateTimeFormat('es-CO', {
+    timeZone: timezone,
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit',
+  }).format(now);
 
   const { data: plan } = await supabase
     .from('trading_plans')
@@ -185,6 +195,8 @@ export async function buildZenCoachContext(
   }
 
   return {
+    today,
+    nowLabel,
     accountName: account.name,
     accountType: account.account_type,
     propFirm: account.broker ?? null,
@@ -192,7 +204,7 @@ export async function buildZenCoachContext(
     currentBalance: account.current_balance ?? null,
     planName: null,
     currency: profile?.currency ?? 'USD',
-    timezone: profile?.timezone ?? 'America/Bogota',
+    timezone,
     tradingPlan,
     last30Days: {
       totalTrades: trades.length,
@@ -244,6 +256,8 @@ ${plan.exitRules ? `- Reglas salida: ${plan.exitRules.slice(0, 300)}` : ''}
 
   return `Eres ZenCoach, el coach de trading IA integrado en Zentrade. Eres experto en trading de futuros, psicología del trading y evaluaciones de prop firms.
 
+FECHA Y HORA ACTUAL DEL TRADER: ${ctx.nowLabel} (${ctx.timezone}). Hoy es ${ctx.today}. Usa esta fecha cuando el trader pregunte por "hoy", "ayer" o "esta semana", y como fecha por defecto al registrar trades.
+
 CUENTA ACTIVA: ${ctx.accountName} (${ctx.accountType}${ctx.propFirm ? ` / ${ctx.propFirm}` : ''})
 Balance inicial: $${ctx.initialBalance} ${ctx.currency}${ctx.currentBalance != null ? ` | Balance actual: $${ctx.currentBalance}` : ''}
 ${ctx.planName ? `Plan/Tamaño: ${ctx.planName}` : ''}
@@ -275,4 +289,48 @@ ESTILO:
 - Sé conciso. No uses listas excesivas. Máximo 3-4 párrafos cortos por respuesta.
 - Siempre que des feedback, hazlo basándote en los datos reales del trader.
 - Puedes hacer preguntas reflexivas sobre psicología y disciplina.`;
+}
+
+/** Fecha YYYY-MM-DD de un instante en una zona horaria IANA. */
+export function dateInTimezone(date: Date, timezone: string): string {
+  try {
+    // 'en-CA' formatea como YYYY-MM-DD
+    return new Intl.DateTimeFormat('en-CA', { timeZone: timezone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
+  } catch {
+    return date.toISOString().slice(0, 10);
+  }
+}
+
+interface StoredMessage {
+  role: string;
+  content: string;
+}
+
+interface GeminiTurn {
+  role: 'user' | 'model';
+  parts: { text: string }[];
+}
+
+/**
+ * Convierte los mensajes guardados en un historial válido para Gemini:
+ * empieza por 'user', alterna roles (une mensajes seguidos del mismo rol)
+ * y descarta mensajes vacíos.
+ */
+export function buildGeminiHistory(messages: readonly StoredMessage[]): GeminiTurn[] {
+  const turns: GeminiTurn[] = [];
+  for (const m of messages) {
+    const text = (m.content ?? '').trim();
+    if (!text) continue;
+    const role: 'user' | 'model' = m.role === 'user' ? 'user' : 'model';
+    if (turns.length === 0 && role !== 'user') continue;
+    const last = turns[turns.length - 1];
+    if (last && last.role === role) {
+      last.parts[0]!.text += `\n\n${text}`;
+    } else {
+      turns.push({ role, parts: [{ text }] });
+    }
+  }
+  // El historial debe terminar en 'model': el siguiente mensaje del usuario se envía aparte.
+  if (turns.length > 0 && turns[turns.length - 1]!.role === 'user') turns.pop();
+  return turns;
 }

@@ -3,6 +3,7 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { EquityCurvePoint } from '@/types/dashboard';
 import { TrendingUp } from 'lucide-react';
+import { parseISODate } from '@/lib/utils/date-helpers';
 
 interface EquityCurveChartProps {
   data: EquityCurvePoint[];
@@ -24,7 +25,7 @@ export function EquityCurveChart({ data }: EquityCurveChartProps) {
   }
 
   const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
+    const date = parseISODate(dateStr.slice(0, 10));
     return `${date.getDate()}/${date.getMonth() + 1}`;
   };
 

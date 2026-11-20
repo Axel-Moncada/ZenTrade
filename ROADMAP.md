@@ -1,6 +1,6 @@
 # Zentrade — Roadmap
 
-Última actualización: **2026-11-19**
+Última actualización: **2026-11-20**
 Historial anterior (fases 0–9, marzo 2026): [`docs/archive/ROADMAP-2026-03.md`](docs/archive/ROADMAP-2026-03.md)
 Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 
@@ -15,6 +15,21 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - **Planes**: Free · Starter $9 · Professional $29 · ZenMode $59 (anual: $84 / $249 / $499).
 - **Competidor de referencia**: TradeZella ($35/$59/$99 desde julio 2026). Sus quejas más comunes: sincronización con el broker rota, IA de auto-tagging poco fiable, no se puede probar gratis y renovaciones inesperadas.
 - **Posicionamiento**: *"The trading journal built to help you pass your prop firm evaluation"*. Especialista en prop firms y a 1/3 del precio de TradeZella.
+
+---
+
+## QA 2026-11-20 — Bloqueantes antes de pautar
+
+- [x] Pagos PayPal: confirmación al volver + reconciliación en el cron + cancelar suscripción anterior (rama `fix/qa-fase-1`)
+- [x] ZenCoach: errores manejados, historial saneado, fecha actual, prueba gratis limitada en servidor
+- [x] Importador NinjaTrader: orden MM/DD vs DD/MM
+- [x] Signos negativos en dashboard y backtesting
+- [x] Fechas corridas un día (zona horaria)
+- [x] Drawdown trailing
+- [ ] Ejecutar `supabase/024_qa_fixes.sql`
+- [ ] Verificar webhook de PayPal en live (`PAYPAL_WEBHOOK_ID`, URL registrada)
+- [ ] Fase 2: consistencia por día, gating del dashboard por plan, página de precios = producto real, limpiar instrumentos `custom` globales, i18n del importador
+- [ ] Fase 3: `/register` abre "Registrarse", traducciones EN, nombres de emociones, hora de entrada en Sesión en Vivo, límite de cuentas en BD
 
 ---
 
