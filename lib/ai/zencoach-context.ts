@@ -1,3 +1,4 @@
+import { computeDrawdownStatus, computePeakBalance } from '@/lib/utils/drawdown';
 import type { createClient } from '@/lib/supabase/server';
 
 type ServerClient = Awaited<ReturnType<typeof createClient>>;
@@ -9,6 +10,8 @@ export interface ZenCoachContext {
   nowLabel: string;
   accountName: string;
   accountType: string;
+  drawdown: { type: string; max: number; remaining: number; floor: number } | null;
+  profitTarget: number | null;
   propFirm: string | null;
   initialBalance: number;
   currentBalance: number | null;
@@ -77,7 +80,7 @@ export async function buildZenCoachContext(
 ): Promise<ZenCoachContext | null> {
   const { data: account } = await supabase
     .from('accounts')
-    .select('name, account_type, broker, initial_balance, current_balance, max_drawdown, consistency_percent, drawdown_type, status')
+    .select('name, account_type, broker, initial_balance, starting_balance, current_balance, max_drawdown, profit_target, consistency_percent, drawdown_type, status')
     .eq('id', accountId)
     .eq('user_id', userId)
     .single();
@@ -194,9 +197,29 @@ export async function buildZenCoachContext(
     };
   }
 
+  // Drawdown con la misma lógica que la app (trailing desde el pico de balance)
+  const { data: allTrades } = await supabase
+    .from('trades')
+    .select('trade_date, created_at, result')
+    .eq('user_id', userId)
+    .eq('account_id', accountId);
+  const startingBalance = Number(account.starting_balance) || 0;
+  const maxDd = Number(account.max_drawdown) || 0;
+  const dd = maxDd > 0
+    ? computeDrawdownStatus({
+        startingBalance,
+        currentBalance: Number(account.current_balance) || 0,
+        maxDrawdown: maxDd,
+        drawdownType: account.drawdown_type,
+        peakBalance: computePeakBalance(startingBalance, allTrades ?? []),
+      })
+    : null;
+
   return {
     today,
     nowLabel,
+    drawdown: dd ? { type: account.drawdown_type, max: maxDd, remaining: dd.remaining, floor: dd.floor } : null,
+    profitTarget: account.profit_target != null ? Number(account.profit_target) : null,
     accountName: account.name,
     accountType: account.account_type,
     propFirm: account.broker ?? null,
@@ -260,6 +283,8 @@ FECHA Y HORA ACTUAL DEL TRADER: ${ctx.nowLabel} (${ctx.timezone}). Hoy es ${ctx.
 
 CUENTA ACTIVA: ${ctx.accountName} (${ctx.accountType}${ctx.propFirm ? ` / ${ctx.propFirm}` : ''})
 Balance inicial: $${ctx.initialBalance} ${ctx.currency}${ctx.currentBalance != null ? ` | Balance actual: $${ctx.currentBalance}` : ''}
+${ctx.drawdown ? `Drawdown ${ctx.drawdown.type === 'trailing' ? 'trailing' : 'estático'}: máximo $${ctx.drawdown.max} | disponible $${ctx.drawdown.remaining.toFixed(2)} | la cuenta se pierde si el balance baja de $${ctx.drawdown.floor.toFixed(2)}` : 'Drawdown: no configurado'}
+${ctx.profitTarget != null ? `Objetivo de ganancia: $${ctx.profitTarget}` : ''}
 ${ctx.planName ? `Plan/Tamaño: ${ctx.planName}` : ''}
 
 ${tradingPlanSection}

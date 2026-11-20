@@ -17,6 +17,7 @@ import { useState } from 'react'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { parseISODate } from '@/lib/utils/date-helpers'
+import { formatSignedMoney } from '@/lib/utils/format-money'
 import { cn } from '@/lib/utils'
 import { Checkbox } from '@/components/ui/checkbox'
 
@@ -274,7 +275,7 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                       (trade.result || 0) >= 0 ? 'text-emerald-400' : 'text-rose-400'
                     )}
                   >
-                    ${(trade.result || 0).toFixed(2)}
+                    {formatSignedMoney(trade.result || 0, { showPlus: false })}
                   </span>
                 </TableCell>
                 <TableCell onClick={() => onTradeClick?.(trade)}>
