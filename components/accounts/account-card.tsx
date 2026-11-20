@@ -26,6 +26,7 @@ import { Pencil, Trash2, CheckCircle2, AlertTriangle, TrendingUp } from "lucide-
 import type { Account } from "@/types/accounts";
 import { parseISODate } from "@/lib/utils/date-helpers";
 import { computeDrawdownStatus } from "@/lib/utils/drawdown";
+import { formatSignedMoney } from "@/lib/utils/format-money";
 import {
   ACCOUNT_TYPE_LABELS,
   ACCOUNT_TYPE_COLORS,
@@ -165,14 +166,14 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
             <div className="flex justify-between text-zen-anti-flash/70">
               <span>P&L Trades:</span>
               <span className={`font-medium ${tradePnL >= 0 ? "text-zen-caribbean-green" : "text-zen-danger"}`}>
-                {tradePnL >= 0 ? "+" : ""}${tradePnL.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                {formatSignedMoney(tradePnL)}
               </span>
             </div>
             
             <div className="pt-1.5 border-t border-zen-border-soft/30 flex justify-between text-zen-anti-flash font-semibold">
               <span>Balance Actual:</span>
               <span className={balanceChange >= 0 ? "text-zen-caribbean-green" : "text-zen-danger"}>
-                {balanceChange >= 0 ? "+" : ""}${balanceChange.toLocaleString("en-US", { minimumFractionDigits: 2 })} ({balanceChangePercent >= 0 ? "+" : ""}{balanceChangePercent.toFixed(2)}%)
+                {formatSignedMoney(balanceChange)} ({balanceChangePercent >= 0 ? "+" : ""}{balanceChangePercent.toFixed(2)}%)
               </span>
             </div>
           </div>
