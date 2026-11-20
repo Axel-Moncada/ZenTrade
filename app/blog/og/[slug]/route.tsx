@@ -146,12 +146,12 @@ export async function GET(_req: Request, { params }: Props) {
               fontSize: "16px",
             }}
           >
-            <span>{post.readingTime} min de lectura</span>
+            <span>{`${post.readingTime} min de lectura`}</span>
             <span style={{ color: ZEN_DIM }}>·</span>
             <span>{post.author}</span>
           </div>
-          <div style={{ color: ZEN_DIM, fontSize: "14px" }}>
-            zen-trader.com/blog/{post.slug}
+          <div style={{ display: "flex", color: ZEN_DIM, fontSize: "14px" }}>
+            {`zen-trader.com/blog/${post.slug}`}
           </div>
         </div>
 

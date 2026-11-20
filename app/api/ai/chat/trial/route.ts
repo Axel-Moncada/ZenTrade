@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { getUserPlan } from '@/lib/lemonsqueezy/get-user-plan';
 import { consumeTrialMessage } from '@/lib/ai/zencoach-trial';
+import { withGeminiRetry } from '@/lib/ai/gemini-retry';
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY ?? '');
 
@@ -76,10 +77,6 @@ export async function POST(req: NextRequest) {
   const { message, history, locale } = parsed.data;
   const systemPrompt = locale === 'es' ? TRIAL_SYSTEM_ES : TRIAL_SYSTEM_EN;
 
-  const model = genAI.getGenerativeModel({
-    model: 'gemini-2.5-flash',
-    systemInstruction: systemPrompt,
-  });
 
   const geminiHistory = history.map(m => ({
     role: m.role,
@@ -87,9 +84,13 @@ export async function POST(req: NextRequest) {
   }));
 
   try {
-    const chat = model.startChat({ history: geminiHistory });
-    const result = await chat.sendMessage(message);
-    const reply = result.response.text().trim();
+    const { result: reply } = await withGeminiRetry(async (modelName) => {
+      const chat = genAI
+        .getGenerativeModel({ model: modelName, systemInstruction: systemPrompt })
+        .startChat({ history: geminiHistory });
+      const r = await chat.sendMessage(message);
+      return r.response.text().trim();
+    });
     return NextResponse.json({ reply });
   } catch (err) {
     console.error('[zencoach-trial] error en Gemini', err);

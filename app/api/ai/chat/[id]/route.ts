@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { getUserPlan } from '@/lib/lemonsqueezy/get-user-plan';
+import { withGeminiRetry } from '@/lib/ai/gemini-retry';
 import { GoogleGenerativeAI, SchemaType, type Content, type Part, type FunctionDeclaration, type FunctionDeclarationSchema } from '@google/generative-ai';
 import { buildZenCoachContext, buildSystemPrompt, buildGeminiHistory } from '@/lib/ai/zencoach-context';
 
@@ -114,17 +115,19 @@ export async function POST(
   // anterior falló, quedan mensajes de usuario seguidos y Gemini rechaza la llamada.
   const geminiHistory: Content[] = buildGeminiHistory(history);
 
-  const model = genAI.getGenerativeModel({
-    model: 'gemini-2.5-flash',
-    systemInstruction: systemPrompt,
-    tools: [{ functionDeclarations: [REGISTER_TRADE_DECLARATION] }],
-  });
-
-  const chat = model.startChat({ history: geminiHistory });
+  const startChat = (modelName: string) => genAI
+    .getGenerativeModel({
+      model: modelName,
+      systemInstruction: systemPrompt,
+      tools: [{ functionDeclarations: [REGISTER_TRADE_DECLARATION] }],
+    })
+    .startChat({ history: geminiHistory });
 
   // Build user message parts
   const userParts: Part[] = [];
-  if (image_url) {
+  // Solo se descargan imágenes del Storage propio (evita SSRF con URLs arbitrarias)
+  const storageOrigin = process.env.NEXT_PUBLIC_SUPABASE_URL ?? '';
+  if (image_url && storageOrigin && image_url.startsWith(`${storageOrigin}/storage/`)) {
     try {
       const imgRes = await fetch(image_url);
       const buffer = await imgRes.arrayBuffer();
@@ -146,9 +149,14 @@ export async function POST(
   });
 
   try {
-  // First Gemini call
-  const result1 = await chat.sendMessage(userParts);
-  const response1 = result1.response;
+  // First Gemini call (con reintentos y modelo de respaldo si Gemini está saturado)
+  const { result: first } = await withGeminiRetry(async (modelName) => {
+    const c = startChat(modelName);
+    const r = await c.sendMessage(userParts);
+    return { chat: c, response: r.response };
+  });
+  const chat = first.chat;
+  const response1 = first.response;
 
   // Check for function call
   const parts = response1.candidates?.[0]?.content?.parts ?? [];
@@ -215,16 +223,24 @@ export async function POST(
       }
     }
 
-    // Send function response back to Gemini
-    const result2 = await chat.sendMessage([
-      {
-        functionResponse: {
-          name: 'register_trade',
-          response: fnResponse,
+    // Send function response back to Gemini. Si Gemini falla aquí, el trade ya quedó
+    // guardado: se responde con un texto fijo en vez de perder la confirmación.
+    try {
+      const result2 = await chat.sendMessage([
+        {
+          functionResponse: {
+            name: 'register_trade',
+            response: fnResponse,
+          },
         },
-      },
-    ]);
-    replyText = result2.response.text();
+      ]);
+      replyText = result2.response.text();
+    } catch (err) {
+      console.error('[zencoach] Gemini falló tras register_trade', err);
+      replyText = registeredTrade
+        ? `Listo, registré el trade (${String(registeredTrade.result)} USD, ${String(registeredTrade.date)}).`
+        : `No pude registrar el trade: ${String(fnResponse.error ?? 'error desconocido')}.`;
+    }
   } else {
     replyText = response1.text();
   }
