@@ -42,6 +42,24 @@ export type ActivationResult =
   | { ok: true; userId: string; plan: PlanKey; interval: BillingInterval; periodEnd: string; alreadyActive: boolean }
   | { ok: false; reason: 'INVALID_CUSTOM_ID' | 'DB_ERROR' };
 
+const PLAN_RANK: Record<string, number> = { free: 0, starter: 1, pro: 2, zenmode: 3 };
+
+/**
+ * Un admin puede subir a un cliente de plan a mano (variant_id 'manual_override…').
+ * Los eventos de PayPal de esa suscripción extienden fechas, pero no bajan el plan.
+ */
+export function resolvePlanWithOverride(
+  existing: { plan_key: string | null; variant_id: string | null } | null,
+  incoming: PlanKey,
+): { plan: PlanKey; keepVariant: boolean } {
+  if (!existing?.variant_id?.startsWith('manual_override')) return { plan: incoming, keepVariant: false };
+  const current = existing.plan_key ?? 'free';
+  if ((PLAN_RANK[current] ?? 0) > (PLAN_RANK[incoming] ?? 0)) {
+    return { plan: current as PlanKey, keepVariant: true };
+  }
+  return { plan: incoming, keepVariant: false };
+}
+
 function isPayPalSubscriptionId(id: string | null | undefined): id is string {
   return typeof id === 'string' && id.startsWith('I-');
 }
@@ -61,7 +79,7 @@ export async function activatePayPalSubscription(input: ActivationInput): Promis
   // ¿Ya está registrada esta misma suscripción? (webhook y confirmación pueden llegar ambos)
   const { data: same } = await supabaseAdmin
     .from('subscriptions')
-    .select('id, status, plan_key')
+    .select('id, status, plan_key, variant_id')
     .eq('processor_subscription_id', input.subscriptionId)
     .maybeSingle();
 
@@ -78,26 +96,40 @@ export async function activatePayPalSubscription(input: ActivationInput): Promis
   };
 
   if (same) {
-    const alreadyActive = same.status === 'active' && same.plan_key === plan;
-    const { error } = await supabaseAdmin.from('subscriptions').update(updateData).eq('id', same.id);
+    const resolved = resolvePlanWithOverride(same, plan);
+    const alreadyActive = same.status === 'active' && same.plan_key === resolved.plan;
+    const { error } = await supabaseAdmin.from('subscriptions').update({
+      ...updateData,
+      plan_key: resolved.plan,
+      variant_id: resolved.keepVariant ? same.variant_id : updateData.variant_id,
+    }).eq('id', same.id);
     if (error) {
       console.error('[paypal] error actualizando suscripción existente:', error);
       return { ok: false, reason: 'DB_ERROR' };
     }
-    return { ok: true, userId, plan, interval, periodEnd: periodEnd.toISOString(), alreadyActive };
+    return { ok: true, userId, plan: resolved.plan, interval, periodEnd: periodEnd.toISOString(), alreadyActive };
   }
 
   // Suscripción nueva: se reutiliza la fila más reciente del usuario (upgrade/downgrade)
   const { data: previous } = await supabaseAdmin
     .from('subscriptions')
-    .select('id, processor_subscription_id, status')
+    .select('id, processor_subscription_id, status, plan_key, variant_id')
     .eq('user_id', userId)
     .order('created_at', { ascending: false })
     .limit(1)
     .maybeSingle();
 
+  let finalPlan: PlanKey = plan;
   if (previous) {
-    const { error } = await supabaseAdmin.from('subscriptions').update(updateData).eq('id', previous.id);
+    // Solo se respeta el upgrade manual si la fila sigue vigente
+    const stillActive = previous.status === 'active';
+    const resolved = stillActive ? resolvePlanWithOverride(previous, plan) : { plan, keepVariant: false };
+    finalPlan = resolved.plan;
+    const { error } = await supabaseAdmin.from('subscriptions').update({
+      ...updateData,
+      plan_key: resolved.plan,
+      variant_id: resolved.keepVariant ? previous.variant_id : updateData.variant_id,
+    }).eq('id', previous.id);
     if (error) {
       console.error('[paypal] error actualizando:', error);
       return { ok: false, reason: 'DB_ERROR' };
@@ -120,8 +152,8 @@ export async function activatePayPalSubscription(input: ActivationInput): Promis
     }
   }
 
-  console.log(`[paypal] ✓ activada ${userId} → ${plan} (${interval}) hasta ${periodEnd.toISOString()}`);
-  return { ok: true, userId, plan, interval, periodEnd: periodEnd.toISOString(), alreadyActive: false };
+  console.log(`[paypal] ✓ activada ${userId} → ${finalPlan} (${interval}) hasta ${periodEnd.toISOString()}`);
+  return { ok: true, userId, plan: finalPlan, interval, periodEnd: periodEnd.toISOString(), alreadyActive: false };
 }
 
 /**

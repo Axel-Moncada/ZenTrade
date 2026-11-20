@@ -6,6 +6,15 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-20 (tarde) — PayPal: webhook ID y upgrades manuales
+
+- `PAYPAL_WEBHOOK_ID` en Vercel actualizado al ID del webhook Live de la app **Zentrade** (`7H498690W16324910`) y producción republicada. Hay dos apps en PayPal (Zentrade y Activation_App); el sitio usa Zentrade.
+- `lib/paypal/activate-subscription.ts`: si una suscripción tiene un upgrade manual del admin (`variant_id` empieza por `manual_override`), los eventos de PayPal extienden fechas pero no bajan el plan. Caso Walter: ZenMode regalado mientras paga Pro.
+- Test: `tests/paypal-override.test.ts`.
+- Pendiente: ligar la fila de Walter a su suscripción de PayPal de $29 (`I-...`) y cancelar en PayPal la de $9 (12-nov), que sigue activa.
+
+---
+
 ## 2026-11-20 — QA end-to-end y correcciones de fase 1 (antes de pautar)
 
 ### Contexto
