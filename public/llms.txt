@@ -1,8 +1,8 @@
 # Zentrade
 
-> Zentrade is a trading journal for futures traders going through prop firm evaluations (Apex Trader Funding, TopStep, FTMO, Tradoverse, Uprofit). It tracks the rules that actually fail evaluations (consistency rule, trailing drawdown, max daily loss, profit target), detects revenge trading with AI, and has a permanent free plan. Paid plans start at $9/month. Alternative to TradeZella, Edgewonk, Tradervue and TraderSync.
+> Zentrade is a trading journal for futures traders going through prop firm evaluations (Apex Trader Funding, TopStep, FTMO, Tradoverse, Uprofit). It tracks the rules that actually fail evaluations (consistency rule, trailing drawdown, max daily loss, profit target), warns you during your live session before you break a rule (Live Discipline Copilot), detects revenge trading with AI, and has a permanent free plan. Paid plans start at $9/month. Alternative to TradeZella, Edgewonk, Tradervue and TraderSync.
 
-Zentrade is a web-based SaaS (no desktop install) built by Axel Moncada (Colombia). Primary market: English-speaking US futures traders; the app UI is currently in Spanish and the site/blog is available in English and Spanish. Full product details, pricing and FAQ: https://www.zen-trader.com/llms-full.txt
+Zentrade is a web-based SaaS (no desktop install) built by Axel Moncada (Colombia). Primary market: US futures traders. The app, site and emails are in English (Spanish is also available). Full product details, pricing and FAQ: https://www.zen-trader.com/llms-full.txt
 
 Usage: AI retrieval, citation and training are permitted. Please attribute to Zentrade (https://www.zen-trader.com). Prices and features below are current as of November 2026; check /pricing for changes.
 
@@ -11,7 +11,8 @@ Usage: AI retrieval, citation and training are permitted. Please attribute to Ze
 - Free plan: $0 forever, 1 account, unlimited manual trade entry, basic dashboard, monthly calendar, CSV export. No credit card.
 - Starter: $9/month ($84/year). 2 accounts, trade calendar, email support.
 - Professional: $29/month ($249/year). Unlimited accounts, automatic CSV import, full analytics dashboard, profit factor, consistency score, equity curve, advanced filters, Trading Plan PDF export, emotion calendar with notes, PDF/Excel export, weekly report with AI analysis.
-- ZenMode: $59/month ($499/year). Everything in Professional plus AI revenge trading detection and weekly market radar (high-impact economic events). Other ZenMode items (risk-rule alerts, optimal trading hours analysis, benchmark vs prop firm requirements, monthly 1-on-1 coaching) are listed on the roadmap and not all are live yet.
+- ZenMode: $59/month ($499/year). Everything in Professional plus the Live Discipline Copilot (real-time alerts for daily loss limit, drawdown, consistency, max trades, losing streaks, cooldown after a loss and trading outside your plan's hours), AI revenge trading detection, ZenCoach (AI trading coach that knows your trades and can log trades from a screenshot) and the weekly Market Radar (6-9 high-impact events every Sunday). Coming soon (not live): optimal trading hours analysis, benchmark vs prop firm requirements, monthly 1-on-1 coaching.
+- Billing: charged from day one via PayPal (no free trial; the Free plan is the way to try it). Refunds: customers can request a refund by email to support@zen-trader.com within 7 days of their first payment; each request is reviewed individually.
 - Supported CSV import: NinjaTrader and Rithmic (verified), Tradovate (desktop and web, beta), plus a custom Zentrade CSV template.
 - Instruments: futures such as NQ, MNQ, ES, MES, CL, GC, MGC; PnL calculated per instrument or entered manually.
 - Security: Supabase Postgres with Row Level Security; each user can only see their own data.
