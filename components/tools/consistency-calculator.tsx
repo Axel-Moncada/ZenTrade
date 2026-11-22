@@ -6,10 +6,11 @@ import { CheckCircle2, AlertTriangle } from "lucide-react";
 import { useTr } from "@/lib/i18n/use-tr";
 import { computeConsistency, parseDailyPnl } from "@/lib/tools/consistency";
 
+// Verificado el 2026-11-22 (ver los hubs de cada firma). Las reglas cambian: confirmar con la firma.
 const PRESETS = [
-  { value: 50, label: { es: "50% (Apex, cuentas PA desde 2026)", en: "50% (Apex Performance Accounts, 2026)" } },
-  { value: 40, label: { es: "40%", en: "40%" } },
-  { value: 30, label: { es: "30% (común en cuentas antiguas)", en: "30% (common on legacy accounts)" } },
+  { value: 55, label: { es: "55% (Topstep Combine)", en: "55% (Topstep Combine)" } },
+  { value: 50, label: { es: "50% (Apex PA · FTMO 1-Step)", en: "50% (Apex PA · FTMO 1-Step)" } },
+  { value: 30, label: { es: "30% (cuentas Apex antiguas)", en: "30% (legacy Apex accounts)" } },
 ];
 
 const EXAMPLE = "450\n-120\n300\n980\n-200\n250";

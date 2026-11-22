@@ -12,7 +12,7 @@ const SITE_URL = "https://www.zen-trader.com";
 export const metadata: Metadata = {
   title: "Best Trading Journal for FTMO Evaluations",
   description:
-    "Zentrade tracks every FTMO rule in real time: consistency score, 5% max daily loss, 10% trailing drawdown and profit target. Pass your FTMO evaluation with data, not luck.",
+    "Zentrade tracks the FTMO max daily loss, max loss, profit target and the 1-Step Best Day Rule. The trading journal built for FTMO futures traders.",
   keywords: [
     "FTMO trading journal",
     "FTMO journal app",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Best Trading Journal for FTMO | Zentrade",
     description:
-      "Track your FTMO consistency score, daily loss and trailing drawdown in real time. Built for futures traders.",
+      "Track your FTMO daily loss, max loss and profit target in real time. Built for futures traders.",
     url: `${SITE_URL}/ftmo`,
     type: "website",
   },
@@ -42,7 +42,7 @@ const jsonLd = [
     "@type": "WebPage",
     name: "Zentrade for FTMO — AI Trading Journal",
     description:
-      "Zentrade tracks every FTMO evaluation rule in real time: consistency score, max daily loss, max drawdown and profit target. The best trading journal for FTMO futures traders.",
+      "Zentrade tracks the FTMO max daily loss, max loss, profit target and 1-Step Best Day Rule. The trading journal for FTMO futures traders.",
     url: `${SITE_URL}/ftmo`,
     inLanguage: "en",
     publisher: { "@type": "Organization", name: "Zentrade", url: SITE_URL },
@@ -61,18 +61,18 @@ const jsonLd = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is the best trading journal for FTMO?",
+        name: "What should a trading journal track for FTMO?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Zentrade is the best trading journal for FTMO because it was built specifically for futures traders doing prop firm evaluations. It automatically tracks the consistency score (no day can exceed 30% of net profit), the 5% max daily loss, the 10% max overall drawdown, and your profit target progress — in real time. Unlike generic journals, Zentrade shows you exactly if you're at risk of failing the evaluation before it's too late.",
+          text: "Zentrade tracks your max daily loss, max loss and profit target progress per account, and on the 1-Step challenge your best day's share of profit for the Best Day Rule, updating after every trade.",
         },
       },
       {
         "@type": "Question",
-        name: "Does Zentrade track the FTMO consistency rule?",
+        name: "Does FTMO have a consistency rule?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Zentrade calculates the consistency score in real time: it shows what percentage of your net profit came from your best day. The FTMO rule requires that no single day exceeds 30% of total net profit. Zentrade alerts you when you're approaching this limit so you can adjust your trading for the rest of the evaluation.",
+          text: "The standard 2-Step FTMO Challenge has no consistency rule. The 1-Step challenge has a Best Day Rule: no single day can account for more than 50% of your total profit. Zentrade calculates your best day's share of profit in real time; set your threshold to 50%.",
         },
       },
       {
@@ -80,7 +80,7 @@ const jsonLd = [
         name: "How does FTMO calculate the max daily loss?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "FTMO allows a maximum daily loss of 5% of the initial account balance (e.g., $5,000 on a $100,000 account). This is calculated from the balance at the start of each trading day. Zentrade tracks your daily P&L and shows you how much room you have left before hitting the daily loss limit.",
+          text: "On the 2-Step challenge the maximum daily loss is 5% of the initial account balance (for example $5,000 on a $100,000 account), measured from the balance at the start of each day; on the 1-Step challenge it is 3%. Check FTMO's rules for how open positions count. Zentrade tracks your daily P&L and how much room you have left.",
         },
       },
     ],
@@ -88,18 +88,18 @@ const jsonLd = [
 ];
 
 const FTMO_RULES = [
-  { label: "Profit Target (Phase 1)", value: "10%", note: "5% in Verification" },
-  { label: "Max Daily Loss", value: "5%", note: "From start-of-day balance" },
-  { label: "Max Overall Drawdown", value: "10%", note: "From initial capital (static)" },
-  { label: "Consistency Rule", value: "30%", note: "No single day > 30% of net profit" },
-  { label: "Min Trading Days", value: "4 days", note: "Both phases" },
-  { label: "Profit Split", value: "Up to 90%", note: "After scaling plan" },
+  { label: "Profit Target", value: "10% / 5%", note: "2-Step: 10% in the Challenge, 5% in Verification" },
+  { label: "Max Daily Loss", value: "5%", note: "2-Step (3% on the 1-Step challenge)" },
+  { label: "Max Loss", value: "10%", note: "2-Step: static; 1-Step: end-of-day trailing" },
+  { label: "Best Day Rule", value: "1-Step only", note: "No day over 50% of total profit; none on the 2-Step" },
+  { label: "Min Trading Days", value: "4", note: "Per phase on the 2-Step challenge" },
+  { label: "Time Limit", value: "None", note: "The old 30/60-day limits were removed" },
 ];
 
 const ZENTRADE_FEATURES = [
-  "Consistency score — live % of your best day vs. total net profit",
+  "Best day share of profit — for the 1-Step Best Day Rule",
   "Daily P&L tracker with max daily loss alert",
-  "Equity curve with static drawdown limit line",
+  "Equity curve with your max loss line",
   "Profit target progress bar per account",
   "Revenge trading detection (ZenMode)",
   "Import trades from NinjaTrader, Rithmic, Tradovate via CSV",
@@ -157,8 +157,8 @@ export default async function FtmoPage() {
             <span className="text-zen-caribbean-green">built for FTMO</span>
           </h1>
           <p className="text-zen-text-muted text-xl max-w-2xl mx-auto mb-8">
-            Zentrade tracks your consistency score, max daily loss and trailing
-            drawdown in real time — the exact metrics FTMO uses to evaluate you.
+            Zentrade tracks your max daily loss, max loss and profit target
+            in real time — the metrics FTMO uses to evaluate you.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link href="/register">
@@ -193,6 +193,14 @@ export default async function FtmoPage() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs text-zen-text-muted">
+            Figures for the FTMO Challenge, last verified Nov 22, 2026 from FTMO&apos;s rules pages and 2026 rule guides. Rules vary by
+            account size, account type and purchase date, and firms change them often.{" "}
+            <a href="https://ftmo.com/en/trading-objectives/" target="_blank" rel="noopener noreferrer nofollow" className="text-zen-caribbean-green hover:underline">
+              Confirm the current rules with FTMO
+            </a>
+            .
+          </p>
         </section>
 
         {/* Zentrade features for FTMO */}
@@ -230,8 +238,8 @@ export default async function FtmoPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
-                bad: "Reach the profit target but get rejected for consistency rule violation",
-                good: "Zentrade shows your consistency score every day — you know before it's too late",
+                bad: "On a 1-Step challenge, one huge day breaks the Best Day Rule",
+                good: "Zentrade shows your best day's share of profit every day, so you know before it's too late",
               },
               {
                 bad: "Hit the 5% daily loss limit on a bad day and lose the entire evaluation",

@@ -42,7 +42,7 @@ const jsonLd = [
     "@type": "WebPage",
     name: "Zentrade for Apex Trader Funding — AI Trading Journal",
     description:
-      "Zentrade tracks the Apex Trader Funding trailing drawdown, daily loss limit and profit target in real time. The best journal for Apex futures evaluations.",
+      "Zentrade tracks the Apex Trader Funding trailing drawdown, daily loss limit, profit target and payout consistency rule. The trading journal built for Apex futures evaluations.",
     url: `${SITE_URL}/apex-trader-funding`,
     inLanguage: "en",
     publisher: { "@type": "Organization", name: "Zentrade", url: SITE_URL },
@@ -61,10 +61,10 @@ const jsonLd = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is the best trading journal for Apex Trader Funding?",
+        name: "What should a trading journal track for Apex Trader Funding?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Zentrade is the best journal for Apex Trader Funding because it tracks the trailing drawdown mechanism natively. Unlike FTMO's static drawdown, Apex uses a trailing drawdown that rises with your equity — Zentrade updates this in real time so you always know your true buffer. It also tracks the daily loss limit and profit target for every Apex account size.",
+          text: "Zentrade tracks the Apex trailing drawdown per account: it updates your liquidation floor after every trade so you always know your real buffer, along with your daily P&L, your profit target progress and, on Performance Accounts, the 50% consistency rule for payouts.",
         },
       },
       {
@@ -72,7 +72,7 @@ const jsonLd = [
         name: "How does the Apex Trader Funding trailing drawdown work?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The Apex trailing drawdown starts at 6% below your initial balance and trails upward as your equity grows — but it never comes back down once it has risen. For example, on a $50,000 account the drawdown starts at $47,000. If your equity reaches $52,000, your trailing drawdown floor moves up to $49,000. Zentrade calculates and displays this trailing floor after every trade.",
+          text: "On a 50K Apex evaluation the trailing drawdown is $2,000, so the floor starts at $48,000 and rises with your highest balance. For example, if your balance peaks at $51,000, the floor moves to $49,000. Apex offers intraday and end-of-day versions, and where the drawdown stops trailing differs between evaluations and Performance Accounts, so check Apex's help center for your account.",
         },
       },
       {
@@ -80,7 +80,7 @@ const jsonLd = [
         name: "Does Apex Trader Funding have a consistency rule?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. Apex Trader Funding does not have a consistency rule, which is one of its main advantages over FTMO. You can have a single big winning day without it counting against you. Zentrade still tracks your daily performance so you can identify your best trading days and replicate them.",
+          text: "Not during the evaluation. On Performance Accounts, Apex applies a 50% consistency rule for payouts: your largest profitable day must be under 50% of your net profit since your last approved payout (updated March 2026; legacy accounts may still use 30%). Zentrade calculates this for you.",
         },
       },
     ],
@@ -88,21 +88,22 @@ const jsonLd = [
 ];
 
 const APEX_RULES = [
-  { label: "Profit Target", value: "9%", note: "E.g. $4,500 on $50K account" },
-  { label: "Trailing Drawdown", value: "6%", note: "Trails up with equity, never down" },
-  { label: "Daily Loss Limit", value: "Varies", note: "From $500 ($25K) to $4,500 ($300K)" },
-  { label: "Consistency Rule", value: "None", note: "No consistency rule — key advantage" },
-  { label: "Min Trading Days", value: "None", note: "Pass at your own pace" },
-  { label: "Profit Split", value: "Up to 90%", note: "After PA program" },
+  { label: "Profit Target", value: "$3,000", note: "50K evaluation" },
+  { label: "Trailing Drawdown", value: "$2,000", note: "50K; intraday or end-of-day version" },
+  { label: "Daily Loss Limit", value: "EOD only", note: "$1,000 on the 50K EOD evaluation; none on Intraday" },
+  { label: "Consistency Rule", value: "50% (PA)", note: "None in the evaluation; 50% for payouts on Performance Accounts" },
+  { label: "Min Trading Days", value: "None", note: "In the evaluation" },
+  { label: "Time Limit", value: "30 days", note: "Per evaluation" },
 ];
 
 const ZENTRADE_FEATURES = [
   "Trailing drawdown floor — recalculated live after every trade",
   "Daily P&L tracker with daily loss limit alert per account size",
-  "Profit target progress bar (9% goal)",
+  "Profit target progress bar ($3,000 on a 50K evaluation)",
   "Equity curve with trailing drawdown floor overlay",
   "Import trades from Rithmic, Tradovate, NinjaTrader via CSV",
-  "Revenge trading detection — critical for no-consistency-rule accounts",
+  "50% consistency rule check before you request a payout",
+  "Revenge trading detection (ZenMode)",
 ];
 
 const APEX_SLUGS = [
@@ -113,7 +114,7 @@ const APEX_SLUGS = [
   "drawdown-trailing-vs-estatico-prop-firms",
   "what-is-drawdown-trading",
   "que-es-drawdown-trading",
-  "best-prop-firms-futures-traders-2025",
+  "best-prop-firms-futures-traders",
   "mejores-empresas-fondeo-futuros-2025",
 ];
 
@@ -173,7 +174,7 @@ export default async function ApexPage() {
         <section className="mb-20">
           <h2 className="text-2xl font-bold text-zen-anti-flash mb-2">Apex Trader Funding evaluation rules</h2>
           <p className="text-zen-text-muted mb-8">
-            The rules that determine whether you pass the Apex evaluation — and how Zentrade tracks each one.
+            The rules that decide your Apex evaluation and payouts, and how Zentrade tracks each one.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {APEX_RULES.map((rule) => (
@@ -187,6 +188,14 @@ export default async function ApexPage() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs text-zen-text-muted">
+            Figures for the 50K account, last verified Nov 22, 2026 from Apex&apos;s help center and 2026 rule guides. Rules vary by
+            account size, account type and purchase date, and firms change them often.{" "}
+            <a href="https://support.apextraderfunding.com/hc/en-us" target="_blank" rel="noopener noreferrer nofollow" className="text-zen-caribbean-green hover:underline">
+              Confirm the current rules with Apex
+            </a>
+            .
+          </p>
         </section>
 
         {/* Features */}
@@ -229,11 +238,11 @@ export default async function ApexPage() {
               },
               {
                 bad: "Hit the daily loss limit after a news event and fail without knowing the exact threshold for your account size",
-                good: "Daily loss alert shows the exact dollar limit for your Apex plan ($500 on $25K, $2,000 on $100K, etc.)",
+                good: "Daily loss tracking against the exact dollar limit you set for your account",
               },
               {
-                bad: "No consistency rule creates overconfidence — traders take oversized risk on a winning streak",
-                good: "Equity curve and position size history show when you're deviating from your normal risk profile",
+                bad: "One oversized winning day breaks the 50% consistency rule and delays your first payout",
+                good: "Zentrade shows your best day's share of profit and how much more you need before requesting a payout",
               },
               {
                 bad: "Pass the evaluation but lose the funded account because trading habits change under pressure",

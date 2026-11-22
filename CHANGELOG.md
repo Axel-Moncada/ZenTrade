@@ -6,6 +6,20 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (mañana) — SEO: reglas 2026 verificadas en los hubs de Apex, TopStep y FTMO (PR #9)
+
+### Hecho
+- **Apex** (`app/apex-trader-funding`, `app/es/apex-trader-funding`): la consistencia del 50% aplica en las Performance Accounts para los payouts (antes decía "sin consistencia"; las cuentas viejas pueden seguir con el 30%). Cifras de la cuenta 50K en dólares: objetivo $3,000, trailing $2,000 y DLL de $1,000 solo en la evaluación EOD.
+- **TopStep** (`app/topstep`, `app/es/topstep`): consistency target del 55% (actualizado en sep-2026; si se pasa, el objetivo sube a mejor día / 0.55), Maximum Loss Limit EOD trailing y Daily Loss Limit opcional.
+- **FTMO** (`app/ftmo`, `app/es/ftmo`): el 2-Step no tiene consistencia; el 1-Step tiene la Best Day Rule del 50% y daily loss del 3%. Sin límite de tiempo.
+- Cada hub muestra la fecha de verificación (22-nov-2026) y un enlace a la fuente oficial. Presets de `components/tools/consistency-calculator.tsx` alineados.
+- Estudio SEO del fundador en `data/ZENTRADE-SEO-STUDY.md`.
+
+### Pendientes
+- Pasar estas mismas reglas a las guías "how to pass" del blog.
+
+---
+
 ## 2026-11-22 (noche) — GEO/SEO: herramientas gratis, comparativas nuevas, posts sin "2025" y consolidación
 
 ### Contexto

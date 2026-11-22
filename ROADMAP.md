@@ -59,6 +59,7 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 ### En el sitio
 - [x] `llms.txt` actualizado, herramientas gratis, `/vs/tradersync` y `/vs/tradervue`, posts sin "2025", 301, IndexNow
 - [ ] Correr `node scripts/indexnow.mjs` después de cada deploy con contenido
+- [x] Reglas 2026 verificadas en los hubs de Apex, TopStep y FTMO (PR #9)
 - [ ] Refrescar las guías "how to pass" con las reglas 2026 verificadas (Apex, TopStep, FTMO) y fecha real
 - [ ] Posts en español con "2025" (12)
 - [ ] Páginas de intención: "best trading journal for Apex" y "best trading journal for TopStep"

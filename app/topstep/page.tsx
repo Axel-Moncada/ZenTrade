@@ -12,7 +12,7 @@ const SITE_URL = "https://www.zen-trader.com";
 export const metadata: Metadata = {
   title: "Best Trading Journal for TopStep Evaluations",
   description:
-    "Zentrade tracks the TopStep 3% daily loss limit, 6% max drawdown and profit target in real time. The trading journal built for TopStep futures traders.",
+    "Zentrade tracks the TopStep Maximum Loss Limit, daily loss limit, profit target and 55% consistency target. The trading journal built for TopStep futures traders.",
   keywords: [
     "TopStep trading journal",
     "best journal for TopStep",
@@ -42,7 +42,7 @@ const jsonLd = [
     "@type": "WebPage",
     name: "Zentrade for TopStep — AI Trading Journal",
     description:
-      "Zentrade tracks the TopStep 3% daily loss limit, 6% max drawdown and profit target in real time. The best journal for TopStep futures evaluations.",
+      "Zentrade tracks the TopStep Maximum Loss Limit, daily loss limit, profit target and consistency target. The trading journal built for TopStep evaluations.",
     url: `${SITE_URL}/topstep`,
     inLanguage: "en",
     publisher: { "@type": "Organization", name: "Zentrade", url: SITE_URL },
@@ -61,10 +61,10 @@ const jsonLd = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is the best trading journal for TopStep?",
+        name: "What should a trading journal track for TopStep?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Zentrade is the best journal for TopStep because it tracks the 3% daily loss limit and 6% max drawdown automatically. TopStep's strict daily loss rule is the most common reason traders fail evaluations, and Zentrade shows you your live daily P&L against that limit after every trade so you can stop trading before hitting it.",
+          text: "Zentrade tracks TopStep's Maximum Loss Limit, your daily P&L and the 55% consistency target per account, updating after every trade so you know your real buffer before the next one.",
         },
       },
       {
@@ -72,7 +72,7 @@ const jsonLd = [
         name: "How does TopStep calculate the daily loss limit?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "TopStep's daily loss limit is 3% of the account size — for example, $1,500 on a $50,000 account. It's measured from your starting balance for that trading day. Zentrade tracks your intraday P&L and alerts you when you're approaching the 3% threshold so you know to stop trading for the day.",
+          text: "On the Trading Combine the Daily Loss Limit is optional: if you add it at checkout it is $1,000 on the 50K ($2,000 on 100K, $3,000 on 150K). Separately, the Maximum Loss Limit ($2,000 on the 50K) trails your end-of-day balance. Zentrade tracks your daily P&L against the limit you set. Check Topstep's help center for current terms.",
         },
       },
       {
@@ -80,7 +80,7 @@ const jsonLd = [
         name: "Does TopStep have a consistency rule?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. TopStep does not have a consistency rule like FTMO. You just need to hit the 6% profit target while staying within the 6% max drawdown and 3% daily loss limit. There are also no minimum trading days required, which makes it possible to pass very quickly with a good setup.",
+          text: "Yes, a consistency target. On the Combine your best day should be no more than 55% of your total profit (updated September 2026). If it is higher, the Combine is not failed: your profit target rises to your best day divided by 0.55. Zentrade shows your best day's share of profit live.",
         },
       },
     ],
@@ -88,18 +88,17 @@ const jsonLd = [
 ];
 
 const TOPSTEP_RULES = [
-  { label: "Profit Target", value: "6%", note: "E.g. $3,000 on $50K account" },
-  { label: "Max Drawdown", value: "6%", note: "From initial account balance (static)" },
-  { label: "Daily Loss Limit", value: "3%", note: "Strictest daily rule among top prop firms" },
-  { label: "Consistency Rule", value: "None", note: "No consistency requirement" },
-  { label: "Min Trading Days", value: "None", note: "Pass as fast as you can" },
-  { label: "Profit Split", value: "Up to 90%", note: "Funded account" },
+  { label: "Profit Target", value: "$3,000", note: "50K Trading Combine ($6,000 on 100K, $9,000 on 150K)" },
+  { label: "Maximum Loss Limit", value: "$2,000", note: "50K; trails your end-of-day balance (floor starts at $48,000)" },
+  { label: "Daily Loss Limit", value: "Optional", note: "$1,000 on the 50K if you add it at checkout" },
+  { label: "Consistency Target", value: "55%", note: "Best day ≤ 55% of total profit, or your profit target rises" },
 ];
 
 const ZENTRADE_FEATURES = [
-  "Daily P&L tracker with live 3% daily loss limit alert",
-  "Static drawdown tracking from initial balance (6% floor)",
-  "Profit target progress bar (6% goal)",
+  "Daily P&L tracker with your daily loss limit alert",
+  "Trailing Maximum Loss Limit tracking (end-of-day)",
+  "Profit target progress bar ($3,000 on the 50K Combine)",
+  "55% consistency target check",
   "Equity curve with drawdown limit line",
   "Import trades from NinjaTrader, Rithmic, Tradovate via CSV",
   "Multi-account dashboard — evaluation and funded side by side",
@@ -113,7 +112,7 @@ const TOPSTEP_SLUGS = [
   "trailing-drawdown-ftmo-vs-apex-vs-topstep",
   "what-is-drawdown-trading",
   "que-es-drawdown-trading",
-  "best-prop-firms-futures-traders-2025",
+  "best-prop-firms-futures-traders",
   "mejores-empresas-fondeo-futuros-2025",
 ];
 
@@ -151,8 +150,8 @@ export default async function TopStepPage() {
             <span className="text-zen-caribbean-green">TopStep</span>
           </h1>
           <p className="text-zen-text-muted text-xl max-w-2xl mx-auto mb-8">
-            TopStep has the strictest daily loss limit in the prop firm industry — 3%.
-            Zentrade shows your live P&L against that limit after every single trade.
+            TopStep's Maximum Loss Limit trails your end-of-day balance, and the daily loss limit can end your day early.
+            Zentrade shows your live P&L against both after every single trade.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link href="/register">
@@ -173,8 +172,8 @@ export default async function TopStepPage() {
         <section className="mb-20">
           <h2 className="text-2xl font-bold text-zen-anti-flash mb-2">TopStep evaluation rules</h2>
           <p className="text-zen-text-muted mb-8">
-            TopStep is one of the most beginner-friendly prop firms — no consistency rule, no min days —
-            but the 3% daily loss limit is unforgiving.
+            TopStep's rules are simple: one profit target, one Maximum Loss Limit and a 55% consistency target —
+            but the trailing loss limit is unforgiving.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {TOPSTEP_RULES.map((rule) => (
@@ -188,6 +187,14 @@ export default async function TopStepPage() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs text-zen-text-muted">
+            Figures for the 50K account, last verified Nov 22, 2026 from Topstep&apos;s help center and 2026 rule guides. Rules vary by
+            account size, account type and purchase date, and firms change them often.{" "}
+            <a href="https://help.topstep.com/" target="_blank" rel="noopener noreferrer nofollow" className="text-zen-caribbean-green hover:underline">
+              Confirm the current rules with Topstep
+            </a>
+            .
+          </p>
         </section>
 
         {/* Features */}
@@ -196,7 +203,7 @@ export default async function TopStepPage() {
             What Zentrade tracks for your TopStep account
           </h2>
           <p className="text-zen-text-muted mb-8">
-            The TopStep 3% daily loss limit is the evaluation killer. Zentrade puts a
+            Losing the Maximum Loss Limit buffer is the evaluation killer. Zentrade puts a
             live counter in front of you so you never accidentally cross it.
           </p>
           <ul className="space-y-3">
@@ -225,12 +232,12 @@ export default async function TopStepPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
-                bad: "Hit the 3% daily loss limit in the first hour of trading after a bad news event",
+                bad: "Hit the daily loss limit in the first hour of trading after a bad news event",
                 good: "Daily P&L alert shows the exact dollar threshold for your account — you know when to walk away",
               },
               {
-                bad: "Account is profitable overall but one bad day wipes the 6% drawdown buffer",
-                good: "Equity curve with static drawdown line shows how much buffer you have left at all times",
+                bad: "Account is profitable overall but one bad day wipes the $2,000 Maximum Loss Limit buffer",
+                good: "Equity curve with the drawdown line shows how much buffer you have left at all times",
               },
               {
                 bad: "No minimum trading days creates a 'go big early' mentality that blows accounts fast",
@@ -288,8 +295,8 @@ export default async function TopStepPage() {
             Ready to pass your TopStep evaluation?
           </h2>
           <p className="text-zen-text-muted mb-8 max-w-xl mx-auto">
-            Set up your TopStep account in Zentrade with your plan size. The 3% daily
-            loss limit will be right in front of you — no surprises, no spreadsheets.
+            Set up your TopStep account in Zentrade with your plan size. Your loss
+            limits will be right in front of you — no surprises, no spreadsheets.
           </p>
           <Link href="/register">
             <Button variant="zenGreen" size="lg" className="group">
