@@ -15,7 +15,7 @@ function PayPalBadge() {
   return (
     <div
       className="flex items-center px-2 py-1 rounded-md"
-      style={{ background: '#003087', border: '1px solid rgba(0,156,222,0.4)' }}
+      style={{ background: '#FFFFFF', border: '1px solid rgba(0,156,222,0.4)' }}
     >
       <Image
         src="/assets/paypallogo.png"
@@ -40,14 +40,14 @@ export function TrustBadges({ className = '', locale = 'es' }: TrustBadgesProps)
       guaranteeSub: 'Solicítalo por email',
       payment: 'Pago seguro',
       paymentSub: 'Procesado por PayPal',
-      compatible: 'Compatible con',
+      compatible: 'Hecho para las reglas de',
     },
     en: {
       guarantee: '7-day refund window',
       guaranteeSub: 'Request it by email',
       payment: 'Secure payment',
       paymentSub: 'Powered by PayPal',
-      compatible: 'Works with',
+      compatible: 'Built for the rules of',
     },
   }[locale];
 
@@ -105,8 +105,8 @@ export function TrustBadges({ className = '', locale = 'es' }: TrustBadgesProps)
 
 export function TrustBadgesCompact({ className = '', locale = 'es' }: TrustBadgesProps) {
   const copy = {
-    es: { guarantee: 'Reembolso en 7 días', compatible: 'Funciona con' },
-    en: { guarantee: '7-day refund window', compatible: 'Works with' },
+    es: { guarantee: 'Reembolso en 7 días', compatible: 'Hecho para' },
+    en: { guarantee: '7-day refund window', compatible: 'Built for' },
   }[locale];
 
   return (

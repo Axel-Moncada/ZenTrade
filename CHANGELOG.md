@@ -6,6 +6,14 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (noche, 2) — Limpieza post-landing
+
+- Se borró `components/landing/sections/preview-section.tsx` (demos de YouTube en español; ya no se usaba desde el PR #11).
+- `components/shared/trust-badges.tsx`: el logo de PayPal (azul oscuro) era invisible sobre el fondo `#003087` → fondo blanco. "Works with / Compatible con" → "Built for the rules of / Hecho para las reglas de", porque no hay integración con FTMO, Apex, etc.: solo se configuran sus reglas.
+- Se mantiene el enlace al canal de YouTube `@Zen-trade_Latam` en el JSON-LD y en `llms.txt` (es una señal de entidad de marca). Hay que cambiarlo cuando exista un canal en inglés.
+
+---
+
 ## 2026-11-22 (noche) — Landing nueva para la pauta en EE. UU.: "Replay this day"
 
 ### Contexto
