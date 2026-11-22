@@ -8,13 +8,14 @@ import { useState, useEffect } from "react";
 import logoMenu from "@/data/assets/Logo hori-white.png";
 import { LandingControls } from "@/components/landing/landing-controls";
 import { useI18n } from "@/lib/i18n/context";
+import { track } from "@/lib/analytics/track";
 
 interface PublicNavbarProps {
   isAuthenticated?: boolean;
 }
 
 export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarProps) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -23,7 +24,7 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
     { label: t.landing.pricing, href: "/pricing" },
     { label: t.landing.faq, href: "/#faq" },
     { label: "Blog", href: "/blog" },
-    { label: "Nosotros", href: "/about" },
+    { label: locale === "es" ? "Nosotros" : "About", href: "/about" },
   ];
 
   useEffect(() => {
@@ -86,7 +87,7 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
                       {t.landing.signIn}
                     </Button>
                   </Link>
-                  <Link href="/login">
+                  <Link href="/login?mode=register" onClick={() => track("cta_click", { section: "navbar" })}>
                     <Button variant="zenGreen" className="group">
                       {t.landing.tryFree}
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -152,7 +153,13 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
                       {t.landing.signIn}
                     </Button>
                   </Link>
-                  <Link href="/login" onClick={handleNavClick}>
+                  <Link
+                    href="/login?mode=register"
+                    onClick={() => {
+                      track("cta_click", { section: "navbar_mobile" });
+                      handleNavClick();
+                    }}
+                  >
                     <Button variant="zenGreen" className="w-full group">
                       {t.landing.tryFree}
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -921,7 +921,7 @@ const translations = {
       pricing: 'Pricing',
       faq: 'FAQ',
       signIn: 'Sign In',
-      tryFree: 'Try Free',
+      tryFree: 'Start Free',
       goToDashboard: 'Go to Dashboard',
       // cta buttons
       ctaPrimary: 'Start Free',

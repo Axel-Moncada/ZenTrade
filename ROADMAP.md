@@ -48,7 +48,10 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [x] Quitar promesas falsas (prueba de 14 días, MT5/TradingView, features no construidas) y **testimonios inventados**
 - [x] Reembolsos: cobro desde el día 1 + solicitud por email en 7 días (decisión del fundador; reemplaza la "garantía de 15 días")
 - [ ] Recorrido manual con navegador en inglés: registro → cuenta → importar → dashboard → pagar
-- [ ] Grabar demos en video en inglés (las del landing están en español)
+- [x] Landing nueva para la pauta: hero "Replay this day", calculadora de resets, video del anuncio en inglés, reglas en vivo, CTA final y medición UTM + eventos (2026-11-22)
+- [ ] Marcar `sign_up` como conversión en GA4 y Google Ads; Meta Pixel si se pauta en Meta
+- [ ] Medir `sign_up` también con Google OAuth (hoy solo email)
+- [ ] Capturas reales en inglés para la sección de reglas (opcional) y revisar el copy "The AI That Trades Alongside You"
 - [ ] Revisar afirmaciones sobre la competencia en `/es/vs/*`
 - [ ] Borrar código muerto `components/dashboard/zencoach/zen-coach-widget.tsx`
 
@@ -58,7 +61,7 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 
 ### En el sitio
 - [x] `llms.txt` actualizado, herramientas gratis, `/vs/tradersync` y `/vs/tradervue`, posts sin "2025", 301, IndexNow
-- [ ] Correr `node scripts/indexnow.mjs` después de cada deploy con contenido
+- [ ] Correr `node scripts/indexnow.mjs` después de cada deploy con contenido (hoy da 403: verificar el sitio en Bing Webmaster Tools)
 - [x] Reglas 2026 verificadas en los hubs de Apex, TopStep y FTMO (PR #9)
 - [x] Guías "how to pass" en inglés (Apex, TopStep, FTMO) con las reglas 2026 verificadas y fecha real
 - [ ] Guías en español (`como-pasar-*`, `pasos-evaluacion-ftmo`, `regla-consistencia-ftmo-explicada`) con reglas viejas: corregir
@@ -108,7 +111,6 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [x] `/vs/*` en inglés; versión ES en `/es/vs/*` (2026-11-22).
 - [x] Comparativas consolidadas en `/vs/*` con 301 (2026-11-22). Nuevas: `/vs/tradersync`, `/vs/tradervue`.
 - [ ] Verificar después del deploy que `/blog/og/[slug]` ya no da 500.
-- [ ] Testimonios de ejemplo en el landing (nombres inventados y fotos de pravatar). Se reemplazan solos cuando haya 2 o más reseñas reales aprobadas.
 
 ### Producto
 - [ ] Copiloto: en Safari y Firefox no hay ventana flotante (Document PiP es solo Chrome/Edge). Hoy el botón se desactiva con un aviso y el panel sigue funcionando dentro de la página. Alternativa futura: PWA o app móvil.

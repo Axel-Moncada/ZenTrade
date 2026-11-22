@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
-import HeroSection from "@/components/landing/sections/hero-section";
-import ProblemSection from "@/components/landing/sections/problem-section";
-import SolutionSection from "@/components/landing/sections/solution-section";
 import AiFeaturesSection from "@/components/landing/sections/ai-features-section";
 import FeaturesSection from "@/components/landing/sections/features-section";
 import PricingSection from "@/components/landing/sections/pricing-section";
 import BenefitsSection from "@/components/landing/sections/benefits-section";
 import FaqSection from "@/components/landing/sections/faq-section";
-import FinalCTASection from "@/components/landing/sections/final-cta-section";
-import PreviewSection from "@/components/landing/sections/preview-section";
+import ReplayHero from "@/components/landing/sections/replay-hero";
+import ResetCalculator from "@/components/landing/sections/reset-calculator";
+import AdVideo from "@/components/landing/sections/ad-video";
+import RulesShowcase from "@/components/landing/sections/rules-showcase";
+import FinalCta from "@/components/landing/sections/final-cta";
+import AttributionCapture from "@/components/landing/attribution-capture";
 import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
 import NewsletterPopup from "@/components/landing/newsletter-popup";
@@ -182,31 +183,20 @@ const siteNavigationSchema = {
   ],
 };
 
-// Reemplazar HX9NFOZTj3U y uf-zP071AcE con IDs reales de YouTube cuando estén disponibles
+// Video del anuncio que se muestra en la landing (sección AdVideo)
 const videoSchema = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "Un trading journal con IA diseñado para los traders de futuros",
+    name: "You didn't fail your eval because of your strategy",
     description:
-      "Demo del dashboard de Zentrade: cómo registrar trades, monitorear consistency score, trailing drawdown y max daily loss para evaluaciones de FTMO, Apex y TopStep.",
-    thumbnailUrl: `https://img.youtube.com/vi/HX9NFOZTj3U/maxresdefault.jpg`,
-    uploadDate: "2026-05-07",
+      "23-second overview of Zentrade: the trading journal that tracks your prop firm's trailing drawdown and consistency rule live and flags revenge trades after a loss.",
+    thumbnailUrl: `${SITE_URL}/videos/zentrade-ad-poster.webp`,
+    contentUrl: `${SITE_URL}/videos/zentrade-ad.mp4`,
+    uploadDate: "2026-11-22",
+    duration: "PT23S",
+    inLanguage: "en",
     publisher: { "@type": "Organization", name: "Zentrade", url: SITE_URL },
-    embedUrl: "https://www.youtube.com/embed/HX9NFOZTj3U",
-    url: "https://www.youtube.com/watch?v=HX9NFOZTj3U",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    name: "Deja el Excel — Esto es lo que uso para mis pruebas de fondeo",
-    description:
-      "Caso de uso real: cómo un trader reemplazó su hoja de Excel por Zentrade para pasar evaluaciones de prop firms y hacer seguimiento de sus reglas de fondeo.",
-    thumbnailUrl: `https://img.youtube.com/vi/uf-zP071AcE/maxresdefault.jpg`,
-    uploadDate: "2026-05-07",
-    publisher: { "@type": "Organization", name: "Zentrade", url: SITE_URL },
-    embedUrl: "https://www.youtube.com/embed/uf-zP071AcE",
-    url: "https://www.youtube.com/watch?v=uf-zP071AcE",
   },
 ];
 
@@ -328,11 +318,13 @@ export default async function Home() {
         }}
       />
 
+      <AttributionCapture />
       <PublicNavbar isAuthenticated={!!user} />
       <main>
-        <HeroSection />
-        <ProblemSection />
-        <SolutionSection />
+        <ReplayHero />
+        <ResetCalculator />
+        <AdVideo />
+        <RulesShowcase />
         <AiFeaturesSection />
         <section id="features">
           <FeaturesSection />
@@ -341,11 +333,10 @@ export default async function Home() {
         <section id="pricing">
           <PricingSection />
         </section>
-        <PreviewSection />
         <section id="faq">
           <FaqSection />
         </section>
-        <FinalCTASection />
+        <FinalCta />
       </main>
       <PublicFooter />
       <NewsletterPopup />
