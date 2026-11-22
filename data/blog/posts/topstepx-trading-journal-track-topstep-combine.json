@@ -15,7 +15,7 @@
   "author": "Zentrade Team",
   "lang": "en",
   "publishedAt": "2026-11-22",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-22",
   "category": "fondeo",
   "tags": [
     "Topstep",
@@ -84,7 +84,7 @@
       "type": "ul",
       "items": [
         "<strong>Maximum Loss Limit (MLL):</strong> a trailing limit. The one hard rule is not to fall below it.",
-        "<strong>Daily loss limit:</strong> Topstep states that TopstepX accounts created or reset after August 25, 2024 have no daily loss limit, while it still applies on other platforms such as NinjaTrader, Quantower, Tradovate and TradingView. Verify the setting on your own account.",
+        "<strong>Daily Loss Limit:</strong> whether your Combine has one depends on the platform and what you chose at checkout. Topstep's help center lists it as optional on the Combine ($1,000 on the 50K when it applies) and has stated that TopstepX accounts created or reset after August 25, 2024 have none by default. Check the setting on your own account.",
         "<strong>Consistency target:</strong> your single best day of profit must stay at or below 55% of your profit target for the Combine (per Topstep's help article).",
         "<strong>Express Funded Account:</strong> if you choose the Consistency Payout path, Topstep's article lists a 40% consistency objective (best day divided by total net profit)."
       ]
@@ -149,7 +149,7 @@
     },
     {
       "type": "p",
-      "text": "Zentrade's Professional plan includes profit factor, consistency score, equity curve and a calendar with emotional notes, so these answers are one view instead of a spreadsheet exercise. ZenMode adds AI revenge trading detection and an automated weekly report. For the drawdown side of the Combine, read <a href=\"/blog/trailing-drawdown-ftmo-vs-apex-vs-topstep\">Trailing Drawdown: FTMO vs Apex vs TopStep</a> and our <a href=\"/blog/how-to-pass-topstep-evaluation\">Topstep evaluation guide</a>."
+      "text": "Zentrade's Professional plan includes profit factor, consistency score, equity curve and a calendar with emotional notes, so these answers are one view instead of a spreadsheet exercise. ZenMode adds the Live Discipline Copilot, which calls a 15-minute pause after every loss you log, plus revenge trading detection and an automated weekly report. For the drawdown side of the Combine, read <a href=\"/blog/trailing-drawdown-ftmo-vs-apex-vs-topstep\">Trailing Drawdown: FTMO vs Apex vs TopStep</a> and our <a href=\"/blog/how-to-pass-topstep-evaluation\">Topstep evaluation guide</a>."
     },
     {
       "type": "h2",
