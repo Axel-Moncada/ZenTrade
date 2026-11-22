@@ -6,6 +6,24 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (tarde) — Guías "how to pass" (EN) con reglas verificadas + fix del deploy
+
+### Hecho
+- **Deploy de producción roto**: el merge del PR #9 falló en Vercel por `react/no-unescaped-entities` (dos `'` en `app/topstep/page.tsx`). Corregido con `&apos;`.
+- `how-to-pass-apex-trader-funding`, `how-to-pass-ftmo-evaluation` y `how-to-pass-topstep-evaluation` reescritas con las mismas reglas verificadas de los hubs (22-nov-2026), callout con la fecha, enlace a la fuente oficial y al hub. `updatedAt` = 2026-11-22.
+  - **Apex**: la tabla de 6 tamaños (trailing de $2,500 en la 50K, falso) se reemplazó por la de 50K verificada. El ejemplo del trailing ahora usa la 50K. Consistencia: ninguna en la evaluación y 50% en PA para payouts. Límite de 30 días y sin mínimo de días. Se quitó "keep up to 90%".
+  - **FTMO**: el 2-Step no tiene consistencia (antes decía 30%). El mínimo es de 4 días (antes decía 10). El max loss es **estático** en el 2-Step y trailing EOD en el 1-Step (antes decía "trailing" en general). Best Day Rule del 50% en el 1-Step. Ejemplos con una cuenta de $100K. Se quitaron, por no estar verificados: el 80/20, "up to $200K", "Mentor program", "tens of millions", la cuenta de $50K y las reglas de overnight.
+  - **TopStep**: consistency target del 55% que **sube el objetivo** (antes decía "30% y se anula"). Maximum Loss Limit trailing EOD (antes decía intraday). DLL opcional de $1,000 / $2,000 / $3,000. Se quitaron, por no estar verificados: la "prohibición de operar noticias", el split 90/100%, los fees mensuales y "sin mínimo de días". MLL de 100K y 150K = "Check Topstep" (no verificado). El dato del 16.8% lleva su enlace.
+  - Afirmaciones falsas del producto y de la competencia: "AI-powered revenge trading detection… before you take the trade" (es por reglas: <30 min tras una pérdida o 3+ pérdidas seguidas, y solo ZenMode); "TradeZella no tiene consistency tracker" y "Edgewonk es de escritorio" (bloque eliminado).
+- `components/accounts/account-form.tsx`: se agregó la opción **55%** al umbral de consistencia, porque los hubs prometen el check del 55% de TopStep y el selector llegaba solo a 50% (el esquema y la BD ya aceptaban hasta 100).
+
+### Pendientes
+- Decidir si se **fusionan** las guías "how to pass" con los hubs (`data/ZENTRADE-SEO-STUDY.md` §126 las marca como canibalización).
+- Las guías en español (`como-pasar-*`, `pasos-evaluacion-ftmo`, `regla-consistencia-ftmo-explicada`…) siguen con las reglas viejas (FTMO 30%, etc.).
+- Verificar el MLL de las cuentas TopStep de 100K y 150K y las reglas de noticias de TopStep (la consulta `topstep cpi rules` aparece en GSC).
+
+---
+
 ## 2026-11-22 (mañana) — SEO: reglas 2026 verificadas en los hubs de Apex, TopStep y FTMO (PR #9)
 
 ### Hecho

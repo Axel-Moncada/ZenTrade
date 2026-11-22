@@ -3,7 +3,7 @@
   "title": "How to Pass Apex Trader Funding Evaluation: Step-by-Step Guide",
   "excerpt": "A complete guide to passing the Apex Trader Funding evaluation: rules, profit targets, drawdown limits, and the trading journal strategy that gives you an edge.",
   "seoTitle": "How to Pass Apex Trader Funding Evaluation: Full Guide",
-  "seoDescription": "Step-by-step guide to passing the Apex Trader Funding evaluation. Learn the rules, drawdown limits, and the exact trading journal approach to get funded in 2025.",
+  "seoDescription": "Step-by-step guide to passing the Apex Trader Funding evaluation: verified 50K rules, trailing drawdown math, the 50% payout consistency rule and the journaling routine that gets you funded.",
   "keywords": [
     "how to pass Apex Trader Funding",
     "Apex Trader Funding evaluation rules",
@@ -14,7 +14,7 @@
   ],
   "author": "Axel Moncada",
   "publishedAt": "2026-04-06",
-  "updatedAt": "2026-04-06",
+  "updatedAt": "2026-11-22",
   "category": "fondeo",
   "tags": [
     "Apex Trader Funding",
@@ -36,7 +36,7 @@
     },
     {
       "type": "p",
-      "text": "<strong>Apex Trader Funding</strong> is one of the most popular prop firm evaluation programs for futures traders in 2025, known for its straightforward rules, regular promotional discounts, and a payout structure that allows traders to keep up to 90% of profits. Many traders fail the evaluation — not because the profit target is unreachable, but because the behavioral and risk management requirements trip them up in predictable, preventable ways."
+      "text": "<strong>Apex Trader Funding</strong> is one of the most popular prop firms for futures traders. Many traders fail the evaluation — not because the profit target is unreachable, but because the trailing drawdown and their own behavior trip them up in predictable, preventable ways."
     },
     {
       "type": "p",
@@ -44,70 +44,56 @@
     },
     {
       "type": "h2",
-      "text": "Apex Trader Funding Evaluation: Account Sizes and Targets"
+      "text": "Apex Trader Funding Evaluation Rules (50K Account)"
     },
     {
       "type": "p",
-      "text": "Apex Trader Funding offers multiple account sizes with different profit targets and drawdown limits. The most popular sizes among futures traders targeting instruments like NQ, ES, CL, and GC are the $50,000 and $100,000 accounts, but the full range includes smaller accounts designed for traders building their track record."
+      "text": "The figures below are for the 50K evaluation, the most popular size among NQ, ES and GC traders. Targets and drawdowns scale with account size, and Apex offers both an intraday and an end-of-day (EOD) version of the evaluation, so confirm the numbers for the exact account you buy."
     },
     {
       "type": "table",
       "headers": [
-        "Account Size",
-        "Profit Target",
-        "Max Trailing Drawdown",
-        "Daily Loss Limit",
-        "Min Trading Days"
+        "Rule (50K evaluation)",
+        "Value",
+        "Notes"
       ],
       "rows": [
         [
-          "$25,000",
-          "$1,500",
-          "$1,500",
-          "No fixed daily limit",
-          "7+ recommended"
-        ],
-        [
-          "$50,000",
+          "Profit target",
           "$3,000",
-          "$2,500",
-          "No fixed daily limit",
-          "7+ recommended"
+          "Reach it to pass the evaluation"
         ],
         [
-          "$75,000",
-          "$4,250",
-          "$2,750",
-          "No fixed daily limit",
-          "7+ recommended"
+          "Trailing drawdown",
+          "$2,000",
+          "Intraday or end-of-day version; floor starts at $48,000"
         ],
         [
-          "$100,000",
-          "$6,000",
-          "$3,000",
-          "No fixed daily limit",
-          "7+ recommended"
+          "Daily loss limit",
+          "$1,000 on EOD",
+          "None on the Intraday evaluation"
         ],
         [
-          "$150,000",
-          "$9,000",
-          "$5,000",
-          "No fixed daily limit",
-          "7+ recommended"
+          "Consistency rule",
+          "None in the evaluation",
+          "50% for payouts on Performance Accounts"
         ],
         [
-          "$250,000",
-          "$15,000",
-          "$6,500",
-          "No fixed daily limit",
-          "7+ recommended"
+          "Minimum trading days",
+          "None",
+          "In the evaluation"
+        ],
+        [
+          "Time limit",
+          "30 days",
+          "Per evaluation"
         ]
       ]
     },
     {
       "type": "callout",
       "variant": "warning",
-      "text": "Apex Trader Funding rules and account specifications change periodically, especially regarding promotional offers and consistency requirements. Always verify the current terms at apextraderfunding.com before starting your evaluation. The figures above are based on publicly available information at the time of publication."
+      "text": "Last verified Nov 22, 2026 from Apex's help center and 2026 rule guides. Rules vary by account size, account type and purchase date, and Apex changes them often. <a href=\"https://support.apextraderfunding.com/hc/en-us\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Confirm the current rules with Apex</a> before you start. For a one-page summary, see our <a href=\"/apex-trader-funding\">Apex Trader Funding rules hub</a>."
     },
     {
       "type": "h2",
@@ -119,11 +105,11 @@
     },
     {
       "type": "p",
-      "text": "Example: you start a $100,000 account with a $3,000 trailing drawdown. Your floor starts at $97,000. You make $2,000, so your equity is $102,000 — and your new floor is $99,000. You make another $1,500, equity is $103,500, floor is $100,500. Now you give back $3,000 in a bad session, equity drops to $100,500 — you've hit the floor exactly. One dollar more in losses and the account is terminated."
+      "text": "Example on the 50K evaluation: your trailing drawdown is $2,000, so your floor starts at $48,000. You make $1,000 and your balance peaks at $51,000 — your floor moves to $49,000. Another $1,000 takes you to $52,000 and the floor follows to $50,000. Now a bad session gives back $2,000: you are at $50,000, exactly on the floor. One dollar more in losses and the evaluation is over. On the intraday version the floor follows your highest balance during the session; on the EOD version it updates from your end-of-day balance."
     },
     {
       "type": "p",
-      "text": "The critical implication: the trailing drawdown makes it possible to fail the evaluation after having been significantly profitable. A trader who grows a $100,000 account to $105,000 has a floor at $102,000. A single bad session of -$3,100 from that high would fail the evaluation — even though they were up $5,000 net just hours before."
+      "text": "The critical implication: the trailing drawdown makes it possible to fail after being clearly profitable. A trader who is up $2,000 has the same $2,000 of room as on day one, not $4,000. Where the drawdown stops trailing is different for evaluations and Performance Accounts, so check Apex's help center for your account."
     },
     {
       "type": "callout",
@@ -136,11 +122,11 @@
     },
     {
       "type": "p",
-      "text": "Apex Trader Funding has periodically applied consistency scoring requirements to funded accounts. The specific rules vary by account type and have changed over time. The general principle — consistent with most prop firms — is that your performance should be distributed across trading days rather than concentrated in one or two exceptional sessions."
+      "text": "There is <strong>no consistency rule during the Apex evaluation</strong>. It shows up later: on Performance Accounts, Apex applies a <strong>50% consistency rule for payouts</strong> — your largest profitable day must be under 50% of your net profit since your last approved payout. Apex raised it from 30% to 50% in March 2026; some legacy accounts may still use 30%."
     },
     {
       "type": "p",
-      "text": "To stay compliant regardless of the exact current rule, structure your trading so that <strong>no single day represents more than 30% of your total net profit</strong>. This is a conservative threshold that keeps you safe across virtually all prop firm consistency requirements. Zentrade tracks this percentage automatically in the dashboard."
+      "text": "In practice: if your biggest winning day on a Performance Account is $1,200, you need more than $2,400 of net profit since your last approved payout before you can request the next one. Zentrade lets you set the consistency threshold on each account (choose 50% for an Apex Performance Account) and shows your best day's share of profit after every trade. You can also run the numbers with the free <a href=\"/tools/consistency-rule-calculator\">consistency rule calculator</a>."
     },
     {
       "type": "h2",
@@ -152,7 +138,7 @@
     },
     {
       "type": "p",
-      "text": "The most common reason traders fail the Apex evaluation is not strategy failure — it's position sizing inconsistency. Before you place your first trade, calculate your maximum position size based on the trailing drawdown limit. For a $100,000 account with a $3,000 trailing drawdown, risking more than $300 per trade (10% of the drawdown) per day is aggressive. Define this number, write it in your trading plan in Zentrade, and do not deviate from it."
+      "text": "The most common reason traders fail the Apex evaluation is not strategy failure — it's position sizing inconsistency. Before you place your first trade, calculate your maximum risk based on the trailing drawdown. On the 50K evaluation with a $2,000 trailing drawdown, risking more than $200 per trade (10% of the drawdown) is aggressive. Define this number, write it in your trading plan in Zentrade, and do not deviate from it."
     },
     {
       "type": "h3",
@@ -160,7 +146,7 @@
     },
     {
       "type": "p",
-      "text": "Your daily loss stop should be a fixed dollar amount well below the trailing drawdown limit. A common rule of thumb: your daily loss stop should be no more than 30-40% of the trailing drawdown. For a $3,000 trailing drawdown, that means stopping the day at -$900 to -$1,200 in losses. On the profit side, set a ceiling that keeps you within the consistency threshold — approximately 25-28% of your current net profit."
+      "text": "Your daily loss stop should be a fixed dollar amount well below the trailing drawdown. A common rule of thumb is 30-40% of the drawdown: on a $2,000 trailing drawdown, stop the day at -$600 to -$800. On the EOD evaluation that also keeps you clear of the $1,000 daily loss limit. On the profit side, once you reach a Performance Account, avoid days that would push your best day toward 50% of your net profit since your last payout."
     },
     {
       "type": "h3",
@@ -184,7 +170,7 @@
     },
     {
       "type": "p",
-      "text": "The Zentrade AI-generated weekly report (available in Professional and ZenMode plans) gives you a summary every Monday morning: your best and worst trading hours, emotional patterns correlated with losses, consistency percentage trend, and specific recommendations. Reviewing this before you open the platform Monday morning means you start the week with a clear picture of what to fix — not just what happened."
+      "text": "The Zentrade AI weekly report (Professional and ZenMode plans) lands every Monday morning with your best and worst trading hours, the emotions that show up before your losses, and specific recommendations based on your trading plan. Reviewing it before you open the platform means you start the week with a clear picture of what to fix — not just what happened."
     },
     {
       "type": "h2",
@@ -197,7 +183,7 @@
         "Revenge trading after a losing session and violating the daily loss stop",
         "Trading at the end of the session to avoid closing the day negative — low-quality entries that extend losses",
         "Not accounting for the trailing nature of the drawdown when calculating risk per trade",
-        "Passing the profit target in fewer days than the recommended minimum and skipping the habit of consistent smaller gains",
+        "Trying to hit the profit target in two or three oversized days instead of building it with consistent smaller gains",
         "Failing to document trades and not noticing patterns until after the evaluation is already over"
       ]
     },
@@ -269,38 +255,34 @@
     },
     {
       "type": "p",
-      "text": "<strong>Zentrade</strong> is designed specifically for traders in prop firm evaluations like Apex Trader Funding. The dashboard shows your trailing drawdown floor, current equity, daily P&L, and consistency percentage in real time. The trading plan section lets you document your rules — position size, daily loss stop, session hours — so you have a written reference during every session. The AI weekly report identifies behavioral patterns before they become evaluation-ending events."
-    },
-    {
-      "type": "p",
-      "text": "Compared to alternatives like TradeZella, which doesn't have a prop firm-specific consistency tracker, or Edgewonk, which operates as a desktop app without real-time dashboard updates, Zentrade is purpose-built for the daily workflow of a trader working to get funded."
+      "text": "<strong>Zentrade</strong> is built for traders in prop firm evaluations like Apex Trader Funding. Each account shows your trailing drawdown floor, current balance, daily P&L and best-day share of profit, updated with every trade you log or import. The trading plan section lets you write down your rules — position size, daily loss stop, session hours — so you have a reference during every session, and the AI weekly report points out the behavioral patterns behind your losses."
     },
     {
       "type": "faq",
       "faqItems": [
         {
           "q": "What is the Apex Trader Funding evaluation?",
-          "a": "The Apex Trader Funding evaluation is a single-phase assessment where you trade a simulated futures account and must reach a profit target while staying within maximum drawdown and loss limits. Traders who pass receive access to a funded account and keep up to 90% of profits."
+          "a": "It is a single-phase evaluation where you trade a simulated futures account and must reach a profit target ($3,000 on the 50K) without breaking the trailing drawdown ($2,000 on the 50K) or, on the EOD version, the daily loss limit. Traders who pass move on to a Performance Account."
         },
         {
           "q": "How long does the Apex Trader Funding evaluation take?",
-          "a": "There is no fixed time limit on the Apex evaluation, but there is a recommended minimum number of trading days. Most traders complete the evaluation in 2-6 weeks, though this varies significantly based on account size, profit target, and trading frequency."
+          "a": "Each evaluation has a 30-day time limit and no minimum number of trading days. You can pass in a few sessions, but rushing usually means oversized positions — and the trailing drawdown punishes those fast."
         },
         {
           "q": "What is the trailing drawdown in Apex Trader Funding?",
-          "a": "The trailing drawdown is the maximum loss from your equity high during the evaluation. As your account grows, the drawdown floor rises with it — meaning the dollar amount you can lose before failing the evaluation is fixed, but it starts from an increasingly higher equity level as you become profitable."
+          "a": "It is the maximum loss allowed from your highest balance. On the 50K evaluation it is $2,000: the floor starts at $48,000 and rises as your balance rises, so your room to lose stays at $2,000 even when you are profitable. Apex offers intraday and end-of-day versions."
         },
         {
           "q": "Does Apex Trader Funding have a consistency rule?",
-          "a": "Apex has periodically applied consistency requirements, which have varied by account type and time. To be safe, structure your trading so no single day represents more than 30% of your total net profit. Zentrade tracks this percentage in real time."
+          "a": "Not during the evaluation. On Performance Accounts, Apex applies a 50% consistency rule for payouts: your largest profitable day must be under 50% of your net profit since your last approved payout (updated March 2026; legacy accounts may still use 30%). Zentrade calculates this for you."
         },
         {
           "q": "Can I trade NQ and ES in the Apex Trader Funding evaluation?",
-          "a": "Yes. Apex Trader Funding allows trading on most major CME and CBOT futures instruments, including NQ, ES, MNQ, MES, CL, and GC. These are the most popular instruments among traders in Apex evaluations."
+          "a": "Yes. NQ, ES, their micros (MNQ, MES), CL and GC are among the most popular contracts in Apex evaluations. Check Apex's help center for the full list of permitted products and any contract limits for your account size."
         },
         {
           "q": "What trading journal should I use for Apex Trader Funding?",
-          "a": "Zentrade is designed specifically for prop firm evaluations like Apex Trader Funding. It tracks your trailing drawdown exposure, consistency percentage, and behavioral patterns in real time, and includes AI-powered revenge trading detection to prevent the most common behavioral failures."
+          "a": "Use one that tracks the trailing drawdown floor and the payout consistency rule per account, not just P&L. Zentrade does both, and on the ZenMode plan it also flags revenge-trading patterns: a new trade within 30 minutes of a loss, or three or more losses in a row."
         }
       ]
     },
@@ -314,7 +296,7 @@
     {
       "type": "ul",
       "items": [
-        "<a href=\"/blog/apex-trader-funding-trailing-drawdown-guia\">Guía del trailing drawdown de Apex Trader Funding</a>",
+        "<a href=\"/apex-trader-funding\">Apex Trader Funding rules at a glance (verified Nov 2026)</a>",
         "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading</a>",
         "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation</a>",
         "<a href=\"/blog/best-prop-firms-futures-traders\">Best prop firms for futures traders</a>"
@@ -330,9 +312,8 @@
     {
       "type": "ul",
       "items": [
-        "<a href=\"https://apextraderfunding.com/rules\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding Official Rules</a>",
-        "<a href=\"https://apextraderfunding.com/faq\" target=\"_blank\" rel=\"noopener noreferrer\">Apex Trader Funding FAQ</a>",
-        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer\">CME Group — Introduction to Futures</a>"
+        "<a href=\"https://support.apextraderfunding.com/hc/en-us\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Apex Trader Funding Help Center (official rules)</a>",
+        "<a href=\"https://www.cmegroup.com/education/courses/introduction-to-futures.html\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">CME Group — Introduction to Futures</a>"
       ]
     },
     {

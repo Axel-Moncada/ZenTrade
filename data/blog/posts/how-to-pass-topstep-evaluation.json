@@ -1,12 +1,12 @@
 {
   "slug": "how-to-pass-topstep-evaluation",
   "title": "How to Pass TopStep Evaluation: Rules, Strategy & Common Mistakes",
-  "excerpt": "Complete guide to passing the TopStep Trading Combine: rules explained, consistency rule math, trailing drawdown explained, and the daily habits of traders who get funded.",
+  "excerpt": "Complete guide to passing the Topstep Trading Combine: verified 2026 rules, consistency target math, the trailing Maximum Loss Limit explained, and the daily habits of traders who get funded.",
   "seoTitle": "How to Pass TopStep Evaluation — Rules & Strategy Guide",
-  "seoDescription": "Learn how to pass the TopStep Trading Combine for futures traders: rules, consistency rule with examples, trailing drawdown explained, and the habits that get you funded.",
+  "seoDescription": "How to pass the Topstep Trading Combine: verified 2026 rules, the 55% consistency target with examples, the end-of-day Maximum Loss Limit, and the habits that get you funded.",
   "keywords": [
     "how to pass TopStep evaluation",
-    "TopStep futures trading rules 2025",
+    "TopStep futures trading rules",
     "TopStep Trading Combine rules",
     "TopStep consistency rule",
     "TopStep trailing drawdown",
@@ -15,7 +15,7 @@
   ],
   "author": "Axel Moncada",
   "publishedAt": "2026-04-14",
-  "updatedAt": "2026-04-14",
+  "updatedAt": "2026-11-22",
   "category": "fondeo",
   "tags": [
     "TopStep",
@@ -36,11 +36,11 @@
     },
     {
       "type": "p",
-      "text": "TopStep is one of the oldest and most respected funded futures programs in the industry. Their <strong>Trading Combine</strong> is a single-phase evaluation that, in theory, is simpler than FTMO's two-phase structure — but the failure rate is just as high. Most traders who fail the TopStep evaluation do not fail because of poor strategy. They fail because of behavioral mistakes that a better understanding of the rules would have prevented."
+      "text": "TopStep is one of the oldest funded futures programs in the industry. Its Trading Combine is a single-phase evaluation that looks simpler than FTMO's two-phase structure — but Topstep itself reports that only 16.8% of Combines were completed in 2025 (<a href=\"/blog/why-most-traders-fail-prop-firm-evaluations\">why most traders fail prop firm evaluations</a>). Most traders who fail do not fail because of poor strategy. They fail because of behavioral mistakes that a better understanding of the rules would prevent."
     },
     {
       "type": "p",
-      "text": "The short answer to how to pass TopStep evaluation: treat every single rule as a hard boundary, not a guideline. The three rules that eliminate most traders are the <strong>consistency rule</strong> (no single day can represent more than 30% of total profits), the <strong>trailing drawdown</strong> (your floor rises as you profit, which surprises many traders at the worst moment), and the <strong>news trading restriction</strong> (no open positions during high-impact economic events)."
+      "text": "The short answer to how to pass the TopStep evaluation: treat every rule as a hard boundary, not a guideline. The three rules that matter most are the <strong>Maximum Loss Limit</strong> (it trails your end-of-day balance, which surprises many traders at the worst moment), the <strong>Daily Loss Limit</strong> (optional, if you add it at checkout) and the <strong>55% consistency target</strong> (a big day doesn't fail you, but it raises your profit target)."
     },
     {
       "type": "p",
@@ -52,38 +52,34 @@
     },
     {
       "type": "p",
-      "text": "TopStep uses a subscription-based evaluation model — you pay monthly while you are in the combine. The rules differ by account size:"
+      "text": "The rules differ by account size. These figures were verified on Nov 22, 2026 from Topstep's help center:"
     },
     {
       "type": "table",
       "headers": [
         "Account Size",
         "Profit Target",
-        "Max Daily Loss",
-        "Trailing Drawdown",
-        "Monthly Fee"
+        "Maximum Loss Limit (EOD trailing)",
+        "Daily Loss Limit (optional)"
       ],
       "rows": [
         [
           "$50,000",
-          "$3,000 (6%)",
-          "$2,000 (4%)",
-          "$2,000 trailing",
-          "~$165/mo"
+          "$3,000",
+          "$2,000",
+          "$1,000"
         ],
         [
           "$100,000",
-          "$6,000 (6%)",
-          "$3,000 (3%)",
-          "$3,000 trailing",
-          "~$325/mo"
+          "$6,000",
+          "Check Topstep",
+          "$2,000"
         ],
         [
           "$150,000",
-          "$9,000 (6%)",
-          "$4,500 (3%)",
-          "$4,500 trailing",
-          "~$375/mo"
+          "$9,000",
+          "Check Topstep",
+          "$3,000"
         ]
       ]
     },
@@ -94,26 +90,25 @@
     {
       "type": "ul",
       "items": [
-        "<strong>No minimum trading days</strong> — you can pass in any number of sessions as long as you follow all rules",
-        "<strong>Trailing drawdown</strong> — your floor rises as your account grows, reducing your error margin",
-        "<strong>Consistency rule:</strong> no single trading day can exceed 30% of total net profits",
-        "<strong>Payout split:</strong> 90% to the trader on the first $10,000 earned, then 100% thereafter",
-        "<strong>No positions during high-impact news</strong> — NFP, Fed decisions, CPI data",
-        "<strong>Instruments:</strong> CME futures including ES, NQ, CL, GC, and micro contracts"
+        "<strong>Maximum Loss Limit</strong> — trails your end-of-day balance; on the 50K the floor starts at $48,000",
+        "<strong>Daily Loss Limit</strong> — optional; you choose it at checkout ($1,000 on the 50K)",
+        "<strong>Consistency target:</strong> your best day should be no more than 55% of your total profit (updated September 2026)",
+        "<strong>If you go over 55%</strong>, the Combine is not failed — your profit target rises to your best day ÷ 0.55",
+        "<strong>Instruments:</strong> CME Group futures and their micros; check Topstep's help center for the list of permitted products"
       ]
     },
     {
       "type": "callout",
-      "variant": "info",
-      "text": "TopStep's 100% profit split after the first $10,000 is one of the most competitive payout structures available. For traders who maintain a funded account for several months, this can substantially outperform FTMO's 80/20 split."
+      "variant": "warning",
+      "text": "Last verified Nov 22, 2026. Rules vary by account size, account type and purchase date, and Topstep changes them often. <a href=\"https://help.topstep.com/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Confirm the current rules with Topstep</a> before you start. For a one-page summary, see our <a href=\"/topstep\">Topstep rules hub</a>."
     },
     {
       "type": "h2",
-      "text": "The TopStep Consistency Rule: Math With Real Numbers"
+      "text": "The TopStep Consistency Target: Math With Real Numbers"
     },
     {
       "type": "p",
-      "text": "The consistency rule is the silent account-killer in the TopStep Trading Combine. You can reach the profit target, feel confident, and then discover during the payout review that one exceptional day violated the 30% cap — and your evaluation is void."
+      "text": "Topstep's consistency target works differently from most prop firm rules. One exceptional day does not end your Combine — it moves the finish line. If your best day is more than 55% of your total profit, your new profit target becomes your best day divided by 0.55."
     },
     {
       "type": "h3",
@@ -121,79 +116,78 @@
     },
     {
       "type": "p",
-      "text": "<strong>Consistency % = Best Day PnL ÷ Total Net Profit</strong>"
+      "text": "Best-day share = Best Day P&L ÷ Total Net Profit. Adjusted target (if above 55%) = Best Day ÷ 0.55"
     },
     {
       "type": "p",
-      "text": "Here is how the same best-day performance plays out under different total profit scenarios on the $50,000 account:"
+      "text": "Here is how it plays out on the $50,000 Combine, where the profit target is $3,000:"
     },
     {
       "type": "table",
       "headers": [
         "Total Net Profit",
-        "Best Day PnL",
-        "Consistency %",
-        "Result"
+        "Best Day P&L",
+        "Best-day share",
+        "What happens"
       ],
       "rows": [
         [
           "$3,200",
           "$700",
           "21.9%",
-          "Pass"
+          "Target met"
         ],
         [
           "$3,100",
-          "$950",
-          "30.6%",
-          "Fail — exceeds 30%"
+          "$1,500",
+          "48.4%",
+          "Target met"
         ],
         [
-          "$3,000",
-          "$890",
-          "29.7%",
-          "Pass — barely"
+          "$3,100",
+          "$1,900",
+          "61.3%",
+          "Target rises to $3,455 — keep trading"
         ],
         [
           "$3,500",
-          "$950",
-          "27.1%",
-          "Pass — kept trading after strong day"
+          "$1,900",
+          "54.3%",
+          "Target met after a few more sessions"
         ]
       ]
     },
     {
       "type": "p",
-      "text": "The important insight: <strong>you can trade your way out of a consistency violation</strong>. If your best day is $950 and your total is $3,000 (31.7%), you have not failed yet — you just cannot request payout. If you continue trading and bring your total to $3,500 or more, your consistency drops to 27.1% and you are in compliance. The key is knowing this is happening in real time, not after you submit for payout."
+      "text": "The important insight: <strong>a big day costs you time, not the account</strong>. A $1,900 day on the 50K means you need $3,455 in total profit instead of $3,000. The danger is what traders do next — oversizing to \"get it over with\" is how a raised target turns into a Maximum Loss Limit breach. Know your adjusted target in real time, not after you think you've passed."
     },
     {
       "type": "callout",
       "variant": "tip",
-      "text": "After any unusually strong trading day, check your consistency percentage immediately. If it is above 26%, consider reducing your position size for the next few sessions and letting your overall total catch up before approaching the profit target."
+      "text": "After any unusually strong day, check your best-day share immediately. If it is above 45%, keep your normal size and stop trying to add another big day — let your total catch up steadily."
     },
     {
       "type": "h2",
-      "text": "How Trailing Drawdown Works in TopStep — And When It Catches Traders Off Guard"
+      "text": "How the Maximum Loss Limit Works — And When It Catches Traders Off Guard"
     },
     {
       "type": "p",
-      "text": "The trailing drawdown is the single most misunderstood mechanic in the TopStep Trading Combine. Here is exactly how it works on the $50,000 account with a $2,000 trailing drawdown:"
+      "text": "The Maximum Loss Limit (MLL) is the most misunderstood mechanic in the Trading Combine. On the $50,000 account it is $2,000, and it trails your <strong>end-of-day</strong> balance:"
     },
     {
       "type": "ul",
       "items": [
-        "Start: Account = $50,000 → Floor = $48,000 (2,000 below)",
-        "Gain $1,000 → Account = $51,000 → Floor rises to $49,000",
-        "Gain $1,000 more → Account = $52,000 → Floor rises to $50,000",
-        "At this point: you are up $2,000, but your floor has reached your starting balance",
-        "If you now lose $2,000 → Account hits $50,000 → You are exactly at the floor → Evaluation ends",
-        "Once your account reaches $52,000+ (gain equal to drawdown amount), the floor locks permanently at $50,000",
-        "After the floor locks, any further gains give you additional buffer above the floor"
+        "Start: balance = $50,000 → floor = $48,000",
+        "You close the day at $51,000 → floor rises to $49,000",
+        "You close the next day at $52,000 → floor rises to $50,000",
+        "Intraday spikes don't move it: if you were up to $52,800 during the session but closed at $52,000, the floor is based on the $52,000 close",
+        "If you now lose $2,000 → balance hits $50,000 → you are exactly at the floor → the Combine ends",
+        "Where the MLL stops trailing is defined in Topstep's help center — check it for your account size"
       ]
     },
     {
       "type": "p",
-      "text": "The dangerous window is <strong>between 0% and 4% profit</strong>. During this range, your floor is trailing your equity with no cushion building — every dollar you earn also raises the floor by a dollar. This is why many traders who have a fast start actually feel more pressure, not less. The floor has followed them up and left them with the same $2,000 buffer they started with."
+      "text": "The dangerous part: while the floor is trailing, every dollar you add at the close also raises the floor by a dollar. Traders with a fast start often feel more pressure, not less — the floor has followed them up and left them with the same $2,000 buffer they started with."
     },
     {
       "type": "h2",
@@ -201,11 +195,11 @@
     },
     {
       "type": "h3",
-      "text": "Pattern 1: Trading During High-Impact News Events"
+      "text": "Pattern 1: Trading High-Impact News Without a Plan"
     },
     {
       "type": "p",
-      "text": "TopStep explicitly prohibits open positions during events like the Non-Farm Payroll report, Federal Reserve rate decisions, and CPI data releases. If you hold a position into one of these events and the market moves against you violently — which it often does — you can hit the daily loss limit in seconds. Keep an economic calendar open every day and close all positions at least 5 minutes before any high-impact announcement."
+      "text": "NFP, FOMC decisions and CPI releases can move NQ and ES violently in seconds, and a slipped stop can take out your daily loss limit in a single trade. Check Topstep's help center for any rules on your account type around major releases, keep an economic calendar open every day, and decide before the session whether you will be flat or sized down during those minutes."
     },
     {
       "type": "h3",
@@ -213,7 +207,7 @@
     },
     {
       "type": "p",
-      "text": "This is statistically the most common account-ending sequence: a trader has 4-5 good days in a row, feels confident, doubles their contract size on day 6, and takes a larger-than-normal loss. The loss itself may not violate the daily limit — but it triggers revenge trading, which does. Journal every session and flag your best days as high-risk behavioral triggers for the following session."
+      "text": "This is one of the most common account-ending sequences: a trader has 4-5 good days in a row, feels confident, doubles their contract size on day 6, and takes a larger-than-normal loss. The loss itself may not violate the daily limit — but it triggers revenge trading, which does. Journal every session and flag your best days as high-risk behavioral triggers for the following session."
     },
     {
       "type": "h3",
@@ -221,7 +215,7 @@
     },
     {
       "type": "p",
-      "text": "Traders often reach the profit target and immediately request a payout — without checking whether the consistency rule was met. TopStep will reject the payout if the 30% cap was violated at any point. The fix is simple: check your consistency percentage every morning before your session begins. If it is above 27%, trade smaller that day and let your total grow more gradually."
+      "text": "Traders often think they've hit the profit target and stop tracking — without noticing the consistency target has raised it. The fix is simple: check your best-day share every morning before your session begins. If it is above 55%, calculate your adjusted target (best day ÷ 0.55) and plan the remaining sessions around it."
     },
     {
       "type": "h3",
@@ -229,7 +223,7 @@
     },
     {
       "type": "p",
-      "text": "A single losing day does not fail an evaluation. But traders who push through two or three bad days in a row — trying to 'make it back' — are the ones who eventually hit the max daily loss on day four when the drawdown is already stretched. Set a personal daily stop-loss at 60-70% of TopStep's limit and close the platform when you hit it. No exceptions."
+      "text": "A single losing day does not fail a Combine. But traders who push through two or three bad days in a row — trying to 'make it back' — are the ones who eventually breach the Maximum Loss Limit when the buffer is already stretched. Set a personal daily stop at 60-70% of your daily loss limit and close the platform when you hit it. No exceptions."
     },
     {
       "type": "h2",
@@ -242,19 +236,19 @@
     {
       "type": "ol",
       "items": [
-        "<strong>Morning (before market open):</strong> check economic calendar for high-impact events, note blackout windows",
-        "<strong>Calculate position sizing:</strong> maximum contracts based on 3 consecutive losses staying within your personal daily stop",
-        "<strong>Check consistency percentage:</strong> if above 26%, reduce target size for the day",
+        "<strong>Morning (before market open):</strong> check the economic calendar for high-impact releases and note their times",
+        "<strong>Calculate position sizing:</strong> maximum contracts so that 3 consecutive losses stay within your personal daily stop",
+        "<strong>Check your best-day share:</strong> know whether your profit target has moved",
         "<strong>Set a daily profit target:</strong> a ceiling that prevents the Big Day Trap — stop trading when you reach it",
-        "<strong>Set your personal daily loss limit:</strong> approximately $1,200-$1,400 on the $50K account (60-70% of TopStep's $2,000)",
+        "<strong>Set your personal daily stop:</strong> about $600-$700 on the 50K if you chose the $1,000 Daily Loss Limit (60-70% of it)",
         "<strong>During session:</strong> log every trade with emotional state and plan-compliance tag immediately after close",
-        "<strong>After session:</strong> update your journal with end-of-day equity, trailing floor position, and consistency %",
+        "<strong>After session:</strong> update your journal with end-of-day balance, Maximum Loss Limit floor and best-day share",
         "<strong>Weekly review:</strong> 30 minutes on Sunday to identify the worst decision of the week and set one behavioral goal"
       ]
     },
     {
       "type": "h2",
-      "text": "TopStep vs. Other Prop Firms: Should You Choose TopStep in 2025?"
+      "text": "TopStep vs. Other Prop Firms: Should You Choose TopStep?"
     },
     {
       "type": "p",
@@ -268,24 +262,16 @@
       ],
       "rows": [
         [
-          "You want structured accountability and educational resources",
-          "You want zero consistency rule (try Apex or Uprofit)"
+          "You want a single-phase evaluation",
+          "You prefer a two-phase challenge with a static max loss (FTMO 2-Step)"
         ],
         [
-          "You plan to hold the funded account for months (100% split)",
-          "You prefer a one-time fee over a monthly subscription (try FTMO)"
+          "You want a consistency target that raises your goal instead of failing you",
+          "You want no consistency rule during the evaluation (Apex evaluation, FTMO 2-Step)"
         ],
         [
-          "You trade CME futures during standard US session hours",
-          "You frequently trade during news events"
-        ],
-        [
-          "You want the most well-documented payout history",
-          "You want the largest funded account size (FTMO offers up to $200K)"
-        ],
-        [
-          "You are newer to funded programs and want a clear one-phase path",
-          "You want no minimum days and no consistency rule (Apex)"
+          "You are comfortable with an end-of-day trailing loss limit",
+          "You want to choose between intraday and end-of-day drawdown (Apex)"
         ]
       ]
     },
@@ -307,7 +293,7 @@
     },
     {
       "type": "p",
-      "text": "The Professional plan includes full equity curve visualization, daily consistency percentage tracking, profit factor calculation, and advanced filtering. The ZenMode plan adds AI-powered revenge trading detection — a real-time flag when your post-loss behavior matches the profile of a revenge trade, before you execute it."
+      "text": "The Professional plan includes the full equity curve, daily consistency tracking, profit factor and advanced filters. The ZenMode plan adds revenge-trading detection — it flags a new trade within 30 minutes of a loss, or three or more losses in a row — and the Live Discipline Copilot, which warns you during the session as you approach your daily loss limit."
     },
     {
       "type": "p",
@@ -328,31 +314,27 @@
       "faqItems": [
         {
           "q": "How long does it take to pass the TopStep Trading Combine?",
-          "a": "There is no time limit and no minimum trading days. Some traders pass in 5-7 sessions; others take 6-8 weeks. The subscription model means you pay monthly while in the evaluation, so there is a natural incentive to pass efficiently — but do not rush it. Rushed evaluations lead to rule violations."
+          "a": "It depends on your strategy and your discipline: some traders pass in a week, others take months. Check Topstep's help center for the current Combine terms. Do not rush it — rushed Combines are where oversizing and Maximum Loss Limit breaches happen."
         },
         {
-          "q": "What happens if I violate the max daily loss on TopStep?",
-          "a": "The evaluation ends immediately and automatically. You can restart by purchasing a new subscription. TopStep does not have a formal retry discount, but they do offer account pause options if you need a break before starting again."
+          "q": "What happens if I hit a loss limit on TopStep?",
+          "a": "Breaching the Maximum Loss Limit ends the Combine. If you added the optional Daily Loss Limit, check Topstep's help center for exactly what happens when you reach it. Either way, a personal daily stop well below the limit keeps you out of that situation."
         },
         {
           "q": "Does TopStep have a consistency rule?",
-          "a": "Yes. No single trading day can represent more than 30% of your total net profits. This rule is reviewed when you submit for payout — not daily. Track it yourself every day to avoid discovering a violation only after you have hit the profit target."
+          "a": "Yes, a consistency target. On the Combine your best day should be no more than 55% of your total profit (updated September 2026). If it is higher, the Combine is not failed: your profit target rises to your best day divided by 0.55. Zentrade shows your best day's share of profit live."
         },
         {
           "q": "Can I trade micro futures on TopStep?",
-          "a": "Yes. TopStep supports micro contracts including MES, MNQ, MYM, and others. Micro contracts are ideal for managing position sizing within the daily loss limit, especially when you are newer to the evaluation or during high-volatility sessions."
+          "a": "Yes, micro contracts such as MES and MNQ are popular in the Combine because they make it easier to size positions inside the loss limits. Check Topstep's help center for the full list of permitted products and contract limits."
         },
         {
-          "q": "What instruments can I trade on TopStep?",
-          "a": "TopStep supports CME and CBOT futures: equity indices (ES, NQ, YM, RTY, MES, MNQ), energy (CL, NG), metals (GC, SI), currencies (6E, 6B, 6J), and interest rates (ZN, ZB, UB). ES and NQ are by far the most commonly traded instruments on the platform."
-        },
-        {
-          "q": "Is TopStep's trailing drawdown based on intraday or end-of-day equity?",
-          "a": "TopStep's trailing drawdown tracks intraday equity — meaning your floor can rise during the session if you are up significantly before the close. This is more restrictive than end-of-day trailing (used by Apex), because a temporary intraday high can lock in a higher floor even if you give back those gains before market close."
+          "q": "Is TopStep's Maximum Loss Limit based on intraday or end-of-day balance?",
+          "a": "End-of-day. On the 50K Combine the Maximum Loss Limit is $2,000 and trails your end-of-day balance, so the floor starts at $48,000 and only moves when you close the day at a new high balance — intraday spikes don't move it."
         },
         {
           "q": "How does TopStep compare to FTMO for futures traders?",
-          "a": "TopStep has one evaluation phase vs. FTMO's two. TopStep's subscription model has lower upfront cost but ongoing monthly fees. FTMO is a one-time fee per evaluation. Both enforce a consistency rule at 30%. TopStep offers a 100% payout split after $10,000 — better than FTMO's 80/20 for long-term funded traders. FTMO has broader global brand recognition. For LATAM traders, both have active communities."
+          "a": "TopStep has one evaluation phase; FTMO's classic challenge has two. Topstep uses a 55% consistency target that raises your profit target; FTMO's 2-Step has no consistency rule and a static 10% max loss, while its 1-Step has a 50% Best Day Rule. Pick the structure that fits how you trade."
         }
       ]
     },
@@ -382,9 +364,8 @@
     {
       "type": "ul",
       "items": [
-        "<a href=\"https://www.topstep.com/how-it-works/\" target=\"_blank\" rel=\"noopener noreferrer\">TopStep — How It Works (official)</a>",
-        "<a href=\"https://www.topstep.com/rules/\" target=\"_blank\" rel=\"noopener noreferrer\">TopStep Official Trading Rules</a>",
-        "<a href=\"https://www.investopedia.com/terms/p/prop-trading.asp\" target=\"_blank\" rel=\"noopener noreferrer\">Investopedia — What is Proprietary Trading</a>"
+        "<a href=\"https://help.topstep.com/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Topstep Help Center (official rules)</a>",
+        "<a href=\"https://www.investopedia.com/terms/p/prop-trading.asp\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">Investopedia — What is Proprietary Trading</a>"
       ]
     },
     {

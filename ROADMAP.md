@@ -60,7 +60,10 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [x] `llms.txt` actualizado, herramientas gratis, `/vs/tradersync` y `/vs/tradervue`, posts sin "2025", 301, IndexNow
 - [ ] Correr `node scripts/indexnow.mjs` después de cada deploy con contenido
 - [x] Reglas 2026 verificadas en los hubs de Apex, TopStep y FTMO (PR #9)
-- [ ] Refrescar las guías "how to pass" con las reglas 2026 verificadas (Apex, TopStep, FTMO) y fecha real
+- [x] Guías "how to pass" en inglés (Apex, TopStep, FTMO) con las reglas 2026 verificadas y fecha real
+- [ ] Guías en español (`como-pasar-*`, `pasos-evaluacion-ftmo`, `regla-consistencia-ftmo-explicada`) con reglas viejas: corregir
+- [ ] Decidir si se fusionan las guías "how to pass" con los hubs (canibalización, ver `data/ZENTRADE-SEO-STUDY.md`)
+- [ ] Verificar el MLL de TopStep en 100K y 150K, y sus reglas para operar noticias
 - [ ] Posts en español con "2025" (12)
 - [ ] Páginas de intención: "best trading journal for Apex" y "best trading journal for TopStep"
 - [ ] Unificar el nombre de marca (Zentrade / ZenTrade / zen-trader.com) para que las IA reconozcan una sola entidad

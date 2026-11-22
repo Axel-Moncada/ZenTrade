@@ -425,6 +425,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                   <SelectItem value="40" className="hover:bg-zen-rich-black">40%</SelectItem>
                   <SelectItem value="45" className="hover:bg-zen-rich-black">45%</SelectItem>
                   <SelectItem value="50" className="hover:bg-zen-rich-black">50%</SelectItem>
+                  <SelectItem value="55" className="hover:bg-zen-rich-black">55%</SelectItem>
                 </SelectContent>
               </Select>
               <p className="text-xs text-zen-anti-flash/50">
