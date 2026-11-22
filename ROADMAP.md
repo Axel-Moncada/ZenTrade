@@ -49,8 +49,12 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [x] Reembolsos: cobro desde el día 1 + solicitud por email en 7 días (decisión del fundador; reemplaza la "garantía de 15 días")
 - [ ] Recorrido manual con navegador en inglés: registro → cuenta → importar → dashboard → pagar
 - [x] Landing nueva para la pauta: hero "Replay this day", calculadora de resets, video del anuncio en inglés, reglas en vivo, CTA final y medición UTM + eventos (2026-11-22)
-- [ ] Marcar `sign_up` como conversión en GA4 y Google Ads; Meta Pixel si se pauta en Meta
-- [ ] Medir `sign_up` también con Google OAuth (hoy solo email)
+- [x] Tracking de la pauta: atribución first-touch en `profiles` (migración 025), `sign_up`, `begin_checkout`, `purchase` (PR #16)
+- [x] Google Ads importa `sign_up` (recuento: una) y `purchase` (valor de GA4) como conversiones principales; las 3 de "carga de página /dashboard" pasaron a secundarias porque contaban cada visita de usuarios existentes (2026-11-22)
+- [x] Emails de marketing con baja de un clic, dirección postal y solo inglés (PR #17, migración 026)
+- [ ] **Pauta activa desde 2026-11-22:** revisar en 3-4 días que los registros lleguen con `utm_source`/`gclid` en `profiles` y que `sign_up` salga de "Esperando conversiones"
+- [ ] `purchase` desde el servidor (GA4 Measurement Protocol) para pagos que solo llegan por webhook
+- [ ] Meta Pixel si se pauta en Meta
 - [ ] Capturas reales en inglés para la sección de reglas (opcional) y revisar el copy "The AI That Trades Alongside You"
 - [ ] Revisar afirmaciones sobre la competencia en `/es/vs/*`
 - [ ] Borrar código muerto `components/dashboard/zencoach/zen-coach-widget.tsx`

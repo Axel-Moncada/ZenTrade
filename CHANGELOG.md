@@ -6,6 +6,14 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (cierre) — Pauta activada
+
+- Merge de los PR #15 (posts de la semana), #16 (tracking) y #17 (emails CAN-SPAM). Smoke test en producción: la cookie `zt_attr` se crea con UTMs (90 días, Secure, HttpOnly), `/unsubscribed` responde 200 y la API de baja rechaza tokens inválidos (400).
+- **Google Ads:** la cuenta importa conversiones desde GA4 (no hace falta el tag `AW-`). Se encontró que las 3 conversiones principales de "Registro" eran **cargas de página de `/dashboard`** con recuento "Todas", es decir, contaban cada visita de usuarios existentes. El fundador las pasó a secundarias e importó `sign_up` (recuento: una) y `purchase` (valor de GA4) como principales.
+- Variables de Vercel: `COMPANY_POSTAL_ADDRESS` (obligatoria para enviar broadcasts). `NEXT_PUBLIC_GOOGLE_ADS_ID` no se usa por ahora.
+
+---
+
 ## 2026-11-22 (noche, 6) — Emails de marketing: cumplimiento CAN-SPAM + emails de hoy
 
 ### Problema
