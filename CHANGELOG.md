@@ -6,6 +6,31 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (noche) — Landing nueva para la pauta en EE. UU.: "Replay this day"
+
+### Contexto
+- Diseño hecho con Claude Design (carpeta local `secciones nuevas/`, sin commitear: prompt, prototipo y video). Objetivo: que el tráfico pagado sienta su dolor en 8 segundos (perdió la cuenta por el trade de venganza y tuvo que pagar el reset).
+
+### Hecho
+- **Orden nuevo de `app/page.tsx`**: ReplayHero → ResetCalculator → AdVideo → RulesShowcase → AI features → Features → Benefits (solo reseñas reales) → Pricing → FAQ → FinalCta. Salieron Hero, Problem, Solution, Preview (demos de YouTube en español) y el CTA viejo; los archivos se conservan.
+- `components/landing/sections/replay-hero.tsx` + `components/landing/replay/replay-engine.ts`: gráfica SVG animada de un día FAIL (revenge → piso roto → "EVAL FAILED") y un día SAVE (alerta del Copiloto → cuenta viva). Cuenta demo de 50K con **trailing de $2,000** (regla verificada de Apex; el prototipo usaba $2,500). El texto de la alerta es el **real** del Copiloto (pausa de 15 min tras una pérdida + distancia al piso). Respeta `prefers-reduced-motion`, se pausa si la pestaña está oculta o la tarjeta sale de la pantalla, y aclara: "The Copilot reacts to the trades you log in Zentrade" + "Live Copilot included in ZenMode".
+- `reset-calculator.tsx`: resets × precio → "Lost to resets" + "That's N months of ZenMode" ($59).
+- `ad-video.tsx`: video comprimido de 16 MB → **2.2 MB** (`public/videos/zentrade-ad.mp4`) + poster WebP; `preload="none"`, carga y reproduce solo en viewport, botón de sonido. JSON-LD `VideoObject` del anuncio (reemplaza los dos videos en español).
+- `rules-showcase.tsx`: scroll tipo Apple (bloques + panel sticky en desktop; tarjetas en móvil). Los paneles son **UI en código con datos demo** que replica los widgets reales (no había capturas en inglés; se pueden cambiar por `<Image>`).
+- `final-cta.tsx`: "Same trader. Same strategy. One alert."
+- **Medición**: `lib/analytics/track.ts` (`cta_click`, `replay_save_started`, `calculator_used`, `video_play`, `sign_up` → gtag y fbq si existen) y `lib/analytics/attribution.ts` (UTM + gclid + fbclid first-touch en localStorage/cookie). `/api/auth/register` guarda `attribution` y `signup_country` (header `x-vercel-ip-country`) en `user_metadata` (validado con Zod). El error 500 del registro ahora sale en inglés.
+- Navbar: "Nosotros" fijo en español → "About" en inglés; el CTA ahora es "Start Free" y lleva a `/login?mode=register` (antes llevaba al login).
+- Verificado: `tsc`, lint y build OK; sin scroll horizontal en 390, 768 y 1440 px (emulación con CDP).
+
+### Pendientes
+- Capturas reales en inglés para RulesShowcase (opcional) en `public/landing/rules/*.webp`.
+- `sign_up` con Google OAuth no se mide (solo email): detectar el usuario nuevo en `/api/auth/callback`.
+- Marcar `sign_up` como conversión en GA4 y Google Ads e importarla; agregar el Meta Pixel si se va a pautar en Meta.
+- La sección AI features dice "The AI That Trades Alongside You": la IA no opera; revisar el copy.
+- IndexNow devuelve 403 (`UserForbiddedToAccessSite`) aunque la clave se sirve bien: verificar el sitio en Bing Webmaster Tools.
+
+---
+
 ## 2026-11-22 (tarde) — Guías "how to pass" (EN) con reglas verificadas + fix del deploy
 
 ### Hecho

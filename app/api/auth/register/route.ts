@@ -1,10 +1,12 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { attributionSchema } from "@/lib/analytics/attribution";
 
 const registerSchema = z.object({
   email: z.string().email("Invalid email"),
   password: z.string().min(6, "Password must be at least 6 characters"),
+  attribution: attributionSchema.nullish(),
 });
 
 export async function POST(request: Request) {
@@ -19,7 +21,9 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email, password } = validation.data;
+    const { email, password, attribution } = validation.data;
+    // País del visitante (header de Vercel) para medir la pauta por mercado
+    const country = request.headers.get("x-vercel-ip-country") ?? undefined;
     const supabase = await createClient();
 
     const { data, error } = await supabase.auth.signUp({
@@ -27,6 +31,10 @@ export async function POST(request: Request) {
       password,
       options: {
         emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/api/auth/callback`,
+        data: {
+          signup_country: country,
+          ...(attribution ? { attribution } : {}),
+        },
       },
     });
 
@@ -46,7 +54,7 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     return NextResponse.json(
-      { error: "Error del servidor" },
+      { error: "Server error. Please try again." },
       { status: 500 }
     );
   }

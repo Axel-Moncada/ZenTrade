@@ -12,6 +12,8 @@ import { GoogleSignInButton } from "@/components/google-signin-button";
 import { ArrowLeft, LogIn, UserPlus, CheckCircle2 } from "lucide-react";
 import logoZen from "@/data/assets/Logo-white.png";
 import { useI18n } from "@/lib/i18n/context";
+import { getAttribution } from "@/lib/analytics/attribution";
+import { track } from "@/lib/analytics/track";
 
 const COPY = {
   en: {
@@ -87,7 +89,7 @@ export default function LoginPage() {
       const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, attribution: getAttribution() }),
       });
 
       const data = await response.json();
@@ -122,7 +124,7 @@ export default function LoginPage() {
       const response = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, attribution: getAttribution() }),
       });
 
       const data = await response.json();
@@ -133,6 +135,7 @@ export default function LoginPage() {
         return;
       }
 
+      track("sign_up", { method: "email" });
       setSuccess(data.message || c.registerSuccess);
       setEmail("");
       setPassword("");
