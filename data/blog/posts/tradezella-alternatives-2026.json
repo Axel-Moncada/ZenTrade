@@ -15,7 +15,7 @@
   "author": "Zentrade Team",
   "lang": "en",
   "publishedAt": "2026-11-26",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-22",
   "category": "comparativas",
   "tags": [
     "TradeZella",
@@ -33,7 +33,7 @@
   "content": [
     {
       "type": "p",
-      "text": "<strong>The best TradeZella alternative depends on what you trade and what you need: Zentrade is built for prop firm evaluation traders and starts free with paid plans from $9/month, Edgewonk is a one-time purchase for deep analytics, and Tradervue suits traders who want a long-standing, simple tool.</strong> TradeZella remains strong if you want broker auto-sync and a large feature set and accept a higher price."
+      "text": "<strong>The best TradeZella alternative depends on what you trade and what you need: Zentrade is built for prop firm evaluation traders and starts free with paid plans from $9/month, Edgewonk is a single annual plan (about $197/year) for deep analytics, and Tradervue suits traders who want a long-standing, simple tool.</strong> TradeZella remains strong if you want broker auto-sync and a large feature set and accept a higher price."
     },
     {
       "type": "p",
@@ -86,14 +86,21 @@
         ],
         [
           "Edgewonk",
-          "One-time license (verify current price)",
+          "One annual plan, about $197/year; no free plan",
           "General",
           "Import-based",
-          "Analytical traders who prefer to own the software"
+          "Analytical traders who prefer one yearly payment"
+        ],
+        [
+          "TraderSync",
+          "Subscription from $29.95/month",
+          "General",
+          "Yes (check supported brokers)",
+          "Traders who want broad analytics and sync"
         ],
         [
           "Tradervue",
-          "Subscription (verify current price)",
+          "Free plan with a monthly trade cap; paid from $29.95/month",
           "General",
           "Yes, for many brokers",
           "Traders wanting a simple, established journal"
@@ -109,7 +116,7 @@
     },
     {
       "type": "p",
-      "text": "We list Edgewonk and Tradervue prices as \"verify\" because they change and we would rather send you to their pricing pages than quote a stale number."
+      "text": "Prices as listed in November 2026. They change, so confirm on each vendor's pricing page before you buy."
     },
     {
       "type": "h2",
@@ -125,7 +132,7 @@
         "<strong>Price:</strong> Free plan, Starter $9/mo, Professional $29/mo, ZenMode $59/mo (annual plans are cheaper).",
         "<strong>Prop firm framing:</strong> profit factor, consistency score and equity curve on Professional, so you see the numbers firms care about.",
         "<strong>Emotional journaling:</strong> a calendar with emotional notes and setup tags on Professional.",
-        "<strong>AI discipline tools (ZenMode):</strong> revenge trading detection, risk rule alerts and a weekly automated report with emotional analysis."
+        "<strong>Discipline tools (ZenMode):</strong> the Live Discipline Copilot (a 15-minute pause after every loss you log, drawdown and daily-limit warnings), revenge trading detection, the ZenCoach AI coach and an automated weekly email report."
       ]
     },
     {
@@ -150,13 +157,13 @@
         "Do you need automatic broker sync today? If yes, TradeZella or Tradervue are safer picks.",
         "Is your budget under $30/month? Zentrade or Edgewonk fit better.",
         "Are you mainly fighting consistency, drawdown and revenge trading in evaluations? Pick the tool that surfaces those, which is what Zentrade is designed around.",
-        "Do you want to own the software outright? Look at Edgewonk.",
+        "Do you prefer one yearly payment over a monthly subscription? Look at Edgewonk (about $197/year).",
         "Not sure? Start on a free plan and import one week of real trades before paying anyone."
       ]
     },
     {
       "type": "p",
-      "text": "For deeper side-by-sides, see <a href=\"/vs/tradezella\">Zentrade vs TradeZella</a> and <a href=\"/vs/edgewonk\">Zentrade vs Edgewonk</a>."
+      "text": "For deeper side-by-sides, see <a href=\"/vs/tradezella\">Zentrade vs TradeZella</a>, <a href=\"/vs/edgewonk\">Zentrade vs Edgewonk</a>, <a href=\"/vs/tradersync\">Zentrade vs TraderSync</a> and <a href=\"/vs/tradervue\">Zentrade vs Tradervue</a>."
     },
     {
       "type": "cta",
