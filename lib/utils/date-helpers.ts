@@ -17,8 +17,8 @@ export function formatDateToISO(date: Date): string {
  * Formatea una fecha a formato legible en español
  * Ejemplo: "Lunes 15 de Marzo, 2024"
  */
-export function formatDateToReadable(date: Date): string {
-  return date.toLocaleDateString("es-ES", {
+export function formatDateToReadable(date: Date, locale: "es" | "en" = "es"): string {
+  return date.toLocaleDateString(locale === "es" ? "es-ES" : "en-US", {
     weekday: "long",
     year: "numeric",
     month: "long",
@@ -143,18 +143,24 @@ export function generateCalendarDays(year: number, month: number): Date[] {
 /**
  * Obtiene el nombre del mes en español
  */
-export function getMonthName(month: number): string {
-  const monthNames = [
-    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-  ];
+export function getMonthName(month: number, locale: "es" | "en" = "es"): string {
+  const monthNames = locale === "es"
+    ? ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+       "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    : ["January", "February", "March", "April", "May", "June",
+       "July", "August", "September", "October", "November", "December"];
   return monthNames[month];
 }
 
 /**
  * Obtiene los nombres de los días de la semana (Lunes primero)
  */
-export function getWeekDayNames(short: boolean = true): string[] {
+export function getWeekDayNames(short: boolean = true, locale: "es" | "en" = "es"): string[] {
+  if (locale === "en") {
+    return short
+      ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      : ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  }
   if (short) {
     return ["L", "M", "M", "J", "V", "S", "D"];
   }

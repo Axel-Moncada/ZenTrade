@@ -5,8 +5,8 @@ import PublicFooter from "@/components/landing/public-footer";
 import LegalContent from "@/components/legal/legal-content";
 
 export const metadata: Metadata = {
-  title: "Política de Cookies",
-  description: "Información sobre el uso de cookies en la plataforma Zentrade.",
+  title: "Cookie Policy",
+  description: "How the Zentrade platform uses cookies.",
   alternates: { canonical: "https://www.zen-trader.com/cookies" },
   robots: { index: true, follow: false },
 };

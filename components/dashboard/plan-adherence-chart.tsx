@@ -3,6 +3,7 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import { CheckCircle } from 'lucide-react';
 import { Tooltip as UITooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface PlanAdherenceChartProps {
   followedPlan: number;
@@ -16,6 +17,7 @@ const COLORS = {
 };
 
 export function PlanAdherenceChart({ followedPlan, notFollowedPlan, adherenceRate }: PlanAdherenceChartProps) {
+  const { tr } = useTr();
   const totalTrades = followedPlan + notFollowedPlan;
 
   if (totalTrades === 0) {
@@ -23,18 +25,18 @@ export function PlanAdherenceChart({ followedPlan, notFollowedPlan, adherenceRat
       <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border-none shadow-none p-4">
         <div className="flex items-center gap-2 mb-2">
           <CheckCircle className="h-4 w-4 text-emerald-400" />
-          <h3 className="text-sm font-bold text-white">Adherencia al Plan</h3>
+          <h3 className="text-sm font-bold text-white">{tr("Adherencia al Plan", "Plan Adherence")}</h3>
         </div>
         <div className="h-[200px] flex items-center justify-center text-slate-500 text-xs">
-          No hay datos
+          {tr("No hay datos", "No data yet")}
         </div>
       </div>
     );
   }
 
   const data = [
-    { name: 'Siguió el plan', value: followedPlan },
-    { name: 'No siguió el plan', value: notFollowedPlan }
+    { name: tr('Siguió el plan', 'Followed plan'), value: followedPlan },
+    { name: tr('No siguió el plan', 'Broke plan'), value: notFollowedPlan }
   ];
 
   return (
@@ -46,7 +48,7 @@ export function PlanAdherenceChart({ followedPlan, notFollowedPlan, adherenceRat
               <div className="p-1 bg-emerald-500/20 rounded">
                 <CheckCircle className="h-3.5 w-3.5 text-emerald-400" />
               </div>
-              <h3 className="text-xs font-bold text-white">Adherencia al Plan</h3>
+              <h3 className="text-xs font-bold text-white">{tr("Adherencia al Plan", "Plan Adherence")}</h3>
             </div>
 
             <div className="text-center mb-2">
@@ -90,8 +92,8 @@ export function PlanAdherenceChart({ followedPlan, notFollowedPlan, adherenceRat
           </div>
         </TooltipTrigger>
         <TooltipContent side="top" className="max-w-xs">
-          <p className="font-semibold mb-1">Adherencia al Plan de Trading</p>
-          <p className="text-slate-300">Porcentaje de trades donde seguiste tu plan de trading. La disciplina es clave para el éxito consistente.</p>
+          <p className="font-semibold mb-1">{tr("Adherencia al Plan de Trading", "Trading Plan Adherence")}</p>
+          <p className="text-slate-300">{tr("Porcentaje de trades donde seguiste tu plan de trading. La disciplina es clave para el éxito consistente.", "Share of trades where you followed your trading plan. Discipline is what makes results consistent.")}</p>
         </TooltipContent>
       </UITooltip>
     </TooltipProvider>

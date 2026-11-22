@@ -7,8 +7,10 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { usePlan } from "@/lib/hooks/usePlan";
+import { useTr } from "@/lib/i18n/use-tr";
 
 export default function NewAccountPage() {
+  const { tr } = useTr();
   const plan = usePlan();
   const [accountCount, setAccountCount] = useState<number | null>(null);
 
@@ -40,28 +42,31 @@ export default function NewAccountPage() {
         <Link href="/dashboard/accounts">
           <Button variant="ghost" size="sm" className="mb-4">
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Volver a Cuentas
+            {tr("Volver a Cuentas", "Back to Accounts")}
           </Button>
         </Link>
-        <h1 className="text-3xl font-bold text-zen-anti-flash">Nueva Cuenta</h1>
+        <h1 className="text-3xl font-bold text-zen-anti-flash">{tr("Nueva Cuenta", "New Account")}</h1>
         <p className="text-zen-anti-flash/60 mt-2">
-          Crea una nueva cuenta de trading para comenzar a registrar tus operaciones
+          {tr("Crea una nueva cuenta de trading para comenzar a registrar tus operaciones", "Create a trading account to start logging your trades")}
         </p>
       </div>
 
       {isLoading ? (
         <div className="flex items-center justify-center py-24">
-          <div className="text-zen-anti-flash/40 text-sm">Cargando...</div>
+          <div className="text-zen-anti-flash/40 text-sm">{tr("Cargando...", "Loading...")}</div>
         </div>
       ) : isAtLimit ? (
         <div className="max-w-md mx-auto pt-4 space-y-4">
           <UpgradePrompt
             requiredPlan="pro"
             variant="card"
-            message={`Alcanzaste el límite de ${accountLimit} cuenta${accountLimit === 1 ? "" : "s"} de tu plan actual`}
+            message={{
+              es: `Alcanzaste el límite de ${accountLimit} cuenta${accountLimit === 1 ? "" : "s"} de tu plan actual`,
+              en: `You reached your plan's limit of ${accountLimit} account${accountLimit === 1 ? "" : "s"}`,
+            }}
           />
           <p className="text-center text-sm text-zen-text-muted">
-            Professional incluye cuentas ilimitadas para gestionar todas tus evaluaciones y cuentas live al mismo tiempo.
+            {tr("Professional incluye cuentas ilimitadas para gestionar todas tus evaluaciones y cuentas live al mismo tiempo.", "Professional includes unlimited accounts so you can track every evaluation and live account at once.")}
           </p>
         </div>
       ) : (

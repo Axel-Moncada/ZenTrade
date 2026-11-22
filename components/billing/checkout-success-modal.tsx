@@ -6,6 +6,7 @@ import { X, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import confetti from "canvas-confetti";
 import type { ActiveSubscription } from "@/app/dashboard/billing/page";
+import { useI18n } from "@/lib/i18n/context";
 
 const PLAN_NAME_MAP: Record<string, string> = {
   starter: "Starter",
@@ -13,23 +14,30 @@ const PLAN_NAME_MAP: Record<string, string> = {
   zenmode: "ZenMode",
 };
 
-const PLAN_NEXT_STEPS: Record<string, { label: string; href: string }[]> = {
+type Step = { label: { es: string; en: string }; href: string };
+
+const PLAN_NEXT_STEPS: Record<string, Step[]> = {
   starter: [
-    { label: "Crear tu segunda cuenta de trading", href: "/dashboard/accounts/new" },
-    { label: "Registrar tu primer trade", href: "/dashboard/trades" },
-    { label: "Ver tu dashboard", href: "/dashboard" },
+    { label: { es: "Crear tu segunda cuenta de trading", en: "Add your second trading account" }, href: "/dashboard/accounts/new" },
+    { label: { es: "Registrar tu primer trade", en: "Log your first trade" }, href: "/dashboard/trades" },
+    { label: { es: "Ver tu dashboard", en: "Open your dashboard" }, href: "/dashboard" },
   ],
   pro: [
-    { label: "Importar trades desde CSV", href: "/dashboard/trades/import" },
-    { label: "Crear tu Trading Plan PDF", href: "/dashboard/trading-plan" },
-    { label: "Explorar el dashboard analítico", href: "/dashboard" },
+    { label: { es: "Importar trades desde CSV", en: "Import trades from CSV" }, href: "/dashboard/trades/import" },
+    { label: { es: "Crear tu Trading Plan PDF", en: "Build your trading plan PDF" }, href: "/dashboard/trading-plan" },
+    { label: { es: "Explorar el dashboard analítico", en: "Explore the analytics dashboard" }, href: "/dashboard" },
   ],
   zenmode: [
-    { label: "Explorar el dashboard analítico", href: "/dashboard" },
-    { label: "Configurar tu Trading Plan", href: "/dashboard/trading-plan" },
-    { label: "Ver tus cuentas", href: "/dashboard/accounts" },
+    { label: { es: "Iniciar una sesión con el Copiloto", en: "Start a session with the Copilot" }, href: "/dashboard/live-session" },
+    { label: { es: "Configurar tu Trading Plan", en: "Set up your trading plan" }, href: "/dashboard/trading-plan" },
+    { label: { es: "Explorar el dashboard analítico", en: "Explore the analytics dashboard" }, href: "/dashboard" },
   ],
 };
+
+const COPY = {
+  es: { welcome: "Bienvenido al plan", success: "{c.success}", active: "{c.active}", billing: "{c.billing}" },
+  en: { welcome: "Welcome to", success: "Payment successful!", active: "Your subscription is active. Where do you want to start?", billing: "Go to Billing" },
+} as const;
 
 interface Props {
   subscription: ActiveSubscription;
@@ -38,6 +46,8 @@ interface Props {
 
 export function CheckoutSuccessModal({ subscription, onClose }: Props) {
   const fired = useRef(false);
+  const { locale } = useI18n();
+  const c = COPY[locale];
 
   useEffect(() => {
     if (fired.current) return;
@@ -146,13 +156,13 @@ export function CheckoutSuccessModal({ subscription, onClose }: Props) {
               transition={{ delay: 0.2 }}
             >
               <p className="text-xs font-semibold uppercase tracking-widest text-zen-caribbean-green mb-2">
-                ¡Pago exitoso!
+                {c.success}
               </p>
               <h2 className="text-2xl font-bold text-white mb-1">
-                Bienvenido al plan {planName}
+                {c.welcome} {planName}
               </h2>
               <p className="text-sm text-white/50 mb-7">
-                Tu suscripción está activa. ¿Por dónde empezamos?
+                {c.active}
               </p>
             </motion.div>
 
@@ -190,7 +200,7 @@ export function CheckoutSuccessModal({ subscription, onClose }: Props) {
                       {i + 1}
                     </span>
                     <span className="text-white/80 group-hover:text-white transition-colors">
-                      {step.label}
+                      {step.label[locale]}
                     </span>
                   </span>
                   <ArrowRight className="h-4 w-4 text-zen-caribbean-green/60 group-hover:text-zen-caribbean-green transition-colors shrink-0" />
@@ -211,7 +221,7 @@ export function CheckoutSuccessModal({ subscription, onClose }: Props) {
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#00A86B")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#00C17C")}
               >
-                Ir a Facturación
+                {c.billing}
               </button>
             </motion.div>
           </div>

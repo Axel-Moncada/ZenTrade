@@ -22,6 +22,8 @@ import {
   Heart,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useTr } from "@/lib/i18n/use-tr";
+import { emotionLabel } from "@/lib/constants/trade-labels";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -39,9 +41,9 @@ function formatPnl(value: number | null): string {
   return formatSignedMoney(value)
 }
 
-function formatDate(dateStr: string): string {
+function formatDate(dateStr: string, locale: 'es' | 'en' = 'en'): string {
   const [year, month, day] = dateStr.split('-')
-  return `${day}/${month}/${year}`
+  return locale === 'es' ? `${day}/${month}/${year}` : `${month}/${day}/${year}`
 }
 
 // ─── Trade Card ───────────────────────────────────────────────────────────────
@@ -54,6 +56,7 @@ interface TradeCardProps {
 }
 
 function TradeCard({ trade, signedUrls, onClick, hideResult }: TradeCardProps) {
+  const { tr } = useTr()
   const firstPath = trade.screenshot_urls?.[0] ?? null
   const signedUrl = firstPath ? signedUrls[firstPath] : null
   const isWinner = (trade.result ?? 0) >= 0
@@ -76,7 +79,7 @@ function TradeCard({ trade, signedUrls, onClick, hideResult }: TradeCardProps) {
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center gap-2 opacity-30">
             <Camera className="h-8 w-8 text-zen-anti-flash" />
-            <span className="text-xs text-zen-anti-flash">Sin captura</span>
+            <span className="text-xs text-zen-anti-flash">{tr("Sin captura", "No screenshot")}</span>
           </div>
         )}
 
@@ -157,6 +160,7 @@ function ReviewModal({
   onNavigate,
   onClose,
 }: ReviewModalProps) {
+  const { tr, locale } = useTr()
   const [imageIndex, setImageIndex] = useState(0)
   const isWinner = (trade.result ?? 0) >= 0
   const symbol = trade.instrument?.symbol ?? '—'
@@ -248,7 +252,7 @@ function ReviewModal({
             ) : (
               <div className="flex flex-col items-center justify-center gap-3 opacity-25 p-12">
                 <Camera className="h-16 w-16 text-zen-anti-flash" />
-                <p className="text-zen-anti-flash text-sm">Sin capturas de pantalla</p>
+                <p className="text-zen-anti-flash text-sm">{tr("Sin capturas de pantalla", "No screenshots")}</p>
               </div>
             )}
 
@@ -280,7 +284,7 @@ function ReviewModal({
               className="gap-2 text-zen-anti-flash/60 hover:text-zen-anti-flash disabled:opacity-20"
             >
               <ChevronLeft className="h-4 w-4" />
-              Anterior
+              {tr("Anterior", "Previous")}
               <span className="opacity-40 text-xs">←</span>
             </Button>
 
@@ -291,7 +295,7 @@ function ReviewModal({
               disabled={currentIndex === trades.length - 1}
               className="gap-2 text-zen-anti-flash/60 hover:text-zen-anti-flash disabled:opacity-20"
             >
-              Siguiente
+              {tr("Siguiente", "Next")}
               <span className="opacity-40 text-xs">→</span>
               <ChevronRight className="h-4 w-4" />
             </Button>
@@ -311,7 +315,7 @@ function ReviewModal({
 
             {/* PNL */}
             <div className={`rounded-xl p-3 text-center bt-pnl-box ${isWinner ? 'bt-pnl-box--win' : 'bt-pnl-box--loss'} ${hideResult ? 'bt-pnl-blurred' : ''}`}>
-              <p className="text-xs text-zen-anti-flash/40 mb-1">Resultado</p>
+              <p className="text-xs text-zen-anti-flash/40 mb-1">{tr("Resultado", "Result")}</p>
               <p className={`text-2xl font-bold ${isWinner ? 'text-emerald-500' : 'text-red-500'}`}>
                 {formatPnl(trade.result)}
               </p>
@@ -325,13 +329,13 @@ function ReviewModal({
 
           {/* Detalles */}
           <div className="p-5 space-y-3 flex-1">
-            <StatRow label="Fecha" value={formatDate(trade.trade_date)} />
-            <StatRow label="Contratos" value={String(trade.contracts)} />
-            {trade.entry_time && <StatRow label="Entrada" value={trade.entry_time} icon={<Clock className="h-3.5 w-3.5" />} />}
-            {trade.exit_time && <StatRow label="Salida" value={trade.exit_time} icon={<Clock className="h-3.5 w-3.5" />} />}
+            <StatRow label={tr("Fecha", "Date")} value={formatDate(trade.trade_date, locale)} />
+            <StatRow label={tr("Contratos", "Contracts")} value={String(trade.contracts)} />
+            {trade.entry_time && <StatRow label={tr("Entrada", "Entry")} value={trade.entry_time} icon={<Clock className="h-3.5 w-3.5" />} />}
+            {trade.exit_time && <StatRow label={tr("Salida", "Exit")} value={trade.exit_time} icon={<Clock className="h-3.5 w-3.5" />} />}
             <StatRow
-              label="Siguió el plan"
-              value={trade.followed_plan ? 'Sí' : 'No'}
+              label={tr("Siguió el plan", "Followed plan")}
+              value={trade.followed_plan ? tr('Sí', 'Yes') : 'No'}
               valueColor={trade.followed_plan ? 'text-emerald-500' : 'text-red-500'}
             />
 
@@ -339,12 +343,12 @@ function ReviewModal({
               <div>
                 <p className="text-xs text-zen-anti-flash/40 mb-1.5 flex items-center gap-1">
                   <Heart className="h-3.5 w-3.5" />
-                  Emociones
+                  {tr("Emociones", "Emotions")}
                 </p>
                 <div className="flex flex-wrap gap-1">
                   {trade.emotions.map((e) => (
                     <span key={e} className="text-xs px-2 py-0.5 rounded-full bt-emotion-tag">
-                      {e}
+                      {emotionLabel(e, locale)}
                     </span>
                   ))}
                 </div>
@@ -355,7 +359,7 @@ function ReviewModal({
               <div>
                 <p className="text-xs text-zen-anti-flash/40 mb-1.5 flex items-center gap-1">
                   <StickyNote className="h-3.5 w-3.5" />
-                  Notas
+                  {tr("Notas", "Notes")}
                 </p>
                 <p className="text-xs text-zen-anti-flash/70 leading-relaxed rounded-lg p-2.5 bt-notes-box">
                   {trade.notes}
@@ -396,6 +400,7 @@ function StatRow({
 // ─── Main Gallery Component ───────────────────────────────────────────────────
 
 export function BacktestingGallery({ trades, accounts }: BacktestingGalleryProps) {
+  const { tr } = useTr()
   const supabase = createClient()
 
   const [signedUrls, setSignedUrls] = useState<Record<string, string>>({})
@@ -457,8 +462,8 @@ export function BacktestingGallery({ trades, accounts }: BacktestingGalleryProps
     return (
       <div className="text-center py-24 text-zen-anti-flash/30">
         <Camera className="h-12 w-12 mx-auto mb-3 opacity-30" />
-        <p className="text-sm">Aún no tienes trades registrados.</p>
-        <p className="text-xs mt-1">Registra tu primer trade para verlo aquí.</p>
+        <p className="text-sm">{tr("Aún no tienes trades registrados.", "You haven't logged any trades yet.")}</p>
+        <p className="text-xs mt-1">{tr("Registra tu primer trade para verlo aquí.", "Log your first trade to see it here.")}</p>
       </div>
     )
   }
@@ -469,7 +474,7 @@ export function BacktestingGallery({ trades, accounts }: BacktestingGalleryProps
       <div className="bt-filter-bar rounded-xl p-4 flex flex-wrap gap-4 items-center">
         <div className="flex items-center gap-1.5">
           <Filter className="h-3.5 w-3.5 text-zen-anti-flash/40" />
-          <span className="text-xs text-zen-anti-flash/40 font-medium">Filtros</span>
+          <span className="text-xs text-zen-anti-flash/40 font-medium">{tr("Filtros", "Filters")}</span>
         </div>
 
         <div className="flex gap-1.5">
@@ -486,7 +491,7 @@ export function BacktestingGallery({ trades, accounts }: BacktestingGalleryProps
             onChange={(e) => setInstrumentFilter(e.target.value)}
             className="bt-select text-xs rounded-lg px-3 py-1.5 font-medium border transition-colors outline-none cursor-pointer"
           >
-            <option value="all">Todos los instrumentos</option>
+            <option value="all">{tr("Todos los instrumentos", "All instruments")}</option>
             {instruments.map((i) => (
               <option key={i.symbol} value={i.symbol}>{i.symbol}</option>
             ))}
@@ -499,7 +504,7 @@ export function BacktestingGallery({ trades, accounts }: BacktestingGalleryProps
             onChange={(e) => setAccountFilter(e.target.value)}
             className="bt-select text-xs rounded-lg px-3 py-1.5 font-medium border transition-colors outline-none cursor-pointer"
           >
-            <option value="all">Todas las cuentas</option>
+            <option value="all">{tr("Todas las cuentas", "All accounts")}</option>
             {accounts.map((a) => (
               <option key={a.id} value={a.id}>{a.name}</option>
             ))}
@@ -511,7 +516,7 @@ export function BacktestingGallery({ trades, accounts }: BacktestingGalleryProps
           className={filterBtnClass(onlyWithScreenshots)}
         >
           <Camera className="h-3 w-3 inline mr-1" />
-          Solo con capturas
+          {tr("Solo con capturas", "With screenshots only")}
         </button>
 
         <span className="ml-auto text-xs text-zen-anti-flash/30">
@@ -522,7 +527,7 @@ export function BacktestingGallery({ trades, accounts }: BacktestingGalleryProps
       {/* Grid */}
       {filtered.length === 0 ? (
         <div className="text-center py-16 text-zen-anti-flash/30">
-          <p className="text-sm">No hay trades que coincidan con los filtros.</p>
+          <p className="text-sm">{tr("No hay trades que coincidan con los filtros.", "No trades match these filters.")}</p>
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">

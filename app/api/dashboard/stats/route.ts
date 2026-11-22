@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
 
     if (accountError || !account) {
       return NextResponse.json(
-        { error: 'Cuenta no encontrada o no autorizada' },
+        { error: 'Account not found or not authorized' },
         { status: 404 }
       );
     }
@@ -67,7 +67,7 @@ export async function GET(request: NextRequest) {
     if (tradesError) {
       console.error('Error fetching trades for dashboard:', tradesError);
       return NextResponse.json(
-        { error: 'Error al obtener trades' },
+        { error: 'Could not load trades' },
         { status: 500 }
       );
     }

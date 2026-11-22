@@ -13,8 +13,10 @@ import { createClient } from '@/lib/supabase/client'
 import { TradingPlan } from '@/types/trading-plan'
 import { useI18n } from '@/lib/i18n/context'
 import { usePlan } from '@/lib/hooks/usePlan'
+import { useTr } from "@/lib/i18n/use-tr";
 
 export default function TradingPlanPage() {
+  const { tr, locale } = useTr()
   const [accounts, setAccounts] = useState<Array<{ id: string; name: string; broker: string }>>([])
   const [selectedAccount, setSelectedAccount] = useState<string>('')
   const [activePlan, setActivePlan] = useState<TradingPlan | null>(null)
@@ -120,7 +122,10 @@ export default function TradingPlanPage() {
         <UpgradePrompt
           requiredPlan="pro"
           variant="inline"
-          message="Exporta tu Trading Plan en PDF profesional para presentarlo en evaluaciones de prop firms"
+          message={{
+            es: "Exporta tu Trading Plan en PDF profesional para presentarlo en evaluaciones de prop firms",
+            en: "Export your trading plan as a professional PDF for your prop firm evaluations",
+          }}
           onDismiss={() => setShowPdfUpgrade(false)}
         />
       )}
@@ -143,16 +148,16 @@ export default function TradingPlanPage() {
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <Target className="h-5 w-5 text-zen-caribbean-green" />
-                <h3 className="text-lg font-semibold text-zen-anti-flash">Objetivos</h3>
+                <h3 className="text-lg font-semibold text-zen-anti-flash">{tr("Objetivos", "Targets")}</h3>
               </div>
               <Badge variant="outline" className="bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40">
-                Plan Activo
+                {tr("Plan Activo", "Active Plan")}
               </Badge>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {activePlan.daily_profit_target && (
                 <div>
-                  <p className="text-sm text-zen-anti-flash/60">Objetivo diario</p>
+                  <p className="text-sm text-zen-anti-flash/60">{tr("Objetivo diario", "Daily target")}</p>
                   <p className="text-lg font-semibold text-zen-caribbean-green">
                     ${activePlan.daily_profit_target.toFixed(2)}
                   </p>
@@ -160,7 +165,7 @@ export default function TradingPlanPage() {
               )}
               {activePlan.daily_loss_limit && (
                 <div>
-                  <p className="text-sm text-zen-anti-flash/60">Límite diario</p>
+                  <p className="text-sm text-zen-anti-flash/60">{tr("Límite diario", "Daily loss limit")}</p>
                   <p className="text-lg font-semibold text-zen-danger">
                     ${activePlan.daily_loss_limit.toFixed(2)}
                   </p>
@@ -168,7 +173,7 @@ export default function TradingPlanPage() {
               )}
               {activePlan.weekly_profit_target && (
                 <div>
-                  <p className="text-sm text-zen-anti-flash/60">Objetivo semanal</p>
+                  <p className="text-sm text-zen-anti-flash/60">{tr("Objetivo semanal", "Weekly target")}</p>
                   <p className="text-lg font-semibold text-zen-caribbean-green">
                     ${activePlan.weekly_profit_target.toFixed(2)}
                   </p>
@@ -184,12 +189,12 @@ export default function TradingPlanPage() {
             <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
               <div className="flex items-center gap-2 mb-4">
                 <Shield className="h-5 w-5 text-zen-danger" />
-                <h3 className="text-lg font-semibold text-zen-anti-flash">Gestión de Riesgo</h3>
+                <h3 className="text-lg font-semibold text-zen-anti-flash">{tr("Gestión de Riesgo", "Risk Management")}</h3>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 place-items-center">
                 {activePlan.max_risk_per_trade && (
                   <div className="text-center">
-                    <p className="text-sm text-zen-anti-flash/60">Riesgo máximo/trade</p>
+                    <p className="text-sm text-zen-anti-flash/60">{tr("Riesgo máximo/trade", "Max risk/trade")}</p>
                     <p className="text-lg font-semibold text-zen-anti-flash">
                       {activePlan.max_risk_per_trade}%
                     </p>
@@ -197,7 +202,7 @@ export default function TradingPlanPage() {
                 )}
                 {activePlan.max_daily_trades && (
                   <div className="text-center">
-                    <p className="text-sm text-zen-anti-flash/60">Trades diarios</p>
+                    <p className="text-sm text-zen-anti-flash/60">{tr("Trades diarios", "Daily trades")}</p>
                     <p className="text-lg font-semibold text-zen-anti-flash">
                       {activePlan.max_daily_trades}
                     </p>
@@ -205,7 +210,7 @@ export default function TradingPlanPage() {
                 )}
                 {activePlan.max_concurrent_positions && (
                   <div className="text-center">
-                    <p className="text-sm text-zen-anti-flash/60">Posiciones concurrentes</p>
+                    <p className="text-sm text-zen-anti-flash/60">{tr("Posiciones concurrentes", "Open positions")}</p>
                     <p className="text-lg font-semibold text-zen-anti-flash">
                       {activePlan.max_concurrent_positions}
                     </p>
@@ -213,7 +218,7 @@ export default function TradingPlanPage() {
                 )}
                 {activePlan.min_risk_reward_ratio && (
                   <div className="text-center">
-                    <p className="text-sm text-zen-anti-flash/60">Ratio R:R mínimo</p>
+                    <p className="text-sm text-zen-anti-flash/60">{tr("Ratio R:R mínimo", "Min R:R ratio")}</p>
                     <p className="text-lg font-semibold text-zen-anti-flash">
                       1:{activePlan.min_risk_reward_ratio}
                     </p>
@@ -226,7 +231,7 @@ export default function TradingPlanPage() {
           {/* Checklist */}
           {activePlan.pre_trade_checklist && activePlan.pre_trade_checklist.length > 0 && (
             <Card className="p-6 border-zen-caribbean-green bg-zen-dark-green">
-              <h3 className="font-semibold text-zen-anti-flash mb-3">Checklist Pre-Trade</h3>
+              <h3 className="font-semibold text-zen-anti-flash mb-3">{tr("Checklist Pre-Trade", "Pre-Trade Checklist")}</h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {activePlan.pre_trade_checklist.map((item, index) => (
                   <li key={index} className="flex items-start gap-2 text-sm text-zen-anti-flash/80">
@@ -248,12 +253,12 @@ export default function TradingPlanPage() {
             <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
               <div className="flex items-center gap-2 mb-4">
                 <FileText className="h-5 w-5 text-zen-caribbean-green" />
-                <h3 className="text-lg font-semibold text-zen-anti-flash">Reglas</h3>
+                <h3 className="text-lg font-semibold text-zen-anti-flash">{tr("Reglas", "Rules")}</h3>
               </div>
               <div className="space-y-4">
                 {activePlan.entry_rules && (
                   <div>
-                    <p className="text-sm font-semibold text-zen-anti-flash/80 mb-2">Entrada:</p>
+                    <p className="text-sm font-semibold text-zen-anti-flash/80 mb-2">{tr("Entrada:", "Entry:")}</p>
                     <p className="text-sm text-zen-anti-flash/60 whitespace-pre-wrap">
                       {activePlan.entry_rules}
                     </p>
@@ -261,7 +266,7 @@ export default function TradingPlanPage() {
                 )}
                 {activePlan.exit_rules && (
                   <div>
-                    <p className="text-sm font-semibold text-zen-anti-flash/80 mb-2">Salida:</p>
+                    <p className="text-sm font-semibold text-zen-anti-flash/80 mb-2">{tr("Salida:", "Exit:")}</p>
                     <p className="text-sm text-zen-anti-flash/60 whitespace-pre-wrap">
                       {activePlan.exit_rules}
                     </p>
@@ -275,7 +280,7 @@ export default function TradingPlanPage() {
           {/* Instruments */}
           {activePlan.allowed_instruments && activePlan.allowed_instruments.length > 0 && (
             <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
-              <h3 className="font-semibold text-zen-anti-flash mb-3">Instrumentos permitidos</h3>
+              <h3 className="font-semibold text-zen-anti-flash mb-3">{tr("Instrumentos permitidos", "Allowed instruments")}</h3>
               <div className="flex flex-wrap gap-2">
                 {activePlan.allowed_instruments.map((inst) => (
                   <Badge key={inst} variant="secondary" className="bg-zen-bangladesh-green/60 text-zen-anti-flash border-zen-forest/40">{inst}</Badge>
@@ -289,19 +294,19 @@ export default function TradingPlanPage() {
             <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
               <div className="flex items-center gap-2 mb-4">
                 <Calendar className="h-5 w-5 text-zen-caribbean-green" />
-                <h3 className="text-lg font-semibold text-zen-anti-flash">Horarios</h3>
+                <h3 className="text-lg font-semibold text-zen-anti-flash">{tr("Horarios", "Trading Hours")}</h3>
               </div>
               <div className="space-y-2">
                 {activePlan.trading_start_time && activePlan.trading_end_time && (
                   <p className="text-sm text-zen-anti-flash/80">
-                    <span className="text-zen-anti-flash/50">Horario:</span> {activePlan.trading_start_time} - {activePlan.trading_end_time}
+                    <span className="text-zen-anti-flash/50">{tr("Horario:", "Hours:")}</span> {activePlan.trading_start_time} - {activePlan.trading_end_time}
                   </p>
                 )}
                 {activePlan.trading_days && activePlan.trading_days.length > 0 && (
                   <p className="text-sm text-zen-anti-flash/80">
-                    <span className="text-zen-anti-flash/50">Días:</span>{' '}
+                    <span className="text-zen-anti-flash/50">{tr("Días:", "Days:")}</span>{' '}
                     {activePlan.trading_days.map(d =>
-                      ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'][d]
+                      (locale === 'es' ? ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'] : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'])[d]
                     ).join(', ')}
                   </p>
                 )}

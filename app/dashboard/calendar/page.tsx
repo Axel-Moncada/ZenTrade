@@ -303,7 +303,6 @@ export default function CalendarPage() {
             accounts={accounts}
             value={selectedAccountId}
             onValueChange={setSelectedAccountId}
-            label="Cuenta"
             showLabel={false}
             hideFailed={false}
           />

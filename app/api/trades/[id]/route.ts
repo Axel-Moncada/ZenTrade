@@ -39,7 +39,7 @@ export async function GET(
 
     if (error || !trade) {
       return NextResponse.json(
-        { error: 'Trade no encontrado' },
+        { error: 'Trade not found' },
         { status: 404 }
       );
     }
@@ -92,7 +92,7 @@ export async function PATCH(
     if (updateError || !trade) {
       console.error('Error updating trade:', JSON.stringify(updateError));
       return NextResponse.json(
-        { error: 'Error al actualizar trade', detail: updateError?.message ?? null },
+        { error: 'Could not update the trade', detail: updateError?.message ?? null },
         { status: 500 }
       );
     }
@@ -101,7 +101,7 @@ export async function PATCH(
   } catch (error) {
     if (error instanceof ZodError) {
       return NextResponse.json(
-        { error: 'Datos inválidos', details: error.errors },
+        { error: 'Invalid data', details: error.errors },
         { status: 400 }
       );
     }
@@ -143,7 +143,7 @@ export async function DELETE(
     if (deleteError) {
       console.error('Error deleting trade:', deleteError);
       return NextResponse.json(
-        { error: 'Error al eliminar trade' },
+        { error: 'Could not delete the trade' },
         { status: 500 }
       );
     }

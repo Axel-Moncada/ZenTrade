@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import type { Account } from "@/types/accounts";
+import { T } from "@/components/shared/t";
 
 interface AccountDetailPageProps {
   params: Promise<{
@@ -45,12 +46,12 @@ export default async function AccountDetailPage({
         <Link href="/dashboard/accounts">
           <Button variant="ghost" size="sm" className="mb-4">
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Volver a Cuentas
+            <T es="Volver a Cuentas" en="Back to Accounts" />
           </Button>
         </Link>
-        <h1 className="text-3xl font-bold">Editar Cuenta</h1>
+        <h1 className="text-3xl font-bold"><T es="Editar Cuenta" en="Edit Account" /></h1>
         <p className="text-gray-600 mt-2">
-          Modifica la información de tu cuenta de trading
+          <T es="Modifica la información de tu cuenta de trading" en="Update your trading account details" />
         </p>
       </div>
 

@@ -17,6 +17,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
 import type { Account } from "@/types/accounts";
 import { UpgradePrompt } from "@/components/shared/upgrade-prompt";
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface AccountFormProps {
   account?: Account;
@@ -28,6 +29,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [planLimitReached, setPlanLimitReached] = useState(false);
+  const { tr } = useTr();
 
   const [formData, setFormData] = useState({
     name: account?.name || "",
@@ -99,7 +101,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
           setLoading(false);
           return;
         }
-        setError(data.error ?? "Error al guardar la cuenta");
+        setError(data.error ?? tr("Error al guardar la cuenta", "Could not save the account"));
         setLoading(false);
         return;
       }
@@ -107,7 +109,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
       router.push("/dashboard/accounts");
       router.refresh();
     } catch (err) {
-      setError("Error de conexión");
+      setError(tr("Error de conexión", "Connection error"));
       setLoading(false);
     }
   };
@@ -127,10 +129,13 @@ export function AccountForm({ account, mode }: AccountFormProps) {
         <UpgradePrompt
           requiredPlan="pro"
           variant="card"
-          message="Alcanzaste el límite de cuentas de tu plan actual"
+          message={{ es: "Alcanzaste el límite de cuentas de tu plan actual", en: "You reached your plan's account limit" }}
         />
         <p className="text-center text-sm text-zen-text-muted">
-          Professional incluye cuentas ilimitadas para gestionar todas tus evaluaciones y cuentas live.
+          {tr(
+            "Professional incluye cuentas ilimitadas para gestionar todas tus evaluaciones y cuentas live.",
+            "Professional includes unlimited accounts to track every evaluation and live account."
+          )}
         </p>
       </div>
     );
@@ -140,7 +145,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
     <Card className="bg-zen-dark-green border border-zen-forest/40 px-10 rounded-xl">
       <CardHeader>
         <CardTitle className="text-zen-anti-flash">
-          {mode === "create" ? "Nueva Cuenta" : "Editar Cuenta"}
+          {mode === "create" ? tr("Nueva Cuenta", "New Account") : tr("Editar Cuenta", "Edit Account")}
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -156,11 +161,11 @@ export function AccountForm({ account, mode }: AccountFormProps) {
             {/* Nombre */}
             <div className="space-y-2">
               <Label htmlFor="name" className="text-zen-anti-flash">
-                Nombre <span className="text-zen-danger">*</span>
+                {tr("Nombre", "Name")} <span className="text-zen-danger">*</span>
               </Label>
               <Input
                 id="name"
-                placeholder="Ej: Prop FTMO 50k"
+                placeholder={tr("Ej: Prop FTMO 50k", "e.g. Apex 50K Eval")}
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
@@ -172,7 +177,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
             {/* Tipo de Cuenta */}
             <div className="space-y-2">
               <Label htmlFor="account_type" className="text-zen-anti-flash">
-                Tipo de Cuenta <span className="text-zen-danger">*</span>
+                {tr("Tipo de Cuenta", "Account Type")} <span className="text-zen-danger">*</span>
               </Label>
               <Select
                 value={formData.account_type}
@@ -185,7 +190,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
-                  <SelectItem value="evaluation" className="hover:bg-zen-rich-black">Evaluación</SelectItem>
+                  <SelectItem value="evaluation" className="hover:bg-zen-rich-black">{tr("Evaluación", "Evaluation")}</SelectItem>
                   <SelectItem value="live" className="hover:bg-zen-rich-black">Live</SelectItem>
                 </SelectContent>
               </Select>
@@ -193,10 +198,10 @@ export function AccountForm({ account, mode }: AccountFormProps) {
 
             {/* Broker */}
             <div className="space-y-2">
-              <Label htmlFor="broker" className="text-zen-anti-flash">Broker</Label>
+              <Label htmlFor="broker" className="text-zen-anti-flash">{tr("Broker", "Prop firm / Broker")}</Label>
               <Input
                 id="broker"
-                placeholder="Ej: FTMO, Apex, TopStep"
+                placeholder={tr("Ej: FTMO, Apex, TopStep", "e.g. Apex, TopStep, FTMO")}
                 value={formData.broker}
                 onChange={(e) => setFormData({ ...formData, broker: e.target.value })}
                 disabled={loading}
@@ -206,10 +211,10 @@ export function AccountForm({ account, mode }: AccountFormProps) {
 
             {/* Plataforma */}
             <div className="space-y-2">
-              <Label htmlFor="platform" className="text-zen-anti-flash">Plataforma</Label>
+              <Label htmlFor="platform" className="text-zen-anti-flash">{tr("Plataforma", "Platform")}</Label>
               <Input
                 id="platform"
-                placeholder="Ej: NinjaTrader, TradingView"
+                placeholder={tr("Ej: NinjaTrader, Tradovate", "e.g. NinjaTrader, Tradovate")}
                 value={formData.platform}
                 onChange={(e) => setFormData({ ...formData, platform: e.target.value })}
                 disabled={loading}
@@ -220,7 +225,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
             {/* Balance Inicial */}
             <div className="space-y-2">
               <Label htmlFor="initial_balance" className="text-zen-anti-flash">
-                Balance Inicial del Broker <span className="text-zen-danger">*</span>
+                {tr("Balance Inicial del Broker", "Account Starting Balance")} <span className="text-zen-danger">*</span>
               </Label>
               <Input
                 id="initial_balance"
@@ -242,14 +247,14 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                 className={inputCls}
               />
               <p className="text-xs text-zen-anti-flash/50">
-                Balance con el que el broker te dio la cuenta
+                {tr("Balance con el que el broker te dio la cuenta", "The balance your prop firm or broker gave you")}
               </p>
             </div>
 
             {/* Balance al Iniciar Tracking */}
             <div className="space-y-2">
               <Label htmlFor="starting_balance" className="text-zen-anti-flash">
-                Balance al Iniciar Tracking <span className="text-zen-danger">*</span>
+                {tr("Balance al Iniciar Tracking", "Balance When You Started Tracking")} <span className="text-zen-danger">*</span>
               </Label>
               <Input
                 id="starting_balance"
@@ -266,14 +271,14 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                 className={inputCls}
               />
               <p className="text-xs text-zen-anti-flash/50">
-                Balance real cuando empezaste a usar ZenTrade (si difiere del inicial)
+                {tr("Balance real cuando empezaste a usar ZenTrade (si difiere del inicial)", "Your actual balance when you started using ZenTrade (if different)")}
               </p>
             </div>
 
             {/* Tipo de Drawdown */}
             <div className="space-y-2">
               <Label htmlFor="drawdown_type" className="text-zen-anti-flash">
-                Tipo de Drawdown <span className="text-zen-danger">*</span>
+                {tr("Tipo de Drawdown", "Drawdown Type")} <span className="text-zen-danger">*</span>
               </Label>
               <Select
                 value={formData.drawdown_type}
@@ -287,7 +292,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                 </SelectTrigger>
                 <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
                   <SelectItem value="trailing" className="hover:bg-zen-rich-black">Trailing</SelectItem>
-                  <SelectItem value="static" className="hover:bg-zen-rich-black">Estático</SelectItem>
+                  <SelectItem value="static" className="hover:bg-zen-rich-black">{tr("Estático", "Static")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -295,7 +300,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
             {/* Máximo Drawdown */}
             <div className="space-y-2">
               <Label htmlFor="max_drawdown" className="text-zen-anti-flash">
-                Drawdown Máximo (USD) <span className="text-zen-danger">*</span>
+                {tr("Drawdown Máximo (USD)", "Max Drawdown (USD)")} <span className="text-zen-danger">*</span>
               </Label>
               <Input
                 id="max_drawdown"
@@ -316,7 +321,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
             {/* Objetivo de Ganancia */}
             <div className="space-y-2">
               <Label htmlFor="profit_target" className="text-zen-anti-flash">
-                Objetivo de Ganancia (USD)
+                {tr("Objetivo de Ganancia (USD)", "Profit Target (USD)")}
               </Label>
               <Input
                 id="profit_target"
@@ -336,7 +341,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
             {/* Colchón */}
             <div className="space-y-2">
               <Label htmlFor="buffer_amount" className="text-zen-anti-flash">
-                Colchón de Seguridad (USD)
+                {tr("Colchón de Seguridad (USD)", "Safety Buffer (USD)")}
               </Label>
               <Input
                 id="buffer_amount"
@@ -356,7 +361,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
             {/* Fecha Inicio */}
             <div className="space-y-2">
               <Label htmlFor="start_date" className="text-zen-anti-flash">
-                Fecha de Inicio <span className="text-zen-danger">*</span>
+                {tr("Fecha de Inicio", "Start Date")} <span className="text-zen-danger">*</span>
               </Label>
               <Input
                 id="start_date"
@@ -374,7 +379,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
 
             {/* Estado */}
             <div className="space-y-2">
-              <Label htmlFor="status" className="text-zen-anti-flash">Estado</Label>
+              <Label htmlFor="status" className="text-zen-anti-flash">{tr("Estado", "Status")}</Label>
               <Select
                 value={formData.status}
                 onValueChange={(value) =>
@@ -389,10 +394,10 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
-                  <SelectItem value="active" className="hover:bg-zen-rich-black">Activa</SelectItem>
-                  <SelectItem value="passed" className="hover:bg-zen-rich-black">Aprobada</SelectItem>
-                  <SelectItem value="failed" className="hover:bg-zen-rich-black">Fallida</SelectItem>
-                  <SelectItem value="inactive" className="hover:bg-zen-rich-black">Inactiva</SelectItem>
+                  <SelectItem value="active" className="hover:bg-zen-rich-black">{tr("Activa", "Active")}</SelectItem>
+                  <SelectItem value="passed" className="hover:bg-zen-rich-black">{tr("Aprobada", "Passed")}</SelectItem>
+                  <SelectItem value="failed" className="hover:bg-zen-rich-black">{tr("Fallida", "Failed")}</SelectItem>
+                  <SelectItem value="inactive" className="hover:bg-zen-rich-black">{tr("Inactiva", "Inactive")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -400,7 +405,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
             {/* Regla de Consistencia */}
             <div className="space-y-2">
               <Label htmlFor="consistency_percent" className="text-zen-anti-flash">
-                Regla de Consistencia
+                {tr("Regla de Consistencia", "Consistency Rule")}
               </Label>
               <Select
                 value={formData.consistency_percent}
@@ -423,17 +428,17 @@ export function AccountForm({ account, mode }: AccountFormProps) {
                 </SelectContent>
               </Select>
               <p className="text-xs text-zen-anti-flash/50">
-                % máximo que un solo trade puede representar del total de ganancias
+                {tr("% máximo que un solo trade puede representar del total de ganancias", "Max % of total profit a single trade can represent")}
               </p>
             </div>
           </div>
 
           {/* Notas — Full Width */}
           <div className="space-y-2">
-            <Label htmlFor="notes" className="text-zen-anti-flash">Notas</Label>
+            <Label htmlFor="notes" className="text-zen-anti-flash">{tr("Notas", "Notes")}</Label>
             <Textarea
               id="notes"
-              placeholder="Notas adicionales sobre esta cuenta..."
+              placeholder={tr("Notas adicionales sobre esta cuenta...", "Anything else about this account...")}
               rows={4}
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
@@ -451,14 +456,14 @@ export function AccountForm({ account, mode }: AccountFormProps) {
               disabled={loading}
               className="border-zen-forest/40 text-zen-anti-flash hover:bg-zen-caribbean-green/10"
             >
-              Cancelar
+              {tr("Cancelar", "Cancel")}
             </Button>
             <Button type="submit" disabled={loading} variant="zenGreen">
               {loading
-                ? "Guardando..."
+                ? tr("Guardando...", "Saving...")
                 : mode === "create"
-                ? "Crear Cuenta"
-                : "Guardar Cambios"}
+                ? tr("Crear Cuenta", "Create Account")
+                : tr("Guardar Cambios", "Save Changes")}
             </Button>
           </div>
         </form>

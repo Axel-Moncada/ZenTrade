@@ -13,50 +13,49 @@ const PLAN_CONFIG: Record<
 > = {
   starter: {
     features: [
-      "2 cuentas de trading (Evaluation + Live)",
-      "Registro manual de trades ilimitado",
-      "Dashboard básico: Win Rate, PnL, Drawdown",
-      "Calendario de trades",
-      "Export CSV",
-      "Soporte por email",
+      "2 trading accounts (evaluation + funded)",
+      "Unlimited manual trade logging",
+      "Core dashboard: win rate, P&L, drawdown",
+      "Trade calendar",
+      "CSV export",
+      "Email support",
     ],
     nextSteps: [
-      { label: "Crear tu segunda cuenta de trading", href: `${APP_URL}/dashboard/accounts/new` },
-      { label: "Registrar tu primer trade", href: `${APP_URL}/dashboard/trades` },
-      { label: "Explorar tu dashboard", href: `${APP_URL}/dashboard` },
+      { label: "Add your second trading account", href: `${APP_URL}/dashboard/accounts/new` },
+      { label: "Log your first trade", href: `${APP_URL}/dashboard/trades` },
+      { label: "Explore your dashboard", href: `${APP_URL}/dashboard` },
     ],
   },
   pro: {
     features: [
-      "Cuentas ilimitadas",
-      "Import CSV automático (Rithmic, NinjaTrader, Tradoverse)",
-      "Dashboard analítico completo con todos los KPIs",
-      "Trading Plan exportable en PDF",
-      "Equity curve + análisis de distribución",
-      "Filtros avanzados por instrumento, sesión y setup",
-      "Export CSV / PDF / Excel ilimitado",
-      "Soporte prioritario",
+      "Unlimited trading accounts",
+      "CSV import (NinjaTrader, Rithmic, Tradovate)",
+      "Full analytics dashboard with every KPI",
+      "Profit factor and consistency score",
+      "Equity curve and P&L distribution",
+      "Advanced filters by instrument, session and setup",
+      "Trading plan PDF export",
+      "Priority support",
     ],
     nextSteps: [
-      { label: "Importar trades desde CSV", href: `${APP_URL}/dashboard/trades/import` },
-      { label: "Crear tu Trading Plan en PDF", href: `${APP_URL}/dashboard/trading-plan` },
-      { label: "Explorar el dashboard analítico", href: `${APP_URL}/dashboard` },
+      { label: "Import your trades from CSV", href: `${APP_URL}/dashboard/trades/import` },
+      { label: "Build your trading plan", href: `${APP_URL}/dashboard/trading-plan` },
+      { label: "Explore the analytics dashboard", href: `${APP_URL}/dashboard` },
     ],
   },
   zenmode: {
     features: [
-      "Todo en Professional incluido",
-      "Detección de revenge trading en tiempo real (IA)",
-      "Alertas de reglas de riesgo automáticas",
-      "Reporte semanal por email cada lunes",
-      "Análisis de horario óptimo de trading (IA)",
-      "Benchmark vs. requisitos de prop firms",
-      "Coaching 1-a-1 mensual",
+      "Everything in Professional",
+      "Live Discipline Copilot during your session",
+      "Revenge trading detection",
+      "ZenCoach, your AI trading coach",
+      "Weekly AI performance report every Monday",
+      "Weekly Market Radar every Sunday",
     ],
     nextSteps: [
-      { label: "Explorar el dashboard analítico", href: `${APP_URL}/dashboard` },
-      { label: "Configurar tu Trading Plan", href: `${APP_URL}/dashboard/trading-plan` },
-      { label: "Ver tus cuentas", href: `${APP_URL}/dashboard/accounts` },
+      { label: "Start a live session with the Discipline Copilot", href: `${APP_URL}/dashboard/live-session` },
+      { label: "Set up your trading plan", href: `${APP_URL}/dashboard/trading-plan` },
+      { label: "Explore your dashboard", href: `${APP_URL}/dashboard` },
     ],
   },
 };
@@ -83,7 +82,7 @@ export async function sendWelcomeEmail({
   const config = PLAN_CONFIG[planKey];
 
   if (!config) {
-    console.warn(`[Resend] Plan desconocido: ${planKey} — email no enviado`);
+    console.warn(`[Resend] Unknown plan: ${planKey}, email not sent`);
     return;
   }
 
@@ -104,14 +103,14 @@ export async function sendWelcomeEmail({
   const { error } = await resend.emails.send({
     from: FROM_EMAIL,
     to: userEmail,
-    subject: `¡Bienvenido al plan ${planName}! Tu cuenta está activa 🎉`,
+    subject: `Welcome to ${planName}! Your plan is now active 🎉`,
     html,
   });
 
   if (error) {
-    console.error("[Resend] Error enviando email de bienvenida:", error);
+    console.error("[Resend] Failed to send welcome email:", error);
     throw error;
   }
 
-  console.log(`[Resend] Email de bienvenida enviado a ${userEmail} — plan ${planName}`);
+  console.log(`[Resend] Welcome email sent, plan ${planName}`);
 }

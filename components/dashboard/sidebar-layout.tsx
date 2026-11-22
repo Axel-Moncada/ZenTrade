@@ -194,7 +194,7 @@ export function SidebarLayout({
               className="flex items-center gap-3 px-4 py-2.5 text-sm text-amber-400/80 hover:text-amber-400 hover:bg-amber-400/10 transition-colors"
             >
               <BarChart2 className="h-4 w-4 shrink-0" />
-              <span>Métricas</span>
+              <span>Metrics</span>
             </Link>
           </>
         )}
@@ -222,7 +222,7 @@ export function SidebarLayout({
         <button
           onClick={() => setMobileOpen(true)}
           className="p-2 rounded-lg text-zen-anti-flash/70 hover:text-zen-anti-flash hover:bg-zen-caribbean-green/10 transition-colors"
-          aria-label="Abrir menú"
+          aria-label="Open menu"
         >
           <Menu className="h-5 w-5" />
         </button>
@@ -254,7 +254,7 @@ export function SidebarLayout({
           <button
             onClick={() => setMobileOpen(false)}
             className="p-1.5 rounded-lg text-zen-anti-flash/60 hover:text-zen-anti-flash hover:bg-zen-caribbean-green/10 transition-colors"
-            aria-label="Cerrar menú"
+            aria-label="Close menu"
           >
             <X className="h-5 w-5" />
           </button>
@@ -335,7 +335,7 @@ export function SidebarLayout({
               {[
                 { href: "/dashboard/admin/users", label: "Usuarios", icon: Users },
                 { href: "/dashboard/admin/affiliates", label: "Afiliados", icon: Link2 },
-                { href: "/dashboard/admin/metrics", label: "Métricas", icon: BarChart2 },
+                { href: "/dashboard/admin/metrics", label: "Metrics", icon: BarChart2 },
               ].map(({ href, label, icon: Icon }) => (
                 <Link
                   key={href}
@@ -479,7 +479,7 @@ export function SidebarLayout({
                   {[
                     { href: "/dashboard/admin/users", label: "Usuarios", icon: Users },
                     { href: "/dashboard/admin/affiliates", label: "Afiliados", icon: Link2 },
-                    { href: "/dashboard/admin/metrics", label: "Métricas", icon: BarChart2 },
+                    { href: "/dashboard/admin/metrics", label: "Metrics", icon: BarChart2 },
                   ].map(({ href, label, icon: Icon }) => (
                     <Link
                       key={href}

@@ -78,11 +78,11 @@ export interface TradingPlanFormData {
 }
 
 export const WEEK_DAYS = [
-  { value: 0, label: 'Domingo' },
-  { value: 1, label: 'Lunes' },
-  { value: 2, label: 'Martes' },
-  { value: 3, label: 'Miércoles' },
-  { value: 4, label: 'Jueves' },
-  { value: 5, label: 'Viernes' },
-  { value: 6, label: 'Sábado' },
+  { value: 0, label: { es: 'Domingo', en: 'Sunday' } },
+  { value: 1, label: { es: 'Lunes', en: 'Monday' } },
+  { value: 2, label: { es: 'Martes', en: 'Tuesday' } },
+  { value: 3, label: { es: 'Miércoles', en: 'Wednesday' } },
+  { value: 4, label: { es: 'Jueves', en: 'Thursday' } },
+  { value: 5, label: { es: 'Viernes', en: 'Friday' } },
+  { value: 6, label: { es: 'Sábado', en: 'Saturday' } },
 ]

@@ -27,6 +27,7 @@ import type { Account } from "@/types/accounts";
 import { parseISODate } from "@/lib/utils/date-helpers";
 import { computeDrawdownStatus } from "@/lib/utils/drawdown";
 import { formatSignedMoney } from "@/lib/utils/format-money";
+import { useTr } from "@/lib/i18n/use-tr";
 import {
   ACCOUNT_TYPE_LABELS,
   ACCOUNT_TYPE_COLORS,
@@ -50,6 +51,7 @@ interface AccountCardProps {
 
 export function AccountCard({ account, onDelete }: AccountCardProps) {
   const [consistency, setConsistency] = useState<ConsistencyInfo | null>(null);
+  const { tr, locale } = useTr();
 
   useEffect(() => {
     if (account.account_type !== "live") return;
@@ -82,7 +84,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
 
       if (!response.ok) {
         const data = await response.json();
-        alert(data.error || "Error al eliminar la cuenta");
+        alert(data.error || tr("Error al eliminar la cuenta", "Could not delete the account"));
         return;
       }
 
@@ -90,7 +92,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
         onDelete();
       }
     } catch (err) {
-      alert("Error de conexión");
+      alert(tr("Error de conexión", "Connection error"));
     }
   };
 
@@ -124,7 +126,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
       {/* Banner de evaluación fallida */}
       {isFailed && (
         <div className="mb-4 -mx-6 -mt-6 px-4 py-2 bg-red-900/40 border-b border-red-900/50 flex items-center gap-2 rounded-t-xl">
-          <span className="text-xs font-bold text-red-400 tracking-wide uppercase">Evaluación Fallida · Solo lectura</span>
+          <span className="text-xs font-bold text-red-400 tracking-wide uppercase">{tr("Evaluación Fallida · Solo lectura", "Failed evaluation · Read only")}</span>
         </div>
       )}
       <CardHeader>
@@ -133,15 +135,15 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
             <CardTitle className={`text-2xl ${isFailed ? "text-zen-anti-flash/70" : ""}`}>{account.name}</CardTitle>
             <CardDescription className="mt-1">
               {account.broker && `${account.broker} · `}
-              {account.platform || "Sin plataforma"}
+              {account.platform || tr("Sin plataforma", "No platform")}
             </CardDescription>
           </div>
           <div className="flex gap-2">
             <Badge className={ACCOUNT_TYPE_COLORS[account.account_type]}>
-              {ACCOUNT_TYPE_LABELS[account.account_type]}
+              {ACCOUNT_TYPE_LABELS[account.account_type][locale]}
             </Badge>
             <Badge className={ACCOUNT_STATUS_COLORS[account.status]}>
-              {ACCOUNT_STATUS_LABELS[account.status]}
+              {ACCOUNT_STATUS_LABELS[account.status][locale]}
             </Badge>
           </div>
         </div>
@@ -151,7 +153,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
         {/* Balance Actual */}
         <div>
           <div className="flex items-baseline justify-between mb-1">
-            <span className="text-sm text-zen-anti-flash">Balance Actual</span>
+            <span className="text-sm text-zen-anti-flash">{tr("Balance Actual", "Current Balance")}</span>
             <span className="text-2xl text-zen-caribbean-green font-bold bg-zen-bangladesh-green/80 px-4 py-1 rounded-full">
               ${account.current_balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </span>
@@ -160,18 +162,18 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
           {/* Desglose del balance */}
           <div className="mt-2 p-3 bg-zen-rich-black/40 rounded-lg space-y-1.5 text-xs">
             <div className="flex justify-between text-zen-anti-flash/70">
-              <span>Balance al Iniciar:</span>
+              <span>{tr("Balance al Iniciar:", "Starting Balance:")}</span>
               <span className="font-medium">${account.starting_balance.toLocaleString("en-US", { minimumFractionDigits: 2 })}</span>
             </div>
             <div className="flex justify-between text-zen-anti-flash/70">
-              <span>P&L Trades:</span>
+              <span>{tr("P&L Trades:", "Trade P&L:")}</span>
               <span className={`font-medium ${tradePnL >= 0 ? "text-zen-caribbean-green" : "text-zen-danger"}`}>
                 {formatSignedMoney(tradePnL)}
               </span>
             </div>
             
             <div className="pt-1.5 border-t border-zen-border-soft/30 flex justify-between text-zen-anti-flash font-semibold">
-              <span>Balance Actual:</span>
+              <span>{tr("Balance Actual:", "Current Balance:")}</span>
               <span className={balanceChange >= 0 ? "text-zen-caribbean-green" : "text-zen-danger"}>
                 {formatSignedMoney(balanceChange)} ({balanceChangePercent >= 0 ? "+" : ""}{balanceChangePercent.toFixed(2)}%)
               </span>
@@ -183,7 +185,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
         {account.profit_target && (
           <div>
             <div className="flex items-center justify-between text-sm mb-1">
-              <span className="text-zen-anti-flash mt-5">Progreso Objetivo</span>
+              <span className="text-zen-anti-flash mt-5">{tr("Progreso Objetivo", "Profit Target Progress")}</span>
               <span className="font-medium text-zen-anti-flash">{profitProgress.toFixed(1)}%</span>
             </div>
             <div className="w-full bg-zen-rich-black/70 rounded-full h-3">
@@ -193,7 +195,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
               />
             </div>
             <div className="text-xs text-zen-anti-flash mt-1">
-              Meta: ${account.profit_target.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+              {tr("Meta", "Target")}: ${account.profit_target.toLocaleString("en-US", { minimumFractionDigits: 2 })}
             </div>
           </div>
         )}
@@ -202,7 +204,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
         <div>
           <div className="flex items-center justify-between text-sm mb-1">
             <span className="text-zen-anti-flash">
-              Drawdown ({DRAWDOWN_TYPE_LABELS[account.drawdown_type]})
+              Drawdown ({DRAWDOWN_TYPE_LABELS[account.drawdown_type][locale]})
             </span>
             <span
               className={`font-medium ${
@@ -225,14 +227,14 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
             />
           </div>
           <div className="text-xs text-zen-anti-flash mt-1">
-            Máximo: ${account.max_drawdown.toLocaleString("en-US", { minimumFractionDigits: 2 })} · 
-            Disponible: ${remainingDrawdown.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+            {tr("Máximo", "Max")}: ${account.max_drawdown.toLocaleString("en-US", { minimumFractionDigits: 2 })} · 
+            {tr("Disponible", "Remaining")}: ${remainingDrawdown.toLocaleString("en-US", { minimumFractionDigits: 2 })}
           </div>
         </div>
 
         {/* Información adicional */}
         <div className="pt-10 text-xs text-zen-anti-flash">
-          <div>Fecha de inicio: {parseISODate(account.start_date).toLocaleDateString("es-ES")}</div>
+          <div>{tr("Fecha de inicio", "Start date")}: {parseISODate(account.start_date).toLocaleDateString(locale === "es" ? "es-ES" : "en-US")}</div>
         </div>
 
         {/* Regla de Consistencia (solo cuentas live) */}
@@ -249,38 +251,44 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
                 <AlertTriangle className="h-4 w-4 text-amber-400 shrink-0" />
               )}
               <span className={consistency.passes ? "text-zen-caribbean-green" : "text-amber-400"}>
-                Consistencia {account.consistency_percent ?? 30}% — {consistency.passes ? "Cumplida ✓" : "Pendiente"}
+                {tr("Consistencia", "Consistency")} {account.consistency_percent ?? 30}% — {consistency.passes ? tr("Cumplida ✓", "Met ✓") : tr("Pendiente", "Pending")}
               </span>
             </div>
             <p className="text-xs text-zen-anti-flash/70 leading-relaxed">
               {consistency.passes ? (
                 <>
-                  Tu trade más grande fue{" "}
+                  {tr("Tu trade más grande fue", "Your biggest trade was")}{" "}
                   <span className="font-semibold text-zen-anti-flash">
                     ${consistency.biggestWin.toLocaleString("en-US", { minimumFractionDigits: 2 })}
                   </span>{" "}
-                  y representa menos del {account.consistency_percent ?? 30}% de tu ganancia neta de{" "}
+                  {tr(
+                    `y representa menos del ${account.consistency_percent ?? 30}% de tu ganancia neta de`,
+                    `and it is less than ${account.consistency_percent ?? 30}% of your net profit of`
+                  )}{" "}
                   <span className="font-semibold text-zen-caribbean-green">
                     ${consistency.netProfit.toLocaleString("en-US", { minimumFractionDigits: 2 })}
                   </span>
-                  . Puedes solicitar un retiro.
+                  {tr(". Puedes solicitar un retiro.", ". You can request a payout.")}
                 </>
               ) : (
                 <>
-                  Tu ganancia neta es{" "}
+                  {tr("Tu ganancia neta es", "Your net profit is")}{" "}
                   <span className="font-semibold text-zen-anti-flash">
                     ${consistency.netProfit.toLocaleString("en-US", { minimumFractionDigits: 2 })}
                   </span>
-                  , pero tu trade más grande fue{" "}
+                  {tr(", pero tu trade más grande fue", ", but your biggest trade was")}{" "}
                   <span className="font-semibold text-amber-400">
                     ${consistency.biggestWin.toLocaleString("en-US", { minimumFractionDigits: 2 })}
                   </span>{" "}
-                  ({((consistency.biggestWin / consistency.netProfit) * 100).toFixed(1)}% de tu ganancia neta).
-                  Para cumplir el {account.consistency_percent ?? 30}%, necesitas acumular{" "}
+                  ({((consistency.biggestWin / consistency.netProfit) * 100).toFixed(1)}% {tr("de tu ganancia neta", "of your net profit")}).{" "}
+                  {tr(
+                    `Para cumplir el ${account.consistency_percent ?? 30}%, necesitas acumular`,
+                    `To meet the ${account.consistency_percent ?? 30}% rule, you need`
+                  )}{" "}
                   <span className="font-semibold text-zen-caribbean-green">
                     ${consistency.neededProfit.toLocaleString("en-US", { minimumFractionDigits: 2 })}
                   </span>{" "}
-                  más en ganancia neta (llevar el total a{" "}
+                  {tr("más en ganancia neta (llevar el total a", "more in net profit (bringing the total to")}{" "}
                   <span className="font-semibold text-zen-anti-flash">
                     ${(consistency.netProfit + consistency.neededProfit).toLocaleString("en-US", { minimumFractionDigits: 2 })}
                   </span>
@@ -292,7 +300,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
               <div className="flex items-center gap-2 pt-1">
                 <TrendingUp className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                 <span className="text-xs text-amber-400 font-medium">
-                  Ganancia neta mínima necesaria: $
+                  {tr("Ganancia neta mínima necesaria", "Minimum net profit needed")}: $
                   {(consistency.biggestWin / ((account.consistency_percent ?? 30) / 100)).toLocaleString("en-US", { minimumFractionDigits: 2 })}
                 </span>
               </div>
@@ -309,7 +317,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
                 className="w-full font-bold bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700"
               >
                 <Pencil className="h-4 w-4 mr-2" />
-                Ver Historial
+                {tr("Ver Historial", "View History")}
               </Button>
             ) : (
               <Button
@@ -318,7 +326,7 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
                 size="sm"
               >
                 <Pencil className="h-4 w-4 mr-2" />
-                Ver / Editar
+                {tr("Ver / Editar", "View / Edit")}
               </Button>
             )}
           </Link>
@@ -330,19 +338,21 @@ export function AccountCard({ account, onDelete }: AccountCardProps) {
             </AlertDialogTrigger>
             <AlertDialogContent className="bg-zen-dark-green border border-zen-forest/40 rounded-xl">
               <AlertDialogHeader>
-                <AlertDialogTitle className="text-zen-anti-flash">¿Eliminar cuenta?</AlertDialogTitle>
+                <AlertDialogTitle className="text-zen-anti-flash">{tr("¿Eliminar cuenta?", "Delete account?")}</AlertDialogTitle>
                 <AlertDialogDescription className="text-zen-anti-flash/60">
-                  Esta acción eliminará permanentemente la cuenta {`"${account.name}"`} y
-                  todos sus trades asociados. Esta acción no se puede deshacer.
+                  {tr(
+                    `Esta acción eliminará permanentemente la cuenta "${account.name}" y todos sus trades asociados. Esta acción no se puede deshacer.`,
+                    `This will permanently delete the account "${account.name}" and all of its trades. This cannot be undone.`
+                  )}
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel className="bg-zen-bangladesh-green/30 border-zen-forest/40 text-zen-anti-flash hover:bg-zen-bangladesh-green/50 hover:text-zen-anti-flash">Cancelar</AlertDialogCancel>
+                <AlertDialogCancel className="bg-zen-bangladesh-green/30 border-zen-forest/40 text-zen-anti-flash hover:bg-zen-bangladesh-green/50 hover:text-zen-anti-flash">{tr("Cancelar", "Cancel")}</AlertDialogCancel>
                 <AlertDialogAction
                   onClick={handleDelete}
                   className="bg-red-600 hover:bg-red-700 text-white border-0"
                 >
-                  Eliminar
+                  {tr("Eliminar", "Delete")}
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>

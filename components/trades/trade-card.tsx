@@ -7,19 +7,21 @@ import { Badge } from '@/components/ui/badge';
 import { Trash2, Pencil, TrendingUp, TrendingDown, Target, AlertCircle, Minus, Clock, CheckCircle, XCircle, Camera, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { createClient } from '@/lib/supabase/client';
+import { emotionLabel } from '@/lib/constants/trade-labels';
+import { useTr } from "@/lib/i18n/use-tr";
 import { ScreenshotLightbox } from './screenshot-lightbox';
 
-const EMOTIONS_CONFIG: Record<string, { label: string; color: string }> = {
-  disciplinado: { label: 'Disciplinado', color: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40' },
-  confiado: { label: 'Confiado', color: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40' },
-  paciente: { label: 'Paciente', color: 'bg-yellow-500/20 text-yellow-500 border-yellow-500/40' },
-  ansioso: { label: 'Ansioso', color: 'bg-yellow-500/20 text-yellow-500 border-yellow-500/40' },
-  miedo: { label: 'Miedo', color: 'bg-zen-danger/20 text-zen-danger border-zen-danger/40' },
-  codicia: { label: 'Codicia', color: 'bg-zen-danger/20 text-zen-danger border-zen-danger/40' },
-  frustrado: { label: 'Frustrado', color: 'bg-zen-danger/15 text-zen-danger border-zen-danger/30' },
-  'eufórico': { label: 'Eufórico', color: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40' },
-  revenge_trading: { label: 'Revenge Trading', color: 'bg-zen-danger/25 text-zen-danger border-zen-danger/50' },
-  fomo: { label: 'FOMO', color: 'bg-zen-danger/20 text-zen-danger border-zen-danger/40' },
+const EMOTIONS_CONFIG: Record<string, { color: string }> = {
+  disciplinado: { color: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40' },
+  confiado: { color: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40' },
+  paciente: { color: 'bg-yellow-500/20 text-yellow-500 border-yellow-500/40' },
+  ansioso: { color: 'bg-yellow-500/20 text-yellow-500 border-yellow-500/40' },
+  miedo: { color: 'bg-zen-danger/20 text-zen-danger border-zen-danger/40' },
+  codicia: { color: 'bg-zen-danger/20 text-zen-danger border-zen-danger/40' },
+  frustrado: { color: 'bg-zen-danger/15 text-zen-danger border-zen-danger/30' },
+  'eufórico': { color: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40' },
+  revenge_trading: { color: 'bg-zen-danger/25 text-zen-danger border-zen-danger/50' },
+  fomo: { color: 'bg-zen-danger/20 text-zen-danger border-zen-danger/40' },
 };
 
 interface TradeCardProps {
@@ -44,7 +46,7 @@ const exitReasonLabels = {
   break_even: 'Break Even',
   manual: 'Manual',
   timeout: 'Timeout',
-};
+} as const;
 
 const exitReasonColors = {
   take_profit: 'bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40',
@@ -58,6 +60,7 @@ const exitReasonColors = {
 export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
   const isWinner = trade.result > 0;
   const isLoser = trade.result < 0;
+  const { tr, locale } = useTr();
 
   const [signedUrls, setSignedUrls] = useState<string[]>([]);
   const [loadingUrls, setLoadingUrls] = useState(false);
@@ -126,7 +129,7 @@ export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
               <Button
                 onClick={() => onEdit(trade)}
                 className="h-7 w-7 p-0 bg-zen-caribbean-green/20 hover:bg-zen-caribbean-green/30 text-zen-caribbean-green rounded-md transition-colors"
-                title="Editar trade"
+                title={tr("Editar trade", "Edit trade")}
               >
                 <Pencil className="h-3.5 w-3.5" />
               </Button>
@@ -135,7 +138,7 @@ export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
               <Button
                 onClick={() => onDelete(trade.id)}
                 className="h-7 w-7 p-0 bg-zen-danger/20 hover:bg-zen-danger/30 text-zen-danger rounded-md transition-colors"
-                title="Eliminar trade"
+                title={tr("Eliminar trade", "Delete trade")}
               >
                 <Trash2 className="h-3.5 w-3.5" />
               </Button>
@@ -147,7 +150,7 @@ export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
       {/* Info principal: Contratos y Razón */}
       <div className="flex items-center gap-3 mb-3 flex-wrap">
         <div className="flex items-center gap-1 text-xs">
-          <span className="text-zen-anti-flash/60">Contratos:</span>
+          <span className="text-zen-anti-flash/60">{tr("Contratos:", "Contracts:")}</span>
           <span className="font-medium text-zen-anti-flash">{trade.contracts}</span>
         </div>
 
@@ -175,7 +178,7 @@ export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
           {trade.followed_plan ? (
             <><CheckCircle className="h-3 w-3" /> Plan</>
           ) : (
-            <><XCircle className="h-3 w-3" /> Sin Plan</>
+            <><XCircle className="h-3 w-3" /> {tr("Sin Plan", "Off Plan")}</>
           )}
         </Badge>
 
@@ -183,13 +186,13 @@ export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
         {trade.emotions && trade.emotions.length > 0 && (
           <>
             {trade.emotions.map((emotion, index) => {
-              const config = EMOTIONS_CONFIG[emotion] || { label: emotion, color: 'bg-zen-forest/20 text-zen-forest border-zen-forest/40' };
+              const config = EMOTIONS_CONFIG[emotion] || { color: 'bg-zen-forest/20 text-zen-forest border-zen-forest/40' };
               return (
                 <Badge
                   key={index}
                   className={cn("text-xs px-2 py-0.5 border", config.color)}
                 >
-                  {config.label}
+                  {emotionLabel(emotion, locale)}
                 </Badge>
               );
             })}
@@ -200,7 +203,7 @@ export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
       {/* Notas (si existen) */}
       {trade.notes && (
         <div className="pt-3 border-t border-zen-forest/30">
-          <p className="text-xs text-zen-anti-flash/60 mb-1">Notas:</p>
+          <p className="text-xs text-zen-anti-flash/60 mb-1">{tr("Notas:", "Notes:")}</p>
           <p className="text-sm text-zen-anti-flash/80">{trade.notes}</p>
         </div>
       )}
@@ -230,12 +233,12 @@ export function TradeCard({ trade, onEdit, onDelete }: TradeCardProps) {
                     type="button"
                     onClick={() => openLightbox(i)}
                     className="w-16 h-16 rounded-lg overflow-hidden border border-zen-forest/40 hover:border-zen-caribbean-green/60 bg-zen-surface/60 group transition-all"
-                    title={`Ver captura ${i + 1}`}
+                    title={`${tr("Ver captura", "View screenshot")} ${i + 1}`}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={url}
-                      alt={`Captura ${i + 1}`}
+                      alt={`${tr("Captura", "Screenshot")} ${i + 1}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                     />
                   </button>

@@ -4,6 +4,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recha
 import { ExitReasonDistribution } from '@/types/dashboard';
 import { Target } from 'lucide-react';
 import { Tooltip as UITooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface ExitReasonsChartProps {
   data: ExitReasonDistribution[];
@@ -22,19 +23,20 @@ const EXIT_REASON_LABELS: Record<string, string> = {
   stop_loss: 'Stop Loss',
   break_even: 'Break Even',
   manual: 'Manual',
-  timeout: 'Timeout'
+  timeout: 'Timeout',
 };
 
 export function ExitReasonsChart({ data }: ExitReasonsChartProps) {
+  const { tr } = useTr();
   if (data.length === 0) {
     return (
       <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border-none shadow-none p-4">
         <div className="flex items-center gap-2 mb-2">
           <Target className="h-4 w-4 text-orange-400" />
-          <h3 className="text-sm font-bold text-white">Razones de Salida</h3>
+          <h3 className="text-sm font-bold text-white">{tr("Razones de Salida", "Exit Reasons")}</h3>
         </div>
         <div className="h-[200px] flex items-center justify-center text-slate-500 text-xs">
-          No hay datos
+          {tr("No hay datos", "No data yet")}
         </div>
       </div>
     );
@@ -55,7 +57,7 @@ export function ExitReasonsChart({ data }: ExitReasonsChartProps) {
               <div className="p-1 bg-zen-caribbean-green/20 rounded">
                 <Target className="h-3.5 w-3.5 text-zen-caribbean-green" />
               </div>
-              <h3 className="text-xs font-bold text-white">Razones de Salida</h3>
+              <h3 className="text-xs font-bold text-white">{tr("Razones de Salida", "Exit Reasons")}</h3>
             </div>
 
             <ResponsiveContainer width="100%" height={200}>
@@ -101,8 +103,8 @@ export function ExitReasonsChart({ data }: ExitReasonsChartProps) {
           </div>
         </TooltipTrigger>
         <TooltipContent side="top" className="max-w-xs">
-          <p className="font-semibold mb-1">Razones de Salida del Trade</p>
-          <p className="text-slate-300">Muestra cómo cerraste tus trades: TP (ganancia objetivo), SL (stop loss), BE (break even), manual, o timeout. Analiza si estás dejando correr las ganancias o cortando pérdidas adecuadamente.</p>
+          <p className="font-semibold mb-1">{tr("Razones de Salida del Trade", "Trade Exit Reasons")}</p>
+          <p className="text-slate-300">{tr("Muestra cómo cerraste tus trades: TP (ganancia objetivo), SL (stop loss), BE (break even), manual, o timeout. Analiza si estás dejando correr las ganancias o cortando pérdidas adecuadamente.", "How you closed your trades: TP (take profit), SL (stop loss), BE (break even), manual or timeout. Check whether you let winners run and cut losers fast.")}</p>
         </TooltipContent>
       </UITooltip>
     </TooltipProvider>

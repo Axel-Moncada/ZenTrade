@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Upload, X, Loader2, ImageIcon } from "lucide-react";
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface DailyPhotoUploadProps {
   label: string;
@@ -28,6 +29,7 @@ export function DailyPhotoUpload({
   photoType,
   readOnly = false,
 }: DailyPhotoUploadProps) {
+  const { tr } = useTr();
   const [signedUrl, setSignedUrl] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -98,7 +100,7 @@ export function DailyPhotoUpload({
       setSignedUrl(signedData?.signedUrl ?? null);
       await savePath(newPath);
     } catch (err) {
-      setError("Error al subir. Intenta de nuevo.");
+      setError(tr("Error al subir. Intenta de nuevo.", "Upload failed. Please try again."));
       console.error(err);
     } finally {
       setUploading(false);
@@ -155,7 +157,7 @@ export function DailyPhotoUpload({
           />
           <div className="absolute inset-0 bg-zen-rich-black/0 group-hover:bg-zen-rich-black/20 transition-colors flex items-center justify-center">
             <span className="opacity-0 group-hover:opacity-100 text-xs text-white font-medium bg-zen-rich-black/60 px-2 py-1 rounded transition-opacity">
-              Ver completo
+              {tr("Ver completo", "View full size")}
             </span>
           </div>
         </button>
@@ -182,7 +184,7 @@ export function DailyPhotoUpload({
             <>
               <Upload className="h-6 w-6 text-zen-anti-flash/30 group-hover:text-zen-caribbean-green transition-colors" />
               <span className="text-xs text-zen-anti-flash/40 group-hover:text-zen-caribbean-green/70 transition-colors">
-                Click o arrastra imagen
+                {tr("Click o arrastra imagen", "Click or drag an image")}
               </span>
             </>
           )}

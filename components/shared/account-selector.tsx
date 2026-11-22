@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Label } from '@/components/ui/label'
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface Account {
   id: string
@@ -26,12 +27,13 @@ export function AccountSelector({
   selectedAccount,
   onAccountChange,
 }: AccountSelectorProps) {
+  const { tr } = useTr();
   return (
     <div className="space-y-2">
-      <Label className="text-zen-anti-flash">Cuenta de trading</Label>
+      <Label className="text-zen-anti-flash">{tr("Cuenta de trading", "Trading account")}</Label>
       <Select value={selectedAccount} onValueChange={onAccountChange}>
         <SelectTrigger className="text-zen-anti-flash">
-          <SelectValue placeholder="Selecciona una cuenta" />
+          <SelectValue placeholder={tr("Selecciona una cuenta", "Select an account")} />
         </SelectTrigger>
         <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
           {accounts.map((account) => (

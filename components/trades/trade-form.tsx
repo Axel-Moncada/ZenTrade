@@ -25,6 +25,9 @@ import { TradesList } from "./trades-list";
 import { ScreenshotUpload } from "./screenshot-upload";
 import { usePlan } from "@/lib/hooks/usePlan";
 import { createClient } from "@/lib/supabase/client";
+import { EMOTION_LABELS, EMOTION_VALUES, emotionLabel } from "@/lib/constants/trade-labels";
+import { ACCOUNT_TYPE_LABELS } from "@/types/accounts";
+import { useTr } from "@/lib/i18n/use-tr";
 
 const TIME_SLOTS = Array.from({ length: 48 }, (_, i) => {
   const h = Math.floor(i / 2).toString().padStart(2, "0");
@@ -41,60 +44,8 @@ interface TradeFormProps {
   onCancel: () => void;
 }
 
-const EMOTIONS_OPTIONS = [
-  {
-    value: "disciplinado",
-    label: "Disciplinado",
-    color:
-      "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
-  },
-  {
-    value: "confiado",
-    label: "Confiado",
-    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
-  },
-  {
-    value: "paciente",
-    label: "Paciente",
-    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
-  },
-  {
-    value: "ansioso",
-    label: "Ansioso",
-    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
-  },
-  {
-    value: "miedo",
-    label: "Miedo",
-    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
-  },
-  {
-    value: "codicia",
-    label: "Codicia",
-    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
-  },
-  {
-    value: "frustrado",
-    label: "Frustrado",
-    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
-  },
-  {
-    value: "eufórico",
-    label: "Eufórico",
-    color:
-      "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
-  },
-  {
-    value: "revenge_trading",
-    label: "Venganza Trading",
-    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
-  },
-  {
-    value: "fomo",
-    label: "FOMO",
-    color: "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40",
-  },
-];
+const EMOTION_COLOR =
+  "bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40";
 
 export function TradeForm({
   accountId,
@@ -111,6 +62,7 @@ export function TradeForm({
   const [loadingInstruments, setLoadingInstruments] = useState(true);
   const [loadingAccounts, setLoadingAccounts] = useState(true);
   const [userId, setUserId] = useState<string>("");
+  const { tr, locale } = useTr();
 
   const [formData, setFormData] = useState<CreateTradeInput>(() => {
     if (editingTrade) {
@@ -203,17 +155,10 @@ export function TradeForm({
     }
   };
 
-  const getEmotionColor = (emotion: string) => {
-    const emotionObj = EMOTIONS_OPTIONS.find((e) => e.value === emotion);
-    return (
-      emotionObj?.color || "bg-purple-100 text-purple-700 border-purple-300"
-    );
-  };
+  const getEmotionColor = (emotion: string) =>
+    EMOTION_LABELS[emotion] ? EMOTION_COLOR : "bg-purple-100 text-purple-700 border-purple-300";
 
-  const getEmotionLabel = (emotion: string) => {
-    const emotionObj = EMOTIONS_OPTIONS.find((e) => e.value === emotion);
-    return emotionObj?.label || emotion;
-  };
+  const getEmotionLabel = (emotion: string) => emotionLabel(emotion, locale);
 
   const handleRemoveEmotion = (emotion: string) => {
     setFormData((prev) => ({
@@ -259,7 +204,7 @@ export function TradeForm({
           <div className="flex items-center gap-2">
             <Briefcase className="h-4 w-4 text-zen-caribbean-green" />
             <span className="text-sm font-medium text-zen-anti-flash">
-              {editingTrade ? 'Editando trade en:' : 'Añadiendo trade a:'}
+              {editingTrade ? tr("Editando trade en:", "Editing trade in:") : tr("Añadiendo trade a:", "Adding trade to:")}
             </span>
           </div>
           {currentAccount && (
@@ -300,7 +245,7 @@ export function TradeForm({
     data-[state=open]:ring-2 data-[state=open]:ring-zen-caribbean-green/60
   "
           >
-            <SelectValue placeholder="Seleccionar cuenta" />
+            <SelectValue placeholder={tr("Seleccionar cuenta", "Select account")} />
           </SelectTrigger>
           <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash">
             {accounts.map((account) => (
@@ -312,7 +257,7 @@ export function TradeForm({
                 <div className="flex items-center justify-between gap-2">
                   <span>{account.name}</span>
                   <span className="text-xs text-zen-anti-flash/60">
-                    ({account.account_type})
+                    ({ACCOUNT_TYPE_LABELS[account.account_type][locale]})
                   </span>
                 </div>
               </SelectItem>
@@ -330,7 +275,7 @@ export function TradeForm({
         <div className="grid grid-cols-2 gap-4">
           <div>
             <Label htmlFor="instrument" className="text-zen-anti-flash">
-              Instrumento *
+              {tr("Instrumento", "Instrument")} *
             </Label>
             <Select
               value={formData.instrument_id}
@@ -340,7 +285,7 @@ export function TradeForm({
               disabled={loadingInstruments}
             >
               <SelectTrigger className="bg-zen-surface/60 border-zen-forest/40 text-zen-anti-flash">
-                <SelectValue placeholder="Seleccionar" />
+                <SelectValue placeholder={tr("Seleccionar", "Select")} />
               </SelectTrigger>
               <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash">
                 {instruments.map((instrument) => (
@@ -367,8 +312,8 @@ export function TradeForm({
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash">
-                <SelectItem value="long" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">LONG (Compra)</SelectItem>
-                <SelectItem value="short" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">SHORT (Venta)</SelectItem>
+                <SelectItem value="long" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">{tr("LONG (Compra)", "LONG (Buy)")}</SelectItem>
+                <SelectItem value="short" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">{tr("SHORT (Venta)", "SHORT (Sell)")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -378,7 +323,7 @@ export function TradeForm({
         <div>
           <div className="flex items-center gap-2 mb-2">
             <Clock className="h-4 w-4 text-zen-caribbean-green" />
-            <Label className="text-zen-anti-flash">Horario aproximado</Label>
+            <Label className="text-zen-anti-flash">{tr("Horario aproximado", "Approximate time")}</Label>
             {!canUseTimes && (
               <span className="inline-flex items-center gap-1 text-xs bg-zen-caribbean-green/10 border border-zen-caribbean-green/30 text-zen-caribbean-green rounded-full px-2 py-0.5">
                 <Lock className="h-3 w-3" /> Professional
@@ -387,7 +332,7 @@ export function TradeForm({
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label className="text-zen-anti-flash/70 text-xs mb-1 block">Hora entrada</Label>
+              <Label className="text-zen-anti-flash/70 text-xs mb-1 block">{tr("Hora entrada", "Entry time")}</Label>
               <Select
                 value={formData.entry_time ?? ""}
                 onValueChange={(v) => setFormData((prev) => ({ ...prev, entry_time: v || null }))}
@@ -406,7 +351,7 @@ export function TradeForm({
               </Select>
             </div>
             <div>
-              <Label className="text-zen-anti-flash/70 text-xs mb-1 block">Hora salida</Label>
+              <Label className="text-zen-anti-flash/70 text-xs mb-1 block">{tr("Hora salida", "Exit time")}</Label>
               <Select
                 value={formData.exit_time ?? ""}
                 onValueChange={(v) => setFormData((prev) => ({ ...prev, exit_time: v || null }))}
@@ -431,7 +376,7 @@ export function TradeForm({
         <div className="grid grid-cols-2 gap-4">
           <div>
             <Label htmlFor="contracts" className="text-zen-anti-flash">
-              Contratos *
+              {tr("Contratos", "Contracts")} *
             </Label>
             <Input
               id="contracts"
@@ -451,7 +396,7 @@ export function TradeForm({
 
           <div>
             <Label htmlFor="result" className="text-zen-anti-flash">
-              Resultado (+ / -) *
+              {tr("Resultado (+ / -)", "Result (+ / -)")} *
             </Label>
             <Input
               id="result"
@@ -467,7 +412,7 @@ export function TradeForm({
                 }));
               }}
               required
-              placeholder="Ej: 500 o -500"
+              placeholder={tr("Ej: 500 o -500", "e.g. 500 or -500")}
               className={`bg-zen-surface/60 border-zen-forest/40 placeholder:text-zen-anti-flash/40 font-semibold ${formData.result >= 0 ? "text-zen-caribbean-green" : "text-zen-danger"}`}
             />
           </div>
@@ -476,7 +421,7 @@ export function TradeForm({
         {/* Razón de Salida */}
         <div>
           <Label htmlFor="exit_reason" className="text-zen-anti-flash">
-            Razón de Salida
+            {tr("Razón de Salida", "Exit Reason")}
           </Label>
           <Select
             value={formData.exit_reason || ""}
@@ -488,14 +433,14 @@ export function TradeForm({
             }
           >
             <SelectTrigger className="bg-zen-surface/60 border-zen-forest/40 text-zen-anti-flash">
-              <SelectValue placeholder="Seleccionar (opcional)" />
+              <SelectValue placeholder={tr("Seleccionar (opcional)", "Select (optional)")} />
             </SelectTrigger>
             <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash">
               <SelectItem value="take_profit" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">🎯 Take Profit</SelectItem>
               <SelectItem value="stop_loss" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">🛑 Stop Loss</SelectItem>
               <SelectItem value="trailing" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">📈 Trailing Stop</SelectItem>
               <SelectItem value="break_even" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">⚖️ Break Even</SelectItem>
-              <SelectItem value="manual" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">✋ Salida Manual</SelectItem>
+              <SelectItem value="manual" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">✋ {tr("Salida Manual", "Manual Exit")}</SelectItem>
               <SelectItem value="timeout" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">⏰ Timeout</SelectItem>
             </SelectContent>
           </Select>
@@ -504,7 +449,7 @@ export function TradeForm({
         {/* Cumplí el Plan */}
         <div>
           <Label htmlFor="followed_plan" className="text-zen-anti-flash">
-            ¿Cumplí el Plan de Trading? *
+            {tr("¿Cumplí el Plan de Trading?", "Did I follow my trading plan?")} *
           </Label>
           <Select
             value={formData.followed_plan ? "yes" : "no"}
@@ -519,26 +464,26 @@ export function TradeForm({
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash">
-              <SelectItem value="yes" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">✅ Sí, cumplí el plan</SelectItem>
-              <SelectItem value="no" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">❌ No, no seguí el plan</SelectItem>
+              <SelectItem value="yes" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">✅ {tr("Sí, cumplí el plan", "Yes, I followed my plan")}</SelectItem>
+              <SelectItem value="no" className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">❌ {tr("No, no seguí el plan", "No, I broke my plan")}</SelectItem>
             </SelectContent>
           </Select>
         </div>
 
         {/* Emociones */}
         <div>
-          <Label className="text-zen-anti-flash">Emociones</Label>
+          <Label className="text-zen-anti-flash">{tr("Emociones", "Emotions")}</Label>
           <div className="flex gap-2 mb-2">
             <Select value={selectedEmotion} onValueChange={setSelectedEmotion}>
               <SelectTrigger className="flex-1 bg-zen-surface/60 border-zen-forest/40 text-zen-anti-flash">
-                <SelectValue placeholder="Agregar emoción..." />
+                <SelectValue placeholder={tr("Agregar emoción...", "Add emotion...")} />
               </SelectTrigger>
               <SelectContent className="bg-zen-dark-green border border-zen-forest text-zen-anti-flash">
-                {EMOTIONS_OPTIONS.filter(
-                  (e) => !formData.emotions?.includes(e.value),
-                ).map((emotion) => (
-                  <SelectItem key={emotion.value} value={emotion.value} className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">
-                    {emotion.label}
+                {EMOTION_VALUES.filter(
+                  (value) => !formData.emotions?.includes(value),
+                ).map((value) => (
+                  <SelectItem key={value} value={value} className="focus:bg-zen-bangladesh-green/50 focus:text-zen-anti-flash data-[highlighted]:bg-zen-bangladesh-green/50 data-[highlighted]:text-zen-anti-flash">
+                    {emotionLabel(value, locale)}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -549,7 +494,7 @@ export function TradeForm({
               disabled={!selectedEmotion}
               className="bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black font-semibold"
             >
-              Agregar
+              {tr("Agregar", "Add")}
             </Button>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -585,7 +530,7 @@ export function TradeForm({
         {/* Notas */}
         <div>
           <Label htmlFor="notes" className="text-zen-anti-flash">
-            Notas
+            {tr("Notas", "Notes")}
           </Label>
           <Textarea
             id="notes"
@@ -593,7 +538,7 @@ export function TradeForm({
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, notes: e.target.value }))
             }
-            placeholder="Comentarios sobre el trade..."
+            placeholder={tr("Comentarios sobre el trade...", "What happened in this trade?")}
             rows={3}
             className="bg-zen-caribbean-green/20 border-zen-forest/40 text-zen-anti-flash placeholder:text-zen-anti-flash/40 resize-none hover:border-zen-caribbean-green/60 focus:border-zen-caribbean-green/60 focus:ring-0 focus-visible:ring-0 transition-colors"
           />
@@ -607,14 +552,14 @@ export function TradeForm({
             disabled={loading}
             className="h-9 px-4 bg-zen-surface hover:bg-zen-forest/30 text-zen-anti-flash border border-zen-forest/40 rounded-lg font-semibold transition-colors"
           >
-            Cancelar
+            {tr("Cancelar", "Cancel")}
           </Button>
           <Button
             type="submit"
             disabled={loading || !formData.instrument_id}
             className="h-9 px-4 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black rounded-lg font-semibold transition-colors"
           >
-            {loading ? "Guardando..." : editingTrade ? "Actualizar Trade" : "Guardar Trade"}
+            {loading ? tr("Guardando...", "Saving...") : editingTrade ? tr("Actualizar Trade", "Update Trade") : tr("Guardar Trade", "Save Trade")}
           </Button>
         </div>
       </form>
@@ -623,7 +568,7 @@ export function TradeForm({
       {trades.length > 0 && (
         <div className="bg-zen-surface/60 border border-zen-forest/40 rounded-lg p-4">
           <h4 className="text-sm font-semibold mb-3 text-zen-anti-flash">
-            Trades de hoy ({trades.length})
+            {tr("Trades de hoy", "Today's trades")} ({trades.length})
           </h4>
           <TradesList trades={trades} />
         </div>

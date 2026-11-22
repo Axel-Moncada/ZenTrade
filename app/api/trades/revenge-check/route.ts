@@ -18,14 +18,14 @@ export async function GET(request: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   // Plan gate — solo ZenMode
   const plan = await getUserPlan(supabase, user.id);
   if (!plan.isZenMode) {
     return NextResponse.json(
-      { error: "La detección de revenge trading requiere el plan ZenMode." },
+      { error: "Revenge trading detection requires the ZenMode plan." },
       { status: 403 }
     );
   }

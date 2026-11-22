@@ -35,15 +35,15 @@ export async function POST(
 
   let summary = '';
   if (transcript.length > 50) {
-    const prompt = `Resume esta sesión de coaching de trading en 3-5 frases en español. Incluye: temas tratados, insights clave del trader, trades registrados, y una recomendación concreta para la próxima sesión. Sé directo y específico, sin saludos ni despedidas.\n\nTRANSCRIPCIÓN:\n${transcript.slice(0, 6000)}`;
+    const prompt = `Resume esta sesión de coaching de trading en 3-5 frases, en el mismo idioma en que se habló la conversación (inglés si no es claro). Incluye: temas tratados, insights clave del trader, trades registrados, y una recomendación concreta para la próxima sesión. Sé directo y específico, sin saludos ni despedidas.\n\nTRANSCRIPCIÓN:\n${transcript.slice(0, 6000)}`;
     try {
       const result = await geminiFlash.generateContent(prompt);
       summary = result.response.text().trim();
     } catch {
-      summary = `Sesión completada con ${conv.trades_registered ?? 0} trade(s) registrado(s).`;
+      summary = `Session completed with ${conv.trades_registered ?? 0} trade(s) logged.`;
     }
   } else {
-    summary = 'Sesión breve sin contenido significativo.';
+    summary = 'Short session with no meaningful content.';
   }
 
   await supabase

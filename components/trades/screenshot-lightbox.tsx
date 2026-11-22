@@ -4,6 +4,7 @@ import { useEffect, useCallback } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface ScreenshotLightboxProps {
   urls: string[];
@@ -20,6 +21,7 @@ export function ScreenshotLightbox({
   open,
   onOpenChange,
 }: ScreenshotLightboxProps) {
+  const { tr } = useTr();
   const total = urls.length;
 
   const prev = useCallback(() => {
@@ -75,7 +77,7 @@ export function ScreenshotLightbox({
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={urls[currentIndex]}
-            alt={`Captura ${currentIndex + 1} de ${total}`}
+            alt={tr(`Captura ${currentIndex + 1} de ${total}`, `Screenshot ${currentIndex + 1} of ${total}`)}
             className="max-h-[80vh] max-w-full object-contain select-none"
             draggable={false}
           />

@@ -3,8 +3,10 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import { EmotionDistribution } from '@/types/dashboard';
 import { Smile } from 'lucide-react';
+import { emotionLabel } from '@/lib/constants/trade-labels';
 import { Label } from '@/components/ui/label';
 import { Tooltip as UITooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface EmotionsChartProps {
   data: EmotionDistribution[];
@@ -23,36 +25,25 @@ const EMOTION_COLORS: Record<string, string> = {
   fomo: '#a855f7'
 };
 
-const EMOTION_LABELS: Record<string, string> = {
-  disciplinado: 'Disciplinado',
-  confiado: 'Confiado',
-  paciente: 'Paciente',
-  ansioso: 'Ansioso',
-  miedo: 'Miedo',
-  codicia: 'Codicia',
-  frustrado: 'Frustrado',
-  'eufórico': 'Eufórico',
-  revenge_trading: 'Revenge',
-  fomo: 'FOMO'
-};
 
 export function EmotionsChart({ data }: EmotionsChartProps) {
+  const { tr, locale } = useTr();
   if (data.length === 0) {
     return (
       <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border-none shadow-none p-4">
         <div className="flex items-center gap-2 mb-2">
           <Smile className="h-4 w-4 text-purple-400" />
-          <h3 className="text-sm font-bold text-white">Emociones</h3>
+          <h3 className="text-sm font-bold text-white">{tr("Emociones", "Emotions")}</h3>
         </div>
         <div className="h-[200px] flex items-center justify-center text-slate-500 text-xs">
-          No hay datos
+          {tr("No hay datos", "No data yet")}
         </div>
       </div>
     );
   }
 
   const chartData = data.map(item => ({
-    name: EMOTION_LABELS[item.emotion] || item.emotion,
+    name: emotionLabel(item.emotion, locale),
     value: item.count,
     percentage: item.percentage
   }));
@@ -66,7 +57,7 @@ export function EmotionsChart({ data }: EmotionsChartProps) {
               <div className="p-1 bg-zen-caribbean-green/20 rounded">
                 <Smile className="h-3.5 w-3.5 text-zen-caribbean-green" />
               </div>
-              <h3 className="text-xs font-bold text-white">Emociones</h3>
+              <h3 className="text-xs font-bold text-white">{tr("Emociones", "Emotions")}</h3>
             </div>
 
             <ResponsiveContainer width="100%" height={200}>
@@ -101,8 +92,8 @@ export function EmotionsChart({ data }: EmotionsChartProps) {
           </div>
         </TooltipTrigger>
         <TooltipContent side="top" className="max-w-xs">
-          <p className="font-semibold mb-1">Estado Emocional</p>
-          <p className="text-slate-300">Distribución de tus estados emocionales al operar. Identifica patrones emocionales que afectan tu trading.</p>
+          <p className="font-semibold mb-1">{tr("Estado Emocional", "Emotional State")}</p>
+          <p className="text-slate-300">{tr("Distribución de tus estados emocionales al operar. Identifica patrones emocionales que afectan tu trading.", "How your emotional states are distributed while trading. Spot the emotional patterns that hurt your results.")}</p>
         </TooltipContent>
       </UITooltip>
     </TooltipProvider>

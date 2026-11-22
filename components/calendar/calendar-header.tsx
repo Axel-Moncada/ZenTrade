@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getMonthName } from "@/lib/utils/date-helpers";
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface CalendarHeaderProps {
   year: number;
@@ -19,6 +20,7 @@ export function CalendarHeader({
   onNextMonth,
   onToday,
 }: CalendarHeaderProps) {
+  const { tr, locale } = useTr();
   return (
     <div className="flex items-center justify-between gap-4">
       {/* Navegación mes */}
@@ -32,7 +34,7 @@ export function CalendarHeader({
 
         <div className="min-w-[160px] text-center">
           <h2 className="text-lg font-bold text-zen-anti-flash">
-            {getMonthName(month)} {year}
+            {getMonthName(month, locale)} {year}
           </h2>
         </div>
 
@@ -49,7 +51,7 @@ export function CalendarHeader({
           onClick={onToday}
           className="h-8 px-3 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black font-semibold text-sm rounded-md transition-colors"
         >
-          Hoy
+          {tr("Hoy", "Today")}
         </Button>
       </div>
 

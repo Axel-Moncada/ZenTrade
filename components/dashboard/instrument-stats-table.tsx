@@ -3,21 +3,23 @@
 import { InstrumentStats } from '@/types/dashboard';
 import { BarChart2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface InstrumentStatsTableProps {
   data: InstrumentStats[];
 }
 
 export function InstrumentStatsTable({ data }: InstrumentStatsTableProps) {
+  const { tr } = useTr();
   if (data.length === 0) {
     return (
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 p-6">
         <div className="flex items-center gap-2 mb-4">
           <BarChart2 className="h-5 w-5 text-blue-400" />
-          <h3 className="text-lg font-bold text-white">Estadísticas por Instrumento</h3>
+          <h3 className="text-lg font-bold text-white">{tr("Estadísticas por Instrumento", "Stats by Instrument")}</h3>
         </div>
         <div className="text-center py-8 text-slate-500">
-          No hay datos para mostrar
+          {tr("No hay datos para mostrar", "No data to show yet")}
         </div>
       </div>
     );
@@ -31,8 +33,8 @@ export function InstrumentStatsTable({ data }: InstrumentStatsTableProps) {
           <BarChart2 className="h-5 w-5 text-zen-caribbean-green" />
         </div>
         <div>
-          <h3 className="text-lg font-bold text-white">Estadísticas por Instrumento</h3>
-          <p className="text-xs text-slate-400">Rendimiento detallado por símbolo</p>
+          <h3 className="text-lg font-bold text-white">{tr("Estadísticas por Instrumento", "Stats by Instrument")}</h3>
+          <p className="text-xs text-slate-400">{tr("Rendimiento detallado por símbolo", "Detailed performance by symbol")}</p>
         </div>
       </div>
 
@@ -42,7 +44,7 @@ export function InstrumentStatsTable({ data }: InstrumentStatsTableProps) {
           <thead>
             <tr className="border-b border-zen-rich-black/50">
               <th className="text-left py-3 px-4 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                Instrumento
+                {tr("Instrumento", "Instrument")}
               </th>
               <th className="text-center py-3 px-4 text-xs font-bold text-slate-400 uppercase tracking-wider">
                 Trades
@@ -51,10 +53,10 @@ export function InstrumentStatsTable({ data }: InstrumentStatsTableProps) {
                 Win Rate
               </th>
               <th className="text-right py-3 px-4 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                PNL Total
+                {tr("PNL Total", "Total P&L")}
               </th>
               <th className="text-right py-3 px-4 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                Promedio
+                {tr("Promedio", "Average")}
               </th>
             </tr>
           </thead>

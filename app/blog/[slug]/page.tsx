@@ -8,7 +8,6 @@ import {
   getRelatedPosts,
   getHreflangAlternate,
   getBlogPostLang,
-  CATEGORY_LABELS,
 } from "@/lib/blog";
 import PostContent from "@/components/blog/post-content";
 import PostHero from "@/components/blog/post-hero";
@@ -199,6 +198,7 @@ export default async function BlogPostPage({ params }: Props) {
   } = await supabase.auth.getUser();
 
   const related = getRelatedPosts(post);
+  const lang = getBlogPostLang(post);
   const schemas = buildJsonLd(post);
 
   return (
@@ -240,7 +240,7 @@ export default async function BlogPostPage({ params }: Props) {
             itemType="https://schema.org/Article"
             itemProp="articleBody"
           >
-            <PostContent blocks={post.content} />
+            <PostContent blocks={post.content} lang={lang} />
           </article>
 
           {/* ── Tags ── */}
@@ -265,7 +265,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="flex items-center gap-3 mb-7">
               <span className="w-1 h-5 rounded-full bg-zen-caribbean-green shrink-0" />
               <h2 className="text-xs uppercase tracking-[0.15em] text-zen-anti-flash font-semibold">
-                Artículos relacionados
+                {lang === "es" ? "Artículos relacionados" : "Related articles"}
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -283,7 +283,7 @@ export default async function BlogPostPage({ params }: Props) {
             className="inline-flex items-center gap-2 text-sm text-zen-anti-flash/60 hover:text-zen-caribbean-green transition-colors duration-200 group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-0.5" />
-            Volver al blog
+            {lang === "es" ? "Volver al blog" : "Back to the blog"}
           </Link>
         </div>
       </main>

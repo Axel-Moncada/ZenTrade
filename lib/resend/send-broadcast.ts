@@ -81,7 +81,7 @@ async function getRecipients(audience: 'all' | 'zenmode' | 'paying'): Promise<Re
     for (const s of subs ?? []) {
       if (!seen.has(s.email)) {
         seen.add(s.email);
-        recipients.push({ email: s.email, locale: 'es' });
+        recipients.push({ email: s.email, locale: 'en' });
       }
     }
 
@@ -99,7 +99,7 @@ async function getRecipients(audience: 'all' | 'zenmode' | 'paying'): Promise<Re
       recipients.push({
         email:  u.email,
         name:   u.user_metadata?.full_name as string | undefined,
-        locale: (profile?.locale as 'es' | 'en') ?? 'es',
+        locale: (profile?.locale as 'es' | 'en') ?? 'en',
       });
     }
   } else {
@@ -130,7 +130,7 @@ async function getRecipients(audience: 'all' | 'zenmode' | 'paying'): Promise<Re
       recipients.push({
         email:  user.email,
         name:   user.user_metadata?.full_name as string | undefined,
-        locale: (profile?.locale as 'es' | 'en') ?? 'es',
+        locale: (profile?.locale as 'es' | 'en') ?? 'en',
       });
     }
   }

@@ -22,7 +22,7 @@ export async function POST(_req: NextRequest, { params }: { params: Promise<{ id
     .single();
 
   if (fetchError || !email) {
-    return NextResponse.json({ error: 'Email no encontrado o ya enviado' }, { status: 404 });
+    return NextResponse.json({ error: 'Email not found or already sent' }, { status: 404 });
   }
 
   const result = await sendBroadcast({

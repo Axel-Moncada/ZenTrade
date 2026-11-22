@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DateRange, DateRangePreset } from '@/types/dashboard';
 import { Calendar } from 'lucide-react';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface DateRangeSelectorProps {
   value: DateRange;
@@ -16,6 +17,7 @@ interface DateRangeSelectorProps {
 }
 
 export function DateRangeSelector({ value, onChange, compact = false }: DateRangeSelectorProps) {
+  const { tr } = useTr();
   const [preset, setPreset] = useState<DateRangePreset>('30d');
   const [showCustom, setShowCustom] = useState(false);
   const [customStart, setCustomStart] = useState('');
@@ -39,7 +41,7 @@ export function DateRangeSelector({ value, onChange, compact = false }: DateRang
       onChange({
         startDate: customStart,
         endDate: customEnd,
-        label: 'Personalizado'
+        label: tr('Personalizado', 'Custom')
       });
     }
   };
@@ -51,11 +53,11 @@ export function DateRangeSelector({ value, onChange, compact = false }: DateRang
           <Calendar className="h-4 w-4 text-zen-caribbean-green" />
         </SelectTrigger>
         <SelectContent className="text-zen-caribbean-green bg-zen-dark-green border-zen-dark-green">
-          <SelectItem value="7d" className="hover:bg-zen-rich-black">Últimos 7 días</SelectItem>
-          <SelectItem value="30d" className="hover:bg-zen-rich-black">Últimos 30 días</SelectItem>
-          <SelectItem value="90d" className="hover:bg-zen-rich-black">Últimos 90 días</SelectItem>
-          <SelectItem value="thisMonth" className="hover:bg-zen-rich-black">Este mes</SelectItem>
-          <SelectItem value="custom" className="hover:bg-zen-rich-black">Personalizado</SelectItem>
+          <SelectItem value="7d" className="hover:bg-zen-rich-black">{tr("Últimos 7 días", "Last 7 days")}</SelectItem>
+          <SelectItem value="30d" className="hover:bg-zen-rich-black">{tr("Últimos 30 días", "Last 30 days")}</SelectItem>
+          <SelectItem value="90d" className="hover:bg-zen-rich-black">{tr("Últimos 90 días", "Last 90 days")}</SelectItem>
+          <SelectItem value="thisMonth" className="hover:bg-zen-rich-black">{tr("Este mes", "This month")}</SelectItem>
+          <SelectItem value="custom" className="hover:bg-zen-rich-black">{tr("Personalizado", "Custom")}</SelectItem>
         </SelectContent>
       </Select>
     );
@@ -67,21 +69,21 @@ export function DateRangeSelector({ value, onChange, compact = false }: DateRang
 
       <Select value={preset} onValueChange={(v) => handlePresetChange(v as DateRangePreset)}>
         <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Seleccionar periodo" />
+          <SelectValue placeholder={tr("Seleccionar periodo", "Select period")} />
         </SelectTrigger>
         <SelectContent className="text-zen-caribbean-green bg-zen-dark-green border-zen-dark-green">
-          <SelectItem value="7d" className="hover:bg-zen-rich-black">Últimos 7 días</SelectItem>
-          <SelectItem value="30d" className="hover:bg-zen-rich-black">Últimos 30 días</SelectItem>
-          <SelectItem value="90d" className="hover:bg-zen-rich-black">Últimos 90 días</SelectItem>
-          <SelectItem value="thisMonth" className="hover:bg-zen-rich-black">Este mes</SelectItem>
-          <SelectItem value="custom" className="hover:bg-zen-rich-black">Personalizado</SelectItem>
+          <SelectItem value="7d" className="hover:bg-zen-rich-black">{tr("Últimos 7 días", "Last 7 days")}</SelectItem>
+          <SelectItem value="30d" className="hover:bg-zen-rich-black">{tr("Últimos 30 días", "Last 30 days")}</SelectItem>
+          <SelectItem value="90d" className="hover:bg-zen-rich-black">{tr("Últimos 90 días", "Last 90 days")}</SelectItem>
+          <SelectItem value="thisMonth" className="hover:bg-zen-rich-black">{tr("Este mes", "This month")}</SelectItem>
+          <SelectItem value="custom" className="hover:bg-zen-rich-black">{tr("Personalizado", "Custom")}</SelectItem>
         </SelectContent>
       </Select>
 
       {showCustom && (
         <div className="flex items-center gap-2">
           <div className="flex flex-col gap-1">
-            <Label htmlFor="start-date" className="text-xs">Desde</Label>
+            <Label htmlFor="start-date" className="text-xs">{tr("Desde", "From")}</Label>
             <Input
               id="start-date"
               type="date"
@@ -91,7 +93,7 @@ export function DateRangeSelector({ value, onChange, compact = false }: DateRang
             />
           </div>
           <div className="flex flex-col gap-1">
-            <Label htmlFor="end-date" className="text-xs">Hasta</Label>
+            <Label htmlFor="end-date" className="text-xs">{tr("Hasta", "To")}</Label>
             <Input
               id="end-date"
               type="date"
@@ -105,7 +107,7 @@ export function DateRangeSelector({ value, onChange, compact = false }: DateRang
             disabled={!customStart || !customEnd}
             className="mt-5"
           >
-            Aplicar
+            {tr("Aplicar", "Apply")}
           </Button>
         </div>
       )}

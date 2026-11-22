@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Crear Cuenta Gratis",
+  title: "Create your free account",
   description:
-    "Crea tu cuenta gratuita en Zentrade y empieza a llevar tu journal de trading hoy.",
+    "Create your free Zentrade account and start journaling your trades today.",
   robots: {
     index: false,
     follow: false,

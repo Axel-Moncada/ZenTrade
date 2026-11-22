@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
     const { data: { user }, error: authError } = await supabase.auth.getUser()
 
     if (authError || !user) {
-      return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
     const searchParams = request.nextUrl.searchParams
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     const { data: { user }, error: authError } = await supabase.auth.getUser()
 
     if (authError || !user) {
-      return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
     const { account_id, amount, withdrawal_date, notes } = await request.json()
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
       .single()
 
     if (accountError || !account) {
-      return NextResponse.json({ error: 'Cuenta no encontrada' }, { status: 404 })
+      return NextResponse.json({ error: 'Account not found' }, { status: 404 })
     }
 
     // Validar regla del 30%
@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
 
     if (amount > maxWithdrawal) {
       return NextResponse.json({ 
-        error: `El monto excede el máximo disponible ($${maxWithdrawal.toFixed(2)})` 
+        error: `Amount exceeds the maximum available ($${maxWithdrawal.toFixed(2)})` 
       }, { status: 400 })
     }
 
@@ -119,7 +119,7 @@ export async function POST(request: NextRequest) {
       // Si falla la actualización, borrar el retiro creado
       await supabase.from('withdrawals').delete().eq('id', withdrawal.id)
       return NextResponse.json({ 
-        error: 'Error al actualizar la cuenta' 
+        error: 'Could not update the account' 
       }, { status: 500 })
     }
 

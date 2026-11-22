@@ -3,9 +3,12 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { useI18n } from "@/lib/i18n/context";
 
 export function GoogleSignInButton() {
   const [loading, setLoading] = useState(false);
+  const { locale } = useI18n();
+  const isEs = locale === "es";
 
   const handleGoogleSignIn = async () => {
     setLoading(true);
@@ -56,7 +59,9 @@ export function GoogleSignInButton() {
           fill="#EA4335"
         />
       </svg>
-      {loading ? "Conectando con Google..." : "Continuar con Google"}
+      {loading
+        ? isEs ? "Conectando con Google..." : "Connecting to Google..."
+        : isEs ? "Continuar con Google" : "Continue with Google"}
     </Button>
   );
 }

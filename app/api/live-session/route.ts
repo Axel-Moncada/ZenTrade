@@ -5,7 +5,7 @@ import { getUserPlan } from "@/lib/lemonsqueezy/get-user-plan";
 import { getLiveSessionData } from "@/lib/live-session/get-live-session-data";
 
 const QuerySchema = z.object({
-  account_id: z.string().uuid("account_id inválido"),
+  account_id: z.string().uuid("Invalid account_id"),
 });
 
 /**
@@ -20,7 +20,7 @@ export async function GET(request: Request) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   const plan = await getUserPlan(supabase, user.id);
@@ -34,12 +34,12 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const parsed = QuerySchema.safeParse({ account_id: searchParams.get("account_id") });
   if (!parsed.success) {
-    return NextResponse.json({ error: parsed.error.errors[0]?.message ?? "Parámetros inválidos" }, { status: 400 });
+    return NextResponse.json({ error: parsed.error.errors[0]?.message ?? "Invalid parameters" }, { status: 400 });
   }
 
   const data = await getLiveSessionData(supabase, user.id, parsed.data.account_id);
   if (!data) {
-    return NextResponse.json({ error: "Cuenta no encontrada" }, { status: 404 });
+    return NextResponse.json({ error: "Account not found" }, { status: 404 });
   }
 
   return NextResponse.json(data, { headers: { "Cache-Control": "no-store" } });

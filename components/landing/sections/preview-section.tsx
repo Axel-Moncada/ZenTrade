@@ -2,24 +2,26 @@
 
 import { useState } from "react";
 import { Play } from "lucide-react";
+import { useTr } from "@/lib/i18n/use-tr";
 
 // IDs de los videos de YouTube
 const VIDEOS = {
   demo: {
     id: "HX9NFOZTj3U", // "Un trading journal con IA diseñado para los traders de futuros"
     title: "Un trading journal con IA diseñado para los traders de futuros",
-    label: "Demo del producto",
+    label: { es: "Demo del producto", en: "Product demo" },
   },
   usecase: {
     id: "uf-zP071AcE", // "Deja el Excel — Esto es lo que uso para mis pruebas de fondeo"
     title: "Deja el Excel — Esto es lo que uso para mis pruebas de fondeo",
-    label: "Caso de uso real",
+    label: { es: "Caso de uso real", en: "Real use case" },
   },
 };
 
 type VideoKey = keyof typeof VIDEOS;
 
 export default function PreviewSection() {
+  const { tr, locale } = useTr();
   const [active, setActive] = useState<VideoKey>("demo");
   const [playing, setPlaying] = useState(false);
   const video = VIDEOS[active];
@@ -37,14 +39,14 @@ export default function PreviewSection() {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-zen-caribbean-green mb-4">
-            Ve Zentrade en acción
+            {tr("Ve Zentrade en acción", "See Zentrade in action")}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-zen-anti-flash mb-4">
-            Un vistazo al{" "}
-            <span className="text-zen-caribbean-green">dashboard real</span>
+            {tr("Un vistazo al", "A look at the")}{" "}
+            <span className="text-zen-caribbean-green">{tr("dashboard real", "real dashboard")}</span>
           </h2>
           <p className="text-zen-text-muted text-lg">
-            Sin demos fabricados — el mismo dashboard que usan los traders que pasan evaluaciones.
+            {tr("Sin demos fabricados — el mismo dashboard que usan los traders que pasan evaluaciones.", "No staged demos. The same dashboard traders use to pass their evaluations.")}
           </p>
         </div>
 
@@ -60,7 +62,7 @@ export default function PreviewSection() {
                   : "bg-zen-surface border border-zen-border-soft text-zen-anti-flash/60 hover:text-zen-anti-flash hover:border-zen-caribbean-green/30"
               }`}
             >
-              {VIDEOS[key].label}
+              {VIDEOS[key].label[locale]}
             </button>
           ))}
         </div>
@@ -102,7 +104,7 @@ export default function PreviewSection() {
                 <button
                   onClick={() => setPlaying(true)}
                   className="absolute inset-0 flex items-center justify-center bg-zen-rich-black/50 hover:bg-zen-rich-black/30 transition-all duration-200 group"
-                  aria-label={`Reproducir: ${video.title}`}
+                  aria-label={`${tr("Reproducir", "Play")}: ${video.title}`}
                 >
                   <div className="w-20 h-20 bg-zen-caribbean-green rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200 shadow-2xl shadow-zen-caribbean-green/50">
                     <Play className="h-9 w-9 text-zen-rich-black ml-1" fill="currentColor" />
@@ -114,7 +116,7 @@ export default function PreviewSection() {
         </div>
 
         <p className="text-center mt-6 text-zen-text-muted text-sm">
-          <span className="text-zen-caribbean-green font-semibold">Plan Free permanente</span> — Regístrate y empieza sin tarjeta de crédito
+          <span className="text-zen-caribbean-green font-semibold">{tr("Plan Free permanente", "Free plan forever")}</span> — {tr("Regístrate y empieza sin tarjeta de crédito", "Sign up and start with no credit card")}
         </p>
       </div>
     </section>

@@ -22,7 +22,7 @@ export async function GET(
 
     if (authError || !user) {
       return NextResponse.json(
-        { error: "No autorizado" },
+        { error: "Unauthorized" },
         { status: 401 }
       );
     }
@@ -36,7 +36,7 @@ export async function GET(
 
     if (error || !account) {
       return NextResponse.json(
-        { error: "Cuenta no encontrada" },
+        { error: "Account not found" },
         { status: 404 }
       );
     }
@@ -68,7 +68,7 @@ export async function PATCH(
 
     if (authError || !user) {
       return NextResponse.json(
-        { error: "No autorizado" },
+        { error: "Unauthorized" },
         { status: 401 }
       );
     }
@@ -82,7 +82,7 @@ export async function PATCH(
 
     if (fetchError || !existingAccount) {
       return NextResponse.json(
-        { error: "Cuenta no encontrada" },
+        { error: "Account not found" },
         { status: 404 }
       );
     }
@@ -100,7 +100,7 @@ export async function PATCH(
       }));
 
       return NextResponse.json(
-        { error: "Datos inválidos", details: errors },
+        { error: "Invalid data", details: errors },
         { status: 400 }
       );
     }
@@ -158,7 +158,7 @@ export async function PATCH(
       }
 
       return NextResponse.json(
-        { error: "Error al actualizar la cuenta" },
+        { error: "Could not update the account" },
         { status: 500 }
       );
     }
@@ -190,7 +190,7 @@ export async function DELETE(
 
     if (authError || !user) {
       return NextResponse.json(
-        { error: "No autorizado" },
+        { error: "Unauthorized" },
         { status: 401 }
       );
     }
@@ -206,7 +206,7 @@ export async function DELETE(
     if (tradesError) {
       console.error("Error deleting trades:", tradesError);
       return NextResponse.json(
-        { error: "Error al eliminar los trades de la cuenta" },
+        { error: "Could not delete the account's trades" },
         { status: 500 }
       );
     }
@@ -221,7 +221,7 @@ export async function DELETE(
     if (summariesError) {
       console.error("Error deleting daily_summaries:", summariesError);
       return NextResponse.json(
-        { error: "Error al eliminar los resúmenes diarios" },
+        { error: "Could not delete the daily summaries" },
         { status: 500 }
       );
     }
@@ -235,7 +235,7 @@ export async function DELETE(
     if (error) {
       console.error("Error deleting account:", error);
       return NextResponse.json(
-        { error: "Error al eliminar la cuenta" },
+        { error: "Could not delete the account" },
         { status: 500 }
       );
     }

@@ -5,8 +5,8 @@ import PublicFooter from "@/components/landing/public-footer";
 import LegalContent from "@/components/legal/legal-content";
 
 export const metadata: Metadata = {
-  title: "Política de Reembolsos",
-  description: "Política de reembolsos y cancelaciones de Zentrade.",
+  title: "Refund Policy",
+  description: "Zentrade refund and cancellation policy: request a refund by email within 7 days of your first payment.",
   alternates: { canonical: "https://www.zen-trader.com/refunds" },
   robots: { index: true, follow: false },
 };

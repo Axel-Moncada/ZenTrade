@@ -5,21 +5,23 @@ import { WinsLossesPoint } from '@/types/dashboard';
 import { BarChart3 } from 'lucide-react';
 import { parseISODate } from '@/lib/utils/date-helpers';
 import { Tooltip as UITooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface WinsLossesChartProps {
   data: WinsLossesPoint[];
 }
 
 export function WinsLossesChart({ data }: WinsLossesChartProps) {
+  const { tr } = useTr();
   if (data.length === 0) {
     return (
       <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-zen-bangladesh-green/50 to-zen-dark-green/50 backdrop-blur-sm border-none shadow-none p-4">
         <div className="flex items-center gap-2 mb-2">
           <BarChart3 className="h-4 w-4 text-zen-caribbean-green" />
-          <h3 className="text-sm font-bold text-white">W/L por Día</h3>
+          <h3 className="text-sm font-bold text-white">{tr("W/L por Día", "W/L by Day")}</h3>
         </div>
         <div className="h-[200px] flex items-center justify-center text-slate-500 text-xs">
-          No hay datos
+          {tr("No hay datos", "No data yet")}
         </div>
       </div>
     );
@@ -39,7 +41,7 @@ export function WinsLossesChart({ data }: WinsLossesChartProps) {
               <div className="p-1 bg-zen-caribbean-green/20 rounded">
                 <BarChart3 className="h-3.5 w-3.5 text-zen-caribbean-green" />
               </div>
-              <h3 className="text-xs font-bold text-white">Ganadores vs Perdedores</h3>
+              <h3 className="text-xs font-bold text-white">{tr("Ganadores vs Perdedores", "Winners vs Losers")}</h3>
             </div>
 
             <ResponsiveContainer width="100%" height={180}>
@@ -61,7 +63,7 @@ export function WinsLossesChart({ data }: WinsLossesChartProps) {
                 <Legend
                   wrapperStyle={{ paddingTop: '8px', fontSize: '9px' }}
                   formatter={(value: string) => {
-                    const label = value === 'wins' ? 'Ganadores' : value === 'losses' ? 'Perdedores' : value;
+                    const label = value === 'wins' ? tr('Ganadores', 'Winners') : value === 'losses' ? tr('Perdedores', 'Losers') : value;
                     return <span style={{ color: '#cbd5e1' }}>{label}</span>;
                   }}
                   iconType="circle"
@@ -73,8 +75,8 @@ export function WinsLossesChart({ data }: WinsLossesChartProps) {
           </div>
         </TooltipTrigger>
         <TooltipContent side="top" className="max-w-xs">
-          <p className="font-semibold mb-1">Ganadores vs Perdedores</p>
-          <p className="text-slate-300">Distribución diaria de trades ganadores (verde) y perdedores (rojo). Te ayuda a identificar patrones de rendimiento por día.</p>
+          <p className="font-semibold mb-1">{tr("Ganadores vs Perdedores", "Winners vs Losers")}</p>
+          <p className="text-slate-300">{tr("Distribución diaria de trades ganadores (verde) y perdedores (rojo). Te ayuda a identificar patrones de rendimiento por día.", "Daily split of winning (green) and losing (red) trades. Helps you spot performance patterns by day.")}</p>
         </TooltipContent>
       </UITooltip>
     </TooltipProvider>

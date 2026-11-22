@@ -19,7 +19,7 @@ export async function PATCH(
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user?.email || !isAdmin(user.email)) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
   }
 
   const { id } = await params;
@@ -37,7 +37,7 @@ export async function PATCH(
     .single();
 
   if (error) {
-    return NextResponse.json({ error: 'Error al actualizar código' }, { status: 500 });
+    return NextResponse.json({ error: 'Could not update the code' }, { status: 500 });
   }
 
   return NextResponse.json({ code: data });

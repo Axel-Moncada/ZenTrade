@@ -42,7 +42,7 @@ export async function GET(req: NextRequest) {
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify({
       name:        'ZenTrade',
-      description: 'Journal de trading para futuros con análisis IA',
+      description: 'Futures trading journal with AI analysis',
       type:        'SERVICE',
       category:    'SOFTWARE',
       home_url:    'https://www.zen-trader.com',
@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
       body: JSON.stringify({
         product_id:  productId,
         name:        `ZenTrade ${plan.label}`,
-        description: `Suscripción ${plan.label} a ZenTrade`,
+        description: `ZenTrade ${plan.label} subscription`,
         status:      'ACTIVE',
         billing_cycles: [{
           frequency:      { interval_unit: plan.unit, interval_count: 1 },

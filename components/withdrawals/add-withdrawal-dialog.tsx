@@ -16,6 +16,7 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Loader2, AlertTriangle, ArrowDownToLine } from 'lucide-react'
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface AddWithdrawalDialogProps {
   account: Account | null
@@ -30,6 +31,7 @@ export function AddWithdrawalDialog({
   onOpenChange, 
   onSuccess 
 }: AddWithdrawalDialogProps) {
+  const { tr } = useTr()
   const [amount, setAmount] = useState('')
   const [withdrawalDate, setWithdrawalDate] = useState(new Date().toISOString().split('T')[0])
   const [notes, setNotes] = useState('')
@@ -50,12 +52,12 @@ export function AddWithdrawalDialog({
 
     // Validaciones
     if (isNaN(withdrawalAmount) || withdrawalAmount <= 0) {
-      setError('El monto debe ser mayor a 0')
+      setError(tr('El monto debe ser mayor a 0', 'Amount must be greater than 0'))
       return
     }
 
     if (withdrawalAmount > maxWithdrawal) {
-      setError(`El monto no puede exceder $${maxWithdrawal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`)
+      setError(`${tr('El monto no puede exceder', 'Amount cannot exceed')} $${maxWithdrawal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`)
       return
     }
 
@@ -113,10 +115,10 @@ export function AddWithdrawalDialog({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <ArrowDownToLine className="h-5 w-5 text-blue-400" />
-              Solicitar Retiro
+              {tr("Solicitar Retiro", "Request Payout")}
             </DialogTitle>
             <DialogDescription>
-              Retiro de la cuenta {account.name} ({account.broker})
+              {tr("Retiro de la cuenta", "Payout from")} {account.name} ({account.broker})
             </DialogDescription>
           </DialogHeader>
 
@@ -124,19 +126,19 @@ export function AddWithdrawalDialog({
             {/* Info de cuenta */}
             <div className="p-4 rounded-lg bg-slate-800/50 border border-slate-700/50 space-y-2">
               <div className="flex justify-between text-sm">
-                <span className="text-slate-400">Saldo actual:</span>
+                <span className="text-slate-400">{tr("Saldo actual:", "Current balance:")}</span>
                 <span className="font-semibold text-slate-200">
                   ${account.current_balance.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                 </span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-slate-400">Umbral del 30%:</span>
+                <span className="text-slate-400">{tr("Umbral del 30%:", "30% threshold:")}</span>
                 <span className="font-semibold text-slate-200">
                   ${threshold.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                 </span>
               </div>
               <div className="flex justify-between text-sm pt-2 border-t border-slate-700">
-                <span className="text-slate-300 font-medium">Máximo disponible:</span>
+                <span className="text-slate-300 font-medium">{tr("Máximo disponible:", "Max available:")}</span>
                 <span className="font-bold text-emerald-400">
                   ${maxWithdrawal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                 </span>
@@ -146,7 +148,7 @@ export function AddWithdrawalDialog({
             {/* Monto */}
             <div className="space-y-2">
               <Label htmlFor="amount">
-                Monto a Retirar <span className="text-red-400">*</span>
+                {tr("Monto a Retirar", "Payout Amount")} <span className="text-red-400">*</span>
               </Label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
@@ -167,14 +169,14 @@ export function AddWithdrawalDialog({
                 />
               </div>
               <p className="text-xs text-slate-500">
-                Máximo: ${maxWithdrawal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                {tr("Máximo", "Max")}: ${maxWithdrawal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
               </p>
             </div>
 
             {/* Fecha */}
             <div className="space-y-2">
               <Label htmlFor="withdrawal_date">
-                Fecha del Retiro <span className="text-red-400">*</span>
+                {tr("Fecha del Retiro", "Payout Date")} <span className="text-red-400">*</span>
               </Label>
               <Input
                 id="withdrawal_date"
@@ -188,12 +190,12 @@ export function AddWithdrawalDialog({
 
             {/* Notas */}
             <div className="space-y-2">
-              <Label htmlFor="notes">Notas (opcional)</Label>
+              <Label htmlFor="notes">{tr("Notas (opcional)", "Notes (optional)")}</Label>
               <Textarea
                 id="notes"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                placeholder="Ej: Retiro de ganancias del mes..."
+                placeholder={tr("Ej: Retiro de ganancias del mes...", "e.g. Monthly profit payout...")}
                 rows={3}
                 disabled={loading}
               />
@@ -211,7 +213,7 @@ export function AddWithdrawalDialog({
             <Alert className="border-blue-500/50 bg-blue-500/10">
               <AlertTriangle className="h-4 w-4 text-blue-400" />
               <AlertDescription className="text-blue-400 text-xs">
-                El retiro reducirá tu balance y ajustará el campo manual_adjustments de la cuenta
+                {tr("El retiro reducirá tu balance y ajustará el campo manual_adjustments de la cuenta", "The payout lowers your balance and is recorded as a manual adjustment on the account")}
               </AlertDescription>
             </Alert>
           </div>
@@ -223,16 +225,16 @@ export function AddWithdrawalDialog({
               onClick={() => handleOpenChange(false)}
               disabled={loading}
             >
-              Cancelar
+              {tr("Cancelar", "Cancel")}
             </Button>
             <Button type="submit" disabled={loading}>
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Procesando...
+                  {tr("Procesando...", "Processing...")}
                 </>
               ) : (
-                'Confirmar Retiro'
+                tr('Confirmar Retiro', 'Confirm Payout')
               )}
             </Button>
           </DialogFooter>

@@ -94,47 +94,7 @@ export default function BenefitsSection({ realTestimonials = [] }: BenefitsSecti
               </div>
             ))}
           </div>
-        ) : (
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-zen-surface-elevated rounded-2xl p-8 border border-zen-caribbean-green/30">
-              <div className="flex items-center space-x-1 mb-4">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-zen-caribbean-green text-zen-caribbean-green" />)}
-              </div>
-              <p className="text-zen-anti-flash text-lg mb-4">{l.benefitsReview1}</p>
-              <div className="flex items-center space-x-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://i.pravatar.cc/80?img=12"
-                  alt={l.benefitsReview1Author}
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="text-zen-anti-flash font-semibold">{l.benefitsReview1Author}</p>
-                  <p className="text-zen-text-muted text-sm">{l.benefitsReview1Role}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-zen-surface-elevated rounded-2xl p-8 border border-zen-caribbean-green/30">
-              <div className="flex items-center space-x-1 mb-4">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-zen-caribbean-green text-zen-caribbean-green" />)}
-              </div>
-              <p className="text-zen-anti-flash text-lg mb-4">{l.benefitsReview2}</p>
-              <div className="flex items-center space-x-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://i.pravatar.cc/80?img=47"
-                  alt={l.benefitsReview2Author}
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="text-zen-anti-flash font-semibold">{l.benefitsReview2Author}</p>
-                  <p className="text-zen-text-muted text-sm">{l.benefitsReview2Role}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        ) : null /* Sin reseñas reales aprobadas no se muestran testimonios (regla FTC: nada inventado) */}
       </div>
     </section>
   );

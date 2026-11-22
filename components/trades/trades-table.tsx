@@ -16,10 +16,12 @@ import { createClient } from '@/lib/supabase/client'
 import { useState } from 'react'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import { emotionLabel } from '@/lib/constants/trade-labels'
 import { parseISODate } from '@/lib/utils/date-helpers'
 import { formatSignedMoney } from '@/lib/utils/format-money'
 import { cn } from '@/lib/utils'
 import { Checkbox } from '@/components/ui/checkbox'
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface TradesTableProps {
   trades: Trade[]
@@ -33,6 +35,7 @@ type SortField = 'trade_date' | 'result' | 'instrument'
 type SortDirection = 'asc' | 'desc'
 
 export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelectionChange, isPro = false }: TradesTableProps) {
+  const { tr, locale } = useTr();
   const [sortField, setSortField] = useState<SortField>('trade_date')
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc')
 
@@ -127,7 +130,7 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
   if (trades.length === 0) {
     return (
       <div className="flex items-center justify-center h-64 border border-slate-700/50 rounded-lg bg-gradient-to-br from-slate-800/50 to-slate-900/50">
-        <p className="text-slate-400">No hay trades para mostrar</p>
+        <p className="text-slate-400">{tr("No hay trades para mostrar", "No trades to show")}</p>
       </div>
     )
   }
@@ -143,7 +146,7 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                   <Checkbox
                     checked={allSelected || someSelected}
                     onCheckedChange={handleSelectAll}
-                    aria-label="Seleccionar todos"
+                    aria-label={tr("Seleccionar todos", "Select all")}
                     className={someSelected ? "data-[state=checked]:bg-zen-caribbean-green/50" : ""}
                   />
                 </TableHead>
@@ -155,12 +158,12 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                   className="h-8 gap-1"
                   onClick={() => handleSort('trade_date')}
                 >
-                  Fecha
+                  {tr("Fecha", "Date")}
                   <ArrowUpDown className="h-3 w-3" />
                 </Button>
               </TableHead>
               {isPro && (
-                <TableHead className="text-zen-anti-flash">Horario</TableHead>
+                <TableHead className="text-zen-anti-flash">{tr("Horario", "Time")}</TableHead>
               )}
               {isPro && (
                 <TableHead className="text-zen-anti-flash w-12 text-center">
@@ -174,12 +177,12 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                   className="h-8 gap-1"
                   onClick={() => handleSort('instrument')}
                 >
-                  Instrumento
+                  {tr("Instrumento", "Instrument")}
                   <ArrowUpDown className="h-3 w-3" />
                 </Button>
               </TableHead>
-              <TableHead className='text-zen-anti-flash'>Tipo de trade</TableHead>
-              <TableHead className="text-zen-anti-flash">Contratos</TableHead>
+              <TableHead className='text-zen-anti-flash'>{tr("Tipo de trade", "Side")}</TableHead>
+              <TableHead className="text-zen-anti-flash">{tr("Contratos", "Contracts")}</TableHead>
               <TableHead>
                 <Button
                   variant="ghost"
@@ -187,14 +190,14 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                   className="h-8 gap-1"
                   onClick={() => handleSort('result')}
                 >
-                  Resultado
+                  {tr("Resultado", "Result")}
                   <ArrowUpDown className="h-3 w-3" />
                 </Button>
               </TableHead>
-              <TableHead className='text-zen-anti-flash'>Razón Salida</TableHead>
+              <TableHead className='text-zen-anti-flash'>{tr("Razón Salida", "Exit Reason")}</TableHead>
               <TableHead className="text-center text-zen-anti-flash">Plan</TableHead>
-              <TableHead className='text-zen-anti-flash'>Emociones</TableHead>
-              <TableHead className="max-w-[200px] text-zen-anti-flash">Notas</TableHead>
+              <TableHead className='text-zen-anti-flash'>{tr("Emociones", "Emotions")}</TableHead>
+              <TableHead className="max-w-[200px] text-zen-anti-flash">{tr("Notas", "Notes")}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -208,12 +211,12 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                     <Checkbox
                       checked={selectedTrades.includes(trade.id)}
                       onCheckedChange={(checked) => handleSelectTrade(trade.id, checked as boolean)}
-                      aria-label={`Seleccionar trade ${trade.id}`}
+                      aria-label={`${tr('Seleccionar trade', 'Select trade')} ${trade.id}`}
                     />
                   </TableCell>
                 )}
                 <TableCell className="font-medium text-zen-anti-flash" onClick={() => onTradeClick?.(trade)}>
-                  {format(parseISODate(trade.trade_date), 'dd/MM/yyyy', { locale: es })}
+                  {format(parseISODate(trade.trade_date), locale === 'es' ? 'dd/MM/yyyy' : 'MM/dd/yyyy', { locale: es })}
                 </TableCell>
                 {isPro && (
                   <TableCell className="text-zen-anti-flash text-sm" onClick={() => onTradeClick?.(trade)}>
@@ -232,7 +235,7 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                       <button
                         onClick={() => handleOpenScreenshot(trade.screenshot_urls![0])}
                         className="inline-flex items-center gap-1 text-zen-caribbean-green hover:text-zen-mountain-meadow transition-colors"
-                        title={`${trade.screenshot_urls.length} captura(s)`}
+                        title={`${trade.screenshot_urls.length} ${tr('captura(s)', 'screenshot(s)')}`}
                       >
                         <Camera className="h-4 w-4" />
                         {trade.screenshot_urls.length > 1 && (
@@ -264,7 +267,7 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                     ) : (
                       <TrendingDown className="h-3 w-3 mr-1" />
                     )}
-                    {trade.side === 'long' ? 'Largo' : 'Corto'}
+                    {trade.side === 'long' ? 'Long' : 'Short'}
                   </Badge>
                 </TableCell>
                 <TableCell className="text-center text-zen-anti-flash" onClick={() => onTradeClick?.(trade)}>{trade.contracts}</TableCell>
@@ -299,7 +302,7 @@ export function TradesTable({ trades, onTradeClick, selectedTrades = [], onSelec
                     <div className="flex flex-wrap gap-1">
                       {trade.emotions.slice(0, 2).map((emotion: string, idx: number) => (
                         <Badge key={idx} variant="secondary" className="text-xs capitalize">
-                          {emotion}
+                          {emotionLabel(emotion, locale)}
                         </Badge>
                       ))}
                       {trade.emotions.length > 2 && (

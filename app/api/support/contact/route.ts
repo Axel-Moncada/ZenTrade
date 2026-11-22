@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     const result = contactSchema.safeParse(body);
 
     if (!result.success) {
-      return NextResponse.json({ error: "Datos inválidos" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid data" }, { status: 400 });
     }
 
     const { name, email, message, website } = result.data;
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error("[support/contact] Resend error:", error);
-      return NextResponse.json({ error: "Error al enviar" }, { status: 500 });
+      return NextResponse.json({ error: "Could not send" }, { status: 500 });
     }
 
     return NextResponse.json({ ok: true });

@@ -7,6 +7,7 @@ import {
   DialogContent,
 } from "@/components/ui/dialog";
 import tradingQuotes from "@/data/trading-quotes.json";
+import { useTr } from "@/lib/i18n/use-tr";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -59,12 +60,14 @@ export function DayModal({
   const [account, setAccount] = useState<Account | null>(null);
   const [dailyQuote, setDailyQuote] = useState("");
   const [userId, setUserId] = useState<string>("");
+  const { tr, locale } = useTr();
 
   // Cargar quote aleatoria solo en el cliente para evitar hydration error
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * tradingQuotes.quotes.length);
-    setDailyQuote(tradingQuotes.quotes[randomIndex]);
-  }, []);
+    const pool = locale === "es" ? tradingQuotes.quotes : tradingQuotes.quotes_en;
+    const randomIndex = Math.floor(Math.random() * pool.length);
+    setDailyQuote(pool[randomIndex]);
+  }, [locale]);
 
   // Obtener userId para foto upload
   useEffect(() => {
@@ -156,11 +159,11 @@ export function DayModal({
       } else {
         const error = await response.json();
         console.error("Error creating trade:", error);
-        alert(error.error || "Error al crear trade");
+        alert(error.error || tr("Error al crear trade", "Could not create the trade"));
       }
     } catch (error) {
       console.error("Error creating trade:", error);
-      alert("Error al crear trade");
+      alert(tr("Error al crear trade", "Could not create the trade"));
     }
   };
 
@@ -182,11 +185,11 @@ export function DayModal({
       } else {
         const error = await response.json();
         console.error("Error updating trade:", error);
-        alert(error.error || "Error al actualizar trade");
+        alert(error.error || tr("Error al actualizar trade", "Could not update the trade"));
       }
     } catch (error) {
       console.error("Error updating trade:", error);
-      alert("Error al actualizar trade");
+      alert(tr("Error al actualizar trade", "Could not update the trade"));
     }
   };
 
@@ -214,11 +217,11 @@ export function DayModal({
       } else {
         const error = await response.json();
         console.error("Error deleting trade:", error);
-        alert(error.error || "Error al eliminar trade");
+        alert(error.error || tr("Error al eliminar trade", "Could not delete the trade"));
       }
     } catch (error) {
       console.error("Error deleting trade:", error);
-      alert("Error al eliminar trade");
+      alert(tr("Error al eliminar trade", "Could not delete the trade"));
     }
   };
 
@@ -233,11 +236,11 @@ export function DayModal({
         >
           <div className="flex items-center gap-3">
             <h2 className="text-2xl font-bold text-zen-anti-flash capitalize">
-              {formatDateToReadable(date)}
+              {formatDateToReadable(date, locale)}
             </h2>
             {isReadOnly && (
               <span className="inline-flex items-center gap-1 text-xs bg-red-500/20 border border-red-500/40 text-red-400 rounded-full px-2.5 py-0.5 font-medium">
-                <Lock className="h-3 w-3" /> Evaluación Fallida · Solo lectura
+                <Lock className="h-3 w-3" /> {tr("Evaluación Fallida · Solo lectura", "Failed evaluation · Read only")}
               </span>
             )}
           </div>
@@ -277,21 +280,21 @@ export function DayModal({
                 <div className="p-2 bg-zen-caribbean-green/20 rounded-lg">
                   <BarChart3 className="h-4 w-4 text-zen-caribbean-green" />
                 </div>
-                <h3 className="font-bold text-zen-anti-flash">Resumen del Día</h3>
+                <h3 className="font-bold text-zen-anti-flash">{tr("Resumen del Día", "Day Summary")}</h3>
               </div>
 
               
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {/* Total Trades */}
                 <div className="bg-zen-surface/60 rounded-lg p-3 border border-zen-forest/30">
-                  <p className="text-xs text-zen-anti-flash/60 mb-1">Operaciones</p>
+                  <p className="text-xs text-zen-anti-flash/60 mb-1">{tr("Operaciones", "Trades")}</p>
                   <p className="text-xl font-bold text-zen-anti-flash">{summary.total_trades}</p>
                 </div>
 
                 {/* W/L */}
                 <div className="bg-zen-surface/60 rounded-lg p-3 border border-zen-forest/30">
                   <p className="text-xs text-zen-anti-flash/60 mb-1 flex items-center gap-1">
-                    <TrendingUp className="h-3 w-3 text-zen-caribbean-green" /> Ganadores/Perdedores
+                    <TrendingUp className="h-3 w-3 text-zen-caribbean-green" /> {tr("Ganadores/Perdedores", "Winners/Losers")}
                   </p>
                   <p className="text-xl font-bold">
                     <span className="text-zen-caribbean-green">{summary.winning_trades}</span>
@@ -313,7 +316,7 @@ export function DayModal({
                   "bg-zen-surface/60 rounded-lg p-3 border col-span-1 md:col-span-2",
                   summary.net_pnl >= 0 ? "border-zen-caribbean-green/40 bg-zen-caribbean-green/30" : "border-zen-danger/40 border-2 bg-zen-danger/20"
                 )}>
-                  <p className="text-xs text-zen-anti-flash/60 mb-1">PNL Neto</p>
+                  <p className="text-xs text-zen-anti-flash/60 mb-1">{tr("PNL Neto", "Net P&L")}</p>
                   <p className={cn(
                     "text-2xl font-bold",
                     summary.net_pnl >= 0 ? "text-zen-caribbean-green" : "text-zen-danger"
@@ -330,7 +333,7 @@ export function DayModal({
                   "bg-zen-surface/60 rounded-lg p-3 border",
                   accountPercentage >= 0 ? "border-zen-caribbean-green/40 bg-zen-caribbean-green/30" : "border-zen-danger/40 border-2 bg-zen-danger/20"
                 )}>
-                  <p className="text-xs text-zen-anti-flash/60 mb-1">% Cuenta</p>
+                  <p className="text-xs text-zen-anti-flash/60 mb-1">{tr("% Cuenta", "% of Account")}</p>
                   <p className={cn(
                     "text-lg font-bold",
                     accountPercentage >= 0 ? "text-zen-caribbean-green" : "text-zen-danger"
@@ -346,7 +349,7 @@ export function DayModal({
               animate={{ opacity: 1 }}
               className="bg-zen-forest/10 border border-zen-forest/40 rounded-xl p-8 text-center"
             >
-              <p className="text-zen-anti-flash/60">No hay operaciones registradas para este día</p>
+              <p className="text-zen-anti-flash/60">{tr("No hay operaciones registradas para este día", "No trades logged for this day")}</p>
             </motion.div>
           )}
 
@@ -359,10 +362,10 @@ export function DayModal({
           >
             <label className="text-sm font-bold bg text-zen-anti-flash flex items-center gap-2">
               <div className="w-1 h-1 rounded-full bg-zen-caribbean-green" />
-              Notas del Día
+              {tr("Notas del Día", "Day Notes")}
             </label>
             <Textarea
-              placeholder="Agrega notas sobre este día de trading..."
+              placeholder={tr("Agrega notas sobre este día de trading...", "Add notes about this trading day...")}
               rows={8}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
@@ -374,7 +377,7 @@ export function DayModal({
               <div className="flex items-center justify-between text-xs text-zen-anti-flash/60">
                 <span>{notes.length} / 2000</span>
                 {notes !== (summary?.notes || "") && (
-                  <span className="text-zen-pistachio">✦ Sin guardar</span>
+                  <span className="text-zen-pistachio">✦ {tr("Sin guardar", "Unsaved")}</span>
                 )}
               </div>
             )}
@@ -390,12 +393,12 @@ export function DayModal({
             >
               <p className="text-sm font-bold text-zen-anti-flash flex items-center gap-2">
                 <div className="w-1 h-1 rounded-full bg-zen-caribbean-green" />
-                Fotos del Día
+                {tr("Fotos del Día", "Day Photos")}
               </p>
               <div className="grid grid-cols-2 gap-3">
                 <DailyPhotoUpload
-                  label="Foto Micro"
-                  description="Gráfico del trade / entrada"
+                  label={tr("Foto Micro", "Micro Chart")}
+                  description={tr("Gráfico del trade / entrada", "Trade chart / entry")}
                   path={summary?.micro_photo_path ?? null}
                   userId={userId}
                   accountId={accountId}
@@ -404,8 +407,8 @@ export function DayModal({
                   readOnly={isReadOnly}
                 />
                 <DailyPhotoUpload
-                  label="Foto Macro"
-                  description="Contexto de mercado / TF mayor"
+                  label={tr("Foto Macro", "Macro Chart")}
+                  description={tr("Contexto de mercado / TF mayor", "Market context / higher timeframe")}
                   path={summary?.macro_photo_path ?? null}
                   userId={userId}
                   accountId={accountId}
@@ -430,7 +433,7 @@ export function DayModal({
             <div className="flex items-center justify-between">
               <h3 className="font-bold text-zen-anti-flash flex items-center gap-2">
                 <div className="w-1 h-1 rounded-full bg-zen-caribbean-green" />
-                Trades del Día
+                {tr("Trades del Día", "Day Trades")}
               </h3>
               {!showTradeForm && !isReadOnly && (
                 <Button
@@ -441,7 +444,7 @@ export function DayModal({
                   className="h-8 px-3 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black gap-2 text-xs font-semibold rounded-lg"
                 >
                   <Plus className="h-3.5 w-3.5" />
-                  Nuevo
+                  {tr("Nuevo", "New")}
                 </Button>
               )}
             </div>
@@ -460,7 +463,7 @@ export function DayModal({
               />
             ) : loadingTrades ? (
               <div className="text-center py-6 text-zen-anti-flash/60 text-sm">
-                Cargando trades...
+                {tr("Cargando trades...", "Loading trades...")}
               </div>
             ) : (
               <TradesList
@@ -484,7 +487,7 @@ export function DayModal({
                 disabled={saving}
                 className="h-9 px-4 bg-zen-surface hover:bg-zen-forest/30 text-zen-anti-flash border border-zen-forest/40 rounded-lg font-semibold transition-colors"
               >
-                Cerrar
+                {tr("Cerrar", "Close")}
               </Button>
               {!isReadOnly && (
                 <Button
@@ -492,7 +495,7 @@ export function DayModal({
                   disabled={saving || notes === (summary?.notes || "")}
                   className="h-9 px-4 bg-zen-caribbean-green hover:bg-zen-mountain-meadow text-zen-rich-black rounded-lg font-semibold transition-colors"
                 >
-                  {saving ? "Guardando..." : "Guardar"}
+                  {saving ? tr("Guardando...", "Saving...") : tr("Guardar", "Save")}
                 </Button>
               )}
             </motion.div>
@@ -505,20 +508,23 @@ export function DayModal({
       <AlertDialog open={!!tradeToDelete} onOpenChange={() => setTradeToDelete(null)}>
         <AlertDialogContent className="bg-zen-surface/80 backdrop-blur-sm border-zen-forest/40">
           <AlertDialogHeader>
-            <AlertDialogTitle className="text-zen-anti-flash">¿Eliminar esta operación?</AlertDialogTitle>
+            <AlertDialogTitle className="text-zen-anti-flash">{tr("¿Eliminar esta operación?", "Delete this trade?")}</AlertDialogTitle>
             <AlertDialogDescription className="text-zen-anti-flash/70">
-              Esta acción no se puede deshacer. La operación será eliminada permanentemente y las métricas se actualizarán automáticamente.
+              {tr(
+                "Esta acción no se puede deshacer. La operación será eliminada permanentemente y las métricas se actualizarán automáticamente.",
+                "This cannot be undone. The trade will be permanently deleted and your metrics will update automatically."
+              )}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel className="bg-zen-surface hover:bg-zen-forest/30 text-zen-anti-flash border-zen-forest/40">
-              Cancelar
+              {tr("Cancelar", "Cancel")}
             </AlertDialogCancel>
             <AlertDialogAction
               onClick={confirmDeleteTrade}
               className="bg-zen-danger hover:bg-zen-danger/90 text-white"
             >
-              Eliminar
+              {tr("Eliminar", "Delete")}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

@@ -101,7 +101,7 @@ function buildPreviewHtml(body: string, subject: string, lang: Lang): string {
 export function EmailEditor({ emailId }: EmailEditorProps) {
   const router = useRouter()
 
-  const [lang, setLang] = useState<Lang>('es')
+  const [lang, setLang] = useState<Lang>('en')
   const [showPreview, setShowPreview] = useState(false)
   const [saving, setSaving] = useState(false)
   const [sending, setSending] = useState(false)

@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Sparkles, CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { usePlan } from "@/lib/hooks/usePlan";
+import { useTr } from "@/lib/i18n/use-tr";
 
 const STORAGE_KEY = "zentrade-welcome-dismissed";
 
 export function FreePlanWelcome() {
+  const { tr, locale } = useTr();
   const plan = usePlan();
   const [dismissed, setDismissed] = useState(true); // true para evitar flash inicial
 
@@ -45,12 +47,15 @@ export function FreePlanWelcome() {
           {/* Contenido */}
           <div className="flex-1 min-w-0">
             <p className="text-sm font-semibold text-zen-anti-flash mb-1">
-              Bienvenido a ZenTrade — Plan Free activo
+              {tr("Bienvenido a ZenTrade — Plan Free activo", "Welcome to ZenTrade — Free plan active")}
             </p>
 
             {/* Lo que incluye */}
             <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3">
-              {["1 cuenta de trading", "Registro manual de trades", "Dashboard básico", "Export CSV"].map((f) => (
+              {(locale === "es"
+                ? ["1 cuenta de trading", "Registro manual de trades", "Dashboard básico", "Export CSV"]
+                : ["1 trading account", "Manual trade logging", "Core dashboard", "CSV export"]
+              ).map((f) => (
                 <span key={f} className="flex items-center gap-1 text-xs text-zen-anti-flash/70">
                   <CheckCircle2 className="h-3 w-3 text-zen-caribbean-green shrink-0" />
                   {f}
@@ -60,14 +65,16 @@ export function FreePlanWelcome() {
 
             {/* CTA */}
             <p className="text-xs text-zen-anti-flash/50 mb-3">
-              Activa <span className="text-zen-caribbean-green font-medium">Starter desde $7/mes</span> y desbloquea import CSV automático, export PDF, dashboard analítico completo, 2 cuentas y más.
+              {tr("Activa", "Get")} <span className="text-zen-caribbean-green font-medium">{tr("Starter desde $7/mes", "Starter from $7/mo")}</span>{" "}
+              {tr("y desbloquea 2 cuentas y export CSV.", "and unlock 2 accounts and CSV export.")}{" "}
+              {tr("Professional suma import CSV automático, export PDF y el dashboard analítico completo.", "Professional adds CSV import, PDF export and the full analytics dashboard.")}
             </p>
 
             <Link
               href="/dashboard/billing"
               className="inline-flex items-center gap-1.5 rounded-lg bg-zen-caribbean-green px-4 py-1.5 text-xs font-semibold text-zen-rich-black hover:bg-zen-mountain-meadow transition-colors"
             >
-              Ver planes
+              {tr("Ver planes", "See plans")}
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>

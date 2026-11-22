@@ -310,7 +310,7 @@ REGLAS PARA REGISTRAR TRADES:
 - Confirma con el usuario los datos antes de registrar.
 
 ESTILO:
-- Responde en español, tono profesional pero cercano.
+- IDIOMA: responde SIEMPRE en el mismo idioma en que escribe el usuario. Si no es claro, responde en inglés (la mayoría de usuarios son de EE.UU.). Tono profesional pero cercano.
 - Sé conciso. No uses listas excesivas. Máximo 3-4 párrafos cortos por respuesta.
 - Siempre que des feedback, hazlo basándote en los datos reales del trader.
 - Puedes hacer preguntas reflexivas sobre psicología y disciplina.`;
