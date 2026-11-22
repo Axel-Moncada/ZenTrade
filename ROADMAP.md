@@ -42,12 +42,15 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 ## English-first — antes de pautar en EE.UU. (desde 2026-11-22)
 
 - [x] Emails, errores de la API, CSV, login/registro, home/pricing (SEO), billing y upgrade prompts en inglés
-- [x] Quitar promesas falsas: prueba de 14 días, import desde MT5/TradingView, features que no existen
-- [ ] **Prueba real de 7 días** (decisión del fundador 2026-11-22): ciclo `TRIAL` en los planes de PayPal (Pro y ZenMode), nuevos plan IDs en Vercel, copy de la landing y política de reembolsos
-- [ ] Resolver la contradicción "15-day guarantee" (insignias del checkout) vs "no refunds" (política)
-- [ ] Barrido de la app: ~33 componentes sin i18n (cuentas, trades, calendario, dashboard, trading plan, retiros, backtesting) + los parciales
-- [ ] Páginas públicas `/about`, `/vs/tradezella`, `/vs/edgewonk` en inglés (y ES en `/es/*`)
-- [ ] Recorrido completo con un navegador en inglés: registro → cuenta → importar → dashboard → pagar
+- [x] Toda la app autenticada bilingüe con inglés primero (cuentas, trades, calendario, dashboard, trading plan + PDF, retiros, backtesting, perfil)
+- [x] ZenCoach responde en el idioma del usuario
+- [x] `/about`, `/vs/*`, `/blog`, legales y 404 en inglés; ES movido a `/es/vs/*`
+- [x] Quitar promesas falsas (prueba de 14 días, MT5/TradingView, features no construidas) y **testimonios inventados**
+- [x] Reembolsos: cobro desde el día 1 + solicitud por email en 7 días (decisión del fundador; reemplaza la "garantía de 15 días")
+- [ ] Recorrido manual con navegador en inglés: registro → cuenta → importar → dashboard → pagar
+- [ ] Grabar demos en video en inglés (las del landing están en español)
+- [ ] Revisar afirmaciones sobre la competencia en `/es/vs/*`
+- [ ] Borrar código muerto `components/dashboard/zencoach/zen-coach-widget.tsx`
 
 ## Estrategia de crecimiento (plan de 90 días, desde 2026-11-19)
 

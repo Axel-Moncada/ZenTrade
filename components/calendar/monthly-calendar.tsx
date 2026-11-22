@@ -7,6 +7,7 @@ import {
   getWeekDayNames,
   formatDateToISO,
 } from "@/lib/utils/date-helpers";
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface MonthlyCalendarProps {
   year: number;
@@ -24,7 +25,8 @@ export function MonthlyCalendar({
   revengeTradingDates,
 }: MonthlyCalendarProps) {
   const days = generateCalendarDays(year, month);
-  const weekDays = getWeekDayNames(true);
+  const { locale } = useTr();
+  const weekDays = getWeekDayNames(true, locale);
 
   // Crear mapa de summaries por fecha para búsqueda rápida
   const summariesMap = new Map<string, DailySummary>();

@@ -81,7 +81,7 @@ export default function SolutionSection() {
                 <Lightbulb className="w-5 h-5 text-zen-caribbean-green shrink-0 mt-0.5" />
                 {l.solutionTestimonial}
               </p>
-              <p className="text-zen-text-muted mt-2">{l.solutionTestimonialAuthor}</p>
+              {l.solutionTestimonialAuthor && <p className="text-zen-text-muted mt-2">{l.solutionTestimonialAuthor}</p>}
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Clock, ArrowUpRight, CalendarClock } from "lucide-react";
-import { BlogPost, CATEGORY_LABELS, formatDate, isScheduled } from "@/lib/blog";
+import { BlogPost, categoryLabel as getCategoryLabel, formatDate, getBlogPostLang, isScheduled } from "@/lib/blog";
 
 interface PostCardProps {
   post: BlogPost;
@@ -9,7 +9,8 @@ interface PostCardProps {
 }
 
 export default function PostCard({ post, featured = false }: PostCardProps) {
-  const categoryLabel = CATEGORY_LABELS[post.category] ?? post.category;
+  const lang = getBlogPostLang(post);
+  const categoryLabel = getCategoryLabel(post.category, lang);
   const scheduled = isScheduled(post);
 
   if (featured) {
@@ -79,7 +80,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
               <span className="text-xs text-zen-anti-flash/60">{post.author}</span>
             </div>
             <time className="text-xs text-zen-anti-flash/60" dateTime={post.publishedAt}>
-              {formatDate(post.publishedAt)}
+              {formatDate(post.publishedAt, lang)}
             </time>
           </div>
         </div>
@@ -142,7 +143,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
 
         {/* Date */}
         <time className="text-xs text-zen-anti-flash/60" dateTime={post.publishedAt}>
-          {formatDate(post.publishedAt)}
+          {formatDate(post.publishedAt, lang)}
         </time>
       </div>
     </Link>

@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { ArrowDownToLine, Shield, AlertTriangle, CheckCircle2 } from 'lucide-react'
+import { useTr } from "@/lib/i18n/use-tr";
 
 export interface ConsistencyData {
   netProfit: number           // ganancia neta = suma de todos los trades (wins - losses)
@@ -19,6 +20,7 @@ interface WithdrawalAccountCardProps {
 }
 
 export function WithdrawalAccountCard({ account, onWithdraw, consistencyData }: WithdrawalAccountCardProps) {
+  const { tr } = useTr()
   const totalProfit = account.current_balance - account.initial_balance
   const profitPercentage = account.initial_balance > 0
     ? (totalProfit / account.initial_balance) * 100
@@ -39,7 +41,7 @@ export function WithdrawalAccountCard({ account, onWithdraw, consistencyData }: 
         <div className="flex items-start justify-between">
           <div>
             <h3 className="text-lg font-semibold text-zen-anti-flash">{account.name}</h3>
-            <p className="text-sm text-zen-anti-flash/50">{account.broker || 'Sin broker'}</p>
+            <p className="text-sm text-zen-anti-flash/50">{account.broker || tr('Sin broker', 'No broker')}</p>
           </div>
           <Badge className="bg-zen-caribbean-green/20 text-zen-caribbean-green border-zen-caribbean-green/40 text-xs">
             LIVE
@@ -49,13 +51,13 @@ export function WithdrawalAccountCard({ account, onWithdraw, consistencyData }: 
         {/* Balances */}
         <div className="grid grid-cols-2 gap-3">
           <div className="bg-zen-rich-black/40 rounded-lg p-3 border border-zen-forest/30">
-            <p className="text-xs text-zen-anti-flash/50 mb-1">Balance Actual</p>
+            <p className="text-xs text-zen-anti-flash/50 mb-1">{tr("Balance Actual", "Current Balance")}</p>
             <p className="text-lg font-bold text-zen-anti-flash">
               ${account.current_balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
           </div>
           <div className={`rounded-lg p-3 border ${totalProfit >= 0 ? 'bg-zen-caribbean-green/10 border-zen-caribbean-green/30' : 'bg-zen-danger/10 border-zen-danger/30'}`}>
-            <p className="text-xs text-zen-anti-flash/50 mb-1">Ganancia Neta</p>
+            <p className="text-xs text-zen-anti-flash/50 mb-1">{tr("Ganancia Neta", "Net Profit")}</p>
             <p className={`text-lg font-bold ${totalProfit >= 0 ? 'text-zen-caribbean-green' : 'text-zen-danger'}`}>
               {totalProfit >= 0 ? '+' : ''}${totalProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
@@ -83,20 +85,20 @@ export function WithdrawalAccountCard({ account, onWithdraw, consistencyData }: 
               <p className={`text-sm font-semibold ${
                 !hasTrades ? 'text-zen-anti-flash/50' : meetsRule ? 'text-zen-caribbean-green' : 'text-zen-danger'
               }`}>
-                Consistencia {account.consistency_percent ?? 30}% — {!hasTrades ? 'Sin datos' : meetsRule ? 'Cumplida ✓' : 'Pendiente'}
+                {tr('Consistencia', 'Consistency')} {account.consistency_percent ?? 30}% — {!hasTrades ? tr('Sin datos', 'No data') : meetsRule ? tr('Cumplida ✓', 'Met ✓') : tr('Pendiente', 'Pending')}
               </p>
               {!hasTrades ? (
-                <p className="text-xs text-zen-anti-flash/40">Registra trades para verificar</p>
+                <p className="text-xs text-zen-anti-flash/40">{tr("Registra trades para verificar", "Log trades to check")}</p>
               ) : (
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs text-zen-anti-flash/60">
-                    <span>Trade más grande:</span>
+                    <span>{tr("Trade más grande:", "Biggest trade:")}</span>
                     <span className={`font-medium ${meetsRule ? 'text-zen-caribbean-green' : 'text-zen-danger'}`}>
                       ${consistencyData!.biggestWin.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                     </span>
                   </div>
                   <div className="flex justify-between text-xs text-zen-anti-flash/60">
-                    <span>Máx. permitido ({account.consistency_percent ?? 30}% de ${consistencyData!.netProfit.toFixed(0)}):</span>
+                    <span>{tr("Máx. permitido", "Max allowed")} ({account.consistency_percent ?? 30}% {tr("de", "of")} ${consistencyData!.netProfit.toFixed(0)}):</span>
                     <span className="font-medium text-zen-anti-flash/80">
                       ${maxAllowedBiggestWin.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                     </span>
@@ -109,13 +111,13 @@ export function WithdrawalAccountCard({ account, onWithdraw, consistencyData }: 
 
         {/* Disponible para retirar */}
         <div className={`p-4 rounded-lg border ${meetsRule && availableToWithdraw > 0 ? 'bg-zen-caribbean-green/10 border-zen-caribbean-green/30' : 'bg-zen-rich-black/40 border-zen-forest/30'}`}>
-          <p className="text-xs text-zen-anti-flash/50 mb-1">Disponible para Retiro</p>
+          <p className="text-xs text-zen-anti-flash/50 mb-1">{tr("Disponible para Retiro", "Available for Payout")}</p>
           <p className={`text-2xl font-bold ${meetsRule && availableToWithdraw > 0 ? 'text-zen-caribbean-green' : 'text-zen-anti-flash/40'}`}>
             ${availableToWithdraw.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </p>
           {!meetsRule && hasTrades && (
             <p className="text-xs text-zen-danger/70 mt-1">
-              Trade más grande supera el {account.consistency_percent ?? 30}% de ganancia neta
+              {tr(`Trade más grande supera el ${account.consistency_percent ?? 30}% de ganancia neta`, `Your biggest trade is over ${account.consistency_percent ?? 30}% of net profit`)}
             </p>
           )}
         </div>
@@ -131,7 +133,7 @@ export function WithdrawalAccountCard({ account, onWithdraw, consistencyData }: 
           }`}
         >
           <ArrowDownToLine className="h-4 w-4" />
-          {meetsRule && availableToWithdraw > 0 ? 'Solicitar Retiro' : 'No disponible'}
+          {meetsRule && availableToWithdraw > 0 ? tr('Solicitar Retiro', 'Request Payout') : tr('No disponible', 'Not available')}
         </Button>
       </div>
     </Card>

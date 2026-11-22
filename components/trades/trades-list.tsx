@@ -3,6 +3,7 @@
 import { TradeWithInstrument } from '@/types/trades';
 import { TradeCard } from './trade-card';
 import { cn } from '@/lib/utils';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface TradesListProps {
   trades: TradeWithInstrument[];
@@ -11,10 +12,11 @@ interface TradesListProps {
 }
 
 export function TradesList({ trades, onEdit, onDelete }: TradesListProps) {
+  const { tr } = useTr();
   if (trades.length === 0) {
     return (
       <div className="text-center py-8">
-        <p className="text-zen-anti-flash/60">No hay operaciones para este día</p>
+        <p className="text-zen-anti-flash/60">{tr("No hay operaciones para este día", "No trades for this day")}</p>
       </div>
     );
   }
@@ -34,11 +36,11 @@ export function TradesList({ trades, onEdit, onDelete }: TradesListProps) {
           <p className="font-bold text-zen-anti-flash">{totalTrades}</p>
         </div>
         <div>
-          <p className="text-zen-anti-flash/60 text-xs mb-1">Ganadas</p>
+          <p className="text-zen-anti-flash/60 text-xs mb-1">{tr("Ganadas", "Wins")}</p>
           <p className="font-bold text-zen-caribbean-green">{winningTrades}</p>
         </div>
         <div>
-          <p className="text-zen-anti-flash/60 text-xs mb-1">Perdidas</p>
+          <p className="text-zen-anti-flash/60 text-xs mb-1">{tr("Perdidas", "Losses")}</p>
           <p className="font-bold text-zen-danger">{losingTrades}</p>
         </div>
         <div>

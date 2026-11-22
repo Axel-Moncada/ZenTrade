@@ -28,22 +28,22 @@ export interface CurrencyFormatOptions {
   locale?: string;
 }
 
-// Labels en español para UI
-export const ACCOUNT_TYPE_LABELS: Record<AccountType, string> = {
-  evaluation: "Evaluación",
-  live: "Live",
+// Labels bilingües para UI (usar con el locale activo: LABELS[x][locale])
+export const ACCOUNT_TYPE_LABELS: Record<AccountType, { es: string; en: string }> = {
+  evaluation: { es: "Evaluación", en: "Evaluation" },
+  live: { es: "Live", en: "Live" },
 };
 
-export const DRAWDOWN_TYPE_LABELS: Record<DrawdownType, string> = {
-  trailing: "Trailing",
-  static: "Estático",
+export const DRAWDOWN_TYPE_LABELS: Record<DrawdownType, { es: string; en: string }> = {
+  trailing: { es: "Trailing", en: "Trailing" },
+  static: { es: "Estático", en: "Static" },
 };
 
-export const ACCOUNT_STATUS_LABELS: Record<AccountStatus, string> = {
-  active: "Activa",
-  passed: "Aprobada",
-  failed: "Fallida",
-  inactive: "Inactiva",
+export const ACCOUNT_STATUS_LABELS: Record<AccountStatus, { es: string; en: string }> = {
+  active: { es: "Activa", en: "Active" },
+  passed: { es: "Aprobada", en: "Passed" },
+  failed: { es: "Fallida", en: "Failed" },
+  inactive: { es: "Inactiva", en: "Inactive" },
 };
 
 // Colores para badges de estado (usando paleta Zentrade)

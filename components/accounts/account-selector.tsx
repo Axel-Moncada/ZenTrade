@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Wallet } from "lucide-react";
 import type { Account } from "@/types/accounts";
 import { ACCOUNT_TYPE_LABELS } from "@/types/accounts";
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface AccountSelectorProps {
   accounts: Account[];
@@ -29,20 +30,21 @@ export function AccountSelector({
   accounts,
   value,
   onValueChange,
-  placeholder = "Seleccionar cuenta",
-  label = "Cuenta",
+  placeholder,
+  label,
   showLabel = true,
   allowAll = false,
   hideFailed = true,
   compact = false,
 }: AccountSelectorProps) {
+  const { tr, locale } = useTr();
   const visibleAccounts = hideFailed
     ? accounts.filter((a) => a.status !== "failed")
     : accounts;
 
   return (
     <div className={compact ? "" : "space-y-2 min-w-0 flex-1"}>
-      {showLabel && !compact && <Label>{label}</Label>}
+      {showLabel && !compact && <Label>{label ?? tr("Cuenta", "Account")}</Label>}
       <Select value={value} onValueChange={onValueChange}>
         <SelectTrigger
           className={
@@ -54,14 +56,14 @@ export function AccountSelector({
           {compact ? (
             <Wallet className="h-4 w-4 text-zen-caribbean-green" />
           ) : (
-            <SelectValue placeholder={placeholder} />
+            <SelectValue placeholder={placeholder ?? tr("Seleccionar cuenta", "Select account")} />
           )}
         </SelectTrigger>
         <SelectContent className="text-zen-caribbean-green bg-zen-dark-green">
-          {allowAll && <SelectItem value="all">Todas las cuentas</SelectItem>}
+          {allowAll && <SelectItem value="all">{tr("Todas las cuentas", "All accounts")}</SelectItem>}
           {visibleAccounts.length === 0 ? (
             <div className="px-2 py-6 text-center text-sm text-zen-caribbean-green">
-              No hay cuentas disponibles
+              {tr("No hay cuentas disponibles", "No accounts available")}
             </div>
           ) : (
             visibleAccounts.map((account) => (
@@ -69,7 +71,7 @@ export function AccountSelector({
                 <div className="flex items-center gap-1.5 min-w-0 overflow-hidden text-zen-caribbean-green">
                   <span className="font-medium truncate">{account.name}</span>
                   <span className="text-xs text-zen-caribbean-green/60 shrink-0 whitespace-nowrap">
-                    · {ACCOUNT_TYPE_LABELS[account.account_type]}
+                    · {ACCOUNT_TYPE_LABELS[account.account_type][locale]}
                   </span>
                 </div>
               </SelectItem>

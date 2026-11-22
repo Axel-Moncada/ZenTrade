@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface PrimaryStatCardProps {
   title: string;
@@ -23,6 +24,7 @@ export function PrimaryStatCard({
   progress,
   delay = 0
 }: PrimaryStatCardProps) {
+  const { tr } = useTr();
   const colors = {
     positive: {
       border: 'border-zen-caribbean-green/40',
@@ -100,7 +102,7 @@ export function PrimaryStatCard({
         {progress !== undefined && (
           <div className="pt-4 border-t border-zen-forest/30">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-zen-anti-flash/60 font-medium">Tasa de éxito</span>
+              <span className="text-xs text-zen-anti-flash/60 font-medium">{tr("Tasa de éxito", "Win rate")}</span>
               <span className={cn("text-xs font-bold", style.text)}>{progress}%</span>
             </div>
             <div className="h-1.5 bg-zen-surface rounded-full overflow-hidden">

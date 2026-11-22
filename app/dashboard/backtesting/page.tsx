@@ -8,8 +8,10 @@ import { BacktestingGallery } from '@/components/backtesting/backtesting-gallery
 import { Trade } from '@/types/trade'
 import { Account } from '@/types/accounts'
 import { FlipHorizontal2, Loader2 } from 'lucide-react'
+import { useTr } from "@/lib/i18n/use-tr";
 
 export default function BacktestingPage() {
+  const { tr } = useTr()
   const plan = usePlan()
   const supabase = createClient()
 
@@ -59,10 +61,12 @@ export default function BacktestingPage() {
           <div className="w-16 h-16 rounded-2xl bg-zen-caribbean-green/10 border border-zen-caribbean-green/20 flex items-center justify-center mx-auto mb-4">
             <FlipHorizontal2 className="h-8 w-8 text-zen-caribbean-green" />
           </div>
-          <h1 className="text-2xl font-bold text-zen-anti-flash mb-2">Zona de Backtesting</h1>
+          <h1 className="text-2xl font-bold text-zen-anti-flash mb-2">{tr("Zona de Backtesting", "Backtesting Zone")}</h1>
           <p className="text-zen-anti-flash/50 text-sm leading-relaxed">
-            Revisa cada trade con su captura de pantalla, navega tu historial completo
-            y encuentra patrones que mejoren tu operativa.
+            {tr(
+              "Revisa cada trade con su captura de pantalla, navega tu historial completo y encuentra patrones que mejoren tu operativa.",
+              "Review every trade with its screenshot, browse your full history and find the patterns that improve your trading."
+            )}
           </p>
         </div>
         <UpgradePrompt
@@ -83,10 +87,10 @@ export default function BacktestingPage() {
             <div className="p-2 bg-zen-caribbean-green/15 rounded-xl">
               <FlipHorizontal2 className="h-5 w-5 text-zen-caribbean-green" />
             </div>
-            <h1 className="text-2xl font-bold text-zen-anti-flash">Zona de Backtesting</h1>
+            <h1 className="text-2xl font-bold text-zen-anti-flash">{tr("Zona de Backtesting", "Backtesting Zone")}</h1>
           </div>
           <p className="text-zen-anti-flash/50 text-sm ml-12">
-            Revisa tu historial de trades como una galería y encuentra tus patrones
+            {tr("Revisa tu historial de trades como una galería y encuentra tus patrones", "Review your trade history as a gallery and find your patterns")}
           </p>
         </div>
       </div>

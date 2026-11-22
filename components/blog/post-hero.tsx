@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Clock, User, Calendar } from "lucide-react";
-import { BlogPost, CATEGORY_LABELS, formatDate } from "@/lib/blog";
+import { BlogPost, categoryLabel as getCategoryLabel, formatDate, getBlogPostLang } from "@/lib/blog";
 
 interface PostHeroProps {
   post: BlogPost;
@@ -18,7 +18,8 @@ const DEFAULT_ACCENT = CATEGORY_ACCENT.guias;
 
 export default function PostHero({ post }: PostHeroProps) {
   const accent = CATEGORY_ACCENT[post.category] ?? DEFAULT_ACCENT;
-  const categoryLabel = CATEGORY_LABELS[post.category] ?? post.category;
+  const lang = getBlogPostLang(post);
+  const categoryLabel = getCategoryLabel(post.category, lang);
 
   return (
     <div className="relative w-full rounded-2xl overflow-hidden border border-zen-border-soft bg-zen-surface mb-10">
@@ -99,12 +100,12 @@ export default function PostHero({ post }: PostHeroProps) {
           </div>
           <span className="flex items-center gap-1.5 text-xs text-zen-anti-flash/60">
             <Calendar className="w-3.5 h-3.5" />
-            <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+            <time dateTime={post.publishedAt}>{formatDate(post.publishedAt, lang)}</time>
           </span>
           {post.updatedAt !== post.publishedAt && (
             <span className="text-xs text-zen-anti-flash/60">
               Actualizado:{" "}
-              <time dateTime={post.updatedAt}>{formatDate(post.updatedAt)}</time>
+              <time dateTime={post.updatedAt}>{formatDate(post.updatedAt, lang)}</time>
             </span>
           )}
         </div>

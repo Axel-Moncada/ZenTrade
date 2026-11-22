@@ -36,15 +36,15 @@ interface TrustBadgesProps {
 export function TrustBadges({ className = '', locale = 'es' }: TrustBadgesProps) {
   const copy = {
     es: {
-      guarantee: 'Garantía 15 días',
-      guaranteeSub: 'Devolución sin preguntas',
+      guarantee: 'Reembolso en 7 días',
+      guaranteeSub: 'Solicítalo por email',
       payment: 'Pago seguro',
       paymentSub: 'Procesado por PayPal',
       compatible: 'Compatible con',
     },
     en: {
-      guarantee: '15-day guarantee',
-      guaranteeSub: 'Refund, no questions asked',
+      guarantee: '7-day refund window',
+      guaranteeSub: 'Request it by email',
       payment: 'Secure payment',
       paymentSub: 'Powered by PayPal',
       compatible: 'Works with',
@@ -105,8 +105,8 @@ export function TrustBadges({ className = '', locale = 'es' }: TrustBadgesProps)
 
 export function TrustBadgesCompact({ className = '', locale = 'es' }: TrustBadgesProps) {
   const copy = {
-    es: { guarantee: 'Garantía 15 días', compatible: 'Funciona con' },
-    en: { guarantee: '15-day guarantee', compatible: 'Works with' },
+    es: { guarantee: 'Reembolso en 7 días', compatible: 'Funciona con' },
+    en: { guarantee: '7-day refund window', compatible: 'Works with' },
   }[locale];
 
   return (

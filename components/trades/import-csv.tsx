@@ -19,6 +19,7 @@ import {
 
 import { detectDateOrder, normalizeCsvDate } from '@/lib/utils/csv-date'
 import { useI18n } from '@/lib/i18n/context'
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface ImportCSVProps {
   accountId: string
@@ -103,7 +104,7 @@ const PLATFORM_LABELS: Record<PlatformType, string> = {
   rithmic: 'Rithmic (R Trader Pro)',
   tradovate: 'Tradovate Desktop',
   'tradovate-web': 'Tradovate Web',
-  custom: 'Plantilla ZenTrade (Custom)',
+  custom: 'ZenTrade CSV Template',
 }
 
 // Plataformas probadas y verificadas en producción
@@ -116,6 +117,7 @@ const PLATFORM_VERIFIED: Record<PlatformType, boolean> = {
 }
 
 export function ImportCSV({ accountId, initialBalance, onImportSuccess }: ImportCSVProps) {
+  const { tr } = useTr()
   const [isUploading, setIsUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState<string | null>(null)
@@ -197,7 +199,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
       window.URL.revokeObjectURL(url)
       document.body.removeChild(a)
     } catch (err) {
-      setError('Error al descargar la plantilla')
+      setError(tr('Error al descargar la plantilla', 'Could not download the template'))
     }
   }
 
@@ -216,7 +218,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
         skipEmptyLines: true,
         complete: (results) => {
           if (results.errors.length > 0) {
-            setError('Error al parsear el archivo CSV')
+            setError(tr('Error al parsear el archivo CSV', 'Could not read the CSV file'))
             return
           }
 
@@ -308,19 +310,19 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
           console.log('Parsed trades:', allTrades.length)
           
           if (allTrades.length === 0) {
-            setError('No se encontraron trades válidos en el archivo de Rithmic. Verifica que el archivo tenga el formato correcto.')
+            setError(tr('No se encontraron trades válidos en el archivo de Rithmic. Verifica que el archivo tenga el formato correcto.', 'No valid trades found in the Rithmic file. Make sure it is the right export format.'))
             return
           }
           
           if (allTrades.length > 50) {
-            setError('El archivo contiene más de 50 trades (máximo permitido)')
+            setError(tr('El archivo contiene más de 50 trades (máximo permitido)', 'The file has more than 50 trades (the maximum per import)'))
             return
           }
           
           setParsedData(allTrades)
         },
         error: (error) => {
-          setError(`Error al leer el archivo: ${error.message}`)
+          setError(`${tr('Error al leer el archivo', 'Could not read the file')}: ${error.message}`)
         },
       })
       return
@@ -332,18 +334,18 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
       skipEmptyLines: true,
       complete: (results) => {
         if (results.errors.length > 0) {
-          setError('Error al parsear el archivo CSV')
+          setError(tr('Error al parsear el archivo CSV', 'Could not read the CSV file'))
           return
         }
 
         const trades = results.data as any[]
         if (trades.length === 0) {
-          setError('El archivo no contiene datos')
+          setError(tr('El archivo no contiene datos', 'The file is empty'))
           return
         }
 
         if (trades.length > 50) {
-          setError('El archivo contiene más de 50 trades (máximo permitido)')
+          setError(tr('El archivo contiene más de 50 trades (máximo permitido)', 'The file has more than 50 trades (the maximum per import)'))
           return
         }
 
@@ -366,14 +368,17 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
         
         // Validar campos requeridos (Rithmic detecta instrument del archivo)
         const missingFields = []
-        if (!dateField) missingFields.push('Fecha')
-        if (!instrumentField) missingFields.push('Instrumento')
-        if (!sideField) missingFields.push('Lado (Long/Short)')
-        if (!contractsField) missingFields.push('Contratos')
-        if (!resultField) missingFields.push('Resultado/Profit')
+        if (!dateField) missingFields.push(tr('Fecha', 'Date'))
+        if (!instrumentField) missingFields.push(tr('Instrumento', 'Instrument'))
+        if (!sideField) missingFields.push(tr('Lado (Long/Short)', 'Side (Long/Short)'))
+        if (!contractsField) missingFields.push(tr('Contratos', 'Contracts'))
+        if (!resultField) missingFields.push(tr('Resultado/Profit', 'Result/Profit'))
 
         if (missingFields.length > 0) {
-          setError(`No se encontraron los siguientes campos requeridos: ${missingFields.join(', ')}. Verifica que seleccionaste la plataforma correcta.`)
+          setError(tr(
+          `No se encontraron los siguientes campos requeridos: ${missingFields.join(', ')}. Verifica que seleccionaste la plataforma correcta.`,
+          `Missing required columns: ${missingFields.join(', ')}. Make sure you picked the right platform.`
+        ))
           return
         }
 
@@ -447,7 +452,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
           .filter(trade => trade !== null) as ParsedTrade[]
 
         if (mappedTrades.length === 0) {
-          setError('No se encontraron trades válidos. Verifica que las columnas de Resultado y Contratos no estén vacías.')
+          setError(tr('No se encontraron trades válidos. Verifica que las columnas de Resultado y Contratos no estén vacías.', 'No valid trades found. Make sure the Result and Contracts columns are not empty.'))
           return
         }
 
@@ -457,13 +462,13 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
             ? `Se omitieron ${invalidDateRows} trade(s) con una fecha inválida. Revisa la columna de fecha del CSV.`
             : `Skipped ${invalidDateRows} trade(s) with an invalid date. Check the date column in your CSV.`)
         } else if (skippedCount > 0) {
-          setError(`Se omitieron ${skippedCount} trade(s) con valores vacíos en Resultado o Contratos.`)
+          setError(tr(`Se omitieron ${skippedCount} trade(s) con valores vacíos en Resultado o Contratos.`, `Skipped ${skippedCount} trade(s) with an empty Result or Contracts value.`))
         }
 
         setParsedData(mappedTrades)
       },
       error: (error) => {
-        setError(`Error al leer el archivo: ${error.message}`)
+        setError(`${tr('Error al leer el archivo', 'Could not read the file')}: ${error.message}`)
       },
     })
   }, [selectedPlatform, locale])
@@ -551,13 +556,13 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
         throw new Error(data.error || 'Error al importar')
       }
 
-      setSuccess(`Se importaron ${data.imported} trades exitosamente`)
+      setSuccess(tr(`Se importaron ${data.imported} trades exitosamente`, `${data.imported} trades imported successfully`))
       setParsedData([])
       onImportSuccess()
     } catch (err: any) {
       console.error('Error en handleImport:', err)
       if (err.name === 'AbortError') {
-        setError('La importación tardó demasiado tiempo (timeout). Intenta con menos trades o verifica que el servidor esté corriendo.')
+        setError(tr('La importación tardó demasiado tiempo (timeout). Intenta con menos trades o verifica que el servidor esté corriendo.', 'The import timed out. Try again with fewer trades.'))
       } else {
         setError(err.message || 'Error desconocido al importar')
       }
@@ -573,15 +578,15 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
         <div className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="platform" className="text-zen-anti-flash font-semibold">
-              Plataforma de Trading
+              {tr("Plataforma de Trading", "Trading Platform")}
             </Label>
             <p className="text-sm text-zen-text-muted">
-              Selecciona la plataforma desde donde exportaste tu CSV. Esto permite mapear automáticamente las columnas correctas.
+              {tr("Selecciona la plataforma desde donde exportaste tu CSV. Esto permite mapear automáticamente las columnas correctas.", "Pick the platform you exported your CSV from so we can map the columns automatically.")}
             </p>
           </div>
           <Select value={selectedPlatform} onValueChange={(value) => setSelectedPlatform(value as PlatformType)}>
             <SelectTrigger id="platform" className="w-full bg-zen-rich-black border-zen-border-soft text-zen-anti-flash">
-              <SelectValue placeholder="Selecciona una plataforma" />
+              <SelectValue placeholder={tr("Selecciona una plataforma", "Select a platform")} />
             </SelectTrigger>
             <SelectContent className="bg-zen-rich-black border-zen-border-soft">
               {(Object.keys(PLATFORM_LABELS) as PlatformType[]).map((platform) => (
@@ -614,9 +619,9 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
         <Card className="p-4 border-zen-forest/40 bg-zen-surface/60">
           <div className="flex items-center justify-between">
             <div className="space-y-1">
-              <h3 className="font-semibold text-zen-anti-flash">Plantilla CSV</h3>
+              <h3 className="font-semibold text-zen-anti-flash">{tr("Plantilla CSV", "CSV Template")}</h3>
               <p className="text-sm text-zen-text-muted">
-                Descarga la plantilla ZenTrade si quieres usar nuestro formato custom
+                {tr("Descarga la plantilla ZenTrade si quieres usar nuestro formato custom", "Download the ZenTrade template to use our own format")}
               </p>
             </div>
             <Button 
@@ -625,7 +630,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
               className="gap-2 border-zen-caribbean-green text-zen-caribbean-green hover:bg-zen-caribbean-green hover:text-zen-rich-black"
             >
               <Download className="h-4 w-4" />
-              Descargar plantilla
+              {tr("Descargar plantilla", "Download template")}
             </Button>
           </div>
         </Card>
@@ -645,10 +650,10 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
           <input {...getInputProps()} />
           <Upload className="h-12 w-12 mx-auto mb-4 text-zen-text-muted" />
           <p className="text-lg font-semibold text-zen-anti-flash mb-2">
-            {isDragActive ? 'Suelta el archivo aquí' : 'Arrastra un archivo CSV o haz clic'}
+            {isDragActive ? tr('Suelta el archivo aquí', 'Drop the file here') : tr('Arrastra un archivo CSV o haz clic', 'Drag a CSV file here or click')}
           </p>
           <p className="text-sm text-zen-text-muted">
-            Máximo 50 trades por importación
+            {tr("Máximo 50 trades por importación", "Up to 50 trades per import")}
           </p>
         </div>
       </Card>
@@ -671,12 +676,12 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
               {isUploading ? (
                 <>
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  Importando...
+                  {tr("Importando...", "Importing...")}
                 </>
               ) : (
                 <>
                   <Upload className="h-4 w-4" />
-                  Importar trades
+                  {tr("Importar trades", "Import trades")}
                 </>
               )}
             </Button>
@@ -684,12 +689,12 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
 
           {/* Balance esperado - SIMPLIFICADO */}
           <div className="bg-zen-surface/80 border border-zen-border-soft rounded-lg p-5 mb-5">
-            <h4 className="text-sm font-medium text-zen-text-muted mb-4">Verifica que coincida con tu cuenta</h4>
+            <h4 className="text-sm font-medium text-zen-text-muted mb-4">{tr("Verifica que coincida con tu cuenta", "Check that it matches your account")}</h4>
             
             <div className="space-y-3">
               {/* Balance inicial */}
               <div className="flex justify-between items-center">
-                <span className="text-sm text-zen-text-muted">Balance inicial</span>
+                <span className="text-sm text-zen-text-muted">{tr("Balance inicial", "Starting balance")}</span>
                 <span className="text-base font-medium text-zen-anti-flash">
                   ${initialBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
@@ -730,8 +735,8 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
               <div className="bg-zen-surface-elevated rounded-md p-4">
                 <div className="flex justify-between items-center">
                   <div>
-                    <span className="text-sm font-semibold text-zen-anti-flash block">Balance final esperado</span>
-                    <span className="text-xs text-zen-text-muted">Este valor debe coincidir con tu cuenta</span>
+                    <span className="text-sm font-semibold text-zen-anti-flash block">{tr("Balance final esperado", "Expected ending balance")}</span>
+                    <span className="text-xs text-zen-text-muted">{tr("Este valor debe coincidir con tu cuenta", "This should match your account")}</span>
                   </div>
                   <span className={`text-2xl font-bold ${
                     (() => {
@@ -764,7 +769,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
           {/* Stats cards */}
           <div className="grid grid-cols-2 gap-4 mb-5">
             <div className="bg-zen-surface/60 border border-zen-border-soft rounded-lg p-4">
-              <div className="text-sm text-zen-text-muted mb-1">Ganadores</div>
+              <div className="text-sm text-zen-text-muted mb-1">{tr("Ganadores", "Winners")}</div>
               <div className="text-2xl font-semibold text-zen-caribbean-green">
                 {parsedData.filter((t, index) => {
                   let finalResult = typeof t.result === 'number' ? t.result : parseFloat(t.result.toString())
@@ -787,7 +792,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
               </div>
             </div>
             <div className="bg-zen-surface/60 border border-zen-border-soft rounded-lg p-4">
-              <div className="text-sm text-zen-text-muted mb-1">Perdedores</div>
+              <div className="text-sm text-zen-text-muted mb-1">{tr("Perdedores", "Losers")}</div>
               <div className="text-2xl font-semibold text-zen-danger">
                 {parsedData.filter((t, index) => {
                   let finalResult = typeof t.result === 'number' ? t.result : parseFloat(t.result.toString())
@@ -813,7 +818,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
 
           {/* Preview de trades */}
           <div className="space-y-2 max-h-64 overflow-y-auto">
-            <p className="text-xs text-zen-text-muted mb-2">Vista previa de los primeros trades:</p>
+            <p className="text-xs text-zen-text-muted mb-2">{tr("Vista previa de los primeros trades:", "Preview of the first trades:")}</p>
             {parsedData.slice(0, 5).map((trade, index) => {
               let finalResult = typeof trade.result === 'number' ? trade.result : parseFloat(trade.result.toString())
               
@@ -846,7 +851,7 @@ export function ImportCSV({ accountId, initialBalance, onImportSuccess }: Import
             })}
             {parsedData.length > 5 && (
               <p className="text-sm text-zen-text-muted text-center pt-2">
-                ... y {parsedData.length - 5} trades más
+                ... {tr("y", "and")} {parsedData.length - 5} {tr("trades más", "more trades")}
               </p>
             )}
           </div>

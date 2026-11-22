@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import type { DailySummary } from "@/types/daily-summaries";
 import { isToday } from "@/lib/utils/date-helpers";
+import { useTr } from "@/lib/i18n/use-tr";
 import { cn } from "@/lib/utils";
 import { TrendingUp, TrendingDown, StickyNote } from "lucide-react";
 
@@ -15,6 +16,7 @@ interface DayCellProps {
 }
 
 export function DayCell({ date, isCurrentMonth, summary, onClick, hasRevengeTradingBadge = false }: DayCellProps) {
+  const { tr } = useTr();
   const today = isToday(date);
   const hasTrades = summary && summary.total_trades > 0;
   const isPositive = summary && summary.net_pnl > 0;
@@ -66,11 +68,11 @@ export function DayCell({ date, isCurrentMonth, summary, onClick, hasRevengeTrad
           </span>
           {today && (
             <span className="text-[10px] font-semibold text-yellow-200 bg-yellow-200/20 px-1.5 py-0.5 rounded">
-              HOY
+              {tr("HOY", "TODAY")}
             </span>
           )}
           {hasRevengeTradingBadge && (
-            <span title="Trading emocional detectado" className="h-2.5 w-2.5 rounded-full bg-orange-400 animate-pulse" />
+            <span title={tr("Trading emocional detectado", "Emotional trading detected")} className="h-2.5 w-2.5 rounded-full bg-orange-400 animate-pulse" />
           )}
         </div>
 

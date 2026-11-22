@@ -194,24 +194,30 @@ export function getRelatedPosts(post: BlogPost): BlogPost[] {
     .filter((p): p is BlogPost => p !== null);
 }
 
-/** Formats a date string as "29 de marzo de 2026" */
-export function formatDate(dateStr: string): string {
+/** Formats a date string as "March 29, 2026" (en) o "29 de marzo de 2026" (es) */
+export function formatDate(dateStr: string, lang: "es" | "en" = "en"): string {
   const date = new Date(dateStr + "T00:00:00");
-  return date.toLocaleDateString("es-ES", {
+  return date.toLocaleDateString(lang === "es" ? "es-ES" : "en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
 }
 
-export const CATEGORY_LABELS: Record<string, string> = {
-  guias: "Guías",
-  comparativas: "Comparativas",
-  estrategia: "Estrategia",
-  estrategias: "Estrategias",
-  fondeo: "Pruebas de Fondeo",
-  psicologia: "Psicología",
-  psicologia_trading: "Psicología",
-  educacion: "Educación",
-  journal: "Journal",
+export const CATEGORY_LABELS: Record<string, { es: string; en: string }> = {
+  guias: { es: "Guías", en: "Guides" },
+  comparativas: { es: "Comparativas", en: "Comparisons" },
+  estrategia: { es: "Estrategia", en: "Strategy" },
+  estrategias: { es: "Estrategias", en: "Strategies" },
+  fondeo: { es: "Pruebas de Fondeo", en: "Prop Firm Evaluations" },
+  psicologia: { es: "Psicología", en: "Psychology" },
+  psicologia_trading: { es: "Psicología", en: "Psychology" },
+  educacion: { es: "Educación", en: "Education" },
+  journal: { es: "Journal", en: "Journal" },
+  herramientas: { es: "Herramientas", en: "Tools" },
+  metricas: { es: "Métricas", en: "Metrics" },
 };
+
+export function categoryLabel(category: string, lang: "es" | "en" = "en"): string {
+  return CATEGORY_LABELS[category]?.[lang] ?? category;
+}

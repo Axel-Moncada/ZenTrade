@@ -4,10 +4,12 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, CheckCircle, Loader2, ChevronDown } from "lucide-react";
+import { useTr } from "@/lib/i18n/use-tr";
 
 type FormState = "idle" | "sending" | "success" | "error";
 
 export function SupportChat() {
+  const { tr } = useTr();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [formState, setFormState] = useState<FormState>("idle");
@@ -81,8 +83,8 @@ export function SupportChat() {
                   <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-zen-caribbean-green border-2 border-[#070d07]" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-zen-anti-flash leading-tight">Soporte Zentrade</p>
-                  <p className="text-[11px] text-zen-caribbean-green/80 leading-tight">En línea · Respuesta rápida</p>
+                  <p className="text-sm font-bold text-zen-anti-flash leading-tight">{tr("Soporte Zentrade", "Zentrade Support")}</p>
+                  <p className="text-[11px] text-zen-caribbean-green/80 leading-tight">{tr("En línea · Respuesta rápida", "Online · Fast replies")}</p>
                 </div>
               </div>
               <button
@@ -106,9 +108,9 @@ export function SupportChat() {
                     <div className="h-14 w-14 rounded-full bg-zen-caribbean-green/15 border border-zen-caribbean-green/30 flex items-center justify-center">
                       <CheckCircle className="h-7 w-7 text-zen-caribbean-green" />
                     </div>
-                    <p className="text-zen-anti-flash font-semibold text-center">¡Mensaje enviado!</p>
+                    <p className="text-zen-anti-flash font-semibold text-center">{tr("¡Mensaje enviado!", "Message sent!")}</p>
                     <p className="text-zen-anti-flash/50 text-xs text-center">
-                      Te responderemos en support@zen-trader.com pronto.
+                      {tr("Te responderemos en support@zen-trader.com pronto.", "We'll reply from support@zen-trader.com soon.")}
                     </p>
                   </motion.div>
                 ) : (
@@ -124,7 +126,7 @@ export function SupportChat() {
                       className="px-3.5 py-3 rounded-xl text-xs text-zen-anti-flash/70 leading-relaxed"
                       style={{ background: "rgba(0,193,124,0.06)", border: "1px solid rgba(0,193,124,0.1)" }}
                     >
-                      ¿Tienes alguna duda sobre Zentrade? Escríbenos y te respondemos lo antes posible.
+                      {tr("¿Tienes alguna duda sobre Zentrade? Escríbenos y te respondemos lo antes posible.", "Questions about Zentrade? Send us a message and we will get back to you fast.")}
                     </div>
 
                     {/* Honeypot */}
@@ -142,7 +144,7 @@ export function SupportChat() {
                     <div>
                       <input
                         type="text"
-                        placeholder="Tu nombre"
+                        placeholder={tr("Tu nombre", "Your name")}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
@@ -167,7 +169,7 @@ export function SupportChat() {
                     <div>
                       <input
                         type="email"
-                        placeholder="Tu email (para responderte)"
+                        placeholder={tr("Tu email (para responderte)", "Your email (so we can reply)")}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
@@ -191,7 +193,7 @@ export function SupportChat() {
                     {/* Message */}
                     <div>
                       <textarea
-                        placeholder="¿En qué te podemos ayudar?"
+                        placeholder={tr("¿En qué te podemos ayudar?", "How can we help?")}
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         required
@@ -216,7 +218,7 @@ export function SupportChat() {
 
                     {formState === "error" && (
                       <p className="text-xs text-red-400">
-                        Error al enviar. Intenta de nuevo o escríbenos directamente a support@zen-trader.com
+                        {tr("Error al enviar. Intenta de nuevo o escríbenos directamente a support@zen-trader.com", "Could not send. Try again or email us at support@zen-trader.com")}
                       </p>
                     )}
 
@@ -230,9 +232,9 @@ export function SupportChat() {
                       }}
                     >
                       {formState === "sending" ? (
-                        <><Loader2 className="h-4 w-4 animate-spin" /> Enviando...</>
+                        <><Loader2 className="h-4 w-4 animate-spin" /> {tr("Enviando...", "Sending...")}</>
                       ) : (
-                        <><Send className="h-4 w-4" /> Enviar mensaje</>
+                        <><Send className="h-4 w-4" /> {tr("Enviar mensaje", "Send message")}</>
                       )}
                     </button>
                   </motion.form>

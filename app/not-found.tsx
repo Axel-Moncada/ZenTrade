@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useTr } from "@/lib/i18n/use-tr";
 
 const CANDLESTICKS = [
   { h: 72, o: 58, c: 65, l: 50, bull: true },
@@ -26,6 +27,7 @@ const TICKER_ITEMS = [
 ];
 
 export default function NotFound() {
+  const { tr } = useTr();
   const [visible, setVisible] = useState(false);
   const [tick, setTick]       = useState(0);
 
@@ -279,7 +281,7 @@ export default function NotFound() {
                 marginTop: 6,
               }}
             >
-              404 / ROUTE_NOT_FOUND — drawdown máximo alcanzado
+              {tr("404 / ROUTE_NOT_FOUND — drawdown máximo alcanzado", "404 / ROUTE_NOT_FOUND — max drawdown hit")}
             </div>
           </div>
 
@@ -378,7 +380,7 @@ export default function NotFound() {
               lineHeight: 1.6,
             }}
           >
-            Esta página no existe — como una trade que nunca encontró contraparte.
+            {tr("Esta página no existe — como una trade que nunca encontró contraparte.", "This page doesn't exist, like an order that never got filled.")}
           </p>
         </div>
 
@@ -420,7 +422,7 @@ export default function NotFound() {
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M2 8h12M2 8l4-4M2 8l4 4" stroke="#001B1F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            Volver al Dashboard
+            {tr("Volver al Dashboard", "Back to Dashboard")}
           </Link>
           <Link
             href="/"
@@ -447,7 +449,7 @@ export default function NotFound() {
               (e.currentTarget as HTMLElement).style.color = "rgba(242,243,244,0.7)";
             }}
           >
-            Ir al Inicio
+            {tr("Ir al Inicio", "Go to Home")}
           </Link>
         </div>
 

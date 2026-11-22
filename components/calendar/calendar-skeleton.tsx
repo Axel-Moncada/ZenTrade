@@ -1,7 +1,12 @@
 "use client";
 
+import { useTr } from "@/lib/i18n/use-tr";
+
 export function CalendarSkeleton() {
-  const weekDays = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+  const { locale } = useTr();
+  const weekDays = locale === "es"
+    ? ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
+    : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const skeletonDays = Array.from({ length: 35 }, (_, i) => i);
 
   return (

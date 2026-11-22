@@ -5,8 +5,8 @@ import PublicFooter from "@/components/landing/public-footer";
 import LegalContent from "@/components/legal/legal-content";
 
 export const metadata: Metadata = {
-  title: "Aviso Legal",
-  description: "Aviso legal de Zentrade. La plataforma no proporciona asesoría financiera.",
+  title: "Disclaimer",
+  description: "Zentrade disclaimer. The platform does not provide financial advice.",
   alternates: { canonical: "https://www.zen-trader.com/disclaimer" },
   robots: { index: true, follow: false },
 };

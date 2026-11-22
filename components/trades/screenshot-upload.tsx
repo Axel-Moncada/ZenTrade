@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Camera, X, Upload, Lock, Loader2 } from "lucide-react";
 import { Label } from "@/components/ui/label";
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface ScreenshotUploadProps {
   value: string[];
@@ -17,6 +18,7 @@ const MAX_SIZE = 5 * 1024 * 1024; // 5MB
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 
 export function ScreenshotUpload({ value, onChange, disabled, userId }: ScreenshotUploadProps) {
+  const { tr } = useTr();
   const [uploading, setUploading] = useState(false);
   const [signedUrls, setSignedUrls] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
@@ -53,11 +55,11 @@ export function ScreenshotUpload({ value, onChange, disabled, userId }: Screensh
     setError(null);
 
     if (!ACCEPTED_TYPES.includes(file.type)) {
-      setError("Solo se aceptan JPG, PNG, WebP o GIF");
+      setError(tr("Solo se aceptan JPG, PNG, WebP o GIF", "Only JPG, PNG, WebP or GIF files are accepted"));
       return;
     }
     if (file.size > MAX_SIZE) {
-      setError("La imagen no puede superar 5MB");
+      setError(tr("La imagen no puede superar 5MB", "Images must be 5MB or smaller"));
       return;
     }
     if (value.length >= MAX_SCREENSHOTS) return;
@@ -84,7 +86,7 @@ export function ScreenshotUpload({ value, onChange, disabled, userId }: Screensh
 
       onChange([...value, path]);
     } catch (err) {
-      setError("Error al subir la imagen. Intenta de nuevo.");
+      setError(tr("Error al subir la imagen. Intenta de nuevo.", "Could not upload the image. Please try again."));
       console.error(err);
     } finally {
       setUploading(false);
@@ -110,7 +112,7 @@ export function ScreenshotUpload({ value, onChange, disabled, userId }: Screensh
     <div>
       <div className="flex items-center gap-2 mb-2">
         <Camera className="h-4 w-4 text-zen-caribbean-green" />
-        <Label className="text-zen-anti-flash">Capturas de pantalla</Label>
+        <Label className="text-zen-anti-flash">{tr("Capturas de pantalla", "Screenshots")}</Label>
         {disabled ? (
           <span className="inline-flex items-center gap-1 text-xs bg-zen-caribbean-green/10 border border-zen-caribbean-green/30 text-zen-caribbean-green rounded-full px-2 py-0.5">
             <Lock className="h-3 w-3" /> Professional
@@ -134,7 +136,7 @@ export function ScreenshotUpload({ value, onChange, disabled, userId }: Screensh
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={signedUrls[path]}
-                alt={`Captura ${idx + 1}`}
+                alt={`${tr("Captura", "Screenshot")} ${idx + 1}`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
               />
             ) : (

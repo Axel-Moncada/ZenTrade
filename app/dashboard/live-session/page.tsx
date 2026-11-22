@@ -5,6 +5,7 @@ import { getUserPlan } from "@/lib/lemonsqueezy/get-user-plan";
 import { getLiveInstruments, getLiveSessionData } from "@/lib/live-session/get-live-session-data";
 import { LiveSessionClient } from "@/components/live-session/live-session-client";
 import { UpgradePrompt } from "@/components/shared/upgrade-prompt";
+import { T } from "@/components/shared/t";
 
 export const dynamic = "force-dynamic";
 
@@ -23,10 +24,12 @@ export default async function LiveSessionPage({ searchParams }: PageProps) {
   if (!plan.isZenMode) {
     return (
       <div className="mx-auto max-w-2xl space-y-4 py-10">
-        <h1 className="text-3xl font-bold text-zen-anti-flash">Sesión en Vivo · Live Session</h1>
+        <h1 className="text-3xl font-bold text-zen-anti-flash"><T es="Sesión en Vivo" en="Live Session" /></h1>
         <p className="text-zen-anti-flash/70">
-          Un copiloto de disciplina en una ventana flotante sobre tu plataforma: te avisa cuando te acercas a tu
-          límite diario, al drawdown de tu prop firm, cuando entras en racha de pérdidas o intentas revenge trading.
+          <T
+            es="Un copiloto de disciplina en una ventana flotante sobre tu plataforma: te avisa cuando te acercas a tu límite diario, al drawdown de tu prop firm, cuando entras en racha de pérdidas o intentas revenge trading."
+            en="A discipline copilot in a floating window over your trading platform. It warns you before you hit your daily loss limit or your prop firm's drawdown, when you're on a losing streak, and when you're about to revenge trade."
+          />
         </p>
         <UpgradePrompt
           requiredPlan="zenmode"
@@ -50,9 +53,9 @@ export default async function LiveSessionPage({ searchParams }: PageProps) {
   if (accountList.length === 0) {
     return (
       <div className="mx-auto max-w-xl py-10 text-center">
-        <p className="text-zen-anti-flash/70">Crea una cuenta para iniciar tu sesión en vivo.</p>
+        <p className="text-zen-anti-flash/70"><T es="Crea una cuenta para iniciar tu sesión en vivo." en="Create an account to start your live session." /></p>
         <Link href="/dashboard/accounts/new" className="mt-4 inline-block text-zen-caribbean-green underline">
-          Crear cuenta
+          <T es="Crear cuenta" en="Create account" />
         </Link>
       </div>
     );

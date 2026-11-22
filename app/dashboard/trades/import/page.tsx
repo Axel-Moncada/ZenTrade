@@ -11,10 +11,12 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { usePlan } from '@/lib/hooks/usePlan'
+import { useTr } from "@/lib/i18n/use-tr";
 
 type AccountSummary = { id: string; name: string; broker: string; initial_balance: number }
 
 export default function ImportPage() {
+  const { tr } = useTr()
   const plan = usePlan()
   const [accounts, setAccounts] = useState<AccountSummary[]>([])
   const [selectedAccount, setSelectedAccount] = useState<string>('')
@@ -50,13 +52,13 @@ export default function ImportPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="space-y-1">
-          <h1 className="text-3xl font-bold text-zen-anti-flash">Importar Trades</h1>
-          <p className="text-zen-text-muted">Sube un archivo CSV con tus trades desde tu plataforma de trading</p>
+          <h1 className="text-3xl font-bold text-zen-anti-flash">{tr("Importar Trades", "Import Trades")}</h1>
+          <p className="text-zen-text-muted">{tr("Sube un archivo CSV con tus trades desde tu plataforma de trading", "Upload a CSV with your trades from your trading platform")}</p>
         </div>
         <Link href="/dashboard/trades">
           <Button variant="outline" className="gap-2 border-zen-border-soft text-zen-anti-flash hover:bg-zen-surface">
             <ArrowLeft className="h-4 w-4" />
-            Volver
+            {tr("Volver", "Back")}
           </Button>
         </Link>
       </div>
@@ -70,8 +72,8 @@ export default function ImportPage() {
             message={{ es: "Import CSV automático requiere Professional", en: "CSV import requires Professional" }}
           />
           <p className="text-center text-sm text-zen-text-muted mt-4">
-            Con Starter estás registrando cada trade manualmente.<br />
-            Professional importa todo en 1 clic desde Rithmic, NinjaTrader y Tradoverse.
+            {tr("Con Starter estás registrando cada trade manualmente.", "On Starter you log every trade by hand.")}<br />
+            {tr("Professional importa todo en 1 clic desde Rithmic, NinjaTrader y Tradovate.", "Professional imports everything in 1 click from Rithmic, NinjaTrader and Tradovate.")}
           </p>
         </div>
       ) : !plan.loading && (plan.isPro || plan.isZenMode) ? (
@@ -97,7 +99,7 @@ export default function ImportPage() {
       ) : (
         /* Loading plan state */
         <div className="flex items-center justify-center py-24">
-          <div className="text-zen-anti-flash/40 text-sm">Cargando...</div>
+          <div className="text-zen-anti-flash/40 text-sm">{tr("Cargando...", "Loading...")}</div>
         </div>
       )}
     </div>

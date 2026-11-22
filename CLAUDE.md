@@ -15,7 +15,7 @@ Al terminar una sesión que cambie código, estrategia o contenido:
 
 ---
 
-## Producto (estado a 2026-11-19)
+## Producto (estado a 2026-11-22)
 - SaaS **en producción**: https://www.zen-trader.com. Trading journal para traders de futuros que quieren **pasar evaluaciones de prop firms** (Apex, TopStep, FTMO, Tradoverse, Uprofit).
 - **Mercado principal: EE.UU.** (desde 2026-05-28). LATAM es secundario (`/es/*` y posts en español).
 - Cobro con **PayPal Subscriptions** (`lib/paypal/`). Hay clientes de pago reales.
@@ -31,9 +31,12 @@ Al terminar una sesión que cambie código, estrategia o contenido:
 - Valida el input de las API routes con **Zod**.
 - **Seguridad**: RLS estricta; cada usuario solo ve sus datos. Las rutas de admin usan `ADMIN_EMAILS` + `supabaseAdmin`.
 - Las rutas `route.ts` solo exportan handlers HTTP y config de Next. Los helpers van en `lib/`.
-- **UI bilingüe ES/EN**: todo texto nuevo debe existir en ambos idiomas (`lib/i18n/translations.ts`, o un diccionario local `{ es, en }` dentro del componente). **Emails en inglés.**
+- **🇺🇸 ENGLISH-FIRST (regla tatuada, 2026-11-22)**: toda la pauta va a EE.UU. Un usuario gringo **nunca** debe ver una palabra en español: UI, errores de la API, toasts, emails, CSVs, PDFs, metadata y JSON-LD. El inglés es el idioma por defecto y la versión que se escribe primero, con copy nativo (no traducido) y pensado para **convertir**.
+- **UI bilingüe ES/EN**: el español se mantiene como idioma secundario (`/es/*`, navegadores en español). Todo texto nuevo debe existir en ambos idiomas (`lib/i18n/translations.ts`, o un diccionario local `{ es, en }` dentro del componente). **Emails solo en inglés.**
+- **Conversión sin mentiras**: todo cambio de UI o copy se piensa para convertir (CTA claro, fricción mínima, beneficio concreto), pero **nunca prometas algo que el código no hace**. Verifica cada feature, integración, precio o plazo antes de escribirlo; lo que no existe va como *Coming soon*. (FTC: publicidad engañosa = multas y chargebacks.)
+- **Cobro y reembolsos**: se cobra **desde el día 1** (no hay free trial). El cliente puede **solicitar un reembolso por escrito** a support@zen-trader.com **dentro de los 7 días** siguientes a su primer pago y el fundador decide caso por caso. Nunca escribas "free trial", "money-back guarantee" ni "no questions asked". La frase aprobada: *"Not happy? Email us within 7 days of your first payment to request a refund."*
 - Desktop-first, pero usable en móvil.
-- Migraciones SQL en `supabase/NNN_nombre.sql` (numeración consecutiva; la última es `023_reviews.sql`).
+- Migraciones SQL en `supabase/NNN_nombre.sql` (numeración consecutiva; la última es `024_qa_fixes.sql`).
 - **Nada de reseñas, ratings ni testimonios inventados** en el sitio ni en el schema (regla de la FTC de 2024 y política de Google). Solo datos reales (`lib/reviews/`).
 - Prop firms: no inventes reglas ni estadísticas. Verifícalas y cita la fuente.
 

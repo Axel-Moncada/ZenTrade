@@ -5,6 +5,7 @@ import { FileDown } from 'lucide-react'
 import { TradingPlan } from '@/types/trading-plan'
 import jsPDF from 'jspdf'
 import autoTable from 'jspdf-autotable'
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface ExportPlanPDFProps {
   plan: TradingPlan
@@ -12,6 +13,7 @@ interface ExportPlanPDFProps {
 }
 
 export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
+  const { tr, locale } = useTr();
   const generatePDF = () => {
     try {
       console.log('Generating PDF...')
@@ -28,14 +30,14 @@ export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
       doc.setFontSize(22)
       doc.setTextColor(0, 193, 124) // zen-caribbean-green
       doc.setFont('helvetica', 'bold')
-      doc.text('PLAN DE TRADING', pageWidth / 2, 13, { align: 'center' })
+      doc.text(tr('PLAN DE TRADING', 'TRADING PLAN'), pageWidth / 2, 13, { align: 'center' })
 
       // Subtítulo - gris oscuro
       doc.setFontSize(14)
       doc.setFont('helvetica', 'normal')
       doc.setTextColor(80, 80, 80)
-      doc.text(`CUENTA: ${accountName.toUpperCase()}`, pageWidth / 2, 21, { align: 'center' })
-      doc.text(new Date().toLocaleDateString('es-ES'), pageWidth / 2, 26, { align: 'center' })
+      doc.text(`${tr('CUENTA', 'ACCOUNT')}: ${accountName.toUpperCase()}`, pageWidth / 2, 21, { align: 'center' })
+      doc.text(new Date().toLocaleDateString(locale === 'es' ? 'es-ES' : 'en-US'), pageWidth / 2, 26, { align: 'center' })
 
       let y = 36
 
@@ -77,28 +79,28 @@ export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
       }
 
       // === OBJETIVOS ===
-      y = createSectionBanner('OBJETIVOS', y, [0, 193, 124]) // zen-caribbean-green
+      y = createSectionBanner(tr('OBJETIVOS', 'TARGETS'), y, [0, 193, 124]) // zen-caribbean-green
       y += 5
 
       if (plan.daily_profit_target) {
-        createBox('Objetivo Diario', `$${plan.daily_profit_target.toFixed(2)}`, margin, y, 60)
+        createBox(tr('Objetivo Diario', 'Daily Target'), `$${plan.daily_profit_target.toFixed(2)}`, margin, y, 60)
       }
       if (plan.daily_loss_limit) {
-        createBox('Límite Diario', `$${plan.daily_loss_limit.toFixed(2)}`, margin + 62, y, 60)
+        createBox(tr('Límite Diario', 'Daily Loss Limit'), `$${plan.daily_loss_limit.toFixed(2)}`, margin + 62, y, 60)
       }
       if (plan.weekly_profit_target) {
-        createBox('Objetivo Semanal', `$${plan.weekly_profit_target.toFixed(2)}`, margin + 124, y, 60)
+        createBox(tr('Objetivo Semanal', 'Weekly Target'), `$${plan.weekly_profit_target.toFixed(2)}`, margin + 124, y, 60)
       }
       y += 20
 
       // === GESTIÓN DE RIESGO ===
-      y = createSectionBanner('GESTIÓN DE RIESGO', y, [0, 193, 124]) // zen-caribbean-green
+      y = createSectionBanner(tr('GESTIÓN DE RIESGO', 'RISK MANAGEMENT'), y, [0, 193, 124]) // zen-caribbean-green
       y += 5
 
       const riskBoxes = []
-      if (plan.max_risk_per_trade) riskBoxes.push(['Riesgo/Trade', `${plan.max_risk_per_trade}%`])
-      if (plan.max_daily_trades) riskBoxes.push(['Trades Diarios', `${plan.max_daily_trades}`])
-      if (plan.max_concurrent_positions) riskBoxes.push(['Posiciones', `${plan.max_concurrent_positions}`])
+      if (plan.max_risk_per_trade) riskBoxes.push([tr('Riesgo/Trade', 'Risk/Trade'), `${plan.max_risk_per_trade}%`])
+      if (plan.max_daily_trades) riskBoxes.push([tr('Trades Diarios', 'Daily Trades'), `${plan.max_daily_trades}`])
+      if (plan.max_concurrent_positions) riskBoxes.push([tr('Posiciones', 'Positions'), `${plan.max_concurrent_positions}`])
       if (plan.min_risk_reward_ratio) riskBoxes.push(['Ratio R:R', `1:${plan.min_risk_reward_ratio}`])
 
       const boxWidth = (contentWidth - 6) / 4
@@ -109,7 +111,7 @@ export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
 
       // === REGLAS DE ENTRADA ===
       if (plan.entry_rules) {
-        y = createSectionBanner('REGLAS DE ENTRADA', y, [0, 193, 124]) // zen-caribbean-green
+        y = createSectionBanner(tr('REGLAS DE ENTRADA', 'ENTRY RULES'), y, [0, 193, 124]) // zen-caribbean-green
         y += 5
         
         doc.setFontSize(9)
@@ -122,7 +124,7 @@ export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
 
       // === REGLAS DE SALIDA ===
       if (plan.exit_rules) {
-        y = createSectionBanner('REGLAS DE SALIDA', y, [0, 193, 124]) // zen-caribbean-green
+        y = createSectionBanner(tr('REGLAS DE SALIDA', 'EXIT RULES'), y, [0, 193, 124]) // zen-caribbean-green
         y += 5
         
         doc.setFontSize(9)
@@ -162,13 +164,13 @@ export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
         
         doc.setFontSize(10)
         doc.setFont('helvetica', 'bold')
-        const textWidth = doc.getTextWidth('INSTRUMENTOS PERMITIDOS')
+        const textWidth = doc.getTextWidth(tr('INSTRUMENTOS PERMITIDOS', 'ALLOWED INSTRUMENTS'))
         const bannerWidth = textWidth + (padding * 2)
         
         doc.setFillColor(0, 193, 124)
         doc.roundedRect(margin, leftY, bannerWidth, bannerHeight, borderRadius, borderRadius, 'F')
         doc.setTextColor(255, 255, 255)
-        doc.text('INSTRUMENTOS PERMITIDOS', margin + padding, leftY + 5)
+        doc.text(tr('INSTRUMENTOS PERMITIDOS', 'ALLOWED INSTRUMENTS'), margin + padding, leftY + 5)
         leftY += bannerHeight + 3
         
         doc.setFontSize(9)
@@ -186,13 +188,13 @@ export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
         
         doc.setFontSize(10)
         doc.setFont('helvetica', 'bold')
-        const textWidth = doc.getTextWidth('HORARIOS')
+        const textWidth = doc.getTextWidth(tr('HORARIOS', 'TRADING HOURS'))
         const bannerWidth = textWidth + (padding * 2)
         
         doc.setFillColor(0, 193, 124)
         doc.roundedRect(margin + columnWidth + 3, rightY, bannerWidth, bannerHeight, borderRadius, borderRadius, 'F')
         doc.setTextColor(255, 255, 255)
-        doc.text('HORARIOS', margin + columnWidth + 3 + padding, rightY + 5)
+        doc.text(tr('HORARIOS', 'TRADING HOURS'), margin + columnWidth + 3 + padding, rightY + 5)
         rightY += bannerHeight + 3
         
         doc.setFontSize(9)
@@ -200,14 +202,16 @@ export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
         doc.setFont('helvetica', 'normal')
         
         if (plan.trading_start_time && plan.trading_end_time) {
-          doc.text(`Horario: ${plan.trading_start_time} - ${plan.trading_end_time}`, margin + columnWidth + 3 + 2, rightY)
+          doc.text(`${tr('Horario', 'Hours')}: ${plan.trading_start_time} - ${plan.trading_end_time}`, margin + columnWidth + 3 + 2, rightY)
           rightY += 5
         }
         
         if (plan.trading_days && plan.trading_days.length > 0) {
-          const daysNames = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']
+          const daysNames = locale === 'es'
+            ? ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']
+            : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
           const tradingDaysStr = plan.trading_days.map(d => daysNames[d]).join(', ')
-          doc.text(`Días: ${tradingDaysStr}`, margin + columnWidth + 3 + 2, rightY)
+          doc.text(`${tr('Días', 'Days')}: ${tradingDaysStr}`, margin + columnWidth + 3 + 2, rightY)
           rightY += 5
         }
       }
@@ -217,7 +221,7 @@ export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
 
       // === NOTAS Y ESTRATEGIA ===
       if (plan.strategy_notes) {
-        y = createSectionBanner('NOTAS Y ESTRATEGIA', y, [0, 193, 124]) // zen-caribbean-green
+        y = createSectionBanner(tr('NOTAS Y ESTRATEGIA', 'NOTES AND STRATEGY'), y, [0, 193, 124]) // zen-caribbean-green
         y += 5
         
         doc.setFontSize(9)
@@ -233,7 +237,10 @@ export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
       doc.setFontSize(9)
       doc.setFont('helvetica', 'italic')
       doc.setTextColor(80, 80, 80)
-      const quote = '"El éxito en el trading no se mide por un solo día, sino por la consistencia de tu disciplina."'
+      const quote = tr(
+        '"El éxito en el trading no se mide por un solo día, sino por la consistencia de tu disciplina."',
+        '"Trading success isn\'t measured by a single day, but by the consistency of your discipline."'
+      )
       doc.text(quote, pageWidth / 2, y, { align: 'center', maxWidth: contentWidth - 20 })
       
       y += 10
@@ -245,22 +252,22 @@ export function ExportPlanPDF({ plan, accountName }: ExportPlanPDFProps) {
       doc.setFontSize(8)
       doc.setFont('helvetica', 'normal')
       doc.setTextColor(120, 120, 120)
-      doc.text('Tu compañero de trading disciplinado', pageWidth / 2, y + 4, { align: 'center' })
+      doc.text(tr('Tu compañero de trading disciplinado', 'Your disciplined trading partner'), pageWidth / 2, y + 4, { align: 'center' })
 
       // Save PDF
-      const fileName = `plan-trading-${accountName.replace(/\s+/g, '-')}-${new Date().toISOString().split('T')[0]}.pdf`
+      const fileName = `${tr('plan-trading', 'trading-plan')}-${accountName.replace(/\s+/g, '-')}-${new Date().toISOString().split('T')[0]}.pdf`
       doc.save(fileName)
       console.log('PDF saved:', fileName)
     } catch (error) {
       console.error('Error generating PDF:', error)
-      alert('Error al generar el PDF. Revisa la consola para más detalles.')
+      alert(tr('Error al generar el PDF. Revisa la consola para más detalles.', 'Could not generate the PDF. Please try again.'))
     }
   }
 
   return (
     <Button onClick={generatePDF} variant="outline" className="gap-2">
       <FileDown className="h-4 w-4" />
-      Exportar PDF
+      {tr("Exportar PDF", "Export PDF")}
     </Button>
   )
 }

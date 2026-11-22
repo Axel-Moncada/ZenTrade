@@ -3,12 +3,14 @@
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface LogoutButtonProps {
   collapsed?: boolean;
 }
 
 export function LogoutButton({ collapsed = false }: LogoutButtonProps) {
+  const { tr } = useTr();
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -31,7 +33,7 @@ export function LogoutButton({ collapsed = false }: LogoutButtonProps) {
       onClick={handleLogout}
     >
       <LogOut className={`h-4 w-4 text-zen-anti-flash ${collapsed ? '' : 'mr-2'}`} />
-      {!collapsed && <span className="font-medium">Cerrar Sesión</span>}
+      {!collapsed && <span className="font-medium">{tr("Cerrar Sesión", "Log out")}</span>}
     </Button>
   );
 }

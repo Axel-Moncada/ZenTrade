@@ -21,6 +21,7 @@ import {
 } from 'lucide-react'
 import { TradingPlanFormData, WEEK_DAYS } from '@/types/trading-plan'
 import { cn } from '@/lib/utils'
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface TradingPlanFormProps {
   accountId: string
@@ -29,6 +30,7 @@ interface TradingPlanFormProps {
 }
 
 export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: TradingPlanFormProps) {
+  const { tr, locale } = useTr();
   const [formData, setFormData] = useState<TradingPlanFormData>({
     account_id: accountId,
     allowed_instruments: [],
@@ -124,7 +126,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
       setSuccess('Plan de trading guardado exitosamente')
       onSaveSuccess()
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'Error al guardar el plan')
+      setError(err instanceof Error ? err.message : tr('Error al guardar el plan', 'Could not save the plan'))
     } finally {
       setIsSaving(false)
     }
@@ -153,12 +155,12 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
         <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
           <div className="flex items-center gap-2 mb-4">
             <Target className="h-5 w-5 text-zen-caribbean-green" />
-            <h3 className="text-lg font-semibold text-zen-anti-flash">Objetivos y Límites</h3>
+            <h3 className="text-lg font-semibold text-zen-anti-flash">{tr("Objetivos y Límites", "Targets and Limits")}</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Objetivo de ganancia diario ($)</Label>
+              <Label className="text-zen-anti-flash">{tr("Objetivo de ganancia diario ($)", "Daily profit target ($)")}</Label>
               <Input
                 type="number"
                 step="0.01"
@@ -170,7 +172,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
             </div>
 
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Límite de pérdida diario ($)</Label>
+              <Label className="text-zen-anti-flash">{tr("Límite de pérdida diario ($)", "Daily loss limit ($)")}</Label>
               <Input
                 type="number"
                 step="0.01"
@@ -182,7 +184,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
             </div>
 
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Objetivo de ganancia semanal ($)</Label>
+              <Label className="text-zen-anti-flash">{tr("Objetivo de ganancia semanal ($)", "Weekly profit target ($)")}</Label>
               <Input
                 type="number"
                 step="0.01"
@@ -194,7 +196,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
             </div>
 
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Límite de pérdida semanal ($)</Label>
+              <Label className="text-zen-anti-flash">{tr("Límite de pérdida semanal ($)", "Weekly loss limit ($)")}</Label>
               <Input
                 type="number"
                 step="0.01"
@@ -206,7 +208,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
             </div>
 
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Objetivo de ganancia mensual ($)</Label>
+              <Label className="text-zen-anti-flash">{tr("Objetivo de ganancia mensual ($)", "Monthly profit target ($)")}</Label>
               <Input
                 type="number"
                 step="0.01"
@@ -218,7 +220,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
             </div>
 
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Límite de pérdida mensual ($)</Label>
+              <Label className="text-zen-anti-flash">{tr("Límite de pérdida mensual ($)", "Monthly loss limit ($)")}</Label>
               <Input
                 type="number"
                 step="0.01"
@@ -235,12 +237,12 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
         <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
           <div className="flex items-center gap-2 mb-4">
             <Shield className="h-5 w-5 text-zen-danger" />
-            <h3 className="text-lg font-semibold text-zen-anti-flash">Gestión de Riesgo</h3>
+            <h3 className="text-lg font-semibold text-zen-anti-flash">{tr("Gestión de Riesgo", "Risk Management")}</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Riesgo máximo por trade (%)</Label>
+              <Label className="text-zen-anti-flash">{tr("Riesgo máximo por trade (%)", "Max risk per trade (%)")}</Label>
               <Input
                 type="number"
                 step="0.01"
@@ -252,7 +254,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
             </div>
 
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Máximo de trades diarios</Label>
+              <Label className="text-zen-anti-flash">{tr("Máximo de trades diarios", "Max trades per day")}</Label>
               <Input
                 type="number"
                 value={formData.max_daily_trades || ''}
@@ -263,7 +265,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
             </div>
 
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Máximo de posiciones concurrentes</Label>
+              <Label className="text-zen-anti-flash">{tr("Máximo de posiciones concurrentes", "Max open positions")}</Label>
               <Input
                 type="number"
                 value={formData.max_concurrent_positions || ''}
@@ -274,7 +276,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
             </div>
 
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Ratio mínimo riesgo/recompensa</Label>
+              <Label className="text-zen-anti-flash">{tr("Ratio mínimo riesgo/recompensa", "Min risk/reward ratio")}</Label>
               <Input
                 type="number"
                 step="0.1"
@@ -292,27 +294,27 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
       <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
         <div className="flex items-center gap-2 mb-4">
           <TrendingUp className="h-5 w-5 text-zen-caribbean-green" />
-          <h3 className="text-lg font-semibold text-zen-anti-flash">Reglas de Entrada y Salida</h3>
+          <h3 className="text-lg font-semibold text-zen-anti-flash">{tr("Reglas de Entrada y Salida", "Entry and Exit Rules")}</h3>
         </div>
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label className="text-zen-anti-flash">Reglas de entrada</Label>
+            <Label className="text-zen-anti-flash">{tr("Reglas de entrada", "Entry rules")}</Label>
             <Textarea
               value={formData.entry_rules || ''}
               onChange={(e) => updateField('entry_rules', e.target.value)}
-              placeholder="Ej: Entrar solo en pullback a EMA 21, con confirmación de volumen..."
+              placeholder={tr("Ej: Entrar solo en pullback a EMA 21, con confirmación de volumen...", "e.g. Only enter on a pullback to the 21 EMA with volume confirmation...")}
               rows={4}
               className={textareaCls}
             />
           </div>
 
           <div className="space-y-2">
-            <Label className="text-zen-anti-flash">Reglas de salida</Label>
+            <Label className="text-zen-anti-flash">{tr("Reglas de salida", "Exit rules")}</Label>
             <Textarea
               value={formData.exit_rules || ''}
               onChange={(e) => updateField('exit_rules', e.target.value)}
-              placeholder="Ej: Salir al alcanzar 2R, o cuando se rompe soporte..."
+              placeholder={tr("Ej: Salir al alcanzar 2R, o cuando se rompe soporte...", "e.g. Exit at 2R, or when support breaks...")}
               rows={4}
               className={textareaCls}
             />
@@ -325,7 +327,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
         <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
           <div className="flex items-center gap-2 mb-4">
             <Target className="h-5 w-5 text-zen-caribbean-green" />
-            <h3 className="text-lg font-semibold text-zen-anti-flash">Instrumentos Permitidos</h3>
+            <h3 className="text-lg font-semibold text-zen-anti-flash">{tr("Instrumentos Permitidos", "Allowed Instruments")}</h3>
           </div>
 
           <div className="space-y-4">
@@ -369,13 +371,13 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
         <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
           <div className="flex items-center gap-2 mb-4">
             <Clock className="h-5 w-5 text-zen-caribbean-green" />
-            <h3 className="text-lg font-semibold text-zen-anti-flash">Horarios de Trading</h3>
+            <h3 className="text-lg font-semibold text-zen-anti-flash">{tr("Horarios de Trading", "Trading Hours")}</h3>
           </div>
 
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label className="text-zen-anti-flash">Hora de inicio</Label>
+                <Label className="text-zen-anti-flash">{tr("Hora de inicio", "Start time")}</Label>
                 <Input
                   type="time"
                   value={formData.trading_start_time || ''}
@@ -385,7 +387,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
               </div>
 
               <div className="space-y-2">
-                <Label className="text-zen-anti-flash">Hora de fin</Label>
+                <Label className="text-zen-anti-flash">{tr("Hora de fin", "End time")}</Label>
                 <Input
                   type="time"
                   value={formData.trading_end_time || ''}
@@ -396,7 +398,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
             </div>
 
             <div className="space-y-2">
-              <Label className="text-zen-anti-flash">Días permitidos</Label>
+              <Label className="text-zen-anti-flash">{tr("Días permitidos", "Allowed days")}</Label>
               <div className="flex flex-wrap gap-2">
                 {WEEK_DAYS.map((day) => {
                   const isActive = (formData.trading_days || []).includes(day.value)
@@ -408,7 +410,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
                       onClick={() => toggleTradingDay(day.value)}
                       className={cn(!isActive && 'border-zen-forest/40 text-zen-anti-flash hover:bg-zen-caribbean-green/10')}
                     >
-                      {day.label}
+                      {day.label[locale]}
                     </Button>
                   )
                 })}
@@ -421,7 +423,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
         <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
           <div className="flex items-center gap-2 mb-4">
             <CheckSquare className="h-5 w-5 text-zen-caribbean-green" />
-            <h3 className="text-lg font-semibold text-zen-anti-flash">Checklist Pre-Trade</h3>
+            <h3 className="text-lg font-semibold text-zen-anti-flash">{tr("Checklist Pre-Trade", "Pre-Trade Checklist")}</h3>
           </div>
 
           <div className="space-y-4">
@@ -430,7 +432,7 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
                 value={newChecklistItem}
                 onChange={(e) => setNewChecklistItem(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && addChecklistItem()}
-                placeholder="Ej: ¿Revisé el calendario económico?"
+                placeholder={tr("Ej: ¿Revisé el calendario económico?", "e.g. Did I check the economic calendar?")}
                 className={inputCls}
               />
               <Button
@@ -468,11 +470,11 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
       {/* Notas de estrategia */}
       <Card className="p-6 border-zen-forest/40 bg-zen-dark-green">
         <div className="space-y-2">
-          <Label className="text-zen-anti-flash">Notas y estrategia general</Label>
+          <Label className="text-zen-anti-flash">{tr("Notas y estrategia general", "Notes and overall strategy")}</Label>
           <Textarea
             value={formData.strategy_notes || ''}
             onChange={(e) => updateField('strategy_notes', e.target.value)}
-            placeholder="Describe tu estrategia general, setups favoritos, condiciones de mercado..."
+            placeholder={tr("Describe tu estrategia general, setups favoritos, condiciones de mercado...", "Describe your overall strategy, favorite setups, market conditions...")}
             rows={6}
             className={textareaCls}
           />
@@ -485,12 +487,12 @@ export function TradingPlanForm({ accountId, existingPlan, onSaveSuccess }: Trad
           {isSaving ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
-              Guardando...
+              {tr("Guardando...", "Saving...")}
             </>
           ) : (
             <>
               <Save className="h-4 w-4" />
-              Guardar plan
+              {tr("Guardar plan", "Save plan")}
             </>
           )}
         </Button>

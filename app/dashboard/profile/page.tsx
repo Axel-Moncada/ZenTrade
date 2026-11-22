@@ -25,8 +25,10 @@ import { useI18n } from "@/lib/i18n/context";
 import { usePlan } from "@/lib/hooks/usePlan";
 import { PlanFeatures } from "@/components/shared/plan-features";
 import type { Profile } from "@/types/accounts";
+import { useTr } from "@/lib/i18n/use-tr";
 
 export default function ProfilePage() {
+  const { tr } = useTr();
   const { t, locale } = useI18n();
   const router = useRouter();
 
@@ -285,7 +287,7 @@ export default function ProfilePage() {
       <div className="bg-zen-dark-green border border-zen-forest/40 rounded-2xl p-6 space-y-5">
         <div className="flex items-center gap-2">
           <Zap className="h-5 w-5 text-zen-caribbean-green" />
-          <h2 className="text-lg font-semibold text-zen-anti-flash">Tu suscripción</h2>
+          <h2 className="text-lg font-semibold text-zen-anti-flash">{tr("Tu suscripción", "Your subscription")}</h2>
         </div>
 
         {plan.loading ? (
@@ -300,23 +302,23 @@ export default function ProfilePage() {
                 </span>
                 {plan.isFree ? (
                   <Badge className="bg-zen-forest/60 text-zen-anti-flash/70 border-0 text-xs">
-                    Sin cargo
+                    {tr("Sin cargo", "Free")}
                   </Badge>
                 ) : plan.status === "active" ? (
                   <Badge className="bg-zen-caribbean-green/20 text-zen-caribbean-green border border-zen-caribbean-green/30 text-xs">
-                    Activo
+                    {tr("Activo", "Active")}
                   </Badge>
                 ) : plan.status === "on_trial" ? (
                   <Badge className="bg-amber-400/15 text-amber-400 border border-amber-400/30 text-xs">
-                    En prueba
+                    {tr("En prueba", "On trial")}
                   </Badge>
                 ) : plan.status === "past_due" ? (
                   <Badge className="bg-zen-danger/15 text-zen-danger border border-zen-danger/30 text-xs">
-                    Pago pendiente
+                    {tr("Pago pendiente", "Payment past due")}
                   </Badge>
                 ) : plan.status === "paused" ? (
                   <Badge className="bg-zen-anti-flash/10 text-zen-anti-flash/50 border-0 text-xs">
-                    Pausado
+                    {tr("Pausado", "Paused")}
                   </Badge>
                 ) : null}
               </div>
@@ -324,17 +326,17 @@ export default function ProfilePage() {
               {/* Precio / renovación */}
               {plan.isFree ? (
                 <p className="text-sm text-zen-anti-flash/50">
-                  Actualiza para desbloquear más funciones
+                  {tr("Actualiza para desbloquear más funciones", "Upgrade to unlock more features")}
                 </p>
               ) : plan.currentPeriodEnd ? (
                 <p className="text-sm text-zen-anti-flash/50">
-                  {plan.status === "cancelled" ? "Cancela el" : "Renueva el"}{" "}
+                  {plan.status === "cancelled" ? tr("Cancela el", "Ends on") : tr("Renueva el", "Renews on")}{" "}
                   <span className="text-zen-anti-flash/80 font-medium">
-                    {format(new Date(plan.currentPeriodEnd), "d 'de' MMMM yyyy", {
+                    {format(new Date(plan.currentPeriodEnd), locale === "es" ? "d 'de' MMMM yyyy" : "MMMM d, yyyy", {
                       locale: locale === "es" ? es : enUS,
                     })}
                   </span>
-                  {plan.billingInterval === "annual" && " · facturado anualmente"}
+                  {plan.billingInterval === "annual" && tr(" · facturado anualmente", " · billed annually")}
                 </p>
               ) : null}
             </div>

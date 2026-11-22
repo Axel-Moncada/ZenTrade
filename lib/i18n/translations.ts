@@ -147,7 +147,7 @@ const translations = {
       planMaxName: 'ZenMode',
       planMaxPrice: '$59 USD/mes',
       planMaxDesc: 'El máximo nivel con IA y automatización',
-      planMaxFeatures: ['Todo en Professional +', 'Detección de revenge trading', 'Reportes semanales por email', 'Coaching 1-a-1 mensual'],
+      planMaxFeatures: ['Todo en Professional +', 'Detección de revenge trading', 'Reportes semanales por email', 'Copiloto de Disciplina en vivo'],
       planMaxCtaLabel: 'Actualizar a ZenMode',
       upgradePlan: 'Actualizar plan',
       session: 'Sesión activa',
@@ -216,8 +216,8 @@ const translations = {
       heroStat2Value: '5',
       heroStat2Label: 'Prop firms soportadas',
       heroCtaMicrocopy: 'Sin tarjeta — plan gratis para siempre, mejora cuando quieras',
-      heroMiniTestimonial: '"Pasé Apex Phase 1 después de 2 intentos fallidos. El reporte semanal de IA me mostró que hacía revenge trading cada martes. Lo corregí en 10 días."',
-      heroMiniTestimonialAuthor: '— Marcus T., Trader NQ',
+      heroMiniTestimonial: '',
+      heroMiniTestimonialAuthor: '',
       // ai features section
       aiSectionBadge: 'Powered by Gemini 2.5 · IA Integrada',
       aiSectionTitle1: 'La IA que Opera',
@@ -267,8 +267,8 @@ const translations = {
         'Dashboard completo: profit factor, consistency score, equity curve',
         'Trading plan digital con export PDF para empresas de fondeo',
       ],
-      solutionTestimonial: '"Llevaba 3 intentos fallidos en FTMO. Con ZenTrade identifiqué que el 80% de mis pérdidas ocurrían en los primeros 30 minutos de sesión. Cambié eso solo. En el siguiente intento, pasé."',
-      solutionTestimonialAuthor: '— Carlos M., Futures Trader',
+      solutionTestimonial: 'Tu journal te muestra qué horarios, setups y emociones te cuestan dinero, para que corrijas el patrón antes de que te cueste otra evaluación.',
+      solutionTestimonialAuthor: '',
       // features section
       featuresTitle1: 'Todo Lo Que Necesitas Para',
       featuresTitle2: 'Ser un Trader Consistente',
@@ -292,12 +292,6 @@ const translations = {
         { title: 'Control Total Multi-Cuenta', description: 'Pruebas de fondeo, cuentas fondeadas y cuentas live en un solo dashboard. Nunca más confundas métricas entre cuentas.' },
         { title: 'Documentación Para Fondeo', description: 'Equity curve limpia, consistency score visible y trading plan exportable. La documentación que las empresas de fondeo quieren ver.' },
       ],
-      benefitsReview1: '"Antes operaba sin registrar nada. Creía que con buena memoria era suficiente. ZenTrade me mostró que tenía un patrón de pérdidas los viernes que nunca había notado. Lo eliminé y mi PnL mensual mejoró de inmediato."',
-      benefitsReview1Author: 'Alejandro M.',
-      benefitsReview1Role: 'Futures Day Trader',
-      benefitsReview2: '"Fallé la fase 2 de TopStep dos veces por consistency. Con ZenTrade pude ver exactamente cuáles trades rompían la regla. En el tercer intento, pasé con margen."',
-      benefitsReview2Author: 'Laura R.',
-      benefitsReview2Role: 'Futures Trader — TopStep',
       // pricing section
       pricingBadge: 'Precios Transparentes',
       pricingTitle1: 'Un Plan Para',
@@ -320,15 +314,15 @@ const translations = {
         { title: '¿Qué incluye el plan Free?', description: '1 cuenta, registro manual ilimitado, dashboard con KPIs y calendario. Mejora de plan cuando lo necesites.' },
         { title: '¿Cómo funciona la IA en ZenMode?', description: 'Analiza tus patrones de trading sesión a sesión. Te alerta cuando detecta revenge trading, cuando tu consistency score está en riesgo, y genera un reporte semanal con análisis emocional y de rendimiento.' },
       ],
-      pricingGuarantee: 'Garantía 15 días',
-      pricingGuaranteeDesc: 'Si no te convence en los primeros 15 días, te devolvemos el 100% de tu dinero. Sin preguntas.',
+      pricingGuarantee: 'Reembolso en 7 días',
+      pricingGuaranteeDesc: '¿No es para ti? Escríbenos dentro de los 7 días siguientes a tu primer pago para solicitar un reembolso. Revisamos cada solicitud personalmente.',
       pricingTiers: [
         {
           name: 'ZenMode', price: 59, priceAnnual: 42, saveAnnual: 209, period: 'USD/mes',
           description: 'Revenge Trading IA · Reporte Semanal · Radar de Mercado — el stack completo de IA para traders serios',
           badge: 'Stack Completo de IA',
           comingSoon: false,
-          features: ['Todo en Professional +', 'Detección de revenge trading en tiempo real (IA)', 'Alertas de reglas de riesgo (daily loss, position size)', 'Reporte semanal automático con análisis emocional (IA)', 'Radar de mercado dominical — 6–9 eventos de alto impacto (IA)', 'Benchmark vs. requisitos de empresa de fondeo', 'Coaching 1-a-1 mensual (30 min)', 'Soporte dedicado 24/7'],
+          features: ['Todo en Professional +', 'Copiloto de Disciplina en vivo: alertas antes de romper tu límite diario o tu drawdown', 'Detección de revenge trading (IA)', 'ZenCoach: tu coach de trading con IA', 'Reporte semanal automático con análisis emocional (IA)', 'Radar de mercado dominical — 6–9 eventos de alto impacto (IA)', 'Soporte dedicado'],
           cta: 'Empezar Gratis',
         },
         {
@@ -340,7 +334,7 @@ const translations = {
           highlight: true,
         },
         {
-          name: 'Starter', price: 9, priceAnnual: 7, saveAnnual: 22, period: 'USD/mes',
+          name: 'Starter', price: 9, priceAnnual: 7, saveAnnual: 24, period: 'USD/mes',
           description: 'Empieza a registrar, medir y entender tu trading desde hoy',
           badge: 'Ideal para Empezar',
           features: ['2 Cuentas de Trading', 'Registro manual de trades (ilimitado)', 'Dashboard básico: Win Rate, PnL, Drawdown', 'Calendario de trades', 'Export CSV', 'Soporte por email'],
@@ -376,7 +370,7 @@ const translations = {
         },
         {
           q: '¿Cómo se procesan los pagos?',
-          a: 'A través de Wompi (wompi.com), pasarela de pago segura para Colombia y LATAM. Aceptamos las principales tarjetas de crédito y débito. ZenTrade no almacena datos de tarjeta.',
+          a: 'Con PayPal. Puedes pagar con tu cuenta de PayPal o con tarjeta de crédito o débito. ZenTrade no almacena datos de tarjeta.',
         },
         {
           q: '¿Puedo usar ZenTrade desde cualquier dispositivo?',
@@ -389,7 +383,7 @@ const translations = {
       ctaSectionSubtitle: 'Cada día que operas sin un journal es un día de datos perdidos. Empieza hoy, registra tus trades y deja que los números te digan lo que la intuición no puede.',
       ctaSectionPoints: [
         'Setup en menos de 2 minutos',
-        'Import CSV automático incluido',
+        'Plan gratis para siempre, sin tarjeta',
         'Prueba de fondeo o cuenta live — funciona para ambas',
         'Cancela cuando quieras, sin compromisos',
       ],
@@ -456,7 +450,7 @@ const translations = {
           {
             heading: '4. Suscripciones y Pagos',
             body: [
-              'Los planes de pago se facturan según el ciclo elegido (mensual o anual) y se renuevan automáticamente hasta que se cancelen. Los pagos son procesados por Wompi (wompi.com), pasarela de pago segura para Colombia y LATAM.',
+              'Los planes de pago se facturan según el ciclo elegido (mensual o anual) y se renuevan automáticamente hasta que se cancelen. Los pagos son procesados por PayPal (paypal.com).',
               'Nos reservamos el derecho de modificar los precios con un aviso previo de al menos 30 días por email. El precio vigente en el momento de la renovación se aplicará al siguiente ciclo de facturación.',
             ],
           },
@@ -506,7 +500,7 @@ const translations = {
             body: [
               'Datos de cuenta: nombre, dirección de email y contraseña (almacenada de forma hasheada; nunca guardamos contraseñas en texto plano).',
               'Datos de trading: registros de operaciones, métricas, notas de journal y configuraciones de cuentas que introduces voluntariamente en la plataforma.',
-              'Datos de facturación: gestionados directamente por Wompi. ZenTrade no almacena datos de tarjetas de crédito ni información bancaria.',
+              'Datos de facturación: gestionados directamente por PayPal. ZenTrade no almacena datos de tarjetas de crédito ni información bancaria.',
               'Datos técnicos: dirección IP, tipo de navegador, sistema operativo y logs de acceso, recopilados automáticamente para seguridad y diagnóstico.',
             ],
           },
@@ -521,7 +515,7 @@ const translations = {
             heading: '4. Servicios de Terceros',
             body: [
               'Supabase (supabase.com): proveedor de base de datos y autenticación. Tus datos se almacenan en servidores de Supabase. Consulta su política de privacidad en supabase.com/privacy.',
-              'Wompi (wompi.com): procesamiento de pagos y gestión de suscripciones. Gestionan de forma independiente los datos de pago. Consulta su política en wompi.com/privacidad.',
+              'PayPal (paypal.com): procesamiento de pagos y gestión de suscripciones. Gestionan de forma independiente los datos de pago. Consulta su política en paypal.com/privacy.',
               'Resend (resend.com): servicio de envío de emails transaccionales. Reciben únicamente tu dirección de email y el contenido de los mensajes que te enviamos. Consulta su política en resend.com/privacy.',
               'Vercel (vercel.com): infraestructura de hosting y despliegue de la aplicación. Pueden procesar logs de acceso y métricas de rendimiento. Consulta su política en vercel.com/legal/privacy-policy.',
             ],
@@ -557,28 +551,29 @@ const translations = {
       },
       refunds: {
         title: 'Política de Reembolsos',
-        date: '1 de marzo de 2026',
+        date: '22 de noviembre de 2026',
         subtitle: 'Esta política explica nuestro enfoque de reembolsos de forma transparente.',
         sections: [
           {
-            heading: '1. Procesamiento de Pagos con Wompi',
+            heading: '1. Procesamiento de Pagos con PayPal',
             body: [
-              'Todos los pagos realizados en ZenTrade son procesados por Wompi (wompi.com), pasarela de pago segura para Colombia y LATAM. Wompi gestiona la facturación, la seguridad de las transacciones y el cumplimiento de normativas de pago en Colombia.',
-              'Al completar una compra, recibirás una confirmación de pago. Para consultas técnicas sobre pagos, puedes contactar a Wompi directamente a través de su sitio web wompi.com.',
+              'Todos los pagos de ZenTrade se procesan con PayPal. PayPal gestiona la facturación recurrente y la seguridad de las transacciones; ZenTrade nunca ve ni guarda los datos de tu tarjeta.',
+              'La suscripción se cobra al momento de suscribirte y luego se renueva automáticamente cada mes o cada año, según el ciclo que elijas. Al completar una compra recibirás una confirmación de pago de PayPal.',
             ],
           },
           {
-            heading: '2. Política General de No Reembolso',
+            heading: '2. Solicitud de Reembolso en 7 Días',
             body: [
-              'Dado que ZenTrade ofrece acceso inmediato a una plataforma digital y un plan gratuito para evaluar el Servicio antes de pagar, no ofrecemos reembolsos por suscripciones ya iniciadas.',
-              'Al completar tu suscripción, confirmas que has tenido la oportunidad de evaluar el Servicio con el plan gratuito y que aceptas los términos de esta política de reembolsos.',
+              'Si ZenTrade no es para ti, puedes solicitar un reembolso por escrito dentro de los 7 días calendario siguientes a tu primer pago. Escríbenos a support@zen-trader.com con el asunto "Solicitud de Reembolso", desde el email de tu cuenta, y cuéntanos el motivo.',
+              'Revisamos cada solicitud de forma individual y ZenTrade decide, a su criterio, si otorga un reembolso total, parcial o ninguno. Respondemos en menos de 48 horas hábiles.',
+              'Las solicitudes enviadas después de los 7 días y los cobros de renovación no son elegibles para reembolso, salvo los casos de la sección 3.',
             ],
           },
           {
             heading: '3. Excepciones',
             body: [
-              'Evaluaremos solicitudes de reembolso en los siguientes casos excepcionales: (a) cobro duplicado verificable por error técnico de nuestra parte; (b) interrupción del servicio de más de 72 horas consecutivas atribuible exclusivamente a ZenTrade; (c) primer cargo a un nuevo suscriptor dentro de las 24 horas, sin uso registrado de funciones premium.',
-              'Para solicitar un reembolso por excepción, escríbenos a support@zen-trader.com con el asunto "Solicitud de Reembolso" e incluye tu comprobante de pago. Respondemos en menos de 48 horas hábiles.',
+              'Reembolsaremos en estos casos, sin importar la fecha: (a) cobro duplicado verificable por error técnico de nuestra parte; (b) interrupción del servicio de más de 72 horas consecutivas atribuible exclusivamente a ZenTrade.',
+              'Para estos casos, escríbenos a support@zen-trader.com con el asunto "Solicitud de Reembolso" e incluye tu comprobante de pago.',
             ],
           },
           {
@@ -880,7 +875,7 @@ const translations = {
       planMaxName: 'ZenMode',
       planMaxPrice: '$59 USD/mo',
       planMaxDesc: 'The highest level with AI and automation',
-      planMaxFeatures: ['Everything in Professional +', 'Revenge trading detection', 'Weekly email reports', 'Monthly 1-on-1 coaching'],
+      planMaxFeatures: ['Everything in Professional +', 'Revenge trading detection', 'Weekly email reports', 'Live Discipline Copilot'],
       planMaxCtaLabel: 'Get ZenMode',
       upgradePlan: 'Upgrade plan',
       session: 'Active session',
@@ -932,7 +927,7 @@ const translations = {
       ctaPrimary: 'Start Free',
       ctaSecondary: 'Create Free Account',
       // hero
-      heroBadge: 'The Only Futures Journal That Thinks With You',
+      heroBadge: 'The AI Trading Journal Built for Prop Firm Traders',
       heroHeadline1: 'Your AI Coach.',
       heroHeadline2: 'Your Prop Firm Edge.',
       heroDescriptor: "ZenTrade's AI watches your patterns, flags revenge trading in real time, and sends you a weekly performance breakdown — so the next evaluation is the last one you need.",
@@ -949,8 +944,8 @@ const translations = {
       heroStat2Value: '$0',
       heroStat2Label: 'To start — no card required',
       heroCtaMicrocopy: 'No card required — free plan forever, upgrade anytime',
-      heroMiniTestimonial: '"Passed Apex Phase 1 after 2 failed attempts. The weekly AI report showed me I was revenge trading every Tuesday. Fixed it in 10 days."',
-      heroMiniTestimonialAuthor: '— Marcus T., NQ Trader',
+      heroMiniTestimonial: '',
+      heroMiniTestimonialAuthor: '',
       // ai features section
       aiSectionBadge: 'AI-Powered · Built on Gemini 2.5',
       aiSectionTitle1: 'The AI That Trades',
@@ -1000,8 +995,8 @@ const translations = {
         'Complete dashboard: profit factor, consistency score, equity curve',
         'Digital trading plan with PDF export for prop firms',
       ],
-      solutionTestimonial: '"I had failed FTMO 3 times. With ZenTrade I found that 80% of my losses happened in the first 30 minutes of the session. I changed just that. On the next attempt, I passed."',
-      solutionTestimonialAuthor: '— Carlos M., Futures Trader',
+      solutionTestimonial: 'Your journal shows you which hours, setups and emotions cost you money, so you fix the pattern before it costs you another evaluation.',
+      solutionTestimonialAuthor: '',
       // features section
       featuresTitle1: 'Everything You Need To',
       featuresTitle2: 'Become a Consistent Trader',
@@ -1025,12 +1020,6 @@ const translations = {
         { title: 'Every Account. One Dashboard.', description: 'Evaluation accounts (FTMO, Apex, TopStep), funded accounts, and live accounts — tracked separately, seen together. Consistency rules per account, not combined.' },
         { title: 'Prop Firm-Ready Documentation', description: 'Consistency score, equity curve, max drawdown — visible in real time, exportable as PDF. The exact evidence prop firms look for, organized before they ask.' },
       ],
-      benefitsReview1: '"ZenTrade showed me I was losing 73% of my Friday afternoon trades. I had no idea — I thought Fridays were fine. I stopped trading after 2PM on Fridays. Two weeks later, my monthly P&L flipped positive."',
-      benefitsReview1Author: 'Alejandro M.',
-      benefitsReview1Role: 'Futures Day Trader — NQ/MNQ',
-      benefitsReview2: '"Failed TopStep Phase 2 twice for consistency. ZenTrade let me see exactly which trades were breaking the rule — always the first 20 minutes of the session. Third attempt, I passed with 8% of the consistency buffer left."',
-      benefitsReview2Author: 'Laura R.',
-      benefitsReview2Role: 'Futures Trader — TopStep funded',
       // pricing section
       pricingBadge: 'Transparent Pricing',
       pricingTitle1: 'A Plan For',
@@ -1053,15 +1042,15 @@ const translations = {
         { title: 'What does the Free plan include?', description: '1 account, unlimited manual logging, KPI dashboard and calendar. Upgrade whenever you need more.' },
         { title: 'How does the AI work in ZenMode?', description: 'It analyzes your trading patterns session by session. It alerts you when it detects revenge trading, when your consistency score is at risk, and generates a weekly report with emotional and performance analysis.' },
       ],
-      pricingGuarantee: '15-Day Guarantee',
-      pricingGuaranteeDesc: 'If you are not convinced in the first 15 days, we refund 100% of your money. No questions asked.',
+      pricingGuarantee: '7-Day Refund Window',
+      pricingGuaranteeDesc: 'Not the right fit? Email us within 7 days of your first payment to request a refund. Every request is reviewed personally.',
       pricingTiers: [
         {
           name: 'ZenMode', price: 59, priceAnnual: 42, saveAnnual: 209, period: 'USD/mo',
           description: 'Revenge Trading AI · Weekly Performance Report · Sunday Market Radar — the full AI stack for serious evaluation traders',
           badge: 'Full AI Stack',
           comingSoon: false,
-          features: ['Everything in Professional +', 'Real-time revenge trading detection (AI)', 'Risk rule alerts (daily loss, position size)', 'Automated weekly report with emotional analysis (AI)', 'Sunday Market Radar — 6–9 high-impact events (AI)', 'Benchmark vs. prop firm requirements', 'Monthly 1-on-1 coaching (30 min)', '24/7 dedicated support'],
+          features: ['Everything in Professional +', 'Live Discipline Copilot: alerts before you break your daily loss limit or drawdown', 'Revenge trading detection (AI)', 'ZenCoach: your AI trading coach', 'Automated weekly report with emotional analysis (AI)', 'Sunday Market Radar — 6–9 high-impact events (AI)', 'Dedicated support'],
           cta: 'Start Free',
         },
         {
@@ -1073,7 +1062,7 @@ const translations = {
           highlight: true,
         },
         {
-          name: 'Starter', price: 9, priceAnnual: 7, saveAnnual: 22, period: 'USD/mo',
+          name: 'Starter', price: 9, priceAnnual: 7, saveAnnual: 24, period: 'USD/mo',
           description: 'Start logging, measuring and understanding your trading today',
           badge: 'Ideal to Start',
           features: ['2 Trading Accounts', 'Unlimited manual trade logging', 'Basic dashboard: Win Rate, PnL, Drawdown', 'Trade calendar', 'CSV export', 'Email support'],
@@ -1119,16 +1108,16 @@ const translations = {
       // final CTA section
       ctaSection1: 'Your AI Eval Coach',
       ctaSection2: 'Is Already Waiting',
-      ctaSectionSubtitle: "Every week you trade without ZenTrade is a week of patterns your AI could have fixed. The Weekly Report alone has changed how traders approach Monday. Start free — no card, no catch — and find out what your last evaluation couldn't tell you.",
+      ctaSectionSubtitle: "Every week you trade without a journal is a week of patterns you can't see. Start free — no card, no catch — and find out what your last evaluation couldn't tell you.",
       ctaSectionPoints: [
-        'Revenge trading detection active from day one',
-        'Weekly AI report every Monday morning',
-        'Market Radar every Sunday — 6–9 high-impact events',
+        'Free plan forever, no credit card',
+        'Prop firm rules tracked on every account',
+        'Live Copilot, weekly AI report and Market Radar on ZenMode',
         'Works for evaluations and live accounts',
       ],
       ctaTrust1: 'Free Plan Forever',
       ctaTrust2: 'No Credit Card',
-      ctaTrust3: 'AI Active Immediately',
+      ctaTrust3: 'Set Up in 2 Minutes',
       // footer
       footerTagline: 'The AI-powered trading journal for traders who build real discipline.',
       footerProduct: 'Product',
@@ -1189,7 +1178,7 @@ const translations = {
           {
             heading: '4. Subscriptions and Payments',
             body: [
-              'Paid plans are billed according to the chosen cycle (monthly or annual) and renew automatically until cancelled. Payments are processed by Wompi (wompi.com), a secure payment gateway for Colombia and LATAM.',
+              'Paid plans are billed according to the chosen cycle (monthly or annual) and renew automatically until cancelled. Payments are processed by PayPal (paypal.com).',
               'We reserve the right to modify prices with at least 30 days prior email notice. The price in effect at the time of renewal will apply to the next billing cycle.',
             ],
           },
@@ -1239,7 +1228,7 @@ const translations = {
             body: [
               'Account data: name, email address and password (stored in hashed form; we never store passwords in plain text).',
               'Trading data: trade records, metrics, journal notes and account configurations you voluntarily enter into the platform.',
-              'Billing data: managed directly by Wompi. ZenTrade does not store credit card data or banking information.',
+              'Billing data: managed directly by PayPal. ZenTrade does not store credit card data or banking information.',
               'Technical data: IP address, browser type, operating system and access logs, collected automatically for security and diagnostics.',
             ],
           },
@@ -1254,7 +1243,7 @@ const translations = {
             heading: '4. Third-Party Services',
             body: [
               'Supabase (supabase.com): database and authentication provider. Your data is stored on Supabase servers. See their privacy policy at supabase.com/privacy.',
-              'Wompi (wompi.com): payment processing and subscription management. They independently manage payment data. See their policy at wompi.com/privacidad.',
+              'PayPal (paypal.com): payment processing and subscription management. They independently manage payment data. See their policy at paypal.com/privacy.',
               'Resend (resend.com): transactional email delivery service. They only receive your email address and the content of messages we send you. See their policy at resend.com/privacy.',
               'Vercel (vercel.com): application hosting and deployment infrastructure. They may process access logs and performance metrics. See their policy at vercel.com/legal/privacy-policy.',
             ],
@@ -1290,28 +1279,29 @@ const translations = {
       },
       refunds: {
         title: 'Refund Policy',
-        date: 'March 1, 2026',
+        date: 'November 22, 2026',
         subtitle: 'This policy explains our approach to refunds in a transparent manner.',
         sections: [
           {
-            heading: '1. Payment Processing with Wompi',
+            heading: '1. Payment Processing with PayPal',
             body: [
-              'All payments made on ZenTrade are processed by Wompi (wompi.com), a secure payment gateway for Colombia and LATAM. Wompi handles billing, transaction security and payment compliance in Colombia.',
-              'Upon completing a purchase, you will receive a payment confirmation. For technical payment inquiries, you may contact Wompi directly through their website wompi.com.',
+              'All ZenTrade payments are processed by PayPal. PayPal handles recurring billing and transaction security; ZenTrade never sees or stores your card details.',
+              'Your subscription is charged when you subscribe and then renews automatically every month or every year, depending on the billing cycle you choose. You will receive a payment confirmation from PayPal after each purchase.',
             ],
           },
           {
-            heading: '2. General No-Refund Policy',
+            heading: '2. 7-Day Refund Request Window',
             body: [
-              'Because ZenTrade provides immediate access to a digital platform and a free plan to evaluate the Service before paying, we do not offer refunds for subscriptions that have already started.',
-              'By completing your subscription, you confirm that you have had the opportunity to evaluate the Service on the free plan and that you accept the terms of this refund policy.',
+              'If ZenTrade is not the right fit for you, you can request a refund in writing within 7 calendar days of your first payment. Email support@zen-trader.com with the subject "Refund Request" from the email on your account and tell us why.',
+              'Every request is reviewed individually, and ZenTrade decides at its discretion whether to grant a full refund, a partial refund or no refund. We reply within 48 business hours.',
+              'Requests sent after the 7-day window and renewal charges are not eligible for a refund, except for the cases in section 3.',
             ],
           },
           {
             heading: '3. Exceptions',
             body: [
-              'We will evaluate refund requests in the following exceptional cases: (a) verifiable duplicate charge due to a technical error on our part; (b) service outage of more than 72 consecutive hours attributable solely to ZenTrade; (c) first charge to a new subscriber within 24 hours, with no recorded use of premium features.',
-              'To request an exception refund, email us at support@zen-trader.com with the subject "Refund Request" and include your payment receipt. We respond within 48 business hours.',
+              'We will refund in these cases regardless of timing: (a) a verifiable duplicate charge caused by a technical error on our part; (b) a service outage of more than 72 consecutive hours attributable solely to ZenTrade.',
+              'For these cases, email support@zen-trader.com with the subject "Refund Request" and include your payment receipt.',
             ],
           },
           {

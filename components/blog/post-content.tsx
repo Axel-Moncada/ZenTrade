@@ -4,39 +4,40 @@ import { BlogContentBlock, CalloutVariant, FaqItem } from "@/lib/blog";
 
 interface PostContentProps {
   blocks: BlogContentBlock[];
+  lang?: "es" | "en";
 }
 
 const CALLOUT_CONFIG: Record<
   CalloutVariant,
-  { icon: React.ReactNode; borderColor: string; iconColor: string; label: string; bgColor: string }
+  { icon: React.ReactNode; borderColor: string; iconColor: string; label: { es: string; en: string }; bgColor: string }
 > = {
   tip: {
     icon: <Lightbulb className="w-4 h-4 shrink-0" />,
     borderColor: "border-l-zen-caribbean-green",
     iconColor: "text-zen-caribbean-green",
     bgColor: "bg-zen-caribbean-green/10",
-    label: "Consejo",
+    label: { es: "Consejo", en: "Tip" },
   },
   info: {
     icon: <AlertCircle className="w-4 h-4 shrink-0" />,
     borderColor: "border-l-blue-500",
     iconColor: "text-blue-400",
     bgColor: "bg-blue-500/5",
-    label: "Info",
+    label: { es: "Info", en: "Info" },
   },
   warning: {
     icon: <AlertTriangle className="w-4 h-4 shrink-0" />,
     borderColor: "border-l-amber-500",
     iconColor: "text-amber-400",
     bgColor: "bg-amber-500/5",
-    label: "Atención",
+    label: { es: "Atención", en: "Heads up" },
   },
   success: {
     icon: <CheckCircle className="w-4 h-4 shrink-0" />,
     borderColor: "border-l-emerald-500",
     iconColor: "text-emerald-400",
     bgColor: "bg-emerald-500/5",
-    label: "Dato",
+    label: { es: "Dato", en: "Fact" },
   },
 };
 
@@ -49,7 +50,7 @@ function RichText({ text }: { text: string }) {
   );
 }
 
-function renderBlock(block: BlogContentBlock, idx: number) {
+function renderBlock(block: BlogContentBlock, idx: number, lang: "es" | "en") {
   switch (block.type) {
     case "h2":
       return (
@@ -115,7 +116,7 @@ function renderBlock(block: BlogContentBlock, idx: number) {
           <span className={`${cfg.iconColor} mt-0.5`}>{cfg.icon}</span>
           <div>
             <span className={`text-xs font-bold uppercase tracking-wider ${cfg.iconColor} block mb-1.5`}>
-              {cfg.label}
+              {cfg.label[lang]}
             </span>
             <p className="text-sm leading-relaxed text-zen-anti-flash/70">
               <RichText text={block.text ?? ""} />
@@ -263,7 +264,7 @@ function renderBlock(block: BlogContentBlock, idx: number) {
   }
 }
 
-export default function PostContent({ blocks }: PostContentProps) {
+export default function PostContent({ blocks, lang = "en" }: PostContentProps) {
   return (
     <>
       {/* Light mode: los strong/a generados por dangerouslySetInnerHTML
@@ -275,7 +276,7 @@ export default function PostContent({ blocks }: PostContentProps) {
         html.light-mode main .blog-post-body a:hover { color: #005a30; }
       `}</style>
       <div className="prose-zen blog-post-body">
-        {blocks.map((block, idx) => renderBlock(block, idx))}
+        {blocks.map((block, idx) => renderBlock(block, idx, lang))}
       </div>
     </>
   );

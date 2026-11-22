@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface CompactStatCardProps {
   title: string;
@@ -23,6 +24,7 @@ export function CompactStatCard({
   progress,
   delay = 0
 }: CompactStatCardProps) {
+  const { tr } = useTr();
   const colors = {
     positive: {
       border: 'border-zen-caribbean-green/30',
@@ -86,7 +88,7 @@ export function CompactStatCard({
         {progress !== undefined && (
           <div className="mt-3">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[10px] text-zen-anti-flash/60 font-medium">% del total</span>
+              <span className="text-[10px] text-zen-anti-flash/60 font-medium">{tr("% del total", "% of total")}</span>
               <span className={cn("text-[10px] font-bold", style.text)}>{progress.toFixed(1)}%</span>
             </div>
             <div className="h-1 bg-zen-surface/60 rounded-full overflow-hidden">

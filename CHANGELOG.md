@@ -6,6 +6,46 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (tarde) — English-first fase 2: toda la app en inglés + reembolso en 7 días + fuera testimonios falsos
+
+### Decisiones del fundador (tatuadas en CLAUDE.md)
+- **English-first obligatorio**: un usuario de EE.UU. nunca ve español (UI, toasts, errores, emails, CSV, PDF, metadata, JSON-LD). Copy pensado para convertir, sin prometer nada que el código no haga.
+- **Cobro desde el día 1, sin free trial.** El cliente puede **solicitar un reembolso por escrito** a support@zen-trader.com **dentro de 7 días** del primer pago y el fundador decide caso por caso. Prohibido escribir "free trial", "money-back guarantee" o "no questions asked" (con cobro desde el día 1 serían publicidad engañosa y disparan disputas en PayPal).
+
+### Reembolsos y legal
+- Política de reembolsos reescrita (ES/EN): PayPal (antes decía Wompi), ventana de solicitud de 7 días, excepciones (cobro duplicado, caída >72 h).
+- Insignias del checkout: "15-day guarantee, no questions asked" → "7-day refund window · Request it by email". FAQ de pricing alineada.
+- Wompi → PayPal en términos, privacidad y FAQ. Metadata de términos, privacidad, cookies, disclaimer y reembolsos en inglés.
+
+### Testimonios y promesas falsas eliminadas (FTC)
+- Hero: testimonio inventado "Marcus T." eliminado. Sección de solución: cita inventada "Carlos M." → frase de producto. Testimonios de ejemplo con fotos de pravatar: eliminados (sin reseñas reales aprobadas no se muestra la sección). Badge "The Only Futures Journal…" → sin superlativo.
+- Tarjetas de precios: ZenMode ya no promete benchmark, coaching 1-a-1, soporte 24/7 ni alertas de tamaño de posición; ahora lista Copiloto de Disciplina, revenge trading, ZenCoach, reporte semanal y Radar. Ahorro anual de Starter corregido ($24, no $22).
+- CTA final: "AI active immediately" y "revenge trading from day one" (solo es ZenMode) → beneficios reales del plan Free.
+- `free-plan-welcome`: decía que Starter desbloquea import CSV, PDF y dashboard completo (es Pro). Corregido.
+
+### Traducción de la app (bilingüe, inglés primero)
+- Helpers nuevos: `lib/i18n/use-tr.ts` (`tr(es, en)`), `components/shared/t.tsx` (`<T es en />` para Server Components), `lib/constants/trade-labels.ts` (emociones y razones de salida bilingües; las claves de BD siguen en español).
+- Labels bilingües: `types/accounts.ts` (tipo, estado, drawdown), `types/trading-plan.ts` (días), `lib/utils/date-helpers.ts` (meses/días con `locale`), `data/trading-quotes.json` (`quotes_en`).
+- Traducidos: cuentas (tarjeta, formulario, selector), trades (formulario, tarjeta, lista, tabla, filtros, capturas, importador CSV), calendario (header, celdas, leyenda, modal del día, fotos), dashboard (gráficas, tablas, selector de fechas, stat cards), trading plan (formulario, página, **PDF**), retiros, backtesting, páginas del dashboard (cuentas, import, trading plan, perfil, backtesting, sesión en vivo), logout, 404, soporte, newsletter y preview del landing.
+- **ZenCoach respondía siempre en español**: ahora responde en el idioma del usuario (inglés por defecto). El resumen de sesión también.
+- Bugs de paso: el filtro de emociones ofrecía valores que nunca se guardan (`venganza`, `euforia`…), corregido con la lista compartida. `updateFilter` ya no usa `any`.
+
+### Público / SEO
+- `/about` reescrito en inglés para EE.UU. (con `<T>`, ES disponible).
+- `/vs/tradezella` y `/vs/edgewonk` reescritos en inglés con componente compartido `components/vs/comparison-page.tsx`. Solo datos verificables y fechados: TradeZella $35/$59/$99 (desde 14-jul-2026, sin plan gratis); Edgewonk ~$197/año, sin plan gratis, garantía de 14 días. No se afirma que la competencia "no tiene" una feature.
+- Versiones en español movidas a `/es/vs/*` (canonical + hreflang; precios corregidos; quitada la fila dudosa "Edgewonk = software desktop"). Sitemap actualizado.
+- `/blog`: metadata e índice en inglés; los posts en español van en una sección "Artículos en español" al final. Categorías, fechas, callouts y "Related articles" según el idioma de cada post.
+- Verificado con el build de producción: 13 páginas públicas sin texto ni metadata en español (control `/es/vs/tradezella`: 45 líneas en español).
+
+### Pendientes
+- **Demos en video del landing están en español** (YouTube): grabar demos en inglés para la pauta.
+- Recorrido manual logueado con navegador en inglés (la zona autenticada no se pudo escanear automáticamente).
+- Las páginas `/es/vs/*` conservan afirmaciones viejas sin verificar sobre features de la competencia ("No" en revenge trading, etc.): revisar o suavizar.
+- Admin y herramientas internas de marketing siguen en español (solo las ve el fundador).
+- `components/dashboard/zencoach/zen-coach-widget.tsx` es código muerto (no se importa): borrar.
+
+---
+
 ## 2026-11-22 — English-first (fase 1): embudo de pago en inglés + promesas falsas corregidas
 
 ### Contexto y decisión

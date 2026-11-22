@@ -3,6 +3,8 @@
 import { Account } from '@/types/accounts';
 import { Wallet } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ACCOUNT_TYPE_LABELS } from '@/types/accounts';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface AccountsProgressProps {
   accounts: Account[];
@@ -10,6 +12,7 @@ interface AccountsProgressProps {
 }
 
 export function AccountsProgress({ accounts, selectedAccountId }: AccountsProgressProps) {
+  const { tr, locale } = useTr();
   if (accounts.length === 0) return null;
 
   return (
@@ -20,8 +23,8 @@ export function AccountsProgress({ accounts, selectedAccountId }: AccountsProgre
           <Wallet className="h-5 w-5 text-purple-400" />
         </div>
         <div>
-          <h3 className="text-lg font-bold text-white">Estado de Cuentas</h3>
-          <p className="text-xs text-slate-400">Progreso vs balance inicial</p>
+          <h3 className="text-lg font-bold text-white">{tr("Estado de Cuentas", "Account Status")}</h3>
+          <p className="text-xs text-slate-400">{tr("Progreso vs balance inicial", "Progress vs starting balance")}</p>
         </div>
       </div>
 
@@ -31,19 +34,19 @@ export function AccountsProgress({ accounts, selectedAccountId }: AccountsProgre
           <thead>
             <tr className="border-b border-zen-rich-black/50">
               <th className="text-left py-3 px-4 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                Cuenta
+                {tr("Cuenta", "Account")}
               </th>
               <th className="text-center py-3 px-4 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                Tipo
+                {tr("Tipo", "Type")}
               </th>
               <th className="text-right py-3 px-4 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                Balance Inicial
+                {tr("Balance Inicial", "Starting Balance")}
               </th>
               <th className="text-right py-3 px-4 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                Balance Actual
+                {tr("Balance Actual", "Current Balance")}
               </th>
               <th className="text-center py-3 px-4 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                Progreso
+                {tr("Progreso", "Progress")}
               </th>
             </tr>
           </thead>
@@ -76,14 +79,14 @@ export function AccountsProgress({ accounts, selectedAccountId }: AccountsProgre
                       </p>
                       {isSelected && (
                         <span className="px-2 py-0.5 text-[9px] font-bold bg-blue-500/20 text-blue-400 rounded border border-blue-500/30">
-                          ACTIVA
+                          {tr("ACTIVA", "ACTIVE")}
                         </span>
                       )}
                     </div>
                   </td>
                   <td className="text-center py-3 px-4">
                     <span className="text-xs font-medium text-slate-300 capitalize">
-                      {account.account_type}
+                      {ACCOUNT_TYPE_LABELS[account.account_type][locale]}
                     </span>
                   </td>
                   <td className="text-right py-3 px-4">

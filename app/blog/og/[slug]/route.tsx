@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { getPostBySlug, CATEGORY_LABELS } from "@/lib/blog";
+import { getPostBySlug, categoryLabel as getCategoryLabel, getBlogPostLang } from "@/lib/blog";
 
 export const dynamic = "force-dynamic";
 
@@ -29,7 +29,7 @@ export async function GET(_req: Request, { params }: Props) {
     return new Response("Not found", { status: 404 });
   }
 
-  const categoryLabel = CATEGORY_LABELS[post.category] ?? post.category;
+  const categoryLabel = getCategoryLabel(post.category, getBlogPostLang(post));
   const accentColor = CATEGORY_COLORS[post.category] ?? ZEN_GREEN;
 
   // Trunca el título si es muy largo para que quepa bien

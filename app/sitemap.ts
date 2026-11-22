@@ -11,11 +11,13 @@ export const revalidate = 86400;
  * Actualízalas cuando cambie el contenido (no usar new Date(): Google deja de confiar en lastmod).
  */
 const STATIC_PAGES: Array<{ path: string; lastModified: string }> = [
-  { path: "", lastModified: "2026-11-19" },
-  { path: "/pricing", lastModified: "2026-05-28" },
-  { path: "/about", lastModified: "2026-05-28" },
-  { path: "/vs/tradezella", lastModified: "2026-11-19" },
-  { path: "/vs/edgewonk", lastModified: "2026-05-28" },
+  { path: "", lastModified: "2026-11-22" },
+  { path: "/pricing", lastModified: "2026-11-22" },
+  { path: "/about", lastModified: "2026-11-22" },
+  { path: "/vs/tradezella", lastModified: "2026-11-22" },
+  { path: "/vs/edgewonk", lastModified: "2026-11-22" },
+  { path: "/es/vs/tradezella", lastModified: "2026-11-22" },
+  { path: "/es/vs/edgewonk", lastModified: "2026-11-22" },
   { path: "/ftmo", lastModified: "2026-05-28" },
   { path: "/apex-trader-funding", lastModified: "2026-05-28" },
   { path: "/topstep", lastModified: "2026-05-28" },

@@ -4,21 +4,23 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { EquityCurvePoint } from '@/types/dashboard';
 import { TrendingUp } from 'lucide-react';
 import { parseISODate } from '@/lib/utils/date-helpers';
+import { useTr } from "@/lib/i18n/use-tr";
 
 interface EquityCurveChartProps {
   data: EquityCurvePoint[];
 }
 
 export function EquityCurveChart({ data }: EquityCurveChartProps) {
+  const { tr } = useTr();
   if (data.length === 0) {
     return (
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-zen-bangladesh-green/50 to-zen-dark-green/50 backdrop-blur-sm border-none shadow-none bg-transparent p-6">
         <div className="flex items-center gap-2 mb-4">
           <TrendingUp className="h-5 w-5 text-emerald-400" />
-          <h3 className="text-lg font-bold text-white">Curva de Capital</h3>
+          <h3 className="text-lg font-bold text-white">{tr("Curva de Capital", "Equity Curve")}</h3>
         </div>
         <div className="h-[400px] flex items-center justify-center text-slate-500">
-          No hay datos para mostrar
+          {tr("No hay datos para mostrar", "No data to show yet")}
         </div>
       </div>
     );
@@ -46,8 +48,8 @@ export function EquityCurveChart({ data }: EquityCurveChartProps) {
           <TrendingUp className="h-5 w-5 text-emerald-400" />
         </div>
         <div>
-          <h3 className="text-lg font-bold text-white">Curva de Capital</h3>
-          <p className="text-xs text-slate-400">Evolución del P&L acumulado</p>
+          <h3 className="text-lg font-bold text-white">{tr("Curva de Capital", "Equity Curve")}</h3>
+          <p className="text-xs text-slate-400">{tr("Evolución del P&L acumulado", "Cumulative P&L over time")}</p>
         </div>
       </div>
 
@@ -75,8 +77,8 @@ export function EquityCurveChart({ data }: EquityCurveChartProps) {
             tick={{ fill: '#64748b' }}
           />
           <Tooltip
-            formatter={((value: number) => [`${formatCurrency(value)}`, 'PNL Acumulado']) as any}
-            labelFormatter={((label: string) => `Fecha: ${label}`) as any}
+            formatter={((value: number) => [`${formatCurrency(value)}`, tr('PNL Acumulado', 'Cumulative P&L')]) as any}
+            labelFormatter={((label: string) => `${tr('Fecha', 'Date')}: ${label}`) as any}
             contentStyle={{
               backgroundColor: '#1e293b',
               border: '1px solid #334155',
