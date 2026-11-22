@@ -1,12 +1,24 @@
 import { Resend } from 'resend';
 import { supabaseAdmin } from '@/lib/supabase/admin';
+import { getUnsubscribedSet, unsubscribeUrl } from '@/lib/email/unsubscribe';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const LOGO_URL = 'https://rsunvtanukainhbtnmlu.supabase.co/storage/v1/object/public/logo/logo-hori-white.png';
 const APP_URL  = 'https://www.zen-trader.com';
 
-function wrapEmail(bodyHtml: string, subject: string): string {
+// CAN-SPAM: todo email comercial lleva dirección postal física y una baja que funcione
+function postalAddress(): string {
+  const address = process.env.COMPANY_POSTAL_ADDRESS?.trim();
+  if (!address) {
+    throw new Error('COMPANY_POSTAL_ADDRESS is not set: US law (CAN-SPAM) requires a postal address in marketing emails.');
+  }
+  return address;
+}
+
+const escapeHtml = (v: string) => v.replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch] ?? ch));
+
+function wrapEmail(bodyHtml: string, subject: string, unsubscribeLink: string, address: string): string {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +36,7 @@ function wrapEmail(bodyHtml: string, subject: string): string {
         <tr>
           <td style="background:#112510;padding:24px 40px;border-bottom:3px solid #00C17C;">
             <a href="${APP_URL}" style="text-decoration:none;">
-              <img src="${LOGO_URL}" alt="ZenTrade" height="30" style="display:block;"/>
+              <img src="${LOGO_URL}" alt="Zentrade" height="30" style="display:block;"/>
             </a>
           </td>
         </tr>
@@ -40,10 +52,14 @@ function wrapEmail(bodyHtml: string, subject: string): string {
         <tr>
           <td style="background:#112510;padding:22px 40px;border-top:1px solid #1d3a28;text-align:center;">
             <p style="margin:0 0 6px;color:rgba(242,243,244,0.45);font-size:12px;">
-              © ${new Date().getFullYear()} ZenTrade · <a href="${APP_URL}" style="color:#00C17C;text-decoration:none;">zen-trader.com</a>
+              © ${new Date().getFullYear()} Zentrade · <a href="${APP_URL}" style="color:#00C17C;text-decoration:none;">zen-trader.com</a>
+            </p>
+            <p style="margin:0 0 6px;color:rgba(242,243,244,0.35);font-size:11px;">
+              You're receiving this because you signed up for Zentrade or its newsletter.
+              <a href="${unsubscribeLink}" style="color:rgba(242,243,244,0.6);text-decoration:underline;">Unsubscribe</a>
             </p>
             <p style="margin:0;color:rgba(242,243,244,0.28);font-size:11px;">
-              Recibes este email porque te suscribiste a ZenTrade.
+              Zentrade · ${escapeHtml(address)}
             </p>
           </td>
         </tr>
@@ -76,7 +92,8 @@ async function getRecipients(audience: 'all' | 'zenmode' | 'paying'): Promise<Re
     const { data: subs } = await supabaseAdmin
       .from('newsletter_subscribers')
       .select('email')
-      .eq('confirmed', true);
+      .eq('confirmed', true)
+      .eq('status', 'subscribed');
 
     for (const s of subs ?? []) {
       if (!seen.has(s.email)) {
@@ -148,8 +165,15 @@ export async function sendBroadcast(params: {
 }): Promise<BroadcastResult> {
   const { emailId, subjectEs, subjectEn, bodyHtmlEs, bodyHtmlEn, audience } = params;
 
-  const recipients = await getRecipients(audience);
+  const address = postalAddress(); // falla antes de enviar si falta
+  const unsubscribed = await getUnsubscribedSet();
+  const recipients = (await getRecipients(audience)).filter(r => !unsubscribed.has(r.email.toLowerCase()));
   const result: BroadcastResult = { sent: 0, failed: 0, errors: [] };
+
+  // English-first: los emails de marketing salen solo en inglés (el español queda como respaldo si no hay versión EN)
+  const useEn = Boolean(subjectEn && bodyHtmlEn);
+  const subject = useEn ? subjectEn : subjectEs;
+  const bodyHtml = useEn ? bodyHtmlEn : bodyHtmlEs;
 
   // Resend batch: máx 100 por llamada
   const BATCH = 50;
@@ -157,14 +181,16 @@ export async function sendBroadcast(params: {
     const chunk = recipients.slice(i, i + BATCH);
 
     const emails = chunk.map(r => {
-      const isEn      = r.locale === 'en' && subjectEn && bodyHtmlEn;
-      const subject   = isEn ? subjectEn   : subjectEs;
-      const bodyHtml  = isEn ? bodyHtmlEn  : bodyHtmlEs;
+      const unsubscribeLink = unsubscribeUrl(r.email);
       return {
         from:    process.env.RESEND_FROM_EMAIL!,
         to:      r.email,
         subject,
-        html:    wrapEmail(bodyHtml, subject),
+        html:    wrapEmail(bodyHtml, subject, unsubscribeLink, address),
+        headers: {
+          'List-Unsubscribe':      `<${unsubscribeLink}>`,
+          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+        },
         tags:    [{ name: 'email_id', value: emailId }],
       };
     });

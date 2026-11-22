@@ -6,6 +6,24 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (noche, 6) — Emails de marketing: cumplimiento CAN-SPAM + emails de hoy
+
+### Problema
+El broadcast del admin no tenía link de baja, header de baja de un clic ni dirección postal (CAN-SPAM y requisitos de Gmail/Yahoo para envíos masivos), el footer estaba en español y `profiles.locale` tiene default `'es'`, así que usuarios de EE. UU. recibían la versión en español.
+
+### Hecho
+- **Migración `supabase/026_email_unsubscribes.sql`** (aplicar en producción): tabla `email_unsubscribes` (RLS sin políticas, solo service role) y default de `profiles.locale` → `'en'`.
+- `lib/email/unsubscribe.ts`: token HMAC por email (`EMAIL_UNSUBSCRIBE_SECRET`; si falta, se deriva de la service key), URL de baja y registro (también marca `newsletter_subscribers.status = 'unsubscribed'`). Tests en `tests/unsubscribe.test.ts`.
+- `/api/email/unsubscribe`: GET (link del footer → página `/unsubscribed`) y POST (baja de un clic, RFC 8058).
+- `lib/resend/send-broadcast.ts`: **solo inglés**; filtra las bajas y la newsletter dada de baja; footer en inglés con link de baja por destinatario + dirección postal; headers `List-Unsubscribe` y `List-Unsubscribe-Post`. **Se niega a enviar si falta `COMPANY_POSTAL_ADDRESS`** (el admin ve el error).
+- `docs/marketing/emails/2026-11-22.md`: newsletter "The trade after the loss" (`all`) y "Your prop firm rules, re-verified for 2026" (`paying`), con UTMs; envío recomendado el lunes 23 a las 8:00 AM ET.
+
+### Pendientes del fundador
+- Configurar `COMPANY_POSTAL_ADDRESS` (y opcionalmente `EMAIL_UNSUBSCRIBE_SECRET`) en Vercel. CAN-SPAM acepta un apartado postal o una dirección de buzón comercial.
+- Aplicar la migración 026.
+
+---
+
 ## 2026-11-22 (noche, 5) — Tracking para la pauta (PROMPT-TRACKING-PAUTA.md)
 
 - **Migración `supabase/025_signup_attribution.sql`** (aplicar en producción): columnas `utm_*`, `gclid`, `fbclid`, `landing_path`, `country`, `signup_locale`, `signup_method` y `signup_tracked_at` en `profiles`. Los usuarios existentes quedan marcados como ya contados.
