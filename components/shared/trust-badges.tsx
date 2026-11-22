@@ -11,20 +11,15 @@ const PROP_FIRMS = [
   { name: 'Uprofit',    color: '#3B82F6' },
 ];
 
-function PayPalBadge() {
+function PayPalBadge({ height = 28 }: { height?: number }) {
   return (
-    <div
-      className="flex items-center px-2 py-1 rounded-md"
-      style={{ background: '#FFFFFF', border: '1px solid rgba(0,156,222,0.4)' }}
-    >
-      <Image
-        src="/assets/paypallogo.png"
-        alt="PayPal"
-        width={64}
-        height={18}
-        className="object-contain"
-      />
-    </div>
+    <Image
+      src="/assets/paypal-badge.webp"
+      alt="PayPal"
+      width={Math.round((height * 212) / 76)}
+      height={height}
+      className="rounded-md"
+    />
   );
 }
 
@@ -41,6 +36,7 @@ export function TrustBadges({ className = '', locale = 'es' }: TrustBadgesProps)
       payment: 'Pago seguro',
       paymentSub: 'Procesado por PayPal',
       compatible: 'Hecho para las reglas de',
+      disclaimer: 'Marcas de sus respectivos dueños. Zentrade no está afiliado ni respaldado por estas empresas.',
     },
     en: {
       guarantee: '7-day refund window',
@@ -48,6 +44,7 @@ export function TrustBadges({ className = '', locale = 'es' }: TrustBadgesProps)
       payment: 'Secure payment',
       paymentSub: 'Powered by PayPal',
       compatible: 'Built for the rules of',
+      disclaimer: 'Trademarks belong to their owners. Zentrade is not affiliated with or endorsed by these firms.',
     },
   }[locale];
 
@@ -83,21 +80,16 @@ export function TrustBadges({ className = '', locale = 'es' }: TrustBadgesProps)
       {/* Prop firms */}
       <div className="flex flex-col items-center gap-1.5">
         <p className="text-xs" style={{ color: 'rgba(255,255,255,0.38)' }}>{copy.compatible}</p>
-        <div className="flex items-center gap-1.5 flex-wrap justify-center">
-          {PROP_FIRMS.map((firm) => (
-            <span
-              key={firm.name}
-              className="text-xs font-bold px-2 py-0.5 rounded"
-              style={{
-                color: firm.color,
-                background: `${firm.color}18`,
-                border: `1px solid ${firm.color}35`,
-              }}
-            >
-              {firm.name}
-            </span>
-          ))}
-        </div>
+        <Image
+          src="/assets/prop-firm-logos.webp"
+          alt="FTMO, Apex Trader Funding, Topstep, Tradoverse and Uprofit"
+          width={992}
+          height={88}
+          className="h-auto w-[300px] sm:w-[400px]"
+        />
+        <p className="max-w-[400px] text-center text-[10px] leading-tight" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          {copy.disclaimer}
+        </p>
       </div>
     </div>
   );
@@ -122,7 +114,7 @@ export function TrustBadgesCompact({ className = '', locale = 'es' }: TrustBadge
       {/* PayPal inline */}
       <div className="flex items-center gap-1.5">
         <Lock className="w-3.5 h-3.5 shrink-0" style={{ color: '#009CDE' }} />
-        <PayPalBadge />
+        <PayPalBadge height={20} />
       </div>
 
       <div className="w-px h-3.5" style={{ background: 'rgba(255,255,255,0.1)' }} />

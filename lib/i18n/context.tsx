@@ -7,6 +7,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
 import translations, { Locale, Translations } from "./translations";
 
 interface I18nContextValue {
@@ -17,22 +18,31 @@ interface I18nContextValue {
 
 const I18nContext = createContext<I18nContextValue | null>(null);
 
+/**
+ * Idioma por zona:
+ * - Páginas públicas (landing, pricing, blog, login…): siempre inglés (pauta EE. UU.).
+ * - `/es/*`: español.
+ * - `/dashboard/*`: la preferencia del usuario (selector del sidebar), inglés por defecto.
+ */
+function zoneLocale(pathname: string, saved: Locale): Locale {
+  if (pathname === "/es" || pathname.startsWith("/es/")) return "es";
+  if (pathname.startsWith("/dashboard")) return saved;
+  return "en";
+}
+
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+  const pathname = usePathname() ?? "/";
+  const [saved, setSaved] = useState<Locale>("en");
 
   useEffect(() => {
-    const saved = localStorage.getItem("zentrade-locale") as Locale | null;
-    if (saved === "en" || saved === "es") {
-      setLocaleState(saved);
-    } else if (navigator.language.toLowerCase().startsWith("es")) {
-      // Primera visita sin preferencia guardada: auto-detectar español para LATAM
-      setLocaleState("es");
-    }
-    // Default: English (mercado principal USA/global)
+    const stored = localStorage.getItem("zentrade-locale");
+    if (stored === "en" || stored === "es") setSaved(stored);
   }, []);
 
+  const locale = zoneLocale(pathname, saved);
+
   const setLocale = (next: Locale) => {
-    setLocaleState(next);
+    setSaved(next);
     localStorage.setItem("zentrade-locale", next);
   };
 

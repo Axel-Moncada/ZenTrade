@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, LayoutDashboard, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import logoMenu from "@/data/assets/Logo hori-white.png";
-import { LandingControls } from "@/components/landing/landing-controls";
 import { useI18n } from "@/lib/i18n/context";
 import { track } from "@/lib/analytics/track";
 
@@ -68,7 +67,6 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center space-x-3">
-              <LandingControls />
               {isAuthenticated ? (
                 <Link href="/dashboard">
                   <Button variant="zenGreen" className="group">
@@ -127,11 +125,6 @@ export default function PublicNavbar({ isAuthenticated = false }: PublicNavbarPr
                 {link.label}
               </a>
             ))}
-
-            {/* Mobile Controls */}
-            <div className="flex items-center gap-3 px-4 pt-2">
-              <LandingControls />
-            </div>
 
             {/* Mobile CTA Buttons */}
             <div className="space-y-2 pt-4 border-t border-zen-border-soft">
