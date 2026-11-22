@@ -26,8 +26,14 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [x] Signos negativos en dashboard y backtesting
 - [x] Fechas corridas un día (zona horaria)
 - [x] Drawdown trailing
-- [ ] Ejecutar `supabase/024_qa_fixes.sql`
-- [ ] Verificar webhook de PayPal en live (`PAYPAL_WEBHOOK_ID`, URL registrada)
+- [x] Ejecutar `supabase/024_qa_fixes.sql` (aplicada en producción el 2026-11-20)
+- [x] `PAYPAL_WEBHOOK_ID` = ID del webhook Live de la app **Zentrade** (`7H498690W16324910`), producción republicada
+- [x] Gemini 503: reintentos + modelo de respaldo (`lib/ai/gemini-retry.ts`); ZenCoach recibe fecha y drawdown
+- [x] Upgrades manuales protegidos de los eventos de PayPal (`resolvePlanWithOverride`)
+- [ ] **Walter (alejandroth0810@gmail.com):** ligar su fila de `subscriptions` (manual, ZenMode hasta 2026-12-20) al ID `I-...` de su suscripción PayPal de $29, sin tocar `variant_id` (`manual_override`) ni `plan_key`
+- [ ] **Walter:** cancelar en PayPal la suscripción de $9 del 2026-11-12 (sigue activa) y decidir reembolso
+- [ ] No reenviar ("Resend") los webhooks viejos de Walter del 12 y 18 de nov: el del 12 lo dejaría en Starter
+- [ ] Confirmar con el próximo pago real que el webhook llega como "Success" en PayPal → Webhook Events (app Zentrade)
 - [ ] Fase 2: consistencia por día, gating del dashboard por plan, página de precios = producto real, limpiar instrumentos `custom` globales, i18n del importador
 - [ ] Fase 3: `/register` abre "Registrarse", traducciones EN, nombres de emociones, hora de entrada en Sesión en Vivo, límite de cuentas en BD
 
