@@ -255,7 +255,10 @@ export default function TradesPage() {
         <UpgradePrompt
           requiredPlan="pro"
           variant="banner"
-          message="Import CSV automático desde Rithmic, NinjaTrader y Tradoverse requiere Professional"
+          message={{
+            es: "Import CSV automático desde Rithmic, NinjaTrader y Tradovate requiere Professional",
+            en: "CSV import from Rithmic, NinjaTrader and Tradovate requires Professional",
+          }}
           onDismiss={() => setShowImportUpgrade(false)}
         />
       )}

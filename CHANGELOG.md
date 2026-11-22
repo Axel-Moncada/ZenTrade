@@ -6,6 +6,35 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 — English-first (fase 1): embudo de pago en inglés + promesas falsas corregidas
+
+### Contexto y decisión
+- Decisión del fundador: **toda la pauta va a EE.UU.**, así que el producto pasa a ser *English-first*. El español se mantiene como idioma secundario (rutas `/es/*`, posts en español, usuarios con el navegador en español), pero un usuario gringo no debe ver ni una palabra en español.
+- Git: el pull desde el laptop había quedado a medias (merge en conflicto). `main` quedó igual a `origin/main`; los 2 commits viejos de PayPal del desktop se guardaron en la rama `backup/desktop-paypal-2026-11-19` (incluye `POST /api/admin/paypal-sync`, que no está en `main`).
+
+### Promesas falsas encontradas (riesgo FTC y de chargebacks con la pauta)
+- **"14-day free trial on all plans"** en hero, pricing, FAQ y la política de reembolsos. **No existe**: los planes de PayPal cobran desde el día 1 (`tenure_type: 'REGULAR'`). Copy cambiado a "Free plan forever" en ES y EN; la política de reembolsos ahora se apoya en el plan gratuito. **Decisión: implementar una prueba real** (ver ROADMAP).
+- Importación desde **MT5 y TradingView**: no existe. Ahora dice NinjaTrader, Rithmic, Tradovate o cualquier plataforma con la plantilla CSV. "Tradoverse" aparecía como plataforma de import (es una prop firm): cambiado a Tradovate.
+- Email de bienvenida y tabla de planes prometían "coaching 1-a-1", "análisis de horario óptimo" y "benchmark vs prop firm" como incluidos: en la tabla quedan como *Coming soon*; en el email se quitaron.
+- Tarjeta de upgrade: el precio anual se calculaba como `mensual × 0.8` (Pro mostraba $23/mes en vez de $20.75). Ahora usa los precios reales y el % de ahorro de cada plan.
+
+### Traducido / bilingüe
+- **Emails**: bienvenida/upgrade (`lib/resend/send-welcome-email.ts`) 100% en inglés. Broadcasts y suscriptores del newsletter asumen `en` por defecto; el editor de emails del admin abre en EN.
+- **API**: ~70 mensajes de error y validaciones Zod (`app/api/**`, `lib/validations/*`) en inglés. Las herramientas internas de marketing del admin (`app/api/agents/*`) siguen en español.
+- **CSV**: plantilla de importación y export en inglés; el importador acepta encabezados en inglés y en español, y "Followed Plan" acepta yes/si/y/true.
+- **Login/registro** (`app/login/page.tsx`) bilingüe. `/register` ahora abre el tab de registro (`/login?mode=register`). Botón de Google bilingüe.
+- **SEO**: JSON-LD de la home (`app/page.tsx`) y `/pricing` (metadata, FAQ schema y encabezado) en inglés; `areaServed` prioriza EE.UU.
+- **Billing** (`app/dashboard/billing/page.tsx`, `components/billing/*`): features por plan `{ es, en }`, toda la UI del dashboard de facturación, el modal de pago exitoso e insignias de confianza.
+- `UpgradePrompt`: bilingüe y `message` acepta `{ es, en }` (actualizados sus 8 usos). `PlanFeatures`: bilingüe. Alerta de revenge trading: bilingüe. Sidebar: labels del admin.
+
+### Pendientes
+- **Fase 2 del barrido**: ~33 componentes de la app no tienen ningún soporte de idioma (cuentas, trades, calendario, dashboard, trading plan, retiros, backtesting) y otros están a medias (`import-csv`, `zencoach-widget`, `day-modal`, `trading-plan-form`, `date-range-selector`).
+- Páginas públicas aún en español: `/about`, `/vs/tradezella`, `/vs/edgewonk` (además con títulos de 2025).
+- **Contradicción por resolver**: las insignias del checkout prometen "15-day guarantee, no questions asked" y la política de reembolsos dice "no refunds".
+- `send-welcome-email.ts` ya no registra el email del usuario en los logs.
+
+---
+
 ## 2026-11-20 (tarde) — PayPal: webhook ID y upgrades manuales
 
 - `PAYPAL_WEBHOOK_ID` en Vercel actualizado al ID del webhook Live de la app **Zentrade** (`7H498690W16324910`) y producción republicada. Hay dos apps en PayPal (Zentrade y Activation_App); el sitio usa Zentrade.

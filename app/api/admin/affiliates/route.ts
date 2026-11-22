@@ -17,7 +17,7 @@ export async function GET(_req: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user?.email || !isAdmin(user.email)) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
   }
 
   const { data: codes, error } = await supabaseAdmin
@@ -26,7 +26,7 @@ export async function GET(_req: NextRequest) {
     .order('created_at', { ascending: false });
 
   if (error) {
-    return NextResponse.json({ error: 'Error al obtener códigos' }, { status: 500 });
+    return NextResponse.json({ error: 'Could not load codes' }, { status: 500 });
   }
 
   return NextResponse.json({ codes });
@@ -34,7 +34,7 @@ export async function GET(_req: NextRequest) {
 
 // POST — Crear nuevo código
 const CreateSchema = z.object({
-  code:               z.string().min(3).max(20).regex(/^[A-Z0-9_]+$/, 'Solo letras mayúsculas, números y guión bajo'),
+  code:               z.string().min(3).max(20).regex(/^[A-Z0-9_]+$/, 'Uppercase letters, numbers and underscores only'),
   name:               z.string().min(1, 'Nombre requerido'),
   discount_percent:   z.number().int().min(0).max(100),
   commission_percent: z.number().int().min(0).max(100),
@@ -47,14 +47,14 @@ export async function POST(req: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user?.email || !isAdmin(user.email)) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 403 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
   }
 
   const body = await req.json() as unknown;
   const parsed = CreateSchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json(
-      { error: 'Datos inválidos', details: parsed.error.issues },
+      { error: 'Invalid data', details: parsed.error.issues },
       { status: 400 },
     );
   }
@@ -67,10 +67,10 @@ export async function POST(req: NextRequest) {
 
   if (error) {
     if (error.code === '23505') {
-      return NextResponse.json({ error: 'El código ya existe' }, { status: 409 });
+      return NextResponse.json({ error: 'That code already exists' }, { status: 409 });
     }
     console.error('[admin/affiliates POST]', error);
-    return NextResponse.json({ error: 'Error al crear código' }, { status: 500 });
+    return NextResponse.json({ error: 'Could not create the code' }, { status: 500 });
   }
 
   return NextResponse.json({ code: data }, { status: 201 });

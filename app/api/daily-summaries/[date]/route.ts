@@ -18,7 +18,7 @@ export async function GET(
 
     if (authError || !user) {
       return NextResponse.json(
-        { error: "No autorizado" },
+        { error: "Unauthorized" },
         { status: 401 }
       );
     }
@@ -45,7 +45,7 @@ export async function GET(
     if (error) {
       console.error("Error fetching summary:", error);
       return NextResponse.json(
-        { error: "Error al obtener el resumen" },
+        { error: "Could not load the summary" },
         { status: 500 }
       );
     }

@@ -20,7 +20,7 @@ export async function GET() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const [reviewRes, profileRes, tradesRes] = await Promise.all([
     supabase.from("reviews").select("*").eq("user_id", user.id).maybeSingle<Review>(),
@@ -55,12 +55,12 @@ export async function POST(request: Request) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body: unknown = await request.json().catch(() => null);
   const parsed = reviewInputSchema.safeParse(body);
   if (!parsed.success) {
-    return NextResponse.json({ error: parsed.error.errors[0]?.message ?? "Datos inválidos" }, { status: 400 });
+    return NextResponse.json({ error: parsed.error.errors[0]?.message ?? "Invalid data" }, { status: 400 });
   }
 
   const input = parsed.data;
@@ -90,7 +90,7 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error("Error saving review:", error.message);
-    return NextResponse.json({ error: "No se pudo guardar la reseña" }, { status: 500 });
+    return NextResponse.json({ error: "Could not save your review" }, { status: 500 });
   }
 
   // Ya no volver a pedir reseña

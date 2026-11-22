@@ -17,7 +17,7 @@ export async function POST() {
     .limit(1)
     .maybeSingle();
 
-  if (!sub) return NextResponse.json({ error: 'No hay suscripción activa' }, { status: 404 });
+  if (!sub) return NextResponse.json({ error: 'No active subscription' }, { status: 404 });
 
   // Cancelar en PayPal si hay subscription ID
   if (sub.processor_subscription_id?.startsWith('I-')) {
@@ -35,7 +35,7 @@ export async function POST() {
 
   if (error) {
     console.error('[billing/cancel]', error);
-    return NextResponse.json({ error: 'Error al cancelar suscripción' }, { status: 500 });
+    return NextResponse.json({ error: 'Could not cancel the subscription' }, { status: 500 });
   }
 
   return NextResponse.json({ success: true });

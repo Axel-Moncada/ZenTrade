@@ -42,14 +42,14 @@ export async function POST(request: NextRequest) {
 
     if (authError || !user) {
       console.log('[Import API] Error de autenticación')
-      return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
     // Plan gating: Import CSV requiere Professional o superior
     const plan = await getUserPlan(supabase, user.id)
     if (!plan.isPro && !plan.isZenMode) {
       return NextResponse.json(
-        { error: 'La importación CSV requiere el plan Professional o superior.', code: 'UPGRADE_REQUIRED' },
+        { error: 'CSV import requires the Professional plan or higher.', code: 'UPGRADE_REQUIRED' },
         { status: 403 }
       )
     }
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
 
     if (!account_id || !Array.isArray(trades)) {
       console.log('[Import API] Datos inválidos')
-      return NextResponse.json({ error: 'Datos inválidos' }, { status: 400 })
+      return NextResponse.json({ error: 'Invalid data' }, { status: 400 })
     }
 
     if (trades.length === 0) {
@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
 
     if (trades.length > MAX_TRADES_PER_IMPORT) {
       return NextResponse.json({ 
-        error: `Máximo ${MAX_TRADES_PER_IMPORT} trades por importación` 
+        error: `Maximum ${MAX_TRADES_PER_IMPORT} trades per import` 
       }, { status: 400 })
     }
 
@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
 
     if (accountError || !account) {
       console.log('[Import API] Cuenta no encontrada:', accountError)
-      return NextResponse.json({ error: 'Cuenta no encontrada' }, { status: 404 })
+      return NextResponse.json({ error: 'Account not found' }, { status: 404 })
     }
 
     // Obtener o crear instrumentos
@@ -161,7 +161,7 @@ export async function POST(request: NextRequest) {
         contracts,
         result,
         exit_reason: trade.exit_reason || null,
-        followed_plan: trade.followed_plan === 'si' || trade.followed_plan === 'Si' || trade.followed_plan === 'Sí' || trade.followed_plan === true,
+        followed_plan: trade.followed_plan === true || (typeof trade.followed_plan === 'string' && ['si', 'sí', 'yes', 'y', 'true'].includes(trade.followed_plan.trim().toLowerCase())),
         emotions,
         notes: trade.notes || null,
       }
@@ -169,7 +169,7 @@ export async function POST(request: NextRequest) {
 
     if (tradesToInsert.length === 0) {
       console.log('[Import API] No hay trades válidos para importar')
-      return NextResponse.json({ error: 'No hay trades válidos para importar. Verifica que los campos de resultado y contratos no estén vacíos.' }, { status: 400 })
+      return NextResponse.json({ error: 'No valid trades to import. Make sure the result and contracts columns are not empty.' }, { status: 400 })
     }
 
     // Insertar trades

@@ -30,8 +30,8 @@ export const createAccountSchema = z.object({
   }),
   max_drawdown: z
     .number()
-    .positive("El drawdown máximo debe ser mayor a 0")
-    .max(999999999999.99, "El drawdown máximo es demasiado grande"),
+    .positive("Max drawdown must be greater than 0")
+    .max(999999999999.99, "Max drawdown is too large"),
   profit_target: z
     .number()
     .positive("El objetivo de ganancia debe ser mayor a 0")
@@ -40,8 +40,8 @@ export const createAccountSchema = z.object({
     .nullable(),
   buffer_amount: z
     .number()
-    .nonnegative("El colchón no puede ser negativo")
-    .max(999999999999.99, "El colchón es demasiado grande")
+    .nonnegative("Buffer cannot be negative")
+    .max(999999999999.99, "Buffer is too large")
     .optional()
     .nullable(),
   start_date: z
@@ -61,9 +61,9 @@ export const createAccountSchema = z.object({
     .nullable(),
   consistency_percent: z
     .number()
-    .int("El porcentaje debe ser un número entero")
-    .min(10, "El mínimo es 10%")
-    .max(100, "El máximo es 100%")
+    .int("Percentage must be a whole number")
+    .min(10, "Minimum is 10%")
+    .max(100, "Maximum is 100%")
     .default(30),
 }).refine(
   (data) => {
@@ -71,7 +71,7 @@ export const createAccountSchema = z.object({
     return data.max_drawdown <= data.initial_balance;
   },
   {
-    message: "El drawdown máximo no puede ser mayor al balance inicial",
+    message: "Max drawdown cannot exceed the starting balance",
     path: ["max_drawdown"],
   }
 ).refine(
@@ -123,8 +123,8 @@ export const updateAccountSchema = z.object({
     .optional(),
   max_drawdown: z
     .number()
-    .positive("El drawdown máximo debe ser mayor a 0")
-    .max(999999999999.99, "El drawdown máximo es demasiado grande")
+    .positive("Max drawdown must be greater than 0")
+    .max(999999999999.99, "Max drawdown is too large")
     .optional(),
   profit_target: z
     .number()
@@ -134,8 +134,8 @@ export const updateAccountSchema = z.object({
     .nullable(),
   buffer_amount: z
     .number()
-    .nonnegative("El colchón no puede ser negativo")
-    .max(999999999999.99, "El colchón es demasiado grande")
+    .nonnegative("Buffer cannot be negative")
+    .max(999999999999.99, "Buffer is too large")
     .optional()
     .nullable(),
   start_date: z
@@ -152,9 +152,9 @@ export const updateAccountSchema = z.object({
     .nullable(),
   consistency_percent: z
     .number()
-    .int("El porcentaje debe ser un número entero")
-    .min(10, "El mínimo es 10%")
-    .max(100, "El máximo es 100%")
+    .int("Percentage must be a whole number")
+    .min(10, "Minimum is 10%")
+    .max(100, "Maximum is 100%")
     .optional(),
 }).refine(
   (data) => {
@@ -165,7 +165,7 @@ export const updateAccountSchema = z.object({
     return true;
   },
   {
-    message: "El drawdown máximo no puede ser mayor al balance inicial",
+    message: "Max drawdown cannot exceed the starting balance",
     path: ["max_drawdown"],
   }
 ).refine(

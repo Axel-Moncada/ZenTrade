@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { confirmPayPalSubscriptionForUser } from '@/lib/paypal/activate-subscription';
 
 const Body = z.object({
-  subscription_id: z.string().regex(/^I-[A-Z0-9]+$/, 'ID de suscripción de PayPal inválido'),
+  subscription_id: z.string().regex(/^I-[A-Z0-9]+$/, 'Invalid PayPal subscription ID'),
 });
 
 /**
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
   if (!user) return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
 
   const parsed = Body.safeParse(await req.json() as unknown);
-  if (!parsed.success) return NextResponse.json({ error: 'Datos inválidos' }, { status: 400 });
+  if (!parsed.success) return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
 
   const result = await confirmPayPalSubscriptionForUser(parsed.data.subscription_id, user.id);
 

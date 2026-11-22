@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json() as unknown;
   const parsed = CheckoutSchema.safeParse(body);
-  if (!parsed.success) return NextResponse.json({ error: 'Datos inválidos' }, { status: 400 });
+  if (!parsed.success) return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
 
   const { plan, interval } = parsed.data;
 
@@ -39,6 +39,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ url: approvalUrl });
   } catch (err) {
     console.error('[checkout]', err);
-    return NextResponse.json({ error: 'Error al crear suscripción' }, { status: 500 });
+    return NextResponse.json({ error: 'Could not create the subscription' }, { status: 500 });
   }
 }

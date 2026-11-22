@@ -68,7 +68,7 @@ export default function BacktestingPage() {
         <UpgradePrompt
           requiredPlan="pro"
           variant="card"
-          message="Desbloquea la Zona de Backtesting"
+          message={{ es: "Desbloquea la Zona de Backtesting", en: "Unlock the Backtesting Zone" }}
         />
       </div>
     )

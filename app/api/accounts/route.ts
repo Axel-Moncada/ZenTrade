@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
 
     if (authError || !user) {
       return NextResponse.json(
-        { error: "No autorizado" },
+        { error: "Unauthorized" },
         { status: 401 }
       );
     }
@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
     if (error) {
       console.error("Error fetching accounts:", error);
       return NextResponse.json(
-        { error: "Error al obtener las cuentas" },
+        { error: "Could not load accounts" },
         { status: 500 }
       );
     }
@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
 
     if (authError || !user) {
       return NextResponse.json(
-        { error: "No autorizado" },
+        { error: "Unauthorized" },
         { status: 401 }
       );
     }
@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
       if (countError) {
         console.error("Error counting accounts:", countError);
         return NextResponse.json(
-          { error: "Error al verificar el límite de cuentas" },
+          { error: "Could not verify your account limit" },
           { status: 500 }
         );
       }
@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
       if ((count ?? 0) >= limit) {
         return NextResponse.json(
           {
-            error: "Límite de cuentas alcanzado",
+            error: "Account limit reached",
             code: "PLAN_LIMIT_REACHED",
             limit,
             planKey: plan.planKey,
@@ -143,7 +143,7 @@ export async function POST(request: NextRequest) {
       }));
 
       return NextResponse.json(
-        { error: "Datos inválidos", details: errors },
+        { error: "Invalid data", details: errors },
         { status: 400 }
       );
     }
@@ -189,7 +189,7 @@ export async function POST(request: NextRequest) {
       }
 
       return NextResponse.json(
-        { error: "Error al crear la cuenta" },
+        { error: "Could not create the account" },
         { status: 500 }
       );
     }

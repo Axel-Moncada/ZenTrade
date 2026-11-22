@@ -4,7 +4,7 @@ import { supabaseAdmin } from "@/lib/supabase/admin";
 import { resend, FROM_EMAIL } from "@/lib/resend/client";
 
 const subscribeSchema = z.object({
-  email: z.string().email("Email inválido"),
+  email: z.string().email("Invalid email"),
   name: z.string().max(100).optional(),
   source: z.enum(["landing_popup", "footer_form"]).optional(),
 });
@@ -31,12 +31,12 @@ export async function POST(request: Request) {
       // Email duplicado
       if (dbError.code === "23505") {
         return NextResponse.json(
-          { error: "Este email ya está suscrito" },
+          { error: "This email is already subscribed" },
           { status: 409 }
         );
       }
       console.error("[Newsletter] DB error:", dbError);
-      return NextResponse.json({ error: "Error al suscribirse" }, { status: 500 });
+      return NextResponse.json({ error: "Could not subscribe" }, { status: 500 });
     }
 
     // Email de confirmación

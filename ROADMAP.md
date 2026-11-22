@@ -1,6 +1,6 @@
 # Zentrade — Roadmap
 
-Última actualización: **2026-11-20**
+Última actualización: **2026-11-22**
 Historial anterior (fases 0–9, marzo 2026): [`docs/archive/ROADMAP-2026-03.md`](docs/archive/ROADMAP-2026-03.md)
 Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 
@@ -11,7 +11,7 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - **En producción** en https://www.zen-trader.com (Vercel + Supabase).
 - **Cobro**: PayPal Subscriptions (`lib/paypal/`, modo según `PAYPAL_MODE`). Hay clientes de pago reales: uno lleva ~4 meses pagando y subió a Pro el 2026-11-18.
 - **Mercado objetivo**: traders de futuros en **EE.UU.** que buscan pasar evaluaciones de prop firms (Apex, TopStep, FTMO, Tradoverse, Uprofit). LATAM es secundario (rutas `/es/*`, posts en español).
-- **Idiomas**: UI bilingüe ES/EN (`lib/i18n/translations.ts`, default `en`). Emails en inglés.
+- **Idiomas**: **English-first** (desde 2026-11-22). UI bilingüe ES/EN (`lib/i18n/translations.ts`, default `en`; el español solo si el navegador está en español). Emails y errores de la API en inglés.
 - **Planes**: Free · Starter $9 · Professional $29 · ZenMode $59 (anual: $84 / $249 / $499).
 - **Competidor de referencia**: TradeZella ($35/$59/$99 desde julio 2026). Sus quejas más comunes: sincronización con el broker rota, IA de auto-tagging poco fiable, no se puede probar gratis y renovaciones inesperadas.
 - **Posicionamiento**: *"The trading journal built to help you pass your prop firm evaluation"*. Especialista en prop firms y a 1/3 del precio de TradeZella.
@@ -38,6 +38,16 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [ ] Fase 3: `/register` abre "Registrarse", traducciones EN, nombres de emociones, hora de entrada en Sesión en Vivo, límite de cuentas en BD
 
 ---
+
+## English-first — antes de pautar en EE.UU. (desde 2026-11-22)
+
+- [x] Emails, errores de la API, CSV, login/registro, home/pricing (SEO), billing y upgrade prompts en inglés
+- [x] Quitar promesas falsas: prueba de 14 días, import desde MT5/TradingView, features que no existen
+- [ ] **Prueba real de 7 días** (decisión del fundador 2026-11-22): ciclo `TRIAL` en los planes de PayPal (Pro y ZenMode), nuevos plan IDs en Vercel, copy de la landing y política de reembolsos
+- [ ] Resolver la contradicción "15-day guarantee" (insignias del checkout) vs "no refunds" (política)
+- [ ] Barrido de la app: ~33 componentes sin i18n (cuentas, trades, calendario, dashboard, trading plan, retiros, backtesting) + los parciales
+- [ ] Páginas públicas `/about`, `/vs/tradezella`, `/vs/edgewonk` en inglés (y ES en `/es/*`)
+- [ ] Recorrido completo con un navegador en inglés: registro → cuenta → importar → dashboard → pagar
 
 ## Estrategia de crecimiento (plan de 90 días, desde 2026-11-19)
 

@@ -120,7 +120,10 @@ export default function TradingPlanPage() {
         <UpgradePrompt
           requiredPlan="pro"
           variant="inline"
-          message="Exporta tu Trading Plan en PDF profesional para presentarlo en evaluaciones de prop firms"
+          message={{
+            es: "Exporta tu Trading Plan en PDF profesional para presentarlo en evaluaciones de prop firms",
+            en: "Export your trading plan as a professional PDF for your prop firm evaluations",
+          }}
           onDismiss={() => setShowPdfUpgrade(false)}
         />
       )}

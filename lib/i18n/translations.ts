@@ -202,7 +202,7 @@ const translations = {
       heroBadge: 'El journal de trading con IA para futuros',
       heroHeadline1: 'Deja de Repetir',
       heroHeadline2: 'Los Mismos Errores',
-      heroDescriptor: 'El journal de trading con IA para pasar evaluaciones de fondeo. 14 días gratis.',
+      heroDescriptor: 'El journal de trading con IA para pasar evaluaciones de fondeo. Plan gratis para siempre.',
       heroSubPrefix: 'ZenTrade es la bitácora de trading con IA diseñada para ',
       heroSubHighlight: 'construir disciplina real y pasar pruebas de fondeo',
       heroSubSuffix: '. Registra cada trade, entiende tus patrones y toma el control de tus cuentas live y de evaluación.',
@@ -211,11 +211,11 @@ const translations = {
       heroProof3: 'Pruebas de Fondeo',
       heroProof4: 'Cuentas Live',
       heroSeePlans: 'Ver Planes',
-      heroStat1Value: '14 días',
-      heroStat1Label: 'Prueba gratuita completa',
+      heroStat1Value: '$0',
+      heroStat1Label: 'Plan gratis para siempre',
       heroStat2Value: '5',
       heroStat2Label: 'Prop firms soportadas',
-      heroCtaMicrocopy: 'Sin tarjeta — prueba completa 14 días, cancela cuando quieras',
+      heroCtaMicrocopy: 'Sin tarjeta — plan gratis para siempre, mejora cuando quieras',
       heroMiniTestimonial: '"Pasé Apex Phase 1 después de 2 intentos fallidos. El reporte semanal de IA me mostró que hacía revenge trading cada martes. Lo corregí en 10 días."',
       heroMiniTestimonialAuthor: '— Marcus T., Trader NQ',
       // ai features section
@@ -274,11 +274,11 @@ const translations = {
       featuresTitle2: 'Ser un Trader Consistente',
       featuresSubtitle: 'Cada función fue construida pensando en el trader que quiere pasar una prueba de fondeo o escalar su cuenta live — sin adivinar, sin improvisar.',
       featuresBottomTitle: 'Compatible con Tu Plataforma de Trading',
-      featuresBottomSubtitle: 'Importa desde NinjaTrader, MT5, TradingView, Rithmic, Tradoverse y más',
+      featuresBottomSubtitle: 'Importa desde NinjaTrader, Rithmic, Tradovate o cualquier plataforma con nuestra plantilla CSV',
       featuresList: [
         { title: 'Bitácora Multi-Cuenta con IA', description: 'Gestiona tus cuentas de evaluación (FTMO, Apex, TopStep) y tus cuentas live en un solo lugar. La IA analiza tus patrones a través de todas ellas.' },
         { title: 'Dashboard de Disciplina', description: 'Win rate, profit factor, consistency score y drawdown en tiempo real. No solo para saber cómo vas — para saber por qué vas como vas.' },
-        { title: 'Import CSV Automático', description: 'Carga tu historial desde NinjaTrader, MT5, TradingView y más en segundos. Sin copiar y pegar, sin hojas de cálculo.' },
+        { title: 'Import CSV Automático', description: 'Carga tu historial desde NinjaTrader, Rithmic o Tradovate en segundos. Sin copiar y pegar, sin hojas de cálculo.' },
         { title: 'Trading Plan con Reglas Medibles', description: 'Define tu max daily loss, tamaño de posición y reglas de entrada. Exporta en PDF profesional. Compara tus reglas contra tus trades reales.' },
         { title: 'Calendario Emocional', description: 'Etiqueta cada día con tu estado emocional y tipo de sesión. Con el tiempo, la IA identifica en qué condiciones operas mejor y en cuáles deberías descansar.' },
       ],
@@ -302,7 +302,7 @@ const translations = {
       pricingBadge: 'Precios Transparentes',
       pricingTitle1: 'Un Plan Para',
       pricingTitle2: 'Cada Etapa',
-      pricingSubtitle: 'Sin sorpresas. Sin contratos de larga duración. Cancela cuando quieras. Todos los planes incluyen prueba gratis por 14 días.',
+      pricingSubtitle: 'Sin sorpresas. Sin contratos de larga duración. Cancela cuando quieras. Empieza con el plan Free, sin tarjeta.',
       pricingBillingMonthly: 'Facturación mensual • Cancela cuando quieras',
       pricingBillingAnnual: 'Facturado anualmente • Cancela cuando quieras',
       pricingToggleMonthly: 'Mensual',
@@ -316,8 +316,8 @@ const translations = {
       pricingFaqTitle: '¿Preguntas sobre los planes?',
       pricingFaq: [
         { title: '¿Puedo cambiar de plan?', description: 'Sí, actualiza o cambia de plan en cualquier momento. Los cambios se aplican en tu próximo ciclo de facturación.' },
-        { title: '¿Hay período de prueba?', description: '14 días gratis en todos los planes. Sin tarjeta de crédito requerida.' },
-        { title: '¿Qué incluye la prueba gratis?', description: 'Acceso completo a Professional. Perfecto para probar todas las funcionalidades.' },
+        { title: '¿Puedo probarlo gratis?', description: 'Sí. El plan Free es gratis para siempre y no pide tarjeta de crédito.' },
+        { title: '¿Qué incluye el plan Free?', description: '1 cuenta, registro manual ilimitado, dashboard con KPIs y calendario. Mejora de plan cuando lo necesites.' },
         { title: '¿Cómo funciona la IA en ZenMode?', description: 'Analiza tus patrones de trading sesión a sesión. Te alerta cuando detecta revenge trading, cuando tu consistency score está en riesgo, y genera un reporte semanal con análisis emocional y de rendimiento.' },
       ],
       pricingGuarantee: 'Garantía 15 días',
@@ -329,14 +329,14 @@ const translations = {
           badge: 'Stack Completo de IA',
           comingSoon: false,
           features: ['Todo en Professional +', 'Detección de revenge trading en tiempo real (IA)', 'Alertas de reglas de riesgo (daily loss, position size)', 'Reporte semanal automático con análisis emocional (IA)', 'Radar de mercado dominical — 6–9 eventos de alto impacto (IA)', 'Benchmark vs. requisitos de empresa de fondeo', 'Coaching 1-a-1 mensual (30 min)', 'Soporte dedicado 24/7'],
-          cta: 'Probar Gratis 14 Días',
+          cta: 'Empezar Gratis',
         },
         {
           name: 'Professional', price: 29, priceAnnual: 21, saveAnnual: 99, period: 'USD/mes',
           description: 'El sistema completo para traders que van en serio con su disciplina y sus evaluaciones',
           badge: 'Lo Más Popular',
-          features: ['Cuentas ilimitadas (Apex, TopStep, Uprofit, Tradoverse, Personal)', 'Import CSV automático (Rithmic, NinjaTrader, Tradoverse)', 'Dashboard analítico completo con todos los KPIs', 'Trading Plan digital exportable en PDF', 'Calendario con notas emocionales y tags de setup', 'Filtros avanzados por instrumento, sesión, setup', 'Profit factor, consistency score y equity curve', 'Export CSV/PDF/Excel ilimitado', 'Soporte prioritario'],
-          cta: 'Probar Gratis 14 Días',
+          features: ['Cuentas ilimitadas (Apex, TopStep, Uprofit, Tradoverse, Personal)', 'Import CSV automático (Rithmic, NinjaTrader, Tradovate)', 'Dashboard analítico completo con todos los KPIs', 'Trading Plan digital exportable en PDF', 'Calendario con notas emocionales y tags de setup', 'Filtros avanzados por instrumento, sesión, setup', 'Profit factor, consistency score y equity curve', 'Export CSV/PDF/Excel ilimitado', 'Soporte prioritario'],
+          cta: 'Empezar Gratis',
           highlight: true,
         },
         {
@@ -355,12 +355,12 @@ const translations = {
       faqContact: '¿Otra pregunta? Escríbenos a support@zen-trader.com',
       faqItems: [
         {
-          q: '¿Necesito tarjeta de crédito para la prueba gratis?',
-          a: 'No. Los 14 días de prueba son completamente gratis sin necesidad de ingresar datos de pago. Solo creas tu cuenta y empiezas.',
+          q: '¿Necesito tarjeta de crédito para empezar?',
+          a: 'No. El plan Free es gratis para siempre y no pide datos de pago. Solo creas tu cuenta y empiezas.',
         },
         {
           q: '¿Con qué plataformas de trading es compatible ZenTrade?',
-          a: 'Compatible con NinjaTrader, Rithmic, MT5, TradingView y Tradoverse mediante importación de archivos CSV. También puedes registrar cualquier operación de forma manual.',
+          a: 'Importación CSV desde NinjaTrader, Rithmic y Tradovate, o desde cualquier plataforma usando nuestra plantilla CSV. También puedes registrar cualquier operación de forma manual.',
         },
         {
           q: '¿Es útil para evaluaciones de empresas de fondeo como FTMO o Apex Trader?',
@@ -393,7 +393,7 @@ const translations = {
         'Prueba de fondeo o cuenta live — funciona para ambas',
         'Cancela cuando quieras, sin compromisos',
       ],
-      ctaTrust1: 'Prueba Gratis 14 Días',
+      ctaTrust1: 'Plan Gratis Para Siempre',
       ctaTrust2: 'Sin Tarjeta de Crédito',
       ctaTrust3: 'Setup Instantáneo',
       // footer
@@ -570,8 +570,8 @@ const translations = {
           {
             heading: '2. Política General de No Reembolso',
             body: [
-              'Dado que ZenTrade ofrece acceso inmediato a una plataforma digital con un período de prueba gratuita disponible, no ofrecemos reembolsos por suscripciones ya iniciadas.',
-              'Al completar tu suscripción, confirmas que has tenido la oportunidad de evaluar el Servicio durante el período de prueba gratuita y que aceptas los términos de esta política de reembolsos.',
+              'Dado que ZenTrade ofrece acceso inmediato a una plataforma digital y un plan gratuito para evaluar el Servicio antes de pagar, no ofrecemos reembolsos por suscripciones ya iniciadas.',
+              'Al completar tu suscripción, confirmas que has tenido la oportunidad de evaluar el Servicio con el plan gratuito y que aceptas los términos de esta política de reembolsos.',
             ],
           },
           {
@@ -948,7 +948,7 @@ const translations = {
       heroStat1Label: 'AI-powered analysis tools',
       heroStat2Value: '$0',
       heroStat2Label: 'To start — no card required',
-      heroCtaMicrocopy: 'No card required — full 14-day trial, cancel anytime',
+      heroCtaMicrocopy: 'No card required — free plan forever, upgrade anytime',
       heroMiniTestimonial: '"Passed Apex Phase 1 after 2 failed attempts. The weekly AI report showed me I was revenge trading every Tuesday. Fixed it in 10 days."',
       heroMiniTestimonialAuthor: '— Marcus T., NQ Trader',
       // ai features section
@@ -1007,11 +1007,11 @@ const translations = {
       featuresTitle2: 'Become a Consistent Trader',
       featuresSubtitle: 'Every feature was built with the trader who wants to pass a prop firm evaluation or scale a live account in mind — no guessing, no improvising.',
       featuresBottomTitle: 'Compatible With Your Trading Platform',
-      featuresBottomSubtitle: 'Import from NinjaTrader, MT5, TradingView, Rithmic, Tradoverse and more',
+      featuresBottomSubtitle: 'Import from NinjaTrader, Rithmic, Tradovate, or any platform with our CSV template',
       featuresList: [
         { title: 'AI-Powered Multi-Account Journal', description: 'Manage your evaluation accounts (FTMO, Apex, TopStep) and your live accounts in one place. The AI analyzes your patterns across all of them.' },
         { title: 'Discipline Dashboard', description: 'Win rate, profit factor, consistency score and drawdown in real time. Not just to know where you stand — but to know why.' },
-        { title: 'Automatic CSV Import', description: 'Load your trade history from NinjaTrader, MT5, TradingView and more in seconds. No copy-paste, no spreadsheets.' },
+        { title: 'Automatic CSV Import', description: 'Load your trade history from NinjaTrader, Rithmic or Tradovate in seconds. No copy-paste, no spreadsheets.' },
         { title: 'Trading Plan With Measurable Rules', description: 'Set your max daily loss, position size, and entry rules. Export as a professional PDF. Compare your rules against your actual trades.' },
         { title: 'Emotional Calendar', description: 'Tag each day with your emotional state and session type. Over time, the AI identifies when you trade best — and when you should step away.' },
       ],
@@ -1035,7 +1035,7 @@ const translations = {
       pricingBadge: 'Transparent Pricing',
       pricingTitle1: 'A Plan For',
       pricingTitle2: 'Every Stage',
-      pricingSubtitle: 'No surprises. No long-term contracts. Cancel anytime. All plans include a 14-day free trial.',
+      pricingSubtitle: 'No surprises. No long-term contracts. Cancel anytime. Start on the Free plan, no card needed.',
       pricingBillingMonthly: 'Monthly billing • Cancel anytime',
       pricingBillingAnnual: 'Billed annually • Cancel anytime',
       pricingToggleMonthly: 'Monthly',
@@ -1049,8 +1049,8 @@ const translations = {
       pricingFaqTitle: 'Questions about the plans?',
       pricingFaq: [
         { title: 'Can I change plans?', description: 'Yes, upgrade or downgrade at any time. Changes take effect on your next billing cycle.' },
-        { title: 'Is there a trial period?', description: '14 days free on all plans. No credit card required.' },
-        { title: 'What does the free trial include?', description: 'Full access to Professional. Perfect for testing all features.' },
+        { title: 'Can I try it for free?', description: 'Yes. The Free plan is free forever and requires no credit card.' },
+        { title: 'What does the Free plan include?', description: '1 account, unlimited manual logging, KPI dashboard and calendar. Upgrade whenever you need more.' },
         { title: 'How does the AI work in ZenMode?', description: 'It analyzes your trading patterns session by session. It alerts you when it detects revenge trading, when your consistency score is at risk, and generates a weekly report with emotional and performance analysis.' },
       ],
       pricingGuarantee: '15-Day Guarantee',
@@ -1062,14 +1062,14 @@ const translations = {
           badge: 'Full AI Stack',
           comingSoon: false,
           features: ['Everything in Professional +', 'Real-time revenge trading detection (AI)', 'Risk rule alerts (daily loss, position size)', 'Automated weekly report with emotional analysis (AI)', 'Sunday Market Radar — 6–9 high-impact events (AI)', 'Benchmark vs. prop firm requirements', 'Monthly 1-on-1 coaching (30 min)', '24/7 dedicated support'],
-          cta: 'Try Free 14 Days',
+          cta: 'Start Free',
         },
         {
           name: 'Professional', price: 29, priceAnnual: 21, saveAnnual: 99, period: 'USD/mo',
           description: 'The complete system for traders serious about their discipline and evaluations',
           badge: 'Most Popular',
-          features: ['Unlimited accounts (Apex, TopStep, Uprofit, Tradoverse, Personal)', 'Auto CSV import (Rithmic, NinjaTrader, Tradoverse)', 'Full analytical dashboard with all KPIs', 'Digital Trading Plan exportable as PDF', 'Calendar with emotional notes and setup tags', 'Advanced filters by instrument, session, setup', 'Profit factor, consistency score and equity curve', 'Unlimited CSV/PDF/Excel export', 'Priority support'],
-          cta: 'Try Free 14 Days',
+          features: ['Unlimited accounts (Apex, TopStep, Uprofit, Tradoverse, Personal)', 'Auto CSV import (Rithmic, NinjaTrader, Tradovate)', 'Full analytical dashboard with all KPIs', 'Digital Trading Plan exportable as PDF', 'Calendar with emotional notes and setup tags', 'Advanced filters by instrument, session, setup', 'Profit factor, consistency score and equity curve', 'Unlimited CSV/PDF/Excel export', 'Priority support'],
+          cta: 'Start Free',
           highlight: true,
         },
         {
@@ -1088,8 +1088,8 @@ const translations = {
       faqContact: 'Another question? Write to us at support@zen-trader.com',
       faqItems: [
         {
-          q: 'Do I need a credit card for the free trial?',
-          a: 'No. The 14-day trial is completely free with no payment information required. Just create your account and get started.',
+          q: 'Do I need a credit card to get started?',
+          a: 'No. The Free plan is free forever with no payment information required. Just create your account and get started.',
         },
         {
           q: 'What exactly does the Weekly AI Report include?',
@@ -1105,7 +1105,7 @@ const translations = {
         },
         {
           q: 'Which trading platforms is ZenTrade compatible with?',
-          a: 'Compatible with NinjaTrader, Rithmic, MT5, TradingView and Tradoverse via CSV file import. You can also log any trade manually.',
+          a: 'CSV import from NinjaTrader, Rithmic and Tradovate, or from any platform using our CSV template. You can also log any trade manually.',
         },
         {
           q: 'Can I cancel my subscription at any time?',
@@ -1126,7 +1126,7 @@ const translations = {
         'Market Radar every Sunday — 6–9 high-impact events',
         'Works for evaluations and live accounts',
       ],
-      ctaTrust1: 'Free 14-Day Trial',
+      ctaTrust1: 'Free Plan Forever',
       ctaTrust2: 'No Credit Card',
       ctaTrust3: 'AI Active Immediately',
       // footer
@@ -1303,8 +1303,8 @@ const translations = {
           {
             heading: '2. General No-Refund Policy',
             body: [
-              'Because ZenTrade provides immediate access to a digital platform with a free trial period available, we do not offer refunds for subscriptions that have already started.',
-              'By completing your subscription, you confirm that you have had the opportunity to evaluate the Service during the free trial period and that you accept the terms of this refund policy.',
+              'Because ZenTrade provides immediate access to a digital platform and a free plan to evaluate the Service before paying, we do not offer refunds for subscriptions that have already started.',
+              'By completing your subscription, you confirm that you have had the opportunity to evaluate the Service on the free plan and that you accept the terms of this refund policy.',
             ],
           },
           {

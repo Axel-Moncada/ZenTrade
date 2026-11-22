@@ -88,13 +88,13 @@ const PLATFORM_MAPPINGS: Record<PlatformType, ColumnMappingExtended> = {
     result: ['Net P/L'],
   },
   custom: {
-    date: ['Fecha', 'Fecha (YYYY-MM-DD)', 'trade_date'],
-    instrument: ['Instrumento', 'Instrumento (símbolo)', 'instrument_symbol'],
-    side: ['Lado', 'Lado (long/short)', 'side'],
-    contracts: ['Contratos', 'contracts'],
-    result: ['Resultado', 'result'],
-    exitReason: ['Razón Salida', 'exit_reason'],
-    notes: ['Notas', 'notes'],
+    date: ['Date', 'Date (YYYY-MM-DD)', 'Fecha', 'Fecha (YYYY-MM-DD)', 'trade_date'],
+    instrument: ['Instrument', 'Instrument (symbol)', 'Instrumento', 'Instrumento (símbolo)', 'instrument_symbol'],
+    side: ['Side', 'Side (long/short)', 'Lado', 'Lado (long/short)', 'side'],
+    contracts: ['Contracts', 'Contratos', 'contracts'],
+    result: ['Result', 'Resultado', 'result'],
+    exitReason: ['Exit Reason', 'Razón Salida', 'exit_reason'],
+    notes: ['Notes', 'Notas', 'notes'],
   },
 }
 

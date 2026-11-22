@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
     if (error) {
       console.error('Error fetching trades:', error);
       return NextResponse.json(
-        { error: 'Error al obtener trades' },
+        { error: 'Could not load trades' },
         { status: 500 }
       );
     }
@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
 
     if (accountError || !account) {
       return NextResponse.json(
-        { error: 'Cuenta no encontrada o no autorizada' },
+        { error: 'Account not found or not authorized' },
         { status: 404 }
       );
     }
@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
     if (insertError) {
       console.error('Error creating trade:', JSON.stringify(insertError));
       return NextResponse.json(
-        { error: 'Error al crear trade', detail: insertError.message },
+        { error: 'Could not create the trade', detail: insertError.message },
         { status: 500 }
       );
     }
@@ -122,7 +122,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     if (error instanceof ZodError) {
       return NextResponse.json(
-        { error: 'Datos inválidos', details: error.errors },
+        { error: 'Invalid data', details: error.errors },
         { status: 400 }
       );
     }

@@ -127,7 +127,7 @@ export function AccountForm({ account, mode }: AccountFormProps) {
         <UpgradePrompt
           requiredPlan="pro"
           variant="card"
-          message="Alcanzaste el límite de cuentas de tu plan actual"
+          message={{ es: "Alcanzaste el límite de cuentas de tu plan actual", en: "You reached your plan's account limit" }}
         />
         <p className="text-center text-sm text-zen-text-muted">
           Professional incluye cuentas ilimitadas para gestionar todas tus evaluaciones y cuentas live.

@@ -7,28 +7,28 @@ export async function GET() {
   const { data: { user }, error: authError } = await supabase.auth.getUser()
 
   if (authError || !user) {
-    return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
   // Plan gate: la plantilla de import solo es útil para Pro y ZenMode
   const plan = await getUserPlan(supabase, user.id)
   if (!plan.isPro && !plan.isZenMode) {
     return NextResponse.json(
-      { error: 'La plantilla de importación requiere el plan Professional o superior.' },
+      { error: 'The import template requires the Professional plan or higher.' },
       { status: 403 }
     )
   }
 
   const headers = [
-    'Fecha (YYYY-MM-DD)',
-    'Instrumento (símbolo)',
-    'Lado (long/short)',
-    'Contratos',
-    'Resultado',
-    'Razón Salida (take_profit/stop_loss/break_even/manual/timeout)',
-    'Siguió Plan (si/no)',
-    'Emociones (separadas por coma)',
-    'Notas'
+    'Date (YYYY-MM-DD)',
+    'Instrument (symbol)',
+    'Side (long/short)',
+    'Contracts',
+    'Result',
+    'Exit Reason (take_profit/stop_loss/break_even/manual/timeout)',
+    'Followed Plan (yes/no)',
+    'Emotions (comma separated)',
+    'Notes'
   ]
 
   const exampleRow = [
@@ -38,9 +38,9 @@ export async function GET() {
     '2',
     '+150.00',
     'take_profit',
-    'si',
-    'confiado, paciente',
-    'Entrada perfecta siguiendo estrategia'
+    'yes',
+    'confident, patient',
+    'Clean entry, followed my setup'
   ]
 
   const csvContent = '\uFEFF' + [

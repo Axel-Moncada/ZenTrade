@@ -10,14 +10,14 @@ export async function PATCH(
     const { data: { user }, error: authError } = await supabase.auth.getUser()
 
     if (authError || !user) {
-      return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
     const { id: accountId } = await params
     const { adjustment } = await request.json()
 
     if (typeof adjustment !== 'number') {
-      return NextResponse.json({ error: 'Ajuste inválido' }, { status: 400 })
+      return NextResponse.json({ error: 'Invalid adjustment' }, { status: 400 })
     }
 
     // Verificar que la cuenta pertenece al usuario
@@ -29,7 +29,7 @@ export async function PATCH(
       .single()
 
     if (accountError || !account) {
-      return NextResponse.json({ error: 'Cuenta no encontrada' }, { status: 404 })
+      return NextResponse.json({ error: 'Account not found' }, { status: 404 })
     }
 
     // Actualizar ajuste manual (el trigger recalculará current_balance automáticamente)

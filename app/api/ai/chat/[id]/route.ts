@@ -178,7 +178,7 @@ export async function POST(
     let fnResponse: Record<string, unknown>;
 
     if (!instrument) {
-      fnResponse = { success: false, error: `Instrumento "${args.instrument_symbol}" no encontrado` };
+      fnResponse = { success: false, error: `Instrument "${args.instrument_symbol}" not found` };
     } else {
       const today = ctx.today;
       const tradePayload = {
@@ -205,7 +205,7 @@ export async function POST(
         .single();
 
       if (tradeError || !trade) {
-        fnResponse = { success: false, error: tradeError?.message ?? 'Error al registrar' };
+        fnResponse = { success: false, error: tradeError?.message ?? 'Could not log the trade' };
       } else {
         registeredTrade = { id: trade.id, result: trade.result, date: trade.trade_date };
         fnResponse = {

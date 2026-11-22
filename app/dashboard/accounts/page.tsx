@@ -143,7 +143,10 @@ export default function AccountsPage() {
         <UpgradePrompt
           requiredPlan="pro"
           variant="banner"
-          message={`Alcanzaste el límite de ${accountLimit} cuenta${accountLimit === 1 ? "" : "s"} de tu plan actual. Actualiza a Professional para cuentas ilimitadas.`}
+          message={{
+            es: `Alcanzaste el límite de ${accountLimit} cuenta${accountLimit === 1 ? "" : "s"} de tu plan actual. Actualiza a Professional para cuentas ilimitadas.`,
+            en: `You reached your plan's limit of ${accountLimit} account${accountLimit === 1 ? "" : "s"}. Upgrade to Professional for unlimited accounts.`,
+          }}
           onDismiss={() => setShowLimitBanner(false)}
         />
       )}

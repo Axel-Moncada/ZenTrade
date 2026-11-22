@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,6 +11,52 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { GoogleSignInButton } from "@/components/google-signin-button";
 import { ArrowLeft, LogIn, UserPlus, CheckCircle2 } from "lucide-react";
 import logoZen from "@/data/assets/Logo-white.png";
+import { useI18n } from "@/lib/i18n/context";
+
+const COPY = {
+  en: {
+    loginError: "Could not sign in",
+    registerError: "Could not create your account",
+    connectionError: "Connection error. Please try again.",
+    passwordMismatch: "Passwords don't match",
+    registerSuccess: "Account created. Check your email to confirm it.",
+    back: "Back to home",
+    login: "Log in",
+    register: "Sign up",
+    orLogin: "Or continue with email",
+    orRegister: "Or sign up with email",
+    password: "Password",
+    confirmPassword: "Confirm password",
+    minChars: "At least 6 characters",
+    signingIn: "Signing in...",
+    creating: "Creating account...",
+    createFree: "Create free account",
+    footerLogin: "Your professional trading journal",
+    footerRegister: "No credit card required · Set up in 2 minutes",
+    emailPlaceholder: "you@email.com",
+  },
+  es: {
+    loginError: "Error al iniciar sesión",
+    registerError: "Error al registrarse",
+    connectionError: "Error de conexión",
+    passwordMismatch: "Las contraseñas no coinciden",
+    registerSuccess: "Cuenta creada exitosamente. Revisa tu email.",
+    back: "Volver al inicio",
+    login: "Iniciar Sesión",
+    register: "Registrarse",
+    orLogin: "O continúa con email",
+    orRegister: "O regístrate con email",
+    password: "Contraseña",
+    confirmPassword: "Confirmar Contraseña",
+    minChars: "Mínimo 6 caracteres",
+    signingIn: "Iniciando sesión...",
+    creating: "Creando cuenta...",
+    createFree: "Crear Cuenta Gratis",
+    footerLogin: "Tu trading journal profesional",
+    footerRegister: "Sin tarjeta de crédito · Setup en 2 minutos",
+    emailPlaceholder: "tu@email.com",
+  },
+} as const;
 
 export default function LoginPage() {
   const router = useRouter();
@@ -21,6 +67,15 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
+  const { locale } = useI18n();
+  const c = COPY[locale];
+
+  // /register y los CTAs de "Sign up" llegan con ?mode=register
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("mode") === "register") {
+      setMode("register");
+    }
+  }, []);
 
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,7 +93,7 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || "Error al iniciar sesión");
+        setError(data.error || c.loginError);
         setLoading(false);
         return;
       }
@@ -46,7 +101,7 @@ export default function LoginPage() {
       router.push("/dashboard");
       router.refresh();
     } catch (err) {
-      setError("Error de conexión");
+      setError(c.connectionError);
       setLoading(false);
     }
   };
@@ -58,7 +113,7 @@ export default function LoginPage() {
     setLoading(true);
 
     if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden");
+      setError(c.passwordMismatch);
       setLoading(false);
       return;
     }
@@ -73,12 +128,12 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || "Error al registrarse");
+        setError(data.error || c.registerError);
         setLoading(false);
         return;
       }
 
-      setSuccess(data.message || "Cuenta creada exitosamente. Revisa tu email.");
+      setSuccess(data.message || c.registerSuccess);
       setEmail("");
       setPassword("");
       setConfirmPassword("");
@@ -90,7 +145,7 @@ export default function LoginPage() {
         setSuccess("");
       }, 2000);
     } catch (err) {
-      setError("Error de conexión");
+      setError(c.connectionError);
       setLoading(false);
     }
   };
@@ -108,7 +163,7 @@ export default function LoginPage() {
           className="inline-flex items-center space-x-2 text-zen-anti-flash hover:text-zen-caribbean-green transition-colors mb-6 sm:mb-8"
         >
           <ArrowLeft className="h-4 w-4" />
-          <span>Volver al inicio</span>
+          <span>{c.back}</span>
         </Link>
 
         {/* Auth Card */}
@@ -134,7 +189,7 @@ export default function LoginPage() {
                   : "text-zen-text-muted hover:text-zen-anti-flash"
               }`}
             >
-              Iniciar Sesión
+              {c.login}
             </button>
             <button
               type="button"
@@ -149,7 +204,7 @@ export default function LoginPage() {
                   : "text-zen-text-muted hover:text-zen-anti-flash"
               }`}
             >
-              Registrarse
+              {c.register}
             </button>
           </div>
 
@@ -180,7 +235,7 @@ export default function LoginPage() {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-zen-surface-elevated px-3 text-zen-text-muted">
-                {mode === "login" ? "O continúa con email" : "O regístrate con email"}
+                {mode === "login" ? c.orLogin : c.orRegister}
               </span>
             </div>
           </div>
@@ -195,7 +250,7 @@ export default function LoginPage() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="tu@email.com"
+                  placeholder={c.emailPlaceholder}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -206,7 +261,7 @@ export default function LoginPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="password" className="text-zen-anti-flash">
-                  Contraseña
+                  {c.password}
                 </Label>
                 <Input
                   id="password"
@@ -227,11 +282,11 @@ export default function LoginPage() {
                 disabled={loading}
               >
                 {loading ? (
-                  "Iniciando sesión..."
+                  c.signingIn
                 ) : (
                   <>
                     <LogIn className="mr-2 h-4 w-4" />
-                    Iniciar Sesión
+                    {c.login}
                   </>
                 )}
               </Button>
@@ -248,7 +303,7 @@ export default function LoginPage() {
                 <Input
                   id="register-email"
                   type="email"
-                  placeholder="tu@email.com"
+                  placeholder={c.emailPlaceholder}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -259,7 +314,7 @@ export default function LoginPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="register-password" className="text-zen-anti-flash">
-                  Contraseña
+                  {c.password}
                 </Label>
                 <Input
                   id="register-password"
@@ -273,13 +328,13 @@ export default function LoginPage() {
                   className="bg-zen-surface border-zen-border-soft text-zen-anti-flash placeholder:text-zen-text-muted focus:border-zen-caribbean-green"
                 />
                 <p className="text-xs text-zen-text-muted">
-                  Mínimo 6 caracteres
+                  {c.minChars}
                 </p>
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="confirm-password" className="text-zen-anti-flash">
-                  Confirmar Contraseña
+                  {c.confirmPassword}
                 </Label>
                 <Input
                   id="confirm-password"
@@ -301,11 +356,11 @@ export default function LoginPage() {
                 disabled={loading}
               >
                 {loading ? (
-                  "Creando cuenta..."
+                  c.creating
                 ) : (
                   <>
                     <UserPlus className="mr-2 h-4 w-4" />
-                    Crear Cuenta Gratis
+                    {c.createFree}
                   </>
                 )}
               </Button>
@@ -316,8 +371,8 @@ export default function LoginPage() {
         {/* Footer Note */}
         <p className="text-center text-zen-text-muted text-sm mt-6 sm:mt-8">
           {mode === "login"
-            ? "Tu trading journal profesional"
-            : "Sin tarjeta de crédito · Setup en 2 minutos"}
+            ? c.footerLogin
+            : c.footerRegister}
         </p>
       </div>
     </div>

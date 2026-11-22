@@ -40,10 +40,10 @@ export async function POST(
       const result = await geminiFlash.generateContent(prompt);
       summary = result.response.text().trim();
     } catch {
-      summary = `Sesión completada con ${conv.trades_registered ?? 0} trade(s) registrado(s).`;
+      summary = `Session completed with ${conv.trades_registered ?? 0} trade(s) logged.`;
     }
   } else {
-    summary = 'Sesión breve sin contenido significativo.';
+    summary = 'Short session with no meaningful content.';
   }
 
   await supabase

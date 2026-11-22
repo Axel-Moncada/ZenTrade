@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const { data: { user }, error: authError } = await supabase.auth.getUser()
 
     if (authError || !user) {
-      return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
     const searchParams = request.nextUrl.searchParams
@@ -54,25 +54,25 @@ export async function GET(request: NextRequest) {
 
     // Generar CSV
     const headers = [
-      'Fecha',
-      'Instrumento',
-      'Lado',
-      'Contratos',
-      'Resultado',
-      'Razón Salida',
-      'Siguió Plan',
-      'Emociones',
-      'Notas'
+      'Date',
+      'Instrument',
+      'Side',
+      'Contracts',
+      'Result',
+      'Exit Reason',
+      'Followed Plan',
+      'Emotions',
+      'Notes'
     ]
 
     const rows = trades.map((trade: any) => [
       trade.trade_date,
       trade.instrument?.symbol || '',
-      trade.side === 'long' ? 'Largo' : 'Corto',
+      trade.side === 'long' ? 'Long' : 'Short',
       trade.contracts,
       trade.result || 0,
       trade.exit_reason || '',
-      trade.followed_plan ? 'Sí' : 'No',
+      trade.followed_plan ? 'Yes' : 'No',
       Array.isArray(trade.emotions) ? trade.emotions.join(', ') : '',
       (trade.notes || '').replace(/"/g, '""') // Escapar comillas
     ])

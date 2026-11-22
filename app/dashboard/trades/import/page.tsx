@@ -67,7 +67,7 @@ export default function ImportPage() {
           <UpgradePrompt
             requiredPlan="pro"
             variant="card"
-            message="Import CSV automático requiere Professional"
+            message={{ es: "Import CSV automático requiere Professional", en: "CSV import requires Professional" }}
           />
           <p className="text-center text-sm text-zen-text-muted mt-4">
             Con Starter estás registrando cada trade manualmente.<br />

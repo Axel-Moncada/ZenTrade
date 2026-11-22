@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
-import { es } from 'date-fns/locale';
+import { enUS, es } from 'date-fns/locale';
 import { CheckoutSuccessModal } from '@/components/billing/checkout-success-modal';
 import type { PlanConfig, ActiveSubscription } from '@/app/dashboard/billing/page';
 import { TrustBadgesCompact } from '@/components/shared/trust-badges';
@@ -37,17 +37,109 @@ const PLAN_NAME_MAP: Record<string, string> = {
   zenmode: 'ZenMode',
 };
 
-const STATUS_MAP: Record<string, { label: string; className: string }> = {
-  active:   { label: 'Activa',        className: 'text-zen-caribbean-green' },
-  on_trial: { label: 'En prueba',     className: 'text-zen-caribbean-green' },
-  past_due: { label: 'Pago pendiente', className: 'text-zen-danger' },
-  cancelled:{ label: 'Cancelada',     className: 'text-stone-400' },
+const STATUS_MAP: Record<string, { label: { es: string; en: string }; className: string }> = {
+  active:    { label: { es: 'Activa',         en: 'Active' },          className: 'text-zen-caribbean-green' },
+  on_trial:  { label: { es: 'En prueba',      en: 'On trial' },        className: 'text-zen-caribbean-green' },
+  past_due:  { label: { es: 'Pago pendiente', en: 'Payment past due' }, className: 'text-zen-danger' },
+  cancelled: { label: { es: 'Cancelada',      en: 'Cancelled' },       className: 'text-stone-400' },
 };
+
+const COPY = {
+  es: {
+    title: 'Facturación',
+    subtitle: 'Administra tu suscripción y método de pago',
+    codeApplied: (pct: number) => `Código aplicado: ${pct}% de descuento`,
+    codeInvalid: 'Código inválido',
+    codeInvalidDesc: 'El código no existe o está inactivo',
+    unknownError: 'Error desconocido',
+    paymentError: 'Error al procesar pago',
+    tryAgain: 'Intenta de nuevo',
+    portalUnavailable: 'Portal no disponible',
+    portalUnavailableDesc: 'Contacta a soporte para gestionar tu suscripción.',
+    cancelledToast: 'Suscripción cancelada',
+    cancelledToastDesc: 'Tu plan seguirá activo hasta el fin del período de facturación.',
+    cancelError: 'Error al cancelar',
+    cancelErrorDesc: 'Intenta de nuevo o contacta soporte.',
+    cancelTitle: '¿Cancelar suscripción?',
+    cancelBody: 'Tu plan seguirá activo hasta el fin del período actual de facturación. Después pasarás al plan gratuito y perderás acceso a las funciones premium.',
+    keep: 'Mantener suscripción',
+    cancelling: 'Cancelando...',
+    confirmCancel: 'Sí, cancelar',
+    checkoutCanceled: 'Pago cancelado — puedes suscribirte cuando quieras.',
+    cycle: 'Ciclo',
+    monthly: 'Mensual',
+    annual: 'Anual',
+    nextCharge: 'Próximo cobro',
+    dateFormat: "d 'de' MMMM yyyy",
+    pastDue: 'Pago fallido. Actualiza tu método de pago para evitar la suspensión.',
+    manageBilling: 'Administrar facturación',
+    cancelPlan: 'Cancelar plan',
+    availablePlans: 'Planes disponibles',
+    choosePlan: 'Elige tu plan',
+    codeLabel: 'Código',
+    codeAppliedInline: 'aplicado',
+    off: 'de descuento',
+    codePlaceholder: '¿Tienes un código de descuento?',
+    apply: 'Aplicar',
+    perMonth: 'USD/mes',
+    billedAnnually: (price: number) => `Facturado $${price} USD al año`,
+    currentPlan: 'Plan actual',
+    comingSoon: 'Próximamente',
+    processing: 'Procesando...',
+    switchPlan: 'Cambiar a este plan',
+    startNow: 'Comenzar ahora',
+  },
+  en: {
+    title: 'Billing',
+    subtitle: 'Manage your subscription and payment method',
+    codeApplied: (pct: number) => `Code applied: ${pct}% off`,
+    codeInvalid: 'Invalid code',
+    codeInvalidDesc: 'This code does not exist or is inactive',
+    unknownError: 'Unknown error',
+    paymentError: 'Could not process the payment',
+    tryAgain: 'Please try again',
+    portalUnavailable: 'Portal unavailable',
+    portalUnavailableDesc: 'Contact support to manage your subscription.',
+    cancelledToast: 'Subscription cancelled',
+    cancelledToastDesc: 'Your plan stays active until the end of the billing period.',
+    cancelError: 'Could not cancel',
+    cancelErrorDesc: 'Please try again or contact support.',
+    cancelTitle: 'Cancel your subscription?',
+    cancelBody: 'Your plan stays active until the end of the current billing period. After that you will move to the Free plan and lose access to premium features.',
+    keep: 'Keep subscription',
+    cancelling: 'Cancelling...',
+    confirmCancel: 'Yes, cancel',
+    checkoutCanceled: 'Checkout cancelled. You can subscribe any time.',
+    cycle: 'Billing',
+    monthly: 'Monthly',
+    annual: 'Annual',
+    nextCharge: 'Next charge',
+    dateFormat: 'MMMM d, yyyy',
+    pastDue: 'Payment failed. Update your payment method to avoid suspension.',
+    manageBilling: 'Manage billing',
+    cancelPlan: 'Cancel plan',
+    availablePlans: 'Available plans',
+    choosePlan: 'Choose your plan',
+    codeLabel: 'Code',
+    codeAppliedInline: 'applied',
+    off: 'off',
+    codePlaceholder: 'Have a discount code?',
+    apply: 'Apply',
+    perMonth: 'USD/mo',
+    billedAnnually: (price: number) => `Billed $${price} USD per year`,
+    currentPlan: 'Current plan',
+    comingSoon: 'Coming soon',
+    processing: 'Processing...',
+    switchPlan: 'Switch to this plan',
+    startNow: 'Get started',
+  },
+} as const;
 
 export default function BillingDashboard({ plans, subscription, successParam, canceledParam, paypalSubscriptionId }: Props) {
   const router = useRouter();
   const { locale } = useI18n();
   const isEs = locale === 'es';
+  const c = COPY[locale];
   const [interval, setInterval] = useState<'month' | 'year'>('month');
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(successParam === 'true');
@@ -106,7 +198,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
   const activeSub = cancelled ? null : subscription;
   const activePlanSlug = activeSub?.plan_key ?? null;
   const statusInfo = activeSub
-    ? (STATUS_MAP[activeSub.status] ?? { label: activeSub.status, className: 'text-stone-400' })
+    ? (STATUS_MAP[activeSub.status] ?? { label: { es: activeSub.status, en: activeSub.status }, className: 'text-stone-400' })
     : null;
 
   // ── Código de afiliado ─────────────────────────────────────────────────────
@@ -120,9 +212,9 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
       if (data.valid && data.code && data.discount_percent !== undefined) {
         setAppliedCode({ code: data.code, discount_percent: data.discount_percent });
         setAffiliateInput('');
-        toast.success(`Código aplicado: ${data.discount_percent}% de descuento`);
+        toast.success(c.codeApplied(data.discount_percent));
       } else {
-        toast.error('Código inválido', { description: data.error ?? 'El código no existe o está inactivo' });
+        toast.error(c.codeInvalid, { description: data.error ?? c.codeInvalidDesc });
       }
     } finally {
       setValidatingCode(false);
@@ -145,11 +237,11 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
         }),
       });
       const data = await res.json() as { url?: string; error?: string };
-      if (!res.ok) throw new Error(data.error ?? 'Error desconocido');
+      if (!res.ok) throw new Error(data.error ?? c.unknownError);
       window.location.href = data.url!;
     } catch (err) {
-      toast.error('Error al procesar pago', {
-        description: err instanceof Error ? err.message : 'Intenta de nuevo',
+      toast.error(c.paymentError, {
+        description: err instanceof Error ? err.message : c.tryAgain,
       });
       setLoadingSlug(null);
     }
@@ -159,8 +251,8 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
     if (subscription?.customer_portal_url) {
       window.open(subscription.customer_portal_url, '_blank');
     } else {
-      toast.error('Portal no disponible', {
-        description: 'Contacta a soporte para gestionar tu suscripción.',
+      toast.error(c.portalUnavailable, {
+        description: c.portalUnavailableDesc,
       });
     }
   }
@@ -170,15 +262,15 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
     try {
       const res = await fetch('/api/billing/cancel', { method: 'POST' });
       const data = await res.json() as { success?: boolean; error?: string };
-      if (!res.ok) throw new Error(data.error ?? 'Error desconocido');
+      if (!res.ok) throw new Error(data.error ?? c.unknownError);
       setCancelled(true);
       setShowCancelDialog(false);
-      toast.success('Suscripción cancelada', {
-        description: 'Tu plan seguirá activo hasta el fin del período de facturación.',
+      toast.success(c.cancelledToast, {
+        description: c.cancelledToastDesc,
       });
     } catch (err) {
-      toast.error('Error al cancelar', {
-        description: err instanceof Error ? err.message : 'Intenta de nuevo o contacta soporte.',
+      toast.error(c.cancelError, {
+        description: err instanceof Error ? err.message : c.cancelErrorDesc,
       });
     } finally {
       setCancelling(false);
@@ -201,25 +293,30 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
 
   return (
     <div className="space-y-8">
+      <div>
+        <h1 className="text-2xl font-semibold text-zen-anti-flash">{c.title}</h1>
+        <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>
+          {c.subtitle}
+        </p>
+      </div>
 
       {/* ── Dialog confirmación cancelación ── */}
       <AlertDialog open={showCancelDialog} onOpenChange={setShowCancelDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>¿Cancelar suscripción?</AlertDialogTitle>
+            <AlertDialogTitle>{c.cancelTitle}</AlertDialogTitle>
             <AlertDialogDescription>
-              Tu plan seguirá activo hasta el fin del período actual de facturación.
-              Después pasarás al plan gratuito y perderás acceso a las funciones premium.
+              {c.cancelBody}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel disabled={cancelling}>Mantener suscripción</AlertDialogCancel>
+            <AlertDialogCancel disabled={cancelling}>{c.keep}</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleCancel}
               disabled={cancelling}
               className="bg-red-600 hover:bg-red-700 text-white"
             >
-              {cancelling ? 'Cancelando...' : 'Sí, cancelar'}
+              {cancelling ? c.cancelling : c.confirmCancel}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -243,7 +340,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
       {/* ── Canceled notice ── */}
       {canceledParam === 'true' && (
         <div className="rounded-xl border border-zen-anti-flash/10 bg-zen-surface/40 px-5 py-3 text-sm text-zen-anti-flash/60">
-          Pago cancelado — puedes suscribirte cuando quieras.
+          {c.checkoutCanceled}
         </div>
       )}
 
@@ -260,20 +357,20 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
               </span>
               {statusInfo && (
                 <span className={`text-xs font-medium ${statusInfo.className}`}>
-                  · {statusInfo.label}
+                  · {statusInfo.label[locale]}
                 </span>
               )}
             </div>
 
             <div className="flex flex-wrap gap-4 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
               <span>
-                Ciclo: {activeSub.billing_interval === 'monthly' ? 'Mensual' : 'Anual'}
+                {c.cycle}: {activeSub.billing_interval === 'monthly' ? c.monthly : c.annual}
               </span>
               {activeSub.current_period_end && (
                 <span className="flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5" />
-                  Próximo cobro:{' '}
-                  {format(new Date(activeSub.current_period_end), "d 'de' MMMM yyyy", { locale: es })}
+                  {c.nextCharge}:{' '}
+                  {format(new Date(activeSub.current_period_end), c.dateFormat, { locale: isEs ? es : enUS })}
                 </span>
               )}
             </div>
@@ -281,7 +378,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
             {activeSub.status === 'past_due' && (
               <p className="flex items-center gap-1.5 text-xs text-zen-danger mt-1">
                 <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
-                Pago fallido. Actualiza tu método de pago para evitar la suspensión.
+                {c.pastDue}
               </p>
             )}
           </div>
@@ -294,7 +391,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                 className="border-zen-forest text-zen-anti-flash hover:bg-zen-surface-elevated"
               >
                 <ExternalLink className="w-4 h-4 mr-2" />
-                Administrar facturación
+                {c.manageBilling}
               </Button>
             )}
             <Button
@@ -303,7 +400,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
               className="text-red-400 hover:text-red-300 hover:bg-red-950/30"
             >
               <XCircle className="w-4 h-4 mr-2" />
-              Cancelar plan
+              {c.cancelPlan}
             </Button>
           </div>
         </div>
@@ -315,7 +412,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
         {/* ── Interval toggle + heading ── */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h2 className="text-lg font-semibold text-zen-anti-flash">
-          {activeSub ? 'Planes disponibles' : 'Elige tu plan'}
+          {activeSub ? c.availablePlans : c.choosePlan}
         </h2>
 
         <div
@@ -335,7 +432,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                   : { color: 'rgba(255,255,255,0.6)' }
               }
             >
-              {iv === 'month' ? 'Mensual' : 'Anual'}
+              {iv === 'month' ? c.monthly : c.annual}
               {iv === 'year' && (
                 <span
                   className="text-xs px-1.5 py-0.5 rounded-full font-medium"
@@ -361,7 +458,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
               style={{ background: 'rgba(0,193,124,0.1)', border: '1px solid rgba(0,193,124,0.3)', color: '#00C17C' }}
             >
               <Tag className="w-4 h-4" />
-              Código <span className="font-mono">{appliedCode.code}</span> aplicado · {appliedCode.discount_percent}% de descuento
+              {c.codeLabel} <span className="font-mono">{appliedCode.code}</span> {c.codeAppliedInline} · {appliedCode.discount_percent}% {c.off}
               <button
                 onClick={() => setAppliedCode(null)}
                 className="ml-1 hover:opacity-70 transition-opacity"
@@ -376,7 +473,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                 value={affiliateInput}
                 onChange={(e) => setAffiliateInput(e.target.value.toUpperCase())}
                 onKeyDown={(e) => e.key === 'Enter' && void handleApplyCode()}
-                placeholder="¿Tienes un código de descuento?"
+                placeholder={c.codePlaceholder}
                 className="flex-1 px-3 py-2 text-sm rounded-lg text-zen-anti-flash font-mono placeholder:font-sans placeholder:normal-case"
                 style={{
                   background:  '#002E21',
@@ -390,7 +487,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                 className="px-3 py-2 text-sm rounded-lg font-medium transition-colors disabled:opacity-40"
                 style={{ background: '#006A4E', color: '#F2F3F4', border: '1px solid #0F5132' }}
               >
-                {validatingCode ? '...' : 'Aplicar'}
+                {validatingCode ? '...' : c.apply}
               </button>
             </div>
           )}
@@ -429,7 +526,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                       : { background: '#002E21', color: '#3DBB8F', border: '1px solid #0F5132' }
                   }
                 >
-                  {plan.badge}
+                  {plan.badge[locale]}
                 </span>
               )}
 
@@ -441,19 +538,19 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                     ${displayPrice(plan)}
                   </span>
                   <span className="text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                    USD/mes
+                    {c.perMonth}
                   </span>
                 </div>
                 {interval === 'year' && (
                   <p className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                    Facturado ${plan.price_annual} USD al año
+                    {c.billedAnnually(plan.price_annual)}
                   </p>
                 )}
               </div>
 
               {/* Features */}
               <ul className="space-y-2 flex-1 mb-5">
-                {plan.features.map((f) => (
+                {plan.features[locale].map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
                     <Check className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#00C17C' }} />
                     <span>{f}</span>
@@ -465,7 +562,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
               {isCurrentPlan ? (
                 <div className="flex items-center justify-center gap-1.5 py-2 text-sm font-medium" style={{ color: '#00C17C' }}>
                   <CheckCircle2 className="w-4 h-4" />
-                  Plan actual
+                  {c.currentPlan}
                 </div>
               ) : plan.disabled ? (
                 <Button
@@ -474,7 +571,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                   className="w-full"
                   style={{ borderColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.4)' }}
                 >
-                  Próximamente
+                  {c.comingSoon}
                 </Button>
               ) : activeSub ? (
                 <Button
@@ -483,7 +580,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                   variant="outline"
                   className="w-full border-zen-forest/50 text-zen-anti-flash/70 hover:border-zen-forest hover:text-zen-anti-flash"
                 >
-                  {isLoading ? 'Procesando...' : 'Cambiar a este plan'}
+                  {isLoading ? c.processing : c.switchPlan}
                 </Button>
               ) : (
                 <Button
@@ -496,7 +593,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
                       : { background: '#006A4E', color: '#F2F3F4', border: '1px solid #0F5132' }
                   }
                 >
-                  {isLoading ? 'Procesando...' : 'Comenzar ahora'}
+                  {isLoading ? c.processing : c.startNow}
                 </Button>
               )}
             </div>
@@ -509,7 +606,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
         className="mt-6 rounded-xl px-6 py-4"
         style={{ background: 'rgba(0,46,33,0.3)', border: '1px solid rgba(0,193,124,0.1)' }}
       >
-        <TrustBadgesCompact />
+        <TrustBadgesCompact locale={locale} />
       </div>
       </div>{/* /plans */}
     </div>

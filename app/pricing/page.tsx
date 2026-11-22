@@ -7,27 +7,25 @@ import PublicFooter from "@/components/landing/public-footer";
 const SITE_URL = "https://www.zen-trader.com";
 
 export const metadata: Metadata = {
-  title: "Planes y Precios de Zentrade — Desde Gratis | Journal de Trading",
+  title: "Zentrade Pricing — Free Trading Journal, Paid Plans from $9/mo",
   description:
-    "Zentrade tiene plan gratuito para siempre. Starter desde $9/mes, Professional $29/mes y ZenMode con IA desde $59/mes. Sin tarjeta de crédito requerida.",
+    "Zentrade has a free-forever plan. Starter $9/mo, Professional $29/mo and ZenMode with AI $59/mo. No credit card required to start.",
   keywords: [
-    "precio Zentrade",
-    "cuánto cuesta Zentrade",
-    "Zentrade plan gratuito",
-    "Zentrade planes",
-    "journal trading precio",
-    "journal trading gratis",
-    "Zentrade vs TradeZella precio",
-    "journal trading Colombia precio",
-    "plan journal trading futuros",
+    "Zentrade pricing",
+    "trading journal pricing",
+    "free trading journal",
+    "futures trading journal price",
+    "prop firm trading journal",
+    "Zentrade vs TradeZella price",
+    "cheap trading journal",
   ],
   alternates: {
     canonical: `${SITE_URL}/pricing`,
   },
   openGraph: {
-    title: "Planes y Precios | Zentrade — Journal de Trading para Prop Firms",
+    title: "Pricing | Zentrade — Trading Journal for Prop Firm Traders",
     description:
-      "Plan gratuito disponible. Planes pagos desde $9/mes con métricas de prop firm, dashboard analítico e IA para detectar revenge trading.",
+      "Free plan available. Paid plans from $9/mo with prop firm metrics, a full analytics dashboard and AI that catches revenge trading.",
     url: `${SITE_URL}/pricing`,
     type: "website",
   },
@@ -39,42 +37,42 @@ const pricingFaqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "¿Cuánto cuesta Zentrade?",
+      name: "How much does Zentrade cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Zentrade tiene 4 planes: Free (gratis para siempre), Starter a $9/mes, Professional a $29/mes y ZenMode a $59/mes. Los planes anuales tienen descuento: Starter $84/año, Professional $249/año y ZenMode $499/año. Ningún plan requiere tarjeta de crédito para empezar.",
+        text: "Zentrade has 4 plans: Free (free forever), Starter at $9/month, Professional at $29/month and ZenMode at $59/month. Annual plans are discounted: Starter $84/year, Professional $249/year and ZenMode $499/year. No credit card is required to start.",
       },
     },
     {
       "@type": "Question",
-      name: "¿Zentrade tiene plan gratuito?",
+      name: "Does Zentrade have a free plan?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sí. El plan Free de Zentrade es gratuito para siempre e incluye 1 cuenta de trading, registro manual ilimitado de trades, dashboard básico con KPIs y calendario mensual. No tiene fecha de expiración ni requiere tarjeta de crédito.",
+        text: "Yes. The Free plan is free forever and includes 1 trading account, unlimited manual trade logging, a core KPI dashboard and a monthly calendar. It never expires and requires no credit card.",
       },
     },
     {
       "@type": "Question",
-      name: "¿Zentrade es más barato que TradeZella?",
+      name: "Is Zentrade cheaper than TradeZella?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sí. Zentrade es más económico y tiene plan gratuito permanente. Además, Zentrade está diseñado específicamente para traders de futuros en evaluaciones de prop firms, con funciones que TradeZella no tiene: detección automática de revenge trading con IA, radar de mercado semanal y soporte completo en español.",
+        text: "Zentrade paid plans start at $9/month and there is a free-forever plan. Zentrade is built specifically for futures traders in prop firm evaluations, with a live discipline copilot, revenge trading detection and a weekly Market Radar.",
       },
     },
     {
       "@type": "Question",
-      name: "¿Puedo cancelar mi suscripción en cualquier momento?",
+      name: "Can I cancel my subscription at any time?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sí, sin compromisos ni penalizaciones. Cancelas desde tu panel de facturación en cualquier momento y conservas el acceso hasta el final del período pagado.",
+        text: "Yes, with no commitments or penalties. Cancel from your billing page at any time and keep access until the end of your paid period.",
       },
     },
     {
       "@type": "Question",
-      name: "¿El plan Professional incluye análisis con inteligencia artificial?",
+      name: "What does ZenMode add?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "El plan Professional incluye reportes semanales con análisis de IA basado en tus trades, emociones y horarios. El plan ZenMode además incluye detección automática de revenge trading en tiempo real y radar de mercado semanal con eventos de alto impacto.",
+        text: "ZenMode adds the live discipline copilot (alerts before you break your daily loss, drawdown or trade limits), automatic revenge trading detection, ZenCoach AI, a weekly AI performance report and the Sunday Market Radar of high-impact events.",
       },
     },
   ],
@@ -98,13 +96,13 @@ export default async function PricingPage() {
       <main className="pt-20">
         <div className="max-w-3xl mx-auto px-6 pt-16 pb-4 text-center">
           <p className="text-xs uppercase tracking-[0.15em] text-zen-caribbean-green font-semibold mb-3">
-            Planes y Precios
+            Pricing
           </p>
           <h1 className="text-3xl md:text-4xl font-bold text-zen-anti-flash mb-4">
-            Empieza gratis. Escala cuando estés listo.
+            Start free. Upgrade when you&apos;re ready.
           </h1>
           <p className="text-zen-anti-flash/60 text-lg max-w-xl mx-auto">
-            Sin tarjeta de crédito requerida. Sin compromisos. Cancela cuando quieras.
+            No credit card required. No commitments. Cancel anytime.
           </p>
         </div>
 

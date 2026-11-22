@@ -9,7 +9,7 @@ export async function POST() {
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
-      { error: "Error al cerrar sesión" },
+      { error: "Could not sign out" },
       { status: 500 }
     );
   }

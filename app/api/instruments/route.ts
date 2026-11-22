@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
     if (error) {
       console.error('Error fetching instruments:', error);
       return NextResponse.json(
-        { error: 'Error al obtener instrumentos' },
+        { error: 'Could not load instruments' },
         { status: 500 }
       );
     }

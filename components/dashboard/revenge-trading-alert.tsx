@@ -4,6 +4,22 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, X, Zap, TrendingDown } from "lucide-react";
 import type { RevengeTradingPattern } from "@/lib/utils/revenge-trading";
+import { useI18n } from "@/lib/i18n/context";
+
+const COPY = {
+  es: {
+    title: "ZenMode — Alerta de trading emocional",
+    quickReentry: "Reentrada en menos de 30 min después de una pérdida",
+    consecutiveLosses: (n: number) => `${n} pérdidas consecutivas — posible trading emocional`,
+    advice: "Considera tomarte un descanso antes de continuar operando.",
+  },
+  en: {
+    title: "ZenMode — Emotional trading alert",
+    quickReentry: "Re-entry less than 30 min after a loss",
+    consecutiveLosses: (n: number) => `${n} consecutive losses — possible emotional trading`,
+    advice: "Consider taking a break before you keep trading.",
+  },
+} as const;
 
 interface Props {
   patterns: RevengeTradingPattern[];
@@ -16,6 +32,8 @@ const PATTERN_ICONS = {
 
 export function RevengeTradingAlert({ patterns }: Props) {
   const [dismissed, setDismissed] = useState(false);
+  const { locale } = useI18n();
+  const c = COPY[locale];
 
   if (dismissed || patterns.length === 0) return null;
 
@@ -37,7 +55,7 @@ export function RevengeTradingAlert({ patterns }: Props) {
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
-                ZenMode — Alerta de trading emocional
+                {c.title}
               </span>
             </div>
 
@@ -48,7 +66,9 @@ export function RevengeTradingAlert({ patterns }: Props) {
                   <div key={i} className="flex items-center gap-2">
                     <Icon className="h-3.5 w-3.5 text-orange-400 shrink-0" />
                     <p className="text-sm text-orange-200/90 font-medium">
-                      {pattern.description}
+                      {pattern.type === "quick_reentry"
+                        ? c.quickReentry
+                        : c.consecutiveLosses(pattern.tradeIds.length)}
                     </p>
                   </div>
                 );
@@ -56,7 +76,7 @@ export function RevengeTradingAlert({ patterns }: Props) {
             </div>
 
             <p className="mt-2 text-xs text-orange-300/60 font-light">
-              Considera tomarte un descanso antes de continuar operando.
+              {c.advice}
             </p>
           </div>
 

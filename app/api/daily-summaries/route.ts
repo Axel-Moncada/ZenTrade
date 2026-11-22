@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
 
     if (authError || !user) {
       return NextResponse.json(
-        { error: "No autorizado" },
+        { error: "Unauthorized" },
         { status: 401 }
       );
     }
@@ -59,7 +59,7 @@ export async function GET(request: NextRequest) {
     if (error) {
       console.error("Error fetching summaries:", error);
       return NextResponse.json(
-        { error: "Error al obtener los resúmenes diarios" },
+        { error: "Could not load daily summaries" },
         { status: 500 }
       );
     }
@@ -87,7 +87,7 @@ export async function PATCH(request: NextRequest) {
 
     if (authError || !user) {
       return NextResponse.json(
-        { error: "No autorizado" },
+        { error: "Unauthorized" },
         { status: 401 }
       );
     }
@@ -113,7 +113,7 @@ export async function PATCH(request: NextRequest) {
       }));
 
       return NextResponse.json(
-        { error: "Datos inválidos", details: errors },
+        { error: "Invalid data", details: errors },
         { status: 400 }
       );
     }
@@ -128,7 +128,7 @@ export async function PATCH(request: NextRequest) {
 
     if (accountError || !account) {
       return NextResponse.json(
-        { error: "Cuenta no encontrada" },
+        { error: "Account not found" },
         { status: 404 }
       );
     }
@@ -158,7 +158,7 @@ export async function PATCH(request: NextRequest) {
     if (error) {
       console.error("Error updating summary:", error);
       return NextResponse.json(
-        { error: "Error al actualizar el resumen" },
+        { error: "Could not update the summary" },
         { status: 500 }
       );
     }

@@ -31,7 +31,7 @@ export async function POST(
   const body = await request.json()
   const parsed = PlanOverrideSchema.safeParse(body)
   if (!parsed.success) {
-    return NextResponse.json({ error: 'Plan inválido' }, { status: 400 })
+    return NextResponse.json({ error: 'Invalid plan' }, { status: 400 })
   }
 
   const { plan_key } = parsed.data

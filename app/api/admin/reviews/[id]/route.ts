@@ -21,12 +21,12 @@ export async function PATCH(request: Request, { params }: Params) {
 
   const { id } = await params;
   if (!z.string().uuid().safeParse(id).success) {
-    return NextResponse.json({ error: "ID inválido" }, { status: 400 });
+    return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
   }
 
   const parsed = PatchSchema.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
-    return NextResponse.json({ error: parsed.error.errors[0]?.message ?? "Datos inválidos" }, { status: 400 });
+    return NextResponse.json({ error: parsed.error.errors[0]?.message ?? "Invalid data" }, { status: 400 });
   }
 
   const { error } = await supabaseAdmin

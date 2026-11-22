@@ -9,10 +9,10 @@ export type PlanConfig = {
   name: string;
   price_monthly: number;
   price_annual: number;
-  features: string[];
+  features: { es: string[]; en: string[] };
   highlight?: boolean;
   disabled?: boolean;
-  badge?: string;
+  badge?: { es: string; en: string };
 };
 
 export type ActiveSubscription = {
@@ -31,16 +31,27 @@ const PLAN_CONFIGS: PlanConfig[] = [
     name: 'Starter',
     price_monthly: 9,
     price_annual:  84,
-    badge: 'Ideal para Empezar',
-    features: [
-      '2 cuentas de trading',
-      'Registro manual de trades ilimitado',
-      'Dashboard: Win Rate, PnL, Drawdown en tiempo real',
-      'Calendario mensual de trades',
-      'Export CSV de todos tus trades',
-      'Seguimiento de reglas por cuenta (drawdown, límite diario)',
-      'Soporte por email',
-    ],
+    badge: { es: 'Ideal para Empezar', en: 'Best to Start' },
+    features: {
+      es: [
+        '2 cuentas de trading',
+        'Registro manual de trades ilimitado',
+        'Dashboard: Win Rate, PnL, Drawdown en tiempo real',
+        'Calendario mensual de trades',
+        'Export CSV de todos tus trades',
+        'Seguimiento de reglas por cuenta (drawdown, límite diario)',
+        'Soporte por email',
+      ],
+      en: [
+        '2 trading accounts',
+        'Unlimited manual trade logging',
+        'Dashboard: win rate, P&L and drawdown in real time',
+        'Monthly trade calendar',
+        'CSV export of all your trades',
+        'Per-account rule tracking (drawdown, daily limit)',
+        'Email support',
+      ],
+    },
   },
   {
     slug: 'pro',
@@ -48,35 +59,60 @@ const PLAN_CONFIGS: PlanConfig[] = [
     price_monthly: 29,
     price_annual:  249,
     highlight: true,
-    badge: 'Lo Más Popular',
-    features: [
-      'Cuentas ilimitadas',
-      'Import CSV automático (Rithmic, NinjaTrader, Tradoverse)',
-      'Dashboard analítico completo — profit factor, R:R, consistency score',
-      'Equity curve con overlay de drawdown límite',
-      'Calendario emocional con tags y notas por día',
-      'Filtros avanzados por instrumento, sesión, setup y emoción',
-      'Trading Plan estructurado por cuenta',
-      'Export CSV, PDF y Excel ilimitado',
-      'Soporte prioritario',
-    ],
+    badge: { es: 'Lo Más Popular', en: 'Most Popular' },
+    features: {
+      es: [
+        'Cuentas ilimitadas',
+        'Import CSV automático (Rithmic, NinjaTrader, Tradovate)',
+        'Dashboard analítico completo — profit factor, R:R, consistency score',
+        'Equity curve con overlay de drawdown límite',
+        'Calendario emocional con tags y notas por día',
+        'Filtros avanzados por instrumento, sesión, setup y emoción',
+        'Trading Plan estructurado por cuenta',
+        'Export CSV, PDF y Excel ilimitado',
+        'Soporte prioritario',
+      ],
+      en: [
+        'Unlimited accounts',
+        'CSV import (Rithmic, NinjaTrader, Tradovate)',
+        'Full analytics dashboard: profit factor, R:R, consistency score',
+        'Equity curve with drawdown limit overlay',
+        'Emotion calendar with daily tags and notes',
+        'Advanced filters by instrument, session, setup and emotion',
+        'Structured trading plan per account',
+        'Unlimited CSV, PDF and Excel export',
+        'Priority support',
+      ],
+    },
   },
   {
     slug: 'zenmode',
     name: 'ZenMode',
     price_monthly: 59,
     price_annual:  499,
-    badge: 'Para Traders Serios',
-    features: [
-      'Todo lo de Professional incluido',
-      'ZenCoach — tu coach de trading IA (chat diario con contexto completo)',
-      'Registro de trades por screenshot vía ZenCoach',
-      'Detección de revenge trading en tiempo real',
-      'Reporte semanal de trading generado con IA',
-      'Radar de mercado semanal con eventos de alto impacto (IA)',
-      'Alertas de reglas de riesgo: daily loss y drawdown',
-      'Soporte dedicado',
-    ],
+    badge: { es: 'Para Traders Serios', en: 'For Serious Traders' },
+    features: {
+      es: [
+        'Todo lo de Professional incluido',
+        'Copiloto de Disciplina en vivo durante tu sesión',
+        'ZenCoach — tu coach de trading IA (chat diario con contexto completo)',
+        'Registro de trades por screenshot vía ZenCoach',
+        'Detección de revenge trading en tiempo real',
+        'Reporte semanal de trading generado con IA',
+        'Radar de mercado semanal con eventos de alto impacto (IA)',
+        'Soporte dedicado',
+      ],
+      en: [
+        'Everything in Professional',
+        'Live Discipline Copilot during your session',
+        'ZenCoach, your AI trading coach (daily chat with full context)',
+        'Log trades from a screenshot with ZenCoach',
+        'Real-time revenge trading detection',
+        'Weekly AI trading report',
+        'Weekly Market Radar of high-impact events (AI)',
+        'Dedicated support',
+      ],
+    },
   },
 ];
 
@@ -104,13 +140,6 @@ export default async function BillingPage({ searchParams }: PageProps) {
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
-      <div>
-        <h1 className="text-2xl font-semibold text-zen-anti-flash">Facturación</h1>
-        <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>
-          Administra tu suscripción y método de pago
-        </p>
-      </div>
-
       <BillingDashboard
         plans={PLAN_CONFIGS}
         subscription={subscription as ActiveSubscription}

@@ -31,7 +31,10 @@ export default async function LiveSessionPage({ searchParams }: PageProps) {
         <UpgradePrompt
           requiredPlan="zenmode"
           variant="card"
-          message="El Copiloto de Disciplina en vivo es exclusivo del plan ZenMode."
+          message={{
+            es: "El Copiloto de Disciplina en vivo es exclusivo del plan ZenMode.",
+            en: "The Live Discipline Copilot is exclusive to the ZenMode plan.",
+          }}
         />
       </div>
     );
