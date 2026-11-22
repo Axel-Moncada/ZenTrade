@@ -10,7 +10,6 @@ import ResetCalculator from "@/components/landing/sections/reset-calculator";
 import AdVideo from "@/components/landing/sections/ad-video";
 import RulesShowcase from "@/components/landing/sections/rules-showcase";
 import FinalCta from "@/components/landing/sections/final-cta";
-import AttributionCapture from "@/components/landing/attribution-capture";
 import PublicNavbar from "@/components/landing/public-navbar";
 import PublicFooter from "@/components/landing/public-footer";
 import NewsletterPopup from "@/components/landing/newsletter-popup";
@@ -318,7 +317,6 @@ export default async function Home() {
         }}
       />
 
-      <AttributionCapture />
       <PublicNavbar isAuthenticated={!!user} />
       <main>
         <ReplayHero />

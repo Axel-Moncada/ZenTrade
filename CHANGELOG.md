@@ -6,6 +6,17 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (noche, 5) — Tracking para la pauta (PROMPT-TRACKING-PAUTA.md)
+
+- **Migración `supabase/025_signup_attribution.sql`** (aplicar en producción): columnas `utm_*`, `gclid`, `fbclid`, `landing_path`, `country`, `signup_locale`, `signup_method` y `signup_tracked_at` en `profiles`. Los usuarios existentes quedan marcados como ya contados.
+- **Cookie `zt_attr` (90 días, httpOnly) desde `middleware.ts`**: first-touch, salvo que llegue un gclid o fbclid nuevo; país desde `x-vercel-ip-country`. Lógica pura en `lib/analytics/attribution.ts` con tests (`tests/attribution.test.ts`). Se eliminó la captura en cliente (`attribution-capture.tsx` y `localStorage`).
+- **Registro completado = callback de auth** (`/api/auth/callback`, que cubre la confirmación del email y Google OAuth): `lib/analytics/save-signup-attribution.ts` copia la atribución al perfil una sola vez (cookie o, si falta, `user_metadata` guardado al registrarse) y agrega `?signup=email|google`. `components/analytics/signup-tracker.tsx` dispara `sign_up` en el dashboard y limpia la URL. Ya no se dispara `sign_up` al enviar el formulario (antes contaba registros sin confirmar).
+- **`begin_checkout`** al abrir el checkout y **`purchase`** al confirmar PayPal (valor según `PAYPAL_PRICES_USD`, `transaction_id` = ID de la suscripción para deduplicar). `/api/paypal/confirm` devuelve `interval` y `value`. Meta: `InitiateCheckout` / `Purchase` / `CompleteRegistration` si hay pixel.
+- **Google Ads**: `NEXT_PUBLIC_GOOGLE_ADS_ID` (`AW-` + dígitos) carga el config con el mismo gtag; las conversiones se importan desde GA4.
+- Pendiente: Measurement Protocol para `purchase` cuando solo llega el webhook (el usuario no vuelve a la página de billing).
+
+---
+
 ## 2026-11-22 (noche, 3) — Sitio público solo en inglés + logos reales en los trust badges
 
 - **Idioma por zona** (`lib/i18n/context.tsx`, `zoneLocale`): las páginas públicas siempre salen en inglés, `/es/*` en español y `/dashboard/*` según la preferencia guardada. Se quitó la auto-detección por `navigator.language`.
