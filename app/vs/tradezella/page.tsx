@@ -93,7 +93,9 @@ export default async function VsTradezellaPage() {
         { label: "Mid tier", zentrade: "$29/mo (Professional)", competitor: "$59/mo (Pro)" },
         { label: "Top tier", zentrade: "$59/mo (ZenMode)", competitor: "$99/mo (Ultra)" },
         { label: "Annual billing", zentrade: "$84 / $249 / $499 per year", competitor: "$315 / $531 / $891 per year" },
-        { label: "Main focus", zentrade: "Futures traders in prop firm evaluations", competitor: "General-purpose journal for many markets" },
+        { label: "Main focus", zentrade: "Futures traders in prop firm evaluations", competitor: "Journal for many markets, with prop firm features" },
+        { label: "Account sync", zentrade: "CSV import + manual logging (no live sync)", competitor: "Broker sync and Prop Firm Sync" },
+        { label: "Live in-session rule alerts", zentrade: "Yes, Live Discipline Copilot (ZenMode)", competitor: "See TradeZella's features" },
         { label: "Refunds", zentrade: "Request by email within 7 days of first payment", competitor: "See TradeZella's terms" },
       ]}
       sourceNote={{
@@ -117,12 +119,12 @@ export default async function VsTradezellaPage() {
         "want alerts during your session, not only after it",
       ]}
       chooseCompetitor={[
+        "want automatic broker and prop firm account sync",
         "trade stocks, options and crypto in the same journal",
         "already have years of history and workflows set up there",
         "want a large established community around your journal",
       ]}
       faq={faq}
-      blogHref="/blog/zentrade-vs-tradezella-comparison"
       jsonLd={jsonLd}
     />
   );

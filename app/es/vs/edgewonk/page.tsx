@@ -92,7 +92,7 @@ export default async function VsEdgewonkPage() {
   const { data: { user } } = await supabase.auth.getUser();
 
   return (
-    <div className="min-h-screen bg-zen-rich-black">
+    <div lang="es" className="min-h-screen bg-zen-rich-black">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PublicNavbar isAuthenticated={!!user} />
 

@@ -50,9 +50,18 @@ export default function PublicFooter() {
     {
       title: isEs ? "Comparar" : "Compare",
       links: [
-        { label: "Zentrade vs TradeZella", href: "/vs/tradezella" },
-        { label: "Zentrade vs Edgewonk", href: "/vs/edgewonk" },
-        { label: isEs ? "Comparativa TradeZella" : "TradeZella comparison", href: isEs ? "/blog/zentrade-vs-tradezella-es" : "/blog/zentrade-vs-tradezella-comparison" },
+        { label: "Zentrade vs TradeZella", href: isEs ? "/es/vs/tradezella" : "/vs/tradezella" },
+        { label: "Zentrade vs Edgewonk", href: isEs ? "/es/vs/edgewonk" : "/vs/edgewonk" },
+        { label: "Zentrade vs TraderSync", href: "/vs/tradersync" },
+        { label: "Zentrade vs Tradervue", href: "/vs/tradervue" },
+      ],
+    },
+    {
+      title: isEs ? "Herramientas gratis" : "Free tools",
+      links: [
+        { label: isEs ? "Calculadora de consistencia" : "Consistency rule calculator", href: "/tools/consistency-rule-calculator" },
+        { label: isEs ? "Calculadora de trailing drawdown" : "Trailing drawdown calculator", href: "/tools/trailing-drawdown-calculator" },
+        { label: isEs ? "Plantilla de trading journal" : "Trading journal template", href: "/trading-journal-template" },
       ],
     },
     {
@@ -70,7 +79,7 @@ export default function PublicFooter() {
   return (
     <footer className="bg-zen-surface border-t border-zen-border-soft">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 mb-12">
           {/* Logo & Tagline */}
           <div className="col-span-2 md:col-span-1 space-y-4">
             <div>

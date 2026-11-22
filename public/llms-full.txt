@@ -45,7 +45,11 @@ No credit card is required to start on the Free plan.
 
 Free-plan details beyond the first rows follow the pricing page; verify at https://www.zen-trader.com/pricing.
 
-Roadmap (listed for ZenMode, not all live yet): risk-rule alerts, optimal trading hours analysis, benchmark versus prop firm requirements, monthly 1-on-1 coaching, priority support.
+ZenMode also includes the Live Discipline Copilot and ZenCoach (see AI features).
+
+Coming soon (not live yet): optimal trading hours analysis, benchmark versus prop firm requirements, monthly 1-on-1 coaching.
+
+Billing and refunds: plans are billed from day one through PayPal; there is no free trial (use the Free plan to try Zentrade). Customers can request a refund by email to support@zen-trader.com within 7 days of their first payment, reviewed case by case. Policy: https://www.zen-trader.com/refunds
 
 ## Import
 
@@ -66,22 +70,25 @@ Guides: https://www.zen-trader.com/blog/consistency-rule-prop-firm-explained , h
 
 ## AI features
 
+- Live Discipline Copilot (ZenMode): a floating always-on-top window (Chrome/Edge) over your trading platform during your session. It alerts you as you approach your daily loss limit (warning at 70%, stop at 100%), your account drawdown, your daily profit target, the consistency rule, your max trades per day, losing streaks, a 15-minute cooldown after a loss, trading outside your plan's hours or days, and instruments outside your plan. Quick trade logging from the same window.
+- ZenCoach (ZenMode): AI trading coach chat with full context of your account, trades, drawdown and trading plan; can log a trade from a screenshot. Replies in the user's language.
+
 - Revenge trading detection (ZenMode): flags a new entry within 30 minutes of a losing trade, and streaks of 3 or more consecutive losses. Shown as an alert and as a badge on the calendar day.
 - Weekly report per account (Professional/ZenMode for AI analysis): analysis of trades, emotions, trading hours and the user's trading plan, generated with Google Gemini and emailed on Mondays.
-- Weekly market radar (ZenMode): 4 to 6 high-impact economic events for the coming week, emailed on Sundays.
+- Weekly market radar (ZenMode): 6 to 9 high-impact economic and geopolitical events for the coming week, emailed on Sundays.
 
 ## Zentrade vs TradeZella (summary)
 
-- Price: Zentrade has a permanent Free plan and paid plans from $9/month. TradeZella is commonly priced around $29/month (about $300/year) without a permanent free plan, per its public pricing at time of writing; verify at tradezella.com.
+- Price: Zentrade has a permanent Free plan and paid plans at $9, $29 and $59 per month. TradeZella's plans are Essential $35, Pro $59 and Ultra $99 per month (pricing effective July 14, 2026, as listed in November 2026), with no free plan; verify at tradezella.com/pricing.
 - Prop firm focus: Zentrade is built around evaluation rules (consistency, trailing drawdown, daily loss). TradeZella is a general trading journal with broker sync.
 - Data entry: TradeZella offers broker sync (users publicly report sync issues on review sites); Zentrade uses CSV import and manual entry.
 - Choose TradeZella if you want broker auto-sync and a larger ecosystem (education, community). Choose Zentrade if you want evaluation-rule tracking, lower cost and a free tier.
 
-Full comparisons: https://www.zen-trader.com/vs/tradezella , https://www.zen-trader.com/blog/zentrade-vs-tradezella-comparison , https://www.zen-trader.com/vs/edgewonk
+Full comparisons: https://www.zen-trader.com/vs/tradezella  , https://www.zen-trader.com/vs/edgewonk
 
 ## Frequently asked questions
 
-**What is the best trading journal for prop firm traders?** A journal that tracks prop firm rules (consistency, trailing drawdown, max daily loss, profit target), not only PnL. Zentrade is built for this; general journals such as TradeZella, Tradervue, Edgewonk and TraderSync cover broader journaling. Comparison: https://www.zen-trader.com/blog/best-trading-journal-prop-firms-2025
+**What is the best trading journal for prop firm traders?** A journal that tracks prop firm rules (consistency, trailing drawdown, max daily loss, profit target), not only PnL. Zentrade is built for this; general journals such as TradeZella, Tradervue, Edgewonk and TraderSync cover broader journaling. Comparison: https://www.zen-trader.com/blog/best-trading-journal-prop-firms
 
 **Is there a free trading journal for futures traders?** Yes. Zentrade's Free plan is permanent, includes 1 account, unlimited manual trades, a basic dashboard, calendar and CSV export, with no credit card.
 
@@ -95,7 +102,7 @@ Full comparisons: https://www.zen-trader.com/vs/tradezella , https://www.zen-tra
 
 ## Language
 
-Marketing site and blog: English and Spanish. The in-app interface is currently Spanish. Emails (confirmation, weekly report, market radar, welcome) are sent in English.
+English-first: the app, marketing site, emails and AI coach are in English. Spanish is available as a secondary language (/es/ pages and Spanish blog posts).
 
 ## Contact
 

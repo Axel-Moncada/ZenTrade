@@ -24,9 +24,16 @@ const nextConfig = {
       // Old slug → canonical slug (evita contenido duplicado en Google)
       {
         source: "/blog/zentrade-vs-tradezella",
-        destination: "/blog/zentrade-vs-tradezella-comparison",
+        destination: "/vs/tradezella",
         permanent: true,
       },
+      // Slugs con año → slugs estables (2026-11-22, GEO: contenido fresco sin romper enlaces)
+      // Comparativas del blog consolidadas en /vs/* (evita canibalización)
+      { source: "/blog/zentrade-vs-tradezella-comparison", destination: "/vs/tradezella", permanent: true },
+      { source: "/blog/zentrade-vs-edgewonk-comparison", destination: "/vs/edgewonk", permanent: true },
+      { source: "/blog/best-trading-journal-prop-firms-2025", destination: "/blog/best-trading-journal-prop-firms", permanent: true },
+      { source: "/blog/best-futures-trading-journal-2025", destination: "/blog/best-futures-trading-journal", permanent: true },
+      { source: "/blog/best-prop-firms-futures-traders-2025", destination: "/blog/best-prop-firms-futures-traders", permanent: true },
     ];
   },
   async headers() {

@@ -1,9 +1,9 @@
 {
-  "slug": "best-futures-trading-journal-2025",
-  "title": "Best Futures Trading Journal 2025: What to Look For Before You Buy",
-  "excerpt": "Not all trading journals are built for futures. This guide breaks down what separates a good futures journal from a generic one — and what to look for in 2025.",
-  "seoTitle": "Best Futures Trading Journal 2025 — Features That Actually Matter",
-  "seoDescription": "Looking for the best futures trading journal in 2025? Here is what separates a great futures journal from a generic one: prop firm rule tracking, PnL by instrument, and behavioral alerts.",
+  "slug": "best-futures-trading-journal",
+  "title": "Best Futures Trading Journal (2026): What to Look For Before You Buy",
+  "excerpt": "Not all trading journals are built for futures. This guide breaks down what separates a good futures journal from a generic one — and what to look for in 2026.",
+  "seoTitle": "Best Futures Trading Journal (2026): What to Look For",
+  "seoDescription": "Looking for the best futures trading journal in 2026? Here is what separates a great futures journal from a generic one: prop firm rule tracking, PnL by instrument, and behavioral alerts.",
   "keywords": [
     "best futures trading journal 2025",
     "futures trading journal",
@@ -15,7 +15,7 @@
   "author": "Axel Moncada",
   "authorJobTitle": "Founder, Zentrade",
   "publishedAt": "2026-05-23",
-  "updatedAt": "2026-05-23",
+  "updatedAt": "2026-11-22",
   "category": "journal",
   "tags": [
     "trading journal",
@@ -30,7 +30,7 @@
   "thumbnailAlt": "Trader reviewing the best futures trading journal on a multi-monitor setup with real-time futures charts",
   "lang": "en",
   "relatedSlugs": [
-    "best-trading-journal-prop-firms-2025",
+    "best-trading-journal-prop-firms",
     "what-is-a-trading-journal",
     "how-to-pass-ftmo-evaluation",
     "profit-factor-trading-explained"
@@ -42,7 +42,7 @@
     },
     {
       "type": "p",
-      "text": "In 2025, there are dozens of journaling tools claiming to serve futures traders. Most of them are stock journals that added a futures checkbox. This guide tells you what to actually look for — and what features are non-negotiable if you trade futures for a funded program."
+      "text": "In 2026, there are dozens of journaling tools claiming to serve futures traders. Most of them are stock journals that added a futures checkbox. This guide tells you what to actually look for — and what features are non-negotiable if you trade futures for a funded program."
     },
     {
       "type": "h2",
@@ -68,7 +68,7 @@
     {
       "type": "callout",
       "variant": "info",
-      "text": "The single most common complaint from traders switching from stock journals to Zentrade is: 'I had no idea my journal was calculating my PnL wrong.' Futures PnL requires instrument-specific tick math — not price difference × share count."
+      "text": "Futures P&amp;L needs instrument-specific tick math, not price difference times share count. Before you trust any journal, check one ES or NQ trade by hand against the contract specs."
     },
     {
       "type": "h2",
@@ -126,7 +126,7 @@
     },
     {
       "type": "p",
-      "text": "Manual entry is error-prone and time-consuming. The best journals accept CSV exports directly from NinjaTrader, Rithmic, Tradovate, and Sierra Chart. Look for journals that auto-detect the platform format and map fields correctly rather than requiring you to manually reformat column headers."
+      "text": "Manual entry is error-prone and time-consuming. Look for a journal that imports CSV exports from the platform you trade on (for example NinjaTrader, Rithmic or Tradovate), auto-detects the format and maps fields correctly, so you don't have to reformat column headers."
     },
     {
       "type": "h2",
@@ -158,16 +158,36 @@
     },
     {
       "type": "h2",
-      "text": "Pricing vs. Value: What to Expect in 2025"
+      "text": "Pricing vs. Value: What to Expect in 2026"
     },
     {
       "type": "table",
-      "headers": ["Feature Tier", "What You Should Expect", "Approximate Price Range"],
+      "headers": [
+        "Feature Tier",
+        "What You Should Expect",
+        "Approximate Price Range"
+      ],
       "rows": [
-        ["Free / Basic", "Manual trade entry, basic PnL, win rate", "$0/mo"],
-        ["Starter", "Multi-account, daily limit tracking, CSV import", "$7–$15/mo"],
-        ["Professional", "Full analytics, equity curve, consistency rule tracking, export PDF", "$20–$30/mo"],
-        ["Advanced / AI", "Behavioral alerts, revenge trading detection, AI analysis", "$40–$60/mo"]
+        [
+          "Free / Basic",
+          "Manual trade entry, basic PnL, win rate",
+          "$0/mo"
+        ],
+        [
+          "Starter",
+          "Multi-account, daily limit tracking, CSV import",
+          "$7–$15/mo"
+        ],
+        [
+          "Professional",
+          "Full analytics, equity curve, consistency rule tracking, export PDF",
+          "$20–$30/mo"
+        ],
+        [
+          "Advanced / AI",
+          "Behavioral alerts, revenge trading detection, AI analysis",
+          "$40–$60/mo"
+        ]
       ]
     },
     {
@@ -203,7 +223,7 @@
     },
     {
       "type": "p",
-      "text": "The free plan supports one account and manual entry. The Starter plan adds multi-account tracking and CSV import. The Professional plan includes the full analytics suite with equity curve, consistency score, profit factor, and session-level breakdowns. ZenMode adds AI-powered revenge trading detection and weekly AI performance reports."
+      "text": "The Free plan covers one account with manual entry. Starter ($9/mo) adds a second account. Professional ($29/mo) adds CSV import from NinjaTrader, Rithmic and Tradovate plus the full analytics suite: equity curve, consistency score, profit factor and session breakdowns. ZenMode ($59/mo) adds the Live Discipline Copilot, revenge trading detection, ZenCoach and the weekly AI report."
     },
     {
       "type": "cta",
@@ -246,7 +266,7 @@
     {
       "type": "ul",
       "items": [
-        "<a href=\"/blog/best-trading-journal-prop-firms-2025\">Best trading journal for prop firms 2025 — full comparison</a>",
+        "<a href=\"/blog/best-trading-journal-prop-firms\">Best trading journal for prop firms (2026) — full comparison</a>",
         "<a href=\"/blog/what-is-a-trading-journal\">What is a trading journal and why do you need one?</a>",
         "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation</a>",
         "<a href=\"/blog/profit-factor-trading-explained\">Profit factor in trading explained</a>"

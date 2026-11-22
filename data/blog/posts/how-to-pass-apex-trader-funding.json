@@ -2,7 +2,7 @@
   "slug": "how-to-pass-apex-trader-funding",
   "title": "How to Pass Apex Trader Funding Evaluation: Step-by-Step Guide",
   "excerpt": "A complete guide to passing the Apex Trader Funding evaluation: rules, profit targets, drawdown limits, and the trading journal strategy that gives you an edge.",
-  "seoTitle": "How to Pass Apex Trader Funding Evaluation: Full Guide 2025",
+  "seoTitle": "How to Pass Apex Trader Funding Evaluation: Full Guide",
   "seoDescription": "Step-by-step guide to passing the Apex Trader Funding evaluation. Learn the rules, drawdown limits, and the exact trading journal approach to get funded in 2025.",
   "keywords": [
     "how to pass Apex Trader Funding",
@@ -30,8 +30,13 @@
   "thumbnailAlt": "Trader analyzing Apex Trader Funding evaluation rules on trading journal dashboard with profit factor metrics",
   "content": [
     {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Prop firm rules change often. This guide reflects the firm's published rules when it was last updated (see the date above). Always confirm current rules on the firm's official site before you trade your evaluation."
+    },
+    {
       "type": "p",
-      "text": "<strong>Apex Trader Funding</strong> is one of the most popular prop firm evaluation programs for futures traders in 2025, known for its straightforward rules, regular promotional discounts, and a payout structure that allows traders to keep up to 90% of profits. More than 85% of traders who attempt the evaluation fail — not because the profit target is unreachable, but because the behavioral and risk management requirements trip them up in predictable, preventable ways."
+      "text": "<strong>Apex Trader Funding</strong> is one of the most popular prop firm evaluation programs for futures traders in 2025, known for its straightforward rules, regular promotional discounts, and a payout structure that allows traders to keep up to 90% of profits. Many traders fail the evaluation — not because the profit target is unreachable, but because the behavioral and risk management requirements trip them up in predictable, preventable ways."
     },
     {
       "type": "p",
@@ -312,7 +317,7 @@
         "<a href=\"/blog/apex-trader-funding-trailing-drawdown-guia\">Guía del trailing drawdown de Apex Trader Funding</a>",
         "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading</a>",
         "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation</a>",
-        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>"
+        "<a href=\"/blog/best-prop-firms-futures-traders\">Best prop firms for futures traders</a>"
       ]
     },
     {
@@ -341,7 +346,7 @@
     "apex-trader-funding-trailing-drawdown-guia",
     "what-is-drawdown-trading",
     "how-to-pass-ftmo-evaluation",
-    "best-prop-firms-futures-traders-2025"
+    "best-prop-firms-futures-traders"
   ],
   "authorJobTitle": "Founder, Zentrade",
   "lang": "en"

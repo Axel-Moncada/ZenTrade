@@ -2,7 +2,7 @@
   "slug": "how-to-pass-topstep-evaluation",
   "title": "How to Pass TopStep Evaluation: Rules, Strategy & Common Mistakes",
   "excerpt": "Complete guide to passing the TopStep Trading Combine: rules explained, consistency rule math, trailing drawdown explained, and the daily habits of traders who get funded.",
-  "seoTitle": "How to Pass TopStep Evaluation — Rules & Strategy Guide 2025",
+  "seoTitle": "How to Pass TopStep Evaluation — Rules & Strategy Guide",
   "seoDescription": "Learn how to pass the TopStep Trading Combine for futures traders: rules, consistency rule with examples, trailing drawdown explained, and the habits that get you funded.",
   "keywords": [
     "how to pass TopStep evaluation",
@@ -29,6 +29,11 @@
   "readingTime": 9,
   "featured": false,
   "content": [
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Prop firm rules change often. This guide reflects the firm's published rules when it was last updated (see the date above). Always confirm current rules on the firm's official site before you trade your evaluation."
+    },
     {
       "type": "p",
       "text": "TopStep is one of the oldest and most respected funded futures programs in the industry. Their <strong>Trading Combine</strong> is a single-phase evaluation that, in theory, is simpler than FTMO's two-phase structure — but the failure rate is just as high. Most traders who fail the TopStep evaluation do not fail because of poor strategy. They fail because of behavioral mistakes that a better understanding of the rules would have prevented."
@@ -286,7 +291,7 @@
     },
     {
       "type": "p",
-      "text": "For a full comparison of all major prop firms, see our guide: <a href='/blog/best-prop-firms-futures-traders-2025'>Best Prop Firms for Futures Traders in 2025</a>."
+      "text": "For a full comparison of all major prop firms, see our guide: <a href='/blog/best-prop-firms-futures-traders'>Best Prop Firms for Futures Traders</a>."
     },
     {
       "type": "h2",
@@ -306,7 +311,7 @@
     },
     {
       "type": "p",
-      "text": "Zentrade is free to start. <a href='/blog/best-trading-journal-prop-firms-2025'>See our full comparison of the best trading journals for prop firm traders</a> to understand how Zentrade compares to other tools on the market."
+      "text": "Zentrade is free to start. <a href='/blog/best-trading-journal-prop-firms'>See our full comparison of the best trading journals for prop firm traders</a> to understand how Zentrade compares to other tools on the market."
     },
     {
       "type": "cta",
@@ -364,7 +369,7 @@
         "<a href=\"/blog/max-daily-loss-fondeo-how-to-manage\">Max daily loss in funded accounts: how to manage it</a>",
         "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading</a>",
         "<a href=\"/blog/how-to-pass-apex-trader-funding\">How to pass Apex Trader Funding</a>",
-        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>"
+        "<a href=\"/blog/best-prop-firms-futures-traders\">Best prop firms for futures traders</a>"
       ]
     },
     {
@@ -393,7 +398,7 @@
     "max-daily-loss-fondeo-how-to-manage",
     "what-is-drawdown-trading",
     "how-to-pass-apex-trader-funding",
-    "best-prop-firms-futures-traders-2025"
+    "best-prop-firms-futures-traders"
   ],
   "thumbnail": "/blog/trader-sonriente-setup-trading.jpg",
   "thumbnailAlt": "Professional trader at multi-monitor setup analyzing TopStep evaluation metrics to avoid trailing drawdown violations",

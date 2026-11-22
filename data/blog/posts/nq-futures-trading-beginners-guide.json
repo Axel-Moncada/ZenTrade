@@ -32,10 +32,10 @@
   "thumbnailAlt": "Trader analyzing NQ Nasdaq 100 futures charts on an advanced multi-monitor trading setup with technical indicators",
   "lang": "en",
   "relatedSlugs": [
-    "best-prop-firms-futures-traders-2025",
+    "best-prop-firms-futures-traders",
     "what-is-drawdown-trading",
     "how-to-pass-ftmo-evaluation",
-    "best-futures-trading-journal-2025"
+    "best-futures-trading-journal"
   ],
   "content": [
     {
@@ -52,16 +52,52 @@
     },
     {
       "type": "table",
-      "headers": ["Specification", "E-mini NQ (NQ)", "Micro NQ (MNQ)"],
+      "headers": [
+        "Specification",
+        "E-mini NQ (NQ)",
+        "Micro NQ (MNQ)"
+      ],
       "rows": [
-        ["Exchange", "CME Globex", "CME Globex"],
-        ["Underlying", "Nasdaq-100 Index", "Nasdaq-100 Index"],
-        ["Contract Size", "$20 × Nasdaq-100 Index", "$2 × Nasdaq-100 Index"],
-        ["Tick Size", "0.25 index points", "0.25 index points"],
-        ["Tick Value", "$5.00 per tick", "$0.50 per tick"],
-        ["Point Value", "$20.00 per full point", "$2.00 per full point"],
-        ["Trading Hours", "Sunday 6pm – Friday 5pm ET (with daily break)", "Same"],
-        ["Margin (approx)", "$15,000–$17,000 initial", "$1,500–$1,700 initial"]
+        [
+          "Exchange",
+          "CME Globex",
+          "CME Globex"
+        ],
+        [
+          "Underlying",
+          "Nasdaq-100 Index",
+          "Nasdaq-100 Index"
+        ],
+        [
+          "Contract Size",
+          "$20 × Nasdaq-100 Index",
+          "$2 × Nasdaq-100 Index"
+        ],
+        [
+          "Tick Size",
+          "0.25 index points",
+          "0.25 index points"
+        ],
+        [
+          "Tick Value",
+          "$5.00 per tick",
+          "$0.50 per tick"
+        ],
+        [
+          "Point Value",
+          "$20.00 per full point",
+          "$2.00 per full point"
+        ],
+        [
+          "Trading Hours",
+          "Sunday 6pm – Friday 5pm ET (with daily break)",
+          "Same"
+        ],
+        [
+          "Margin (approx)",
+          "$15,000–$17,000 initial",
+          "$1,500–$1,700 initial"
+        ]
       ]
     },
     {
@@ -95,12 +131,37 @@
     },
     {
       "type": "table",
-      "headers": ["Move", "Points", "Ticks", "Dollar Value"],
+      "headers": [
+        "Move",
+        "Points",
+        "Ticks",
+        "Dollar Value"
+      ],
       "rows": [
-        ["Small scalp", "5 pts", "20 ticks", "$100"],
-        ["Medium day trade", "20 pts", "80 ticks", "$400"],
-        ["Large trend day", "100 pts", "400 ticks", "$2,000"],
-        ["Volatile news move", "300 pts", "1,200 ticks", "$6,000"]
+        [
+          "Small scalp",
+          "5 pts",
+          "20 ticks",
+          "$100"
+        ],
+        [
+          "Medium day trade",
+          "20 pts",
+          "80 ticks",
+          "$400"
+        ],
+        [
+          "Large trend day",
+          "100 pts",
+          "400 ticks",
+          "$2,000"
+        ],
+        [
+          "Volatile news move",
+          "300 pts",
+          "1,200 ticks",
+          "$6,000"
+        ]
       ]
     },
     {
@@ -170,12 +231,32 @@
     },
     {
       "type": "table",
-      "headers": ["Stop Size (points)", "Max Contracts (NQ)", "MNQ Equivalent"],
+      "headers": [
+        "Stop Size (points)",
+        "Max Contracts (NQ)",
+        "MNQ Equivalent"
+      ],
       "rows": [
-        ["10 pts", "12 contracts", "120 MNQ"],
-        ["20 pts", "6 contracts", "60 MNQ"],
-        ["30 pts", "4 contracts", "40 MNQ"],
-        ["50 pts", "2 contracts", "25 MNQ"]
+        [
+          "10 pts",
+          "12 contracts",
+          "120 MNQ"
+        ],
+        [
+          "20 pts",
+          "6 contracts",
+          "60 MNQ"
+        ],
+        [
+          "30 pts",
+          "4 contracts",
+          "40 MNQ"
+        ],
+        [
+          "50 pts",
+          "2 contracts",
+          "25 MNQ"
+        ]
       ]
     },
     {
@@ -265,10 +346,10 @@
     {
       "type": "ul",
       "items": [
-        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>",
+        "<a href=\"/blog/best-prop-firms-futures-traders\">Best prop firms for futures traders</a>",
         "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading — explained with examples</a>",
         "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation — complete guide</a>",
-        "<a href=\"/blog/best-futures-trading-journal-2025\">Best futures trading journal 2025 — what to look for</a>"
+        "<a href=\"/blog/best-futures-trading-journal\">Best futures trading journal (2026) — what to look for</a>"
       ]
     },
     {

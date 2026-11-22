@@ -127,7 +127,7 @@ export default async function TopStepEsPage() {
   const posts = allPosts.filter((p) => TOPSTEP_SLUGS.includes(p.slug));
 
   return (
-    <div className="min-h-screen bg-zen-rich-black">
+    <div lang="es" className="min-h-screen bg-zen-rich-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

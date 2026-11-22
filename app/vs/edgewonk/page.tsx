@@ -113,7 +113,6 @@ export default async function VsEdgewonkPage() {
         "already have your history and setups built there",
       ]}
       faq={faq}
-      blogHref="/blog/zentrade-vs-edgewonk-comparison"
       jsonLd={jsonLd}
     />
   );
