@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import SignupTracker from "@/components/analytics/signup-tracker";
 import { redirect } from "next/navigation";
 import { SidebarLayout } from "@/components/dashboard/sidebar-layout";
 import { ReviewPrompt } from "@/components/reviews/review-prompt";
@@ -38,6 +39,7 @@ export default async function DashboardLayout({
       isAdmin={!!user.email && isAdminEmail(user.email)}
       hasCompletedTour={profile?.has_completed_tour ?? false}
     >
+      <SignupTracker />
       {children}
       <ReviewPrompt />
     </SidebarLayout>

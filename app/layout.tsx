@@ -8,6 +8,9 @@ import { SupportChat } from "@/components/landing/support-chat";
 import Script from "next/script";
 
 const GA_ID = "G-DD0ZL0XYVT";
+// Tag de Google Ads (AW-…): solo si está configurado. Las conversiones se importan desde GA4.
+const RAW_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "";
+const ADS_ID = /^AW-\d+$/.test(RAW_ADS_ID) ? RAW_ADS_ID : undefined;
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -112,7 +115,10 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+            gtag('config', '${GA_ID}', { page_path: window.location.pathname });${
+              ADS_ID ? `
+            gtag('config', '${ADS_ID}');` : ""
+            }
           `}
         </Script>
       </body>

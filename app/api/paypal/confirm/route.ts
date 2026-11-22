@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { confirmPayPalSubscriptionForUser } from '@/lib/paypal/activate-subscription';
+import { PAYPAL_PRICES_USD } from '@/lib/paypal/client';
 
 const Body = z.object({
   subscription_id: z.string().regex(/^I-[A-Z0-9]+$/, 'Invalid PayPal subscription ID'),
@@ -16,7 +17,7 @@ const Body = z.object({
 export async function POST(req: NextRequest) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+  if (!user) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
 
   const parsed = Body.safeParse(await req.json() as unknown);
   if (!parsed.success) return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
@@ -24,7 +25,13 @@ export async function POST(req: NextRequest) {
   const result = await confirmPayPalSubscriptionForUser(parsed.data.subscription_id, user.id);
 
   if (result.ok) {
-    return NextResponse.json({ ok: true, plan: result.plan, periodEnd: result.periodEnd });
+    return NextResponse.json({
+      ok: true,
+      plan: result.plan,
+      interval: result.interval,
+      value: Number(PAYPAL_PRICES_USD[result.plan][result.interval]),
+      periodEnd: result.periodEnd,
+    });
   }
 
   const status = result.reason === 'NOT_OWNER' ? 403

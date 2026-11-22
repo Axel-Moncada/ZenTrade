@@ -1,5 +1,12 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import {
+  ATTRIBUTION_COOKIE,
+  ATTRIBUTION_MAX_AGE,
+  nextAttribution,
+  parseAttribution,
+  serializeAttribution,
+} from "@/lib/analytics/attribution";
 
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -51,6 +58,26 @@ export async function middleware(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = "/dashboard";
     return NextResponse.redirect(url);
+  }
+
+  // Atribución de la pauta (UTM, gclid, fbclid, país) en cookie first-party
+  const { pathname, searchParams } = request.nextUrl;
+  if (request.method === "GET" && !pathname.startsWith("/api") && !pathname.startsWith("/dashboard")) {
+    const attribution = nextAttribution(
+      parseAttribution(request.cookies.get(ATTRIBUTION_COOKIE)?.value),
+      searchParams,
+      pathname,
+      request.headers.get("x-vercel-ip-country")
+    );
+    if (attribution) {
+      supabaseResponse.cookies.set(ATTRIBUTION_COOKIE, serializeAttribution(attribution), {
+        path: "/",
+        maxAge: ATTRIBUTION_MAX_AGE,
+        sameSite: "lax",
+        secure: process.env.NODE_ENV === "production",
+        httpOnly: true,
+      });
+    }
   }
 
   return supabaseResponse;

@@ -1,12 +1,12 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { attributionSchema } from "@/lib/analytics/attribution";
+import { ATTRIBUTION_COOKIE, parseAttribution } from "@/lib/analytics/attribution";
 
 const registerSchema = z.object({
   email: z.string().email("Invalid email"),
   password: z.string().min(6, "Password must be at least 6 characters"),
-  attribution: attributionSchema.nullish(),
+  locale: z.enum(["en", "es"]).optional(),
 });
 
 export async function POST(request: Request) {
@@ -21,9 +21,14 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email, password, attribution } = validation.data;
-    // País del visitante (header de Vercel) para medir la pauta por mercado
-    const country = request.headers.get("x-vercel-ip-country") ?? undefined;
+    const { email, password, locale } = validation.data;
+    // Respaldo de la atribución por si el email se confirma en otro dispositivo (sin la cookie)
+    const cookieHeader = request.headers.get("cookie") ?? "";
+    const rawAttr = cookieHeader
+      .split("; ")
+      .find((c) => c.startsWith(`${ATTRIBUTION_COOKIE}=`))
+      ?.slice(ATTRIBUTION_COOKIE.length + 1);
+    const attribution = parseAttribution(rawAttr);
     const supabase = await createClient();
 
     const { data, error } = await supabase.auth.signUp({
@@ -32,7 +37,7 @@ export async function POST(request: Request) {
       options: {
         emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/api/auth/callback`,
         data: {
-          signup_country: country,
+          signup_locale: locale ?? "en",
           ...(attribution ? { attribution } : {}),
         },
       },

@@ -1,5 +1,6 @@
 'use client';
 
+import { track } from '@/lib/analytics/track';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useI18n } from '@/lib/i18n/context';
@@ -165,6 +166,15 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
     })
       .then(async res => {
         if (res.ok) {
+          const data = await res.json().catch(() => ({})) as { plan?: string; interval?: string; value?: number };
+          // transaction_id = ID de PayPal: GA4 descarta duplicados si el usuario recarga
+          track('purchase', {
+            transaction_id: paypalSubscriptionId,
+            value: data.value,
+            currency: 'USD',
+            plan: data.plan,
+            interval: data.interval,
+          });
           router.refresh();
           return;
         }
@@ -226,6 +236,7 @@ export default function BillingDashboard({ plans, subscription, successParam, ca
   async function handleCheckout(plan: PlanConfig) {
     const apiInterval = interval === 'month' ? 'monthly' : 'annual';
     setLoadingSlug(plan.slug);
+    track('begin_checkout', { plan: plan.slug, interval: apiInterval, currency: 'USD' });
     try {
       const res = await fetch('/api/checkout', {
         method: 'POST',
