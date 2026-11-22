@@ -25,14 +25,20 @@ export async function POST(_req: NextRequest, { params }: { params: Promise<{ id
     return NextResponse.json({ error: 'Email not found or already sent' }, { status: 404 });
   }
 
-  const result = await sendBroadcast({
+  let result: Awaited<ReturnType<typeof sendBroadcast>>;
+  try {
+    result = await sendBroadcast({
     emailId:    id,
     subjectEs:  email.subject_es,
     subjectEn:  email.subject_en,
     bodyHtmlEs: email.body_html_es,
     bodyHtmlEn: email.body_html_en,
     audience:   email.audience as 'all' | 'zenmode' | 'paying',
-  });
+    });
+  } catch (err) {
+    // p. ej. falta COMPANY_POSTAL_ADDRESS: no se envía nada
+    return NextResponse.json({ error: err instanceof Error ? err.message : 'Send failed' }, { status: 400 });
+  }
 
   await supabaseAdmin
     .from('scheduled_emails')
