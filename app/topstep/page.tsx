@@ -150,7 +150,7 @@ export default async function TopStepPage() {
             <span className="text-zen-caribbean-green">TopStep</span>
           </h1>
           <p className="text-zen-text-muted text-xl max-w-2xl mx-auto mb-8">
-            TopStep's Maximum Loss Limit trails your end-of-day balance, and the daily loss limit can end your day early.
+            TopStep&apos;s Maximum Loss Limit trails your end-of-day balance, and the daily loss limit can end your day early.
             Zentrade shows your live P&L against both after every single trade.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -172,7 +172,7 @@ export default async function TopStepPage() {
         <section className="mb-20">
           <h2 className="text-2xl font-bold text-zen-anti-flash mb-2">TopStep evaluation rules</h2>
           <p className="text-zen-text-muted mb-8">
-            TopStep's rules are simple: one profit target, one Maximum Loss Limit and a 55% consistency target —
+            TopStep&apos;s rules are simple: one profit target, one Maximum Loss Limit and a 55% consistency target —
             but the trailing loss limit is unforgiving.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
