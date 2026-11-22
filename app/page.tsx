@@ -140,7 +140,7 @@ const organizationSchema = {
   },
   sameAs: [
     "https://www.linkedin.com/company/zen-trader",
-    "https://www.youtube.com/@Zen-trade_Latam",
+    "https://www.youtube.com/@Zen-traderr",
     "https://x.com/ZenTrader_IA",
     "https://twitter.com/ZenTrader_IA",
   ],
