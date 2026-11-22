@@ -6,6 +6,16 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (noche, 3) — Sitio público solo en inglés + logos reales en los trust badges
+
+- **Idioma por zona** (`lib/i18n/context.tsx`, `zoneLocale`): las páginas públicas siempre salen en inglés, `/es/*` en español y `/dashboard/*` según la preferencia guardada. Se quitó la auto-detección por `navigator.language`.
+- Navbar público sin selector de idioma ni de tema (`LandingControls` sigue en el sidebar del dashboard).
+- Trust badges: logo de PayPal y tira de logos de FTMO, Apex, Topstep, Tradoverse y Uprofit recortados del banner del fundador (`public/assets/paypal-badge.webp`, `public/assets/prop-firm-logos.webp`). Se mantiene "Built for the rules of" (el banner decía "Works with", y no hay integración) y se agrega el aviso "Trademarks belong to their owners. Zentrade is not affiliated with or endorsed by these firms.".
+- CLAUDE.md: regla de idioma actualizada.
+- YouTube: canal en inglés `@Zen-traderr` en el JSON-LD y en `llms.txt` (PR #13).
+
+---
+
 ## 2026-11-22 (noche, 2) — Limpieza post-landing
 
 - Se borró `components/landing/sections/preview-section.tsx` (demos de YouTube en español; ya no se usaba desde el PR #11).
