@@ -12,7 +12,7 @@ const SITE_URL = "https://www.zen-trader.com";
 export const metadata: Metadata = {
   title: "Mejor Journal de Trading para Evaluaciones de FTMO",
   description:
-    "Zentrade trackea en tiempo real cada regla de FTMO: consistency score, max daily loss 5%, trailing drawdown 10% y profit target. Pasa tu evaluación de FTMO con datos, no con suerte.",
+    "Zentrade sigue la pérdida diaria máxima, la pérdida máxima, el profit target y la Best Day Rule del 1-Step de FTMO. El journal para traders de futuros en FTMO.",
   keywords: [
     "journal de trading para FTMO",
     "mejor journal FTMO",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mejor Journal de Trading para FTMO | Zentrade",
     description:
-      "Trackea tu consistency score, max daily loss y drawdown de FTMO en tiempo real. Diseñado para traders de futuros.",
+      "Sigue tu max daily loss, tu max loss y el profit target de FTMO en tiempo real. Diseñado para traders de futuros.",
     url: `${SITE_URL}/es/ftmo`,
     type: "website",
   },
@@ -45,7 +45,7 @@ const jsonLd = [
     "@type": "WebPage",
     name: "Zentrade para FTMO — Journal de Trading con IA",
     description:
-      "Zentrade trackea en tiempo real cada regla de la evaluación de FTMO: consistency score, max daily loss, max drawdown y profit target. El mejor journal de trading para traders de futuros que quieren pasar FTMO.",
+      "Zentrade sigue la pérdida diaria máxima, la pérdida máxima, el profit target y la Best Day Rule del 1-Step de FTMO.",
     url: `${SITE_URL}/es/ftmo`,
     inLanguage: "es",
     publisher: { "@type": "Organization", name: "Zentrade", url: SITE_URL },
@@ -64,18 +64,18 @@ const jsonLd = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "¿Cuál es el mejor journal de trading para FTMO?",
+        name: "¿Qué debe medir un journal de trading para FTMO?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Zentrade es el mejor journal de trading para FTMO porque fue diseñado específicamente para traders de futuros que hacen evaluaciones de prop firms. Calcula automáticamente el consistency score (ningún día puede superar el 30% de la ganancia neta), el max daily loss del 5%, el drawdown máximo del 10% y el progreso hacia el profit target, en tiempo real. A diferencia de los journals genéricos, Zentrade te avisa antes de que estés a punto de violar una regla.",
+          text: "Zentrade sigue por cuenta tu pérdida diaria máxima, tu pérdida máxima y el progreso al profit target y, en el challenge 1-Step, qué parte de tu ganancia viene de tu mejor día para la Best Day Rule. Se actualiza después de cada trade.",
         },
       },
       {
         "@type": "Question",
-        name: "¿Zentrade calcula el consistency score de FTMO?",
+        name: "¿FTMO tiene regla de consistencia?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Sí. Zentrade calcula el consistency score en tiempo real: muestra qué porcentaje de tu ganancia neta total provino de tu mejor día. La regla de FTMO exige que ningún día individual supere el 30% de la ganancia neta total. Zentrade te alerta cuando te estás acercando a ese límite para que puedas ajustar tu operativa antes de que sea tarde.",
+          text: "El FTMO Challenge estándar (2-Step) no tiene regla de consistencia. El challenge 1-Step tiene una Best Day Rule: ningún día puede representar más del 50% de tu ganancia total. Zentrade calcula en tiempo real qué parte de tu ganancia viene de tu mejor día; configura el umbral en 50%.",
         },
       },
       {
@@ -83,7 +83,7 @@ const jsonLd = [
         name: "¿Cómo calcula FTMO el max daily loss?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "FTMO permite una pérdida diaria máxima del 5% del balance inicial de la cuenta (por ejemplo, $5.000 en una cuenta de $100.000). Se calcula desde el balance al inicio de cada día de trading. Zentrade registra tu P&L diario y te muestra cuánto espacio te queda antes de llegar al límite diario.",
+          text: "En el challenge 2-Step la pérdida diaria máxima es el 5% del balance inicial (por ejemplo, $5.000 en una cuenta de $100.000), medida desde el balance al inicio de cada día; en el 1-Step es el 3%. Revisa las reglas de FTMO sobre cómo cuentan las posiciones abiertas. Zentrade sigue tu P&L diario y el margen que te queda.",
         },
       },
     ],
@@ -91,18 +91,18 @@ const jsonLd = [
 ];
 
 const FTMO_RULES = [
-  { label: "Profit Target (Fase 1)", value: "10%", note: "5% en Verificación" },
-  { label: "Max Daily Loss", value: "5%", note: "Desde el balance de inicio del día" },
-  { label: "Max Drawdown", value: "10%", note: "Desde el capital inicial (estático)" },
-  { label: "Consistency Rule", value: "30%", note: "Ningún día > 30% de la ganancia neta" },
-  { label: "Días mínimos", value: "4 días", note: "En ambas fases" },
-  { label: "Reparto de ganancias", value: "Hasta 90%", note: "Con scaling plan" },
+  { label: "Profit Target", value: "10% / 5%", note: "2-Step: 10% en el Challenge, 5% en la Verificación" },
+  { label: "Max Daily Loss", value: "5%", note: "2-Step (3% en el challenge 1-Step)" },
+  { label: "Max Loss", value: "10%", note: "2-Step: estático; 1-Step: trailing de fin de día" },
+  { label: "Best Day Rule", value: "Solo 1-Step", note: "Ningún día por encima del 50% de la ganancia; no aplica en 2-Step" },
+  { label: "Días mínimos", value: "4", note: "Por fase en el challenge 2-Step" },
+  { label: "Plazo", value: "Sin límite", note: "Se eliminaron los límites de 30/60 días" },
 ];
 
 const ZENTRADE_FEATURES = [
-  "Consistency score — porcentaje de tu mejor día sobre la ganancia neta total, en vivo",
+  "Parte de la ganancia que viene de tu mejor día — para la Best Day Rule del 1-Step",
   "Tracker de P&L diario con alerta de max daily loss",
-  "Equity curve con línea de límite de drawdown estático",
+  "Equity curve con la línea de tu pérdida máxima",
   "Barra de progreso hacia el profit target por cuenta",
   "Detección de revenge trading (ZenMode)",
   "Import de trades desde NinjaTrader, Rithmic, Tradovate via CSV",
@@ -156,8 +156,8 @@ export default async function FtmoEsPage() {
             <span className="text-zen-caribbean-green">diseñado para FTMO</span>
           </h1>
           <p className="text-zen-text-muted text-xl max-w-2xl mx-auto mb-8">
-            Zentrade trackea tu consistency score, max daily loss y trailing drawdown
-            en tiempo real — las métricas exactas con las que FTMO te evalúa.
+            Zentrade sigue tu max daily loss, tu max loss y el profit target
+            en tiempo real — las métricas con las que FTMO te evalúa.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link href="/register">
@@ -192,6 +192,14 @@ export default async function FtmoEsPage() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs text-zen-text-muted">
+            Cifras del FTMO Challenge, verificadas el 22 de noviembre de 2026 en las páginas de reglas de FTMO y guías de reglas de 2026. Las reglas
+            cambian según el tamaño, el tipo de cuenta y la fecha de compra.{" "}
+            <a href="https://ftmo.com/en/trading-objectives/" target="_blank" rel="noopener noreferrer nofollow" className="text-zen-caribbean-green hover:underline">
+              Confirma las reglas vigentes con FTMO
+            </a>
+            .
+          </p>
         </section>
 
         {/* Features Zentrade para FTMO */}
@@ -229,8 +237,8 @@ export default async function FtmoEsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
-                bad: "Llegan al profit target pero son rechazados en Verificación por violar la consistency rule",
-                good: "Zentrade muestra tu consistency score cada día — sabes antes de que sea demasiado tarde",
+                bad: "En un challenge 1-Step, un día enorme rompe la Best Day Rule",
+                good: "Zentrade te muestra cada día qué parte de tu ganancia viene de tu mejor día, antes de que sea tarde",
               },
               {
                 bad: "Superan el 5% de pérdida diaria en un mal día y pierden toda la evaluación",
