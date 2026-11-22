@@ -2,7 +2,7 @@
   "slug": "what-is-a-trading-journal",
   "title": "What Is a Trading Journal and Why Every Prop Firm Trader Needs One",
   "excerpt": "A trading journal is the tool that separates funded traders from those who keep failing evaluations. Learn what it is, what to track, and how to use one effectively.",
-  "seoTitle": "What Is a Trading Journal? Guide for Funded Traders 2025",
+  "seoTitle": "What Is a Trading Journal? Guide for Funded Traders",
   "seoDescription": "Discover what a trading journal is, why it's essential for prop firm evaluations, and how to use one to pass FTMO, Apex, and TopStep funded programs in 2025.",
   "keywords": [
     "what is a trading journal",
@@ -70,7 +70,7 @@
     },
     {
       "type": "p",
-      "text": "More than 85% of traders who attempt a prop firm evaluation fail. The common assumption is that they fail because their strategy is not good enough. The data tells a different story: most traders fail because of <strong>behavioral patterns they are not aware of</strong>."
+      "text": "Most evaluation attempts fail: Topstep reported that 16.8% of its Trading Combines were completed in 2025 (<a href='/blog/why-most-traders-fail-prop-firm-evaluations'>see the published pass-rate data</a>). The common assumption is that they fail because their strategy is not good enough. The data tells a different story: most traders fail because of <strong>behavioral patterns they are not aware of</strong>."
     },
     {
       "type": "p",
@@ -328,7 +328,7 @@
     },
     {
       "type": "p",
-      "text": "Zentrade starts at $0 — the free plan lets you log trades and track your basic KPIs. For traders who are serious about passing their next evaluation, <a href='/blog/best-trading-journal-prop-firms-2025'>see our full comparison of the best trading journals for prop firm traders</a>."
+      "text": "Zentrade starts at $0 — the free plan lets you log trades and track your basic KPIs. For traders who are serious about passing their next evaluation, <a href='/blog/best-trading-journal-prop-firms'>see our full comparison of the best trading journals for prop firm traders</a>."
     },
     {
       "type": "h2",
@@ -377,9 +377,9 @@
     {
       "type": "ul",
       "items": [
-        "<a href=\"/blog/best-trading-journal-prop-firms-2025\">Best trading journal for prop firms 2025</a>",
+        "<a href=\"/blog/best-trading-journal-prop-firms\">Best trading journal for prop firms (2026)</a>",
         "<a href=\"/blog/how-to-track-emotions-trading\">How to track emotions in trading</a>",
-        "<a href=\"/blog/zentrade-vs-tradezella-comparison\">Zentrade vs TradeZella: direct comparison</a>",
+        "<a href=\"/vs/tradezella\">Zentrade vs TradeZella: direct comparison</a>",
         "<a href=\"/blog/que-es-un-trading-journal\">Qué es un trading journal y para qué sirve</a>"
       ]
     },
@@ -406,9 +406,8 @@
     }
   ],
   "relatedSlugs": [
-    "best-trading-journal-prop-firms-2025",
+    "best-trading-journal-prop-firms",
     "how-to-track-emotions-trading",
-    "zentrade-vs-tradezella-comparison",
     "que-es-un-trading-journal"
   ],
   "thumbnail": "/blog/setup-trading-escritorio-journal.jpg",

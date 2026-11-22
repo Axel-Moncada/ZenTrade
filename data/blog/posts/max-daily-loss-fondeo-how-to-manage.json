@@ -2,7 +2,7 @@
   "slug": "max-daily-loss-fondeo-how-to-manage",
   "title": "Max Daily Loss in Prop Firms: How to Calculate, Track, and Never Violate It",
   "excerpt": "The Max Daily Loss rule ends more prop firm evaluations than any other. Learn how FTMO, Apex, and TopStep calculate it differently, the most common mistakes traders make, and how to monitor it in real time.",
-  "seoTitle": "Max Daily Loss Prop Firms: How It Works and How to Stay Under It (2025)",
+  "seoTitle": "Max Daily Loss Prop Firms: How It Works and How to Stay Under It",
   "seoDescription": "Complete guide to Max Daily Loss rules in FTMO, Apex Trader Funding, and TopStep. How it's calculated, when it triggers, and strategies to protect your funded account evaluation.",
   "keywords": [
     "max daily loss prop firm",
@@ -31,6 +31,11 @@
   "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
   "thumbnailAlt": "Professional trader monitoring daily loss limits across multiple screens during a prop firm evaluation",
   "content": [
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Prop firm rules change often. This guide reflects the firm's published rules when it was last updated (see the date above). Always confirm current rules on the firm's official site before you trade your evaluation."
+    },
     {
       "type": "p",
       "text": "The Max Daily Loss rule is the single most common reason traders fail prop firm evaluations. Not because they're bad traders — but because they don't understand exactly how each firm calculates it, or they underestimate how fast it can be reached on a volatile day. This guide covers the precise mechanics of Daily Loss rules at <strong>FTMO, Apex Trader Funding, and TopStep</strong>, plus actionable strategies to protect your evaluation."
@@ -278,7 +283,7 @@
         "<a href=\"/blog/what-is-drawdown-trading\">What is drawdown in trading</a>",
         "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation</a>",
         "<a href=\"/blog/how-to-pass-apex-trader-funding\">How to pass Apex Trader Funding</a>",
-        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>"
+        "<a href=\"/blog/best-prop-firms-futures-traders\">Best prop firms for futures traders</a>"
       ]
     },
     {
@@ -335,7 +340,7 @@
     "what-is-drawdown-trading",
     "how-to-pass-ftmo-evaluation",
     "how-to-pass-apex-trader-funding",
-    "best-prop-firms-futures-traders-2025"
+    "best-prop-firms-futures-traders"
   ],
   "authorJobTitle": "Founder, Zentrade",
   "lang": "en"

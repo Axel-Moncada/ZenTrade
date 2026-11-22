@@ -39,7 +39,7 @@
   "content": [
     {
       "type": "p",
-      "text": "<strong>Trading psychology</strong> is not a soft skill topic — it's the technical reason why more than 85% of traders fail prop firm evaluations. The traders who reach FTMO, Apex Trader Funding, TopStep, and Uprofit already know how to read the market. They have a strategy. The problem is what happens between the moment the market moves and the moment the trader clicks the button. In that fraction of a second, emotional state can replace strategic thinking with instinctive responses that have near-zero success rates."
+      "text": "<strong>Trading psychology</strong> is not a soft skill topic — it's a technical reason so many traders fail prop firm evaluations. The traders who reach FTMO, Apex Trader Funding, TopStep, and Uprofit already know how to read the market. They have a strategy. The problem is what happens between the moment the market moves and the moment the trader clicks the button. In that fraction of a second, emotional state can replace strategic thinking with instinctive responses that have near-zero success rates."
     },
     {
       "type": "p",
@@ -222,7 +222,7 @@
       "items": [
         "<a href=\"/blog/how-to-track-emotions-trading\">How to track emotions in trading</a>",
         "<a href=\"/blog/profit-factor-trading-explained\">Profit factor in trading explained</a>",
-        "<a href=\"/blog/best-trading-journal-prop-firms-2025\">Best trading journal for prop firms 2025</a>",
+        "<a href=\"/blog/best-trading-journal-prop-firms\">Best trading journal for prop firms (2026)</a>",
         "<a href=\"/blog/psicologia-trading-futuros\">Psicología del trading para traders de futuros</a>"
       ]
     },
@@ -250,7 +250,7 @@
   "relatedSlugs": [
     "how-to-track-emotions-trading",
     "profit-factor-trading-explained",
-    "best-trading-journal-prop-firms-2025",
+    "best-trading-journal-prop-firms",
     "psicologia-trading-futuros"
   ],
   "authorJobTitle": "Founder, Zentrade",

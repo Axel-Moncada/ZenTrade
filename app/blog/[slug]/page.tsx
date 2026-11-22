@@ -212,7 +212,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       <PublicNavbar isAuthenticated={!!user} />
 
-      <main className="max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-24">
+      <main lang={lang} className="max-w-7xl mx-auto px-6 lg:px-8 pt-28 pb-24">
         <div className="max-w-5xl mx-auto">
 
           {/* ── Breadcrumb ── */}

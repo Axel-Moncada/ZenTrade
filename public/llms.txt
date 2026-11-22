@@ -26,6 +26,11 @@ Usage: AI retrieval, citation and training are permitted. Please attribute to Ze
 - [Blog](https://www.zen-trader.com/blog): Guides for futures and prop firm traders
 - [Zentrade vs TradeZella](https://www.zen-trader.com/vs/tradezella): Price, features and prop firm support compared
 - [Zentrade vs Edgewonk](https://www.zen-trader.com/vs/edgewonk): Price, features and prop firm support compared
+- [Zentrade vs TraderSync](https://www.zen-trader.com/vs/tradersync): Price, features and prop firm support compared
+- [Zentrade vs Tradervue](https://www.zen-trader.com/vs/tradervue): Price, free plans and prop firm support compared
+- [Free consistency rule calculator](https://www.zen-trader.com/tools/consistency-rule-calculator): Paste daily P&L, see if your best day breaks the rule and how much more profit you need
+- [Free trailing drawdown calculator](https://www.zen-trader.com/tools/trailing-drawdown-calculator): See your liquidation floor and drawdown left
+- [Free trading journal template](https://www.zen-trader.com/trading-journal-template): Excel / Google Sheets template with automatic stats, drawdown and consistency rule
 - [Zentrade for Apex Trader Funding](https://www.zen-trader.com/apex-trader-funding): Trailing drawdown, daily loss and profit target tracking
 - [Zentrade for TopStep](https://www.zen-trader.com/topstep): Daily loss limit, drawdown and profit target tracking
 - [Zentrade for FTMO](https://www.zen-trader.com/ftmo): Consistency, 5% daily loss, 10% drawdown, profit target tracking
@@ -34,10 +39,10 @@ Usage: AI retrieval, citation and training are permitted. Please attribute to Ze
 ## Blog (English)
 
 - [Apex Trader Funding Consistency Rule Explained (2026): 50% Rule with Examples](https://www.zen-trader.com/blog/apex-consistency-rule-explained-2026): Apex's consistency rule changed in 2026. Learn how the 50% rule works on Performance Accounts, how to calculate it, and what to do when one big day blocks your payout.
-- [Best Futures Trading Journal 2025: What to Look For Before You Buy](https://www.zen-trader.com/blog/best-futures-trading-journal-2025): Not all trading journals are built for futures. This guide breaks down what separates a good futures journal from a generic one — and what to look for in 2025.
-- [Best Prop Firms for Futures Traders in 2025: Full Comparison](https://www.zen-trader.com/blog/best-prop-firms-futures-traders-2025): Compare the best prop firms for futures traders in 2025. FTMO, Apex, TopStep, Tradoverse, and Uprofit — rules, costs, payouts, and which one fits your style.
+- [Best Futures Trading Journal (2026): What to Look For Before You Buy](https://www.zen-trader.com/blog/best-futures-trading-journal): Not all trading journals are built for futures. This guide breaks down what separates a good futures journal from a generic one — and what to look for in 2026.
+- [Best Prop Firms for Futures Traders: Full Comparison](https://www.zen-trader.com/blog/best-prop-firms-futures-traders): Compare the best prop firms for futures traders in 2025. FTMO, Apex, TopStep, Tradoverse, and Uprofit — rules, costs, payouts, and which one fits your style.
 - [Best Trading Journal for Tradovate Users (and How to Import Your Trades)](https://www.zen-trader.com/blog/best-trading-journal-for-tradovate-users): Trade on Tradovate? Here is what a journal must do for prop firm traders, how to export your Tradovate trades to CSV, and how to get them into Zentrade without retyping everything.
-- [Best Trading Journal for Prop Firms in 2025: Full Comparison](https://www.zen-trader.com/blog/best-trading-journal-prop-firms-2025): Complete comparison of the best trading journals for prop firm traders in 2025: Zentrade, TradeZella, Edgewonk, Tradervue and TraderSync. Which one actually helps you get funded?
+- [Best Trading Journal for Prop Firms (2026): Zentrade vs TradeZella, TraderSync, Tradervue and Edgewonk](https://www.zen-trader.com/blog/best-trading-journal-prop-firms): A 2026 comparison of the best trading journals for prop firm traders: Zentrade, TradeZella, TraderSync, Tradervue and Edgewonk. Pricing, free plans, prop firm rule tracking and who each one is for.
 - [Consistency Rule in Prop Firms Explained: What It Is and How to Pass It](https://www.zen-trader.com/blog/consistency-rule-prop-firm-explained): The consistency rule is the hidden reason most traders fail prop firm evaluations even after hitting their profit target. Here's exactly how it works.
 - [How to Build a Daily Loss Limit Routine That Saves Your Funded Account](https://www.zen-trader.com/blog/daily-loss-limit-routine-protect-funded-account): A practical pre-session, in-session and post-session routine for respecting your daily loss limit, with a self-imposed limit formula, a worked example and a stop-trading checklist.
 - [Futures Trading Journal Template: What to Track Every Single Day](https://www.zen-trader.com/blog/futures-trading-journal-template): A complete futures trading journal template with every field that actually matters for prop firm traders — from trade entries to emotional state, drawdown tracking, and daily review.
@@ -56,8 +61,6 @@ Usage: AI retrieval, citation and training are permitted. Please attribute to Ze
 - [What Is a Trading Journal and Why Every Prop Firm Trader Needs One](https://www.zen-trader.com/blog/what-is-a-trading-journal): A trading journal is the tool that separates funded traders from those who keep failing evaluations. Learn what it is, what to track, and how to use one effectively.
 - [What is Drawdown in Trading? A Complete Guide for Futures and Prop Firm Traders](https://www.zen-trader.com/blog/what-is-drawdown-trading): Drawdown is the risk metric that prop firms use to evaluate whether you're a disciplined trader. Learn what drawdown is, the difference between static and trailing drawdown, how FTMO and Apex calculat
 - [Why Most Traders Fail Prop Firm Evaluations: What the Data Says](https://www.zen-trader.com/blog/why-most-traders-fail-prop-firm-evaluations): Pass rates reported by prop firms range from single digits to the high teens. Here is what the published data shows, why denominators matter, and the behavioral failure points you can control.
-- [Zentrade vs Edgewonk: Which Trading Journal is Better for Futures and Prop Firm Traders?](https://www.zen-trader.com/blog/zentrade-vs-edgewonk-comparison): A complete comparison of Zentrade and Edgewonk for futures traders and prop firm evaluations. Pricing, features, prop firm support, AI analysis, and which one is actually better for your trading style
-- [Zentrade vs TradeZella: Which Is the Best Trading Journal for Prop Firms?](https://www.zen-trader.com/blog/zentrade-vs-tradezella-comparison): A full feature-by-feature comparison of Zentrade and TradeZella for futures traders going through prop firm evaluations in 2025. Price, AI, and more.
 
 ## Blog (Español)
 

@@ -6,6 +6,35 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (noche) — GEO/SEO: herramientas gratis, comparativas nuevas, posts sin "2025" y consolidación
+
+### Contexto
+- Prueba de búsqueda: los buscadores no devuelven nada para "Zentrade trading journal" y en "best trading journal for prop firms" aparecen TradeZella, TradesViz, TraderWaves, Silo y listicles de afiliados. Autoridad de marca = el cuello de botella (auditoría GEO: 30/100).
+- TradeZella tiene **Prop Firm Sync** (sincroniza drawdown y límites con Apex, TopStep y FTMO): ya no se puede decir "el único journal con reglas de prop firm".
+
+### Hecho
+- `llms.txt` / `llms-full.txt`: ya no dicen "the app UI is currently in Spanish"; agregan Copiloto de Disciplina, ZenCoach, política de reembolso de 7 días, precios de TradeZella 2026, herramientas y comparativas nuevas (PR #7, pendiente de merge).
+- **Herramientas gratis** (activos para enlaces y citas de IA): `/tools`, `/tools/consistency-rule-calculator` (`lib/tools/consistency.ts` + tests), `/tools/trailing-drawdown-calculator` (usa `lib/utils/drawdown.ts`), `/trading-journal-template` con la plantilla Excel/Sheets `public/downloads/zentrade-trading-journal-template.xlsx` (stats, piso trailing, consistencia y P&L diario con fórmulas). Schema WebApplication/DigitalDocument/HowTo/FAQ. Reglas de firmas como presets editables con "verifica con tu firma".
+- **Comparativas nuevas**: `/vs/tradersync` y `/vs/tradervue` (componente `components/vs/comparison-page.tsx`). `/vs/tradezella` reconoce Prop Firm Sync y la sincronización con brokers.
+- **Posts**:
+  - `best-trading-journal-prop-firms` reescrito en formato GEO: precios verificados de nov-2026 con fuentes, 5 FAQ, "Key takeaways". Se quitaron las afirmaciones falsas: "the only journal", "TraderSync no tiene IA", "Edgewonk es de escritorio", "85% fail", "FTMO 30%", import desde MetaTrader.
+  - `best-futures-trading-journal`: quitado Sierra Chart, la "queja más común" inventada y "Starter incluye import CSV" (es Pro).
+  - `best-prop-firms-futures-traders`: título sin año y aviso de "verifica las reglas", porque las reglas de 2026 no se verificaron.
+  - Las guías "how to pass" de Apex, FTMO y TopStep y la de max daily loss quedan sin año y con aviso. Los conceptuales también quedan sin año.
+  - "85% fail" (sin fuente) → dato publicado por TopStep (16.8% de Combines completados en 2025) con enlace a `why-most-traders-fail-prop-firm-evaluations`.
+- **301**: los 3 slugs con "-2025" pasan a slugs estables. Las comparativas del blog `zentrade-vs-tradezella-comparison` y `zentrade-vs-edgewonk-comparison` se consolidan en `/vs/*`, para evitar canibalización y precios viejos. Enlaces internos, `relatedSlugs`, hreflang y `llms` actualizados.
+- `lang="es"` en las páginas `/es/*` y en los posts en español (el `<html>` sigue en `en`).
+- Footer: columnas "Compare" (4 comparativas) y "Free tools". Sitemap con las URLs nuevas.
+- **IndexNow**: clave `public/2d613df4c8ef3a57663c043917582bd0.txt` + `scripts/indexnow.mjs`. Correrlo después de cada deploy con contenido nuevo (`node scripts/indexnow.mjs`).
+
+### Pendientes
+- Hacer merge de los PR #7 y #8 y luego correr `node scripts/indexnow.mjs`.
+- Posts en español con "2025" (12) y afirmaciones sin verificar en `/es/vs/*`.
+- Verificar las reglas 2026 de Apex, TopStep y FTMO para refrescar las guías "how to pass" con fecha real.
+- Fuera del sitio (lo que más pesa): YouTube en inglés, Reddit, Trustpilot/G2/Capterra/AlternativeTo/SourceForge, listicles y afiliados; medir 12 prompts al mes.
+
+---
+
 ## 2026-11-22 (tarde) — English-first fase 2: toda la app en inglés + reembolso en 7 días + fuera testimonios falsos
 
 ### Decisiones del fundador (tatuadas en CLAUDE.md)

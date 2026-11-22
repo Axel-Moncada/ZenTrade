@@ -125,7 +125,6 @@ export default async function VsTradezellaPage() {
         "want a large established community around your journal",
       ]}
       faq={faq}
-      blogHref="/blog/zentrade-vs-tradezella-comparison"
       jsonLd={jsonLd}
     />
   );

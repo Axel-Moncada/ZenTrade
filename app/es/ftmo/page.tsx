@@ -130,7 +130,7 @@ export default async function FtmoEsPage() {
   const posts = allPosts.filter((p) => FTMO_SLUGS.includes(p.slug));
 
   return (
-    <div className="min-h-screen bg-zen-rich-black">
+    <div lang="es" className="min-h-screen bg-zen-rich-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

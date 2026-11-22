@@ -52,6 +52,25 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [ ] Revisar afirmaciones sobre la competencia en `/es/vs/*`
 - [ ] Borrar código muerto `components/dashboard/zencoach/zen-coach-widget.tsx`
 
+## GEO — que Zentrade aparezca cuando alguien busca un journal (desde 2026-11-22)
+
+**Diagnóstico:** los buscadores no conocen la marca; la autoridad fuera del sitio pesa más que el contenido propio.
+
+### En el sitio
+- [x] `llms.txt` actualizado, herramientas gratis, `/vs/tradersync` y `/vs/tradervue`, posts sin "2025", 301, IndexNow
+- [ ] Correr `node scripts/indexnow.mjs` después de cada deploy con contenido
+- [ ] Refrescar las guías "how to pass" con las reglas 2026 verificadas (Apex, TopStep, FTMO) y fecha real
+- [ ] Posts en español con "2025" (12)
+- [ ] Páginas de intención: "best trading journal for Apex" y "best trading journal for TopStep"
+- [ ] Unificar el nombre de marca (Zentrade / ZenTrade / zen-trader.com) para que las IA reconozcan una sola entidad
+
+### Fuera del sitio (fundador)
+- [ ] YouTube en inglés (canal de marca, no "Latam"): demos, "how to track Apex consistency rule", "TradeZella alternative"
+- [ ] Reddit: participar con divulgación de fundador en r/FuturesTrading, r/Daytrading y hilos de "journal"
+- [ ] Perfiles: Trustpilot, G2, Capterra, AlternativeTo, SourceForge, Product Hunt; pedir reseñas a clientes reales
+- [ ] Listicles de "best trading journal" y afiliados de prop firms (sistema de afiliados con 40% recurrente)
+- [ ] Medir cada mes los 12 prompts de `docs/seo/2026-11-geo-audit.md` en ChatGPT, Perplexity, Gemini y Claude
+
 ## Estrategia de crecimiento (plan de 90 días, desde 2026-11-19)
 
 **Métrica norte**: % de usuarios Free que registran o importan su primer trade en las primeras 48 h.
@@ -63,7 +82,7 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [x] Sistema de reseñas reales (en la app + admin + landing) — 2026-11-19
 - [ ] Importación desde **TopstepX / ProjectX** (Tradovate ya existe pero está marcada como "no verificada": hay que probarla con archivos reales)
 - [ ] Prueba de Pro de 7 días + secuencia de 5 emails de onboarding para usuarios Free
-- [ ] Herramienta gratis para atraer tráfico de Google: calculadora de la regla de consistencia y del trailing drawdown (Apex/TopStep)
+- [x] Herramientas gratis: calculadora de consistencia, calculadora de trailing drawdown y plantilla de journal (2026-11-22)
 - [ ] Email 3 días antes de cada renovación (genera confianza; es una de las quejas sobre TradeZella)
 
 ### Mes 2 — Distribución
@@ -82,8 +101,8 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 
 ### SEO (ver `docs/seo/2026-11-technical-audit.md` y `docs/seo/2026-11-geo-audit.md`)
 - [ ] **`<html lang>` por idioma**: el root layout fija `lang="en"`, así que las rutas `/es/*` y los posts en español también salen como inglés. Solución correcta: route groups `app/(en)` y `app/(es)`, cada uno con su `<html lang>`.
-- [ ] Páginas `/vs/*` en español con títulos de 2025: pasarlas a inglés, mover la versión ES a `/es/vs/*` y actualizar el año.
-- [ ] Comparativas con TradeZella y Edgewonk duplicadas (posts `*-comparison` frente a `/vs/*`): elegir una URL canónica.
+- [x] `/vs/*` en inglés; versión ES en `/es/vs/*` (2026-11-22).
+- [x] Comparativas consolidadas en `/vs/*` con 301 (2026-11-22). Nuevas: `/vs/tradersync`, `/vs/tradervue`.
 - [ ] Verificar después del deploy que `/blog/og/[slug]` ya no da 500.
 - [ ] Testimonios de ejemplo en el landing (nombres inventados y fotos de pravatar). Se reemplazan solos cuando haya 2 o más reseñas reales aprobadas.
 

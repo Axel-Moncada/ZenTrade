@@ -1,8 +1,8 @@
 {
-  "slug": "best-prop-firms-futures-traders-2025",
-  "title": "Best Prop Firms for Futures Traders in 2025: Full Comparison",
+  "slug": "best-prop-firms-futures-traders",
+  "title": "Best Prop Firms for Futures Traders: Full Comparison",
   "excerpt": "Compare the best prop firms for futures traders in 2025. FTMO, Apex, TopStep, Tradoverse, and Uprofit — rules, costs, payouts, and which one fits your style.",
-  "seoTitle": "Best Prop Firms for Futures Traders 2025 — Full Comparison",
+  "seoTitle": "Best Prop Firms for Futures Traders — Full Comparison",
   "seoDescription": "Compare the best prop firms for futures traders in 2025: FTMO, Apex, TopStep, Tradoverse, Uprofit. Rules, fees, payouts, and which program fits your trading style.",
   "keywords": [
     "best prop firms for futures traders",
@@ -32,6 +32,11 @@
   "thumbnailAlt": "Trader reviewing the best prop firms for futures trading in 2025 on laptop and mobile with dual monitor setup",
   "content": [
     {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Prop firm rules change often. This guide reflects the rules each firm published when it was last updated (see the date above); for example, Apex updated its consistency rule for Performance Accounts in March 2026. Always confirm current rules, prices and payout terms on each firm's official site before you buy an evaluation."
+    },
+    {
       "type": "p",
       "text": "Finding the best prop firms for futures traders in 2025 is harder than it looks. There are now dozens of funded programs, each with different rules, account sizes, evaluation structures, and payout splits. Pick the wrong one and you will spend hundreds of dollars on challenge fees only to fail on a rule you barely knew existed."
     },
@@ -58,7 +63,7 @@
     {
       "type": "callout",
       "variant": "info",
-      "text": "More than 85% of traders who attempt a funded evaluation fail. The most common reasons are not strategy-related — they are behavioral: oversizing on a good day, revenge trading after a loss, and violating the consistency rule without realizing it."
+      "text": "Most evaluation attempts fail: Topstep reported that 16.8% of its Trading Combines were completed in 2025 (<a href='/blog/why-most-traders-fail-prop-firm-evaluations'>see the published pass-rate data</a>). The most common reasons are not strategy-related — they are behavioral: oversizing on a good day, revenge trading after a loss, and violating the consistency rule without realizing it."
     },
     {
       "type": "h2",
@@ -398,7 +403,7 @@
     },
     {
       "type": "p",
-      "text": "Regardless of which program you choose, the traders who pass consistently share one habit: they review every trade, track their emotional state, and catch behavioral patterns before they derail an evaluation. A <a href='/blog/best-trading-journal-prop-firms-2025'>trading journal built for prop firm rules</a> is not a luxury — it is the edge most funded traders have over those who keep failing."
+      "text": "Regardless of which program you choose, the traders who pass consistently share one habit: they review every trade, track their emotional state, and catch behavioral patterns before they derail an evaluation. A <a href='/blog/best-trading-journal-prop-firms'>trading journal built for prop firm rules</a> is not a luxury — it is the edge most funded traders have over those who keep failing."
     },
     {
       "type": "h2",
@@ -433,7 +438,7 @@
         },
         {
           "q": "Is a trading journal necessary to pass a prop firm evaluation?",
-          "a": "It is not required, but traders who use a journal consistently track their rule violations, emotional triggers, and behavioral patterns in real time. Given that over 85% of evaluation attempts fail due to behavioral — not strategic — reasons, a journal that shows you consistency percentage and risk metrics daily is one of the most practical tools available."
+          "a": "It is not required, but traders who use a journal consistently track their rule violations, emotional triggers, and behavioral patterns in real time. Given that so many evaluation attempts are lost to behavioral — not strategic — reasons, a journal that shows you consistency percentage and risk metrics daily is one of the most practical tools available."
         }
       ]
     },
@@ -450,7 +455,7 @@
         "<a href=\"/blog/how-to-pass-ftmo-evaluation\">How to pass the FTMO evaluation</a>",
         "<a href=\"/blog/how-to-pass-apex-trader-funding\">How to pass Apex Trader Funding</a>",
         "<a href=\"/blog/how-to-pass-topstep-evaluation\">How to pass the TopStep evaluation</a>",
-        "<a href=\"/blog/best-trading-journal-prop-firms-2025\">Best trading journal for prop firms 2025</a>"
+        "<a href=\"/blog/best-trading-journal-prop-firms\">Best trading journal for prop firms (2026)</a>"
       ]
     },
     {
@@ -479,7 +484,7 @@
     "how-to-pass-ftmo-evaluation",
     "how-to-pass-apex-trader-funding",
     "how-to-pass-topstep-evaluation",
-    "best-trading-journal-prop-firms-2025"
+    "best-trading-journal-prop-firms"
   ],
   "authorJobTitle": "Founder, Zentrade",
   "lang": "en"

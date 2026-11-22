@@ -27,9 +27,7 @@
   "readingTime": 9,
   "featured": false,
   "relatedSlugs": [
-    "zentrade-vs-tradezella-comparison",
-    "zentrade-vs-edgewonk-comparison",
-    "best-trading-journal-prop-firms-2025",
+    "best-trading-journal-prop-firms",
     "futures-trading-journal-template"
   ],
   "content": [
@@ -158,7 +156,7 @@
     },
     {
       "type": "p",
-      "text": "For deeper side-by-sides, see <a href=\"/blog/zentrade-vs-tradezella-comparison\">Zentrade vs TradeZella</a> and <a href=\"/blog/zentrade-vs-edgewonk-comparison\">Zentrade vs Edgewonk</a>."
+      "text": "For deeper side-by-sides, see <a href=\"/vs/tradezella\">Zentrade vs TradeZella</a> and <a href=\"/vs/edgewonk\">Zentrade vs Edgewonk</a>."
     },
     {
       "type": "cta",

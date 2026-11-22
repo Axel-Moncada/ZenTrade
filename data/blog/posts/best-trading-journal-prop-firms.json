@@ -1,0 +1,267 @@
+{
+  "slug": "best-trading-journal-prop-firms",
+  "title": "Best Trading Journal for Prop Firms (2026): Zentrade vs TradeZella, TraderSync, Tradervue and Edgewonk",
+  "excerpt": "A 2026 comparison of the best trading journals for prop firm traders: Zentrade, TradeZella, TraderSync, Tradervue and Edgewonk. Pricing, free plans, prop firm rule tracking and who each one is for.",
+  "seoTitle": "Best Trading Journal for Prop Firms (2026 Comparison)",
+  "seoDescription": "The best trading journal for prop firm traders in 2026, compared: Zentrade, TradeZella, TraderSync, Tradervue and Edgewonk. Pricing, free plans and prop firm rule tracking.",
+  "keywords": [
+    "best trading journal for prop firms",
+    "trading journal for funded traders",
+    "best futures trading journal 2025",
+    "trading journal FTMO Apex TopStep",
+    "Zentrade vs TradeZella"
+  ],
+  "author": "Axel Moncada",
+  "publishedAt": "2026-03-29",
+  "updatedAt": "2026-11-22",
+  "category": "comparativas",
+  "tags": [
+    "trading journal",
+    "prop firms",
+    "futures",
+    "comparison",
+    "funded trading",
+    "FTMO",
+    "Apex"
+  ],
+  "readingTime": 10,
+  "featured": true,
+  "thumbnail": "/blog/professional-trading-station-multi-monitor.jpg",
+  "thumbnailAlt": "Trader using the best trading journal for prop firm evaluations on laptop and tablet with real-time data analysis",
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>The best trading journal for prop firm traders is the one that tracks the rules your firm grades you on, not just your P&amp;L.</strong> For futures traders working through Apex, TopStep or FTMO evaluations, that means per-account tracking of the daily loss limit, trailing drawdown and consistency rule. Zentrade is built around those rules and has a free plan; TradeZella and TraderSync are broader journals with broker sync; Tradervue has a capped free plan; Edgewonk is a deep analytics tool with one annual plan."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Transparency: we built Zentrade, so we're not neutral. We list each competitor's real strengths, link to their pricing, and only describe features we could verify. Prices as listed on each vendor's pricing page or in reviews, November 2026. Prices change; check each vendor before buying."
+    },
+    {
+      "type": "h2",
+      "text": "What should a trading journal do for prop firm traders?"
+    },
+    {
+      "type": "p",
+      "text": "A general trading journal tracks trades, win rate and P&amp;L. A prop firm trader also needs to know, before every trade, how close they are to the rules that end an evaluation: how much drawdown is left, how much of today's loss limit is used, and whether one big day is breaking the consistency rule. A profitable strategy can still fail an evaluation if one of these rules breaks."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Per-account rules:</strong> separate evaluation and funded accounts, each with its own drawdown, daily loss limit and target.",
+        "<strong>Trailing drawdown floor:</strong> where your liquidation level is right now, not just your max drawdown.",
+        "<strong>Consistency rule:</strong> best day as a share of net profit, and how much more profit you need.",
+        "<strong>Easy data entry:</strong> CSV import from your platform (NinjaTrader, Rithmic, Tradovate) or broker sync.",
+        "<strong>Behavior tracking:</strong> emotions, plan adherence and patterns like revenge trading."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "How do the top trading journals compare in 2026?"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "Journal",
+        "Free plan",
+        "Cheapest paid",
+        "Top plan",
+        "Data entry",
+        "Best for"
+      ],
+      "rows": [
+        [
+          "Zentrade",
+          "Yes, forever (1 account)",
+          "$9/mo",
+          "$59/mo",
+          "CSV import + manual",
+          "Futures prop firm evaluations"
+        ],
+        [
+          "TradeZella",
+          "No",
+          "$35/mo",
+          "$99/mo",
+          "Broker sync + Prop Firm Sync",
+          "All-in-one journal with sync"
+        ],
+        [
+          "TraderSync",
+          "No (7-day trial)",
+          "$29.95/mo",
+          "$79.95/mo",
+          "Broker sync",
+          "Stocks, options and multi-market"
+        ],
+        [
+          "Tradervue",
+          "Yes, with a monthly trade cap",
+          "$29.95/mo",
+          "$49.95/mo",
+          "Broker sync on paid plans",
+          "Long-established general journal"
+        ],
+        [
+          "Edgewonk",
+          "No (14-day money-back)",
+          "~$197/year",
+          "~$197/year",
+          "Import",
+          "Deep statistics and psychology"
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "<em>Prices as listed on each vendor's pricing page or in reviews, November 2026. Prices change; check each vendor before buying.</em>"
+    },
+    {
+      "type": "h3",
+      "text": "Zentrade: built around prop firm rules"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade tracks each account's daily loss limit, trailing drawdown and consistency rule from the trades you log or import. Its ZenMode plan adds a Live Discipline Copilot: a floating window over your trading platform that warns you during the session as you approach your daily loss limit or drawdown, after a losing streak, or when you trade outside your plan. ZenMode also includes revenge trading detection, the ZenCoach AI coach and a weekly AI report. <strong>Limitations:</strong> no live broker sync (CSV import and manual entry only), and it's focused on futures."
+    },
+    {
+      "type": "h3",
+      "text": "TradeZella: the all-in-one journal with sync"
+    },
+    {
+      "type": "p",
+      "text": "TradeZella is one of the best-known journals, with a polished interface, broker sync and a Prop Firm Sync feature for firms like Apex, TopStep and FTMO. Plans are Essential at $35, Pro at $59 and Ultra at $99 per month (pricing effective July 14, 2026), with no free plan. Choose it if automatic sync matters more to you than price."
+    },
+    {
+      "type": "h3",
+      "text": "TraderSync: broad multi-market journal"
+    },
+    {
+      "type": "p",
+      "text": "TraderSync covers stocks, options, futures and crypto with broker sync, trade replay and an AI assistant called Cypher. Plans are Pro at $29.95, Premium at $49.95 and Elite at $79.95 per month, with a 7-day free trial. A strong pick if you trade several asset classes."
+    },
+    {
+      "type": "h3",
+      "text": "Tradervue: the long-established option"
+    },
+    {
+      "type": "p",
+      "text": "Tradervue has been around for over a decade, with solid reports and a community feature for sharing trades. It has a free plan with a monthly trade cap, and paid Silver ($29.95/mo) and Gold ($49.95/mo) plans. Good for traders who want a proven general journal."
+    },
+    {
+      "type": "h3",
+      "text": "Edgewonk: deep analytics, one annual plan"
+    },
+    {
+      "type": "p",
+      "text": "Edgewonk is known for detailed statistics, R-multiple analysis and psychology tracking, sold as one plan at about $197 per year with a 14-day money-back guarantee. A good fit if you want deep analysis and prefer paying once a year."
+    },
+    {
+      "type": "cta",
+      "text": "Try a journal built around prop firm rules. Zentrade has a free plan forever, no credit card.",
+      "href": "/register",
+      "buttonText": "Start free"
+    },
+    {
+      "type": "h2",
+      "text": "Which trading journal is best for Apex and TopStep traders?"
+    },
+    {
+      "type": "p",
+      "text": "If your goal is passing an Apex or TopStep evaluation, prioritize a journal that shows your trailing drawdown floor and consistency rule per account, and that imports from the platform you trade on. Zentrade imports NinjaTrader, Rithmic and Tradovate files and tracks those rules on every account; TradeZella offers sync with Prop Firm Sync at a higher price. You can also check your numbers with our free <a href=\"/tools/consistency-rule-calculator\">consistency rule calculator</a> and <a href=\"/tools/trailing-drawdown-calculator\">trailing drawdown calculator</a>."
+    },
+    {
+      "type": "h2",
+      "text": "Is there a free trading journal for prop firm traders?"
+    },
+    {
+      "type": "p",
+      "text": "Yes. Zentrade's Free plan is free forever with 1 account and unlimited manual trade logging, and Tradervue has a free plan with a monthly trade cap. If you prefer a spreadsheet, download our free <a href=\"/trading-journal-template\">trading journal template</a>, which calculates your stats, drawdown and consistency rule."
+    },
+    {
+      "type": "h2",
+      "text": "Key takeaways"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Pick a journal that tracks your firm's rules per account, not just P&amp;L.",
+        "Zentrade is the lowest-cost option built around prop firm rules, with a free plan and live in-session alerts on ZenMode.",
+        "TradeZella and TraderSync are strong if you want broker sync and trade multiple markets, at a higher price.",
+        "Tradervue offers a capped free plan; Edgewonk is a deep analytics tool on one annual plan.",
+        "Whatever you choose, log every trade and review weekly."
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "q": "What is the best trading journal for prop firms?",
+          "a": "For futures traders in prop firm evaluations, the best journal is one that tracks your daily loss limit, trailing drawdown and consistency rule per account. Zentrade is built for that and has a free plan; TradeZella and TraderSync are strong alternatives if you want broker sync and can pay more."
+        },
+        {
+          "q": "Which trading journal is cheapest?",
+          "a": "Zentrade has a free-forever plan and paid plans from $9/month. TradeZella starts at $35/month, TraderSync and Tradervue at $29.95/month, and Edgewonk costs about $197/year (as listed in November 2026)."
+        },
+        {
+          "q": "Does any trading journal sync with Apex or TopStep?",
+          "a": "TradeZella offers a Prop Firm Sync feature for firms including Apex and TopStep. Zentrade doesn't sync live; it imports NinjaTrader, Rithmic and Tradovate CSV files and tracks the rules from your trades."
+        },
+        {
+          "q": "What metrics should a prop firm trading journal track?",
+          "a": "Your drawdown left (trailing floor), your daily P&amp;L versus the daily loss limit, your best day as a share of net profit (consistency rule), progress to the profit target, plus win rate, profit factor, plan adherence and emotions."
+        },
+        {
+          "q": "Can I use a spreadsheet instead of a trading journal app?",
+          "a": "Yes, a spreadsheet is a fine way to start. Our free trading journal template calculates your stats, drawdown and consistency rule. Apps save you the manual work and can warn you during your session."
+        }
+      ]
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "h2",
+      "text": "You might also like"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"/vs/tradezella\">Zentrade vs TradeZella</a>",
+        "<a href=\"/vs/tradersync\">Zentrade vs TraderSync</a>",
+        "<a href=\"/vs/tradervue\">Zentrade vs Tradervue</a>",
+        "<a href=\"/vs/edgewonk\">Zentrade vs Edgewonk</a>",
+        "<a href=\"/blog/what-is-a-trading-journal\">What is a trading journal?</a>"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Sources"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<a href=\"https://www.tradezella.com/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">TradeZella pricing</a>",
+        "<a href=\"https://tradersync.com/pricing/\" target=\"_blank\" rel=\"noopener noreferrer\">TraderSync pricing</a>",
+        "<a href=\"https://www.tradervue.com/plans\" target=\"_blank\" rel=\"noopener noreferrer\">Tradervue plans</a>",
+        "<a href=\"https://edgewonk.com/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Edgewonk pricing</a>"
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Track your consistency rule, trailing drawdown and daily loss limit on every account. Free plan forever.",
+      "href": "/register",
+      "buttonText": "Start free"
+    }
+  ],
+  "relatedSlugs": [
+    "what-is-a-trading-journal",
+    "how-to-track-emotions-trading"
+  ],
+  "authorJobTitle": "Founder, Zentrade",
+  "lang": "en"
+}

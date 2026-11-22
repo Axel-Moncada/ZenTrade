@@ -2,7 +2,7 @@
   "slug": "how-to-pass-ftmo-evaluation",
   "title": "How to Pass the FTMO Evaluation: Complete Guide for Futures Traders",
   "excerpt": "Learn how to pass the FTMO evaluation with a practical guide covering rules, common mistakes, consistency rule math, and the daily habits that get futures traders funded.",
-  "seoTitle": "How to Pass the FTMO Evaluation — Futures Trader Guide 2025",
+  "seoTitle": "How to Pass the FTMO Evaluation — Futures Trader Guide",
   "seoDescription": "Complete guide to passing the FTMO evaluation for futures traders: rules explained, consistency rule math, common failure patterns, and the daily habits that get you funded.",
   "keywords": [
     "how to pass FTMO evaluation",
@@ -30,8 +30,13 @@
   "featured": false,
   "content": [
     {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Prop firm rules change often. This guide reflects the firm's published rules when it was last updated (see the date above). Always confirm current rules on the firm's official site before you trade your evaluation."
+    },
+    {
       "type": "p",
-      "text": "The FTMO evaluation is widely considered the most rigorous funded program in the industry — and the most respected. Passing it means something. But with a failure rate above 85%, understanding exactly how to pass the FTMO evaluation is not as obvious as it seems, even for experienced futures traders."
+      "text": "The FTMO evaluation is widely considered the most rigorous funded program in the industry — and the most respected. Passing it means something. But since most evaluation attempts fail, understanding exactly how to pass the FTMO evaluation is not as obvious as it seems, even for experienced futures traders."
     },
     {
       "type": "p",
@@ -204,7 +209,7 @@
     },
     {
       "type": "p",
-      "text": "If you are deciding between FTMO and other programs, see our <a href='/blog/best-prop-firms-futures-traders-2025'>full comparison of the best prop firms for futures traders in 2025</a>."
+      "text": "If you are deciding between FTMO and other programs, see our <a href='/blog/best-prop-firms-futures-traders'>full comparison of the best prop firms for futures traders</a>."
     },
     {
       "type": "h2",
@@ -278,7 +283,7 @@
         "<a href=\"/blog/consistency-rule-prop-firm-explained\">Consistency rule prop firm explained</a>",
         "<a href=\"/blog/max-daily-loss-fondeo-how-to-manage\">Max daily loss in funded accounts: how to manage it</a>",
         "<a href=\"/blog/how-to-pass-apex-trader-funding\">How to pass Apex Trader Funding</a>",
-        "<a href=\"/blog/best-prop-firms-futures-traders-2025\">Best prop firms for futures traders 2025</a>"
+        "<a href=\"/blog/best-prop-firms-futures-traders\">Best prop firms for futures traders</a>"
       ]
     },
     {
@@ -307,7 +312,7 @@
     "consistency-rule-prop-firm-explained",
     "max-daily-loss-fondeo-how-to-manage",
     "how-to-pass-apex-trader-funding",
-    "best-prop-firms-futures-traders-2025"
+    "best-prop-firms-futures-traders"
   ],
   "thumbnail": "/blog/trader-laptop-dual-monitor-oficina.jpg",
   "thumbnailAlt": "Trader at dual monitor office setup tracking FTMO evaluation metrics — consistency score, drawdown and profit factor",

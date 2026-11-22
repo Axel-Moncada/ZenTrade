@@ -45,17 +45,15 @@ export interface BlogContentBlock {
 
 /** Pares de posts ES ↔ EN para hreflang. Clave = slug ES, valor = slug EN */
 export const HREFLANG_PAIRS: Record<string, string> = {
-  "zentrade-vs-tradezella-es":               "zentrade-vs-tradezella-comparison",
   "como-pasar-apex-trader-funding":          "how-to-pass-apex-trader-funding",
   "como-pasar-topstep-evaluacion":           "how-to-pass-topstep-evaluation",
   "como-pasar-evaluacion-ftmo-journal-trading": "how-to-pass-ftmo-evaluation",
   "consistency-rule-fondeo-explicada":       "consistency-rule-prop-firm-explained",
   "que-es-un-trading-journal":               "what-is-a-trading-journal",
-  "mejor-journal-trading-futuros-2025":      "best-trading-journal-prop-firms-2025",
-  "mejores-empresas-fondeo-futuros-2025":    "best-prop-firms-futures-traders-2025",
+  "mejor-journal-trading-futuros-2025":      "best-trading-journal-prop-firms",
+  "mejores-empresas-fondeo-futuros-2025":    "best-prop-firms-futures-traders",
   "que-es-drawdown-trading":                "what-is-drawdown-trading",
   "max-daily-loss-como-respetar":           "max-daily-loss-fondeo-how-to-manage",
-  "zentrade-vs-edgewonk":                   "zentrade-vs-edgewonk-comparison",
 };
 
 /** Índice inverso EN → ES generado automáticamente desde HREFLANG_PAIRS */

@@ -84,11 +84,11 @@ Guides: https://www.zen-trader.com/blog/consistency-rule-prop-firm-explained , h
 - Data entry: TradeZella offers broker sync (users publicly report sync issues on review sites); Zentrade uses CSV import and manual entry.
 - Choose TradeZella if you want broker auto-sync and a larger ecosystem (education, community). Choose Zentrade if you want evaluation-rule tracking, lower cost and a free tier.
 
-Full comparisons: https://www.zen-trader.com/vs/tradezella , https://www.zen-trader.com/blog/zentrade-vs-tradezella-comparison , https://www.zen-trader.com/vs/edgewonk
+Full comparisons: https://www.zen-trader.com/vs/tradezella  , https://www.zen-trader.com/vs/edgewonk
 
 ## Frequently asked questions
 
-**What is the best trading journal for prop firm traders?** A journal that tracks prop firm rules (consistency, trailing drawdown, max daily loss, profit target), not only PnL. Zentrade is built for this; general journals such as TradeZella, Tradervue, Edgewonk and TraderSync cover broader journaling. Comparison: https://www.zen-trader.com/blog/best-trading-journal-prop-firms-2025
+**What is the best trading journal for prop firm traders?** A journal that tracks prop firm rules (consistency, trailing drawdown, max daily loss, profit target), not only PnL. Zentrade is built for this; general journals such as TradeZella, Tradervue, Edgewonk and TraderSync cover broader journaling. Comparison: https://www.zen-trader.com/blog/best-trading-journal-prop-firms
 
 **Is there a free trading journal for futures traders?** Yes. Zentrade's Free plan is permanent, includes 1 account, unlimited manual trades, a basic dashboard, calendar and CSV export, with no credit card.
 
