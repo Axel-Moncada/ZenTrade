@@ -6,6 +6,16 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (noche, 4) — Contenido de la semana del 23 al 29 de noviembre
+
+- Los posts ya estaban programados por `publishedAt` (el blog revalida cada hora): `tradezella-alternatives-2026` (jue 26) y `apex-consistency-rule-explained-2026` (dom 29). El de TopstepX salió hoy.
+- **`tradezella-alternatives-2026`**: decía que Edgewonk es "one-time license" (es un plan anual de ~$197, verificado en `/vs/edgewonk`). Se agregó TraderSync a la tabla (desde $29.95/mes) y el plan gratis de Tradervue. Las "AI discipline tools / risk rule alerts" pasan a ser las funciones reales de ZenMode (Copiloto, revenge trading, ZenCoach, reporte semanal). Enlaces a las 4 comparativas `/vs/*`.
+- **`topstepx-trading-journal-track-topstep-combine`**: el Daily Loss Limit se presenta como opcional según la plataforma y lo elegido al comprar (antes afirmaba que no existe en TopstepX). "AI revenge trading detection" pasa a ser el Copiloto + revenge trading.
+- El post de Apex se revisó y está bien (coincide con el hub verificado).
+- Calendario: se corrigió el hilo de X de TradeZella (Edgewonk anual, no pago único).
+
+---
+
 ## 2026-11-22 (noche, 3) — Sitio público solo en inglés + logos reales en los trust badges
 
 - **Idioma por zona** (`lib/i18n/context.tsx`, `zoneLocale`): las páginas públicas siempre salen en inglés, `/es/*` en español y `/dashboard/*` según la preferencia guardada. Se quitó la auto-detección por `navigator.language`.

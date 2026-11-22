@@ -79,7 +79,7 @@ Blog: `/blog/tradezella-alternatives-2026` — keyword: *tradezella alternatives
 ### Thread de X
 1. TradeZella changed pricing in July 2026: $35 / $59 / $99 per month (per their own blog). If you're a prop firm trader on a budget, here's an honest comparison.
 2. TradeZella: strong broker sync and features. Higher entry price. Great if sync is your priority.
-3. Edgewonk: one-time license, deep analytics. Tradervue: established and simple. Check their current prices.
+3. Edgewonk: one annual plan (~$197/yr), deep analytics. TraderSync and Tradervue: from $29.95/mo, broker sync. Prices as of Nov 2026; verify on their sites.
 4. Zentrade (ours, so biased): free plan, paid from $9/mo, built around prop firm rules. Limits: no auto broker sync yet, smaller community.
 5. Start on a free plan and import one real week before paying anyone. Full comparison: [link]
 
