@@ -1,0 +1,165 @@
+{
+  "slug": "how-to-stop-overtrading-futures",
+  "title": "How to Stop Overtrading Futures: A Trade Cap, a Pause Rule and a Way to Measure It",
+  "excerpt": "Overtrading is rarely a lack of willpower. It's a missing rule. How to spot it in your own data, set a daily trade cap that fits your strategy, and make the pause after a loss automatic.",
+  "seoTitle": "How to Stop Overtrading Futures: Trade Cap + Pause Rule (2026 Guide)",
+  "seoDescription": "Stop overtrading in futures and prop firm accounts: find your overtrading signature in your journal, set a daily trade cap, use a pause after losses, and track it every session.",
+  "keywords": [
+    "how to stop overtrading",
+    "overtrading futures",
+    "overtrading prop firm",
+    "max trades per day",
+    "overtrading signs",
+    "daily trade limit"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-12-17",
+  "updatedAt": "2026-11-22",
+  "category": "psicologia",
+  "tags": ["overtrading", "discipline", "trading psychology", "prop firm", "routine"],
+  "readingTime": 8,
+  "featured": false,
+  "thumbnail": "/blog/trader-multimonitor-graficas-mercado.jpg",
+  "thumbnailAlt": "Futures trader watching several market screens during a busy session",
+  "relatedSlugs": [
+    "how-to-avoid-revenge-trading-prop-firms",
+    "daily-loss-limit-routine-protect-funded-account",
+    "trading-psychology-futures-traders",
+    "how-to-track-emotions-trading"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>To stop overtrading, give yourself a hard daily trade cap based on how many valid setups your strategy actually produces, add a fixed pause after every loss, and review planned versus impulsive trades every day.</strong> Overtrading is rarely a willpower problem. It's what happens when there's no rule telling you the session is over."
+    },
+    {
+      "type": "p",
+      "text": "In a prop firm account, overtrading is expensive twice: commissions add up, and every extra trade is another chance to walk into the drawdown. This guide shows how to find your own overtrading pattern in your trade data and turn it into rules you can follow."
+    },
+    {
+      "type": "h2",
+      "text": "What Overtrading Looks Like in the Data"
+    },
+    {
+      "type": "p",
+      "text": "You can't fix what you can't see. Export a month of trades and look for these signatures:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Trades per day spike on red days.</strong> A losing day with three times your usual trade count is the classic sign.",
+        "<strong>Short gaps after losses.</strong> Re-entering a few minutes after a losing exit, often in the opposite direction.",
+        "<strong>Late-session trades lose more.</strong> Your results after a certain hour, or after a certain trade number, are clearly worse.",
+        "<strong>Size creeps up.</strong> Contracts increase during the day without a planned reason.",
+        "<strong>Setups you can't name.</strong> If you can't label the setup, it probably wasn't one."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "A quick test: sort your trades by their number in the day (1st, 2nd, 3rd...). Add up P&L by position. Many traders find their first two or three trades carry most of the profit, and everything after trade four gives it back."
+    },
+    {
+      "type": "h2",
+      "text": "Step 1: Set a Daily Trade Cap From Your Own Numbers"
+    },
+    {
+      "type": "p",
+      "text": "Don't pick a number out of the air. Count how many trades your setups produced on your best sessions over the last month. If your clean days had 2 to 4 trades, a cap of 4 is realistic. If you trade a single opening setup, the cap might be 2."
+    },
+    {
+      "type": "table",
+      "headers": ["Trading style", "Typical valid setups per day", "Reasonable starting cap"],
+      "rows": [
+        ["Opening range / single setup", "1 to 2", "2"],
+        ["Intraday trend continuation", "2 to 4", "4"],
+        ["Active scalping with a tested edge", "5 to 10", "8 to 10"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "These are starting points, not rules from any firm. Use your own data and adjust after two weeks."
+    },
+    {
+      "type": "h2",
+      "text": "Step 2: A Mandatory Pause After Every Loss"
+    },
+    {
+      "type": "p",
+      "text": "The minutes after a loss are when most impulsive trades happen. A fixed pause, such as 15 minutes away from the order entry, breaks the loop. It's not about calming down by force; it simply removes the opportunity during the window when your judgment is worst."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>After one loss:</strong> a 15-minute pause. Log the trade before you come back.",
+        "<strong>After two losses in a row:</strong> a longer break, or half size for the rest of the day.",
+        "<strong>After hitting your daily loss limit:</strong> done for the day. Close the platform."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Step 3: Define When the Session Ends"
+    },
+    {
+      "type": "p",
+      "text": "Overtrading often comes from an open-ended session. Write down three exits and stop at whichever comes first:"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Trade cap reached.",
+        "Daily loss limit or daily profit target reached.",
+        "End time reached (for example, 11:30 AM ET if you only trade the open)."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Step 4: Review Planned vs Impulsive Every Day"
+    },
+    {
+      "type": "p",
+      "text": "Tag each trade as planned or impulsive. After two weeks, compare the two groups: win rate, average result, total P&L. For most traders who overtrade, the impulsive group loses money. Seeing that number in your own data is more convincing than any rule."
+    },
+    {
+      "type": "h2",
+      "text": "How Zentrade Helps"
+    },
+    {
+      "type": "p",
+      "text": "In your Trading Plan you set max trades per day, a daily loss limit, a daily profit target and your trading hours. On the ZenMode plan, the live Discipline Copilot reads that plan during your session: it warns you when you reach your last allowed trade, flags you when you go past the cap, and shows a 15-minute pause after a losing trade. ZenMode also flags revenge-trading patterns, like re-entering within 30 minutes of a loss or three losses in a row."
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "The Copilot works from the trades you log in Zentrade; it doesn't read your broker platform in real time. Log each trade as you close it for the alerts to be accurate."
+    },
+    {
+      "type": "cta",
+      "text": "Set your trade cap and pause rule once, and let the journal show you when you break them.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "How many trades per day is overtrading?",
+          "a": "There's no universal number. It's overtrading when you take more trades than your strategy produces valid setups. Count the trades on your best days and use that as your cap."
+        },
+        {
+          "q": "What are the signs of overtrading?",
+          "a": "More trades on losing days, quick re-entries after losses, worse results late in the session, rising size during the day, and trades you can't label with a setup name."
+        },
+        {
+          "q": "How long should I pause after a losing trade?",
+          "a": "A fixed pause of around 15 minutes is a common starting point. The exact length matters less than making it automatic and logging the trade before you return."
+        },
+        {
+          "q": "Does overtrading cause prop firm evaluations to fail?",
+          "a": "It's one of the behavioral causes. Each extra trade adds risk toward the drawdown limit and costs commissions, and impulsive trades after losses often lead to breaching daily or trailing limits."
+        }
+      ]
+    }
+  ]
+}

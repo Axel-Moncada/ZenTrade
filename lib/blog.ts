@@ -54,6 +54,7 @@ export const HREFLANG_PAIRS: Record<string, string> = {
   "mejores-empresas-fondeo-futuros-2025":    "best-prop-firms-futures-traders",
   "que-es-drawdown-trading":                "what-is-drawdown-trading",
   "max-daily-loss-como-respetar":           "max-daily-loss-fondeo-how-to-manage",
+  "ninjatrader-journal-trading-futuros":     "ninjatrader-trading-journal",
 };
 
 /** Índice inverso EN → ES generado automáticamente desde HREFLANG_PAIRS */

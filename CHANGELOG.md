@@ -6,6 +6,17 @@ Formato: fecha · qué se hizo · archivos clave · pendientes o decisiones.
 
 ---
 
+## 2026-11-22 (cierre, 2) — Lote de contenido SEO/GEO de diciembre
+
+- **7 posts en inglés programados por `publishedAt`** (el blog revalida cada hora): `ninjatrader-trading-journal` (jue 10), `position-sizing-prop-firm-evaluation` (dom 13), `how-to-stop-overtrading-futures` (jue 17), `weekly-trading-review-template` (dom 20), `prop-firm-reset-cost-math` (jue 24), `trading-plan-template-prop-firm` (dom 27) y `trading-goals-2027-funded-traders` (jue 31).
+- Keywords elegidas para no canibalizar los hubs (`/apex-trader-funding`, `/topstep`, `/ftmo`) ni `/vs/*`. Formato GEO: respuesta directa en negritas al inicio, tablas, 4 FAQ por post, enlaces a `/tools/*`, `/trading-journal-template` y `/#resets`, thumbnail con alt en inglés.
+- Todas las funciones citadas se verificaron en el código (import NinjaTrader verificado, campos del Trading Plan, alertas del Copiloto solo ZenMode, reporte semanal en planes de pago con IA en Pro/ZenMode, PDF del plan en Pro/ZenMode). Precios de resets: solo cifras ilustrativas rotuladas. Valores de contrato según CME.
+- `lib/blog.ts`: par hreflang `ninjatrader-journal-trading-futuros` ↔ `ninjatrader-trading-journal`. `public/llms.txt`: 7 posts nuevos.
+- `docs/marketing/2026-12-content-calendar.md`: hilos de X, captions y guiones de 30 s para los 7 posts, con UTMs.
+- **Emails de auth de Supabase:** el de confirmación salía en español porque el dashboard tenía una versión vieja (la del repo ya estaba en inglés). Nuevas plantillas en inglés con el mismo diseño: `supabase/templates/reset-password.html` y `change-email.html` (antes usaban las de Supabase por defecto). Cada archivo lleva en un comentario el asunto y el slot del dashboard. Hay que pegarlas a mano en Authentication → Email Templates.
+
+---
+
 ## 2026-11-22 (cierre) — Pauta activada
 
 - Merge de los PR #15 (posts de la semana), #16 (tracking) y #17 (emails CAN-SPAM). Smoke test en producción: la cookie `zt_attr` se crea con UTMs (90 días, Secure, HttpOnly), `/unsubscribed` responde 200 y la API de baja rechaza tokens inválidos (400).

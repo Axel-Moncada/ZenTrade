@@ -1,0 +1,175 @@
+{
+  "slug": "weekly-trading-review-template",
+  "title": "Weekly Trading Review Template: 30 Minutes That Improve Next Week's Trading",
+  "excerpt": "A weekly trading review in five parts: numbers, rules, setups, behavior and one change for next week. Copy the template, plus the metrics that matter for prop firm accounts.",
+  "seoTitle": "Weekly Trading Review Template for Futures Traders (Free, 2026)",
+  "seoDescription": "A free weekly trading review template for futures and prop firm traders: the numbers to check, rule compliance, setup stats, behavior patterns and one change for next week.",
+  "keywords": [
+    "weekly trading review",
+    "weekly trading review template",
+    "trading review checklist",
+    "how to review trades",
+    "trading journal review",
+    "futures trading review"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-12-20",
+  "updatedAt": "2026-11-22",
+  "category": "journal",
+  "tags": ["weekly review", "trading journal", "template", "process", "prop firm"],
+  "readingTime": 8,
+  "featured": false,
+  "thumbnail": "/blog/trader-escritura-journal-grafica-monitor.jpg",
+  "thumbnailAlt": "Trader writing a weekly review in a journal next to a chart on the monitor",
+  "relatedSlugs": [
+    "futures-trading-journal-template",
+    "profit-factor-trading-explained",
+    "how-to-track-emotions-trading",
+    "what-is-a-trading-journal"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>A useful weekly trading review takes about 30 minutes and answers five questions: what were the numbers, did I follow my rules, which setups worked, what behavior repeated, and what is the one thing I'll change next week.</strong> The goal isn't to relive every trade. It's to find the pattern your daily reviews are too close to see."
+    },
+    {
+      "type": "p",
+      "text": "Do it at the same time every week, when the market is closed. Saturday morning or Sunday afternoon both work. Below is the template we use, with the numbers that matter most if you trade a prop firm account."
+    },
+    {
+      "type": "h2",
+      "text": "Part 1: The Numbers (5 minutes)"
+    },
+    {
+      "type": "table",
+      "headers": ["Metric", "Why it matters", "What to look for"],
+      "rows": [
+        ["Net P&L (after commissions)", "The result", "Direction over several weeks, not one week"],
+        ["Number of trades", "Activity", "Big jumps usually mean overtrading"],
+        ["Win rate and average win / average loss", "Edge shape", "A falling average win often means cutting winners early"],
+        ["Profit factor", "Gross profit ÷ gross loss", "Above 1.0 is profitable; compare to your own average"],
+        ["Best day as % of net profit", "Consistency rules", "If one day carries most of the profit, check your firm's rule"],
+        ["Distance to drawdown floor", "Survival", "Shrinking buffer means smaller size next week"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Write the numbers before you look at individual trades. Seeing the totals first keeps one dramatic trade from dominating the review."
+    },
+    {
+      "type": "h2",
+      "text": "Part 2: Rule Compliance (5 minutes)"
+    },
+    {
+      "type": "p",
+      "text": "List your rules and mark each day yes or no. This is the most honest part of the review."
+    },
+    {
+      "type": "table",
+      "headers": ["Rule", "Mon", "Tue", "Wed", "Thu", "Fri"],
+      "rows": [
+        ["Respected daily loss limit", "", "", "", "", ""],
+        ["Stayed under max trades", "", "", "", "", ""],
+        ["Paused after each loss", "", "", "", "", ""],
+        ["Only traded planned setups", "", "", "", "", ""],
+        ["Traded only in my hours", "", "", "", "", ""]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Then compare: what was your P&L on days you followed every rule versus days you didn't? For many traders, this single comparison is the most persuasive data point in their journal."
+    },
+    {
+      "type": "h2",
+      "text": "Part 3: Setups (10 minutes)"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Group trades by setup tag. Note count, win rate and net result for each.",
+        "Pick the best trade of the week and the worst. For each, write what you saw, why you entered and how you managed it.",
+        "Don't change a setup based on one week. Look at the running total over 20 to 30 trades of that setup."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Part 4: Behavior (5 minutes)"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Planned vs impulsive:</strong> how many impulsive trades, and what did they cost?",
+        "<strong>After losses:</strong> did you re-enter quickly? Did size increase?",
+        "<strong>Emotions:</strong> which emotion tag shows up on your worst trades? Tired, bored, frustrated?",
+        "<strong>Time of day:</strong> are your losses concentrated in a specific window?"
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Part 5: One Change for Next Week (5 minutes)"
+    },
+    {
+      "type": "p",
+      "text": "Write exactly one change, make it specific, and make it measurable. \"Be more disciplined\" isn't a change. \"No trades after 11:30 AM ET\" or \"15-minute pause after every loss\" is. Next week's review starts by checking whether you kept it."
+    },
+    {
+      "type": "h2",
+      "text": "Copy-Paste Template"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Week of: ___ | Account: ___ | Net P&L: ___ | Trades: ___",
+        "Win rate: ___ | Avg win / avg loss: ___ | Profit factor: ___",
+        "Best day as % of net profit: ___ | Distance to drawdown floor: ___",
+        "Rule-compliant days: ___ of 5 | P&L on compliant days vs other days: ___ / ___",
+        "Best setup this week: ___ | Worst setup: ___",
+        "Impulsive trades: ___ | Their total P&L: ___",
+        "Emotion on my worst trades: ___",
+        "One change for next week: ___",
+        "Did I keep last week's change? Yes / No"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "If you'd rather start from a spreadsheet, our free <a href=\"/trading-journal-template\">trading journal template</a> for Excel and Google Sheets calculates the basic stats for you."
+    },
+    {
+      "type": "h2",
+      "text": "Let the Journal Do the Counting"
+    },
+    {
+      "type": "p",
+      "text": "Most of Part 1 and Part 4 is arithmetic. In Zentrade, the dashboard shows P&L, win rate, profit factor, consistency and your equity curve, and the calendar shows emotions and tags by day (the full analytics are on Professional and above). Every Monday, paid plans receive a weekly email report per account; on Professional and ZenMode it includes an AI analysis of your week that looks at emotions, trading hours and your trading plan. That leaves your 30 minutes for the part software can't do: deciding what to change."
+    },
+    {
+      "type": "cta",
+      "text": "Get your weekly numbers calculated for you and spend your review time on decisions.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "How do you do a weekly trading review?",
+          "a": "Review five things in order: the numbers (P&L, trades, win rate, profit factor), rule compliance by day, setup performance, behavior patterns like impulsive trades, and one specific change for next week."
+        },
+        {
+          "q": "How long should a weekly trading review take?",
+          "a": "About 30 minutes is enough if you log trades daily. If you don't, the review takes longer and is less accurate, because you've lost the context of each trade."
+        },
+        {
+          "q": "What metrics should I track every week?",
+          "a": "Net P&L after commissions, number of trades, win rate, average win and loss, profit factor, best day as a share of profit, and distance to your drawdown floor if you trade a prop firm account."
+        },
+        {
+          "q": "Should I change my strategy after a bad week?",
+          "a": "Usually not. One week is too small a sample. Look at results over 20 to 30 trades per setup, and change one thing at a time."
+        }
+      ]
+    }
+  ]
+}

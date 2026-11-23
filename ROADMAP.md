@@ -73,6 +73,7 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [ ] Verificar el MLL de TopStep en 100K y 150K, y sus reglas para operar noticias
 - [ ] Posts en español con "2025" (12)
 - [ ] Páginas de intención: "best trading journal for Apex" y "best trading journal for TopStep"
+- [ ] **Pegar en Supabase (Auth → Email Templates) las 3 plantillas en inglés** de `supabase/templates/` (Confirm signup, Reset password, Change email address) con su asunto; revisar Magic link e Invite
 - [ ] Unificar el nombre de marca (Zentrade / ZenTrade / zen-trader.com) para que las IA reconozcan una sola entidad
 
 ### Fuera del sitio (fundador)
@@ -90,6 +91,8 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [x] Copiloto de Disciplina en vivo (ZenMode) — 2026-11-19
 - [x] Quick wins técnicos de SEO y GEO — 2026-11-19
 - [x] 6 posts en inglés programados (19 nov – 6 dic) — 2026-11-19
+- [x] 7 posts en inglés más programados (10 – 31 dic) + calendario social `docs/marketing/2026-12-content-calendar.md` — 2026-11-22
+- [ ] Siguiente lote de posts (enero 2027) y publicar en redes según el calendario de diciembre
 - [x] Sistema de reseñas reales (en la app + admin + landing) — 2026-11-19
 - [ ] Importación desde **TopstepX / ProjectX** (Tradovate ya existe pero está marcada como "no verificada": hay que probarla con archivos reales)
 - [ ] Prueba de Pro de 7 días + secuencia de 5 emails de onboarding para usuarios Free

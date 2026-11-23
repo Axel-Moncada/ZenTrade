@@ -1,0 +1,155 @@
+{
+  "slug": "prop-firm-reset-cost-math",
+  "title": "The Real Cost of Prop Firm Resets: Do the Math Before You Buy Another One",
+  "excerpt": "Resets feel cheap one at a time. Added up over a year, they're often the biggest line in a trader's budget. A simple way to calculate your real cost per funded account and decide when to stop and fix the process first.",
+  "seoTitle": "Prop Firm Reset Cost: How Much Are Resets Really Costing You? (2026)",
+  "seoDescription": "Calculate what prop firm resets and evaluation fees really cost you per year and per funded account, and use a simple rule to decide when to stop buying resets and fix your process.",
+  "keywords": [
+    "prop firm reset cost",
+    "is a prop firm reset worth it",
+    "prop firm evaluation cost",
+    "how many resets to pass",
+    "prop firm budget",
+    "evaluation reset"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-12-24",
+  "updatedAt": "2026-11-22",
+  "category": "fondeo",
+  "tags": ["resets", "evaluation", "budget", "prop firm", "risk management"],
+  "readingTime": 7,
+  "featured": false,
+  "thumbnail": "/blog/stock-market-trader-analyzing-charts.jpg",
+  "thumbnailAlt": "Trader reviewing the cost of prop firm evaluations and resets",
+  "relatedSlugs": [
+    "why-most-traders-fail-prop-firm-evaluations",
+    "how-to-avoid-revenge-trading-prop-firms",
+    "position-sizing-prop-firm-evaluation",
+    "best-prop-firms-futures-traders"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>The real cost of prop firm resets is the number of resets you bought in a year multiplied by what each one cost, plus every evaluation fee.</strong> Divide that total by the number of funded accounts you actually got and you have your cost per funded account. For many traders, that number is much higher than they'd guess, because each reset was bought on its own, usually right after a bad day."
+    },
+    {
+      "type": "p",
+      "text": "Reset and evaluation prices change often and vary by firm, account size and promotion, so this article uses your own numbers instead of quoting firm prices. Pull them from your email receipts or your card statement."
+    },
+    {
+      "type": "h2",
+      "text": "Step 1: Count What You Actually Spent"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Search your email for receipts from each firm over the last 12 months.",
+        "List every evaluation purchase, reset, and monthly fee separately.",
+        "Add activation or data fees if your firm charges them.",
+        "Add it all up. Don't round down."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Or use the reset calculator on our <a href=\"/#resets\">homepage</a>: enter the resets you paid and what you paid for each."
+    },
+    {
+      "type": "h2",
+      "text": "Step 2: Cost per Funded Account"
+    },
+    {
+      "type": "p",
+      "text": "<strong>Cost per funded account = Total spent ÷ Funded accounts obtained.</strong> If you haven't been funded yet, the honest answer is that the number is still growing. The table below uses illustrative prices, not any firm's actual prices."
+    },
+    {
+      "type": "table",
+      "headers": ["Scenario", "Evaluations + resets in 12 months", "Illustrative price each", "Total spent", "Funded accounts", "Cost per funded account"],
+      "rows": [
+        ["A", "4", "$100", "$400", "1", "$400"],
+        ["B", "12", "$100", "$1,200", "1", "$1,200"],
+        ["C", "20", "$90", "$1,800", "0", "Not funded yet"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Getting funded isn't the finish line either. Funded accounts have their own rules for drawdown, consistency and payouts. A funded account that's lost a week later doesn't pay back the resets that came before it."
+    },
+    {
+      "type": "h2",
+      "text": "Step 3: Find Out Why Each Attempt Ended"
+    },
+    {
+      "type": "p",
+      "text": "The cost is a symptom. The cause is in how each attempt ended. For each failed evaluation, write one line: which rule was broken, and what happened in the hour before."
+    },
+    {
+      "type": "table",
+      "headers": ["How the attempt ended", "Usual root cause", "What to fix first"],
+      "rows": [
+        ["Trailing drawdown hit after a winning streak", "Size didn't shrink as the floor moved up", "Size from the current buffer"],
+        ["Daily loss limit breached", "Kept trading after the first losses", "Personal daily limit below the firm's"],
+        ["Big loss right after a loss", "Revenge trading", "Mandatory pause after every loss"],
+        ["Payout blocked by consistency", "One oversized day", "Track best day as % of profit"],
+        ["Time ran out / gave up", "Forcing trades to hit the target", "Trade cap and planned setups only"]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "A Simple Rule: When to Stop Buying Resets"
+    },
+    {
+      "type": "p",
+      "text": "If your last two attempts ended the same way, don't buy a third reset yet. Spend one or two weeks trading the same plan on a simulator or a small personal account and log every trade. Buy the next evaluation when you have two clean weeks: daily limit respected every day and no trades after hitting it. That's a process threshold, not a guarantee. Nothing guarantees passing an evaluation, but repeating the same failure for another fee doesn't change the odds."
+    },
+    {
+      "type": "h2",
+      "text": "Treat Evaluations as a Budget, Not an Impulse"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Set a monthly evaluation budget</strong> before the month starts, and don't top it up after a bad day.",
+        "<strong>Never buy a reset the same day you failed.</strong> That's the same emotional state that caused the failure.",
+        "<strong>Wait for discounts only if your process is ready.</strong> A cheap reset on a broken process is still money lost.",
+        "<strong>Track the total, not the individual price.</strong> Individual resets always look small."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Where a Journal Saves Money"
+    },
+    {
+      "type": "p",
+      "text": "A journal doesn't make you profitable. What it does is show you how each attempt ended, so you can fix the cause before paying for the next one. Zentrade tracks each evaluation as its own account, with status (active, passed, failed), drawdown floor, profit target progress and consistency. ZenMode adds revenge-trading detection and the live Discipline Copilot, which warns you before you reach your daily loss limit."
+    },
+    {
+      "type": "cta",
+      "text": "Track every evaluation as its own account and see exactly how each attempt ended before you buy the next one.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "Is a prop firm reset worth it?",
+          "a": "Only if you know why the last attempt ended and you've changed something. If your last two attempts failed the same way, fix the process first, because another reset on the same process is likely to end the same way."
+        },
+        {
+          "q": "How do I calculate what resets cost me?",
+          "a": "Add every evaluation fee, reset and recurring fee from the last 12 months, then divide by the number of funded accounts you obtained. That's your cost per funded account."
+        },
+        {
+          "q": "How many resets does it take to pass a prop firm evaluation?",
+          "a": "There's no reliable number. Firms publish different pass-rate statistics, and they depend on how attempts are counted. What you can control is not repeating the same failure."
+        },
+        {
+          "q": "Should I buy a reset right after failing?",
+          "a": "It's better to wait at least a day and review what happened first. Buying immediately after a failure is often the same emotional decision that caused it."
+        }
+      ]
+    }
+  ]
+}

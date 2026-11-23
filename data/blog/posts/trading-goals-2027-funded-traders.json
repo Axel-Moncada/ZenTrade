@@ -1,0 +1,150 @@
+{
+  "slug": "trading-goals-2027-funded-traders",
+  "title": "Trading Goals for 2027: Process Goals That Prop Firm Traders Can Actually Control",
+  "excerpt": "\"Get funded\" and \"make $10K a month\" aren't goals you control. Here's how to set 2027 trading goals around process: rule compliance, review habits and risk, with a quarterly check-in.",
+  "seoTitle": "Trading Goals for 2027: Process Goals for Futures and Prop Firm Traders",
+  "seoDescription": "Set trading goals for 2027 you can actually control: process goals for rule compliance, journaling, risk and review, plus a year-end review of 2026 and a quarterly check-in template.",
+  "keywords": [
+    "trading goals 2027",
+    "trading new year goals",
+    "process goals trading",
+    "trading goals examples",
+    "prop firm goals",
+    "trading year end review"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-12-31",
+  "updatedAt": "2026-11-22",
+  "category": "psicologia",
+  "tags": ["goals", "process", "trading psychology", "year review", "prop firm"],
+  "readingTime": 7,
+  "featured": false,
+  "thumbnail": "/blog/trader-laptop-dual-monitor-oficina.jpg",
+  "thumbnailAlt": "Trader planning yearly trading goals at a dual-monitor desk",
+  "relatedSlugs": [
+    "weekly-trading-review-template",
+    "trading-plan-template-prop-firm",
+    "trading-psychology-futures-traders",
+    "why-most-traders-fail-prop-firm-evaluations"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>Good trading goals for 2027 are process goals: things you control every session, like following your daily loss limit, logging every trade, and doing a weekly review.</strong> Outcome goals like \"get funded\" or \"make $5,000 a month\" depend on the market, so they can't tell you what to do on Monday morning. Process goals can, and they're what outcomes come from."
+    },
+    {
+      "type": "p",
+      "text": "Before setting new goals, spend an hour on 2026. You can't set a useful goal without knowing your starting point."
+    },
+    {
+      "type": "h2",
+      "text": "Step 1: Review 2026 in One Hour"
+    },
+    {
+      "type": "table",
+      "headers": ["Question", "Where to find the answer"],
+      "rows": [
+        ["How many evaluations did I start, pass and fail?", "Firm receipts and dashboards"],
+        ["How much did I spend on evaluations and resets?", "Email receipts, card statement"],
+        ["How did each failed attempt end?", "Your journal, or memory if you didn't keep one"],
+        ["What was my net P&L after all fees?", "Account statements minus evaluation costs"],
+        ["Which setup made money? Which lost?", "Trades grouped by setup tag"],
+        ["What was my most expensive habit?", "Impulsive trades, trades after losses, late-session trades"]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "If you can't answer most of these questions, that's your first 2027 goal: log every trade, starting the first trading day of January."
+    },
+    {
+      "type": "h2",
+      "text": "Step 2: Turn Outcomes Into Process Goals"
+    },
+    {
+      "type": "table",
+      "headers": ["Outcome goal (not controllable)", "Process goal (controllable)", "How you measure it"],
+      "rows": [
+        ["Get funded", "Respect my daily loss limit on 100% of trading days", "Rule-compliant days ÷ trading days"],
+        ["Stop blowing accounts", "15-minute pause after every losing trade", "Trades taken within 15 min of a loss"],
+        ["Make $X a month", "Only trade my 2 tested setups", "% of trades tagged with a listed setup"],
+        ["Become consistent", "Weekly review every Sunday, 52 weeks", "Reviews completed"],
+        ["Get a payout", "Keep best day under my firm's consistency limit", "Best day as % of net profit"]
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Step 3: Pick Three, Not Ten"
+    },
+    {
+      "type": "p",
+      "text": "Ten goals turn into zero by February. Pick three for the first quarter, with one from each area:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Risk:</strong> a limit you never break (daily loss limit, max trades, size).",
+        "<strong>Process:</strong> a habit you do every day (log every trade with setup and emotion).",
+        "<strong>Review:</strong> a weekly loop (30-minute review, one change for next week)."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Step 4: A Quarterly Check-In"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Score each goal: what percentage of days or weeks did you hit it?",
+        "Above 90%: keep it as a habit and add one new goal.",
+        "Between 60% and 90%: keep it and make it easier to follow (a checklist, an alert, a fixed time).",
+        "Below 60%: the goal is too vague or too big. Rewrite it smaller.",
+        "Look at your results only after scoring the process. Then ask whether the process changes improved them."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Example: A 2027 Q1 Plan"
+    },
+    {
+      "type": "p",
+      "text": "Trader on a $50K evaluation, failed three attempts in 2026, two of them after revenge trades. Q1 goals: (1) personal daily loss limit of $600, respected 100% of days; (2) 15-minute pause after every loss, with the trade logged before re-entering; (3) weekly review every Sunday. No P&L goal for the quarter. This isn't a promise of results; it's a plan aimed directly at the way the last attempts ended."
+    },
+    {
+      "type": "h2",
+      "text": "Measure the Goals Without Extra Work"
+    },
+    {
+      "type": "p",
+      "text": "Process goals only work if you measure them. In Zentrade, your Trading Plan holds the limits, the calendar shows each day's result with emotions and tags (emotions and tags on Professional and above), and paid plans receive a weekly email report per account every Monday. On ZenMode, the Discipline Copilot alerts you during the session when you're about to break your own rules, and revenge-trading detection flags quick re-entries after losses."
+    },
+    {
+      "type": "cta",
+      "text": "Start 2027 with every trade logged and every rule measured.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "What are good trading goals for the new year?",
+          "a": "Process goals you control every session: respecting a daily loss limit, logging every trade, pausing after losses, trading only tested setups, and doing a weekly review."
+        },
+        {
+          "q": "Should I set a profit goal for trading?",
+          "a": "A profit goal can be motivating, but it doesn't tell you what to do each day and can push you to force trades. Pair it with process goals, or skip it for the first quarter."
+        },
+        {
+          "q": "How many trading goals should I have?",
+          "a": "Three at a time works well: one for risk, one daily habit and one review routine. Add more once the first three are automatic."
+        },
+        {
+          "q": "How do I review my trading year?",
+          "a": "Count evaluations started, passed and failed, total spent on fees and resets, how each failed attempt ended, net P&L after fees, and which setups made or lost money."
+        }
+      ]
+    }
+  ]
+}
