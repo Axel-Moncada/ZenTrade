@@ -49,8 +49,12 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [x] Reembolsos: cobro desde el día 1 + solicitud por email en 7 días (decisión del fundador; reemplaza la "garantía de 15 días")
 - [ ] Recorrido manual con navegador en inglés: registro → cuenta → importar → dashboard → pagar
 - [x] Landing nueva para la pauta: hero "Replay this day", calculadora de resets, video del anuncio en inglés, reglas en vivo, CTA final y medición UTM + eventos (2026-11-22)
-- [ ] Marcar `sign_up` como conversión en GA4 y Google Ads; Meta Pixel si se pauta en Meta
-- [ ] Medir `sign_up` también con Google OAuth (hoy solo email)
+- [x] Tracking de la pauta: atribución first-touch en `profiles` (migración 025), `sign_up`, `begin_checkout`, `purchase` (PR #16)
+- [x] Google Ads importa `sign_up` (recuento: una) y `purchase` (valor de GA4) como conversiones principales; las 3 de "carga de página /dashboard" pasaron a secundarias porque contaban cada visita de usuarios existentes (2026-11-22)
+- [x] Emails de marketing con baja de un clic, dirección postal y solo inglés (PR #17, migración 026)
+- [ ] **Pauta activa desde 2026-11-22:** revisar en 3-4 días que los registros lleguen con `utm_source`/`gclid` en `profiles` y que `sign_up` salga de "Esperando conversiones"
+- [ ] `purchase` desde el servidor (GA4 Measurement Protocol) para pagos que solo llegan por webhook
+- [ ] Meta Pixel si se pauta en Meta
 - [ ] Capturas reales en inglés para la sección de reglas (opcional) y revisar el copy "The AI That Trades Alongside You"
 - [ ] Revisar afirmaciones sobre la competencia en `/es/vs/*`
 - [ ] Borrar código muerto `components/dashboard/zencoach/zen-coach-widget.tsx`
@@ -69,6 +73,7 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [ ] Verificar el MLL de TopStep en 100K y 150K, y sus reglas para operar noticias
 - [ ] Posts en español con "2025" (12)
 - [ ] Páginas de intención: "best trading journal for Apex" y "best trading journal for TopStep"
+- [ ] **Pegar en Supabase (Auth → Email Templates) las 3 plantillas en inglés** de `supabase/templates/` (Confirm signup, Reset password, Change email address) con su asunto; revisar Magic link e Invite
 - [ ] Unificar el nombre de marca (Zentrade / ZenTrade / zen-trader.com) para que las IA reconozcan una sola entidad
 
 ### Fuera del sitio (fundador)
@@ -86,6 +91,8 @@ Detalle de cada cambio: [`CHANGELOG.md`](CHANGELOG.md)
 - [x] Copiloto de Disciplina en vivo (ZenMode) — 2026-11-19
 - [x] Quick wins técnicos de SEO y GEO — 2026-11-19
 - [x] 6 posts en inglés programados (19 nov – 6 dic) — 2026-11-19
+- [x] 7 posts en inglés más programados (10 – 31 dic) + calendario social `docs/marketing/2026-12-content-calendar.md` — 2026-11-22
+- [ ] Siguiente lote de posts (enero 2027) y publicar en redes según el calendario de diciembre
 - [x] Sistema de reseñas reales (en la app + admin + landing) — 2026-11-19
 - [ ] Importación desde **TopstepX / ProjectX** (Tradovate ya existe pero está marcada como "no verificada": hay que probarla con archivos reales)
 - [ ] Prueba de Pro de 7 días + secuencia de 5 emails de onboarding para usuarios Free

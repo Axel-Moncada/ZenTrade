@@ -1,0 +1,177 @@
+{
+  "slug": "position-sizing-prop-firm-evaluation",
+  "title": "Position Sizing for a Prop Firm Evaluation: How Many MNQ or NQ Contracts to Trade",
+  "excerpt": "Size from your drawdown buffer, not from the profit target. A simple formula, contract values for NQ, MNQ, ES, MES, GC and MGC, and worked examples for a $50K evaluation.",
+  "seoTitle": "Position Sizing for Prop Firm Evaluations: MNQ vs NQ Contracts (2026)",
+  "seoDescription": "How many contracts should you trade in a prop firm evaluation? Size from your drawdown buffer with a simple formula. Includes NQ, MNQ, ES, MES and gold contract values and $50K examples.",
+  "keywords": [
+    "position sizing prop firm",
+    "how many contracts prop firm evaluation",
+    "mnq vs nq prop firm",
+    "futures position size calculator",
+    "risk per trade prop firm",
+    "micro futures evaluation"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-12-13",
+  "updatedAt": "2026-11-22",
+  "category": "estrategia",
+  "tags": ["position sizing", "risk management", "micro futures", "MNQ", "prop firm"],
+  "readingTime": 9,
+  "featured": false,
+  "thumbnail": "/blog/trader-concentrado-analisis-graficas-futuros.jpg",
+  "thumbnailAlt": "Trader calculating futures position size in front of NQ charts",
+  "relatedSlugs": [
+    "daily-loss-limit-routine-protect-funded-account",
+    "trailing-drawdown-ftmo-vs-apex-vs-topstep",
+    "nq-futures-trading-beginners-guide",
+    "why-most-traders-fail-prop-firm-evaluations"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>In a prop firm evaluation, size each trade from your drawdown buffer, not from the profit target.</strong> A common rule of thumb is to risk 10% to 15% of the remaining buffer per trade, then convert that dollar amount into contracts using the stop distance and the contract's value per point. On a $50K account with a $2,000 trailing drawdown, that usually means micro contracts (MNQ, MES) rather than full-size NQ or ES while the buffer is small."
+    },
+    {
+      "type": "p",
+      "text": "The reason is math, not caution. Most evaluations end because the drawdown is hit, not because the trader ran out of time. Sizing for the target (\"I need $3,000, so I'll trade 2 NQ\") makes a normal losing streak fatal. This article is educational and not financial advice. Futures trading carries substantial risk."
+    },
+    {
+      "type": "h2",
+      "text": "The Formula"
+    },
+    {
+      "type": "p",
+      "text": "<strong>Contracts = (Buffer × risk %) ÷ (Stop in points × Dollar value per point)</strong>. Round down, always."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Buffer:</strong> the dollars between your current balance and the level where your account is closed. On a trailing drawdown, it changes as your balance peaks.",
+        "<strong>Risk %:</strong> the share of that buffer you'll lose if the stop is hit. 10% to 15% gives you room for 7 to 10 consecutive losses before the account is in danger.",
+        "<strong>Stop in points:</strong> where your setup is proven wrong, decided before entry.",
+        "<strong>Dollar value per point:</strong> fixed by the exchange for each contract (table below)."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Contract Values for Common Prop Firm Instruments"
+    },
+    {
+      "type": "table",
+      "headers": ["Contract", "Value per 1.00 point", "Minimum tick", "Value per tick"],
+      "rows": [
+        ["NQ (E-mini Nasdaq-100)", "$20", "0.25", "$5.00"],
+        ["MNQ (Micro E-mini Nasdaq-100)", "$2", "0.25", "$0.50"],
+        ["ES (E-mini S&P 500)", "$50", "0.25", "$12.50"],
+        ["MES (Micro E-mini S&P 500)", "$5", "0.25", "$1.25"],
+        ["GC (Gold, 100 oz)", "$100", "0.10", "$10.00"],
+        ["MGC (Micro Gold, 10 oz)", "$10", "0.10", "$1.00"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Source: CME Group contract specifications. A micro is one tenth of the full-size contract, so 10 MNQ carry the same risk as 1 NQ. Micros let you scale in steps of 10%, which full-size contracts can't."
+    },
+    {
+      "type": "h2",
+      "text": "Worked Examples on a $50K Account"
+    },
+    {
+      "type": "p",
+      "text": "Assume a $2,000 trailing drawdown and 12.5% risk per trade, so $250 of risk on a fresh account."
+    },
+    {
+      "type": "table",
+      "headers": ["Instrument", "Stop", "Risk per contract", "Contracts for $250 risk"],
+      "rows": [
+        ["NQ", "20 points", "$400", "0 (too big: use micros)"],
+        ["MNQ", "20 points", "$40", "6"],
+        ["MNQ", "40 points", "$80", "3"],
+        ["ES", "5 points", "$250", "1"],
+        ["MES", "8 points", "$40", "6"],
+        ["MGC", "6.0 points", "$60", "4"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Notice the first row. A 20-point stop on one NQ risks $400, which is 20% of a fresh $2,000 buffer on a single trade. Five losses in a row, which happens to every strategy eventually, would close the account. The same idea on MNQ lets you size precisely."
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "text": "Check your firm's contract limits too. Many evaluations cap how many contracts you can hold by account size, and some count micros differently. The firm's limit is a ceiling, not a target."
+    },
+    {
+      "type": "h2",
+      "text": "Resize When the Buffer Changes"
+    },
+    {
+      "type": "p",
+      "text": "Your buffer is not fixed. After a losing week, a $2,000 buffer might be $1,200. At 12.5%, risk per trade drops to $150, and your MNQ size at a 20-point stop goes from 6 to 3. This is the step most traders skip: they keep the size they used when the account was fresh, so each loss hurts more than the last."
+    },
+    {
+      "type": "table",
+      "headers": ["Remaining buffer", "Risk at 12.5%", "MNQ at 20-pt stop", "MNQ at 40-pt stop"],
+      "rows": [
+        ["$2,000", "$250", "6", "3"],
+        ["$1,600", "$200", "5", "2"],
+        ["$1,200", "$150", "3", "1"],
+        ["$800", "$100", "2", "1"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "With a trailing drawdown, the floor moves up as your balance peaks, so a profitable stretch doesn't always grow your buffer. Our <a href=\"/tools/trailing-drawdown-calculator\">trailing drawdown calculator</a> shows where your floor sits after each new high."
+    },
+    {
+      "type": "h2",
+      "text": "When to Size Up"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Only after the buffer grows</strong> because the floor stopped trailing or your balance moved well above it.",
+        "<strong>Only in steps:</strong> add one or two micros at a time, not a jump from micros to a full-size contract.",
+        "<strong>Never after a loss.</strong> Bigger size to recover a loss is the most common way evaluations end.",
+        "<strong>Watch your best day.</strong> Larger size makes bigger days, and some firms limit how much of your profit one day can represent. Check the consistency rule before you scale."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Making It Automatic"
+    },
+    {
+      "type": "p",
+      "text": "Decide size before the session, write it down, and don't recalculate in the middle of a trade. In Zentrade, the Trading Plan stores your max risk per trade, max trades per day and daily loss limit, and the account tracks your drawdown so you can see the buffer before you size. On ZenMode, the live Discipline Copilot alerts you when you approach your daily loss limit or your max trade count."
+    },
+    {
+      "type": "cta",
+      "text": "See your real drawdown buffer before every session and size from it, not from the target.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "How many contracts should I trade on a $50K prop firm evaluation?",
+          "a": "Size from your drawdown buffer. With a $2,000 buffer and 10% to 15% risk per trade, you risk about $200 to $300, which is usually a few MNQ or MES contracts depending on your stop, not full-size NQ."
+        },
+        {
+          "q": "Is MNQ or NQ better for a prop firm evaluation?",
+          "a": "Micros (MNQ) let you size in smaller steps, since one MNQ is a tenth of an NQ. With a small buffer, micros make it possible to keep risk per trade at a sensible share of the drawdown."
+        },
+        {
+          "q": "What is the value of one point on NQ and MNQ?",
+          "a": "Per CME Group specifications, one point is $20 on NQ and $2 on MNQ. The minimum tick is 0.25 points, worth $5 on NQ and $0.50 on MNQ."
+        },
+        {
+          "q": "Should I increase size to reach the profit target faster?",
+          "a": "Sizing for the target is one of the most common reasons evaluations fail. Increase size only after your drawdown buffer grows, and in small steps."
+        }
+      ]
+    }
+  ]
+}

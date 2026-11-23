@@ -1,0 +1,161 @@
+{
+  "slug": "trading-plan-template-prop-firm",
+  "title": "Trading Plan Template for Prop Firm Traders: The 7 Sections That Actually Get Used",
+  "excerpt": "Most trading plans are written once and never opened again. This template is built around the rules that end prop firm accounts: daily limits, trade caps, hours, instruments and a pre-trade checklist.",
+  "seoTitle": "Trading Plan Template for Prop Firm Traders (Free, 2026)",
+  "seoDescription": "A free trading plan template for futures prop firm traders: targets and limits, risk per trade, max trades, allowed instruments, trading hours, entry and exit rules, and a pre-trade checklist.",
+  "keywords": [
+    "trading plan template",
+    "prop firm trading plan",
+    "futures trading plan",
+    "how to write a trading plan",
+    "day trading plan example",
+    "trading rules template"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-12-27",
+  "updatedAt": "2026-11-22",
+  "category": "estrategia",
+  "tags": ["trading plan", "template", "risk management", "prop firm", "discipline"],
+  "readingTime": 9,
+  "featured": false,
+  "thumbnail": "/blog/setup-trading-escritorio-journal.jpg",
+  "thumbnailAlt": "Trading desk with a written trading plan and journal next to the charts",
+  "relatedSlugs": [
+    "daily-loss-limit-routine-protect-funded-account",
+    "position-sizing-prop-firm-evaluation",
+    "how-to-stop-overtrading-futures",
+    "weekly-trading-review-template"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>A trading plan for a prop firm account needs seven sections: targets and loss limits, risk per trade, a daily trade cap, allowed instruments, trading hours, entry and exit rules, and a pre-trade checklist.</strong> Each rule should be a number or a yes/no question, so you can check it during the session and in your review. If a rule can't be checked, it won't be followed."
+    },
+    {
+      "type": "p",
+      "text": "Your firm's rules are the outer boundary. Your plan sits inside them, tighter, so that a normal bad day never gets close to the firm's limits. Fill in the template below with your own numbers."
+    },
+    {
+      "type": "h2",
+      "text": "1. Targets and Loss Limits"
+    },
+    {
+      "type": "table",
+      "headers": ["Item", "Example ($50K account, $2,000 drawdown)", "Your number"],
+      "rows": [
+        ["Daily loss limit (personal)", "$500 to $1,000, below the firm's limit if it has one", ""],
+        ["Daily profit target", "$600 to $800 (stop and protect the day)", ""],
+        ["Weekly loss limit", "$1,000", ""],
+        ["Weekly profit target", "$1,500", ""],
+        ["Monthly loss limit", "Your remaining buffer minus a safety margin", ""]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "A daily profit target sounds counterintuitive, but it protects you twice: from giving back a good day, and from one oversized day that can cause trouble with consistency rules at payout time."
+    },
+    {
+      "type": "h2",
+      "text": "2. Risk per Trade"
+    },
+    {
+      "type": "p",
+      "text": "Set a maximum dollar risk per trade, derived from your drawdown buffer (10% to 15% of the remaining buffer is a common range), and a minimum reward-to-risk you'll accept. See our <a href=\"/blog/position-sizing-prop-firm-evaluation\">position sizing guide</a> for the formula and contract values."
+    },
+    {
+      "type": "h2",
+      "text": "3. Max Trades per Day and Max Open Positions"
+    },
+    {
+      "type": "p",
+      "text": "Use your own data: how many valid setups do you get on a good day? That's your cap. Add a max number of open positions (often one) so you don't stack correlated trades like NQ and ES in the same direction."
+    },
+    {
+      "type": "h2",
+      "text": "4. Allowed Instruments"
+    },
+    {
+      "type": "p",
+      "text": "List the contracts you trade and nothing else. Two or three is plenty. Jumping to crude oil because NQ is quiet is a classic way to take trades you've never tested."
+    },
+    {
+      "type": "h2",
+      "text": "5. Trading Hours and Days"
+    },
+    {
+      "type": "p",
+      "text": "Define a start time, an end time and the days you trade. If your results are concentrated in the first two hours after the cash open, your plan should say so. Also decide in advance what you do on high-impact news days: trade, reduce size or sit out. Check whether your firm has its own news rules."
+    },
+    {
+      "type": "h2",
+      "text": "6. Entry and Exit Rules"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Entry:</strong> describe each setup in one or two sentences, specific enough that someone else could recognize it on a chart.",
+        "<strong>Stop:</strong> where the setup is proven wrong. Placed at entry, never widened.",
+        "<strong>Exit:</strong> fixed target, trailing stop or partials, decided before entry.",
+        "<strong>Invalidation:</strong> conditions under which you don't take the setup (for example, a range wider than X points before the open)."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "7. Pre-Trade Checklist"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Is this one of my listed setups?",
+        "Am I inside my trading hours?",
+        "Is the instrument on my list?",
+        "Is my stop placed and is the risk within my per-trade limit?",
+        "Am I under my trade cap and above my daily loss limit?",
+        "Did I lose in the last 15 minutes? If yes, wait.",
+        "Would I take this trade if I were up for the day?"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "The last question is the most useful one. If the answer is no, the trade is probably about getting money back, not about the setup."
+    },
+    {
+      "type": "h2",
+      "text": "Make the Plan Part of the Session"
+    },
+    {
+      "type": "p",
+      "text": "A plan in a notes app gets forgotten by the second losing trade. In Zentrade, the Trading Plan has these same sections: daily, weekly and monthly targets and limits, max risk per trade, max trades per day, max open positions, minimum reward-to-risk, entry and exit rules, allowed instruments, trading hours and days, and a pre-trade checklist. It's available on every plan; exporting it to PDF is included in Professional and ZenMode. On ZenMode, the live Discipline Copilot checks your logged trades against the plan during the session and alerts you when you're near your daily loss limit, past your trade cap, outside your hours or trading an instrument that isn't on your list."
+    },
+    {
+      "type": "cta",
+      "text": "Write your trading plan once and see every session measured against it.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "What should a trading plan include?",
+          "a": "Daily, weekly and monthly targets and loss limits, maximum risk per trade, a daily trade cap, allowed instruments, trading hours and days, entry and exit rules for each setup, and a pre-trade checklist."
+        },
+        {
+          "q": "How is a prop firm trading plan different?",
+          "a": "It's built inside the firm's rules. Your personal daily loss limit, size and best-day target should be tighter than the firm's drawdown, daily limit and consistency rules, so a normal bad day never threatens the account."
+        },
+        {
+          "q": "How long should a trading plan be?",
+          "a": "One or two pages. If it's longer, you won't check it during the session. Every rule should be a number or a yes/no question."
+        },
+        {
+          "q": "How often should I update my trading plan?",
+          "a": "Review it weekly, but change rules only based on a meaningful sample of trades, and update size limits whenever your drawdown buffer changes."
+        }
+      ]
+    }
+  ]
+}

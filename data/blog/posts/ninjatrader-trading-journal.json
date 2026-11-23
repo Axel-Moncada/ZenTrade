@@ -1,0 +1,174 @@
+{
+  "slug": "ninjatrader-trading-journal",
+  "title": "NinjaTrader Trading Journal: How to Export Your Trades and Review Them Properly",
+  "excerpt": "NinjaTrader 8 records every fill, but it doesn't tell you why you lose. Here's how to export the Trades grid to CSV, what the file includes and misses, and a review routine built for prop firm rules.",
+  "seoTitle": "NinjaTrader Trading Journal: Export Trades to CSV + Review Routine (2026)",
+  "seoDescription": "How to journal NinjaTrader 8 trades: export the Trade Performance grid to CSV, what columns you get, what's missing, and a 10-minute review routine for prop firm traders.",
+  "keywords": [
+    "ninjatrader trading journal",
+    "ninjatrader 8 export trades csv",
+    "ninjatrader trade performance export",
+    "journal for ninjatrader",
+    "ninjatrader prop firm journal",
+    "import ninjatrader trades"
+  ],
+  "author": "Zentrade Team",
+  "lang": "en",
+  "publishedAt": "2026-12-10",
+  "updatedAt": "2026-11-22",
+  "category": "herramientas",
+  "tags": ["ninjatrader", "trading journal", "csv import", "prop firm", "futures"],
+  "readingTime": 8,
+  "featured": false,
+  "thumbnail": "/blog/professional-trading-station-multi-monitor.jpg",
+  "thumbnailAlt": "Futures trader reviewing NinjaTrader charts on a multi-monitor trading station",
+  "relatedSlugs": [
+    "best-trading-journal-for-tradovate-users",
+    "futures-trading-journal-template",
+    "what-is-a-trading-journal",
+    "how-to-track-emotions-trading"
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "<strong>To journal NinjaTrader trades, open Trade Performance in NinjaTrader 8, switch to the Trades tab, right-click the grid and export it to CSV, then import that file into a journal where you add the context NinjaTrader can't record: setup, emotion and whether the trade followed your plan.</strong> NinjaTrader is an excellent execution and charting platform. It is not a journal, because it only knows what happened, not why."
+    },
+    {
+      "type": "p",
+      "text": "This guide covers the export step by step, which columns the file gives you, what's missing, and a short review routine designed around prop firm rules like trailing drawdown and consistency. It applies to NinjaTrader 8. Menu names can change between versions, so if something looks different, check NinjaTrader's own help guide."
+    },
+    {
+      "type": "h2",
+      "text": "Why NinjaTrader's Reports Aren't Enough"
+    },
+    {
+      "type": "p",
+      "text": "Trade Performance gives you net profit, win rate, profit factor and an equity curve. Those are outcomes. When you're trading an evaluation, the questions that matter are different:"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>How close am I to my drawdown floor right now?</strong> NinjaTrader shows account balance, not your firm's liquidation level.",
+        "<strong>Is one day carrying my profit?</strong> Consistency rules care about your best day as a share of profit. Standard reports don't show that ratio.",
+        "<strong>What do I do after a loss?</strong> The time between a losing exit and the next entry is where revenge trading lives. You only see it if you look for it.",
+        "<strong>Was this trade in my plan?</strong> No platform can answer that for you. You have to tag it."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "How to Export Your Trades From NinjaTrader 8"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "In the Control Center, open <strong>New → Trade Performance</strong>.",
+        "Select the account (your evaluation or funded account) and the date range you want to review.",
+        "Click <strong>Generate</strong>, then choose the <strong>Trades</strong> tab at the top of the report.",
+        "Right-click anywhere on the grid and choose <strong>Export</strong>. Save it as a CSV file.",
+        "Repeat for each account. Keep one file per account so drawdown math stays separate."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tip",
+      "text": "Export the Trades tab, not Summary or Executions. Trades gives you one row per round trip, which is what a journal needs. Executions splits each trade into separate fills."
+    },
+    {
+      "type": "h2",
+      "text": "What the CSV Includes (and What It Misses)"
+    },
+    {
+      "type": "table",
+      "headers": ["Column in the export", "What it tells you", "Used in your review for"],
+      "rows": [
+        ["Instrument", "Contract traded (e.g. MNQ, NQ, ES)", "Which markets actually make you money"],
+        ["Market pos.", "Long or short", "Directional bias by session"],
+        ["Qty", "Contracts", "Size discipline: did size grow after losses?"],
+        ["Entry time / Exit time", "Timestamps", "Time-of-day edge and time between trades"],
+        ["Profit", "P&L per trade", "Best day, worst day, daily totals"],
+        ["Cum. net profit", "Running total", "Drawdown from your peak"],
+        ["Exit name / Strategy", "Stop, target or manual exit; ATM strategy name", "Whether you let stops work or cut early"]
+      ]
+    },
+    {
+      "type": "p",
+      "text": "What's missing: your reason for the entry, your emotional state, the setup name you use (not the ATM template name), and whether you broke a rule. Those fields are the difference between a trade log and a journal."
+    },
+    {
+      "type": "h2",
+      "text": "Importing NinjaTrader Trades Into Zentrade"
+    },
+    {
+      "type": "p",
+      "text": "Zentrade has a NinjaTrader import preset that reads the Trades grid export: entry time, instrument, side, quantity, profit and cumulative net profit. It is one of our verified import formats, alongside Rithmic (R Trader Pro). CSV import is included in the Professional and ZenMode plans. On the Free and Starter plans you can log trades manually."
+    },
+    {
+      "type": "ol",
+      "items": [
+        "Create the account in Zentrade with your firm's rules: starting balance, drawdown type and amount, profit target and consistency percentage. Put your daily loss limit in your Trading Plan.",
+        "Go to Trades → Import, choose <strong>NinjaTrader</strong> and upload the CSV.",
+        "Check the preview, then confirm.",
+        "Add tags to the imported trades: setup, emotion, planned or impulsive."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "text": "Honest note: Zentrade does not connect to NinjaTrader automatically. You export and import the CSV. Most traders do it once a day after the close; it takes about a minute."
+    },
+    {
+      "type": "h2",
+      "text": "A 10-Minute Post-Session Review"
+    },
+    {
+      "type": "ol",
+      "items": [
+        "<strong>Import or log today's trades.</strong> Do it the same day, while you still remember why you took them.",
+        "<strong>Tag every trade as planned or impulsive.</strong> If you only add one tag, make it this one.",
+        "<strong>Check your buffer.</strong> Write down the distance from your balance to your firm's floor. If it shrank, tomorrow's size shrinks too.",
+        "<strong>Check concentration.</strong> Is today your best day? What share of total profit is it? Our <a href=\"/tools/consistency-rule-calculator\">consistency rule calculator</a> does the math.",
+        "<strong>Write one sentence.</strong> What you'll repeat tomorrow, or what you'll stop doing."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Common NinjaTrader Journaling Mistakes"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "<strong>Mixing sim and live accounts in one export.</strong> Your stats become meaningless. Filter by account before exporting.",
+        "<strong>Exporting once a month.</strong> You lose the context. Daily is best; weekly is the minimum.",
+        "<strong>Only reviewing losing days.</strong> Big winning days can break consistency rules too, and they often come from oversizing.",
+        "<strong>Judging a setup on five trades.</strong> Wait for a sample of at least 20 to 30 trades of the same setup before deciding it works or doesn't."
+      ]
+    },
+    {
+      "type": "cta",
+      "text": "Import your NinjaTrader trades and see your drawdown buffer, best-day concentration and planned-vs-impulsive split in one place.",
+      "href": "https://www.zen-trader.com/register",
+      "buttonText": "Start Free"
+    },
+    {
+      "type": "faq",
+      "faqItems": [
+        {
+          "q": "Can I export trades from NinjaTrader 8 to CSV?",
+          "a": "Yes. Open Trade Performance from the Control Center, select the account and dates, generate the report, open the Trades tab, right-click the grid and choose Export."
+        },
+        {
+          "q": "Does NinjaTrader have a built-in trading journal?",
+          "a": "NinjaTrader has performance reports and a trade list, but it doesn't track setup tags, emotions, plan adherence or prop firm rules like trailing drawdown and consistency. Most traders pair it with a dedicated journal."
+        },
+        {
+          "q": "Does Zentrade sync with NinjaTrader automatically?",
+          "a": "No. Zentrade imports the NinjaTrader Trades CSV export on the Professional and ZenMode plans. Manual entry works on every plan, including Free."
+        },
+        {
+          "q": "Which export should I use: Trades or Executions?",
+          "a": "Trades. It gives one row per completed round trip, which matches how you review decisions. Executions lists individual fills."
+        }
+      ]
+    }
+  ]
+}
